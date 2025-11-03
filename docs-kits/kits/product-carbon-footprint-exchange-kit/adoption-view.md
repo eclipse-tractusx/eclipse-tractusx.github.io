@@ -156,7 +156,9 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
 7. Transfer PCF to the exchange tool (or in general: make the PCF data available following the Catena-X Standard [CX-0007-MinimalDataProviderServicesOffering](https://catenax-ev.github.io/docs/standards/CX-0007-MinimalDataProviderServicesOffering)).
 
 ### PCF Personas
-
+<details>
+  <summary>Overview about personas involved in PCF exchange and calculation process</summary>
+  
 | Persona                                    | Role and Task (in larger companies)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Specifics for SME                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Challenges                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Catena-X Contribution                                                                                                                                                                                                                                                                                                                                  |
 | --                                         | --                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | --                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | --                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | --                                                                                                                                                                                                                                                                                                                                                     |
 | Purchaser                                  | In general, the purchaser will not be a sustainability expert!<br /> For him/her, sustainability is just an additional dimension (as cost, quality, ...).<br/><br/>- He/she requests sustainability data for purchased (sub)products from his/her suppliers.<br/>- In the sourcing process he/she evaluates the incoming offers (which will include more and more sustainability data).<br/>- He/she negotiates PCF targets with his/her suppliers.<br/>- He/she checks compliance with agreements and targets and evaluates the supplier's performance.<br/>- He/she will be often the one, who detects incidents (e.g., non-fulfillment of targets, missing certificates, ...).<br/><br/>Different responsibilities and views possible:<br/><br/>- A part/component/material-oriented view <br/>- A supplier/commodity-oriented view<br/><br/>                                                                                                                                                                                | <br/> We assume, that a SME will have a weaker negotiating position and assertiveness (as a large company), so it may be more difficult to …<br/><br/>- request PCF data from (sub)suppliers.<br/>- forward customers' CO2 targets to (sub)suppliers.<br/>- negotiate own objectives/targets.<br/><br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | <br/>He/she requires sustainability data of parts/materials (e.g., PCF) for various purposes.<br/>He/she requires standardized data.<br/>He/she also requires product-unspecific sustainability data of suppliers (e.g., production site-specific certificates).<br/>                He/she needs data in different phases (e.g., product development, procurement, industrialization, series production).<br/>                                                                                                                                                                                                   | <br/>Catena-X defines standards for sustainability data.<br/>Catena-X provides up-to-date and reliable sustainability data<br/><br/>- of parts / materials<br/>- of suppliers<br/><br/>Catena-X provides phase-specific data.<br/>Catena-X provides (standard) reports.<br/>Catena-X provides apps and services for data exchange.<br/>                |
@@ -167,6 +169,7 @@ To determine a PCF, an appropriate calculation tool is usually used, which guide
 | Salespeople                                | <br/>He/she is the central interface to the customer.<br/>He/she is the owner of the customer quotation process.<br/>He/she negotiates PCF targets with customers (→purchaser).<br/>He/she presents sustainability data (esp. PCF) to customers.<br/>He/she is accountable for incident management with customers.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | <br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | <br/>He/she needs sustainability data (e.g., PCF) of own products (or parts/materials)<br/>He/she requires tools for information or data exchange (with both internal partners and external customers).<br/>                                                                                                                                                                                                                                                                                                                                                                                              | <br/>Catena-X provides sustainability data of own products.<br/>Catena-X provides apps and services for data exchange.<br/>                                                                                                                                                                                                                            |
 | Auditor (external)                         | <br/>He/she does a yearly audit of conformity with Catena-X methodology.<br/>At the beginning (before go-live) there is a one-time audit of the use of the Catena-X network and methods in the company to be audited.<br/>The onboarding of suppliers requires a self-declaration of applying Catena-X methodology.<br/>The auditor has a clearing role in case of escalated incidents.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | He/she needs additional information and data to be able to verify the reported PCF data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | <br/>Catena-X provides up-to-date and verifiable sustainability data.<br/>Catena-X provides access to metadata that allows the reported PCF data to be verified.<br/>                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Sustainability Associations / Institutions | They provide industry-specific averages and benchmarks of PCF values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+</details>
 
 ## Semantic Models
 
@@ -205,7 +208,7 @@ M - Mandatory, D - Defaultet, O - Optional, Mif - Mandatory under conditions, Oi
 | Nr  | Label                                                                                       | Technical field names                               | M/O/..If | Condition                                                          | Type                                                         | Functional description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Default / Examples                                                                                                                                                                                                                                                    |
 |-----|---------------------------------------------------------------------------------------------|-----------------------------------------------------|----------|--------------------------------------------------------------------|--------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1   | **(Scope of PCF Form)**                                                                     |                                                     |          |                                                                    |                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                       |
-| 2   | Data model and version                                                                      | specVersion                                         | M        |                                                                    | string array (According URN:name and version of data model)  | Specification of the PCF format/data model (name and version number), which is used. The required data input fields will be tailored accordingly. Multiple entries are possible. The data model and version can be selected independently of the standard or guidance document, you followed during the assessment of the PCF. Always select latest data model, if your data supports it.                                                                                                                                                                                                                                                                                                | urn:io.catenax.pcf:datamodel:version:8.0.0                                                                                                                                                                                                                            |
+| 2   | Data model and version                                                                      | specVersion                                         | M        |                                                                    | string array (According URN:name and version of data model)  | Specification of the PCF format/data model (name and version number), which is used. The required data input fields will be tailored accordingly. Multiple entries are possible. The data model and version can be selected independently of the standard or guidance document, you followed during the assessment of the PCF. Always select latest data model, if your data supports it.                                                                                                                                                                                                                                                                                                | urn:io.catenax.pcf:datamodel:version:9.0.0                                                                                                                                                                                                                            |
 | 3   | Partial or a full PCF declaration                                                           | partialFullPcf                                      | D        |                                                                    | string (value list)                                          | This attribute is an indicator for partial or full PCF (Product Carbon Footprint) declaration.<br/>A partial PCF (cradle-to-gate) is covering the emissions from resource extraction until the product leaves the gate of your organization (optionally including the distribution stage).<br/>This is defaulted for PACT, Catena-X or TFS. A full PCF (cradle-to-grave) is covering the complete life cycle of the product from resource extraction all the way to end-of-life stage.                                                                                                                                                                                                   | cradle-to-gate                                                                                                                                                                                                                                                        |
 | 4   | **(Company and Product Information)**                                                       |                                                     |          |                                                                    |                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                       |
 | 5   | ***(Company Information)***                                                                 |                                                     |          |                                                                    |                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                       |
@@ -329,90 +332,152 @@ The complete description of the Catena-X PCF Data Model can be downloaded [here]
 
 #### Example Payload
 
-The following json shows an exemplary payload for a requested PCF value.
+The following json shows an exemplary payload for a requested PCF value containing all possible properties, mandatory and optional.
 
 <details>
   <summary>Payload</summary>
 
 ```json
 {
-  "specVersion" : "urn:io.catenax.pcf:datamodel:version:7.0.0",
-  "companyIds" : [ "urn:bpn:id:BPNL000000000DWF", "urn:vat:id:DE123456789"],
-  "extWBCSD_productCodeCpc" : "011-99000",
-  "created" : "2022-05-22T21:47:32Z",
-  "companyName" : "My Corp",
-  "extWBCSD_pfStatus" : "Active",
-  "version" : 0,
-  "productName" : "My Product Name",
-  "pcf" : {
-    "biogenicCarbonEmissionsOtherThanCO2" : 1.0,
-    "distributionStagePcfExcludingBiogenic" : 1.5,
-    "biogenicCarbonWithdrawal" : 0.0,
-    "distributionStageBiogenicCarbonEmissionsOtherThanCO2" : 1.0,
-    "extWBCSD_allocationRulesDescription" : "In accordance with Catena-X PCF Rulebook",
-    "exemptedEmissionsDescription" : "No exemption",
-    "distributionStageFossilGhgEmissions" : 0.5,
-    "exemptedEmissionsPercent" : 0.0,
-    "geographyCountrySubdivision" : "US-NY",
-    "extTFS_luGhgEmissions" : 0.3,
-    "distributionStageBiogenicCarbonWithdrawal" : 0.0,
-    "pcfIncludingBiogenic" : 1.0,
-    "aircraftGhgEmissions" : 0.0,
-    "productMassPerDeclaredUnit" : 0.456,
-    "productOrSectorSpecificRules" : [ {
-      "extWBCSD_operator" : "PEF",
-      "productOrSectorSpecificRules" : [ {
-        "ruleName" : "urn:tfs-initiative.com:PCR:The Product Carbon Footprint Guideline for the Chemical Industry:version:v2.0"
-      } ],
-      "extWBCSD_otherOperatorName" : "NSF"
+  "attestationOfConformance" : [ {
+    "attestationOfConformanceLink" : "www.Certifierrepository_example.com/Certificate 123456",
+    "standardName" : "Catena-X Product Carbon Footprint Rulebook v4",
+    "completedAt" : "2022-12-31T23:59:59Z",
+    "attestationOfConformanceId" : "4a7c4482-8431-4c31-a895-70341d2a1376",
+    "providerId" : "urn:cofinity-x.com:bpn:BPNL0000000AXXXX",
+    "attestationType" : "PCF Program Certification",
+    "attestationStandard" : "PCF Verification and PCF Program Certification Framework V2",
+    "providerName" : "TÜV-X"
+  } ],
+  "general" : [ {
+    "pcfLegalStatement" : "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
+    "comment" : "Additional explanatory information not reflected by other attributes"
+  } ],
+  "carbonContent" : [ {
+    "biogenicCarbonContent" : 0.0,
+    "packagingBiogenicCarbonContent" : 0.00,
+    "recycledCarbonContent" : 0.00,
+    "carbonContentTotal" : 0.52,
+    "fossilCarbonContent" : 0.1
+  } ],
+  "productLifeCycleStagesAndEmissions" : [ {
+    "productionStage" : [ {
+      "biogenicNonCO2Emissions" : 1.0,
+      "landUseChangeGhgEmissions" : 1.40,
+      "landManagementBiogenicCO2Removals" : 0.00,
+      "aircraftGhgEmissions" : 0.0,
+      "packagingLandManagementBiogenicCO2Emissions" : 0.00,
+      "pcfExcludingBiogenicUptake" : 2.90,
+      "fossilGhgEmissions" : 0.5,
+      "biogenicCO2Uptake" : -1.00,
+      "pcfIncludingBiogenicUptake" : 1.90
     } ],
-    "extTFS_allocationWasteIncineration" : "cut-off",
-    "pcfExcludingBiogenic" : 2.0,
-    "referencePeriodEnd" : "2022-12-31T23:59:59Z",
-    "extWBCSD_characterizationFactors" : "AR5",
-    "secondaryEmissionFactorSources" : [ {
-      "secondaryEmissionFactorSource" : "ecoinvent 3.8"
+    "packagingStage" : [ {
+      "packagingEmissionsIncluded" : true,
+      "packagingPcfIncludingBiogenicUptake" : 0.2,
+      "packagingBiogenicNonCO2Emissions" : 0.20,
+      "packagingLandManagementBiogenicCO2Emissions" : 0.00,
+      "packagingFossilGhgEmissions" : 0.20,
+      "packagingPcfExcludingBiogenicUptake" : 0,
+      "packagingBiogenicCO2Uptake" : 0.00,
+      "packagingLandUseChangeGhgEmissions" : 0.00,
+      "packagingAircraftGhgEmissions" : 0.2,
+      "packagingLandManagementBiogenicCO2Removals" : 0.00
     } ],
-    "unitaryProductAmount" : 1000.0,
-    "declaredUnit" : "liter",
-    "referencePeriodStart" : "2022-01-01T00:00:01Z",
-    "geographyRegionOrSubregion" : "Africa",
-    "fossilGhgEmissions" : 0.5,
-    "distributionStageAircraftGhgEmissions" : 0.0,
-    "boundaryProcessesDescription" : "Electricity consumption included as an input in the production phase",
-    "geographyCountry" : "DE",
-    "extWBCSD_packagingGhgEmissions" : 0,
-    "dlucGhgEmissions" : 0.4,
-    "carbonContentTotal" : 2.5,
-    "extTFS_distributionStageLuGhgEmissions" : 1.1,
-    "primaryDataShare" : 56.12,
-    "dataQualityRating" : {
-      "completenessDQR" : 2.0,
+    "distributionStage" : [ {
+      "distributionStageLandUseChangeGhgEmissions" : 0.00,
+      "distributionStageLandManagementBiogenicCO2Emissions" : 0.00,
+      "distributionStagePcfIncludingBiogenicUptake" : 0.15,
+      "distributionStageBiogenicCO2Uptake" : 0.00,
+      "distributionStagePcfExcludingBiogenicUptake" : 0.15,
+      "distributionStageFossilGhgEmissions" : 0.15,
+      "distributionStageAircraftGhgEmissions" : 0.00,
+      "distributionStageLandManagementBiogenicCO2Removals" : 0.00,
+      "distributionStageIncluded" : false,
+      "distributionStageBiogenicNonCO2Emissions" : 0.00
+    } ]
+  } ],
+  "pcfAssessmentAndMethodology" : [ {
+    "dataSourcesAndQuality" : [ {
+      "secondaryEmissionFactorSources" : [ "ecoinvent 3.8" ],
+      "primaryDataShare" : 56.12,
       "technologicalDQR" : 2.0,
       "geographicalDQR" : 2.0,
-      "temporalDQR" : 2.0,
-      "reliabilityDQR" : 2.0,
-      "coveragePercent" : 100
-    },
-    "extWBCSD_packagingEmissionsIncluded" : true,
-    "extWBCSD_fossilCarbonContent" : 0.1,
-    "crossSectoralStandardsUsed" : [ {
-      "crossSectoralStandard" : "ISO Standard 14067"
+      "temporalDQR" : 2.0
     } ],
-    "extTFS_distributionStageDlucGhgEmissions" : 1.0,
-    "distributionStagePcfIncludingBiogenic" : 0.0,
-    "carbonContentBiogenic" : 0.0
-  },
-  "partialFullPcf" : "Cradle-to-gate",
-  "productIds" : [ "urn:gtin:4712345060507", "urn:id:9587654", "urn:uuid4:id:9885a472-2cbf-4f89-9650-e83a44e7bdf1" ],
-  "validityPeriodStart" : "2022-01-01T00:00:01Z",
-  "comment" : "Additional explanatory information not reflected by other attributes",
-  "id" : "3893bb5d-da16-4dc1-9185-11d97476c254",
-  "validityPeriodEnd" : "2022-12-31T23:59:59Z",
-  "pcfLegalStatement" : "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
-  "productDescription" : "Ethanol, 95% solution",
-  "precedingPfIds" : [ {
-    "id" : "3893bb5d-da16-4dc1-9185-11d97476c254"
+    "pcfMethodology" : [ {
+      "standards" : [ {
+        "crossSectoralStandards" : [ "ISO 14067" ],
+        "productOrSectorSpecificRules" : [ "urn:tfs-initiative.com:PCR:The Product Carbon Footprint Guideline for the Chemical Industry:version:v2.0" ]
+      } ],
+      "gwpCharacterizationFactorDetails" : [ {
+        "ipccCharacterizationFactors" : "AR5"
+      } ],
+      "massBalancingInformation" : [ {
+        "massBalancingCertificateScheme" : "ISCC+",
+        "massBalancingUsed" : true,
+        "freeAttributionInMassBalancing" : "true"
+      } ],
+      "allocationInForeground" : [ {
+        "allocationRulesDescription" : "In accordance with Catena-X PCF Rulebook",
+        "allocationRecycledCarbon" : "upstream system expansion",
+        "allocationWasteIncineration" : "cut-off"
+      } ]
+    } ],
+    "pcfAssessmentInformation" : [ {
+      "technology" : [ {
+        "ccsTechnologicalCO2CaptureIncluded" : false,
+        "boundaryProcessesDescription" : "Electricity consumption included as an input in the production phase"
+      } ],
+      "boundarySpecifications" : [ {
+        "exemptedEmissionsPercent" : 0.0,
+        "exemptedEmissionsDescription" : "No exemption"
+      } ],
+      "time" : [ {
+        "referencePeriodEnd" : "2022-12-31T23:59:59Z",
+        "validityPeriodStart" : "2022-01-01T00:00:01Z",
+        "validityPeriodEnd" : "2022-12-31T23:59:59Z",
+        "created" : "2022-05-22T21:47:32Z",
+        "referencePeriodStart" : "2022-01-01T00:00:01Z"
+      } ],
+      "geography" : [ {
+        "geographyCountrySubdivision" : "US-NY",
+        "geographyRegionOrSubregion" : "Africa",
+        "geographyCountry" : "DE"
+      } ],
+      "idAndVersion" : [ {
+        "retroOrProspectivePcfType" : "Retrospective PCF",
+        "id" : "3893bb5d-da16-4dc1-9185-11d97476c254",
+        "version" : 0,
+        "precedingPfIds" : [ { } ],
+        "status" : "Active"
+      } ]
+    } ],
+    "verificationAndCertificationShares" : [ {
+      "programCertificationShare" : 95.99327374152946,
+      "productVerificationShare2ndParty" : 0.00,
+      "productVerificationShare3rdParty" : 0.00,
+      "productVerificationShare1stParty" : 0.00
+    } ]
+  } ],
+  "scopeOfPcfForm" : [ {
+    "partialFullPcf" : "Cradle-to-gate",
+    "specVersion" : [ "urn:io.catenax.pcf:datamodel:version:9.0.0" ]
+  } ],
+  "companyAndProductInformation" : [ {
+    "productInformation" : [ {
+      "declaredUnitOfMeasurement" : "liter",
+      "productNameCompany" : "My Product Name",
+      "productClassifications" : [ "urn:gtin:4712345060507" ],
+      "productIds" : [ "urn:mycompany.com:product-id:401765" ],
+      "declaredUnitAmount" : 1.0,
+      "productMassPerDeclaredUnit" : 0.456,
+      "productDescription" : "Ethanol, 95% solution"
+    } ],
+    "companyInformation" : [ {
+      "companyIds" : [ "urn:BPNL000000000DWF" ],
+      "companyName" : "My Corp"
+    } ]
   } ]
 }
 ```
@@ -420,7 +485,7 @@ The following json shows an exemplary payload for a requested PCF value.
 </details>
 
 The entire PCF data model is available as open source through the following link:
-[Catena-X PCF Datamodel](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.pcf/8.0.0)
+[Catena-X PCF Datamodel](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.pcf/9.0.0)
 
 ## Business Architecture
 
