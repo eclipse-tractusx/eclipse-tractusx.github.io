@@ -102,7 +102,7 @@ The PCF submodel must be registered with the ``idshort: PCFExchangeEndpoint``.
        "keys": [
           {
              "type": "GlobalReference",
-             "value": "urn:samm:io.catenax.pcf:8.0.0#Pcf"
+             "value": "urn:samm:io.catenax.pcf:9.0.0#Pcf"
            }
        ]
     },
@@ -151,7 +151,7 @@ The following JSON shows the EDC Asset for a PCF defined in the EDC using the as
         "rdfs:label": "PCF Data",
         "rdfs:comment": "Endpoint for PCF data",
         "cx-common:version": "1.1",
-        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:8.0.0#Pcf"},
+        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:9.0.0#Pcf"},
         "edc:contentType": "application/json",
         "dct:type": {"@id":"cx-taxo:PcfExchange"}
     },
