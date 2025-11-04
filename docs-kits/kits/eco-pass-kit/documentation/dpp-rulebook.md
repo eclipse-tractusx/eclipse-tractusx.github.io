@@ -314,21 +314,21 @@ The Identification section includes attributes needed for uniquely identifying t
 
 | Rule ID | Data Attribute             | Mandatory/ Optional | Regulatory Reference                                          |
 |---------|----------------------------|---------------------|---------------------------------------------------------------|
-| 2.1     | Serial Key                 | Optional            | Regulation (EU) 2024/1781, Annex III(b) and Article 10(1)(f)  |
-| 2.2     | Serial Value               | Optional            | Regulation (EU) 2024/1781, Recital (33)                       |
-| 2.3     | Batch Key                  | Optional            | Regulation (EU) 2024/1781, Recital (33)                       |
-| 2.4     | Batch Value                | Optional            | Regulation (EU) 2024/1781                                     |
-| 2.5     | Manufacturer Part ID       | Mandatory           | Regulation (EU) 2024/1781, Recital (33)                       |
-| 2.6     | Name at Manufacturer       | Mandatory           | Regulation (EU) 2024/1781                                     |
-| 2.7     | Code Key                   | Mandatory           | Regulation (EU) 2024/1781, Annex III(b-c)                     |
-| 2.8     | Code Value                 | Mandatory           | Regulation (EU) 2024/1781                                     |
-| 2.9     | Code Description           | Optional            | Regulation (EU) 2024/1781                                     |
-| 2.10    | Carrier Type               | Optional            | Regulation (EU) 2024/1781, Article 2(29)                      |
-| 2.11    | Carrier Position           | Optional            | Regulation (EU) 2024/1781, Article 8(2)(c)                    |
-| 2.12    | Classification Standard    | Mandatory           | Regulation (EU) 2024/1781                                     |
-| 2.13    | Classification ID          | Mandatory           | Regulation (EU) 2024/1781                                     |
-| 2.14    | Classification Description | Optional            | Regulation (EU) 2024/1781                                     |
-| 2.15    | Picture                    | *To be covered in next version* | Optional| | | |
+| 6.2.1     | Serial Key                 | Optional            | Regulation (EU) 2024/1781, Annex III(b) and Article 10(1)(f)  |
+| 6.2.2     | Serial Value               | Optional            | Regulation (EU) 2024/1781, Recital (33)                       |
+| 6.2.3     | Batch Key                  | Optional            | Regulation (EU) 2024/1781, Recital (33)                       |
+| 6.2.4     | Batch Value                | Optional            | Regulation (EU) 2024/1781                                     |
+| 6.2.5     | Manufacturer Part ID       | Mandatory           | Regulation (EU) 2024/1781, Recital (33)                       |
+| 6.2.6     | Name at Manufacturer       | Mandatory           | Regulation (EU) 2024/1781                                     |
+| 6.2.7     | Code Key                   | Mandatory           | Regulation (EU) 2024/1781, Annex III(b-c)                     |
+| 6.2.8     | Code Value                 | Mandatory           | Regulation (EU) 2024/1781                                     |
+| 6.2.9     | Code Description           | Optional            | Regulation (EU) 2024/1781                                     |
+| 6.2.10    | Carrier Type               | Optional            | Regulation (EU) 2024/1781, Article 2(29)                      |
+| 6.2.11    | Carrier Position           | Optional            | Regulation (EU) 2024/1781, Article 8(2)(c)                    |
+| 6.2.12    | Classification Standard    | Mandatory           | Regulation (EU) 2024/1781                                     |
+| 6.2.13    | Classification ID          | Mandatory           | Regulation (EU) 2024/1781                                     |
+| 6.2.14    | Classification Description | Optional            | Regulation (EU) 2024/1781                                     |
+| 6.2.15    | Picture                    | *To be covered in next version* | Optional| | | |
 
 
 #### 6.2.1 Serial Key 
@@ -419,33 +419,33 @@ Optional property describing the classification standard.
 *To be covered in next version*
 
 
-### 5.3 Operation
+### 6.3 Operation
 The "Operations" category refers to a structured set of data that describes the activities, processes, and lifecycle events associated with a product.
 
 | Rule ID | Data Attribute                                                       | Mandatory/ Optional | Regulatory Reference                             |
 |---------|----------------------------------------------------------------------|---------------------|--------------------------------------------------|
-| 3.1     | Facility ID                                                          | Mandatory           | Regulation (EU) 2024/1781, Annex III(i)          |
-| 3.2     | Facility Address                                                     | *To be covered in next version* | | 
-| 3.3     | Manufacturer ID                                                      | Mandatory           | Regulation (EU) 2024/1781, Annex III(h) & (k)    |
-| 3.4     | Manufacturer Name                                                    | *To be covered in next version* | | 
-| 3.5     | Manufacturer Contact                                                 | *To be covered in next version* | | 
-| 3.6     | Manufacturer Address                                                 | *To be covered in next version* | | 
-| 3.7     | Manufacturing Date                                                   | Mandatory           | Mandatory | Regulation (EU) 2024/1781, Annex III | 
-| 3.8     | Applicable                                                           | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
-| 3.8.1   | EORI                                                                 | Mandatory           | Regulation (EU) 2024/1781, Annex III(j)          |
-| 3.8.2   | Importer Identification                                              | Mandatory           | Regulation (EU) 2024/1781, Annex III(j)          |
-| 3.8.3   | Importer Name                                                        | *To be covered in next version* | | 
-| 3.8.4   | Importer Contact                                                     | *To be covered in next version* | | 
-| 3.8.5   | Importer Address                                                     | *To be covered in next version* | | 
-| 3.14    | Other Operator ID                                                    | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
-| 3.15    | Other Operator Name                                                  | *To be covered in next version* | | 
-| 3.16    | Other Operator Contact                                               | *To be covered in next version* | | 
-| 3.17    | Other Operator Address                                               | *To be covered in next version* | | 
-| 3.18    | Other Operator Role                                                  | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
-| 3.19    | Symbol of Extended Producer Responsibility Scheme                    | *To be covered in next version* | | 
-| 3.20    | Territory of Extended Producer Responsibility Scheme                 | *To be covered in next version* | | 
-| 3.21    | Collection Points of Extended Producer Responsibility Scheme ID      | *To be covered in next version* | | 
-| 3.22    | Collection Points of Extended Producer Responsibility Scheme Address | *To be covered in next version* | | 
+| 6.3.1     | Facility ID                                                          | Mandatory           | Regulation (EU) 2024/1781, Annex III(i)          |
+| 6.3.2     | Facility Address                                                     | *To be covered in next version* | | 
+| 6.3.3     | Manufacturer ID                                                      | Mandatory           | Regulation (EU) 2024/1781, Annex III(h) & (k)    |
+| 6.3.4     | Manufacturer Name                                                    | *To be covered in next version* | | 
+| 6.3.5     | Manufacturer Contact                                                 | *To be covered in next version* | | 
+| 6.3.6     | Manufacturer Address                                                 | *To be covered in next version* | | 
+| 6.3.7     | Manufacturing Date                                                   | Mandatory           | Mandatory | Regulation (EU) 2024/1781, Annex III | 
+| 6.3.8     | Applicable                                                           | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
+| 6.3.8.1   | EORI                                                                 | Mandatory           | Regulation (EU) 2024/1781, Annex III(j)          |
+| 6.3.8.2   | Importer Identification                                              | Mandatory           | Regulation (EU) 2024/1781, Annex III(j)          |
+| 6.3.8.3   | Importer Name                                                        | *To be covered in next version* | | 
+| 6.3.8.4   | Importer Contact                                                     | *To be covered in next version* | | 
+| 6.3.8.5   | Importer Address                                                     | *To be covered in next version* | | 
+| 6.3.9    | Other Operator ID                                                    | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
+| 6.3.10    | Other Operator Name                                                  | *To be covered in next version* | | 
+| 6.3.11    | Other Operator Contact                                               | *To be covered in next version* | | 
+| 6.3.12    | Other Operator Address                                               | *To be covered in next version* | | 
+| 6.3.13    | Other Operator Role                                                  | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
+| 6.3.14    | Symbol of Extended Producer Responsibility Scheme                    | *To be covered in next version* | | 
+| 6.3.15    | Territory of Extended Producer Responsibility Scheme                 | *To be covered in next version* | | 
+| 6.3.16    | Collection Points of Extended Producer Responsibility Scheme ID      | *To be covered in next version* | | 
+| 6.3.17    | Collection Points of Extended Producer Responsibility Scheme Address | *To be covered in next version* | | 
 
 #### 6.3.1 Facility ID 
 
@@ -493,7 +493,7 @@ Represents the date of final product manufacturing (e.g. final quality check, re
 
 > **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
-#### 6.3.9 EORI
+#### 6.3.8.1 EORI
 
 An EORI number (Economic Operators Registration and Identification number) is a unique identification number assigned by a customs authority in the European Union to businesses and individuals involved in importing or exporting goods into or out of the EU.
 
@@ -501,7 +501,7 @@ An EORI number (Economic Operators Registration and Identification number) is a 
 
 > **Content Validation**<br>The EORI number must be in accordance to [Regulation (EU) No 952/2013](https://eur-lex.europa.eu/eli/reg/2013/952/oj/eng) which provides the legal basis for the EORI system.
 
-#### 6.3.10 Importer Identification
+#### 6.3.8.2 Importer Identification
 
 Importer identification (The importer of the product) refers to the requirement to clearly and reliably identify the importer of a product that is placed on the EU market, especially when the manufacturer is based outside the EU, ensuring product traceability. 
 
@@ -509,55 +509,55 @@ Importer identification (The importer of the product) refers to the requirement 
 
 > **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
-#### 6.3.11 Importer Name
+#### 6.3.8.3 Importer Name
 
 *To be covered in next version*
 
-#### 6.3.12 Importer Contact 
+#### 6.3.8.4 Importer Contact 
 
 *To be covered in next version*
 
-#### 6.3.13 Importer Address 
+#### 6.3.8.5 Importer Address 
 
 *To be covered in next version*
 
-#### 6.3.14 Other Operator ID  
+#### 6.3.9 Other Operator ID  
 
 OtherImporterID is a secondary or additional identifier used to uniquely reference an importer other than the primary one listed for a product. This may be relevant when: 1- Multiple importers are involved in placing the same product model on the EU market. 2- A product is distributed through different channels or subsidiaries. 3- There is a need to track alternative or backup importers for traceability and compliance purposes. 
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 6.3.15 Other Operator Name 
+#### 6.3.10 Other Operator Name 
 
 *To be covered in next version*
 
-#### 6.3.16 Other Operator Contact 
+#### 6.3.11 Other Operator Contact 
 
 *To be covered in next version*
 
-#### 6.3.17 Other Operator Address 
+#### 6.3.12 Other Operator Address 
 
 *To be covered in next version*
 
-#### 6.3.18 Other Operator Role 
+#### 6.3.13 Other Operator Role 
 
 This field is used to specify the "Role" of the other operator (e.g., Distributor). 
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 6.3.19 Symbol of Extended Producer Responsibility Scheme   
+#### 6.3.14 Symbol of Extended Producer Responsibility Scheme   
 
 *To be covered in next version*
 
-#### 6.3.20 Territory of Extended Producer Responsibility Scheme
+#### 6.3.15 Territory of Extended Producer Responsibility Scheme
 
 *To be covered in next version*
 
-#### 6.3.21 Collection Points of Extended Producer Responsibility Scheme ID  
+#### 6.3.16 Collection Points of Extended Producer Responsibility Scheme ID  
 
 *To be covered in next version*
 
-#### 6.3.22 Collection Points of Extended Producer Responsibility Scheme Address 
+#### 6.3.17 Collection Points of Extended Producer Responsibility Scheme Address 
 
 *To be covered in next version*
 
@@ -566,12 +566,12 @@ This field is used to specify the "Role" of the other operator (e.g., Distributo
 
 | Rule ID | Data Attribute            | Mandatory/ Optional | Regulatory Reference       |
 |---------|---------------------------|---------------------|----------------------------|
-| 4.1     | Applicable                | Mandatory           |                            |
-| 4.1.1   | Sources Identification    | Mandatory           |                            |
-| 4.1.2   | Sources Contact           | *To be covered in next version* | |
-| 4.1.3   | Sources Address           | *To be covered in next version* | |
-| 4.1.4   | Manufacturer Part ID      | Mandatory           |                            | 
-| 4.1.5   | Name at Manufacturer      | Mandatory           |                            |
+| 6.4.1     | Applicable                | Mandatory           |                            |
+| 6.4.1.1   | Sources Identification    | Mandatory           |                            |
+| 6.4.1.2   | Sources Contact           | *To be covered in next version* | |
+| 6.4.1.3   | Sources Address           | *To be covered in next version* | |
+| 6.4.1.4   | Manufacturer Part ID      | Mandatory           |                            | 
+| 6.4.1.5   | Name at Manufacturer      | Mandatory           |                            |
 
 #### 6.4.1 Applicable
 
@@ -579,7 +579,7 @@ Check whether the connected attributes are applicable to the product. If it is n
 
 > **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
-#### 6.4.2 Sources Identification
+#### 6.4.1.1 Sources Identification
 
 Identifies sources of spare parts for the product via unique identifiers of producers, important for traceability and supply chain management.
 
@@ -587,21 +587,21 @@ Identifies sources of spare parts for the product via unique identifiers of prod
 
 > **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
-#### 6.4.3 Sources Contact   
+#### 6.4.1.2 Sources Contact   
 
 *To be covered in next version*
 
-#### 6.4.4 Sources Address  
+#### 6.4.1.3 Sources Address  
 
 *To be covered in next version*
 
-#### 6.4.5 Manufacturer Part ID    
+#### 6.4.1.4 Manufacturer Part ID    
 
 Part ID as assigned by the manufacturer of the part. The Part ID identifies the part in the manufacturer`s dataspace. The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available.
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 6.4.6 Name at Manufacturer  
+#### 6.4.1.5 Name at Manufacturer  
 
 Name of the spare part as assigned by the manufacturer.
 
@@ -620,31 +620,31 @@ These characteristics enable standardized documentation, comparability across pr
 
 | Rule ID | Data Attribute              | Mandatory/ Optional | Regulatory Reference                 | 
 |---------|-----------------------------|---------------------|--------------------------------------|
-| 5.1     | Life Type                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   |
-| 5.2     | Life Value                  | Mandatory           | Regulation (EU) 2024/1781, Annex I   | 
-| 5.3     | Life Unit                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   | 
-| 5.4     | Value (Width)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 5.5     | Unit (Width)                | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 5.6     |  Value (Length)             | Optional            | Regulation (EU) 2024/1781, Article 7 |
-| 5.7     | Unit (Length)               | Optional            | Regulation (EU) 2024/1781, Article 7 |
-| 5.8     |  Value (Diameter)           | Optional            | Regulation (EU) 2024/1781, Article 7 |
-| 5.9     | Unit (Diameter)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 5.10    |  Value (Height)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 5.11    | Unit (Height)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 5.12    |  Value (Gross Weight)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 5.13    | Unit (Gross Weight)         |Mandatory            | Regulation (EU) 2024/1781, Article 7 | 
-| 5.14    |  Value (Volume)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 5.15    | Unit (Volume)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 5.16    |  Value (Gross Volume)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 5.17    | Unit (Gross Volume)         | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
-| 5.18    |  Value (Weight)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 5.19    | Unit (Weight)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 5.20    |  Value (Item Quantity)      | *To be covered in next version* | | | | |
-| 5.21    | Unit Item Quantity          | *To be covered in next version* | | | | |
-| 5.22    | Physical State              | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 5.23    | General Performance Class   | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 5.24    | Other Characteristic Name   | *To be covered in next version* | | | | |
-| 5.25    | Other Characteristic Outcome| *To be covered in next version* | | | | |
+| 6.5.1     | Life Type                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   |
+| 6.5.2     | Life Value                  | Mandatory           | Regulation (EU) 2024/1781, Annex I   | 
+| 6.5.3     | Life Unit                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   | 
+| 6.5.4     | Value (Width)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.5     | Unit (Width)                | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.6     |  Value (Length)             | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.7     | Unit (Length)               | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.8     |  Value (Diameter)           | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.9     | Unit (Diameter)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.10    |  Value (Height)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.11    | Unit (Height)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.12    |  Value (Gross Weight)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.13    | Unit (Gross Weight)         |Mandatory            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.14    |  Value (Volume)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.15    | Unit (Volume)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.16    |  Value (Gross Volume)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.17    | Unit (Gross Volume)         | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.18    |  Value (Weight)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.19    | Unit (Weight)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.20    |  Value (Item Quantity)      | *To be covered in next version* | | | | |
+| 6.5.21    | Unit Item Quantity          | *To be covered in next version* | | | | |
+| 6.5.22    | Physical State              | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.23    | General Performance Class   | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.24    | Other Characteristic Name   | *To be covered in next version* | | | | |
+| 6.5.25    | Other Characteristic Outcome| *To be covered in next version* | | | | |
 
 #### 6.5.1 Life Type
 
@@ -797,31 +797,31 @@ Characterizes product performance in a graded class system, promoting consumer d
 
 | Rule ID | Data Attribute      | Mandatory/ Optional | Regulatory Reference     |
 |---------|---------------------|---------------------|--------------------------|
-| 6.1     | Placed On Market    | Mandatory           |                          |
-| 6.2     | Purpose             | Mandatory           |                          |
-| 6.3     | Purchase Order      | Optional            |                          |
-| 6.4     | Recall Information  | Mandatory           | Regulation (EU) 2023/988 |
+| 6.6.1     | Placed On Market    | Mandatory           |                          |
+| 6.6.2     | Purpose             | Mandatory           |                          |
+| 6.6.3     | Purchase Order      | Optional            |                          |
+| 6.6.4     | Recall Information  | Mandatory           | Regulation (EU) 2023/988 |
 
-#### 6.1 Placed On Market 
+#### 6.6.1 Placed On Market 
 
 The timestamp in the format (yyyy-mm-dd) with or without time zone when the product was put in the market.
 
 > **Syntax**<br>Its validity can be verified using regular expression-based checks  
 > **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
 
-#### 6.2 Purpose
+#### 6.6.2 Purpose
 
 Specify one or more target industries for the product described in the Digital Product Passport. If exchanged via Catena-X, 'automotive ' is a must choice included in the list.
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 6.3 Purchase Order 
+#### 6.6.3 Purchase Order 
 
 A unique identifier assigned to the order of the product for tracking purposes between the supplier and customer.
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook) 
 
-#### 6.4 Recall Information
+#### 6.6.4 Recall Information
 
 Recall information refers to the data and documentation associated with the process of removing a product from the market due to safety, quality, or compliance concerns.
 
@@ -832,223 +832,223 @@ Recall information refers to the data and documentation associated with the proc
 
 | Rule ID | Data Attribute                                   | Mandatory/ Optional | Regulatory Reference                  |
 |---------|--------------------------------------------------|---------------------|---------------------------------------|
-| 7.1     | Applicable (Substances of Concern)               | Mandatory           | Regulation (EU) 2024/1781             |
-| 7.1.1   | Chemical ID (Substances of Concern)              | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 7.1.2   | List Type ID (Substances of Concern)             | Mandatory           | Regulation (EU) 2024/1781, Article 7   | 
-| 7.1.3   | Chemical Name (Substances of Concern)            | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 7.1.4   | Material Unit (Substances of Concern)            | Mandatory           | Regulation (EU) 2024/1781             | 
-| 7.1.5   | Concentration (Substances of Concern)            | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 7.1.6   | Min Concentration (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
-| 7.1.7   | Max Concentration (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
-| 7.1.8   | Location of Substances (Substances of Concern)   | Mandatory           | Regulation (EU) 2024/1781             | 
-| 7.1.9   | Exemption for Substances (Substances of Concern) | Mandatory           | Regulation (EU) 2024/1781             | 
-| 7.1.10  | Hazard Category (Substances of Concern)          | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 7.1.11  | Hazard Class (Substances of Concern)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 7.1.12  | Hazard Statement (Substances of Concern)         | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
-| 7.1.13  | Documentation                                    | *To be covered in next version* | | | | |
-| 7.2     | Applicable (Material Composition)                | Mandatory           | Regulation (EU) 2024/1781             |
-| 7.2.1   | Component Name                                   | *To be covered in next version* | | | | |
-| 7.2.2   | Component Code                                   | *To be covered in next version* | | | | |
-| 7.2.3   | Component Description                            | *To be covered in next version* | | | | |
-| 7.2.4   | Component Location                               | *To be covered in next version* | | | | |
-| 7.2.5   | Sorting Information                              | *To be covered in next version* | | | | |
-| 7.2.6   | Component Passport Identifier                    | *To be covered in next version* | | | | |
-| 7.2.7   | Chemical ID (Material Composition)               | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 7.2.8   | List Type ID (Material Composition)              | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
-| 7.2.9   | Chemical Name (Material Composition)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
-| 7.2.10  | Material Type                                    | *To be covered in next version* | | | | |
-| 7.2.11  | Material Origin                                  | *To be covered in next version* | | | | |
-| 7.2.12  | Material Passport Identifier                     | *To be covered in next version* | | | | |
-| 7.2.13  | Material Unit                                    | *To be covered in next version* | | | | |
-| 7.2.14  | Concentration                                    | *To be covered in next version* | | | | |
-| 7.2.15  | Min Concentration                                | *To be covered in next version* | | | | |
-| 7.2.16  | Max Concentration                                | *To be covered in next version* | | | | |
-| 7.2.17  | Location                                         | *To be covered in next version* | | | | |
-| 7.2.18  | Recycled                                         | *To be covered in next version* | | | | |
-| 7.2.19  | Documentation                                    | *To be covered in next version* | | | | |
-| 7.3.1   | List Name (Declarable Ingredient List)           | *To be covered in next version* | | | | |
-| 7.3.2   | Document ID (Declarable Ingredient List)         | *To be covered in next version* | | | | |
-| 7.3.3   | Documentation (Declarable Ingredient List)       | *To be covered in next version* | | | | |
+| 6.7.1     | Applicable (Substances of Concern)               | Mandatory           | Regulation (EU) 2024/1781             |
+| 6.7.1.1   | Chemical ID (Substances of Concern)              | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.1.2   | List Type ID (Substances of Concern)             | Mandatory           | Regulation (EU) 2024/1781, Article 7   | 
+| 6.7.1.3   | Chemical Name (Substances of Concern)            | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.1.4   | Material Unit (Substances of Concern)            | Mandatory           | Regulation (EU) 2024/1781             | 
+| 6.7.1.5   | Concentration (Substances of Concern)            | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.1.6   | Min Concentration (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.1.7   | Max Concentration (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.1.8   | Location of Substances (Substances of Concern)   | Mandatory           | Regulation (EU) 2024/1781             | 
+| 6.7.1.9   | Exemption for Substances (Substances of Concern) | Mandatory           | Regulation (EU) 2024/1781             | 
+| 6.7.1.10  | Hazard Category (Substances of Concern)          | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.1.11  | Hazard Class (Substances of Concern)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.1.12  | Hazard Statement (Substances of Concern)         | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.1.13  | Documentation                                    | *To be covered in next version* | | | | |
+| 6.7.2     | Applicable (Material Composition)                | Mandatory           | Regulation (EU) 2024/1781             |
+| 6.7.2.1   | Component Name                                   | *To be covered in next version* | | | | |
+| 6.7.2.2   | Component Code                                   | *To be covered in next version* | | | | |
+| 6.7.2.3   | Component Description                            | *To be covered in next version* | | | | |
+| 6.7.2.4   | Component Location                               | *To be covered in next version* | | | | |
+| 6.7.2.5   | Sorting Information                              | *To be covered in next version* | | | | |
+| 6.7.2.6   | Component Passport Identifier                    | *To be covered in next version* | | | | |
+| 6.7.2.7   | Chemical ID (Material Composition)               | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.2.8   | List Type ID (Material Composition)              | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.2.9   | Chemical Name (Material Composition)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.2.10  | Material Type                                    | *To be covered in next version* | | | | |
+| 6.7.2.11  | Material Origin                                  | *To be covered in next version* | | | | |
+| 6.7.2.12  | Material Passport Identifier                     | *To be covered in next version* | | | | |
+| 6.7.2.13  | Material Unit                                    | *To be covered in next version* | | | | |
+| 6.7.2.14  | Concentration                                    | *To be covered in next version* | | | | |
+| 6.7.2.15  | Min Concentration                                | *To be covered in next version* | | | | |
+| 6.7.2.16  | Max Concentration                                | *To be covered in next version* | | | | |
+| 6.7.2.17  | Location                                         | *To be covered in next version* | | | | |
+| 6.7.2.18  | Recycled                                         | *To be covered in next version* | | | | |
+| 6.7.2.19  | Documentation                                    | *To be covered in next version* | | | | |
+| 6.7.3     | List Name (Declarable Ingredient List)           | *To be covered in next version* | | | | |
+| 6.7.4     | Document ID (Declarable Ingredient List)         | *To be covered in next version* | | | | |
+| 6.7.5     | Documentation (Declarable Ingredient List)       | *To be covered in next version* | | | | |
 
-#### 7.1.1 Applicable (Substances of Concern)
+#### 6.7.1 Applicable (Substances of Concern)
 
  Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled 
 
 > **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
-#### 7.1.2 Chemical ID (Substances of Concern)
+#### 6.7.1.1 Chemical ID (Substances of Concern)
 
 A Chemical ID is a unique identifier assigned to a chemical substance to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Chemical ID facilitates accurate identification, classification, and communication of chemical information, including composition, hazards, and regulatory status
 
 > **Content Validation**<br>The chemical material ID and its identification  (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable. 
 
-#### 7.1.3 List Type ID (Substances of Concern)
+#### 6.7.1.2 List Type ID (Substances of Concern)
 
 This field specifies the classification system or standard employed for the identification of chemical substances. Acceptable standards may include, but are not limited to, the Chemical Abstracts Service (CAS) Registry Number, the International Union of Pure and Applied Chemistry (IUPAC) nomenclature, or the European Community (EC) number
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-#### 7.1.4 Chemical Name (Substances of Concern)
+#### 6.7.1.3 Chemical Name (Substances of Concern)
 
 The name of the material which is present in the product.
 
 > **Content Validation**<br>The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
 
-#### 7.1.5 Material Unit (Substances of Concern)
+#### 6.7.1.4 Material Unit (Substances of Concern)
 
 This field defines the unit of concentration, selected from a predefined enumeration. Permissible units include mass percent, volume percent, parts per thousand (ppt), parts per million (ppm), parts per billion (ppb), and parts per trillion (ppt)
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-#### 7.1.6 Concentration (Substances of Concern)
+#### 6.7.1.5 Concentration (Substances of Concern)
 
 Concentration of the material at the level of the product
 
 > **Syntax**<br>The value must be > = 0 
 
-#### 7.1.7 Min Concentration (Substances of Concern)
+#### 6.7.1.6 Min Concentration (Substances of Concern)
 
 The minimum concentration of the substance of concern at the level of the product
 
 > **Syntax**<br>The value must be > = 0 
 
-#### 7.1.8 Max Concentration (Substances of Concern)
+#### 6.7.1.7 Max Concentration (Substances of Concern)
 
 The maximum concentration of the substance of concern at the level of the product
 
 > **Syntax**<br>The value must be > = 0 
 
-#### 7.1.9 Location of Substances (Substances of Concern)
+#### 6.7.1.8 Location of Substances (Substances of Concern)
 
 The location of the substances of concern within the product <br> Further decsription: <br>This requires specifying the exact location of the substance of concern within the product—for example, whether it is contained in the packaging or integrated into the product itself
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 7.1.10 Exemption for Substances (Substances of Concern)
+#### 6.7.1.9 Exemption for Substances (Substances of Concern)
 
 Exemptions to the substance of concern: An exemption to the substance of concern refers to a formally recognized exception that permits the use or presence of a regulated or restricted chemical substance within a product or component, under specific conditions. The exemption must be documented and justified in accordance with applicable legal frameworks (e.g., REACH, RoHS), and may be subject to review, expiration, or renewal.
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 7.1.11 Hazard Category (Substances of Concern)
+#### 6.7.1.10 Hazard Category (Substances of Concern)
 
 A hazard category is a classification level within a hazard class that indicates the severity or degree of risk associated with a chemical substance or mixture. It refers to the the division of criteria within each hazard class, specifying hazard severity. Lower category numbers typically represent higher hazard severity (e.g., Category 1 is more hazardous than Category 2)
 
 > **Content Validation**<br>Valid hazard category statement required. Hazard category defined in compliance with the EU standard as outlined in [Article 2 of Regulation (EC) No 1272/2008](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
 
-#### 7.1.12 Hazard Class (Substances of Concern)
+#### 6.7.1.11 Hazard Class (Substances of Concern)
 
 Hazard class means the nature of the physical, health or environmental hazard.
 
 > **Content Validation**<br>Hazard category defined in accordance to:[<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
 
-#### 7.1.13 Hazard Statement (Substances of Concern)
+#### 6.7.1.12 Hazard Statement (Substances of Concern)
 
 A hazard statement is a standardized phrase assigned to a chemical substance or mixture that describes the nature and, where appropriate, the degree of hazard associated with it. Each hazard statement is associated with a unique code (e.g., H315, H301) to ensure consistency and clarity in hazard communication
 
 > **Content Validation**<br>Hazard category defined in accordance to:[<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
 
-#### 7.1.14 Documentation
+#### 6.7.1.13 Documentation
 
  *To be covered in next version*
 
-#### 7.2.1 Applicable (Material Composition)
+#### 6.7.2 Applicable (Material Composition)
 
 Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled
 
 > **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
-#### 7.2.2 Component Name
+#### 6.7.2.1 Component Name
 
  *To be covered in next version*
 
-#### 7.2.3 Component Code  
-
- *To be covered in next version*
- 
-#### 7.2.4 Component Description 
+#### 6.7.2.2 Component Code  
 
  *To be covered in next version*
  
-#### 7.2.5 Component Location 
+#### 6.7.2.3 Component Description 
 
  *To be covered in next version*
  
-#### 7.2.6 Sorting Information  
+#### 6.7.2.4 Component Location 
 
  *To be covered in next version*
  
-#### 7.2.7 Component Passport Identifier
+#### 6.7.2.5 Sorting Information  
 
  *To be covered in next version*
  
-#### 7.2.8 Chemical ID (Material Composition)
+#### 6.7.2.6 Component Passport Identifier
+
+ *To be covered in next version*
+ 
+#### 6.7.2.7 Chemical ID (Material Composition)
 
 A Chemical ID is a unique identifier assigned to a chemical substance to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Chemical ID facilitates accurate identification, classification, and communication of chemical information, including composition, hazards, and regulatory status
 
 > **Content Validation**<br>The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
 
-#### 7.2.9 List Type ID (Material Composition)
+#### 6.7.2.8 List Type ID (Material Composition)
 
 This field specifies the classification system or standard employed for the identification of chemical substances. Acceptable standards may include, but are not limited to, the Chemical Abstracts Service (CAS) Registry Number, the International Union of Pure and Applied Chemistry (IUPAC) nomenclature, or the European Community (EC) number
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-#### 7.2.10 Chemical Name (Material Composition)
+#### 6.7.2.9 Chemical Name (Material Composition)
 
 The name of the material which is present in the product.
 
 > **Content Validation**<br>The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
 
-#### 7.2.11 Material Type   
+#### 6.7.2.10 Material Type   
 
  *To be covered in next version*
      
-#### 7.2.12 Material Origin    
+#### 6.7.2.11 Material Origin    
 
  *To be covered in next version*
      
-#### 7.2.13 Material Passport Identifier  
+#### 6.7.2.12 Material Passport Identifier  
 
  *To be covered in next version*
       
-#### 7.2.14 Material Unit
+#### 6.7.2.13 Material Unit
 
  *To be covered in next version*
              
-#### 7.2.15 Concentration 
+#### 6.7.2.14 Concentration 
 
  *To be covered in next version*
           
-#### 7.2.16 Min Concentration 
+#### 6.7.2.15 Min Concentration 
 
  *To be covered in next version*
         
-#### 7.2.17 Max Concentration 
+#### 6.7.2.16 Max Concentration 
 
  *To be covered in next version*
            
-#### 7.2.18 Location        
+#### 6.7.2.17 Location        
 
  *To be covered in next version*
       
-#### 7.2.19 Recycled        
+#### 6.7.2.18 Recycled        
 
  *To be covered in next version*
       
-#### 7.2.20 Documentation   
+#### 6.7.2.19 Documentation   
 
  *To be covered in next version*
       
-#### 7.3.1 List Name (Declarable Ingredient List)       
+#### 6.7.3 List Name (Declarable Ingredient List)       
 
  *To be covered in next version*
          
-#### 7.3.2 Document ID (Declarable Ingredient List)     
+#### 6.7.4 Document ID (Declarable Ingredient List)     
 
  *To be covered in next version*
       
-#### 7.3.3 Documentation (Declarable Ingredient List)   
+#### 6.7.5 Documentation (Declarable Ingredient List)   
 
  *To be covered in next version*
       
@@ -1058,52 +1058,52 @@ The name of the material which is present in the product.
 
 | Rule ID | Data Attribute                                      | Mandatory/ Optional | Regulatory Reference                                        |
 |---------|-----------------------------------------------------|---------------------|-------------------------------------------------------------|
-| 8.1     | State                                               | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
-| 8.2     | value (product carbon footprint)                    | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
-| 8.3     | footprintUnit(product carbon footprint)             | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 8.4     | footprintType(product carbon footprint)             | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
-| 8.5     | footprintLifecycle(product carbon footprint)        | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 8.6     | performanceClass(product carbon footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
-| 8.7     | facility(product carbon footprint)                  | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
-| 8.8     | Facility Address                                    | *To be covered in next version* | | | | |
-| 8.9     | Rulebook                                            | *To be covered in next version* | | | | |
-| 8.10    | Declaration                                         | *To be covered in next version* | | | | |
-| 8.11    | value (product environmental footprint)             | Optional            |  ESPR proposal from March 30th, 2022 Annex I                |
-| 8.12    | footprintUnit (product environmental footprint)     | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 8.13    | footprintType (product environmental footprint)     | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
-| 8.14    | footprintLifecycle (product environmental footprint)| Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 8.15    | performanceClass (product environmental footprint)  | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
-| 8.16    | facility (product environmental footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
-| 8.17    | Facility Address                                    | *To be covered in next version* | | | | |
-| 8.18    | Rulebook                                            | *To be covered in next version* | | | | |
-| 8.19    | Declaration                                         | *To be covered in next version* | | | | |
-| 8.20    | value (product material footprint)                  | Optional            | ESPR proposal from March 30th, 2022 Annex I                 |
-| 8.21    | footprintUnit (product material footprint)          | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 8.22    | footprintType (product material footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
-| 8.23    | footprintLifecycle (product material footprint)     | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 8.24    | performanceClass (product material footprint)       | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
-| 8.25    | facility (product material footprint)               | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
-| 8.26    | Facility Address                                    | *To be covered in next version* | | | | |
-| 8.27    | Rulebook                                            | *To be covered in next version* | | | | |
-| 8.28    | Declaration                                         | *To be covered in next version* | | | | |
-| 8.29    | Reparability Score                                  | Mandatory           | ESPR provisional agreement from January 9th, 2024 Article 7 |
-| 8.30    | Durability Score                                    | Mandatory           | ESPR provisional agreement from January 9th, 2024 Article 7 |
-| 8.31    | Reuse Info                                          | *To be covered in next version* | | | | |
-| 8.32    | Reuse System Identification                         | *To be covered in next version* | | | | |
-| 8.33    | Symbol of Deposit and Return System                 | *To be covered in next version* | | | | |
-| 8.34    | Rotation Estimation Key                             | *To be covered in next version* | | | | |
-| 8.35    | Rotation Estimation Value                           | *To be covered in next version* | | | | |
-| 8.36    | Rotation Calculation Key                            | *To be covered in next version* | | | | |
-| 8.37    | Rotation Calculation Value                          | *To be covered in next version* | | | | |
-| 8.38    | Trip Estimation Key                                 | *To be covered in next version* | | | | |
-| 8.39    | Trip Estimation Value                               | *To be covered in next version* | | | | |
-| 8.40    | Trip Calculation Key                                | *To be covered in next version* | | | | |
-| 8.41    | Trip Calculation Value                              | *To be covered in next version* | | | | |
-| 8.42    | Facilitates Tracking Reusable Product Address ID    | *To be covered in next version* | | | | |
-| 8.43    | Facilitates Tracking Reusable Product Address       | *To be covered in next version* | | | | |
-| 8.44    | Collection Points Reusable Product ID               | *To be covered in next version* | | | | |
-| 8.45    | Collection Points Reusable Product Address          | *To be covered in next version* | | | | |
-| 8.46    | Recyclability Performance Grade                     | *To be covered in next version* | | | | |
+| 6.8.1     | State                                               | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
+| 6.8.2     | value (product carbon footprint)                    | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
+| 6.8.3     | footprintUnit(product carbon footprint)             | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 6.8.4     | footprintType(product carbon footprint)             | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
+| 6.8.5     | footprintLifecycle(product carbon footprint)        | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 6.8.6     | performanceClass(product carbon footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
+| 6.8.7     | facility(product carbon footprint)                  | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
+| 6.8.8     | Facility Address                                    | *To be covered in next version* | | | | |
+| 6.8.9     | Rulebook                                            | *To be covered in next version* | | | | |
+| 6.8.10    | Declaration                                         | *To be covered in next version* | | | | |
+| 6.8.11    | value (product environmental footprint)             | Optional            |  ESPR proposal from March 30th, 2022 Annex I                |
+| 6.8.12    | footprintUnit (product environmental footprint)     | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 6.8.13    | footprintType (product environmental footprint)     | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
+| 6.8.14    | footprintLifecycle (product environmental footprint)| Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 6.8.15    | performanceClass (product environmental footprint)  | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
+| 6.8.16    | facility (product environmental footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
+| 6.8.17    | Facility Address                                    | *To be covered in next version* | | | | |
+| 6.8.18    | Rulebook                                            | *To be covered in next version* | | | | |
+| 6.8.19    | Declaration                                         | *To be covered in next version* | | | | |
+| 6.8.20    | value (product material footprint)                  | Optional            | ESPR proposal from March 30th, 2022 Annex I                 |
+| 6.8.21    | footprintUnit (product material footprint)          | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 6.8.22    | footprintType (product material footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
+| 6.8.23    | footprintLifecycle (product material footprint)     | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 6.8.24    | performanceClass (product material footprint)       | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
+| 6.8.25    | facility (product material footprint)               | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
+| 6.8.26    | Facility Address                                    | *To be covered in next version* | | | | |
+| 6.8.27    | Rulebook                                            | *To be covered in next version* | | | | |
+| 6.8.28    | Declaration                                         | *To be covered in next version* | | | | |
+| 6.8.29    | Reparability Score                                  | Mandatory           | ESPR provisional agreement from January 9th, 2024 Article 7 |
+| 6.8.30    | Durability Score                                    | Mandatory           | ESPR provisional agreement from January 9th, 2024 Article 7 |
+| 6.8.31    | Reuse Info                                          | *To be covered in next version* | | | | |
+| 6.8.32    | Reuse System Identification                         | *To be covered in next version* | | | | |
+| 6.8.33    | Symbol of Deposit and Return System                 | *To be covered in next version* | | | | |
+| 6.8.34    | Rotation Estimation Key                             | *To be covered in next version* | | | | |
+| 6.8.35    | Rotation Estimation Value                           | *To be covered in next version* | | | | |
+| 6.8.36    | Rotation Calculation Key                            | *To be covered in next version* | | | | |
+| 6.8.37    | Rotation Calculation Value                          | *To be covered in next version* | | | | |
+| 6.8.38    | Trip Estimation Key                                 | *To be covered in next version* | | | | |
+| 6.8.39    | Trip Estimation Value                               | *To be covered in next version* | | | | |
+| 6.8.40    | Trip Calculation Key                                | *To be covered in next version* | | | | |
+| 6.8.41    | Trip Calculation Value                              | *To be covered in next version* | | | | |
+| 6.8.42    | Facilitates Tracking Reusable Product Address ID    | *To be covered in next version* | | | | |
+| 6.8.43    | Facilitates Tracking Reusable Product Address       | *To be covered in next version* | | | | |
+| 6.8.44    | Collection Points Reusable Product ID               | *To be covered in next version* | | | | |
+| 6.8.45    | Collection Points Reusable Product Address          | *To be covered in next version* | | | | |
+| 6.8.46    | Recyclability Performance Grade                     | *To be covered in next version* | | | | |
 
 
 #### 6.8.1 State
@@ -1340,32 +1340,32 @@ The durability score is a standardized indicator established under the Ecodesign
 *To be covered in next version*
 ### 6.9 Compliance
 
-| Rule ID | Data Attribute      | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
-|---------|-------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 9.1   | Compliance Country             | *To be covered in next version* | | | | |
-| 9.2   | Compliance Regulation Name            | *To be covered in next version* | | | | |
-| 9.3   | Compliance Statement            | *To be covered in next version* | | | | |
-| 9.4   | Compliance Reason for Exemption            | *To be covered in next version* | | | | |
-| 9.5   | Compliance Remark            | *To be covered in next version* | | | | |
-| 9.6   | Compliance Documentation            | *To be covered in next version* | | | | |
+| Rule ID | Data Attribute                                      | Mandatory/ Optional | Regulatory Reference                                        |
+|---------|-----------------------------------------------------|---------------------|-------------------------------------------------------------|
+| 6.9.1   | Compliance Country             | *To be covered in next version* | |
+| 6.9.2   | Compliance Regulation Name            | *To be covered in next version* | |
+| 6.9.3   | Compliance Statement            | *To be covered in next version* | |
+| 6.9.4   | Compliance Reason for Exemption            | *To be covered in next version* | |
+| 6.9.5   | Compliance Remark            | *To be covered in next version* | |
+| 6.9.6   | Compliance Documentation            | *To be covered in next version* | |
 
 ### 6.10 Sources
 
-| Rule ID | Data Attribute      | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
-|---------|-------------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 10.1   | Sources             | *To be covered in next version* | | | | |
-| 10.2   | Category | Defines the document's category for sorting purposes. | Mandatory | Regulation (EU) 2024/1781, Annex III and Article 27 | - Must contain one of the enumerated values. | |
+| Rule ID | Data Attribute                                      | Mandatory/ Optional | Regulatory Reference                                        |
+|---------|-----------------------------------------------------|---------------------|-------------------------------------------------------------|
+| 6.10.1   | Sources             | *To be covered in next version* | | 
+| 6.10.2   | Category | Mandatory | Regulation (EU) 2024/1781, Annex III and Article 27 | 
 
 ### 6.11 Additional Data
 
-| Rule ID | Data Attribute | Data Attribute Description                                                                 | Mandatory/ Optional | Regulatory Reference                                                                                   | Syntax checks| Content validation |
-|---------|--------------|-----------------------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|----|
-| 11.1  | Description  | Provides contextual information about the attribute. | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 | - Must provide a clear and concise description of the attribute. | |
-| 11.2  | Label        | Human-readable name of the attribute. | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 | - Must specify a readable label for the attribute.  | |
-| 11.3  | Type Unit    | Complex description of the type, helping define unit characteristics or indicating empty if the "children" property is used. | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | - Must select appropriate unit type or indicate empty when "children" are specified. | |
-| 11.4  | Data Type    | Specifies the data type;  | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 | - Must conform to specified data types under regulations. <br> - if "object" is selected, children are utilized instead of data. | |
-| 11.5  | Data         | Content of the attribute, dependent on data type and unit specifications. | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | - Must align content with data type and unit dependency. | |
-| 11.6  | Children     | Children elements of the hierarchical structure, extending attribute definitions. | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | - Structure must enable hierarchical definitions as necessary. | |
+| Rule ID | Data Attribute                                      | Mandatory/ Optional | Regulatory Reference                                        |
+|---------|-----------------------------------------------------|---------------------|-------------------------------------------------------------|
+| 6.11.1  | Description  | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.2  | Label        | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 | 
+| 6.11.3  | Type Unit    | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | 
+| 6.11.4  | Data Type    | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.5  | Data         | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | 
+| 6.11.6  | Children     | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | 
 
 
 
