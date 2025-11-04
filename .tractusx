@@ -10,16 +10,11 @@ skipReleaseChecks:
   legalNoticesNonCode:
     # Exclude gitignore items
     - "build/"
-    # Exclude documentation
-    - "documentation/"
     # Exclude aligned items
     - "CONTRIBUTING.md"
     - "blog/"
     - "blog-changelog/"
     - "blog-meeting-minutes/"
-    # Exclude the communities
-    - "community/sigs/"
-    - "community/"
     # Exclude the following docs
     - "docs/release/"
     - "docs/oss/"

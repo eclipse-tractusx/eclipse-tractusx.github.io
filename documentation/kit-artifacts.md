@@ -208,3 +208,11 @@ Deliverables:
 
 The architecture view is an optional chapter. It offers an architecture perspective including the main building blocks and the runtime view. It can be extended with more architecture documentation like an ARC42.
 [`Example for an Architecture View:`](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#scope-and-context).
+
+## NOTICE
+
+This work is licensed under the CC-BY-4.0
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation/kit-artifacts.md

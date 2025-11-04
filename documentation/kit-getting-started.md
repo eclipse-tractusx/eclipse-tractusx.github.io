@@ -19,3 +19,11 @@ Prerequisites: [Tractus-X getting started](https://eclipse-tractusx.github.io/do
 
 - **TRG 9.02 KIT Maturity Levels** A KIT is always structured the same way and follows three graduation stages
 - **TRG 9.03 KIT Artifacts** Each of the artifacts in a KIT are explained with examples
+
+## NOTICE
+
+This work is licensed under the CC-BY-4.0
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation/kit-getting-started.md
