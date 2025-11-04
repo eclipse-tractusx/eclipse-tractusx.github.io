@@ -220,7 +220,7 @@ The relevant standards can be found in the [Catena-X Association Standard Librar
 | CX - 0128 | Demand and Capacity Management Data Exchange |
 | CX - 0145 | Days of Supply                               |
 
-## Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -238,3 +238,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-24.12/kits/supply-chain-disruption-notification-kit/adoption-view.md

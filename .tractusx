@@ -56,9 +56,9 @@ skipReleaseChecks:
     - "**/product-carbon-footprint-exchange-kit/"
     - "**/requirements-kit/"
     - "**/traceability-kit/"
-    - "**/supply-chain-disruption-notification-kit/"
     # Already included
     # - "**/puris-kit/"
+    # - "**/supply-chain-disruption-notification-kit/"
 
 
 openApiSpecs:

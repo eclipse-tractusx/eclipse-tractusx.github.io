@@ -23,7 +23,7 @@ From conceptual point of view the system consists of different building blocks. 
 ![System Architecture](../resources/PURIS-R2408-system-architecture-sketch.png)
 _Figure 2: Whitebox view on a PURIS system_
 
-## Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -45,3 +45,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH
 - SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/supply-chain-disruption-notification-kit/software-development-view/architecture.md
