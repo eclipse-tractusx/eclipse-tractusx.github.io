@@ -49,7 +49,7 @@ The main goal of this rulebook is twofold: it provides non-technical individuals
 
 ### 1.2 Target Audience
 
-This Rulebook is intended for professionals who are responsible for gathering, managing, or exchanging DPP data across the value chain (i.e., Data provider and data consumer) in Catena-X network : such as product managers, sustainability officers, and supply chain specialists. It is specifically crafted for users who may not have a deep technical or data modeling background but are tasked with utilizing the DPP data model. Technical details, schema structures, and integration specifics can be referenced in the data model, as needed. 
+This Rulebook is intended for professionals who are responsible for gathering, managing, or exchanging DPP data across the value chain (i.e., Data provider and data consumer) in Catena-X network : such as product managers, sustainability officers, and supply chain specialists. It is specifically crafted for users who may not have a deep technical or data modelling background but are tasked with utilizing the DPP data model. Technical details, schema structures, and integration specifics can be referenced in the data model, as needed. 
 
 ### 1.3 Scope and Applicability
 
@@ -62,7 +62,7 @@ This rulebook refers to and is based on the Generic DPP Data Model, released in 
 The Rulebook is organized to provide:
 - Definitions and clarifications of key terms and concepts,
 - General principles for handling and entering DPP data,
-- Guidance and refernce to standards to help with Data Validation
+- Guidance and reference to standards to help with Data Validation
   
 The following sections present clear, actionable guidance and aggregate collective experience from multiple companies to help understand the data model.
 
@@ -74,7 +74,7 @@ Some data points are grouped and there is a choice, if these data points are app
 
 ## 2. The Value of Validated Data
 
-Data trust is the cornerstone of effective collaboration within the automotive sector. It ensures that every piece of information exchanged is genuine, complete, and accurate, thus eliminating ambiguity and reducing the risk of misinformation. Trustworthy data empowers stakeholders; including manufacturers, suppliers, consumers, and regulators to make informed decisions, thereby enhancing operational efficiency and compliance across the supply chain.
+Data trust is the cornerstone of effective collaboration within the automotive sector. It ensures that every piece of information exchanged is genuine, complete, and accurate, thus eliminating ambiguity and reducing the risk of misinformation. Trustworthy data empowers stakeholders, including manufacturers, suppliers, consumers, and regulators to make informed decisions, thereby enhancing operational efficiency and compliance across the supply chain.
 
 The business value of validated data is substantial and multifaceted. Reliable data enhances decision-making, reduces operational risks, and elevates the credibility of companies within the industry. Validated data through DPPs enables:
 
@@ -125,7 +125,7 @@ In the context of Together for Sustainability (TfS), "verification" refers to th
 > The process of independently assessing whether reported PCF **data is accurate, complete, and conforms to a defined methodology** or standard. 
 Based on the definition provided above, a simplified interpretation would be: "Determining whether the data has been calculated in accordance with established guidelines and standards."
 >##### Validation:
-> The process of confirming that the **methodology, assumptions, and data used** to estimate future or modeled PCFs are appropriate and reasonable.
+> The process of confirming that the **methodology, assumptions, and data used** to estimate future or modelled PCFs are appropriate and reasonable.
 In simpler terms, this can be understood as evaluating whether the data appears logical and internally consistent in terms of its content.<br><br>
 This interpretation is consistent with the definitions found on Wikipedia and also closely reflects our own understanding of the terms "verification" and "validation."
 
@@ -139,7 +139,7 @@ This interpretation is consistent with the definitions found on Wikipedia and al
 >- "Validation" means the process of verifying and confirming that data in electronic form are valid in accordance with this Regulation. (Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC)
 
 #### Conclusion:
-After thorough reserach of these standards and guidelines, the Data Trust team drew two conclusions:
+After thorough research of these standards and guidelines, the Data Trust team drew two conclusions:
 - Verification refers to the process of assessing whether the submitted **data has been calculated in accordance with relevant guidelines and standards**. Validation, on the other hand, involves conducting plausibility checks to determine **whether the data is reasonable**, coherent, and suitable for exchange within supply chains
 - Given the varying definitions of "verification" and "validation" across different platforms and use cases, achieving consensus on a single, universally applicable definition—particularly between contexts such as Digital Product Passports (DPPs) and Product Carbon Footprints (PCFs) has proven challenging. This is especially true considering the differing levels of maturity between these use cases.
 
@@ -160,7 +160,7 @@ For further details on "Roles & responsibilities please read the [DIN EN 18239:2
 
 ## 4. Placement of DPP Rulebook within the Data Trust & Security KIT
 
-As outlined in Section 3.2.4, the terms “Verification” and “Validation” are interpreted differently in differnet standards and guidelines, and harmonizing these definitions exceeds the scope of this working group. Hence, to avoid potential confusion associated with the terms "verification" and "validation,"  we have introduced a new term: “DPP Rulebook”. The Rulebook establishes a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through DPPs. 
+As outlined in Section 3.2.4, the terms “Verification” and “Validation” are interpreted differently in different standards and guidelines, and harmonizing these definitions exceeds the scope of this working group. Hence, to avoid potential confusion associated with the terms "verification" and "validation,"  we have introduced a new term: “DPP Rulebook”. The Rulebook establishes a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through DPPs. 
 The Rulebook is a subset of the broader Data Trust and Security Kit, which is organized into three distinct pillars. Within this framework, the Rulebook represents the third layer, focusing on Data Content, as illustrated in the referenced diagram.
 
 <img width="377" height="169" alt="image" src="https://github.com/user-attachments/assets/41aa555a-793b-4597-9ad7-e28e3f219834" />
@@ -241,7 +241,7 @@ Metadata encompasses the fundamental details of the digital product passport.
 
 Unique identifier of the product passport.
 
-> **Content Validation**<br>Must contain an unique identifier according to [RFC 4122: A Universally Unique IDentifier (UUID) URN Namespace](https://dl.acm.org/doi/book/10.17487/RFC4122)
+> **Content Validation**<br>Must contain an unique identifier according to [RFC 4122: A Universally Unique Identifier (UUID) URN Namespace](https://dl.acm.org/doi/book/10.17487/RFC4122)
 
 #### 6.1.2 Version
 
@@ -612,7 +612,7 @@ Name of the spare part as assigned by the manufacturer.
 The "Characteristics" category refers to a set of descriptive attributes that define the physical, functional, and environmental properties of a product. These characteristics are essential for assessing a product’s sustainability performance and are typically included in the Digital Product Passport (DPP).
  
 Key elements under this category may include:
-<br>1- Physical attributes: Size, weight, dimensions, color, and material composition.
+<br>1- Physical attributes: Size, weight, dimensions, colour, and material composition.
 <br>2- Functional properties: Intended use, performance capabilities, and compatibility.
 <br>3- Lifecycle information: Expected lifespan, maintenance needs, and end-of-life options.
  
@@ -783,7 +783,7 @@ The physical state of a product refers to the form in which raw materials, inter
 
 Characterizes product performance in a graded class system, promoting consumer decision-making based on efficiency.
 
-> **Content Validation**<br>Perforance class must be defined in compliance to [ESPR, Article 7](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746) when made available by EU. Performance classes have been established for certain sectors, such as automotive batteries; however, they have not yet been defined for sectors like chemical. Therefore, it is recommended to assess the relevance of performance classes in the context of your specific sector and use case.
+> **Content Validation**<br>Performance class must be defined in compliance to [ESPR, Article 7](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746) when made available by EU. Performance classes have been established for certain sectors, such as automotive batteries; however, they have not yet been defined for sectors like chemical. Therefore, it is recommended to assess the relevance of performance classes in the context of your specific sector and use case.
 
 #### 6.5.24 Other Characteristic Name
 
@@ -920,7 +920,7 @@ The maximum concentration of the substance of concern at the level of the produc
 
 #### 6.7.1.8 Location of Substances (Substances of Concern)
 
-The location of the substances of concern within the product <br> Further decsription: <br>This requires specifying the exact location of the substance of concern within the product—for example, whether it is contained in the packaging or integrated into the product itself
+The location of the substances of concern within the product <br> Further description: <br>This requires specifying the exact location of the substance of concern within the product—for example, whether it is contained in the packaging or integrated into the product itself
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
@@ -932,7 +932,7 @@ Exemptions to the substance of concern: An exemption to the substance of concern
 
 #### 6.7.1.10 Hazard Category (Substances of Concern)
 
-A hazard category is a classification level within a hazard class that indicates the severity or degree of risk associated with a chemical substance or mixture. It refers to the the division of criteria within each hazard class, specifying hazard severity. Lower category numbers typically represent higher hazard severity (e.g., Category 1 is more hazardous than Category 2)
+A hazard category is a classification level within a hazard class that indicates the severity or degree of risk associated with a chemical substance or mixture. It refers to the division of criteria within each hazard class, specifying hazard severity. Lower category numbers typically represent higher hazard severity (e.g., Category 1 is more hazardous than Category 2)
 
 > **Content Validation**<br>Valid hazard category statement required. Hazard category defined in compliance with the EU standard as outlined in [Article 2 of Regulation (EC) No 1272/2008](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
 
@@ -1430,7 +1430,7 @@ The durability score is a standardized indicator established under the Ecodesign
 | 4.1.2  | Handling |  Sources Contact    |  faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com        |
 | 4.1.3  |Handling  |   Sources Address  |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
 | 4.1.4  |  Handling|  	Manufacturer Part ID    |   123-0.740-3434-A       |
-| 4.1.5  | Handling |  Name at Manufacturer    |    Mirror left fro car XYZ      |
+| 4.1.5  | Handling |  Name at Manufacturer    |    Mirror left from car XYZ      |
 | 5.1  | Characteristics | 	Life Type     |    guaranteed lifetime      |
 | 5.2  |Characteristics  |  Life Value    |    36      |
 | 5.3  |Characteristics  |   	Life Unit   | unit:month         |
