@@ -15,7 +15,7 @@
 3.2 [Definition of Terms](#32-Definition-of-Terms)<br>
 3.3 [Key Stakeholders and their Roles](#33-Key-Stakeholders-and-their-Roles)<br>
 
-4. [Placement of DPP Rulebook within the Data Trust & Security KIT](#4-Placement-of-DPP-Rulebook-within-the-Data-Trust-Security-KIT)<br>
+4. [Placement of DPP Rulebook within the Data Trust & Security KIT](#4-Placement-of-DPP-Rulebook-within-the-Data-Trust-%26-Security-KIT)<br>
 
 5. [General Principles for Data Handling in the DPP Model](#5-General-Principles-for-Data-Handling-in-the-DPP-Model)<br>
 5.1 [Data Ownership and Responsibility](#51-Data-Ownership-and-Responsibility)<br>
