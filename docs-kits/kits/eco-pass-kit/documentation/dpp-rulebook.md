@@ -15,7 +15,7 @@
 3.2 [Definition of Terms](#32-Definition-of-Terms)<br>
 3.3 [Key Stakeholders and their Roles](#33-Key-Stakeholders-and-their-Roles)<br>
 
-4. [Placement of DPP Rulebook within the Data Trust & Security KIT](#4-placement-of-dpp-rulebook-within-the-data-trust-security-kit)<br>
+4. [Placement of DPP Rulebook within the Data Trust & Security KIT](#data-trust-kit)<br>
 
 5. [General Principles for Data Handling in the DPP Model](#5-General-Principles-for-Data-Handling-in-the-DPP-Model)<br>
 5.1 [Data Ownership and Responsibility](#51-Data-Ownership-and-Responsibility)<br>
@@ -158,7 +158,7 @@ A DPP system provides value across multiple parties throughout the supply chain.
 Having clear roles and responsibilities for each stakeholder helps promote accountability and streamlines the flow of data throughout the product life cycle.
 For further details on "Roles & responsibilities please read the [DIN EN 18239:2025-09 - Draft](https://www.dinmedia.de/en/draft-standard/din-en-18239/393949301)
 
-## 4. Placement of DPP Rulebook within the Data Trust & Security KIT
+## 4. Placement of DPP Rulebook within the Data Trust & Security KIT {#data-trust-kit}
 
 As outlined in Section 3.2.4, the terms “Verification” and “Validation” are interpreted differently in differnet standards and guidelines, and harmonizing these definitions exceeds the scope of this working group. Hence, to avoid potential confusion associated with the terms "verification" and "validation,"  we have introduced a new term: “DPP Rulebook”. The Rulebook establishes a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through DPPs. 
 The Rulebook is a subset of the broader Data Trust and Security Kit, which is organized into three distinct pillars. Within this framework, the Rulebook represents the third layer, focusing on Data Content, as illustrated in the referenced diagram.
