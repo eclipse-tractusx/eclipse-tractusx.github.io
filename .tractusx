@@ -5,6 +5,61 @@ repositories:
 - name: "eclipse-tractusx.github.io"
   usage: "Eclipse-tractusx website repository"
   url: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io"
+
+skipReleaseChecks:
+  legalNoticesNonCode:
+    # Exclude gitignore items
+    - "build/"
+    # Exclude documentation
+    - "documentation/"
+    # Exclude aligned items
+    - "CONTRIBUTING.md"
+    - "blog/"
+    - "blog-changelog/"
+    - "blog-meeting-minutes/"
+    # Exclude the communities
+    - "community/sigs/"
+    - "community/"
+    # Exclude the following docs
+    - "docs/release/"
+    - "docs/oss/"
+    - "docs/website-guidelines/"
+    - "docs/tutorials/"
+    - "docs/dev_faq.md"
+    - "docs/dev_links.md"
+    - "docs/developer.md"
+    - "docs/getting-started.md"
+    - "docs/release.md"
+    - "docs/tutorials.md"
+    # Exclude the following KITs from current, and old versions
+    - "frontend/src/assets/User_Guide.md"
+    - "**/behaviour-twin-kit/"
+    - "**/business-partner-kit/"
+    - "**/circularity-kit/"
+    - "**/connector-kit/"
+    - "**/customs-kit/"
+    - "**/data-chain-kit/"
+    - "**/data-driven-quality-management-kit/"
+    - "**/data-governance-kit/"
+    - "**/data-trust-and-security-kit/"
+    - "**/demand-and-capacity-management-kit/"
+    - "**/digital-twin-kit/"
+    - "**/eco-pass-kit/"
+    - "**/environmental-and-social-standards-kit/"
+    - "**/industry-core-kit/"
+    - "**/knowledge-agents-kit/"
+    - "**/logistics-kit/"
+    - "**/manufacturing-as-a-service-kit/"
+    - "**/model-based-development-and-data-processing-kit/"
+    - "**/modular-production-kit/"
+    - "**/online-simulation-kit/"
+    - "**/product-carbon-footprint-exchange-kit/"
+    - "**/requirements-kit/"
+    - "**/traceability-kit/"
+    - "**/puris-kit/"
+    - "**/supply-chain-disruption-notification-kit/"
+
+
 openApiSpecs:
 
 # Agents KIT
