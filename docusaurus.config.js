@@ -253,7 +253,7 @@ const config = {
       },
       announcementBar: {
         id: `announcementBar-v25.09`,
-        content: `🎉️ <b><a href="/blog-changelog/release-25-09">Eclipse Tractus-X 25.09</a> is out!</b> 🥳️`,
+        content: `🎉️ New <b><a href="/docs/oss/release-process">Eclipse Tractus-X Release Documentation</a></b> and new <b><a href="/community/open-meetings">Open Meetings Calendar</a></b> 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',
