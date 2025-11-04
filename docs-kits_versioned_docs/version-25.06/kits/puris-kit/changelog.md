@@ -69,3 +69,15 @@ All notable changes to this KIT will be documented in this file.
 ### Removed
 
 - ./.
+
+## NOTICE
+
+This work is licensed under the CC-BY-4.0
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer ISST)
+- SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
+- SPDX-FileCopyrightText: 2024 ISTOS GmbH (a member of the DMG Mori Group)
+- SPDX-FileCopyrightText: 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-25.06/kits/puris-kit/changelog.md
