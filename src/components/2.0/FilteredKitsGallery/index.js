@@ -67,7 +67,7 @@ export default function FilteredKitsGallery({
           style={{ '--category-gradient': categoryData.gradient }}
         ></div>
         
-        <Link to="/kits" className={styles.back_button}>
+        <Link to="/kits#architecture" className={styles.back_button}>
           <ArrowBackIcon className={styles.back_icon} />
           <span>Back to All KITs</span>
         </Link>
