@@ -27,7 +27,7 @@ const KitsGrid = ({ title, kits }) => {
       {title && <h3 className={styles.sectionTitle}>{title}</h3>}
       <div className={styles.grid}>
         {kits.length === 0 ? (
-          <p className={styles.noMatch}>No kits found for this dataspace</p>
+          <p className={styles.noMatch}>No kits found for this scope</p>
         ) : (
           kits.map((kit) => (
             <KitCard key={kit.id} kit={kit} />

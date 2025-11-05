@@ -28,7 +28,7 @@ import {
   Add as ContributeIcon,
   Analytics as StatisticsIcon,
 } from '@mui/icons-material';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 
 const KitStatistics = ({ kitsData }) => {
   const statistics = useMemo(() => {
