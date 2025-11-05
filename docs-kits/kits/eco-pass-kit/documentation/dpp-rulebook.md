@@ -1095,20 +1095,15 @@ The name of the material which is present in the product.
 | 6.8.30    | Durability Score                                    | Mandatory           | ESPR provisional agreement from January 9th, 2024 Article 7 |
 | 6.8.31    | Reuse Info                                          | *To be covered in next version* | | | | |
 | 6.8.32    | Reuse System Identification                         | *To be covered in next version* | | | | |
-| 6.8.33    | Symbol of Deposit and Return System                 | *To be covered in next version* | | | | |
-| 6.8.34    | Rotation Estimation Key                             | *To be covered in next version* | | | | |
-| 6.8.35    | Rotation Estimation Value                           | *To be covered in next version* | | | | |
-| 6.8.36    | Rotation Calculation Key                            | *To be covered in next version* | | | | |
-| 6.8.37    | Rotation Calculation Value                          | *To be covered in next version* | | | | |
-| 6.8.38    | Trip Estimation Key                                 | *To be covered in next version* | | | | |
-| 6.8.39    | Trip Estimation Value                               | *To be covered in next version* | | | | |
-| 6.8.40    | Trip Calculation Key                                | *To be covered in next version* | | | | |
-| 6.8.41    | Trip Calculation Value                              | *To be covered in next version* | | | | |
-| 6.8.42    | Facilitates Tracking Reusable Product Address ID    | *To be covered in next version* | | | | |
-| 6.8.43    | Facilitates Tracking Reusable Product Address       | *To be covered in next version* | | | | |
-| 6.8.44    | Collection Points Reusable Product ID               | *To be covered in next version* | | | | |
-| 6.8.45    | Collection Points Reusable Product Address          | *To be covered in next version* | | | | |
-| 6.8.46    | Recyclability Performance Grade                     | *To be covered in next version* | | | | |
+| 6.8.33    | Rotation Calculation Key                            | *To be covered in next version* | | | | |
+| 6.8.34    | Rotation Calculation Value                          | *To be covered in next version* | | | | |
+| 6.8.35    | Trip Calculation Key                                | *To be covered in next version* | | | | |
+| 6.8.36    | Trip Calculation Value                              | *To be covered in next version* | | | | |
+| 6.8.37    | Facilitates Tracking Reusable Product Address ID    | *To be covered in next version* | | | | |
+| 6.8.38    | Facilitates Tracking Reusable Product Address       | *To be covered in next version* | | | | |
+| 6.8.39    | Collection Points Reusable Product ID               | *To be covered in next version* | | | | |
+| 6.8.40    | Collection Points Reusable Product Address          | *To be covered in next version* | | | | |
+| 6.8.41    | Recyclability Performance Grade                     | *To be covered in next version* | | | | |
 
 
 #### 6.8.1 State
@@ -1288,59 +1283,39 @@ The durability score is a standardized indicator established under the Ecodesign
 
 *To be covered in next version*
 
-#### 6.8.33 Symbol of Deposit and Return System
+#### 6.8.33 Rotation Calculation Key 
 
 *To be covered in next version*
 
-#### 6.8.34 Rotation Estimation Key
+#### 6.8.34 Rotation Calculation Value
 
 *To be covered in next version*
 
-#### 6.8.35 Rotation Estimation Value
+#### 6.8.35 Trip Calculation Key
 
 *To be covered in next version*
 
-#### 6.8.36 Rotation Calculation Key 
+#### 6.8.36 Trip Calculation Value
 
 *To be covered in next version*
 
-#### 6.8.37 Rotation Calculation Value
+#### 6.8.37 Facilitates Tracking Reusable Product Address ID
 
 *To be covered in next version*
 
-#### 6.8.38 Trip Estimation Key 
+#### 6.8.38 Facilitates Tracking Reusable Product Address
 
 *To be covered in next version*
 
-#### 6.8.39 Trip Estimation Value
+#### 6.8.39 Collection Points Reusable Product ID 
 
 *To be covered in next version*
 
-#### 6.8.40 Trip Calculation Key
+#### 6.8.40 Collection Points Reusable Product Address 
 
 *To be covered in next version*
 
-#### 6.8.41 Trip Calculation Value
-
-*To be covered in next version*
-
-#### 6.8.42 Facilitates Tracking Reusable Product Address ID
-
-*To be covered in next version*
-
-#### 6.8.43 Facilitates Tracking Reusable Product Address
-
-*To be covered in next version*
-
-#### 6.8.44 Collection Points Reusable Product ID 
-
-*To be covered in next version*
-
-#### 6.8.45 Collection Points Reusable Product Address 
-
-*To be covered in next version*
-
-#### 6.8.46 Recyclability Performance Grade 
+#### 6.8.41 Recyclability Performance Grade 
 
 *To be covered in next version*
 ### 6.9 Compliance
@@ -1534,20 +1509,15 @@ The durability score is a standardized indicator established under the Ecodesign
 | 8.30  | Sustainability |  	Durability Score    |          A |
 | 8.31  | Sustainability |   Reuse Info   |   Product can be extracted from obsolete machinery and use in wind turbines or other renewable energy systems, contributing to sustainable energy solutions. Product can serve as components in DIY projects.       |
 | 8.32  | Sustainability |  Reuse System Identification    |     XXX     |
-| 8.33  | Sustainability | 	Symbol of Deposit and Return System     |          |
-| 8.34  | Sustainability |  Rotation Estimation Key    | cycles calculated         |
-| 8.35  | Sustainability |   Rotation Estimation Value   |  100 | 
-| 8.36  | Sustainability |  Rotation Calculation Key    |          |
-| 8.37  | Sustainability |   Rotation Calculation Value   |          |
-| 8.38  | Sustainability |  Trip Estimation Key    |     trips calculated     |
-| 8.39  | Sustainability | 	Trip Estimation Value     |   100        |
-| 8.40  | Sustainability |  Trip Calculation Key    |          |
-| 8.41  | Sustainability | Trip Calculation Value     |          |
-| 8.42  | Sustainability | 	Facilitates Tracking Reusable Product Address ID     |   BPNA1234567890AA             |
-| 8.43  | Sustainability | Facilitates Tracking Reusable Product Address     |   BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
-| 8.44  | Sustainability |  Collection Points Reusable Product ID    |        |
-| 8.45  | Sustainability |   Collection Points Reusable Product Address   |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45          |
-| 8.46  | Sustainability |  	Recyclability Performance Grade    |     C     |
+| 8.33  | Sustainability |  Rotation Calculation Key    |   cycles calculated        |
+| 8.34  | Sustainability |   Rotation Calculation Value   |     100      |
+| 8.35  | Sustainability |  Trip Calculation Key    |    trips calculated       |
+| 8.36  | Sustainability | Trip Calculation Value     |     100        |
+| 8.37  | Sustainability | 	Facilitates Tracking Reusable Product Address ID     |   BPNA1234567890AA             |
+| 8.38  | Sustainability | Facilitates Tracking Reusable Product Address     |   BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
+| 8.39  | Sustainability |  Collection Points Reusable Product ID    |        |
+| 8.40  | Sustainability |   Collection Points Reusable Product Address   |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45          |
+| 8.41  | Sustainability |  	Recyclability Performance Grade    |     C     |
 | 9.1  | Compliance |   Compliance Country   |     UK     |
 | 9.2 | Compliance |  Compliance Regulation Name    |  REACH regulation        |
 | 9.3  |Compliance  |  Compliance Statement    |   Hereby we declare under our sole responsibility that the product:XXX is in conformity with the provisions of the EU directives and regulations.       |
