@@ -1,6 +1,5 @@
 /* FilteredKitsGallery Styles */
 .filtered_gallery {
-  padding: 2rem 0;
   min-height: 60vh;
 }
 
@@ -105,9 +104,9 @@
 }
 
 .category_icon_container {
-  width: 120px;
-  height: 120px;
-  border-radius: 30px;
+  width: 200px !important; /* Much bigger to ensure it works */
+  height: 200px !important; /* Much bigger to ensure it works */
+  border-radius: 50px; /* Increased proportionally */
   background: var(--category-gradient);
   display: flex;
   align-items: center;
@@ -119,14 +118,14 @@
     content: '';
     position: absolute;
     inset: 2px;
-    border-radius: 28px;
+    border-radius: 48px; /* Adjusted proportionally */
     background: var(--category-gradient);
     opacity: 0.1;
   }
 }
 
 .category_icon {
-  font-size: 3rem;
+  font-size: 5rem !important; /* Much bigger to ensure it works */
   color: white;
   z-index: 1;
 }
@@ -330,6 +329,14 @@
   padding: 0 2rem;
 }
 
+/* Kits grid wrapper used by filtered views to center the expanded grid */
+.kits_grid {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: block; /* keep semantics simple, grid lives in the inner component */
+}
+
 /* No KITs State */
 .no_kits {
   text-align: center;
@@ -396,17 +403,17 @@
   }
   
   .category_icon_container {
-    width: 100px;
-    height: 100px;
-    border-radius: 25px;
+    width: 160px !important; /* Bigger for mobile too */
+    height: 160px !important; /* Bigger for mobile too */
+    border-radius: 40px; /* Increased proportionally */
     
     &:before {
-      border-radius: 23px;
+      border-radius: 38px; /* Adjusted proportionally */
     }
   }
   
   .category_icon {
-    font-size: 2.5rem;
+    font-size: 4rem !important; /* Bigger for mobile too */
   }
   
   .category_title {

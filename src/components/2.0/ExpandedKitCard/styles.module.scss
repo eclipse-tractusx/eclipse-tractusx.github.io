@@ -1,0 +1,426 @@
+/*********************************************************************************
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+// Wrapper for the entire expanded card - flexible within grid constraints
+.expandedKitCardWrapper {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  max-width: 100%; /* Use full grid cell width */
+  margin-bottom: 0; /* Grid gap handles spacing */
+  justify-self: center; /* Center the card within its grid cell */
+}
+
+// Container for the 3D stack effect
+// Container for the 3D stack effect - portrait format with larger content area
+.expandedKitCard__stackContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4; // Portrait format - height bigger than width
+  min-height: 320px; /* Increased for larger content area */
+
+  // CSS Custom Properties for dynamic gradient
+  --kit-gradient: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+
+  // Data attribute for hover state management
+  &[data-hovered="true"] {
+    .expandedKitCard {
+      background: var(--kit-gradient);
+      box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        -8px -8px 24px rgba(0, 0, 0, 0.15);
+      border: none!important;
+    }
+
+    .expandedKitCard__gradientBorder {
+      opacity: 0;
+    }
+
+    .expandedKitCard__layer2 {
+      opacity: 0.7;
+      transform: translateX(8px) translateY(-4px);
+      background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.05)), var(--kit-gradient);
+    }
+
+    .expandedKitCard__layer3 {
+      opacity: 0.5;
+      transform: translateX(16px) translateY(-8px);
+      background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1)), var(--kit-gradient);
+    }
+
+    .expandedKitCard__title {
+      color: white;
+    }
+
+    .expandedKitCard__description {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .expandedKitCard__icon {
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+    }
+
+    .expandedKitCard::before {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    // Hover effects for maturity chips - improved visibility on gradient backgrounds
+    .chip {
+      font-weight: 600;
+      
+      // First chip (maturity level) - white background
+      &.chip--graduated,
+      &.chip--incubating,
+      &.chip--sandbox {
+        background: rgba(255, 255, 255, 0.95) !important;
+        color: #1a1a1a !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+      
+      // Second chip (graduation status) - no background, just text and border
+      &.chip--draft,
+      &.chip--inProgress,
+      &.chip--inReview {
+        background: transparent !important;
+        color: rgba(255, 255, 255, 0.95) !important;
+        border: 1px solid rgba(255, 255, 255, 0.7) !important;
+      }
+    }
+  }
+}
+
+// Gradient border layer (acts as border when not hovering)
+.expandedKitCard__gradientBorder {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 18px;
+  background: var(--kit-gradient);
+  transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 0; // Behind everything else
+  opacity: 1;
+}
+
+// Third layer (furthest back)
+.expandedKitCard__layer3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: rgba(42, 42, 42, 0.3);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+  opacity: 0;
+}
+
+// Second layer (middle)
+.expandedKitCard__layer2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: rgba(42, 42, 42, 0.2);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 2;
+  opacity: 0;
+}
+
+// Main card (front layer)
+// Main card (front layer) - larger content area like reference
+.expandedKitCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 2rem 1.5rem; /* Increased padding for larger content area */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push description and badges to bottom */
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 3;// Header section with icon and title (removed since icon is now separate)
+}
+
+.expandedKitCard__header {
+  display: flex;
+  /* place the icon at the top of the component (title flows to the right) */
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+// Fixed icon section at top - takes up more space now
+.expandedKitCard__iconSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1; /* Take up available space, pushing content to bottom */
+  margin-bottom: 1rem;
+}
+
+// Kit icon - uses variable dimensions from kit data
+.expandedKitCard__icon {
+  object-fit: contain;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  width: var(--logo-width, 80px) !important;
+  height: var(--logo-height, 80px) !important;
+  max-width: var(--logo-width, 80px) !important;
+  max-height: var(--logo-height, 80px) !important;
+}
+
+// Card title - designed to properly accommodate two lines
+.expandedKitCard__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.25; /* Optimized for two-line titles */
+  color: #e0e0e0;
+  margin: 0 0 0.75rem 0;
+  transition: color 0.3s ease;
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  overflow: hidden;
+  /* Exactly two lines: 2 * 1.25 line-height * 1.1rem font-size = 2.75rem */
+  max-height: 2.75rem;
+  min-height: 2.75rem; /* Reserve space for two lines even if title is shorter */
+}
+
+// Content area - contains title, description and badges at bottom
+.expandedKitCard__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align content to bottom */
+  flex-shrink: 0; /* Don't shrink, maintain size */
+  max-height: 50%; /* Limit content area to half the card to prevent overflow */
+  overflow: hidden; /* Hide any content that still overflows */
+}
+
+// Description text - positioned at bottom above badges
+.expandedKitCard__description {
+  font-size: 0.85rem; /* Slightly smaller to fit better */
+  line-height: 1.4; /* Tighter line spacing */
+  color: #b0b0b0;
+  margin: 0 0 0.75rem 0; /* Reduced margin to save space */
+  transition: color 0.3s ease;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  /* Limit height to approximately 3 lines for better space management */
+  max-height: 3.57rem; /* 3 lines * 1.4 line-height * 0.85rem font-size */
+}
+
+// Maturity section - positioned at very bottom
+.expandedKitCard__maturity {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0; /* No extra margin, let parent spacing handle it */
+}
+
+// Chips styling (reused from KitCard)
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+}
+
+// Maturity level chips
+.chip--graduated {
+  background: rgba(46, 160, 67, 0.15);
+  color: #2ea043;
+  border: 1px solid rgba(46, 160, 67, 0.3);
+}
+
+.chip--incubating {
+  background: rgba(250, 160, 35, 0.15);
+  color: #faa023;
+  border: 1px solid rgba(250, 160, 35, 0.3);
+}
+
+.chip--sandbox {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+// Graduation status chips
+.chip--draft {
+  background: rgba(107, 114, 126, 0.15);
+  color: #6b727e;
+  border: 1px solid rgba(107, 114, 126, 0.3);
+}
+
+.chip--inProgress {
+  background: rgba(34, 139, 230, 0.15);
+  color: #228be6;
+  border: 1px solid rgba(34, 139, 230, 0.3);
+}
+
+.chip--inReview {
+  background: rgba(174, 62, 201, 0.15);
+  color: #ae3ec9;
+  border: 1px solid rgba(174, 62, 201, 0.3);
+}
+
+// Responsive design - Enhanced for better mobile experience
+@media (max-width: 1200px) {
+  // Slightly reduce logo size for medium screens
+  .expandedKitCard__icon {
+    width: calc(var(--logo-width, 80px) * 1.1) !important; /* 10% bigger instead of 25% */
+    height: calc(var(--logo-height, 80px) * 1.1) !important;
+    max-width: calc(var(--logo-width, 80px) * 1.1) !important;
+    max-height: calc(var(--logo-height, 80px) * 1.1) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .expandedKitCardWrapper {
+    max-width: 100%;
+  }
+
+  .expandedKitCard {
+    padding: 1.25rem;
+    min-height: 280px; /* Increased for better content space */
+  }
+
+  .expandedKitCard__iconSection {
+    margin-bottom: 0.75rem; /* Reduce space between icon and content */
+  }
+
+  // Smaller logos on tablets
+  .expandedKitCard__icon {
+    width: var(--logo-width, 80px) !important; /* Original size on tablets */
+    height: var(--logo-height, 80px) !important;
+    max-width: var(--logo-width, 80px) !important;
+    max-height: var(--logo-height, 80px) !important;
+  }
+
+  .expandedKitCard__title {
+    font-size: 1rem; /* Smaller title for better fit */
+    line-height: 1.3;
+    min-height: 2.6rem; /* Adjust for smaller font */
+    max-height: 2.6rem;
+  }
+
+  .expandedKitCard__description {
+    font-size: 0.8rem; /* Smaller description */
+    line-height: 1.4;
+    max-height: 4.2rem; /* Allow for more lines: 3.75 lines */
+  }
+
+  .expandedKitCard__content {
+    max-height: 60%; /* More content space on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .expandedKitCard {
+    padding: 1rem;
+    min-height: 260px;
+  }
+
+  // Even smaller logos on small tablets
+  .expandedKitCard__icon {
+    width: calc(var(--logo-width, 80px) * 0.9) !important; /* 10% smaller */
+    height: calc(var(--logo-height, 80px) * 0.9) !important;
+    max-width: calc(var(--logo-width, 80px) * 0.9) !important;
+    max-height: calc(var(--logo-height, 80px) * 0.9) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .expandedKitCard {
+    padding: 1rem;
+    min-height: 280px; /* More height for single column */
+  }
+
+  .expandedKitCard__iconSection {
+    margin-bottom: 0.5rem; /* Tighter spacing on mobile */
+  }
+
+  // Smaller logos on mobile
+  .expandedKitCard__icon {
+    width: calc(var(--logo-width, 80px) * 0.8) !important; /* 20% smaller */
+    height: calc(var(--logo-height, 80px) * 0.8) !important;
+    max-width: calc(var(--logo-width, 80px) * 0.8) !important;
+    max-height: calc(var(--logo-height, 80px) * 0.8) !important;
+  }
+
+  .expandedKitCard__title {
+    font-size: 0.95rem; /* Even smaller on mobile */
+    line-height: 1.3;
+    min-height: 2.47rem; /* Adjust for font size */
+    max-height: 2.47rem;
+    margin-bottom: 0.5rem; /* Tighter spacing */
+  }
+
+  .expandedKitCard__description {
+    font-size: 0.75rem; /* Smaller but still readable */
+    line-height: 1.4;
+    max-height: 4.2rem; /* Keep same line count */
+    margin-bottom: 0.5rem; /* Tighter spacing */
+  }
+
+  .expandedKitCard__content {
+    max-height: 65%; /* More content space on mobile */
+  }
+
+  // Smaller chips on mobile
+  .chip {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+// Animation for smooth entrance
+@keyframes expandedCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.expandedKitCardWrapper {
+  animation: expandedCardFadeIn 0.4s ease-out;
+}

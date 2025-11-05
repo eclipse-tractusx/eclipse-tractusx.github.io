@@ -904,6 +904,37 @@
     width: 120px;
     height: 140px;
     
+    // Create zigzag effect - odd hexagons (1st, 3rd, 5th) go left, even hexagons (2nd, 4th, 6th) go right
+    &:nth-child(odd) {
+      transform: translateX(-25px); /* Move odd hexagons left */
+    }
+    
+    &:nth-child(even) {
+      transform: translateX(25px); /* Move even hexagons right */
+    }
+    
+    // Maintain hover effects with the offset
+    &:hover {
+      &:nth-child(odd) {
+        transform: translateX(-25px) translateY(-3px) scale(1.02);
+      }
+      
+      &:nth-child(even) {
+        transform: translateX(25px) translateY(-3px) scale(1.02);
+      }
+    }
+    
+    // Active effects with the offset
+    &:active {
+      &:nth-child(odd) {
+        transform: translateX(-25px) translateY(-1px) scale(0.98);
+      }
+      
+      &:nth-child(even) {
+        transform: translateX(25px) translateY(-1px) scale(0.98);
+      }
+    }
+    
     &::before {
       width: 140px;
       height: 130px;
@@ -924,13 +955,13 @@
   }
   
   .hexagon_content svg, .hexagon_content img {
-    width: 48px;
-    height: 48px;
+    width: 40px; /* Better size for mobile */
+    height: 40px;
   }
   
   .hexagon_catena_x .hexagon_content img {
-    width: 34px !important;
-    height: 34px !important;
+    width: 48px !important; /* Better proportional size */
+    height: 48px !important;
   }
   
   .rectangle {
@@ -1030,13 +1061,13 @@
   }
   
   .hexagon_content svg, .hexagon_content img {
-    width: 42px;
-    height: 42px;
+    width: 35px; /* Reasonable size for very small screens */
+    height: 35px;
   }
   
   .hexagon_catena_x .hexagon_content img {
-    width: 30px !important;
-    height: 30px !important;
+    width: 35px !important; /* Better proportional size */
+    height: 35px !important;
   }
   
   .rectangle {

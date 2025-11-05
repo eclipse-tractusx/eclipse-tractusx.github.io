@@ -30,7 +30,7 @@ export default function IndustryCoreKitsPage() {
   
   const categoryData = {
     title: 'Industry Core Foundation',
-    description: 'Explore Industry Core Foundation KITs that provide essential capabilities and building blocks for industry-specific implementations.',
+    description: 'Explore the Industry Core Foundation KITs, where you can build the foundation for the use cases of tomorrow.',
     icon: IndustryCoreIcon,
     gradient: 'linear-gradient(135deg, #0070C0, #002060)'
   };
@@ -38,7 +38,7 @@ export default function IndustryCoreKitsPage() {
   return (
     <Layout
       title={`Industry Core Foundation | Eclipse Tractus-X KITs | ${siteConfig.title}`}
-      description="Explore Industry Core Foundation KITs that provide essential capabilities and building blocks for industry-specific implementations."
+      description="Explore the Industry Core Foundation KITs, where you can build the foundation for the use cases of tomorrow."
     >
       <FilteredKitsGallery
         categoryData={categoryData}

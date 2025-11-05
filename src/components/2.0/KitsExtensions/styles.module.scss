@@ -210,11 +210,11 @@
 
 .block_content {
   position: absolute;
-  top: 142px;
-  left: 142px;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 180px;
-  height: 180px;
+  width: 80%;
+  height: 80%;
   text-align: center;
   z-index: 5;
   color: white;

@@ -21,7 +21,7 @@ import React, { useState, useMemo } from 'react';
 import Link from '@docusaurus/Link';
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
 import styles from './styles.module.scss';
-import KitsGrid from '../KitsGrid';
+import ExpandedKitsGrid from '../ExpandedKitsGrid';
 
 export default function FilteredKitsGallery({ 
   categoryData,
@@ -159,29 +159,8 @@ export default function FilteredKitsGallery({
       </div>
 
       {/* KITs Grid */}
-      <div className={styles.grid_container}>
-        {filteredKits.length > 0 ? (
-          <KitsGrid kits={filteredKits} />
-        ) : (
-          <div className={styles.no_kits}>
-            <div className={styles.no_kits_icon}>📦</div>
-            <h3>No KITs found</h3>
-            <p>
-              {selectedDataspace === 'All Dataspaces' 
-                ? `No KITs are currently available in the ${categoryData.title.toLowerCase()} category.`
-                : `No KITs are available for ${selectedDataspace} in the ${categoryData.title.toLowerCase()} category.`
-              }
-            </p>
-            {selectedDataspace !== 'All Dataspaces' && (
-              <button 
-                className={styles.clear_filter}
-                onClick={() => setSelectedDataspace('All Dataspaces')}
-              >
-                Clear Filter
-              </button>
-            )}
-          </div>
-        )}
+      <div className={styles.kits_grid}>
+        <ExpandedKitsGrid kits={filteredKits} />
       </div>
     </div>
   );
