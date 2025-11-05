@@ -34,7 +34,7 @@ The following chapter illustrates the process from searching for an EDC point, t
 
 In order to receive the EDC endpoints for a requested partner, the EDC Discovery Service is used, following the [CX-0001](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI) EDC Discovery API standard. Therefore, at least the BPNL (Business Partner Number Legal) entity needs to be known. For more details please refer to the Catena-X standard above.
 
-![EDCDiscoveryAndDTRAccess](./resources/development-view/EDCDiscoveryanddDTRAccess.png)
+![EDCDiscoveryAndDTRAccess](./resources/development-view/EDCDiscoveryanddDTRAccess_v9.0.0.png)
 
 ### PCF Request
 
@@ -44,7 +44,7 @@ For **synchronous data exchange (data pull)** please find sequence diagram in PC
 
 After successfully locating the corresponding material twin containing a PCF submodel, the EDC asset containing the PCF request endpoint can be extracted (example payload can be found [here](#payload-for-edc-data-asset-pcf)) and the query for a PCF dataset can be initiated, as illustrated in the attached sequence diagram.
 
-![PCF Request](./resources/development-view/PCFRequestthroughAAS.png)
+![PCF Request](./resources/development-view/PCFRequestthroughAAS_v9.0.0.png)
 
 In case no matching material twin or PCF submodel exists, the flow falls back to a direct lookup of an EDC asset containing the PCF request endpoint provided within the offers of any EDC registered for the data provider's BPNL.
 
