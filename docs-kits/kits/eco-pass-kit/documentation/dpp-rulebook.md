@@ -1473,89 +1473,89 @@ The durability score is a standardized indicator established under the Ecodesign
 | 7.1.10  |Materials  | 	Hazard Category (Substances of Concern)     |   category 1A       |
 | 7.1.11  |Materials |  Hazard Class (Substances of Concern)    |     Skin corrosion     |
 | 7.1.12  | Materials | 	Hazard Statement (Substances of Concern)    |    Causes severe skin burns and eye damage.      |
-| 7.1.13  | Materials |  Documentation    |          |
-| 7.2  | Materials | Applicable (Material Composition)    |          |
-| 7.2.1  | Materials | Component Name     |          |
-| 7.2.2  |Materials  | Component Code     |          |
-| 7.2.3  | Materials |  Component Description    |          |
-| 7.2.4  |Materials  |  Component Location    |          |
-| 7.2.5  | Materials | Sorting Information     |          |
-| 7.2.6  | Materials | Component Passport Identifier     |          |
-| 7.2.7  | Materials |	Chemical ID (Material Composition)      |          |
-| 7.2.8  | Materials |  List Type ID (Material Composition)    |          |
-| 7.2.9  | Materials | Chemical Name (Material Composition)     |          |
-| 7.2.10  | Materials |  Material Type    |          |
-| 7.2.11  | Materials |  Material Origin    |          |
-| 7.2.12 | Materials | Material Passport Identifier     |          |
-| 7.2.13  | Materials |  Material Unit    |          |
-| 7.2.14  | Materials | Concentration     |          |
-| 7.2.15  | Materials |  Min Concentration    |          |
-| 7.2.16  |  Materials|  Max Concentration   |          |
-| 7.2.17  |  Materials|   Location   |          |
-| 7.2.18  |  Materials|   Recycled   |          |
-| 7.2.19  |  Materials|  Documentation    |          |
-| 7.3.1 | Materials | 	List Name (Declarable Ingredient List)     |          |
-| 7.3.2 | Materials |   Document ID (Declarable Ingredient List)   |          |
-| 7.3.3  | Materials |  Documentation (Declarable Ingredient List)    |          |
-| 8.1  |Sustainability  | State	     |          |
-| 8.2  |Sustainability  |value (product carbon footprint)      |          |
-| 8.3  |Sustainability  | 	footprintUnit(product carbon footprint)     |          |
-| 8.4  |Sustainability  |  footprintType(product carbon footprint)    |          |
-| 8.5  |Sustainability |   	footprintLifecycle(product carbon footprint)   |          |
-| 8.6  |Sustainability  |  	performanceClass(product carbon footprint)    |          |
-| 8.7  |Sustainability  |   facility(product carbon footprint)   |          |
-| 8.8  |Sustainability  |  	Facility Address    |          |
-| 8.9  | Sustainability |  Rulebook    |          |
-| 8.10  | Sustainability | Declaration     |          |
-| 8.11  |Sustainability  |  	value (product environmental footprint)    |          |
-| 8.12  |Sustainability  |  footprintUnit (product environmental footprint)    |          |
-| 8.13  |Sustainability  |  footprintType (product environmental footprint)    |          |
-| 8.14  | Sustainability |  footprintLifecycle (product environmental footprint)    |          |
-| 8.15  |Sustainability  | performanceClass (product environmental footprint)     |          |
-| 8.16  | Sustainability |  facility (product environmental footprint)    |          |
-| 8.17  | Sustainability | Facility Address     |          |
-| 8.18  |  Sustainability| Rulebook    |          |
-| 8.19  |Sustainability  | Declaration     |          |
-| 8.20  | Sustainability |  value (product material footprint)    |          |
-| 8.21  | Sustainability | footprintUnit (product material footprint)     |          |
-| 8.22  | Sustainability | 	footprintType (product material footprint)     |          |
-| 8.23  | Sustainability |  	footprintLifecycle (product material footprint)    |          |
-| 8.24  | Sustainability |  performanceClass (product material footprint)    |          |
-| 8.25  | Sustainability |  facility (product material footprint)    |          |
-| 8.26  | Sustainability |  Facility Address    |          |
-| 8.27  | Sustainability |  Rulebook    |          |
-| 8.28  | Sustainability |  Declaration    |          |
-| 8.29  | Sustainability |  	Reparability Score    |          |
-| 8.30  | Sustainability |  	Durability Score    |          |
-| 8.31  | Sustainability |   Reuse Info   |          |
-| 8.32  | Sustainability |  Reuse System Identification    |          |
+| 7.1.13  | Materials |  Documentation    |      https://dummy.link , URL, Example Document XYZ       |
+| 7.2  | Materials | Applicable (Material Composition)    |     true     |
+| 7.2.1  | Materials | Component Name     | Top lid         |
+| 7.2.2  |Materials  | Component Code     |   ABC123       |
+| 7.2.3  | Materials |  Component Description    |   Yellow bin        |
+| 7.2.4  |Materials  |  Component Location    |  The screw cap is located at the top of the container.        |
+| 7.2.5  | Materials | Sorting Information     |   Yellow waste bin is appropriate for discard this component. Group component by diameter for efficient storage. Rinse and remove food residues to ensure cleanliness.       |
+| 7.2.6  | Materials | Component Passport Identifier     |   urn:uuid:550e8400-e29b-41d4-a716-446655440000       |
+| 7.2.7  | Materials |	Chemical ID (Material Composition)      |    201-004-7      |
+| 7.2.8  | Materials |  List Type ID (Material Composition)    |       CAS       |
+| 7.2.9  | Materials | Chemical Name (Material Composition)     |     phenolphthalein      |
+| 7.2.10  | Materials |  Material Type    |    impurity      |
+| 7.2.11  | Materials |  Material Origin    |     CN     |
+| 7.2.12 | Materials | Material Passport Identifier     |    urn:uuid:550e8400-e29b-41d4-a716-446655440000      |
+| 7.2.13  | Materials |  Material Unit    |  kg        |
+| 7.2.14  | Materials | Concentration     |       2.6      |
+| 7.2.15  | Materials |  Min Concentration    |     2.1         |
+| 7.2.16  |  Materials|  Max Concentration   |       5.3       |
+| 7.2.17  |  Materials|   Location   |   handle       |
+| 7.2.18  |  Materials|   Recycled   |      12.5    |
+| 7.2.19  |  Materials|  Documentation    |     https://dummy.link , URL, Example Document XYZ        |
+| 7.3.1 | Materials | 	List Name (Declarable Ingredient List)     |      Critical Raw Materials    |
+| 7.3.2 | Materials |   Document ID (Declarable Ingredient List)   |     XXX     |
+| 7.3.3  | Materials |  Documentation (Declarable Ingredient List)    |     https://dummy.link , URL, Example Document XYZ    |
+| 8.1  |Sustainability  | State	     |   Original       |
+| 8.2  |Sustainability  |value (product carbon footprint)      |      12.678    |
+| 8.3  |Sustainability  | 	footprintUnit(product carbon footprint)     |   kg CO2 / kWh       |
+| 8.4  |Sustainability  |  footprintType(product carbon footprint)    |     Climate Change     |
+| 8.5  |Sustainability |   	footprintLifecycle(product carbon footprint)   |   main product production       |
+| 8.6  |Sustainability  |  	performanceClass(product carbon footprint)    |     A     |
+| 8.7  |Sustainability  |   facility(product carbon footprint)   |   BPNA1234567890AA       |
+| 8.8  |Sustainability  |  	Facility Address    |   BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45       |
+| 8.9  | Sustainability |  Rulebook    |      https://dummy.link , URL, Example Document XYZ      |
+| 8.10  | Sustainability | Declaration     |     https://dummy.link , URL, Example Document XYZ       |
+| 8.11  |Sustainability  |  	value (product environmental footprint)    |    12.678        |
+| 8.12  |Sustainability  |  footprintUnit (product environmental footprint)    |   kg CO2 / kWh         |
+| 8.13  |Sustainability  |  footprintType (product environmental footprint)    |      Climate Change (Could be any other environmental impact category, Cliamte change is just an example here)      |
+| 8.14  | Sustainability |  footprintLifecycle (product environmental footprint)    |  main product production         |
+| 8.15  |Sustainability  | performanceClass (product environmental footprint)     |     A     |
+| 8.16  | Sustainability |  facility (product environmental footprint)    |     BPNA1234567890AA       |
+| 8.17  | Sustainability | Facility Address     |   BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45         |
+| 8.18  |  Sustainability| Rulebook    |    https://dummy.link , URL, Example Document XYZ       |
+| 8.19  |Sustainability  | Declaration     |     https://dummy.link , URL, Example Document XYZ      |
+| 8.20  | Sustainability |  value (product material footprint)    |    12.678            |
+| 8.21  | Sustainability | footprintUnit (product material footprint)     |    kg CO2 / kWh        |
+| 8.22  | Sustainability | 	footprintType (product material footprint)     |    Climate Change (Could be any other environmental impact category, Cliamte change is just an example here)         |
+| 8.23  | Sustainability |  	footprintLifecycle (product material footprint)    |    main product production         |
+| 8.24  | Sustainability |  performanceClass (product material footprint)    |       A      |
+| 8.25  | Sustainability |  facility (product material footprint)    |      BPNA1234567890AA           |
+| 8.26  | Sustainability |  Facility Address    |     BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45      |
+| 8.27  | Sustainability |  Rulebook    |     https://dummy.link , URL, Example Document XYZ      |
+| 8.28  | Sustainability |  Declaration    |  https://dummy.link , URL, Example Document XYZ         |
+| 8.29  | Sustainability |  	Reparability Score    |       B   |
+| 8.30  | Sustainability |  	Durability Score    |          A |
+| 8.31  | Sustainability |   Reuse Info   |   Product can be extracted from obsolete machinery and use in wind turbines or other renewable energy systems, contributing to sustainable energy solutions. Product can serve as components in DIY projects.       |
+| 8.32  | Sustainability |  Reuse System Identification    |     XXX     |
 | 8.33  | Sustainability | 	Symbol of Deposit and Return System     |          |
-| 8.34  | Sustainability |  Rotation Estimation Key    |          |
-| 8.35  | Sustainability |   Rotation Estimation Value   |          |
+| 8.34  | Sustainability |  Rotation Estimation Key    | cycles calculated         |
+| 8.35  | Sustainability |   Rotation Estimation Value   |  100 | 
 | 8.36  | Sustainability |  Rotation Calculation Key    |          |
 | 8.37  | Sustainability |   Rotation Calculation Value   |          |
-| 8.38  | Sustainability |  Trip Estimation Key    |          |
-| 8.39  | Sustainability | 	Trip Estimation Value     |          |
+| 8.38  | Sustainability |  Trip Estimation Key    |     trips calculated     |
+| 8.39  | Sustainability | 	Trip Estimation Value     |   100        |
 | 8.40  | Sustainability |  Trip Calculation Key    |          |
 | 8.41  | Sustainability | Trip Calculation Value     |          |
-| 8.42  | Sustainability | 	Facilitates Tracking Reusable Product Address ID     |          |
-| 8.43  | Sustainability | Facilitates Tracking Reusable Product Address     |          |
-| 8.44  | Sustainability |  Collection Points Reusable Product ID    |          |
-| 8.45  | Sustainability |   Collection Points Reusable Product Address   |          |
-| 8.46  | Sustainability |  	Recyclability Performance Grade    |          |
-| 9.1  | Compliance |   Compliance Country   |          |
-| 9.2 | Compliance |  Compliance Regulation Name    |          |
-| 9.3  |Compliance  |  Compliance Statement    |          |
-| 9.4  | Compliance |  Compliance Reason for Exemption    |          |
-| 9.5  | Compliance |   Compliance Remark   |          |
-| 9.6  |Compliance  |   Compliance Documentation  |          |
+| 8.42  | Sustainability | 	Facilitates Tracking Reusable Product Address ID     |   BPNA1234567890AA             |
+| 8.43  | Sustainability | Facilitates Tracking Reusable Product Address     |   BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
+| 8.44  | Sustainability |  Collection Points Reusable Product ID    |        |
+| 8.45  | Sustainability |   Collection Points Reusable Product Address   |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45          |
+| 8.46  | Sustainability |  	Recyclability Performance Grade    |     C     |
+| 9.1  | Compliance |   Compliance Country   |     UK     |
+| 9.2 | Compliance |  Compliance Regulation Name    |  REACH regulation        |
+| 9.3  |Compliance  |  Compliance Statement    |   Hereby we declare under our sole responsibility that the product:XXX is in conformity with the provisions of the EU directives and regulations.       |
+| 9.4  | Compliance |  Compliance Reason for Exemption    |   Radioactive substance       |
+| 9.5  | Compliance |   Compliance Remark   |  If you need more information about the (pre-)registration status, please get in contact with our experts from the Compliance Team: www.xyz.com        |
+| 9.6  |Compliance  |   Compliance Documentation  |     https://dummy.link , URL, Example Document XYZ            |
 | 10.1  |Sources  |  Sources    |          |
 | 10.2  | Sources |  Category    |          |
-| 11.1  |Additional Data  | Description     |          |
-| 11.2  | Additional Data |  Label    |          |
-| 11.3  | Additional Data |  Type Unit    |          |
-| 11.4  |Additional Data  |  Data Type    |          |
-| 11.5  | Additional Data |  Data    |          |
+| 11.1  |Additional Data  | Description     |  Description of an attribute        |
+| 11.2  | Additional Data |  Label    |  Maximum permitted battery power        |
+| 11.3  | Additional Data |  Type Unit    |  unit:volume        |
+| 11.4  |Additional Data  |  Data Type    |  xsd:integer        |
+| 11.5  | Additional Data |  Data    |     23     |
 | 11.6  |Additional Data  |  Children    |          |
 
 
