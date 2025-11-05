@@ -201,9 +201,12 @@ This section sets out the main rules and guiding principles for entering, managi
 
 #### 5.2.1 Granularity
 - Data can be provided on differnet levels; Model, batch and item.
-- ##### Model Level
-- ##### Batch Level
-- ##### Item Level
+  - ##### Model Level
+    Model-level information describes the characteristics of a product or material as defined by its general specification or design. 
+  - ##### Batch Level
+    Represents a specific production lot or group of items manufactured under the same conditions within a defined timeframe. Batch-level data typically includes details such as production date, process parameters, and any other variations.
+  - ##### Item Level
+    Denotes the individual product unit, uniquely identifiable (often via serial number or digital passport). Item-level data provides the most granular information, including traceability, repair history, and end-of-life details for that specific product.
 - Maintain the lowest level of data granularity (i.e., model-level information) unless higher detail is explicitly required to meet compliance obligations.
 - All data points that are reuirqed in this data model need to be provided on model level unless it is stated otherwise.
   
