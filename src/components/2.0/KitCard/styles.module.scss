@@ -304,6 +304,22 @@
   border: 1px solid rgba(250, 82, 82, 0.3);
 }
 
+// Deprecated chip
+.chip--deprecated {
+  background: rgba(220, 38, 38, 0.15);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.chipIcon {
+  font-size: 0.8rem !important;
+  color: inherit;
+}
+
 @keyframes tooltipFadeIn {
   from {
     opacity: 0;
@@ -536,5 +552,10 @@
   .chip--noFurtherDevelopment {
     background: rgba(250, 82, 82, 0.1);
     color: #e03131;
+  }
+
+  .chip--deprecated {
+    background: rgba(220, 38, 38, 0.1);
+    color: #c92a2a;
   }
 }

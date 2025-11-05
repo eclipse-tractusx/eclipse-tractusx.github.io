@@ -167,7 +167,43 @@
   color: inherit;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  z-index: 3;// Header section with icon and title (removed since icon is now separate)
+  z-index: 3;
+}
+
+// Deprecated badge positioned at the top of the card
+.expandedKitCard__deprecatedBadge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  background: #dc2626; /* Red background */
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+  
+  [data-theme='dark'] & {
+    background: #ef4444;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+  }
+}
+
+.expandedKitCard__deprecatedIcon {
+  font-size: 1rem !important;
+  color: white;
+}
+
+.expandedKitCard__deprecatedText {
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .expandedKitCard__header {
@@ -185,6 +221,11 @@
   align-items: center;
   flex: 1; /* Take up available space, pushing content to bottom */
   margin-bottom: 1rem;
+}
+
+// When deprecated badge is present, adjust icon section
+.expandedKitCard--deprecated .expandedKitCard__iconSection {
+  margin-top: 3rem; /* Add space for deprecated badge */
 }
 
 // Kit icon - uses variable dimensions from kit data

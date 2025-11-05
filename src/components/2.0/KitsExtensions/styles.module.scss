@@ -210,29 +210,33 @@
 
 .block_content {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
-  text-align: center;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 85% !important; /* Slightly reduced for better centering */
+  height: 85% !important; /* Slightly reduced for better centering */
+  text-align: center !important;
   z-index: 5;
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem; /* Reduced gap for better balance */
   background: transparent;
   border-radius: 24px;
   border: none;
   box-shadow: none;
+  margin: 0 !important;
+  padding: 0 !important;
   
   img {
     width: 60px;
     height: 60px;
     object-fit: contain;
     transition: filter 0.3s ease;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+    margin: 0 auto;
   }
 }
 
@@ -411,26 +415,29 @@
   }
   
   .dataspace_block {
-    width: 300px;
-    height: 200px;
+    width: 280px;
+    height: 280px; /* Keep square format */
   }
   
   .block_content {
-    padding: 1.2rem 1rem;
-    gap: 0.8rem;
+    gap: 0.5rem !important;
+    width: 85% !important;
+    height: 85% !important;
     
     img {
-      max-width: 50px;
-      max-height: 50px;
+      width: 50px;
+      height: 50px;
     }
   }
   
   .block_title {
-    font-size: 19px;
+    font-size: 18px;
+    line-height: 1.2;
   }
   
   .block_subtitle {
     font-size: 12px;
+    line-height: 1.3;
   }
   
   .block_layer_1,
@@ -464,26 +471,29 @@
   }
   
   .dataspace_block {
-    width: 280px;
-    height: 180px;
+    width: 260px;
+    height: 260px; /* Keep square format */
   }
   
   .block_content {
-    padding: 1.1rem 0.8rem;
-    gap: 0.7rem;
+    gap: 0.4rem !important;
+    width: 85% !important;
+    height: 85% !important;
     
     img {
-      max-width: 45px;
-      max-height: 45px;
+      width: 45px;
+      height: 45px;
     }
   }
   
   .block_title {
-    font-size: 17px;
+    font-size: 16px;
+    line-height: 1.2;
   }
   
   .block_subtitle {
     font-size: 11px;
+    line-height: 1.3;
   }
   
   .block_layer_1,
@@ -512,17 +522,16 @@
   }
   
   .dataspace_block {
-    width: 260px;
-    height: 160px;
+    width: 240px;
+    height: 150px;
   }
   
   .block_content {
-    padding: 0.8rem 0.6rem;
-    gap: 0.5rem;
+    gap: 0.4rem;
     
     img {
-      max-width: 40px;
-      max-height: 40px;
+      width: 35px;
+      height: 35px;
     }
   }
   
@@ -560,17 +569,16 @@
   }
   
   .dataspace_block {
-    width: 240px;
-    height: 150px;
+    width: 220px;
+    height: 140px;
   }
   
   .block_content {
-    padding: 0.7rem 0.5rem;
-    gap: 0.4rem;
+    gap: 0.3rem;
     
     img {
-      max-width: 35px;
-      max-height: 35px;
+      width: 30px;
+      height: 30px;
     }
   }
   

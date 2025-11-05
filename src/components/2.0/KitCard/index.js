@@ -21,6 +21,7 @@ import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.scss';
 import { getKitGradient } from '@site/data/kitsData';
+import { Warning as WarningIcon } from '@mui/icons-material';
 
 const KitCard = ({ kit }) => {
   const [showTooltip, setShowTooltip] = React.useState(false);
@@ -104,24 +105,35 @@ const KitCard = ({ kit }) => {
                 <div className={styles.tooltipArrow}></div>
                 <p className={styles.tooltipText}>{kit.description}</p>
                 
-                {/* Maturity Chips */}
-                {kit.maturity && (
-                  <div className={styles.tooltipChips}>
-                    {/* Current Level Chip */}
-                    {kit.maturity.currentLevel && (
-                      <span className={`${styles.chip} ${styles[`chip--${kit.maturity.currentLevel.toLowerCase()}`]}`}>
-                        {kit.maturity.currentLevel}
-                      </span>
-                    )}
-                    
-                    {/* Graduation Status Chip */}
-                    {kit.maturity.graduationStatus && (
-                      <span className={`${styles.chip} ${styles[`chip--${kit.maturity.graduationStatus.replace(/\s+/g, '')}`]}`}>
-                        {kit.maturity.graduationStatus}
-                      </span>
-                    )}
-                  </div>
-                )}
+                {/* Chips Container */}
+                <div className={styles.tooltipChips}>
+                  {/* Deprecated Warning Chip */}
+                  {kit.deprecated && (
+                    <span className={`${styles.chip} ${styles['chip--deprecated']}`}>
+                      <WarningIcon className={styles.chipIcon} />
+                      DEPRECATED
+                    </span>
+                  )}
+                  
+                  {/* Maturity Chips */}
+                  {kit.maturity && (
+                    <>
+                      {/* Current Level Chip */}
+                      {kit.maturity.currentLevel && (
+                        <span className={`${styles.chip} ${styles[`chip--${kit.maturity.currentLevel.toLowerCase()}`]}`}>
+                          {kit.maturity.currentLevel}
+                        </span>
+                      )}
+                      
+                      {/* Graduation Status Chip */}
+                      {kit.maturity.graduationStatus && (
+                        <span className={`${styles.chip} ${styles[`chip--${kit.maturity.graduationStatus.replace(/\s+/g, '')}`]}`}>
+                          {kit.maturity.graduationStatus}
+                        </span>
+                      )}
+                    </>
+                  )}
+                </div>
               </div>
             )}
           </div>

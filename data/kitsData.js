@@ -471,7 +471,7 @@ export const kitsData = {
         currentLevel: 'Sandbox',
         graduationStatus: 'draft'
       },
-      deprecated: false,
+      deprecated: true,
       dataspaces: ['Catena-X'],
       description: 'Real-time simulation and modeling capabilities for production optimization'
     },

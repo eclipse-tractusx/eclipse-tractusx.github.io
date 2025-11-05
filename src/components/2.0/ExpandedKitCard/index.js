@@ -21,6 +21,7 @@ import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.scss';
 import { getKitGradient } from '@site/data/kitsData';
+import { Warning as WarningIcon } from '@mui/icons-material';
 
 const ExpandedKitCard = ({ kit }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -44,7 +45,15 @@ const ExpandedKitCard = ({ kit }) => {
         <div className={styles.expandedKitCard__layer3}></div>
         <div className={styles.expandedKitCard__layer2}></div>
         
-        <Link to={kit.route} className={styles.expandedKitCard}>
+        <Link to={kit.route} className={`${styles.expandedKitCard} ${kit.deprecated ? styles['expandedKitCard--deprecated'] : ''}`}>
+          {/* Deprecated badge */}
+          {kit.deprecated && (
+            <div className={styles.expandedKitCard__deprecatedBadge}>
+              <WarningIcon className={styles.expandedKitCard__deprecatedIcon} />
+              <span className={styles.expandedKitCard__deprecatedText}>DEPRECATED</span>
+            </div>
+          )}
+
           {/* Fixed top section with icon only */}
           <div className={styles.expandedKitCard__iconSection}>
             <kit.logo 
