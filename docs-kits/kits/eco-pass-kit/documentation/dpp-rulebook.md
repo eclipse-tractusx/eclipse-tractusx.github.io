@@ -107,6 +107,7 @@ In ERP context it means Material numbers are assigned automatically in ascending
 #### 3.2.4 Regular Based Expression:
 A Regular-Based Expression Check refers to the process of validating or analyzing data against predefined patterns using regular expressions (regex). This technique ensures that data conforms to expected formats (e.g., email addresses, phone numbers, codes) by applying rule-based pattern matching. It is commonly used for data quality assurance, input validation, and automated error detection.
 
+
 #### 3.2.5 Verification vs. Validation
 
 Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation." The following sub section provides a brief overview of the differing definitions.
@@ -199,8 +200,13 @@ This section sets out the main rules and guiding principles for entering, managi
 - Do not use company-internal jargon, abbreviations, or codes unless these are defined in the DPP schema or Rulebook.
 
 #### 5.2.1 Granularity
-- Is there any rule already defined if or when data needs to be provided on a batch or instance level?
-
+- Data can be provided on differnet levels; Model, batch and item.
+- ##### Model Level
+- ##### Batch Level
+- ##### Item Level
+- Maintain the lowest level of data granularity (i.e., model-level information) unless higher detail is explicitly required to meet compliance obligations.
+- All data points that are reuirqed in this data model need to be provided on model level unless it is stated otherwise.
+  
 
 ### 5.3 Data Format and Standardization
 - Enter all data according to the format specified in the DPP model
@@ -209,9 +215,6 @@ This section sets out the main rules and guiding principles for entering, managi
 - For some data points, a value is paired with a unit. Usually, you have two data points: the first data point to describe the value and the second data point to describe the related unit.
 - **Apply standardized identifiers (e.g., product codes, material codes, company identifiers such as VAT or DUNS numbers) if required.**
 - For free text fields, keep entries clear and concise.
-### 5.4 Data Trust
-- Refer/Link to data trust KIT
-- Trust anchors as defined in CatenaX ? Link?
 
 
 ## 6. The DPP Data Model: Overview of Data Points
