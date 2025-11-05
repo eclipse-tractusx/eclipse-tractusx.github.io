@@ -18,6 +18,7 @@
  ********************************************************************************/
 
  import React from "react";
+ import Link from "@docusaurus/Link";
  import styles from "./styles.module.scss";
  
  export default function KitsArchitecture({dataspaces}) {
@@ -32,7 +33,7 @@
            <svg className={styles.hint_icon} width="14" height="14" viewBox="0 0 24 24" fill="none">
              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
            </svg>
-           <span>Click on the building blocks to explore our KITs</span>
+           <span>Click on the building blocks below to explore KITs by category</span>
          </div>
          
          <div className={styles.diagram}>
@@ -74,15 +75,36 @@
 
            {/* Bottom rectangles */}
            <div className={styles.rectangle_column}>
-             <div className={`${styles.rectangle} ${styles.rectangle_cross_industry}`}>
-               <span>Cross-Industry Use Cases</span>
-             </div>
-             <div className={`${styles.rectangle} ${styles.rectangle_industry_core}`}>
-               <span>Industry Core Foundation</span>
-             </div>
-             <div className={`${styles.rectangle} ${styles.rectangle_dataspace}`}>
-               <span>Dataspace Foundation</span>
-             </div>
+             <Link to="/kits/cross-industry" className={styles.rectangle_link}>
+               <div className={`${styles.rectangle} ${styles.rectangle_cross_industry}`}>
+                 <span>Cross-Industry Use Cases</span>
+                 <div className={styles.rectangle_hover_indicator}>
+                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                   </svg>
+                 </div>
+               </div>
+             </Link>
+             <Link to="/kits/industry-core" className={styles.rectangle_link}>
+               <div className={`${styles.rectangle} ${styles.rectangle_industry_core}`}>
+                 <span>Industry Core Foundation</span>
+                 <div className={styles.rectangle_hover_indicator}>
+                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                   </svg>
+                 </div>
+               </div>
+             </Link>
+             <Link to="/kits/dataspace-foundation" className={styles.rectangle_link}>
+               <div className={`${styles.rectangle} ${styles.rectangle_dataspace}`}>
+                 <span>Dataspace Foundation</span>
+                 <div className={styles.rectangle_hover_indicator}>
+                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                   </svg>
+                 </div>
+               </div>
+             </Link>
            </div>
          </div>
          

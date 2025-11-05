@@ -545,6 +545,61 @@
   }
 }
 
+// Rectangle link styles
+.rectangle_link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .rectangle {
+    position: relative;
+    overflow: hidden;
+    
+    span {
+      transition: transform 0.3s ease;
+    }
+  }
+  
+  &:hover .rectangle span {
+    transform: translateX(-8px);
+  }
+}
+
+// Hover indicator
+.rectangle_hover_indicator {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) translateX(20px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: white;
+  z-index: 2;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5px;
+  }
+}
+
+.rectangle_link:hover .rectangle_hover_indicator {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+}
+
+// Enhanced hover effects for better UX
+.rectangle_link:hover .rectangle {
+  span {
+    color: white !important;
+  }
+}
+
 // Responsive design
 @media screen and (max-width: 1400px) {
   .container {
