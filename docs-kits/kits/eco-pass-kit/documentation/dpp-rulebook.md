@@ -104,8 +104,10 @@ The Global Trade Item Number (GTIN) is a unique identifier used internationally 
 #### 3.2.3 Sequential Numbering:
 In ERP context it means Material numbers are assigned automatically in ascending order and hence it simplifies master data governance and avoids duplication.
 
+#### 3.2.4 Regular Based Expression:
+A Regular-Based Expression Check refers to the process of validating or analyzing data against predefined patterns using regular expressions (regex). This technique ensures that data conforms to expected formats (e.g., email addresses, phone numbers, codes) by applying rule-based pattern matching. It is commonly used for data quality assurance, input validation, and automated error detection.
 
-#### 3.2.4 Verification vs. Validation
+#### 3.2.5 Verification vs. Validation
 
 Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation." The following sub section provides a brief overview of the differing definitions.
 
