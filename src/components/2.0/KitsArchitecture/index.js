@@ -17,7 +17,6 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
- import React from "react";
  import Link from "@docusaurus/Link";
  import styles from "./styles.module.scss";
  
@@ -40,8 +39,9 @@
            {/* Top row hexagons */}
            <div className={styles.hexagon_row}>
              {dataspaces.map((dataspace) => (
-               <div 
-                 key={dataspace.id} 
+               <Link 
+                 key={dataspace.id}
+                 to={`/kits/dataspace?id=${dataspace.id}`}
                  className={`${styles.hexagon} ${styles[`hexagon_${dataspace.id.replace('-', '_')}`]}`}
                  style={{
                    '--hexagon-gradient': dataspace.gradient,
@@ -63,7 +63,7 @@
                    </div>
                    <div className={styles.hexagon_subtitle}>{dataspace.name}</div>
                  </div>
-               </div>
+               </Link>
              ))}
              <div className={`${styles.hexagon} ${styles.hexagon_other}`}>
                <div className={styles.hexagon_content}>

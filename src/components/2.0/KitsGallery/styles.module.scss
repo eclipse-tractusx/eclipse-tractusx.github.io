@@ -1,7 +1,5 @@
 /*********************************************************************************
- * Copyright (c) 2023 BMW Group AG
- * Copyright (c) 2023 Mercedes Benz AG 
- * Copyright (c) 2023 Contributors to the Eclipse Foundation
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
  * 
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -19,92 +17,6 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-
-.networks-services{
-  background: #326FCA;
-  background: -webkit-linear-gradient(135deg, rgba(50, 111, 202, 1) 0%, rgba(21, 13, 136, 1) 100%);
-  background: -moz-linear-gradient(135deg, rgba(50, 111, 202, 1) 0%, rgba(21, 13, 136, 1) 100%);
-  background: linear-gradient(135deg, rgba(50, 111, 202, 1) 0%, rgba(21, 13, 136, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#326FCA", endColorstr="#150D88", GradientType=0);
-}
-
-.simulations{
-  background: #FFC254;
-  background: -webkit-linear-gradient(135deg,rgba(255, 194, 84, 1) 0%, rgba(255, 166, 1, 1) 100%);
-  background: -moz-linear-gradient(135deg,rgba(255, 194, 84, 1) 0%, rgba(255, 166, 1, 1) 100%);
-  background: linear-gradient(135deg,rgba(255, 194, 84, 1) 0%, rgba(255, 166, 1, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(
-    startColorstr="#FFC254",
-    endColorstr="#FFA601",
-    GradientType=0
-  );
-}
-
-.plm{
-  background: #FFBA58;
-  background: -webkit-linear-gradient(135deg, rgba(255, 186, 88, 1) 0%, rgba(244, 93, 60, 1) 100%);
-  background: -moz-linear-gradient(135deg, rgba(255, 186, 88, 1) 0%, rgba(244, 93, 60, 1) 100%);
-  background: linear-gradient(135deg, rgba(255, 186, 88, 1) 0%, rgba(244, 93, 60, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFBA58", endColorstr="#F45D3C", GradientType=0);
-}
-
-
-.circularity{
-  background: #65C58E;
-  background: -webkit-linear-gradient(135deg, rgba(101, 197, 142, 1) 0%, rgba(43, 153, 67, 1) 100%);
-  background: -moz-linear-gradient(135deg, rgba(101, 197, 142, 1) 0%, rgba(43, 153, 67, 1) 100%);
-  background: linear-gradient(135deg, rgba(101, 197, 142, 1) 0%, rgba(43, 153, 67, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#65C58E", endColorstr="#2B9943", GradientType=0);
-}
-
-.sustainability{
-  background: #64C48F;
-  background: -webkit-linear-gradient(135deg, rgba(100, 196, 143, 1) 0%, rgba(38, 112, 99, 1) 100%);
-  background: -moz-linear-gradient(135deg, rgba(100, 196, 143, 1) 0%, rgba(38, 112, 99, 1) 100%);
-  background: linear-gradient(135deg, rgba(100, 196, 143, 1) 0%, rgba(38, 112, 99, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#64C48F", endColorstr="#267063", GradientType=0);
-}
-
-
-.supply-chain{
-  background: #E3C8FF;
-  background: -webkit-linear-gradient(135deg, rgba(227, 200, 255, 1) 0%, rgba(161, 89, 255, 1) 100%);
-  background: -moz-linear-gradient(135deg, rgba(227, 200, 255, 1) 0%, rgba(161, 89, 255, 1) 100%);
-  background: linear-gradient(135deg, rgba(227, 200, 255, 1) 0%, rgba(161, 89, 255, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#E3C8FF", endColorstr="#A159FF", GradientType=0);
-}
-
-.logistics{
-  background: #E4C9FF;
-  background: -webkit-linear-gradient(135deg, rgba(228, 201, 255, 1) 0%, rgba(185, 94, 255, 1) 100%);
-  background: -moz-linear-gradient(135deg, rgba(228, 201, 255, 1) 0%, rgba(185, 94, 255, 1) 100%);
-  background: linear-gradient(135deg, rgba(228, 201, 255, 1) 0%, rgba(185, 94, 255, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#E4C9FF", endColorstr="#B95EFF", GradientType=0);
-}
-
-.factory{
-  background: #A098A4;
-  background: -webkit-linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%);
-  background: -moz-linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%);
-  background: linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#A098A4", endColorstr="#404040", GradientType=0);
-}
-
-.engineering{
-  background: #AB22A8;
-  background: -webkit-linear-gradient(135deg, rgba(228, 161, 220, 1) 0%, rgba(171, 34, 168, 1) 100%);
-  background: -moz-linear-gradient(135deg, rgba(228, 161, 220, 1) 0%, rgba(171, 34, 168, 1) 100%);
-  background: linear-gradient(135deg, rgba(228, 161, 220, 1) 0%, rgba(171, 34, 168, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#E4A1DC", endColorstr="#AB22A8", GradientType=0);
-}
-
-.industry_core{
-  background: #EB1B1B;
-  background: -webkit-linear-gradient(135deg, rgba(239, 136, 153, 1) 0%, rgba(235, 27, 27, 1) 100%);
-  background: -moz-linear-gradient(135deg, rgba(239, 136, 153, 1) 0%, rgba(235, 27, 27, 1) 100%);
-  background: linear-gradient(135deg, rgba(239, 136, 153, 1) 0%, rgba(235, 27, 27, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#EF8899", endColorstr="#EB1B1B", GradientType=0);
-}
 
 .kitsGallery {
   background-color: #1a1a1a;

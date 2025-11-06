@@ -18,30 +18,68 @@
  ********************************************************************************/
 
 import React, { useState, useMemo } from 'react';
-import Link from '@docusaurus/Link';
-import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
+import KitGalleryHeader from '../KitGalleryHeader';
 import styles from './styles.module.scss';
 import ExpandedKitsGrid from '../ExpandedKitsGrid';
 
 export default function FilteredKitsGallery({ 
   categoryData,
-  kits = []
+  kits = [],
+  showDataspaceFilter = true,
+  showCategoryFilter = false,
+  showHeader = true,
+  title,
+  description
 }) {
   const [selectedDataspace, setSelectedDataspace] = useState('All Dataspaces');
+  const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [sortOrder, setSortOrder] = useState('default');
 
-    // Get unique dataspace names
+  // Helper function to get kit category from the kit's categoryType property
+  const getKitCategory = (kit) => {
+    // If kit has categoryType, use it, otherwise derive from common patterns
+    if (kit.categoryType) return kit.categoryType;
+    
+    // Fallback: try to derive from kit properties or return 'Unknown'
+    return 'Unknown';
+  };
+
+  // Get unique dataspace names
   const uniqueDataspaces = useMemo(() => {
     const dataspaces = [...new Set(kits.flatMap(kit => kit.dataspaces))].sort();
     return ['All Dataspaces', ...dataspaces];
   }, [kits]);
 
-  // Filter kits based on selected dataspace
+  // Get unique categories from kits in specific order
+  const uniqueCategories = useMemo(() => {
+    if (!showCategoryFilter) return [];
+    
+    const foundCategories = [...new Set(kits.map(kit => getKitCategory(kit)).filter(cat => cat !== 'Unknown'))];
+    
+    // Define the desired order
+    const categoryOrder = ['Dataspace Foundation', 'Industry Core Foundation', 'Cross-Industry Use Cases'];
+    
+    // Sort categories according to the defined order
+    const orderedCategories = categoryOrder.filter(cat => foundCategories.includes(cat));
+    
+    return ['All Categories', ...orderedCategories];
+  }, [showCategoryFilter, kits]);
+
+  // Filter kits based on selected dataspace and category
   const filterKits = (kits) => {
-    if (selectedDataspace === 'All Dataspaces') {
-      return kits;
+    let filtered = kits;
+    
+    // Filter by dataspace
+    if (selectedDataspace !== 'All Dataspaces') {
+      filtered = filtered.filter(kit => kit.dataspaces.includes(selectedDataspace));
     }
-    return kits.filter(kit => kit.dataspaces.includes(selectedDataspace));
+    
+    // Filter by category
+    if (selectedCategory !== 'All Categories' && showCategoryFilter) {
+      filtered = filtered.filter(kit => getKitCategory(kit) === selectedCategory);
+    }
+    
+    return filtered;
   };
 
   // Sort kits based on sort order
@@ -61,47 +99,19 @@ export default function FilteredKitsGallery({
   return (
     <div className={styles.filtered_gallery}>
       {/* Header with breadcrumb */}
-      <div className={styles.header}>
-        <div 
-          className={styles.header_background}
-          style={{ '--category-gradient': categoryData.gradient }}
-        ></div>
-        
-        <Link to="/kits#architecture" className={styles.back_button}>
-          <ArrowBackIcon className={styles.back_icon} />
-          <span>Back to All KITs</span>
-        </Link>
-        
-        <div className={styles.header_content}>
-          <div className={styles.category_hero}>
-            <div 
-              className={styles.category_icon_container}
-              style={{ '--category-gradient': categoryData.gradient }}
-            >
-              <categoryData.icon className={styles.category_icon} />
-            </div>
-            
-            <div className={styles.category_content}>
-              <h1 className={styles.category_title}>{categoryData.title}</h1>
-              <p className={styles.category_description}>{categoryData.description}</p>
-              
-              <div className={styles.category_metrics}>
-                <div className={styles.metric_card}>
-                  <span className={styles.metric_number}>{filteredKits.length}</span>
-                  <span className={styles.metric_label}>
-                    KIT{filteredKits.length !== 1 ? 's' : ''} Available
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {showHeader && (categoryData || title) && (
+        <KitGalleryHeader
+          categoryData={categoryData}
+          title={title}
+          description={description}
+          kitCount={filteredKits.length}
+        />
+      )}
 
       {/* Filters */}
       <div className={styles.filters_container}>
         <div className={styles.filters}>
-          {uniqueDataspaces.length > 1 && (
+          {showDataspaceFilter && uniqueDataspaces.length > 1 && (
             <div className={styles.filter_group}>
               <label className={styles.filter_label}>Filter by Dataspace</label>
               <div className={styles.button_group}>
@@ -118,6 +128,29 @@ export default function FilteredKitsGallery({
                     onClick={() => setSelectedDataspace(dataspace)}
                   >
                     {dataspace}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {showCategoryFilter && uniqueCategories.length > 1 && (
+            <div className={styles.filter_group}>
+              <label className={styles.filter_label}>Filter by Category</label>
+              <div className={styles.button_group}>
+                <button
+                  className={`${styles.filter_button} ${selectedCategory === 'All Categories' ? styles.active : ''}`}
+                  onClick={() => setSelectedCategory('All Categories')}
+                >
+                  All Categories
+                </button>
+                {uniqueCategories.slice(1).map((category) => (
+                  <button
+                    key={category}
+                    className={`${styles.filter_button} ${selectedCategory === category ? styles.active : ''}`}
+                    onClick={() => setSelectedCategory(category)}
+                  >
+                    {category}
                   </button>
                 ))}
               </div>

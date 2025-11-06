@@ -44,7 +44,13 @@ For each KIT the information model is the following:
       },
       deprecated: <status boolean  true|false >
       dataspaces: [<list of dataspaces where the kit is used>],
-      description: '<kit description>'
+      description: '<kit description>',
+      metadata: {
+        addedDate: '<YYYY-MM-DD>',
+        lastUpdated: '<YYYY-MM-DD>',
+        latestVersion: '<version>',
+        isNew: <boolean>
+      }
     }
 
 Depending on the logic category from the KIT feel free to place it under one of the following sections
@@ -98,7 +104,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-      description: 'Eclipse Dataspace Connector for secure and sovereign data exchange in dataspaces'
+      description: 'Eclipse Dataspace Connector for secure and sovereign data exchange in dataspaces',
+      metadata: {
+        addedDate: '2022-08-01',
+        lastUpdated: '2024-06-07',
+        latestVersion: '3.0.0',
+        isNew: false
+      }
     },
     {
       id: 'data-governance',
@@ -117,7 +129,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-      description: 'Framework for managing data policies, access control, and compliance across the dataspace'
+      description: 'Framework for managing data policies, access control, and compliance across the dataspace',
+      metadata: {
+        addedDate: '2024-03-08',
+        lastUpdated: '2024-03-08',
+        latestVersion: '0.1.0',
+        isNew: false
+      }
     },
     {
       id: 'data-trust-security',
@@ -136,7 +154,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Security mechanisms, identity management, and trust frameworks for secure data exchange'
+      description: 'Security mechanisms, identity management, and trust frameworks for secure data exchange',
+      metadata: {
+        addedDate: '2025-07-16',
+        lastUpdated: '2025-08-01',
+        latestVersion: '0.0.1',
+        isNew: true
+      }
     },
     {
       id: 'business-partner',
@@ -154,7 +178,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X','Construct-X', 'Chem-X'],
-      description: 'Manage and share business partner master data with standardized formats and validation'
+      description: 'Manage and share business partner master data with standardized formats and validation',
+      metadata: {
+        addedDate: '2023-03-01',
+        lastUpdated: '2025-09-08',
+        latestVersion: '10.0.0',
+        isNew: false
+      }
     },
     {
       id: 'agents',
@@ -173,7 +203,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Federated queries and knowledge graphs for intelligent data discovery and reasoning'
+      description: 'Federated queries and knowledge graphs for intelligent data discovery and reasoning',
+      metadata: {
+        addedDate: '2023-05-15',
+        lastUpdated: '2024-12-09',
+        latestVersion: '1.3.0',
+        isNew: false
+      }
     }
   ],
   industryCoreFoundation: [
@@ -193,7 +229,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-      description: 'Create and manage digital representations of physical assets across the supply chain'
+      description: 'Create and manage digital representations of physical assets across the supply chain',
+      metadata: {
+        addedDate: '2022-09-01',
+        lastUpdated: '2024-08-01',
+        latestVersion: '2.0.1',
+        isNew: false
+      }
     },
     {
       id: 'industry-core',
@@ -211,7 +253,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Construct-X', 'Chem-X'],
-      description: 'Core data models, semantic standards, and APIs for industry-specific data exchange'
+      description: 'Core data models, semantic standards, and APIs for industry-specific data exchange',
+      metadata: {
+        addedDate: '2024-03-08',
+        lastUpdated: '2025-03-17',
+        latestVersion: '1.4.0',
+        isNew: false
+      }
     },
     {
       id: 'data-chain',
@@ -229,7 +277,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Chain data efficiently across partners with standardized protocols and workflows'
+      description: 'Chain data efficiently across partners with standardized protocols and workflows',
+      metadata: {
+        addedDate: '2023-03-01',
+        lastUpdated: '2024-03-07',
+        latestVersion: '2.1.0',
+        isNew: false
+      }
     },
     {
       id: 'data-driven-quality',
@@ -248,7 +302,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Data-driven quality management and analytics for proactive issue detection and resolution'
+      description: 'Data-driven quality management and analytics for proactive issue detection and resolution',
+      metadata: {
+        addedDate: '2023-01-15',
+        lastUpdated: '2024-03-08',
+        latestVersion: '1.2.0',
+        isNew: false
+      }
     },
     {
       id: 'traceability',
@@ -266,7 +326,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
-      description: 'End-to-end traceability of parts and materials across the entire supply chain'
+      description: 'End-to-end traceability of parts and materials across the entire supply chain',
+      metadata: {
+        addedDate: '2022-11-01',
+        lastUpdated: '2025-08-07',
+        latestVersion: '7.0.0',
+        isNew: false
+      }
     },
     {
       id: 'behavior-twin',
@@ -285,7 +351,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Behavioral models and simulation capabilities for predictive analysis and optimization'
+      description: 'Behavioral models and simulation capabilities for predictive analysis and optimization',
+      metadata: {
+        addedDate: '2024-05-16',
+        lastUpdated: '2024-05-23',
+        latestVersion: '0.4.1',
+        isNew: false
+      }
     }
   ],
   useCases: [
@@ -306,7 +378,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Environmental and Social Standards compliance monitoring and reporting across supply chains'
+      description: 'Environmental and Social Standards compliance monitoring and reporting across supply chains',
+      metadata: {
+        addedDate: '2024-03-06',
+        lastUpdated: '2024-07-11',
+        latestVersion: '0.3.0',
+        isNew: false
+      }
     },
     {
       id: 'pcf',
@@ -324,7 +402,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-      description: 'Calculate, exchange, and track product carbon footprints throughout the value chain'
+      description: 'Calculate, exchange, and track product carbon footprints throughout the value chain',
+      metadata: {
+        addedDate: '2023-03-08',
+        lastUpdated: '2024-08-05',
+        latestVersion: '1.2.0',
+        isNew: false
+      }
     },
     {
       id: 'eco-pass',
@@ -343,7 +427,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-      description: 'Digital product passports with environmental data and sustainability metrics'
+      description: 'Digital product passports with environmental data and sustainability metrics',
+      metadata: {
+        addedDate: '2023-03-08',
+        lastUpdated: '2024-07-25',
+        latestVersion: '1.5.0',
+        isNew: false
+      }
     },
     {
       id: 'circularity',
@@ -362,7 +452,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Circular economy principles and material flow tracking for sustainable manufacturing'
+      description: 'Circular economy principles and material flow tracking for sustainable manufacturing',
+      metadata: {
+        addedDate: '2023-12-08',
+        lastUpdated: '2024-09-17',
+        latestVersion: '1.3.0',
+        isNew: false
+      }
     },
     {
       id: 'puris',
@@ -380,7 +476,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Predictive Unit Real-time Information Service for supply chain visibility and optimization'
+      description: 'Predictive Unit Real-time Information Service for supply chain visibility and optimization',
+      metadata: {
+        addedDate: '2024-03-08',
+        lastUpdated: '2025-08-16',
+        latestVersion: '0.4.0',
+        isNew: false
+      }
     },
     {
       id: 'dcm',
@@ -398,7 +500,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Balance supply and demand across networks with real-time capacity monitoring'
+      description: 'Balance supply and demand across networks with real-time capacity monitoring',
+      metadata: {
+        addedDate: '2023-06-01',
+        lastUpdated: '2025-09-29',
+        latestVersion: '1.4.0',
+        isNew: false
+      }
     },
     {
       id: 'logistics',
@@ -417,7 +525,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Logistics and transportation management for efficient supply chain operations'
+      description: 'Logistics and transportation management for efficient supply chain operations',
+      metadata: {
+        addedDate: '2025-02-03',
+        lastUpdated: '2025-03-11',
+        latestVersion: '0.2.1',
+        isNew: true
+      }
     },
     {
       id: 'supply-chain-disruption',
@@ -435,7 +549,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Factory-X'],
-      description: 'Monitor and manage supply chain disruptions with real-time notifications and alerts'
+      description: 'Monitor and manage supply chain disruptions with real-time notifications and alerts',
+      metadata: {
+        addedDate: '2024-08-01',
+        lastUpdated: '2025-08-22',
+        latestVersion: '2.0.0',
+        isNew: true
+      }
     },
     {
       id: 'customs',
@@ -454,7 +574,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Customs and trade compliance management with automated documentation and reporting'
+      description: 'Customs and trade compliance management with automated documentation and reporting',
+      metadata: {
+        addedDate: '2024-05-20',
+        lastUpdated: '2024-09-10',
+        latestVersion: '0.1.5',
+        isNew: true
+      }
     },
       {
       id: 'osim',
@@ -473,7 +599,13 @@ export const kitsData = {
       },
       deprecated: true,
       dataspaces: ['Catena-X'],
-      description: 'Real-time simulation and modeling capabilities for production optimization'
+      description: 'Real-time simulation and modeling capabilities for production optimization',
+      metadata: {
+        addedDate: '2023-03-08',
+        lastUpdated: '2024-08-05',
+        latestVersion: '3.0.0',
+        isNew: false
+      }
     },
     {
       id: 'model-based-production',
@@ -492,7 +624,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Model-based development and data processing for advanced manufacturing'
+      description: 'Model-based development and data processing for advanced manufacturing',
+      metadata: {
+        addedDate: '2024-01-30',
+        lastUpdated: '2024-08-12',
+        latestVersion: '0.3.2',
+        isNew: true
+      }
     },
     {
       id: 'requirements',
@@ -511,7 +649,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Requirements management and tracking across dataspaces and organizations'
+      description: 'Requirements management and tracking across dataspaces and organizations',
+      metadata: {
+        addedDate: '2024-04-15',
+        lastUpdated: '2024-10-05',
+        latestVersion: '0.2.3',
+        isNew: true
+      }
     },
     {
       id: 'maas',
@@ -530,7 +674,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Factory-X'],
-      description: 'Manufacturing services marketplace for on-demand production capabilities'
+      description: 'Manufacturing services marketplace for on-demand production capabilities',
+      metadata: {
+        addedDate: '2024-03-08',
+        lastUpdated: '2024-09-20',
+        latestVersion: '0.1.0',
+        isNew: true
+      }
     },
     {
       id: 'modular-production',
@@ -549,7 +699,13 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Factory-X'],
-      description: 'Flexible and modular production systems for adaptive manufacturing'
+      description: 'Flexible and modular production systems for adaptive manufacturing',
+      metadata: {
+        addedDate: '2023-11-15',
+        lastUpdated: '2024-05-10',
+        latestVersion: '0.2.1',
+        isNew: false
+      }
     }
   ],
   // List here the industry/dataspace specific KITs (will not be shown in the cross dataspace use cases gallery)
@@ -567,7 +723,8 @@ export const dataspaces = [
   {
     id: 'catena-x',
     name: 'Catena-X',
-    subtitle: 'Automotive Industry KITs',
+    subtitle: 'Your Automotive Network',
+    description: 'The first open and collaborative data ecosystem for the automotive industry. Catena-X enables secure and standardized data exchange across the entire automotive value chain to drive innovation, sustainability, and transparency.',
     logo: {
       src: 'https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png',
       alt: 'Catena-X Logo',
@@ -587,6 +744,7 @@ export const dataspaces = [
     id: 'factory-x',
     name: 'Factory-X',
     subtitle: 'Shop Floor Industry KITs',
+    description: 'A manufacturing-focused dataspace that connects shop floors, production systems, and industrial equipment. Factory-X democratizes access to manufacturing capabilities and enables smart, flexible production networks.',
     logo: {
       src: 'https://factory-x.org/wp-content/uploads/factory-x-logo.svg',
       alt: 'Factory-X Logo',
@@ -606,6 +764,7 @@ export const dataspaces = [
     id: 'semiconductor-x',
     name: 'Semiconductor-X',
     subtitle: 'Semiconductor Industry KITs',
+    description: 'A specialized dataspace for the global semiconductor ecosystem. Semiconductor-X facilitates secure collaboration between chip manufacturers, suppliers, and technology partners while ensuring IP protection and compliance.',
     logo: {
       src: 'https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg',
       alt: 'Semiconductor-X Logo',
@@ -625,6 +784,7 @@ export const dataspaces = [
     id: 'chem-x',
     name: 'Chem-X',
     subtitle: 'Chemical Industry KITs',
+    description: 'A collaborative dataspace dedicated to transforming the chemical industry through sustainable practices and circular economy principles. Chem-X connects chemical producers, suppliers, and customers in a secure ecosystem.',
     logo: {
       src: 'https://www.chem-x.de/wp-content/uploads/2025/02/Chem-X-Logo-main.png',
       alt: 'Chem-X Logo',
@@ -644,6 +804,7 @@ export const dataspaces = [
     id: 'construct-x',
     name: 'Construct-X',
     subtitle: 'Construction Industry KITs',
+    description: 'An innovative dataspace revolutionizing the construction industry through digital collaboration and sustainable building practices. Construct-X connects architects, builders, and suppliers in a unified digital ecosystem.',
     logo: {
       src: 'https://construct-x.org/wp-content/uploads/2025/05/Construct-X-Logo-pos-scaled.webp',
       alt: 'Construct-X Logo',
@@ -712,4 +873,35 @@ export const getAllKits = () => {
 export const getKitById = (kitId) => {
   const allKits = getAllKits();
   return allKits.find(kit => kit.id === kitId) || null;
+};
+
+// Metadata utility functions
+export const getNewKits = () => {
+  const allKits = getAllKits();
+  return allKits.filter(kit => kit.metadata?.isNew === true);
+};
+
+export const getKitsByDateRange = (startDate, endDate) => {
+  const allKits = getAllKits();
+  return allKits.filter(kit => {
+    if (!kit.metadata?.addedDate) return false;
+    const kitDate = new Date(kit.metadata.addedDate);
+    return kitDate >= new Date(startDate) && kitDate <= new Date(endDate);
+  });
+};
+
+export const getRecentlyUpdatedKits = (daysBack = 30) => {
+  const allKits = getAllKits();
+  const cutoffDate = new Date();
+  cutoffDate.setDate(cutoffDate.getDate() - daysBack);
+  
+  return allKits.filter(kit => {
+    if (!kit.metadata?.lastUpdated) return false;
+    return new Date(kit.metadata.lastUpdated) >= cutoffDate;
+  });
+};
+
+export const getKitMetadata = (kitId) => {
+  const kit = getKitById(kitId);
+  return kit?.metadata || null;
 };
