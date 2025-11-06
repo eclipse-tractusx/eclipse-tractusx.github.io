@@ -19,7 +19,7 @@
 
 import React from 'react';
 import Link from '@docusaurus/Link';
-import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import styles from './styles.module.scss';
 
 export default function KitGalleryHeader({ 
@@ -30,10 +30,8 @@ export default function KitGalleryHeader({
   logo,
   url,
   gradient,
-  kitCount = 0,
   statistics,
-  customHeaderContent,
-  backButtonLink = "/kits#architecture",
+  backButtonLink = "/Kits",
   backButtonText = "Back to All KITs"
 }) {
   return (
@@ -56,7 +54,14 @@ export default function KitGalleryHeader({
               className={styles.category_icon_container}
               style={{ '--category-gradient': categoryData.gradient }}
             >
-              <categoryData.icon className={styles.category_icon} />
+              {React.createElement(categoryData.icon, { className: styles.category_icon })}
+            </div>
+          )}
+          
+          {/* Debug: Show if categoryData exists */}
+          {!categoryData?.icon && categoryData && (
+            <div style={{ color: 'red', fontSize: '12px' }}>
+              Debug: categoryData exists but no icon found
             </div>
           )}
           
@@ -67,8 +72,8 @@ export default function KitGalleryHeader({
                 alt={logo.alt}
                 className={styles.dataspace_logo}
                 style={{
-                  width: logo.width ? `${logo.width * 1.5}px` : '105px',
-                  height: logo.height === 'auto' ? 'auto' : (logo.height ? `${logo.height * 1.5}px` : '105px'),
+                  width: logo.width ? `${logo.width * 2}px` : '105px',
+                  height: logo.height === 'auto' ? 'auto' : (logo.height ? `${logo.height * 2}px` : '105px'),
                   objectFit: 'contain'
                 }}
               />

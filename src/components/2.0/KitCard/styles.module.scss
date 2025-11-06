@@ -241,6 +241,65 @@
   z-index: 1;
 }
 
+// Metadata section
+.tooltipMetadata {
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+  background: rgba(40, 40, 40, 0.3);
+  border-radius: 8px;
+  border: 1px solid rgba(250, 160, 35, 0.1);
+}
+
+.metadataGrid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.metadataItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(250, 160, 35, 0.1);
+    padding-bottom: 0.5rem;
+  }
+}
+
+.metadataLabel {
+  color: #b0b0b0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  
+  &.newBadge {
+    color: #4ade80;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(34, 197, 94, 0.1));
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    animation: pulse 2s infinite;
+  }
+}
+
+.metadataValue {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
 .tooltipChips {
   display: flex;
   flex-wrap: wrap;
@@ -369,6 +428,40 @@
   overflow: hidden;
 }
 
+// New Kit Badge
+.newBadge {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.newBadgeText {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(34, 197, 94, 0.2));
+  color: #4ade80;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  animation: newKitPulse 2s infinite;
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.1);
+}
+
+@keyframes newKitPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(74, 222, 128, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(74, 222, 128, 0.2);
+  }
+}
+
 // Responsive adjustments
 @media (max-width: 1024px) {
   // Keep square cards consistent across screen sizes
@@ -448,6 +541,11 @@
     font-size: 0.7rem;
     max-width: 180px;
     margin-top: 0.6rem;
+  }
+
+  .newBadgeText {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
   }
 
   .kitCardWrapper {

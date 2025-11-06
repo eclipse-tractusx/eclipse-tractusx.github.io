@@ -24,7 +24,6 @@ import Layout from '@theme/Layout';
 import { getAllKits, dataspaces, kitsData } from '@site/data/kitsData';
 import FilteredKitsGallery from '@site/src/components/2.0/FilteredKitsGallery';
 import KitGalleryHeader from '@site/src/components/2.0/KitGalleryHeader';
-import KitsHeader from '@site/src/components/2.0/KitsHeader';
 import KitsFooter from '@site/src/components/2.0/KitsFooter';
 
 export default function GenericDataspacePage() {
@@ -155,7 +154,7 @@ export default function GenericDataspacePage() {
           property="og:description" 
           content={`Explore ${dataspace.name} KITs - comprehensive documentation and resources for building interoperable solutions in the ${dataspace.name} dataspace ecosystem.`}
         />
-        <link rel="canonical" href={`https://eclipse-tractusx.github.io/kits/dataspace?id=${dataspace.id}`} />
+        <link rel="canonical" href={`https://eclipse-tractusx.github.io/Kits/dataspace?id=${dataspace.id}`} />
       </Head>
       
       <KitGalleryHeader

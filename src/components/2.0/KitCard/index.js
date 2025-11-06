@@ -21,7 +21,7 @@ import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.scss';
 import { getKitGradient } from '@site/data/kitsData';
-import { Warning as WarningIcon } from '@mui/icons-material';
+import WarningIcon from '@mui/icons-material/Warning';
 
 const KitCard = ({ kit }) => {
   const [showTooltip, setShowTooltip] = React.useState(false);
@@ -105,6 +105,49 @@ const KitCard = ({ kit }) => {
                 <div className={styles.tooltipArrow}></div>
                 <p className={styles.tooltipText}>{kit.description}</p>
                 
+                {/* Metadata Information */}
+                {kit.metadata && (
+                  <div className={styles.tooltipMetadata}>
+                    <div className={styles.metadataGrid}>
+                      {kit.metadata.created && (
+                        <div className={styles.metadataItem}>
+                          <span className={styles.metadataLabel}>Created:</span>
+                          <span className={styles.metadataValue}>
+                            {new Date(kit.metadata.created).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'short', 
+                              day: 'numeric' 
+                            })}
+                          </span>
+                        </div>
+                      )}
+                      {kit.metadata.lastUpdated && (
+                        <div className={styles.metadataItem}>
+                          <span className={styles.metadataLabel}>Updated:</span>
+                          <span className={styles.metadataValue}>
+                            {new Date(kit.metadata.lastUpdated).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'short', 
+                              day: 'numeric' 
+                            })}
+                          </span>
+                        </div>
+                      )}
+                      {kit.metadata.latestVersion && (
+                        <div className={styles.metadataItem}>
+                          <span className={styles.metadataLabel}>Version:</span>
+                          <span className={styles.metadataValue}>{kit.metadata.latestVersion}</span>
+                        </div>
+                      )}
+                      {kit.metadata.new && (
+                        <div className={styles.metadataItem}>
+                          <span className={`${styles.metadataLabel} ${styles.newBadge}`}>New KIT!</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+                
                 {/* Chips Container */}
                 <div className={styles.tooltipChips}>
                   {/* Deprecated Warning Chip */}
@@ -140,6 +183,11 @@ const KitCard = ({ kit }) => {
         )}
       </div>
       <h3 className={styles.kitCard__title}>{kit.name}</h3>
+      {kit.metadata?.new && (
+        <div className={styles.newBadge}>
+          <span className={styles.newBadgeText}>NEW!</span>
+        </div>
+      )}
     </div>
   );
 };

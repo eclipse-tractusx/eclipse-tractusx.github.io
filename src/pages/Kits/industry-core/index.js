@@ -20,9 +20,9 @@
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import { Engineering as IndustryCoreIcon } from '@mui/icons-material';
+import IndustryCoreIcon from '@mui/icons-material/Engineering';
 
-import FilteredKitsGallery from "../../../components/2.0/FilteredKitsGallery";
+import FilteredKitsGallery from "@site/src/components/2.0/FilteredKitsGallery";
 import { kitsData } from "@site/data/kitsData";
 
 export default function IndustryCoreKitsPage() {

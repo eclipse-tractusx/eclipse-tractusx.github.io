@@ -18,6 +18,7 @@
  ********************************************************************************/
 
 import AddIcon from '@mui/icons-material/Add';
+import Link from '@docusaurus/Link';
 import styles from "./styles.module.scss";
 
 export default function KitsExtensions({ dataspaces }) {
@@ -29,38 +30,36 @@ export default function KitsExtensions({ dataspaces }) {
         
         <div className={styles.blocks_container}>
           {dataspaces.map((dataspace) => (
-            <div 
-              key={dataspace.id} 
-              className={`${styles.dataspace_block} ${styles[`block_${dataspace.id.replace('-', '_')}`]}`}
-              style={{
-                '--layer-1-color': dataspace.colors.layer1,
-                '--layer-2-color': dataspace.colors.layer2,
-                '--layer-3-color': dataspace.colors.layer3,
-                '--layer-4-color': dataspace.colors.layer4,
-              }}
+            <Link
+              key={dataspace.id}
+              to={`/Kits/dataspace?id=${dataspace.id}`}
+              className={styles.dataspace_link}
             >
-              <div className={styles.block_layer_1}></div>
-              <div className={styles.block_layer_2}></div>
-              <div className={styles.block_layer_3}></div>
-              <div className={styles.block_layer_4}></div>
-              <div className={styles.block_content}>
-                <img 
-                  src={dataspace.logo.src} 
-                  alt={dataspace.logo.alt}
-                  width={dataspace.logo.width}
-                  height={dataspace.logo.height === 'auto' ? undefined : dataspace.logo.height}
-                  style={{
-                    width: `${dataspace.logo.width}px`,
-                    height: dataspace.logo.height === 'auto' ? 'auto' : `${dataspace.logo.height}px`,
-                    objectFit: 'contain'
-                  }}
-                />
-                <div className={styles.block_text}>
-                  <div className={styles.block_title}>{dataspace.name}</div>
-                  <div className={styles.block_subtitle}>{dataspace.subtitle}</div>
+              <div 
+                className={`${styles.dataspace_block} ${styles[`block_${dataspace.id.replace('-', '_')}`]}`}
+                style={{
+                  '--layer-1-color': dataspace.colors.layer1,
+                  '--layer-2-color': dataspace.colors.layer2,
+                  '--layer-3-color': dataspace.colors.layer3,
+                  '--layer-4-color': dataspace.colors.layer4,
+                }}
+              >
+                <div className={styles.block_layer_1}></div>
+                <div className={styles.block_layer_2}></div>
+                <div className={styles.block_layer_3}></div>
+                <div className={styles.block_layer_4}></div>
+                <div className={styles.block_content}>
+                  <img 
+                    src={dataspace.logo.src} 
+                    alt={dataspace.logo.alt}
+                  />
+                  <div className={styles.block_text}>
+                    <div className={styles.block_title}>{dataspace.name}</div>
+                    <div className={styles.block_subtitle}>{dataspace.subtitle}</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
           
           {/* Hardcoded More Dataspaces block */}

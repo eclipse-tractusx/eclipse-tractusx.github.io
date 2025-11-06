@@ -21,10 +21,12 @@ import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.scss';
 import { getKitGradient } from '@site/data/kitsData';
-import { Warning as WarningIcon } from '@mui/icons-material';
+import WarningIcon from '@mui/icons-material/Warning';
+import InfoIcon from '@mui/icons-material/HistoryRounded';
 
 const ExpandedKitCard = ({ kit }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
   
   // Get the gradient for this specific kit
   const kitGradient = getKitGradient(kit);
@@ -45,14 +47,75 @@ const ExpandedKitCard = ({ kit }) => {
         <div className={styles.expandedKitCard__layer3}></div>
         <div className={styles.expandedKitCard__layer2}></div>
         
+        {/* Version badge - top left */}
+        {kit.metadata?.latestVersion && (
+          <div className={styles.expandedKitCard__versionBadge}>
+            v{kit.metadata.latestVersion}
+          </div>
+        )}
+
+        {/* Info Button */}
+        {kit.metadata && (
+          <div className={styles.expandedKitCard__infoButton}>
+            <button
+              className={styles.infoButton}
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                setShowTooltip(!showTooltip);
+              }}
+              aria-label="Kit metadata information"
+            >
+              <InfoIcon />
+            </button>
+            
+            {/* Tooltip */}
+            {showTooltip && (
+              <div className={styles.tooltip}>
+                <div className={styles.tooltipArrow}></div>
+                <div className={styles.tooltipMetadata}>
+                  <div className={styles.metadataGrid}>
+                    {kit.metadata.created && (
+                      <div className={styles.metadataItem}>
+                        <span className={styles.metadataLabel}>Created:</span>
+                        <span className={styles.metadataValue}>
+                          {new Date(kit.metadata.created).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
+                          })}
+                        </span>
+                      </div>
+                    )}
+                    {kit.metadata.lastUpdated && (
+                      <div className={styles.metadataItem}>
+                        <span className={styles.metadataLabel}>Updated:</span>
+                        <span className={styles.metadataValue}>
+                          {new Date(kit.metadata.lastUpdated).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
+                          })}
+                        </span>
+                      </div>
+                    )}
+                    {kit.metadata.latestVersion && (
+                      <div className={styles.metadataItem}>
+                        <span className={styles.metadataLabel}>Version:</span>
+                        <span className={styles.metadataValue}>{kit.metadata.latestVersion}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
         <Link to={kit.route} className={`${styles.expandedKitCard} ${kit.deprecated ? styles['expandedKitCard--deprecated'] : ''}`}>
           {/* Deprecated badge */}
-          {kit.deprecated && (
-            <div className={styles.expandedKitCard__deprecatedBadge}>
-              <WarningIcon className={styles.expandedKitCard__deprecatedIcon} />
-              <span className={styles.expandedKitCard__deprecatedText}>DEPRECATED</span>
-            </div>
-          )}
+
 
           {/* Fixed top section with icon only */}
           <div className={styles.expandedKitCard__iconSection}>
@@ -77,24 +140,42 @@ const ExpandedKitCard = ({ kit }) => {
               </p>
             )}
 
-            {/* Maturity Information */}
-            {kit.maturity && (
-              <div className={styles.expandedKitCard__maturity}>
-                {/* Current Level Chip */}
-                {kit.maturity.currentLevel && (
-                  <span className={`${styles.chip} ${styles[`chip--${kit.maturity.currentLevel.toLowerCase()}`]}`}>
-                    {kit.maturity.currentLevel}
-                  </span>
-                )}
-                
-                {/* Graduation Status Chip */}
-                {kit.maturity.graduationStatus && (
-                  <span className={`${styles.chip} ${styles[`chip--${kit.maturity.graduationStatus.replace(/\s+/g, '')}`]}`}>
-                    {kit.maturity.graduationStatus}
-                  </span>
-                )}
-              </div>
-            )}
+            {/* Maturity Information or Deprecated Warning */}
+            <div className={styles.expandedKitCard__maturity}>
+              {kit.deprecated ? (
+                /* Deprecated Warning Chip */
+                <span className={`${styles.chip} ${styles['chip--deprecated']}`}>
+                  <WarningIcon className={styles.chipIcon} />
+                  DEPRECATED
+                </span>
+              ) : (
+                /* Regular Maturity Chips */
+                kit.maturity && (
+                  <>
+                    {/* Current Level Chip */}
+                    {kit.maturity.currentLevel && (
+                      <span className={`${styles.chip} ${styles[`chip--${kit.maturity.currentLevel.toLowerCase()}`]}`}>
+                        {kit.maturity.currentLevel}
+                      </span>
+                    )}
+                    
+                    {/* Graduation Status Chip */}
+                    {kit.maturity.graduationStatus && (
+                      <span className={`${styles.chip} ${styles[`chip--${kit.maturity.graduationStatus.replace(/\s+/g, '')}`]}`}>
+                        {kit.maturity.graduationStatus}
+                      </span>
+                    )}
+                  </>
+                )
+              )}
+              
+              {/* New Kit Chip - always shown if applicable */}
+              {kit.metadata?.new && !kit.deprecated && (
+                <span className={`${styles.chip} ${styles['chip--new']}`}>
+                  NEW!
+                </span>
+              )}
+            </div>
           </div>
         </Link>
       </div>

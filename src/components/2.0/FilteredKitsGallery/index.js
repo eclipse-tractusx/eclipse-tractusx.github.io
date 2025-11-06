@@ -18,9 +18,9 @@
  ********************************************************************************/
 
 import React, { useState, useMemo } from 'react';
-import KitGalleryHeader from '../KitGalleryHeader';
+import KitGalleryHeader from '@site/src/components/2.0/KitGalleryHeader';
 import styles from './styles.module.scss';
-import ExpandedKitsGrid from '../ExpandedKitsGrid';
+import ExpandedKitsGrid from '@site/src/components/2.0/ExpandedKitsGrid';
 
 export default function FilteredKitsGallery({ 
   categoryData,
@@ -96,6 +96,14 @@ export default function FilteredKitsGallery({
 
   // Handlers are now inline with onClick events
 
+  // Calculate statistics for the header
+  const statistics = {
+    total: filteredKits.length,
+    graduated: filteredKits.filter(kit => kit.maturity?.currentLevel === 'Graduated').length,
+    incubating: filteredKits.filter(kit => kit.maturity?.currentLevel === 'Incubating').length,
+    sandbox: filteredKits.filter(kit => kit.maturity?.currentLevel === 'Sandbox').length
+  };
+
   return (
     <div className={styles.filtered_gallery}>
       {/* Header with breadcrumb */}
@@ -105,6 +113,8 @@ export default function FilteredKitsGallery({
           title={title}
           description={description}
           kitCount={filteredKits.length}
+          statistics={statistics}
+          gradient={categoryData?.gradient}
         />
       )}
 

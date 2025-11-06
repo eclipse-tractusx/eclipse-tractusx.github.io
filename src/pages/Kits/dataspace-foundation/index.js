@@ -20,9 +20,9 @@
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import { Hub as DataspaceIcon } from '@mui/icons-material';
+import DataspaceIcon from '@mui/icons-material/Hub';
 
-import FilteredKitsGallery from "../../../components/2.0/FilteredKitsGallery";
+import FilteredKitsGallery from "@site/src/components/2.0/FilteredKitsGallery";
 import { kitsData } from "@site/data/kitsData";
 
 export default function DataspaceFoundationKitsPage() {

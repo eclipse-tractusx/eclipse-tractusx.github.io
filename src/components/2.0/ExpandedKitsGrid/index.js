@@ -19,7 +19,7 @@
 
 import React from 'react';
 import styles from './styles.module.scss';
-import ExpandedKitCard from '../ExpandedKitCard';
+import ExpandedKitCard from '@site/src/components/2.0/ExpandedKitCard';
 
 const ExpandedKitsGrid = ({ title, kits }) => {
   return (

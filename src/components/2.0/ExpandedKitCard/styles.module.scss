@@ -206,6 +206,172 @@
   text-transform: uppercase;
 }
 
+// Version badge positioned at top left
+.expandedKitCard__versionBadge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  z-index: 10;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+
+  // Hover effect - turns white with background when card is hovered
+  .expandedKitCard__stackContainer[data-hovered="true"] & {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+  }
+}
+
+// Info Button Container
+.expandedKitCard__infoButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+}
+
+.infoButton {
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+  color: rgba(156, 163, 175, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  padding: 2px;
+
+  &:hover {
+    color: rgba(156, 163, 175, 1);
+    transform: scale(1.15);
+  }
+
+  svg {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 16px !important;
+  }
+
+  // Hover effect - turns white when card is hovered
+  .expandedKitCard__stackContainer[data-hovered="true"] & {
+    color: rgba(255, 255, 255, 0.9);
+    
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+// Tooltip
+.tooltip {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 280px;
+  background: rgba(26, 26, 26, 0.98);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(250, 160, 35, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 1003;
+  animation: tooltipFadeIn 0.2s ease-out;
+}
+
+.tooltipArrow {
+  position: absolute;
+  top: -6px;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  background: rgba(26, 26, 26, 0.98);
+  border-left: 1px solid rgba(250, 160, 35, 0.2);
+  border-top: 1px solid rgba(250, 160, 35, 0.2);
+  transform: rotate(45deg);
+}
+
+// Metadata section
+.tooltipMetadata {
+  margin: 0;
+  padding: 0.75rem;
+  background: rgba(40, 40, 40, 0.3);
+  border-radius: 8px;
+  border: 1px solid rgba(250, 160, 35, 0.1);
+}
+
+.metadataGrid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.metadataItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(250, 160, 35, 0.1);
+    padding-bottom: 0.5rem;
+  }
+}
+
+.metadataLabel {
+  color: #b0b0b0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  
+  &.newBadge {
+    color: #4ade80;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(34, 197, 94, 0.1));
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    animation: pulse 2s infinite;
+  }
+}
+
+.metadataValue {
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
 .expandedKitCard__header {
   display: flex;
   /* place the icon at the top of the component (title flows to the right) */
@@ -285,18 +451,19 @@
 .expandedKitCard__maturity {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.375rem; /* Reduced gap for better space utilization */
   margin: 0; /* No extra margin, let parent spacing handle it */
+  align-items: center;
 }
 
 // Chips styling (reused from KitCard)
 .chip {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
+  padding: 0.2rem 0.4rem; /* More compact padding for better space utilization */
+  font-size: 0.7rem; /* Slightly smaller for better fit */
   font-weight: 500;
-  border-radius: 12px;
+  border-radius: 10px; /* Slightly smaller border radius */
   text-transform: uppercase;
   letter-spacing: 0.025em;
   white-space: nowrap;
@@ -338,6 +505,66 @@
   background: rgba(174, 62, 201, 0.15);
   color: #ae3ec9;
   border: 1px solid rgba(174, 62, 201, 0.3);
+}
+
+// New kit chip
+.chip--new {
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(34, 197, 94, 0.2));
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  font-weight: 600;
+  animation: newKitPulse 2s infinite;
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.1);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  padding: 0.2rem 0.4rem; /* More compact padding for better space utilization */
+  font-size: 0.7rem; /* Slightly smaller font for better fit */
+
+  // Hover effect - turns white when card is hovered
+  .expandedKitCard__stackContainer[data-hovered="true"] & {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+    animation: none; // Stop the pulse animation on hover
+  }
+}
+
+@keyframes newKitPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(74, 222, 128, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(74, 222, 128, 0.2);
+  }
+}
+
+// Deprecated kit chip
+.chip--deprecated {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+
+  .chipIcon {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+  }
+
+  // Hover effect - turns white when card is hovered
+  .expandedKitCard__stackContainer[data-hovered="true"] & {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+  }
 }
 
 // Responsive design - Enhanced for better mobile experience
@@ -424,6 +651,38 @@
     max-height: calc(var(--logo-height, 80px) * 0.8) !important;
   }
 
+  // Mobile responsive styles for new elements
+  .expandedKitCard__versionBadge {
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .expandedKitCard__infoButton {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .infoButton {
+    width: 20px;
+    height: 20px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .tooltip {
+    width: 240px;
+    right: -60px; // Center the tooltip better on mobile
+  }
+
+  .tooltipArrow {
+    right: 65px; // Adjust arrow position for centered tooltip
+  }
+
   .expandedKitCard__title {
     font-size: 0.95rem; /* Even smaller on mobile */
     line-height: 1.3;
@@ -443,10 +702,15 @@
     max-height: 65%; /* More content space on mobile */
   }
 
-  // Smaller chips on mobile
+  // Smaller chips on mobile for better space utilization
   .chip {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.4rem;
+    font-size: 0.65rem;
+    padding: 0.15rem 0.35rem;
+  }
+
+  // Reduce gap between chips on mobile
+  .expandedKitCard__maturity {
+    gap: 0.25rem;
   }
 }
 

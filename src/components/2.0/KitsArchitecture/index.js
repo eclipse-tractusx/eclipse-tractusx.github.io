@@ -41,7 +41,7 @@
              {dataspaces.map((dataspace) => (
                <Link 
                  key={dataspace.id}
-                 to={`/kits/dataspace?id=${dataspace.id}`}
+                 to={`/Kits/dataspace?id=${dataspace.id}`}
                  className={`${styles.hexagon} ${styles[`hexagon_${dataspace.id.replace('-', '_')}`]}`}
                  style={{
                    '--hexagon-gradient': dataspace.gradient,
@@ -75,7 +75,7 @@
 
            {/* Bottom rectangles */}
            <div className={styles.rectangle_column}>
-             <Link to="/kits/cross-industry" className={styles.rectangle_link}>
+             <Link to="/Kits/cross-industry" className={styles.rectangle_link}>
                <div className={`${styles.rectangle} ${styles.rectangle_cross_industry}`}>
                  <span>Cross-Industry Use Cases</span>
                  <div className={styles.rectangle_hover_indicator}>
@@ -85,7 +85,7 @@
                  </div>
                </div>
              </Link>
-             <Link to="/kits/industry-core" className={styles.rectangle_link}>
+             <Link to="/Kits/industry-core" className={styles.rectangle_link}>
                <div className={`${styles.rectangle} ${styles.rectangle_industry_core}`}>
                  <span>Industry Core Foundation</span>
                  <div className={styles.rectangle_hover_indicator}>
@@ -95,7 +95,7 @@
                  </div>
                </div>
              </Link>
-             <Link to="/kits/dataspace-foundation" className={styles.rectangle_link}>
+             <Link to="/Kits/dataspace-foundation" className={styles.rectangle_link}>
                <div className={`${styles.rectangle} ${styles.rectangle_dataspace}`}>
                  <span>Dataspace Foundation</span>
                  <div className={styles.rectangle_hover_indicator}>
