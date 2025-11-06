@@ -32,12 +32,15 @@ export default function GenericDataspacePage() {
   const [filteredKits, setFilteredKits] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  
+  // Extract ref from URL query parameters
+  const urlParams = new URLSearchParams(location.search);
+  const ref = urlParams.get('ref');
 
   useEffect(() => {
-    // Extract dataspace ID from URL query parameters
+    // Extract dataspace ID and ref from URL query parameters
     const urlParams = new URLSearchParams(location.search);
     const dataspaceId = urlParams.get('id');
-    
     if (!dataspaceId) {
       setNotFound(true);
       setLoading(false);
@@ -165,6 +168,7 @@ export default function GenericDataspacePage() {
         url={dataspace.url}
         gradient={dataspace.gradient}
         statistics={kitStats}
+        backButtonLink={ref ? `/Kits?scrollTo=${ref}` : `/Kits`}
       />
 
       {/* KITs Gallery */}
@@ -175,9 +179,12 @@ export default function GenericDataspacePage() {
         showHeader={false}
         title={`${dataspace.name} KITs Collection`}
         description={`All KITs available for the ${dataspace.name} dataspace ecosystem`}
+        backRef={ref}
       />
       
-      <KitsFooter />
+      <KitsFooter 
+        disclaimer={`* The ${dataspace?.name} logo is a trademark property of its affiliated companies and organizations.`}
+      />
     </Layout>
   );
 }

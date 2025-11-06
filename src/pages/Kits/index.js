@@ -17,9 +17,10 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React from "react";
+import React, { useEffect } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import { useLocation } from '@docusaurus/router';
 
 import KitHeader from "../../components/2.0/KitsHeader";
 import KitsTitle from "../../components/2.0/KitsTitle";
@@ -32,8 +33,32 @@ import { kitsData, getAllKits, dataspaces } from "@site/data/kitsData";
 
 export default function KitsPage() {
   const { siteConfig } = useDocusaurusContext();
+  const location = useLocation();
   
   const allKits = getAllKits();
+
+  // Handle scrolling to section based on URL parameters or fragment
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const scrollTo = urlParams.get('scrollTo');
+    
+    if (scrollTo) {
+      const element = document.getElementById(scrollTo);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else if (location.hash) {
+      const elementId = location.hash.substring(1);
+      const element = document.getElementById(elementId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location.search, location.hash]);
   
   return (
     <Layout
@@ -42,7 +67,9 @@ export default function KitsPage() {
     >
       <KitHeader />
       <KitsTitle />
-      <KitsArchitecture dataspaces={dataspaces}/>
+      <section id="architecture">
+        <KitsArchitecture dataspaces={dataspaces}/>
+      </section>
       <KitStatistics kitsData={allKits} />
       <KitsGallery
         title={"Our Gallery"}
@@ -51,8 +78,10 @@ export default function KitsPage() {
         industryCoreFoundation={kitsData.industryCoreFoundation}
         useCases={kitsData.useCases}
       />
-      <KitsExtensions dataspaces={dataspaces} />
-      <KitsFooter />
+      <section id="extensions">
+        <KitsExtensions dataspaces={dataspaces} />
+      </section>
+      <KitsFooter disclaimer={`* All dataspace logos are trademarks of their affiliated companies and organizations.`} />
     </Layout>
   );
 }

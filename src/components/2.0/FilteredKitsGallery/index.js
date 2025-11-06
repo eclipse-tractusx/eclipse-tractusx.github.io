@@ -29,7 +29,8 @@ export default function FilteredKitsGallery({
   showCategoryFilter = false,
   showHeader = true,
   title,
-  description
+  description,
+  backRef
 }) {
   const [selectedDataspace, setSelectedDataspace] = useState('All Dataspaces');
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
@@ -115,6 +116,7 @@ export default function FilteredKitsGallery({
           kitCount={filteredKits.length}
           statistics={statistics}
           gradient={categoryData?.gradient}
+          backButtonLink={backRef ? `/Kits?scrollTo=${backRef}` : `/Kits`}
         />
       )}
 

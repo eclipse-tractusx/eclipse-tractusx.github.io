@@ -22,6 +22,7 @@ import Link from '@docusaurus/Link';
 import styles from './styles.module.scss';
 import { getKitGradient } from '@site/data/kitsData';
 import WarningIcon from '@mui/icons-material/Warning';
+import InfoOutlinedIcon from '@mui/icons-material/AutoAwesome';
 
 const KitCard = ({ kit }) => {
   const [showTooltip, setShowTooltip] = React.useState(false);
@@ -80,23 +81,18 @@ const KitCard = ({ kit }) => {
                 setShowTooltip(!showTooltip);
               }}
               aria-label="Kit information"
+              style={{
+                color: isHovered ? 'white' : '',
+                transition: 'color 0.2s ease',
+                cursor: 'pointer'
+              }}
             >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="7" cy="7" r="6.5" stroke="currentColor" strokeWidth="1" />
-                <circle cx="7" cy="4.5" r="0.5" fill="currentColor" />
-                <path
-                  d="M7 6.5V10.5"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                />
-              </svg>
+              <InfoOutlinedIcon 
+                sx={{ 
+                  fontSize: 14,
+                  color: 'inherit'
+                }} 
+              />
             </button>
             
             {/* Tooltip */}

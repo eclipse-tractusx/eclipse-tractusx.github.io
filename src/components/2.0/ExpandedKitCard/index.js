@@ -22,7 +22,8 @@ import Link from '@docusaurus/Link';
 import styles from './styles.module.scss';
 import { getKitGradient } from '@site/data/kitsData';
 import WarningIcon from '@mui/icons-material/Warning';
-import InfoIcon from '@mui/icons-material/HistoryRounded';
+import InfoIcon from '@mui/icons-material/AutoAwesome';
+
 
 const ExpandedKitCard = ({ kit }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -161,7 +162,7 @@ const ExpandedKitCard = ({ kit }) => {
                     
                     {/* Graduation Status Chip */}
                     {kit.maturity.graduationStatus && (
-                      <span className={`${styles.chip} ${styles[`chip--${kit.maturity.graduationStatus.replace(/\s+/g, '')}`]}`}>
+                      <span className={`${styles.chip} ${styles['chip--graduation-status']} ${styles[`chip--${kit.maturity.graduationStatus.replace(/\s+/g, '')}`]}`}>
                         {kit.maturity.graduationStatus}
                       </span>
                     )}

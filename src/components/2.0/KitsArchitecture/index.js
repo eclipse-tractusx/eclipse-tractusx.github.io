@@ -22,7 +22,7 @@
  
  export default function KitsArchitecture({dataspaces}) {
    return (
-     <section id="architecture" className={styles.architecture_section}>
+     <section className={styles.architecture_section}>
        <div className={styles.container}>
          <h2 className={styles.title}>Our KITs Architecture</h2>
          <p className={styles.subtitle}>Building the foundation for interoperable dataspaces across industries</p>
@@ -41,7 +41,7 @@
              {dataspaces.map((dataspace) => (
                <Link 
                  key={dataspace.id}
-                 to={`/Kits/dataspace?id=${dataspace.id}`}
+                 to={`/Kits/dataspace?id=${dataspace.id}&ref=architecture`}
                  className={`${styles.hexagon} ${styles[`hexagon_${dataspace.id.replace('-', '_')}`]}`}
                  style={{
                    '--hexagon-gradient': dataspace.gradient,

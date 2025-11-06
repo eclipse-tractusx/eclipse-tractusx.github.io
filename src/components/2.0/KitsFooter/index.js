@@ -24,7 +24,7 @@ import ThemedImage from '@theme/ThemedImage';
 import { Chat as ChatIcon, Groups as GroupsIcon, Add as AddIcon, RocketLaunch as RocketIcon } from '@mui/icons-material';
 import styles from "./styles.module.scss";
 
-export default function KitsFooter() {
+export default function KitsFooter({ disclaimer }) {
   const { colorMode } = useColorMode();
 
   return (
@@ -75,8 +75,20 @@ export default function KitsFooter() {
         </div>
         
         <div className={styles.bottom}>
+          {disclaimer && (
+            <p style={{
+              fontSize: '0.75rem',
+              color: 'var(--ifm-color-emphasis-600)',
+              fontStyle: 'italic',
+              textAlign: 'center',
+              margin: '0 0 0.5rem 0',
+              opacity: 0.8
+            }}>
+              {disclaimer}
+            </p>
+          )}
           <p className={styles.copyright}>
-            Licensed under the <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/LICENSE_non-code">CC-BY-4.0</a> License.
+            Our KITs are licensed under the non-code <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/LICENSE_non-code">CC-BY-4.0</a> License.
           </p>
         </div>
       </div>

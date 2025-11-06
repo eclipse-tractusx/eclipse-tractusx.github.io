@@ -68,10 +68,12 @@ export default function KitsGalleryWithCategories({
   };
 
   const handleSort = () => {
-    if (sortOrder === 'default' || sortOrder === 'desc') {
+    if (sortOrder === 'default') {
       setSortOrder('asc');
-    } else {
+    } else if (sortOrder === 'asc') {
       setSortOrder('desc');
+    } else {
+      setSortOrder('default');
     }
   };
 
@@ -102,34 +104,71 @@ export default function KitsGalleryWithCategories({
                   className={styles.selectInput}
                   sx={{
                     padding: '0 0.5rem',
-                    color: '#fff',
+                    color: 'var(--ifm-font-color-base)',
                     '& .MuiSvgIcon-root': {
-                      color: '#faa023',
+                      color: 'var(--ifm-color-primary)',
                     },
                     '& .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#faa023'
+                      borderColor: 'var(--ifm-color-primary)'
                     },
                     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#c37304',
+                      borderColor: 'var(--ifm-color-primary-dark)',
                     },
                     '&:hover .MuiOutlinedInput-notchedOutline': {
-                      borderColor: '#ed8c05',
+                      borderColor: 'var(--ifm-color-primary-darker)',
                     }
                   }}
                   inputProps={{
                     MenuProps: {
                       MenuListProps: {
                         sx: {
-                          backgroundColor: '#1f1f1f',
-                          color: '#fff',
+                          backgroundColor: 'var(--ifm-background-color)',
+                          color: 'var(--ifm-font-color-base)',
                         }
                       },
                     }
                   }}
                 >
-                  <MenuItem value={'All Dataspaces'}>All Dataspaces</MenuItem>
+                  <MenuItem 
+                    value={'All Dataspaces'}
+                    sx={{
+                      color: 'var(--ifm-font-color-base)',
+                      '&:hover': {
+                        backgroundColor: 'var(--ifm-hover-overlay)',
+                      },
+                      '&.Mui-selected': {
+                        backgroundColor: '#faa023',
+                        color: '#000000',
+                        '&:hover': {
+                          backgroundColor: '#ed8c05',
+                          color: '#000000',
+                        }
+                      }
+                    }}
+                  >
+                    All Dataspaces
+                  </MenuItem>
                   {allDataspaces.map(dataspace => (
-                    <MenuItem key={dataspace} value={dataspace}>{dataspace}</MenuItem>
+                    <MenuItem 
+                      key={dataspace} 
+                      value={dataspace}
+                      sx={{
+                        color: 'var(--ifm-font-color-base)',
+                        '&:hover': {
+                          backgroundColor: 'var(--ifm-hover-overlay)',
+                        },
+                        '&.Mui-selected': {
+                          backgroundColor: '#faa023',
+                          color: '#000000',
+                          '&:hover': {
+                            backgroundColor: '#ed8c05',
+                            color: '#000000',
+                          }
+                        }
+                      }}
+                    >
+                      {dataspace}
+                    </MenuItem>
                   ))}
                 </Select>
               </FormControl>

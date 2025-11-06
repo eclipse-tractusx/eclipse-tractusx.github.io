@@ -43,6 +43,7 @@ export default function IndustryCoreKitsPage() {
       <FilteredKitsGallery
         categoryData={categoryData}
         kits={kitsData.industryCoreFoundation}
+        backRef="architecture"
       />
     </Layout>
   );

@@ -34,7 +34,7 @@ export default function AboutUsContent() {
           <h2 className="title-h2">Background</h2>
 
           <p className="description-p">
-            The Eclipse Tractus-X™ project is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation. The Eclipse Foundation is not-for-profit corporation that it supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.
+            The Eclipse Tractus-X™ project is the official open-source project in the Catena-X ecosystem and several other Manufacturing-X ecosystems under the umbrella of the Eclipse Foundation. The Eclipse Foundation is not-for-profit corporation that it supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.
           </p>
 
           <div className={styles.img_container}>

@@ -32,7 +32,7 @@ export default function KitsExtensions({ dataspaces }) {
           {dataspaces.map((dataspace) => (
             <Link
               key={dataspace.id}
-              to={`/Kits/dataspace?id=${dataspace.id}`}
+              to={`/Kits/dataspace?id=${dataspace.id}&ref=extensions`}
               className={styles.dataspace_link}
             >
               <div 
@@ -92,6 +92,7 @@ export default function KitsExtensions({ dataspaces }) {
             </div>
           </div>
         </div>
+        
       </div>
     </section>
   );

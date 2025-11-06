@@ -15,15 +15,18 @@ import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
-import HomePageHeader from "../components/HomePageHeader/index";
-import AboutUsCard from "../components/AboutUsCard";
-import FAQsComponent from "../components/FAQsComponent";
-import KitsGalleryWithFilters from "../components/KitsGalleryWithFilters";
-import { kitsGallery } from "@site/utils/kitsGallery";
-import RoleBasedEnrtyComponent from "../components/RoleBasedEnrtyComponent";
-import CommunityComponent from "../components/CommunityComponent";
-import { carouselRoleBased } from "../../utils/carouselRoleBased";
-
+import HomePageHeader from "@site/src/components/HomePageHeader/index";
+import AboutUsCard from "@site/src/components/AboutUsCard";
+import RoleBasedEnrtyComponent from "@site/src/components/RoleBasedEnrtyComponent";
+import CommunityComponent from "@site/src/components/CommunityComponent";
+import { carouselRoleBased } from "@site/utils/carouselRoleBased";
+import KitsTitle from "@site/src/components/2.0/KitsTitle";
+import KitStatistics from "@site/src/components/2.0/KitStatistics";
+import KitsArchitecture from "@site/src/components/2.0/KitsArchitecture";
+import KitsGallery from "@site/src/components/2.0/KitsGallery";
+import KitsExtensions from "@site/src/components/2.0/KitsExtensions";
+import KitsFooter from "@site/src/components/2.0/KitsFooter";
+import { kitsData, getAllKits, dataspaces } from "@site/data/kitsData";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -31,10 +34,11 @@ export default function Home() {
     highlightText: "Welcome to the community",
     title: "The magic behind Eclipse Tractus-X",
     descriptionHighlight: "The Eclipse Tractus-X™ project",
-    description: " is the official open-source project in the Catena-X ecosystem under the umbrella of the Eclipse Foundation. The Eclipse Foundation is a not-for-profit corporation that is supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.",
+    description: " is the official open-source project in the Catena-X ecosystem and several other Manufacturing-X ecosystems under the umbrella of the Eclipse Foundation. The Eclipse Foundation is a not-for-profit corporation that is supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.",
     buttonText: "About Us",
     link: "/AboutUs"
   }
+  const allKits = getAllKits();
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
@@ -44,14 +48,19 @@ export default function Home() {
       <main>
         <RoleBasedEnrtyComponent data={carouselRoleBased} />
         <AboutUsCard {...aboutInput} />
-        <CommunityComponent />
-        <KitsGalleryWithFilters
-          itemsArray={kitsGallery}
-          title={"Our KITs"}
-          description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
+        <KitsTitle />
+        <KitsArchitecture dataspaces={dataspaces}/>
+        <KitStatistics kitsData={allKits} />
+        <KitsGallery
+          title={"Our Gallery"}
+          description={"Unlock the full power of the KITs. Browse all the available specifications, blueprints, and reference implementations."}
+          dataspaceFoundation={kitsData.dataspaceFoundation}
+          industryCoreFoundation={kitsData.industryCoreFoundation}
+          useCases={kitsData.useCases}
         />
-        {/* Enable when it is required */}
-        {/* <FAQsComponent /> */}
+        <KitsExtensions dataspaces={dataspaces} />
+        <KitsFooter disclaimer={`* All dataspace logos are trademarks of their affiliated companies and organizations.`} />
+        <CommunityComponent />
       </main>
     </Layout>
   );
