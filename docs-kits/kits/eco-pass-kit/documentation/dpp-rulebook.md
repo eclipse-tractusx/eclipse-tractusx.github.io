@@ -237,8 +237,8 @@ Metadata encompasses the fundamental details of the digital product passport.
 | 6.1.5   | Predecessor Identifier    | Mandatory           | Regulation (EU) 2024/1781                                  | 
 | 6.1.6   | Registration Identifier   | Optional            | Regulation (EU) 2024/1781                                  |
 | 6.1.7   | Backup Reference          | Mandatory           | Regulation (EU) 2024/1781                                  | 
-| 6.1.8   | IssueDate                 | Mandatory           | Regulation (EU) 2024/1781                                  |
-| 6.1.9   | ExpirationDate            | Mandatory           | Regulation (EU) 2024/1781, Article 9 (2)(i) and Article 11 | 
+| 6.1.8   | Issue Date                 | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 6.1.9   | Expiration Date            | Mandatory           | Regulation (EU) 2024/1781, Article 9 (2)(i) and Article 11 | 
 | 6.1.10  | Last Modification         | Optional            | Regulation (EU) 2024/1781                                  |
 | 6.1.11  | Economic Operator ID      | Mandatory           | Regulation (EU) 2024/1781, Annex III, section (k)          | 
 | 6.1.12  | Economic Operator Name    | Mandatory           | Regulation (EU) 2024/1781                                  |
