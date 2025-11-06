@@ -112,7 +112,7 @@ A Regular-Based Expression Check refers to the process of validating or analyzin
 
 Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation." The following sub section provides a brief overview of the differing definitions.
 
-> #### TfS:
+> #### 3.2.5.1 TfS:
 > ##### Verification: 
 > Process for evaluating an environmental information **statement based on historical data** and information to determine whether the statement conforms with the relevant criteria. 
 > ##### Validation:
@@ -123,7 +123,7 @@ Two situations:
 The term “environmental information validation” is shortened to “validation” in this document to reduce sentence complexity and aid understanding.<br><br>
 In the context of Together for Sustainability (TfS), "verification" refers to the evaluation of historical Product Carbon Footprints (PCFs), while "validation" pertains to the assessment of projected or future PCFs. These definitions are derived from ISO 14065:2020 and ISO 14066:2023. However, as these interpretations are highly specific to PCFs—and even within the PCF domain, definitions of verification and validation vary across initiatives such as PACT (as outlined below), a thorough evaluation has led to the conclusion that they are currently not well-suited for addressing "data plausibility" within Digital Product Passports
 
->#### PACT
+>#### 3.2.5.2 PACT
 >##### Verification: 
 > The process of independently assessing whether reported PCF **data is accurate, complete, and conforms to a defined methodology** or standard. 
 Based on the definition provided above, a simplified interpretation would be: "Determining whether the data has been calculated in accordance with established guidelines and standards."
@@ -132,7 +132,7 @@ Based on the definition provided above, a simplified interpretation would be: "D
 In simpler terms, this can be understood as evaluating whether the data appears logical and internally consistent in terms of its content.<br><br>
 This interpretation is consistent with the definitions found on Wikipedia and also closely reflects our own understanding of the terms "verification" and "validation."
 
->#### Definition for Validation & Verification in Standards & Regulations  
+>#### 3.2.5.3 Definition for Validation & Verification in Standards & Regulations  
 > The terms verification and validation are used in many standards and regulations, but their meanings can vary depending on the context. In general, verification is about checking whether something was done correctly, while validation is about making sure it meets the intended purpose or requirements. Below are selected definitions from key standards and regulations that illustrate how these terms are interpreted and applied in different domains.
 >##### Verification: 
 > The act of determining whether an operation has been accomplished correctly (ISO/TC 97/SC 1 N759)
@@ -141,7 +141,7 @@ This interpretation is consistent with the definitions found on Wikipedia and al
 >- "Validation data" means data used for providing an evaluation of the trained AI system and for tuning its non-learnable parameters and its learning process in order, inter alia, to prevent underfitting or overfitting; (Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence and amending Regulations (EC) No 300/2008, (EU) No 167/2013, (EU) No 168/2013, (EU) 2018/858, (EU) 2018/1139 and (EU) 2019/2144 and Directives 2014/90/EU, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligence Act))
 >- "Validation" means the process of verifying and confirming that data in electronic form are valid in accordance with this Regulation. (Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC)
 
-#### Conclusion:
+#### 3.2.5.4 Conclusion:
 After thorough research of these standards and guidelines, the Data Trust team drew two conclusions:
 - Verification refers to the process of assessing whether the submitted **data has been calculated in accordance with relevant guidelines and standards**. Validation, on the other hand, involves conducting plausibility checks to determine **whether the data is reasonable**, coherent, and suitable for exchange within supply chains
 - Given the varying definitions of "verification" and "validation" across different platforms and use cases, achieving consensus on a single, universally applicable definition—particularly between contexts such as Digital Product Passports (DPPs) and Product Carbon Footprints (PCFs) has proven challenging. This is especially true considering the differing levels of maturity between these use cases.
