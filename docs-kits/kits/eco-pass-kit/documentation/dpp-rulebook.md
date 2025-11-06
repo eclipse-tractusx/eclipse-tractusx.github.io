@@ -1352,10 +1352,10 @@ The durability score is a standardized indicator established under the Ecodesign
 
 
 
-## Appendix 1: DPP Example
+## Appendix 1: DPP Example Data
 
 
-| ID | Section | Data Attribute| Value |
+| ID | Section | Data Attribute| Example Data |
 |---------|-|---------------------------|---------------------|
 | 1.1   | Metadata |Passport Identifier       | urn:uuid:550e8400-e29b-41d4-a716-446655440000            |
 | 1.2   | Metadata |Version     | 1.0.0         |
