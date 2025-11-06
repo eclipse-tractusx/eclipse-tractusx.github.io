@@ -222,7 +222,7 @@ This section sets out the main rules and guiding principles for entering, managi
 
 ## 6. The DPP Data Model: Overview of Data Points
 
-This section provides a detailed overview of each data point in the Digital Product Passport (DPP) data model. For every data point, you will find the relevant regulatory references, its status as mandatory or optional, a clear description, and any specific rules that apply.
+This section provides a detailed overview of each data point in the Digital Product Passport (DPP) data model. For every data point, you will find its status as mandatory or optional, the relevant regulatory references,  a clear definition, and the data plausibility rule that applies.
 
 ### 6.1 Metadata
 
