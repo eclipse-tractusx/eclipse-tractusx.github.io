@@ -104,7 +104,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-      description: 'Eclipse Dataspace Connector for secure and sovereign data exchange in dataspaces',
+      description: 'The EDC as a connector implements a framework agreement for sovereign, cross-organizational data exchange.',
       metadata: {
         addedDate: '2022-08-01',
         lastUpdated: '2024-06-07',
@@ -129,7 +129,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-      description: 'Framework for managing data policies, access control, and compliance across the dataspace',
+      description: 'Enable and simplify data governance within Catena-X.',
       metadata: {
         addedDate: '2024-03-08',
         lastUpdated: '2024-03-08',
@@ -154,7 +154,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Security mechanisms, identity management, and trust frameworks for secure data exchange',
+      description: 'Enable content validation, certification and verification for any use case semantic data.',
       metadata: {
         addedDate: '2025-07-16',
         lastUpdated: '2025-08-01',
@@ -178,7 +178,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X','Construct-X', 'Chem-X'],
-      description: 'Manage and share business partner master data with standardized formats and validation',
+      description: 'Get high-quality data business partner data records including the unique identifier.',
       metadata: {
         addedDate: '2023-03-01',
         lastUpdated: '2025-09-08',
@@ -203,7 +203,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Federated queries and knowledge graphs for intelligent data discovery and reasoning',
+      description: 'Generate Knowledge from Data. Scalable & Efficient Semantic Dataspace Federation.',
       metadata: {
         addedDate: '2023-05-15',
         lastUpdated: '2024-12-09',
@@ -229,7 +229,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-      description: 'Create and manage digital representations of physical assets across the supply chain',
+      description: 'Digital Twins enable data-level interoperability - even between parties previously unknown to each other.',
       metadata: {
         addedDate: '2022-09-01',
         lastUpdated: '2024-08-01',
@@ -253,7 +253,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Construct-X', 'Chem-X'],
-      description: 'Core data models, semantic standards, and APIs for industry-specific data exchange',
+      description: 'Connceting Use-Cases with Core Services',
       metadata: {
         addedDate: '2024-03-08',
         lastUpdated: '2025-03-17',
@@ -277,7 +277,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Chain data efficiently across partners with standardized protocols and workflows',
+      description: 'Data Chain KIT is made for apps and services to access connected data distributed between organizations.',
       metadata: {
         addedDate: '2023-03-01',
         lastUpdated: '2024-03-07',
@@ -302,7 +302,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Data-driven quality management and analytics for proactive issue detection and resolution',
+      description: 'Data driven quality management enables data provider and consumer to exchange and analyse existing data across company boundaries.',
       metadata: {
         addedDate: '2023-01-15',
         lastUpdated: '2024-03-08',
@@ -326,7 +326,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
-      description: 'End-to-end traceability of parts and materials across the entire supply chain',
+      description: 'Trace parts and materials across the entire value chain to enable data driven use cases over all n-tier levels.',
       metadata: {
         addedDate: '2022-11-01',
         lastUpdated: '2025-08-07',
@@ -351,7 +351,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Behavioral models and simulation capabilities for predictive analysis and optimization',
+      description: 'Maximize the potential of usage data through calculation services and simulations.',
       metadata: {
         addedDate: '2024-05-16',
         lastUpdated: '2024-05-23',
@@ -378,7 +378,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Environmental and Social Standards compliance monitoring and reporting across supply chains',
+      description: 'Environmental and Social Standards Incident Management KIT',
       metadata: {
         addedDate: '2024-03-06',
         lastUpdated: '2024-07-11',
@@ -402,7 +402,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-      description: 'Calculate, exchange, and track product carbon footprints throughout the value chain',
+      description: 'Product-specific CO2 footprint.',
       metadata: {
         addedDate: '2023-03-08',
         lastUpdated: '2024-08-05',
@@ -427,7 +427,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-      description: 'Digital product passports with environmental data and sustainability metrics',
+      description: 'Leverage the transparency of digital product passports to strengthen sustainability & compliance.',
       metadata: {
         addedDate: '2023-03-08',
         lastUpdated: '2024-07-25',
@@ -452,7 +452,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Circular economy principles and material flow tracking for sustainable manufacturing',
+      description: 'There will be more Kits coming in the next months. Stay tuned.',
       metadata: {
         addedDate: '2023-12-08',
         lastUpdated: '2024-09-17',
@@ -476,7 +476,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Predictive Unit Real-time Information Service for supply chain visibility and optimization',
+      description: 'Predictive Unit Realtime Information Service',
       metadata: {
         addedDate: '2024-03-08',
         lastUpdated: '2025-08-16',
@@ -500,7 +500,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Balance supply and demand across networks with real-time capacity monitoring',
+      description: 'Quick build of solutions for companies of any size to engage a collaborative capacity management.',
       metadata: {
         addedDate: '2023-06-01',
         lastUpdated: '2025-09-29',
@@ -525,7 +525,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Logistics and transportation management for efficient supply chain operations',
+      description: 'Provide packing information, transport data and customs topics.',
       metadata: {
         addedDate: '2025-02-03',
         lastUpdated: '2025-03-11',
@@ -549,7 +549,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Factory-X'],
-      description: 'Monitor and manage supply chain disruptions with real-time notifications and alerts',
+      description: 'Inform partners about disruptions in the supply chain.',
       metadata: {
         addedDate: '2024-08-01',
         lastUpdated: '2025-08-22',
@@ -574,7 +574,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Customs and trade compliance management with automated documentation and reporting',
+      description: 'Basis for a more efficient customs process and ensure a robust preference calculation result.',
       metadata: {
         addedDate: '2024-05-20',
         lastUpdated: '2024-09-10',
@@ -599,7 +599,7 @@ export const kitsData = {
       },
       deprecated: true,
       dataspaces: ['Catena-X'],
-      description: 'Real-time simulation and modeling capabilities for production optimization',
+      description: 'Gain increased supply chain transparency through collaborative simulation across all stakeholders.',
       metadata: {
         addedDate: '2023-03-08',
         lastUpdated: '2024-08-05',
@@ -624,7 +624,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Model-based development and data processing for advanced manufacturing',
+      description: 'Federated simulation and data processing.',
       metadata: {
         addedDate: '2024-01-30',
         lastUpdated: '2024-08-12',
@@ -649,7 +649,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
-      description: 'Requirements management and tracking across dataspaces and organizations',
+      description: 'Cross company requirements management to enable quick information access and multiple company collaboration.',
       metadata: {
         addedDate: '2024-04-15',
         lastUpdated: '2024-10-05',
@@ -674,7 +674,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Factory-X'],
-      description: 'Manufacturing services marketplace for on-demand production capabilities',
+      description: 'Create a federated network of networks to connect manufacturing supply and demand.',
       metadata: {
         addedDate: '2024-03-08',
         lastUpdated: '2024-09-20',
@@ -699,7 +699,7 @@ export const kitsData = {
       },
       deprecated: false,
       dataspaces: ['Factory-X'],
-      description: 'Flexible and modular production systems for adaptive manufacturing',
+      description: 'Enable customized production (batch size 1) without significant increase of costs.',
       metadata: {
         addedDate: '2023-11-15',
         lastUpdated: '2024-05-10',
