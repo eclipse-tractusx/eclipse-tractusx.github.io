@@ -35,15 +35,20 @@
 const sidebars = {
     documentation: [
         {
+            type: 'link',
+            label: '← Back to KIT Overview',
+            href: '/Kits'
+        },
+        {
             type: 'category',
             label: 'KIT Documentation',
             link: {
                 type: 'doc',
-                id: 'kit-artifacts'
+                id: 'kit-framework'
             },
             items: [
                 'kit-getting-started',
-                'kit-artifacts',
+                'kit-framework',
                 'kit-master-data-overview',
                 'kit-maturity-levels',
                 'kit-statistics'

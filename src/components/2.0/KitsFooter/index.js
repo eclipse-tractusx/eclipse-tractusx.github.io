@@ -21,7 +21,13 @@ import React from "react";
 import { useColorMode } from '@docusaurus/theme-common';
 import KitsCoreSvg from '@site/static/img/kits-2.0/tx-assembly-kit.svg'
 import ThemedImage from '@theme/ThemedImage';
-import { Chat as ChatIcon, Groups as GroupsIcon, Add as AddIcon, RocketLaunch as RocketIcon } from '@mui/icons-material';
+import ChatIcon from '@mui/icons-material/Chat';
+import GroupsIcon from '@mui/icons-material/Groups';
+import AddIcon from '@mui/icons-material/Add';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import SchoolIcon from '@mui/icons-material/School';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import styles from "./styles.module.scss";
 
 export default function KitsFooter({ disclaimer }) {
@@ -62,13 +68,21 @@ export default function KitsFooter({ disclaimer }) {
                 <ChatIcon className={styles.linkIcon} />
                 KIT Matrix Chat
               </a>
-              <a href="/documentation/kit-artifacts" className={styles.link}>
-                <RocketIcon className={styles.linkIcon} />
-                Learn the KIT Artifacts
+              <a href="/documentation/kit-framework" className={styles.link}>
+                <SchoolIcon className={styles.linkIcon} />
+                Learn the KIT Framework
+              </a>
+              <a href="/documentation/kit-maturity-levels" className={styles.link}>
+                <TrendingUpIcon className={styles.linkIcon} />
+                KIT Maturity Levels
               </a>
               <a href="/documentation/kit-getting-started" className={styles.link}>
                 <AddIcon className={styles.linkIcon} />
-                Contribute your KIT
+                Create a KIT
+              </a>
+              <a href="/Contribute" className={styles.link}>
+                <RocketLaunchIcon className={styles.linkIcon} />
+                Contribute
               </a>
             </div>
           </div>

@@ -20,14 +20,13 @@
 import React, { useMemo } from 'react';
 import CountUpNumber from '../CountUpNumber';
 import styles from './styles.module.scss';
-import {
-  Build as BuildIcon,
-  Language as LanguageIcon,
-  School as SchoolIcon,
-  Rocket as RocketIcon,
-  Add as ContributeIcon,
-  Analytics as StatisticsIcon,
-} from '@mui/icons-material';
+import BuildIcon from '@mui/icons-material/Build';
+import LanguageIcon from '@mui/icons-material/Language';
+import SchoolIcon from '@mui/icons-material/School';
+import RocketIcon from '@mui/icons-material/Rocket';
+import AddIcon from '@mui/icons-material/Add';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import Button from '@mui/material/Button';
 
 const KitStatistics = ({ kitsData }) => {
@@ -157,21 +156,30 @@ const KitStatistics = ({ kitsData }) => {
         <div className={styles.buttonsContainer}>
           <Button
             variant="contained"
-            startIcon={<ContributeIcon />}
+            startIcon={<AddIcon />}
             className={styles.primaryButton}
-            href="/Kit-Deepdive"
+            href="/Contribute"
             size="large"
           >
             Contribute
           </Button>
           <Button
             variant="outlined"
-            startIcon={<StatisticsIcon />}
+            startIcon={<AnalyticsIcon />}
             className={styles.secondaryButton}
             href="/documentation/kit-statistics"
             size="large"
           >
             View More Statistics
+          </Button>
+          <Button
+            variant="outlined"
+            startIcon={<TrendingUpIcon />}
+            className={styles.secondaryButton}
+            href="/documentation/kit-maturity-levels"
+            size="large"
+          >
+            KIT Maturity Levels
           </Button>
         </div>
       </div>

@@ -114,13 +114,15 @@
          </div>
          
          {/* Interactive CTA Button */}
-         <button className={styles.explore_button}>
-           <span className={styles.button_text}>Click here to explore more about KITs</span>
-           <svg className={styles.button_icon} width="20" height="20" viewBox="0 0 24 24" fill="none">
-             <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-           </svg>
-           <div className={styles.button_glow}></div>
-         </button>
+         <div className={styles.button_container}>
+           <Link to="/documentation/kit-getting-started" className={styles.explore_button}>
+             <span className={styles.button_text}>Click here to explore more about KITs</span>
+             <svg className={styles.button_icon} width="20" height="20" viewBox="0 0 24 24" fill="none">
+               <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+             </svg>
+             <div className={styles.button_glow}></div>
+           </Link>
+         </div>
        </div>
      </section>
    );

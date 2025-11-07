@@ -211,7 +211,7 @@ export default function ContributePage() {
                   href="/documentation/kit-getting-started" 
                   className={styles.secondaryButton}
                 >
-                  <Groups className={styles.buttonIcon} />
+                  <RocketLaunch className={styles.buttonIcon} />
                   Start Creating a KIT
                 </a>
               </div>

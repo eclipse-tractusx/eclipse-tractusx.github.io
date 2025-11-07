@@ -396,13 +396,19 @@
   }
 }
 
+// Button container for proper centering
+.button_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
 // Professional CTA Button styling
 .explore_button {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  margin: 3rem auto 0;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
   border: none;
@@ -411,6 +417,7 @@
   font-family: inherit;
   font-size: 16px;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
