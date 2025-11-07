@@ -58,11 +58,11 @@ export default function KitsFooter({ disclaimer }) {
                 <GroupsIcon className={styles.linkIcon} />
                 Join our Community Office Hours
               </a>
-              <a href="https://matrix.to/#/#tractusx-kits:matrix.eclipse.org" className={styles.link}>
+              <a href="https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org" className={styles.link}>
                 <ChatIcon className={styles.linkIcon} />
                 KIT Matrix Chat
               </a>
-              <a href="https://github.com/eclipse-tractusx#new-joiner" className={styles.link}>
+              <a href="https://eclipse-tractusx.github.io/docs/getting-started/" className={styles.link}>
                 <RocketIcon className={styles.linkIcon} />
                 Get Started
               </a>

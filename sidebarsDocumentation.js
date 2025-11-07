@@ -36,7 +36,7 @@ const sidebars = {
     documentation: [
         {
             type: 'category',
-            label: 'documentation',
+            label: 'KIT Documentation',
             link: {
                 type: 'doc',
                 id: 'kit-artifacts'
@@ -44,6 +44,7 @@ const sidebars = {
             items: [
                 'kit-artifacts',
                 'kit-getting-started',
+                'kit-master-data-overview',
                 'kit-maturity-levels'
             ]
         },
