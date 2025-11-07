@@ -1,28 +1,45 @@
 ---
 title: KIT Artifacts
 ---
+
+{/********************************************************************************* 
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+ }
+
+import { KitStructureTable } from '@site/src/components/2.0/KitComponents';
+
 | Status     | Created      | Post-History                           |
 |------------|--------------|----------------------------------------|
 | Draft      | 04-Apr-2024  | Initial contribution                   |
 
 This explains each artifact a KIT can or must follow - depending on the graduation stage [TRG 9.01](/docs/release/trg-0/trg-9-01). An artifact is textual content or a technical component that is part of a KIT (e.g. a Vision statement).
 
+## KIT Structure Overview
+
+KITs are structured around different views, each targeting specific stakeholders with relevant content:
+
+<KitStructureTable />
+
 ## CHANGELOG
 
 To achieve uniformity, we use [semantic versioning](https://semver.org/). Concrete examples in our already published [KITs](https://eclipse-tractusx.github.io/Kits).
 For a KIT we distinguish between three phases sandbox, incubating and graduated.
-
-### Sandbox Phase
-
-Has no changelog - it´s a preview for the KIT.
-
-### Incubating Phase
-
-The first released version of the KIT. It´s ready to be used by data providers / consumers, app-/service providers or operators.
-
-### Graduated Phase
-
-Upon reaching the Graduation Phase, a KIT got verified by a data providers / consumers, app-/service providers or operators. Since the KITs are maintained and further developed by the community, changes can be made that result in an incompatibility.
 
 ## Adoption View
 
@@ -159,6 +176,11 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 The development view provides developers with resources to accelerate the development of apps and services.
 
+### Architecture View
+
+The architecture view is an optional chapter. It offers an architecture perspective including the main building blocks and the runtime view. It can be extended with more architecture documentation like an ARC42.
+[`Example for an Architecture View:`](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#scope-and-context).
+
 ### API Specifications
 
 Mandatory for every KIT that wants to go to the 'incubating' stage
@@ -204,7 +226,55 @@ Deliverables:
 - Deployment
   **Deployment Scripts**
 
-## Architecture View
 
-The architecture view is an optional chapter. It offers an architecture perspective including the main building blocks and the runtime view. It can be extended with more architecture documentation like an ARC42.
-[`Example for an Architecture View:`](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#scope-and-context).
+
+## Dataspace Extensions
+
+The Dataspace Extensions view represents a specialized extension mechanism that allows KITs to be adapted and customized for specific dataspace implementations while maintaining their core structure and functionality. This approach ensures interoperability across different dataspaces while allowing for dataspace-specific requirements, policies, and standards.
+
+### Purpose and Scope
+
+Dataspace Extensions enable KITs to support multiple dataspace ecosystems (such as Catena-X, Factory-X, Semiconductor-X, etc.) without duplicating the core KIT content. Each dataspace extension contains:
+
+- **Dataspace-specific policies** that govern data usage and access within that particular ecosystem
+- **Custom data models** tailored to the specific industry or domain requirements
+- **Dataspace standards** that may differ from generic implementations
+- **Compliance requirements** specific to regulatory or industry standards
+
+### Structure and Implementation
+
+The following diagram illustrates how generic KIT components relate to dataspace-specific extensions:
+
+```mermaid
+flowchart TD
+    subgraph Generic["   Generic KIT Structure   "]
+        AV["  ADOPTION VIEW  "]
+        DV["  DEVELOPMENT VIEW  "]
+        OV["  OPERATION VIEW  "]
+        SS["  SUCCESS STORIES  "]
+        DOC["  DOCUMENTATION  "]
+    end
+    
+    subgraph DSE["   DATASPACE EXTENSIONS   "]
+        subgraph CX["   CATENA-X   "]
+            CX_POL["  POLICIES IN CATENA-X  "]
+            CX_DM["  DATA MODEL  "]
+            CX_STD["  STANDARDS  "]
+        end
+        
+        subgraph FX["   FACTORY-X   "]
+            FX_POL["  POLICIES IN FACTORY-X  "]
+            FX_DM["  DATA MODEL  "]
+        end
+        
+        subgraph SX["   SEMICONDUCTOR-X   "]
+            SX_POL["  POLICIES IN SEMI  "]
+            SX_STD["  STANDARDS  "]
+        end
+    end
+    
+    Generic --> DSE
+    
+```
+
+This modular approach enables KITs to serve as universal building blocks that can be specialized for different dataspace ecosystems while maintaining their core value proposition and functionality.

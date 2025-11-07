@@ -62,9 +62,9 @@ export default function KitsFooter({ disclaimer }) {
                 <ChatIcon className={styles.linkIcon} />
                 KIT Matrix Chat
               </a>
-              <a href="https://eclipse-tractusx.github.io/docs/getting-started/" className={styles.link}>
+              <a href="/documentation/kit-artifacts" className={styles.link}>
                 <RocketIcon className={styles.linkIcon} />
-                Get Started
+                Learn the KIT Artifacts
               </a>
               <a href="/documentation/kit-getting-started" className={styles.link}>
                 <AddIcon className={styles.linkIcon} />
@@ -87,6 +87,15 @@ export default function KitsFooter({ disclaimer }) {
               {disclaimer}
             </p>
           )}
+          <p style={{
+            fontSize: '0.75rem',
+            color: 'var(--ifm-color-emphasis-700)',
+            textAlign: 'center',
+            margin: '0 0 0.5rem 0',
+            opacity: 0.9
+          }}>
+            All data shown is available at the <a href="/documentation/kit-master-data-overview">master data documentation</a>.
+          </p>
           <p className={styles.copyright}>
             Our KITs are licensed under the non-code <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/LICENSE_non-code">CC-BY-4.0</a> License.
           </p>

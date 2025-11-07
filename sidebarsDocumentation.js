@@ -42,10 +42,11 @@ const sidebars = {
                 id: 'kit-artifacts'
             },
             items: [
-                'kit-artifacts',
                 'kit-getting-started',
+                'kit-artifacts',
                 'kit-master-data-overview',
-                'kit-maturity-levels'
+                'kit-maturity-levels',
+                'kit-statistics'
             ]
         },
     ],

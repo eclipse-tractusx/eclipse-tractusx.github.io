@@ -2,102 +2,40 @@
 title: KIT Getting started
 ---
 
+
+{/********************************************************************************* 
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+ }
+
+import { KitStructureTable } from '@site/src/components/2.0/KitComponents';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import EmailIcon from '@mui/icons-material/Email';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import ChatIcon from '@mui/icons-material/Chat';
+import DatasetIcon from '@mui/icons-material/Dataset';
+
 | Status     | Created      | Post-History                           |
 |------------|--------------|----------------------------------------|
 | Draft      | 04-Apr-2024  | Initial contribution                   |
-| In Review  | 07-Nov-2025  | Extended Contribution to KITs 2.0.     |
-
-export const StakeholderChip = ({children, color}) => (
-  <span style={{
-    backgroundColor: color,
-    color: 'white',
-    padding: '4px 12px',
-    borderRadius: '16px',
-    fontSize: '12px',
-    fontWeight: '500',
-    marginRight: '4px',
-    display: 'inline-block',
-    marginBottom: '4px'
-  }}>
-    {children}
-  </span>
-);
-
-export const KitStructureTable = () => {
-  const kitViews = [
-    {
-      view: "Adoption View",
-      stakeholders: [{name: "Business", color: "#3b82f6"}],
-      content: "Business Value, Motivation, Vision, Mission, Whitepapers, Semantic Models, Standards, Tutorials, Explanations why this use case is important, Context"
-    },
-    {
-      view: "Development View", 
-      stakeholders: [
-        {name: "Developers", color: "#10b981"},
-        {name: "Architects", color: "#10b981"}
-      ],
-      content: "Overall Architecture, Reference Implementations, API specifications, Policies, Algorithms, Functional Requirements, Sequence Diagrams, Process, Architecture Guidelines"
-    },
-    {
-      view: "Operator View",
-      stakeholders: [
-        {name: "Operators", color: "#f59e0b"},
-        {name: "Service Providers", color: "#f59e0b"}
-      ],
-      content: "Non-Functional Requirements, Security Requirements, Recommendations, Restrictions"
-    },
-    {
-      view: "Documentations",
-      stakeholders: [{name: "Any Stakeholder", color: "#8b5cf6"}],
-      content: "Extra Documentation and Links"
-    },
-    {
-      view: "Success Stories",
-      stakeholders: [
-        {name: "Operators", color: "#ef4444"},
-        {name: "Service Providers", color: "#ef4444"},
-        {name: "Business", color: "#ef4444"}
-      ],
-      content: "Success Stories from Reference Implementations that used this KIT. Open Source and COTS."
-    },
-    {
-      view: "Dataspace Extensions",
-      stakeholders: [{name: "Dataspace Adopters", color: "#6366f1"}],
-      content: "One Folder per Dataspace. Extends the contents from the other views with regards to a specific dataspace."
-    }
-  ];
-
-  return (
-    <table style={{width: '100%', borderCollapse: 'collapse'}}>
-      <thead>
-        <tr style={{backgroundColor: '#faa023', borderBottom: '2px solid #e5e7eb'}}>
-          <th style={{padding: '12px', textAlign: 'left', fontWeight: 'bold', color: 'black'}}>Views</th>
-          <th style={{padding: '12px', textAlign: 'left', fontWeight: 'bold', color: 'black'}}>Stakeholders</th>
-          <th style={{padding: '12px', textAlign: 'left', fontWeight: 'bold', color: 'black'}}>Content</th>
-        </tr>
-      </thead>
-      <tbody>
-        {kitViews.map((row, index) => (
-          <tr key={index} style={{borderBottom: '1px solid #f3f4f6'}}>
-            <td style={{padding: '12px', fontWeight: 'bold', verticalAlign: 'top'}}>
-              {row.view}
-            </td>
-            <td style={{padding: '12px', verticalAlign: 'top'}}>
-              {row.stakeholders.map((stakeholder, i) => (
-                <StakeholderChip key={i} color={stakeholder.color}>
-                  {stakeholder.name}
-                </StakeholderChip>
-              ))}
-            </td>
-            <td style={{padding: '12px', verticalAlign: 'top', lineHeight: '1.5'}}>
-              {row.content}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-};
+| Active     | 07-Nov-2025  | Extended Contribution to KITs 2.0     |
 
 export const ProcessReference = ({ stepNumber, detailedSteps, description }) => (
   <div style={{
@@ -124,7 +62,7 @@ export const ProcessReference = ({ stepNumber, detailedSteps, description }) => 
       flexShrink: 0,
       marginTop: '2px'
     }}>
-      📋
+      <AssignmentIcon sx={{ fontSize: 14 }} />
     </div>
     <div style={{ flex: 1 }}>
       <div style={{
@@ -180,13 +118,197 @@ Prerequisites: [Tractus-X getting started](https://eclipse-tractusx.github.io/do
 - **TRG 9.02 KIT Maturity Levels** A KIT is always structured the same way and follows three graduation stages
 - **TRG 9.03 KIT Artifacts** Each of the artifacts in a KIT are explained with examples
 
+## Prerequisites
+
+You need to have a Github Account and to fulfill the requirements from the [Developer Hub Getting Started Guide](docs/getting-started).
+
+## Get Informed
+
+
+### Contact & Support
+
+<div style={{
+  backgroundImage: 'url(/img/tx-logos/221103_TractusX_Gradient.png)',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  borderRadius: '20px',
+  padding: '48px 40px',
+  margin: '30px 0',
+  position: 'relative',
+  overflow: 'hidden',
+  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+  maxWidth: '500px',
+  minHeight: '250px',
+  color: 'white'
+}}>
+  <div style={{
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: '20px',
+    marginBottom: '32px'
+  }}>
+    <img 
+      src="https://github.com/matbmoser.png" 
+      alt="Mathias Moser"
+      style={{
+        width: '100px',
+        height: '100px',
+        borderRadius: '16px',
+        border: '2px solid rgba(255, 255, 255, 0.4)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+        objectFit: 'cover',
+        backdropFilter: 'blur(10px)',
+        background: 'rgba(255, 255, 255, 0.05)'
+      }}
+    />
+    <div style={{ flex: 1 }}>
+      <h3 style={{
+        margin: '0 0 8px 0',
+        fontSize: '24px',
+        fontWeight: '700',
+        color: 'white',
+        textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)'
+      }}>
+        Mathias Moser
+      </h3>
+      <div style={{
+        fontSize: '16px',
+        color: 'rgba(255, 255, 255, 0.9)',
+        marginBottom: '8px',
+        fontWeight: '500'
+      }}>
+        KITs Program Manager
+      </div>
+      <div style={{
+        fontSize: '13px',
+        color: 'rgba(255, 255, 255, 0.8)',
+        lineHeight: '1.4',
+        fontStyle: 'italic'
+      }}>
+        Eclipse Tractus-X Project Lead
+      </div>
+    </div>
+  </div>
+  
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+    gap: '10px'
+  }}>
+    <a 
+      href="mailto:mathias.moser@catena-x.net"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '6px',
+        padding: '10px 12px',
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        color: 'white',
+        textDecoration: 'none',
+        borderRadius: '8px',
+        fontSize: '13px',
+        fontWeight: '500',
+        transition: 'all 0.2s ease',
+        border: '1px solid rgba(255, 255, 255, 0.3)',
+        backdropFilter: 'blur(10px)'
+      }}
+      onMouseEnter={(e) => {
+        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+        e.target.style.transform = 'translateY(-1px)';
+      }}
+      onMouseLeave={(e) => {
+        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+        e.target.style.transform = 'translateY(0)';
+      }}
+    >
+      <EmailIcon sx={{ fontSize: 16 }} />
+      <span>Email</span>
+    </a>
+    
+    <a 
+      href="https://github.com/matbmoser"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '6px',
+        padding: '10px 12px',
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        color: 'white',
+        textDecoration: 'none',
+        borderRadius: '8px',
+        fontSize: '13px',
+        fontWeight: '500',
+        transition: 'all 0.2s ease',
+        border: '1px solid rgba(255, 255, 255, 0.3)',
+        backdropFilter: 'blur(10px)'
+      }}
+      onMouseEnter={(e) => {
+        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+        e.target.style.transform = 'translateY(-1px)';
+      }}
+      onMouseLeave={(e) => {
+        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+        e.target.style.transform = 'translateY(0)';
+      }}
+    >
+      <GitHubIcon sx={{ fontSize: 16 }} />
+      <span>GitHub</span>
+    </a>
+    
+    <a 
+      href="https://chat.eclipse.org/#/user/@matbmoser:matrix.eclipse.org"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '6px',
+        padding: '10px 12px',
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        color: 'white',
+        textDecoration: 'none',
+        borderRadius: '8px',
+        fontSize: '13px',
+        fontWeight: '500',
+        transition: 'all 0.2s ease',
+        border: '1px solid rgba(255, 255, 255, 0.3)',
+        backdropFilter: 'blur(10px)'
+      }}
+      onMouseEnter={(e) => {
+        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+        e.target.style.transform = 'translateY(-1px)';
+      }}
+      onMouseLeave={(e) => {
+        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+        e.target.style.transform = 'translateY(0)';
+      }}
+    >
+      <ChatIcon sx={{ fontSize: 16 }} />
+      <span>Matrix</span>
+    </a>
+  </div>
+</div>
+
+### Community Channels
+
+| Channel | Purpose | Link |
+|---------|---------|------|
+| Office Hours | Weekly alignment meetings | [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings#general-office-hours) |
+| Matrix Chat | Daily discussions & support | [#tractusx-kits:matrix.eclipse.org](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) |
+| GitHub Issues | Technical issues & bugs | [Create Issue](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues) |
+| SIG-Release | Official KIT tracking | [eclipse-tractusx/sig-release](https://github.com/eclipse-tractusx/sig-release) |
+
+
+
 ## How to Create a KIT
 
 ### Quick Overview
 
 ```mermaid
 flowchart LR
-    A["Discuss Idea"] --> B["Create Ticket"] --> C["Build KIT"] --> D["Submit & Review"]
+    A["Create/Discuss Idea"] --> B["Create Ticket"] --> C["Build KIT"] --> D["Submit & Review"]
 ```
 
 <details>
@@ -194,7 +316,7 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A["1. Formalize/Discuss Idea in Discussions (Optional)"] --> B["2. Create Ticket in sig-release"]
+    A["1. Create/Discuss Idea in Discussions (Optional)"] --> B["2. Create Ticket in sig-release"]
     B --> C["3. Present ticket in Open Planning of Target Release"]
     C --> D["4. Build KIT in your fork"]
     D --> E["5. Submit PR to eclipse-tractusx.github.io (with changelog + updated master data)"]
@@ -204,7 +326,7 @@ flowchart TD
 
 </details>
 
-### Step 1: Discuss Your Idea
+### Step 1: Create/Discuss Idea
 
 **Talk to the community about your KIT concept.**
 
@@ -246,7 +368,58 @@ Follow this structure:
 
 <KitStructureTable />
 
-Use the [KIT Template](https://github.com/eclipse-tractusx/kit-template) to get started quickly.
+
+<div style={{
+  margin: '20px 0'
+}}>
+  <a 
+    href="./kit-artifacts" 
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      width: '100%',
+      padding: '18px 28px',
+      background: 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)',
+      color: 'white',
+      textDecoration: 'none',
+      borderRadius: '12px',
+      fontWeight: '700',
+      fontSize: '16px',
+      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+      border: 'none',
+      boxSizing: 'border-box',
+      boxShadow: '0 4px 14px 0 rgba(76, 175, 80, 0.3)',
+      cursor: 'pointer',
+      position: 'relative',
+      overflow: 'hidden'
+    }}
+    onMouseEnter={(e) => {
+      e.target.style.transform = 'translateY(-2px) scale(1.02)';
+      e.target.style.boxShadow = '0 8px 25px 0 rgba(76, 175, 80, 0.4)';
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.transform = 'translateY(0) scale(1)';
+      e.target.style.boxShadow = '0 4px 14px 0 rgba(76, 175, 80, 0.3)';
+    }}
+    onMouseDown={(e) => {
+      e.target.style.transform = 'translateY(0) scale(0.98)';
+    }}
+    onMouseUp={(e) => {
+      e.target.style.transform = 'translateY(-2px) scale(1.02)';
+    }}
+  >
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '12px'
+    }}>
+      <MenuBookIcon sx={{ fontSize: 20 }} />
+      <span>Click here to view the KIT Artifacts Guide with details on content structure</span>
+    </div>
+    <OpenInNewIcon sx={{ fontSize: 18, opacity: 0.8 }} />
+  </a>
+</div>
 
 <ProcessReference 
   stepNumber={3}
@@ -261,7 +434,61 @@ Use the [KIT Template](https://github.com/eclipse-tractusx/kit-template) to get 
 **Submit your completed KIT for community review.**
 
 1. Fork [eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
-2. Add your KIT to the [master data](../data/kitsData.js)
+2. Add your KIT to the [master data](/documentation/kit-master-data-overview)
+
+<div style={{
+  margin: '20px 0'
+}}>
+  <a 
+    href="./kit-master-data-overview" 
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      width: '100%',
+      padding: '18px 28px',
+      background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
+      color: 'white',
+      textDecoration: 'none',
+      borderRadius: '12px',
+      fontWeight: '700',
+      fontSize: '16px',
+      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+      border: 'none',
+      boxSizing: 'border-box',
+      boxShadow: '0 4px 14px 0 rgba(37, 99, 235, 0.3)',
+      cursor: 'pointer',
+      position: 'relative',
+      overflow: 'hidden'
+    }}
+    onMouseEnter={(e) => {
+      e.target.style.transform = 'translateY(-2px) scale(1.02)';
+      e.target.style.boxShadow = '0 8px 25px 0 rgba(37, 99, 235, 0.4)';
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.transform = 'translateY(0) scale(1)';
+      e.target.style.boxShadow = '0 4px 14px 0 rgba(37, 99, 235, 0.3)';
+    }}
+    onMouseDown={(e) => {
+      e.target.style.transform = 'translateY(0) scale(0.98)';
+    }}
+    onMouseUp={(e) => {
+      e.target.style.transform = 'translateY(-2px) scale(1.02)';
+    }}
+  >
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '12px'
+    }}>
+      <DatasetIcon sx={{ fontSize: 20 }} />
+      <span>View Master Data Overview - Complete KIT metadata and statistics</span>
+    </div>
+    <OpenInNewIcon sx={{ fontSize: 18, opacity: 0.8 }} />
+  </a>
+</div>
+
+
 3. Create a pull request
 4. Request the committer assigned in the SIG-Release ticket to review, approve and merge your PR
 
@@ -277,30 +504,15 @@ Use the [KIT Template](https://github.com/eclipse-tractusx/kit-template) to get 
   ]}
 />
 
-### Step 5: Submit for Review
+### Step 5: Release your KIT (Committers)
 
-## Contact & Support
+1. The committer **MUST** create a release check issue at [sig-release](https://github.com/eclipse-tractusx/sig-release) based on the KIT Release template
+2. The committer **MUST** ensure all [TRGs](/docs/release) metadata is checked in the release check issue.
+3. Changelog is included in the Project Release Notes of the target release
+4. KIT will be listed as part of the release notes on the [Eclipse Tractus-X Website](/blog-changelog)
 
-### Primary Contact
+Congratulations! Your KIT is now part of the Eclipse Tractus-X ecosystem!
 
-**Mathias Moser** - KIT Program Manager  
-📧 [mathias.moser@catena-x.net](mailto:mathias.moser@catena-x.net)
-
-**For questions about:**
-
-- KIT development process
-- Technical requirements
-- Master data integration
-- Community alignment
-
-### Community Channels
-
-| Channel | Purpose | Link |
-|---------|---------|------|
-| Office Hours | Weekly alignment meetings | [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings#general-office-hours) |
-| Matrix Chat | Daily discussions & support | [#tractusx-kits:matrix.eclipse.org](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) |
-| GitHub Issues | Technical issues & bugs | [Create Issue](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues) |
-| SIG-Release | Official KIT tracking | [eclipse-tractusx/sig-release](https://github.com/eclipse-tractusx/sig-release) |
 
 ## Additional Resources
 
@@ -313,6 +525,5 @@ Use the [KIT Template](https://github.com/eclipse-tractusx/kit-template) to get 
 
 ### Templates & Examples
 
-- [KIT Template Repository](https://github.com/eclipse-tractusx/kit-template)
 - [Existing KIT Examples](https://eclipse-tractusx.github.io/Kits)
 - [Documentation Style Guide](./documentation-guidelines)

@@ -21,14 +21,14 @@ import React, { useEffect, useState } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import ThemedImage from '@theme/ThemedImage';
-import { Chat as ChatIcon } from '@mui/icons-material/Chat';
-import { Groups as GroupsIcon } from '@mui/icons-material/Groups';
-import { Add as AddIcon } from '@mui/icons-material/Add';
-import { RocketLaunch as RocketIcon } from '@mui/icons-material/RocketLaunch';
-import { Code as CodeIcon } from '@mui/icons-material/Code';
-import { Description as DocsIcon } from '@mui/icons-material/Description';
-import { BugReport as BugIcon } from '@mui/icons-material/BugReport';
-import { Lightbulb as IdeaIcon } from '@mui/icons-material/Lightbulb';
+import Chat from '@mui/icons-material/Chat';
+import Groups from '@mui/icons-material/Groups';
+import Add from '@mui/icons-material/Add';
+import RocketLaunch from '@mui/icons-material/RocketLaunch';
+import Code from '@mui/icons-material/Code';
+import Description from '@mui/icons-material/Description';
+import BugReport from '@mui/icons-material/BugReport';
+import Lightbulb from '@mui/icons-material/Lightbulb';
 import QuestionIcon from '@mui/icons-material/QuestionMark';
 import styles from './styles.module.scss';
 
@@ -52,7 +52,7 @@ export default function ContributePage() {
     {
       title: "Create a KIT",
       description: "Build and contribute your own KIT to help the community with comprehensive documentation and reference implementations.",
-      icon: AddIcon,
+      icon: Add,
       link: "/documentation/kit-getting-started",
       primary: true
     },
@@ -66,49 +66,49 @@ export default function ContributePage() {
     {
       title: "Join Community Discussions",
       description: "Participate in our community office hours and help shape the future of dataspace technology.",
-      icon: GroupsIcon,
+      icon: Groups,
       link: "/community/open-meetings#general-office-hours",
       primary: false
     },
     {
       title: "Chat with Developers",
       description: "Chat with us at our main Eclipse Tractus-X Matrix channel (a open source chat service)",
-      icon: ChatIcon,
+      icon: Chat,
       link: "https://chat.eclipse.org/#/room/#tractusx:matrix.eclipse.org",
       primary: false
     },
     {
       title: "Get Started",
       description: "New to Eclipse Tractus-X? Follow our getting started guide to learn how to contribute.",
-      icon: RocketIcon,
+      icon: RocketLaunch,
       link: "https://eclipse-tractusx.github.io/docs/getting-started/",
       primary: false
     },
     {
       title: "Contribute Code",
       description: "Help improve existing KITs by contributing code, fixes, and enhancements to our repositories.",
-      icon: CodeIcon,
+      icon: Code,
       link: "https://github.com/eclipse-tractusx",
       primary: false
     },
     {
       title: "Improve Documentation",
       description: "Help make our documentation better by fixing errors, adding examples, or improving clarity.",
-      icon: DocsIcon,
+      icon: Description,
       link: "/documentation",
       primary: false
     },
     {
       title: "Report Issues",
       description: "Found a bug or issue? Report it to help us improve the quality of our KITs.",
-      icon: BugIcon,
+      icon: BugReport,
       link: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues",
       primary: false
     },
     {
       title: "Share Ideas",
       description: "Have an idea for a new KIT or improvement? Share it with the community and start a discussion.",
-      icon: IdeaIcon,
+      icon: Lightbulb,
       link: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/discussions",
       primary: false
     }
@@ -204,14 +204,14 @@ export default function ContributePage() {
                   href="/community/open-meetings#general-office-hours" 
                   className={styles.primaryButton}
                 >
-                  <GroupsIcon className={styles.buttonIcon} />
+                  <Groups className={styles.buttonIcon} />
                   Join Community Office Hours
                 </a>
                 <a 
                   href="/documentation/kit-getting-started" 
                   className={styles.secondaryButton}
                 >
-                  <AddIcon className={styles.buttonIcon} />
+                  <Groups className={styles.buttonIcon} />
                   Start Creating a KIT
                 </a>
               </div>

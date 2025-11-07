@@ -159,7 +159,7 @@ const KitStatistics = ({ kitsData }) => {
             variant="contained"
             startIcon={<ContributeIcon />}
             className={styles.primaryButton}
-            href="/documentation/kit-getting-started"
+            href="/Kit-Deepdive"
             size="large"
           >
             Contribute
@@ -168,7 +168,7 @@ const KitStatistics = ({ kitsData }) => {
             variant="outlined"
             startIcon={<StatisticsIcon />}
             className={styles.secondaryButton}
-            href="#" // TODO: Add link to detailed statistics page
+            href="/documentation/kit-statistics"
             size="large"
           >
             View More Statistics

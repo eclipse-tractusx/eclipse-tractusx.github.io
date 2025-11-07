@@ -107,6 +107,18 @@ const ExpandedKitCard = ({ kit }) => {
                         <span className={styles.metadataValue}>{kit.metadata.latestVersion}</span>
                       </div>
                     )}
+                    {kit.maturity?.currentLevel === 'Graduated' && kit.maturity?.graduatedAt && (
+                      <div className={styles.metadataItem}>
+                        <span className={styles.metadataLabel}>Graduated:</span>
+                        <span className={`${styles.metadataValue} ${styles.graduatedDate}`}>
+                          {new Date(kit.maturity.graduatedAt).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
+                          })}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

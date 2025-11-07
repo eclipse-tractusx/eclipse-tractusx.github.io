@@ -41,6 +41,7 @@ For each KIT the information model is the following:
       maturity: {
         currentLevel: '<graduation-level> (Sandbox, Incubation, Graduated)',
         graduationStatus: '<graduation_status>' ('Draft' | 'In Progress' | 'In Review' | 'No Further Development' )
+        graduatedAt: '<YYYY-MM-DD>'  // only if currentLevel is 'Graduated'
       },
       deprecated: <status boolean  true|false >
       dataspaces: [<list of dataspaces where the kit is used>],
@@ -100,7 +101,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #3372CC 0%, #2316E3 100%)'
       },
       maturity: {
-        currentLevel: 'Graduated'
+        currentLevel: 'Graduated',
+        graduatedAt: '2024-06-07'
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
@@ -174,7 +176,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #3372CC 0%, #1E13C2 100%)'
       },
       maturity: {
-        currentLevel: 'Graduated'
+        currentLevel: 'Graduated',
+        graduatedAt: '2025-09-08'
       },
       deprecated: false,
       dataspaces: ['Catena-X','Construct-X', 'Chem-X'],
@@ -225,7 +228,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #F08B9B 0%, #EA3650 100%)'
       },
       maturity: {
-        currentLevel: 'Graduated'
+        currentLevel: 'Graduated',
+        graduatedAt: '2024-08-01'
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
@@ -249,7 +253,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #F08B9B 0%, #EC4A61 100%)'
       },
       maturity: {
-        currentLevel: 'Graduated'
+        currentLevel: 'Graduated',
+        graduatedAt: '2025-03-17'
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Construct-X', 'Chem-X'],
@@ -273,7 +278,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #F08B9B 0%, #EB4877 100%)'
       },
       maturity: {
-        currentLevel: 'Graduated'
+        currentLevel: 'Graduated',
+        graduatedAt: '2024-03-07'
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
@@ -322,7 +328,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #FFBD59 0%, #F45D3C 100%)'
       },
       maturity: {
-        currentLevel: 'Graduated'
+        currentLevel: 'Graduated',
+        graduatedAt: '2024-06-07'
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
@@ -398,7 +405,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #66C791 0%, #368C7D 100%)'
       },
       maturity: {
-        currentLevel: 'Graduated'
+        currentLevel: 'Graduated',
+        graduatedAt: '2024-08-05'
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X'],
@@ -472,7 +480,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #E5CCFF 0%, #A159FF 100%)'
       },
       maturity: {
-        currentLevel: 'Graduated'
+        currentLevel: 'Graduated',
+        graduatedAt: '2025-08-16'
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
@@ -496,7 +505,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #E5CCFF 0%, #B95EFF 100%)'
       },
       maturity: {
-        currentLevel: 'Graduated'
+        currentLevel: 'Graduated',
+        graduatedAt: '2025-09-29'
       },
       deprecated: false,
       dataspaces: ['Catena-X'],
@@ -545,7 +555,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #E5CCFF 0%, #9653ED 100%)'
       },
       maturity: {
-        currentLevel: 'Graduated'
+        currentLevel: 'Graduated',
+        graduatedAt: '2025-08-22'
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Factory-X'],
@@ -710,32 +721,7 @@ export const kitsData = {
   ],
   // List here the industry/dataspace specific KITs (will not be shown in the cross dataspace use cases gallery)
   dataspaceKits: {
-      "Factory-X": [{
-            id: 'modular-production',
-            name: 'MODULAR PRODUCTION KIT',
-            logo: ModularProductionLogo,
-            logoHeight: 100,
-            logoWidth: 100,
-            route: '/docs-kits/kits/modular-production-kit/adoption-view',
-            colors: {
-              primary: '#A098A4',
-              gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
-            },
-            maturity: {
-              currentLevel: 'Incubating',
-              graduationStatus: 'in progress'
-            },
-            deprecated: false,
-            dataspaces: ['Factory-X'],
-            description: 'Enable customized production (batch size 1) without significant increase of costs.',
-            metadata: {
-              created: '2023-11-15',
-              lastUpdated: '2024-05-10',
-              latestVersion: '0.2.1',
-              new: false
-            }
-        }
-  ],
+      "Factory-X": [],
       "Semiconductor-X": [],
       "Construct-X": [],
       "Chem-X": [],
