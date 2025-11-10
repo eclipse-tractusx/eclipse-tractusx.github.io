@@ -125,7 +125,7 @@ export default function ContributePage() {
             src={require('@site/static/img/tx-logos/221103_TractusX_Gradient_slim.png').default}
             className={styles.hero_bg}
             style={{
-              transform: `translateY(${scrollY * 0.5}px)`
+              transform: `translateY(${scrollY * 0.5}px) scale(1.3)`
             }}
             alt="Tractus-X Gradient Background"
           />
