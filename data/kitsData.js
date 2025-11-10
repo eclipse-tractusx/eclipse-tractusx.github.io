@@ -42,6 +42,7 @@ For each KIT the information model is the following:
         currentLevel: '<graduation-level> (Sandbox, Incubation, Graduated)',
         graduationStatus: '<graduation_status>' ('Draft' | 'In Progress' | 'In Review' | 'No Further Development' )
         graduatedAt: '<YYYY-MM-DD>'  // only if currentLevel is 'Graduated'
+        deprecatedAt: '<YYYY-MM-DD>'  // only if the kit is deprecated
       },
       deprecated: <status boolean  true|false >
       dataspaces: [<list of dataspaces where the kit is used>],
@@ -606,7 +607,8 @@ export const kitsData = {
       },
       maturity: {
         currentLevel: 'Sandbox',
-        graduationStatus: 'draft'
+        graduationStatus: 'draft',
+        deprecatedAt: '2025-10-06'
       },
       deprecated: true,
       dataspaces: ['Catena-X'],

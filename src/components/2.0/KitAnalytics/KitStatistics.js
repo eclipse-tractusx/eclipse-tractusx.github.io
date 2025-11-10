@@ -39,6 +39,7 @@ import QuarterlyTrends from './QuarterlyTrends.js';
 import IncubatingKitsReview from './IncubatingKitsReview.js';
 import UpdateActivityChart from './UpdateActivityChart.js';
 import GraduatedKitsList from './GraduatedKitsList.js';
+import DeprecatedKitsList from './DeprecatedKitsList.js';
 import styles from './KitAnalytics.module.css';
 
 export const KitStatistics = () => {
@@ -341,6 +342,9 @@ export const KitStatistics = () => {
       <div style={{ marginTop: '40px' }}>
         <UpdateActivityChart styles={styles} />
       </div>
+
+      {/* Deprecated KITs List */}
+      <DeprecatedKitsList styles={styles} />
     </div>
   );
 };

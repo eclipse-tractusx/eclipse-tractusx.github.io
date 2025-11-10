@@ -33,6 +33,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Link from '@docusaurus/Link';
+import DeprecatedKitsList from '../src/components/2.0/KitAnalytics/DeprecatedKitsList.js';
 
 | Status     | Created      | Post-History                           |
 |------------|--------------|----------------------------------------|
@@ -525,150 +526,78 @@ Gathered information thus far. A presentation of the main points validating the 
 
 ### Overview
 
-KIT deprecation is a structured process for phasing out KITs that are no longer maintained, have been superseded by newer solutions, or are no longer aligned with the Tractus-X ecosystem strategy. The deprecation process ensures that users and stakeholders have sufficient time to migrate to alternative solutions while maintaining transparency throughout the transition.
+KIT deprecation is a structured process for phasing out KITs that are no longer maintained or aligned with the Tractus-X ecosystem. The process ensures users have time to migrate to alternatives.
 
-### Reasons for Deprecation
+### Common Reasons for Deprecation
 
-A KIT may be deprecated for one or more of the following reasons:
-
-1. **Technical Obsolescence**: The technology or approach has become outdated or is no longer best practice
-2. **Superseded by Another KIT**: A newer, more comprehensive KIT has been developed that covers the same use case
-3. **Lack of Maintenance**: The KIT is no longer actively maintained by its original contributors
-4. **Strategic Realignment**: The KIT no longer aligns with Tractus-X strategic priorities
-5. **Insufficient Adoption**: Limited or no community adoption despite being available for extended period
-6. **Security or Compliance Issues**: Critical issues that cannot be resolved without complete redesign
+- **Superseded**: A newer KIT covers the same use case
+- **Lack of Maintenance**: No longer actively maintained
+- **Technical Obsolescence**: Technology or approach is outdated
+- **Strategic Misalignment**: No longer fits Tractus-X priorities
+- **Security Issues**: Critical issues that cannot be resolved
 
 ### Deprecation Process
 
-#### Phase 1: Deprecation Announcement (Months 0-3)
+```mermaid
+graph LR
+    A[Active KIT] --> B[Announcement<br/>0]
+    B --> C[Transition Period<br/>2 Releases]
+    C --> D[End of Life<br/>4 Releases]
+    D --> E[Archived]
 
-**Actions**:
-- Create deprecation notice issue in [eclipse-tractusx/sig-release](https://github.com/eclipse-tractusx/sig-release)
-- Update KIT documentation with clear deprecation banner and timeline
-- Add "DEPRECATED" label to the KIT in the master data
-- Communicate deprecation through:
-  - Official blog post on [Tractus-X website](/blog)
-  - Matrix chat announcements in [#tractusx-kits channel](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org)
-  - Office hours presentations
-  - Email notifications to known adopters (if identifiable)
+```
+
+#### Step 1: Announcement 
+
+1. Create deprecation issue in [sig-release](https://github.com/eclipse-tractusx/sig-release)
+2. Add deprecation notice to KIT documentation
+3. Mark KIT as "DEPRECATED" in master data
+4. Announce through blog post, KIT Matrix chat, and office hours
 
 **Required Information**:
 - Reason for deprecation
-- Deprecation timeline with key milestones
-- Alternative KITs or migration paths (if available)
+- Timeline (typically 6-12 months)
+- Alternative solutions or migration paths
 - Support end date
-- Final removal date
-- Contact points for questions
 
-#### Phase 2: Active Deprecation Period (Months 3-12)
+#### Step 2: Transition Period (2 Releases, ~6 Months)
 
-**Actions**:
-- Maintain documentation in read-only mode
-- Provide critical security updates only (if feasible)
-- Update all references to recommend alternative solutions
-- Host migration support office hours (if significant adoption exists)
-- Document common migration patterns and solutions
-
-**Support Level**:
-- No new features or enhancements
+- Documentation remains accessible
 - Critical security fixes only (best effort)
 - Community support through existing channels
-- Migration assistance through office hours
+- Optional: Migration office hours if widely adopted
 
-#### Phase 3: End of Life (Month 12+)
+#### Step 3: End of Life (4 Releases, ~12 Months)
 
-**Actions**:
-- Move KIT documentation to archived section
-- Update all cross-references to point to alternatives
-- Archive related repositories (set to read-only)
-- Final communication to community
-- Remove from active KIT listings (maintain in deprecated/archived section)
+- Archive documentation in [large-files repo](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles)
+- Update all cross-references
+- Remove from active KIT listings
 
-**Post-EOL**:
-- Documentation remains accessible in archived state
-- Repositories remain accessible but read-only
-- No support provided
-- Clear warnings on all pages indicating EOL status
+### Deprecation Notice Template
 
-### Deprecation Communication Requirements
-
-All deprecated KITs must display a prominent deprecation notice with the following information:
+All deprecated KITs must display:
 
 ```mdx
 :::danger KIT Deprecated
-This KIT has been deprecated as of [DATE] and will reach end of life on [DATE].
+Deprecated as of [DATE] • End of Life: [DATE]
 
 **Reason**: [Brief explanation]
 
-**Alternative Solutions**: 
-- [Link to replacement KIT or alternative approach]
+**Alternatives**: [Links to replacement solutions]
 
-**Migration Guide**: [Link to migration documentation if available]
-
-**Support**: Critical security fixes only until [DATE]. For questions, contact [contact info].
+**Support**: Critical security fixes only. Questions: [contact]
 :::
 ```
 
-### Migration Support
-
-For KITs with known active adoption, the deprecation process should include:
-
-1. **Migration Documentation**: Clear guide on how to transition to alternative solutions
-2. **Migration Timeline**: Recommended milestones for users to complete migration
-3. **Office Hours**: Dedicated sessions to answer migration questions
-4. **Community Forum**: Dedicated discussion thread for migration-related questions
-5. **Case Studies**: Examples of successful migrations (if available)
-
-### Deprecated KIT Archive
-
-Deprecated KITs are maintained in a dedicated archive section with:
-
-- Complete historical documentation (read-only)
-- Deprecation notice and timeline
-- Links to alternative solutions
-- Archive date and reason for deprecation
-- Contact information for historical inquiries
-
-### Responsibilities
-
-**KIT Maintainers**:
-- Initiate deprecation proposal with justification
-- Support migration during active deprecation period
-- Update documentation with deprecation notices
-- Provide migration guidance and support
-
-**Committers**:
-- Review and approve deprecation proposals
-- Ensure proper communication and timeline
-- Validate deprecation notices are properly displayed
-- Coordinate with SIG-Release for official announcements
-
-**Community**:
-- Provide feedback on deprecation plans
-- Share migration experiences
-- Support other users during transition period
-
 ### Appeal Process
 
-If community members believe a KIT should not be deprecated, they can:
+Community members can appeal a deprecation by:
 
-1. Submit an appeal issue to [sig-release](https://github.com/eclipse-tractusx/sig-release)
-2. Provide evidence of:
-   - Active usage and adoption
-   - Community commitment to maintain the KIT
-   - Strategic value to the ecosystem
-   - Resources available for ongoing maintenance
-3. Present the appeal in an open planning or office hours session
-4. Committers review and make final decision within 30 days
+1. Submitting an issue to [sig-release](https://github.com/eclipse-tractusx/sig-release)
+2. Providing evidence of active usage, maintenance commitment, and strategic value
+3. Committers review and decide within 30 days
 
-### Example Deprecation Timeline
 
-| Timeframe | Milestone | Actions |
-|-----------|-----------|---------|
-| Month 0 | Deprecation Announced | Notice published, documentation updated, community informed |
-| Month 1-3 | Initial Transition | Migration guides published, office hours scheduled |
-| Month 3-6 | Active Migration | Community migration support, common issues documented |
-| Month 6-9 | Final Transition | Support winds down, final warnings issued |
-| Month 9-12 | Pre-EOL | Critical fixes only, final migration push |
-| Month 12+ | End of Life | Documentation archived, repositories read-only |
-```
+## Currently Deprecated KITs
+
+<DeprecatedKitsList />

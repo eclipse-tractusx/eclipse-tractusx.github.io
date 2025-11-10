@@ -62,7 +62,7 @@ export default function KitsPage() {
   
   return (
     <Layout
-      title={`Eclipse Tractus-X KITs | ${siteConfig.title}`}
+      title={`KITs | ${siteConfig.title}`}
       description="This is the home of the Eclipse Tractus-X KITs (Keep It Together) - your comprehensive documentation, for boosting adoption and building interoperable dataspaces across industries."
     >
       <KitHeader />

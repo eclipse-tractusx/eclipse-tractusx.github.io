@@ -19,85 +19,81 @@
 
 import React from 'react';
 import { kitsData } from '../../../../data/kitsData.js';
-import { School as GraduationIcon } from '@mui/icons-material';
-import kitStyles from './KitAnalytics.module.css';
+import WarningIcon from '@mui/icons-material/Warning';
 
-export const GraduatedKitsList = ({ styles }) => {
-  const allKits = [
-    ...(kitsData.dataspaceFoundation || []),
-    ...(kitsData.industryCoreFoundation || []),
-    ...(kitsData.useCases || [])
-  ];
-
-  // Add dataspace-specific KITs
+const DeprecatedKitsList = ({ styles }) => {
+  // Collect all KITs
+  const foundationKits = [...(kitsData.dataspaceFoundation || [])];
+  const industryCoreKits = [...(kitsData.industryCoreFoundation || [])];
+  const useCaseKits = [...(kitsData.useCases || [])];
+  
+  const dataspaceSpecificKits = [];
   if (kitsData.dataspaceKits) {
     Object.values(kitsData.dataspaceKits).forEach(kitsArray => {
       if (Array.isArray(kitsArray)) {
-        allKits.push(...kitsArray);
+        dataspaceSpecificKits.push(...kitsArray);
       }
     });
   }
 
-  // Filter graduated KITs and sort by graduation date (newest first)
-  const graduatedKits = allKits
-    .filter(kit => kit.maturity?.currentLevel === 'Graduated' && kit.maturity?.graduatedAt)
-    .sort((a, b) => new Date(b.maturity.graduatedAt) - new Date(a.maturity.graduatedAt));
+  const allKits = [...foundationKits, ...industryCoreKits, ...useCaseKits, ...dataspaceSpecificKits];
 
-  // Format date function
+  // Filter deprecated KITs and sort by deprecation date (most recent first)
+  const deprecatedKits = allKits
+    .filter(kit => kit.deprecated)
+    .sort((a, b) => {
+      const dateA = a.maturity?.deprecatedAt ? new Date(a.maturity.deprecatedAt) : new Date(0);
+      const dateB = b.maturity?.deprecatedAt ? new Date(b.maturity.deprecatedAt) : new Date(0);
+      return dateB - dateA;
+    });
+
   const formatDate = (dateString) => {
-    try {
-      const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      });
-    } catch (error) {
-      return dateString;
-    }
+    if (!dateString) return 'Date unknown';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric' 
+    });
   };
 
-  if (graduatedKits.length === 0) {
+  if (deprecatedKits.length === 0) {
     return null;
   }
 
   return (
     <div style={{
-      backgroundColor: 'var(--ifm-color-emphasis-100)',
+      backgroundColor: 'var(--ifm-background-color)',
       border: '1px solid var(--ifm-color-emphasis-300)',
       borderRadius: '12px',
-      padding: 'clamp(16px, 3vw, 24px)',
-      width: '100%'
+      padding: '24px',
+      marginTop: '40px'
     }}>
-      <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        gap: '8px', 
-        marginBottom: '20px' 
+      <h4 style={{ 
+        marginBottom: '16px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        color: 'var(--ifm-color-danger)'
       }}>
-        <GraduationIcon style={{ 
-          color: '#10b981', 
-          fontSize: 'clamp(18px, 3vw, 24px)' 
-        }} />
-        <h4 style={{ 
-          margin: 0, 
-          fontSize: 'clamp(16px, 2.5vw, 18px)',
-          fontWeight: '600',
-          color: 'var(--ifm-color-content)'
-        }}>
-          Graduated KITs ({graduatedKits.length})
-        </h4>
-      </div>
+        Deprecated KITs ({deprecatedKits.length})
+      </h4>
+      <p style={{ 
+        fontSize: '14px', 
+        color: 'var(--ifm-color-content-secondary)',
+        marginBottom: '20px'
+      }}>
+        These KITs are no longer maintained and should not be used for new implementations.
+      </p>
 
-      <div className={kitStyles.graduatedKitsList || ''} style={{
+      <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
         gap: '12px',
         maxHeight: '400px',
         overflowY: 'auto',
-        paddingRight: '8px'
+        paddingRight: '4px'
       }}>
-        {graduatedKits.map((kit, index) => (
+        {deprecatedKits.map((kit, index) => (
           <div key={kit.id || index} style={{
             display: 'flex',
             alignItems: 'center',
@@ -107,15 +103,18 @@ export const GraduatedKitsList = ({ styles }) => {
             border: '1px solid var(--ifm-color-emphasis-200)',
             borderRadius: '8px',
             transition: 'all 0.2s ease',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            opacity: 0.8
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#10b981';
+            e.currentTarget.style.borderColor = 'var(--ifm-color-danger)';
             e.currentTarget.style.transform = 'translateY(-1px)';
+            e.currentTarget.style.opacity = '1';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-200)';
             e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.opacity = '0.8';
           }}
           onClick={() => {
             if (kit.route) {
@@ -131,7 +130,8 @@ export const GraduatedKitsList = ({ styles }) => {
                 marginBottom: '4px',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
+                opacity: 0.7
               }}>
                 {kit.name}
               </div>
@@ -142,14 +142,24 @@ export const GraduatedKitsList = ({ styles }) => {
                 alignItems: 'center',
                 gap: '4px'
               }}>
-                <GraduationIcon style={{ fontSize: '12px', color: '#10b981' }} />
-                {formatDate(kit.maturity.graduatedAt)}
+                <WarningIcon style={{ fontSize: '12px', color: 'var(--ifm-color-danger)' }} />
+                {kit.maturity?.deprecatedAt ? formatDate(kit.maturity.deprecatedAt) : 'Deprecated'}
               </div>
+              {kit.maturity?.deprecationReason && (
+                <div style={{
+                  fontSize: '11px',
+                  color: 'var(--ifm-color-content-secondary)',
+                  marginTop: '4px',
+                  fontStyle: 'italic'
+                }}>
+                  {kit.maturity.deprecationReason}
+                </div>
+              )}
             </div>
             
-            {/* Graduation badge */}
+            {/* Deprecated badge */}
             <div style={{
-              backgroundColor: '#10b981',
+              backgroundColor: 'var(--ifm-color-danger)',
               color: 'white',
               padding: '4px 8px',
               borderRadius: '12px',
@@ -158,13 +168,13 @@ export const GraduatedKitsList = ({ styles }) => {
               textTransform: 'uppercase',
               letterSpacing: '0.025em'
             }}>
-              Graduated
+              Deprecated
             </div>
           </div>
         ))}
       </div>
 
-      {graduatedKits.length > 8 && (
+      {deprecatedKits.length > 8 && (
         <div style={{
           textAlign: 'center',
           marginTop: '16px',
@@ -172,11 +182,11 @@ export const GraduatedKitsList = ({ styles }) => {
           color: 'var(--ifm-color-content-secondary)',
           fontStyle: 'italic'
         }}>
-          Scroll to see all graduated KITs
+          Scroll to see all deprecated KITs
         </div>
       )}
     </div>
   );
 };
 
-export default GraduatedKitsList;
+export default DeprecatedKitsList;
