@@ -48,7 +48,7 @@ The following general conventions apply for all digital twins:
 
 > :raised_hand: **Unique ID Push:** Once a digital twin was registered (initially created), optionally a Unique ID Push notification can be send from the manufacturer (creator of the digital twin) to the customer of the part to inform it that a new digital twin is available.
 
-#### Property specificAssetIds
+### Property specificAssetIds
 
 Specific asset IDs are used to identify digital twins when looking up or searching for these digital twins. This is a required step by a customer of a part to connect the digital twins of their parts with the digital twins of the suppliers' child parts. To a customer, only the information printed on a real-world part is available and can be used for the lookup. Mandatory specific asset IDs ensure that at least this information is available for the digital twin.
 
@@ -145,40 +145,50 @@ Submodels of digital twins are registered in the Connector the same way as for r
 Here's an example how such a submodel descriptor could look like:
 
 ```json
-"submodelDescriptors": [
-  {
-    "idShort": "serialPart",
-    "id": "urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
-    "semanticId": {
-      "type": "ExternalReference",
-      "keys": [
+{
+  "submodelDescriptors": [
+    {
+      "idShort": "serialPart",
+      "id": "urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "urn:samm:io.catenax.serial_part:3.0.0#SerialPart"
+          }
+        ]
+      },
+      "endpoints": [
         {
-          "type": "GlobalReference",
-          "value": "urn:samm:io.catenax.serial_part:3.0.0#SerialPart"
+          "interface": "SUBMODEL-VALUE-3.1",
+          "protocolInformation": {
+            "href": "https://connector.data.plane/api/public/submodel/$value",
+            "endpointProtocol": "HTTP",
+            "endpointProtocolVersion": [
+              "1.1"
+            ],
+            "subprotocol": "DSP",
+            "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
+            "subprotocolBodyEncoding": "plain",
+            "securityAttributes": [
+              {
+                "type": "NONE",
+                "key": "NONE",
+                "value": "NONE"
+              }
+            ]
+          }
         }
       ]
-    },
-    "endpoints": [
-      {
-        "interface": "SUBMODEL-3.0",
-        "protocolInformation": {
-          "href": "https://connector.data.plane/api/public/submodel",
-          "endpointProtocol": "HTTP",
-          "endpointProtocolVersion": ["1.1"],
-          "subprotocol": "DSP",
-          "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
-          "subprotocolBodyEncoding": "plain",
-          "securityAttributes": [
-            { "type": "NONE", "key": "NONE", "value": "NONE" }
-          ]
-        }
-      }
-    ]
-  }
-]
+    }
+  ]
+}
 ```
 
 In this example, the `{providerPath}` part in the `href` is empty, as the Connector asset referenced in `subprotocolBody` directly points to a service returning the correct submodel (set up correctly with its dataAddress in the data provider's Connector).
+
+Note that the submodel interface value is 'SUBMODEL-VALUE-3.1', providing the submodel in the ValueOnly serisalisation. For Backward compatibility, if interface value 'SUBMODEL-3.1' is used, then '$value' is not required with endpointAddress given in href. For more information, refer to [IDTA interfaces payload](https://industrialdigitaltwin.io/aas-specifications/IDTA-01002/v3.1.1/specification/interfaces-payload.html#_endpoint)
 
 ##### Option 2: Connector Asset Structure on Catalog Part Level
 
@@ -189,52 +199,237 @@ If a data provider no longer creates assets on the level of submodels, the Conne
 Here's an example how such a submodel descriptor could look like:
 
 ```json
-"submodelDescriptors": [
-  {
-    "idShort": "serialPart",
-    "id": "urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
-    "semanticId": {
-      "type": "ExternalReference",
-      "keys": [
+{
+  "submodelDescriptors": [
+    {
+      "idShort": "serialPart",
+      "id": "urn:uuid:7effd7f4-6353-4401-9547-c54b420a22a0",
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "urn:samm:io.catenax.serial_part:3.0.0#SerialPart"
+          }
+        ]
+      },
+      "endpoints": [
         {
-          "type": "GlobalReference",
-          "value": "urn:samm:io.catenax.serial_part:3.0.0#SerialPart"
+          "interface": "SUBMODEL-VALUE-3.1",
+          "protocolInformation": {
+            "href": "https://connector.data.plane/api/public/urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel/$value",
+            "endpointProtocol": "HTTP",
+            "endpointProtocolVersion": [
+              "1.1"
+            ],
+            "subprotocol": "DSP",
+            "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7",
+            "subprotocolBodyEncoding": "plain",
+            "securityAttributes": [
+              {
+                "type": "NONE",
+                "key": "NONE",
+                "value": "NONE"
+              }
+            ]
+          }
         }
       ]
-    },
-    "endpoints": [
-      {
-        "interface": "SUBMODEL-3.0",
-        "protocolInformation": {
-          "href": "https://connector.data.plane/api/public/urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/submodel",
-          "endpointProtocol": "HTTP",
-          "endpointProtocolVersion": ["1.1"],
-          "subprotocol": "DSP",
-          "subprotocolBody": "dspEndpoint=https://connector.control.plane/api/v1/dsp;id=urn:uuid:1475f313-0a83-4e2b-b705-a100eebcb7d7",
-          "subprotocolBodyEncoding": "plain",
-          "securityAttributes": [
-            { "type": "NONE", "key": "NONE", "value": "NONE" }
-          ]
-        }
-      }
-    ]
-  }
-]
+    }
+  ]
+}
 ```
 
-The the `{providerPath}` part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
+The `{providerPath}` part of the `href` property contains the information for the backend data service which digital twin's submodel to return while the asset ID is used for several endpoints. The path part here is just an example as it depends on the type of backend data service the data provider uses.
 
 The above options are only two examples how a submodel's endpoint can be created. As long as it's compliant with the above conventions (including CX-0002) a data provider can also use any other asset structure.
 
-##### Data Consumption with AAS Submodel Descriptor Endpoints
+#### Performance Test Digital Twin Registry
+
+The purpose of performance test was to analyze how much data can be retrieved from the Digital Twin Registry and Submodel Server within a specific period of time.
+All available shellIds were exported in a CSV file because the API lookup/shells is called once to load all matched shellIds from the DTR. The entire workflow was considered to perform realistic load tests using Apache JMeter.
+
+**Datasets**
+
+| Type                  | Component                 | Quantity | Description                                                        |
+|:----------------------|:--------------------------|:---------|:-------------------------------------------------------------------|
+| Digital Twin Registry | Shells Descriptors        | 1000     | Each Shell Descriptor contains 4 Submodel Descriptors              |
+|                       | Submodel Descriptors      | 4000     | Each Submodel Descriptor points to a dataset in the Submodel Server|
+| SubmodelServer        | Submodel Server Datasets  | 4000     | Entries corresponding to the Submodel Descriptors                  |
+
+**Workflow:**
+
+The tested workflow includes the following steps:
+1.	Randomly select a `shellId` from the given CSV File
+2.	GET DTR EDR Token from EDC controlplane (execute every 4 minutes)
+a.	Retrieve EDC Catalog to determine which EDC Asset is responsible for the DTR.
+b.	Fetch EDR token for the DTR.
+3.	Call DTR API `shell-descriptors/id` via EDC dataplane to load the Shell Descriptor.
+4.	Randomly select a Submodel Descriptor.
+5.	GET SUBMODEL EDR Token FROM EDC controlplane (execute every 4 minutes)
+a.	Query the EDC Catalog to find the EDC Asset for the Submodel.
+b.	Fetch EDR token for the Submodel Server.
+6.	Retrieve the dataset from the Submodel Server via EDC dataplane, as defined in the `href` of the Submodel Descriptor.
+
+**Result**
+
+Test was performed using 20 threads in parallel. The average number of transactions per second was 30-35.
+
+> :raised_hand: If the performance is still not satisfactory for the user, then next given approach can be used, where the big parquet file can be transfer using EDC.
+
+#### Mass Data Consumption with AAS Submodel Descriptor for Referencing Large Files (e.g., Parquet or other Binary Files)
 
 A data consumer must first identify the correct submodel descriptor for a Catena-X data transfer. For Catena-X submodel descriptors, the `subprotocol` attribute must have the value "DSP". Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the asset referenced by `id` with the Connector of the data provider specified by `dspEndpoint` and afterwards initiate the data transfer.
 
 Further information about the data transfer of submodels can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
 
+#### Cloud-to-Cloud Parquet File Transfer with EDC Cloud Extension
+
+```mermaid
+sequenceDiagram
+    participant PRO as Data Provider
+    participant Con as Data Consumer
+    participant PEDC as Provider EDC <br/>Control Plane
+    participant DTR as Digital Twin Registry
+    participant SM as Submodel Server
+    participant PAWS as Provider AWS Cloud
+    participant CAWS as Consumer AWS Cloud
+
+autonumber
+        PRO->>PAWS: Provider uploads the parquet file to the cloud
+        PRO->>PEDC: Provider creates an EDC asset for S3 bucket
+        PRO->>PEDC: Provider creates an EDC asset for Submodel <br>pointing to Aspect Model `BinaryExchange`
+        PRO->>DTR: Provider creates a shell with Shell Descriptors and the edc Asset with controlplane URL
+        Note right of DTR: Shell Descriptor contains the<br>Submodel with above EDC asset
+        Con->>PEDC: negotiate for DTR and retrieve token
+        PEDC-->>Con: access token
+        Con->>DTR: GET {{provider-data.plane}}/lookup/shells?assetIds=xyz&assetIds=abc
+        DTR-->>Con: aas-id
+        Con->>DTR: GET {{provider-data.plane}}/shell-descriptors/{{aas-id}} <br/> with aas-id encoded base64url
+        DTR-->>Con: shell-descriptor including the  <br/> submodel's Dataset-ID (subprotocolBody)
+        Con->>PEDC: negotiate for Dataset and retrieve token
+        PEDC-->>Con: access token
+        Con->>SM: GET {{submodel-descriptor/href}}/$value
+        SM-->>Con: data
+        Note left of Con: Submodel contains the parquet<br>file assetID information
+        Con->>PEDC: Consumer reads submodel data,<br>starts EDC negotiation for parquet and<br>provides its own bucket details
+        PAWS->>CAWS: Provider uploads parquet file to consumer<br>AWS from its own AWS
+        CAWS-->>Con: Consumer can download the file directly from its AWS cloud
+```
+
+1. `Provider` uploads the parquet file to the cloud (S3 bucket in our case)
+2. `Provider` creates an EDC asset for S3 bucket. The `dataAddress` includes information about the S3 bucket and the file name:
+
+```json
+ {
+   "edc:dataAddress": {
+     "edc-type": "Cloud type e.g. AmazonS3",
+     "edc:bucket": "<provider-bucket>",
+     "edc:keyName": "<file-name>"
+   }
+ }
+```
+
+See also full example here: [edc-asset for file transfer](https://eclipse-tractusx.github.io/docs-kits/kits/data-driven-quality-management-kit/software-operation-view#quality-data-offers-at-edc)
+
+3. `Provider` creates another EDC asset for Submodel pointing to Aspect Model `BinaryExchange`. This aspect model will contain the information (dspAssetId, dataplane URL and controlplane URl) for AmazonS3 EDC asset created by provider in step 3.
+4. `Provider` creates a shell with Shell Descriptors and the edc Asset with controlplane URL. This Shell Descriptor contains the Submodel Descriptor which refers to EDC asset created in step 4.
+5. `Consumer` calls the DTR via EDC dataplane and reads the Submodel Descriptor for `BinaryExchange` aspect model from the Shell Descriptor.
+6. `Consumer` calls Submodel Server using dataplane URL, which is setup by the provider and in response receives the information (dspAssetId, dataplane URl (resource value) and controlplane URL) for AmazonS3 EDC asset created by provider in step 3.
+7. `Consumer` starts negotiation/transfer process and provides its own bucket information:
+
+```json
+ {
+   "edc:dataDestination": {
+     "edc-type": "Cloud type e.g. AmazonS3",
+     "edc:bucket": "<consumer-bucket>",
+     "edc:keyName": "<file-name>",
+     "edc:accessKeyId":"<access-key-id>",
+     "edc:secretAccessKey":"<secretAccessKey>"
+   }
+ }
+```
+
+8. `Provider` retrieve the request and download the requested Parquet file from bucket and upload it to the consumer bucket.
+9. `Consumer` can download the file from their own bucket.
+
+#### Submodel Descriptor for Parquet File Retrieval and Transfer
+
+A Submodel Descriptor for Parquet File Information may be structured as:
+
+```json
+{
+  "submodelDescriptors": [
+    {
+      "idShort": "qualityData",
+      "id": "<uuid>",
+      "endpoints": [
+        {
+          "interface": "SUBMODEL-VALUE-3.1",
+          "protocolInformation": {
+             "href": "https://connector.data.plane/api/public/parquet/urn%3Auuid%3A7effd7f4-6353-4401-9547-c54b420a22a0/$value",
+            "endpointProtocol": "HTTP",
+            "endpointProtocolVersion": [
+              "1.1"
+            ],
+            "subprotocol": "DSP",
+            "subprotocolBody": "id=<dsp-asset-id>;dspEndpoint=<controlplane-url>",
+            "subprotocolBodyEncoding": "plain",
+            "securityAttributes": [
+             {"type": "NONE","key": "NONE","value": "NONE"}
+             ]
+          }
+        }
+      ],
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+           {
+              "type": "GlobalReference",
+              "value": "urn:samm:io.catenax.binary_exchange:1.0.0#BinaryExchange"
+           }
+        ]
+      },
+        "description": [
+        {
+          "language": "en",
+          "text": "submodel-descriptor for quality usecase which provides data for parquet file to be transferred via EDC."
+        }
+      ]
+    }
+  ]
+}
+```
+
+| Parameter               | Value                                                                                                   | Description                                                                                                       |
+|-------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| href                    | dataplane URL                                                                                           | This dataplane URl returns aspect model BinaryExchange                                                            |
+| subprotocolBody         | id=dsp-asset-id;dspEndpoint=controlplane-url                                                            | Includes Information about Provider DSP Control Plane and DSP-Asset ID                                            |
+| subprotocolBodyEncoding | plain                                                                                                   | Encoding type for Submodel response                                                                               |
+| semanticId.keys[].value | urn:samm:io.catenax.binary_exchange:1.0.0#BinaryExchange                                                | Aspect Model Providing DSP Metadata for Binary File Exchange.                                                     |
+| description[].text      | Submodel descriptor for quality use case, supporting parquet file exchange through DSP.                 | Further description for the consumer.                                                                             |
+
+**Aspect model BinaryExchange is part of Industry Core standard [CX-0151-IndustryCoreBasics](https://catenax-ev.github.io/docs/next/standards/CX-0151-IndustryCoreBasics#1222-additional-recommendations-and-comments) and can be found in Semantic Modeling repository [Github](https://github.com/eclipse-tractusx/sldt-semantic-models/)**
+
+A sample payload for BinaryExchange aspect model is described below:
+  ```json
+{
+  "mappingRuleId": "CX-0123",
+  "binaryFile": {
+    "value": "https://edc.dataplane.url/api/public/urn:uuid:a377ff49-6bde-4215-8d38-b8f02c991a35",
+    "contentType": "application/octet-stream"
+  },
+  "dspInformation": {
+    "controlPlaneUrl": "https://semantics-edc-provider-controlplane.catenax.net/api/v1/dsp",
+    "dspAssetId": "d99cfe94-bfa0-4eba-9e31-d30c4f31831b"
+  },
+  "fileContentDescriptionId": "urn:samm:io.catenax.fleet.diagnostic_data:3.0.0"
+}
+  ```
+
 ### Lookup in the Digital Twin Registry
 
-For a data provider, there are currently the following steps where they have to lookup digital twins of other partners in the Catena-X network.
+For a data provider the following steps are currently required when they have to lookup digital twins of other partners in the Catena-X network.
 
 - The data provider must use the local IDs for a serialized part or batch (manufacturer, part number, serial or batch number) and for a just-in-sequence part (manufacturer, parentOrderNumber, jisNumber, jisCallDate) to lookup the AAS ID of the digital twin of this serialized part, batch or just-in-sequence part. The AAS descriptor with this ID contains the Unique ID of the serialized part, batch or just-in-sequence (as globalAssetId) that is used to create SingleLevelBomAsBuilt submodel.
 
