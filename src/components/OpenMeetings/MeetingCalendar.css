@@ -1,0 +1,289 @@
+/*********************************************************************************
+ * Copyright (c) 2023,2024 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+.meeting-calendar-container {
+  margin: 2rem 0;
+}
+
+.calendar-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.timezone-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timezone-select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.timezone-select:focus {
+  outline: none;
+  border-color: #faa023;
+}
+
+.calendar-legend {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* Modal styles */
+.event-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.event-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.event-modal h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.modal-content {
+  color: #666;
+}
+
+.modal-content p {
+  margin-bottom: 0.75rem;
+}
+
+.modal-time,
+.modal-date {
+  font-size: 16px;
+  color: #333;
+}
+
+.join-link {
+  display: inline-block;
+  background-color: #faa023;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.join-link:hover {
+  background-color: #e89012;
+  color: white;
+}
+
+.additional-links ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+
+.additional-links li {
+  margin-bottom: 0.25rem;
+}
+
+.additional-links a {
+  color: #faa023;
+  text-decoration: none;
+}
+
+.additional-links a:hover {
+  text-decoration: underline;
+}
+
+/* Override react-big-calendar styles */
+.rbc-calendar {
+  font-family: inherit;
+}
+
+.rbc-event {
+  border-radius: 4px;
+  padding: 2px 5px;
+  font-size: 13px;
+}
+
+.rbc-today {
+  background-color: #f0f8ff;
+}
+
+.rbc-toolbar button {
+  color: #333;
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  margin: 0 2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.rbc-toolbar button:hover {
+  background-color: #f5f5f5;
+}
+
+.rbc-toolbar button.rbc-active {
+  background-color: #faa023;
+  color: white;
+  border-color: #faa023;
+}
+
+.rbc-toolbar button.rbc-active:hover {
+  background-color: #e89012;
+  border-color: #e89012;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .timezone-select {
+  background-color: #1b1b1d;
+  color: #ffffff;
+  border-color: #444;
+}
+
+[data-theme='dark'] .event-modal {
+  background-color: #1b1b1d;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .event-modal h3 {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .modal-content {
+  color: #cccccc;
+}
+
+[data-theme='dark'] .modal-close {
+  color: #cccccc;
+}
+
+[data-theme='dark'] .modal-close:hover {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .rbc-calendar {
+  background-color: #1b1b1d;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .rbc-toolbar button {
+  background-color: #2e2e30;
+  color: #ffffff;
+  border-color: #444;
+}
+
+[data-theme='dark'] .rbc-toolbar button:hover {
+  background-color: #3a3a3c;
+}
+
+[data-theme='dark'] .rbc-today {
+  background-color: #2e2e30;
+}
+
+[data-theme='dark'] .rbc-off-range-bg {
+  background-color: #1b1b1d;
+}
+
+[data-theme='dark'] .rbc-header {
+  border-color: #444;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .rbc-day-bg {
+  border-color: #444;
+}
+
+[data-theme='dark'] .rbc-month-row {
+  border-color: #444;
+}
+
+[data-theme='dark'] .rbc-time-slot {
+  border-color: #444;
+}
+
+[data-theme='dark'] .rbc-time-content {
+  border-color: #444;
+}
+
+[data-theme='dark'] .rbc-day-slot .rbc-time-slot {
+  border-color: #444;
+}
