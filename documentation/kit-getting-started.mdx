@@ -499,9 +499,11 @@ Follow this structure:
   </a>
 </div>
 
-
-3. Create a pull request
-4. Request the committer assigned in the SIG-Release ticket to review, approve and merge your PR
+3. Add your KIT in this file by updating the sidebar configuration in ['/sidebarsDocsKits.js'](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/sidebarsDocsKits.js) at the root folder (a template will be provided).
+4. Update the [docusaurus.config.js](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/61607621a41acc6b8bc219799433a231cf321b0d/docusaurus.config.js#L258-L382) file to include your new KIT at the navbar, search for `navbar: { items: [{type: 'dropdown', label: 'KITs', position: 'left', to: '/Kits', items: [...] }`
+5. Update the changelog with what was added
+6. Create a pull request to `eclipse-tractusx.github.io` `main` branch
+7. Request the committer assigned in the SIG-Release ticket to review, approve and merge your PR
 
 **Timeline**: Typically 2-3 weeks from submission to approval.
 

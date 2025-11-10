@@ -59,7 +59,7 @@ export const KitStructureTable = () => {
       content: "Non-Functional Requirements, Security Requirements, Recommendations, Restrictions"
     },
     {
-      view: "Documentations",
+      view: "Documentation",
       stakeholders: [{name: "Any Stakeholder", color: "#8b5cf6"}],
       content: "Extra Documentation and Links"
     },

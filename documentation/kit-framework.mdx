@@ -227,6 +227,57 @@ Deliverables:
 - Deployment
   **Deployment Scripts**
 
+## Documentation
+
+The Documentation view provides extra documentation and links that may be relevant for any stakeholder. This section serves as a central repository for additional resources that don't fit into the specific views above but are valuable for understanding or working with the KIT.
+
+### Purpose
+
+This view is designed to be flexible and accommodate various types of supplementary information that stakeholders might need, including:
+
+- Links to external resources and related projects
+- External documentation that complements the KIT
+- Additional technical papers or research documents
+- Community resources and discussion forums
+- Video presentations and webinars
+- Case studies and implementation examples
+- Related standards and specifications hosted elsewhere
+- Training materials and certification programs
+
+### Deliverables
+
+**Additional Resources:**
+
+- **External Links**: Relevant websites, repositories, and resources
+- **Related Documentation**: Links to complementary KITs or standards
+- **Community Resources**: Forums, chat channels, and discussion boards
+- **Media Resources**: Videos, podcasts, or presentations about the KIT
+- **Publications**: Research papers, blog posts, or articles
+- **Training Materials**: Courses, workshops, or certification programs
+
+### Examples
+
+- In [Data Trust & Security KIT](/docs-kits/kits/data-trust-and-security-kit/documentation/rulebook-template) the documentation section is used to reference a rulebook template.
+
+- In the category documentation you can include links like this:
+
+```js
+
+{
+    type: 'category',
+    label: 'Documentation',
+    items: [
+        // Add your links here:
+        {
+            type: 'link',
+            label: 'Your Link Label',  // Change this to your link text
+            href: 'https://example.com/your-url'  // Change this to your URL
+        }
+    ]
+}
+```
+
+You can update that in ['/sidebarsDocsKits.js'](../sidebarsDocsKits.js) file at the root folder.
 
 
 ## Dataspace Extensions

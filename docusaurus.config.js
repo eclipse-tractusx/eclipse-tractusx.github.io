@@ -279,6 +279,30 @@ const config = {
                 label: 'Kits General',
               },
               {
+                to: '/documentation/kit-getting-started',
+                label: '  → Getting Started',
+              },
+              {
+                to: '/documentation/kit-lifecycle',
+                label: '  → KIT Lifecycle',
+              },
+              {
+                to: '/documentation/kit-framework',
+                label: '  → KIT Framework',
+              },
+              {
+                to: '/documentation/kit-statistics',
+                label: '  → KIT Statistics',
+              },
+              {
+                to: '/documentation/kit-master-data-overview',
+                label: '  → Master Data Overview',
+              },
+              {
+                type: 'html',
+                value: '<hr style="margin: 4px 0;"> All KITs:',
+              },
+              {
                 to: '/docs-kits/kits/behaviour-twin-kit/overview',
                 label: 'Behaviour Twin',
               },
