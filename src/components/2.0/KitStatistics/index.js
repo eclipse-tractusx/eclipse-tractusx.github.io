@@ -26,7 +26,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import RocketIcon from '@mui/icons-material/Rocket';
 import AddIcon from '@mui/icons-material/Add';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import LifecycleIcon from '@mui/icons-material/Recycling';
 import Button from '@mui/material/Button';
 
 const KitStatistics = ({ kitsData }) => {
@@ -174,12 +174,12 @@ const KitStatistics = ({ kitsData }) => {
           </Button>
           <Button
             variant="outlined"
-            startIcon={<TrendingUpIcon />}
+            startIcon={<LifecycleIcon />}
             className={styles.secondaryButton}
-            href="/documentation/kit-maturity-levels"
+            href="/documentation/kit-lifecycle"
             size="large"
           >
-            KIT Maturity Levels
+            KIT Lifecycle
           </Button>
         </div>
       </div>

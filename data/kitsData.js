@@ -409,7 +409,7 @@ export const kitsData = {
         graduatedAt: '2024-08-05'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X', 'Semiconductor-X'],
       description: 'Product-specific CO2 footprint.',
       metadata: {
         created: '2023-03-08',
@@ -775,7 +775,7 @@ export const dataspaces = [
     id: 'semiconductor-x',
     name: 'Semiconductor-X',
     subtitle: 'Semiconductor Industry KITs',
-    description: 'A specialized dataspace for the global semiconductor ecosystem. Semiconductor-X facilitates secure collaboration between chip manufacturers, suppliers, and technology partners while ensuring IP protection and compliance.',
+    description: 'Contributing to a cross-sector international dataspace and digital twin standards for resilient semiconductor supply chains.',
     logo: {
       src: 'https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg',
       alt: 'Semiconductor-X Logo',

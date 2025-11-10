@@ -50,7 +50,7 @@ const sidebars = {
                 'kit-getting-started',
                 'kit-framework',
                 'kit-master-data-overview',
-                'kit-maturity-levels',
+                'kit-lifecycle',
                 'kit-statistics'
             ]
         },

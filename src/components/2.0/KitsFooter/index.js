@@ -27,7 +27,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import SchoolIcon from '@mui/icons-material/School';
 import HandshakeIcon from '@mui/icons-material/Handshake';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import LifecycleIcon from '@mui/icons-material/Recycling';
 import styles from "./styles.module.scss";
 
 export default function KitsFooter({ disclaimer }) {
@@ -72,9 +72,9 @@ export default function KitsFooter({ disclaimer }) {
                 <SchoolIcon className={styles.linkIcon} />
                 Learn the KIT Framework
               </a>
-              <a href="/documentation/kit-maturity-levels" className={styles.link}>
-                <TrendingUpIcon className={styles.linkIcon} />
-                KIT Maturity Levels
+              <a href="/documentation/kit-lifecycle" className={styles.link}>
+                <LifecycleIcon className={styles.linkIcon} />
+                KIT Lifecycle
               </a>
               <a href="/documentation/kit-getting-started" className={styles.link}>
                 <AddIcon className={styles.linkIcon} />
