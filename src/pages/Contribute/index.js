@@ -20,6 +20,7 @@
 import React, { useEffect, useState } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import Link from '@docusaurus/Link';
 import ThemedImage from '@theme/ThemedImage';
 import Chat from '@mui/icons-material/Chat';
 import Groups from '@mui/icons-material/Groups';
@@ -30,6 +31,7 @@ import Description from '@mui/icons-material/Description';
 import BugReport from '@mui/icons-material/BugReport';
 import Lightbulb from '@mui/icons-material/Lightbulb';
 import QuestionIcon from '@mui/icons-material/QuestionMark';
+import EventIcon from '@mui/icons-material/Event';
 import styles from './styles.module.scss';
 
 export default function ContributePage() {
@@ -72,7 +74,7 @@ export default function ContributePage() {
     },
     {
       title: "Chat with Developers",
-      description: "Chat with us at our main Eclipse Tractus-X Matrix channel (a open source chat service)",
+      description: "Chat with us at our main Eclipse Tractus-X Matrix channel (a open source chat service), and become one of us!",
       icon: Chat,
       link: "https://chat.eclipse.org/#/room/#tractusx:matrix.eclipse.org",
       primary: false
@@ -86,16 +88,16 @@ export default function ContributePage() {
     },
     {
       title: "Contribute Code",
-      description: "Help improve existing KITs by contributing code, fixes, and enhancements to our repositories.",
+      description: "Help improve existing free and open source software (FOSS) by contributing code, fixes, and enhancements to our repositories.",
       icon: Code,
       link: "https://github.com/eclipse-tractusx",
       primary: false
     },
     {
-      title: "Improve Documentation",
-      description: "Help make our documentation better by fixing errors, adding examples, or improving clarity.",
+      title: "Learn and Improve Documentation",
+      description: "Help make the content of the KITs better by fixing errors, adding examples and diagrams, or improving clarity.",
       icon: Description,
-      link: "/documentation",
+      link: "/documentation/kit-framework",
       primary: false
     },
     {
@@ -109,7 +111,14 @@ export default function ContributePage() {
       title: "Share Ideas",
       description: "Have an idea for a new KIT or improvement? Share it with the community and start a discussion.",
       icon: Lightbulb,
-      link: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/discussions",
+      link: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/discussions/categories/kits",
+      primary: false
+    },
+    {
+      title: "Join our Community Days",
+      description: "Participate in our community days to learn, collaborate and share ideas with others.",
+      icon: EventIcon,
+      link: "/blog/community-days-12-2025",
       primary: false
     }
   ];
@@ -168,12 +177,19 @@ export default function ContributePage() {
             <div className={styles.contributionGrid}>
               {contributionOptions.map((option, index) => {
                 const IconComponent = option.icon;
+                const isExternal = option.link.startsWith('http');
+                const CardComponent = isExternal ? 'a' : Link;
+                const linkProps = isExternal 
+                  ? { href: option.link, target: '_blank', rel: 'noopener noreferrer' }
+                  : { to: option.link };
+                const isLastItem = index === contributionOptions.length - 1;
+                
                 return (
-                  <a
+                  <CardComponent
                     key={index}
-                    href={option.link}
+                    {...linkProps}
                     className={`${styles.contributionCard} ${option.primary ? styles.primary : ''}`}
-                    {...(option.link.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    style={isLastItem ? { gridColumn: '1 / -1' } : {}}
                   >
                     <div className={styles.cardIcon}>
                       <IconComponent />
@@ -184,7 +200,7 @@ export default function ContributePage() {
                     <p className={styles.cardDescription}>
                       {option.description}
                     </p>
-                  </a>
+                  </CardComponent>
                 );
               })}
             </div>
@@ -200,20 +216,20 @@ export default function ContributePage() {
                 We're here to help you find the right way to contribute.
               </p>
               <div className={styles.getStartedButtons}>
-                <a 
-                  href="/community/open-meetings#general-office-hours" 
+                <Link 
+                  to="/community/open-meetings#general-office-hours" 
                   className={styles.primaryButton}
                 >
                   <Groups className={styles.buttonIcon} />
                   Join Community Office Hours
-                </a>
-                <a 
-                  href="/documentation/kit-getting-started" 
+                </Link>
+                <Link 
+                  to="/documentation/kit-getting-started" 
                   className={styles.secondaryButton}
                 >
                   <RocketLaunch className={styles.buttonIcon} />
                   Start Creating a KIT
-                </a>
+                </Link>
               </div>
             </div>
           </div>
