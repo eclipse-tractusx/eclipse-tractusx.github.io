@@ -122,7 +122,7 @@ export default function ContributePage() {
       <main className={styles.contributePage}>
         <div className={styles.hero}>
           <img
-            src={require('@site/static/img/tx-logos/221103_TractusX_Gradient.png').default}
+            src={require('@site/static/img/tx-logos/221103_TractusX_Gradient_slim.png').default}
             className={styles.hero_bg}
             style={{
               transform: `translateY(${scrollY * 0.5}px)`

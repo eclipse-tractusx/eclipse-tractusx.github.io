@@ -113,7 +113,6 @@ A detailed explanation can be found here:
 ## Description
 
 For providing a KIT to the Eclipse project Tractus-X please be aware of the "getting started" as a contributor.
-Prerequisites: [Tractus-X getting started](https://eclipse-tractusx.github.io/docs/oss/getting-started)
 
 - **TRG 9.02 KIT Maturity Levels** A KIT is always structured the same way and follows three graduation stages
 - **TRG 9.03 KIT Framework** Each of the artifacts in a KIT are explained with examples
@@ -127,21 +126,33 @@ You need to have a Github Account and to fulfill the requirements from the [Deve
 
 ### Contact & Support
 
-<div style={{
-  backgroundImage: 'url(/img/tx-logos/221103_TractusX_Gradient.png)',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  borderRadius: '20px',
-  padding: '48px 40px',
-  margin: '30px 0',
-  position: 'relative',
-  overflow: 'hidden',
-  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-  maxWidth: '500px',
-  minHeight: '250px',
-  color: 'white'
-}}>
+<div 
+  style={{
+    backgroundImage: 'url(/img/tx-logos/221103_TractusX_Gradient_slim.png)',
+    backgroundSize: '120% 120%',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    borderRadius: '20px',
+    padding: '48px 40px',
+    margin: '30px 0',
+    position: 'relative',
+    overflow: 'hidden',
+    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+    maxWidth: '500px',
+    minHeight: '250px',
+    color: 'white',
+    transition: 'all 0.3s ease',
+    cursor: 'pointer'
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = 'translateY(-4px)';
+    e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.4)';
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+  }}
+>
   <div style={{
     display: 'flex',
     alignItems: 'flex-start',
