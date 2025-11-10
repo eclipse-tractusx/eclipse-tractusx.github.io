@@ -18,6 +18,7 @@
  ********************************************************************************/
 
 import React, { useMemo } from 'react';
+import Link from '@docusaurus/Link';
 import CountUpNumber from '../CountUpNumber';
 import styles from './styles.module.scss';
 import BuildIcon from '@mui/icons-material/Build';
@@ -158,7 +159,8 @@ const KitStatistics = ({ kitsData }) => {
             variant="contained"
             startIcon={<AddIcon />}
             className={styles.primaryButton}
-            href="/Contribute"
+            component={Link}
+            to="/Contribute"
             size="large"
           >
             Contribute
@@ -167,7 +169,8 @@ const KitStatistics = ({ kitsData }) => {
             variant="outlined"
             startIcon={<AnalyticsIcon />}
             className={styles.secondaryButton}
-            href="/documentation/kit-statistics"
+            component={Link}
+            to="/documentation/kit-statistics"
             size="large"
           >
             View More Statistics
@@ -176,7 +179,8 @@ const KitStatistics = ({ kitsData }) => {
             variant="outlined"
             startIcon={<LifecycleIcon />}
             className={styles.secondaryButton}
-            href="/documentation/kit-lifecycle"
+            component={Link}
+            to="/documentation/kit-lifecycle"
             size="large"
           >
             KIT Lifecycle

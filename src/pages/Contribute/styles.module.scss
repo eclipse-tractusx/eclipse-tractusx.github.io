@@ -50,14 +50,17 @@
 
 .hero_bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120%;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 0;
   will-change: transform;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .container {

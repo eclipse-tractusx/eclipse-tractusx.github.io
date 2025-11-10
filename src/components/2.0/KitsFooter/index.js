@@ -19,6 +19,7 @@
 
 import React from "react";
 import { useColorMode } from '@docusaurus/theme-common';
+import Link from '@docusaurus/Link';
 import KitsCoreSvg from '@site/static/img/kits-2.0/tx-assembly-kit.svg'
 import ThemedImage from '@theme/ThemedImage';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -60,30 +61,30 @@ export default function KitsFooter({ disclaimer }) {
             </p>
             
             <div className={styles.links}>
-              <a href="/community/open-meetings#general-office-hours" className={styles.link}>
+              <Link to="/community/open-meetings#general-office-hours" className={styles.link}>
                 <GroupsIcon className={styles.linkIcon} />
                 Join our Community Office Hours
-              </a>
-              <a href="https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org" className={styles.link}>
+              </Link>
+              <a href="https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org" className={styles.link} target="_blank" rel="noopener noreferrer">
                 <ChatIcon className={styles.linkIcon} />
                 KIT Matrix Chat
               </a>
-              <a href="/documentation/kit-framework" className={styles.link}>
+              <Link to="/documentation/kit-framework" className={styles.link}>
                 <SchoolIcon className={styles.linkIcon} />
                 Learn the KIT Framework
-              </a>
-              <a href="/documentation/kit-lifecycle" className={styles.link}>
+              </Link>
+              <Link to="/documentation/kit-lifecycle" className={styles.link}>
                 <LifecycleIcon className={styles.linkIcon} />
                 KIT Lifecycle
-              </a>
-              <a href="/documentation/kit-getting-started" className={styles.link}>
+              </Link>
+              <Link to="/documentation/kit-getting-started" className={styles.link}>
                 <AddIcon className={styles.linkIcon} />
                 Create a KIT
-              </a>
-              <a href="/Contribute" className={styles.link}>
+              </Link>
+              <Link to="/Contribute" className={styles.link}>
                 <RocketLaunchIcon className={styles.linkIcon} />
                 Contribute
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -108,10 +109,10 @@ export default function KitsFooter({ disclaimer }) {
             margin: '0 0 0.5rem 0',
             opacity: 0.9
           }}>
-            All data shown is available at the <a href="/documentation/kit-master-data-overview">master data documentation</a>.
+            All data shown is available at the <Link to="/documentation/kit-master-data-overview">master data documentation</Link>.
           </p>
           <p className={styles.copyright}>
-            Our KITs are licensed under the non-code <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/LICENSE_non-code">CC-BY-4.0</a> License.
+            Our KITs are licensed under the non-code <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/LICENSE_non-code" target="_blank" rel="noopener noreferrer">CC-BY-4.0</a> License.
           </p>
         </div>
       </div>
