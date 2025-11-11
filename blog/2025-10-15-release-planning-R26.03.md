@@ -96,23 +96,18 @@ The planning sessions will be driven by our [Release Planning Board](https://git
 features based on their `Topic/Product` field. The current agenda is only an example and will be updated with the actual features that are planned for **R26.03**.
 :::
 
-| Time          | Topics                                | [Features](https://github.com/orgs/eclipse-tractusx/projects/26/views/43) |
-|---------------|---------------------------------------|---------------------------------------------------------------------------|
-| 09:05 – 09:20 | Open Planning - Vision & Introduction | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 09:20 – 09:25 | PCF                                   | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 09:25 – 09:35 | Circularity                           | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 09:35 – 10:10 | Dataspace Connectivity                | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 10:10 – 10:30 | BPDM                                  | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 10:30 – 10:50 | Portal                                | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 10:50 – 11:05 | SSI                                   | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 11:05 – 11:15 | Traceability                          | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 11:15 – 11:25 | DCM                                   | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 11:25 – 11:30 | OSIM                                  | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 11:30 – 11:35 | PURIS                                 | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 11:35 – 11:50 | Industry Core                         | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 11:50 – 11:55 | Digital Twin                          | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 11:55 – 12:00 | Testmanagement                        | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
-| 12:00 – 12:15 | Miscellaneous and Closing             | [Link](https://github.com/orgs/eclipse-tractusx/projects/26/views/43)     |
+|          Time | Topics                                |                                                     Features ([25](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+label%3APrep-R26.03)) |
+|--------------:|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| 09:05 – 09:20 | Open Planning - Vision & Introduction |                                                                                                                                                                                   |
+| 09:20 – 09:25 | Circularity                           |            [1](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3APrep-R26.03&sliceBy%5Bvalue%5D=Circularity) |
+| 09:25 – 09:50 | Dataspace Connectivity                | [6](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3APrep-R26.03&sliceBy%5Bvalue%5D=Dataspace+Connectivity) |
+| 09:50 – 09:55 | BPDM                                  |                   [1](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3APrep-R26.03&sliceBy%5Bvalue%5D=BPDM) |
+| 09:55 – 10:00 | SSI                                   |                    [1](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3APrep-R26.03&sliceBy%5Bvalue%5D=SSI) |
+| 10:00 – 10:10 | DPP                                   |                    [2](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3APrep-R26.03&sliceBy%5Bvalue%5D=DPP) |
+| 10:10 – 10:20 | DCM                                   |                    [2](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3APrep-R26.03&sliceBy%5Bvalue%5D=DCM) |
+| 10:20 – 10:45 | Engineering                           |            [5](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3APrep-R26.03&sliceBy%5Bvalue%5D=Engineering) |
+| 10:45 – 10:50 | Testmanagement                        |                               [2](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+label%3APrep-R26.03&sliceBy%5Bvalue%5D=Testmanagement) |
+| 10:50 – 11:05 | Miscellaneous and Closing             |                                                                                                                                                                                   |
 
 :::warning[Please note]
 - The agenda provides a rough time structure to help guide the session. The timings are not fixed and can be adjusted depending on the flow of the discussion.
