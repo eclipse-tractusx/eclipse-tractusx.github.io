@@ -177,11 +177,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Broken Links**
   - Fixed `/documentation/kit-getting-started`:
     - `docs/getting-started` → `/docs/getting-started`
-    - `./trg-9-02-kit-maturity-levels` → `./kit-maturity-levels`
+    - `./trg-9-02-kit-lifecycle` → `./kit-lifecycle`
     - `./trg-9-03-kit-framework` → `./kit-framework`
     - `./documentation-guidelines` → `/docs/website-guidelines/kit-structure`
   - Fixed `/documentation/kit-master-data-overview`:
-    - `./trg-9-02-kit-maturity-levels` → `./kit-maturity-levels`
+    - `./trg-9-02-kit-lifecycle` → `./kit-lifecycle`
     - `./trg-9-03-kit-framework` → `./kit-framework`
 
 #### Layout & Styling
