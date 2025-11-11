@@ -106,7 +106,7 @@ export const kitsData = {
         graduatedAt: '2024-06-07'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
       description: 'The EDC as a connector implements a framework agreement for sovereign, cross-organizational data exchange.',
       metadata: {
         created: '2022-08-01',
@@ -131,7 +131,7 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
       description: 'Enable and simplify data governance within Catena-X.',
       metadata: {
         created: '2024-03-08',
@@ -181,7 +181,7 @@ export const kitsData = {
         graduatedAt: '2025-09-08'
       },
       deprecated: false,
-      dataspaces: ['Catena-X','Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X','Construct-X'],
       description: 'Get high-quality data business partner data records including the unique identifier.',
       metadata: {
         created: '2023-03-01',
@@ -233,7 +233,7 @@ export const kitsData = {
         graduatedAt: '2024-08-01'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
       description: 'Digital Twins enable data-level interoperability - even between parties previously unknown to each other.',
       metadata: {
         created: '2022-09-01',
@@ -258,7 +258,7 @@ export const kitsData = {
         graduatedAt: '2025-03-17'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Semiconductor-X', 'Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X', 'Semiconductor-X', 'Construct-X'],
       description: 'Connceting Use-Cases with Core Services',
       metadata: {
         created: '2024-03-08',
@@ -410,7 +410,7 @@ export const kitsData = {
         graduatedAt: '2024-08-05'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X', 'Semiconductor-X'],
+      dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Semiconductor-X'],
       description: 'Product-specific CO2 footprint.',
       metadata: {
         created: '2023-03-08',
@@ -435,7 +435,7 @@ export const kitsData = {
         graduationStatus: 'in review'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Chem-X'],
+      dataspaces: ['Catena-X', 'Factory-X', 'Construct-X'],
       description: 'Leverage the transparency of digital product passports to strengthen sustainability & compliance.',
       metadata: {
         created: '2023-03-08',
@@ -726,7 +726,6 @@ export const kitsData = {
       "Factory-X": [],
       "Semiconductor-X": [],
       "Construct-X": [],
-      "Chem-X": [],
       "Catena-X": []
     }
 };
@@ -792,26 +791,6 @@ export const dataspaces = [
     },
     gradient: 'linear-gradient(135deg, #c1cb01, #e67900)',
     url: 'https://semiconductor-x.com'
-  },
-  {
-    id: 'chem-x',
-    name: 'Chem-X',
-    subtitle: 'Chemical Industry KITs',
-    description: 'A collaborative dataspace dedicated to transforming the chemical industry through sustainable practices and circular economy principles. Chem-X connects chemical producers, suppliers, and customers in a secure ecosystem.',
-    logo: {
-      src: 'https://www.chem-x.de/wp-content/uploads/2025/02/Chem-X-Logo-main.png',
-      alt: 'Chem-X Logo',
-      width: 80,
-      height: 'auto'
-    },
-    colors: {
-      layer1: '#c1d100',
-      layer2: '#7bc100',
-      layer3: '#35a3b0',
-      layer4: '#0085b0'
-    },
-    gradient: 'linear-gradient(135deg, #0085b0, #c1d100)',
-    url: 'https://chem-x.de'
   },
   {
     id: 'construct-x',

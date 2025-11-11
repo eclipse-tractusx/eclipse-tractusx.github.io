@@ -5,6 +5,57 @@ All notable changes to the Eclipse Tractus-X KIT Documentation will be documente
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - 2025-11-11
+
+### Added
+
+#### Documentation Enhancements
+
+- **KIT Lifecycle Documentation** (`documentation/kit-lifecycle.mdx`)
+  - Added `DeprecatedKitsList` component to display deprecated KITs
+  - Simplified deprecation process section with clearer 3-step workflow
+  - Added Mermaid diagram visualizing deprecation lifecycle flow
+  - Enhanced deprecation notice template with cleaner format
+  - Streamlined appeal process documentation
+
+- **KIT Framework Documentation** (`documentation/kit-framework.mdx`)
+  - Added comprehensive Documentation section explaining extra resources and links
+  - Defined documentation purpose for all stakeholders
+  - Listed deliverables including external links, community resources, and training materials
+
+- **Navbar Improvements** (`docusaurus.config.js`)
+  - Added sub-navigation under "KITs General" dropdown with all documentation pages:
+    - Getting Started
+    - KIT Lifecycle
+    - KIT Framework
+    - KIT Statistics
+    - Master Data Overview
+  - Added visual separators between documentation and KIT list sections
+  - Improved navigation hierarchy with arrow indicators (→) for sub-items
+
+#### Component Improvements
+
+- **DeprecatedKitsList Component** (`/src/components/2.0/KitAnalytics/DeprecatedKitsList.js`)
+  - Displays all deprecated KITs with warning indicators
+  - Shows deprecation dates from maturity metadata
+  - Includes deprecation reasons when available
+  - Strikethrough styling on KIT names for visual indication
+  - Hover effects with proper event handling using `currentTarget`
+  - Scrollable list for multiple deprecated KITs
+  - Red danger color theme consistent with deprecation status
+
+- **GraduatedKitsList Component**
+  - Fixed hover effect persistence bug by changing from `e.target` to `e.currentTarget`
+  - Ensures hover styles apply to correct parent element
+
+- **KIT Statistics Component** (`/src/components/2.0/KitAnalytics/KitStatistics.js`)
+  - Integrated DeprecatedKitsList at the end of statistics page
+  - Provides complete overview of KIT ecosystem including deprecated items
+
+### Fixed
+
+- Hover effects no longer persist after mouse leave in GraduatedKitsList and DeprecatedKitsList components
+
 ## [Unreleased] - 2025-11-07
 
 ### Added
