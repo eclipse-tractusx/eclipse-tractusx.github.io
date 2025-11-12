@@ -22,7 +22,7 @@ import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import { format, parse, startOfWeek, getDay, addMonths, subMonths, startOfMonth, endOfMonth } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { meetings } from '@site/src/data/meetings';
+import { meetings } from '@site/data/meetings';
 import { generateCalendarEvents, getCategoryStyle, formatDateInTimezone, formatTimeRange } from '@site/src/utils/meetingUtils';
 import './MeetingCalendar.css';
 

@@ -102,9 +102,9 @@ export default function ContributePage() {
     },
     {
       title: "Report Issues",
-      description: "Found a bug or issue? Report it to help us improve the quality of our KITs.",
+      description: "Found a bug or issue? Report it to help us improve the quality of our KITs and reference implementations.",
       icon: BugReport,
-      link: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues",
+      link: "https://github.com/eclipse-tractusx/sig-release/issues",
       primary: false
     },
     {

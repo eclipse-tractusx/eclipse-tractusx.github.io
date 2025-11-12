@@ -36,7 +36,7 @@ You can add new meetings to the [Open Meetings](/community/open-meetings) calend
 
 :::tip Quick Start
 
-To add a new meeting, edit the `src/data/meetings.js` file and add a new meeting object to the `meetings` array. The meeting will automatically appear in both the calendar and the list on the [Open Meetings page](/community/open-meetings).
+To add a new meeting, edit the `data/meetings.js` file and add a new meeting object to the `meetings` array. The meeting will automatically appear in both the calendar and the list on the [Open Meetings page](/community/open-meetings).
 
 :::
 
@@ -161,7 +161,7 @@ Meetings are color-coded in the calendar based on their category:
 
 :::warning Important
 
-All meeting times in `src/data/meetings.js` must be specified in **Europe/Berlin timezone** (CET/CEST). The system will automatically convert these times to the user's selected timezone for display.
+All meeting times in `data/meetings.js` must be specified in **Europe/Berlin timezone** (CET/CEST). The system will automatically convert these times to the user's selected timezone for display.
 
 - Winter time (CET): UTC+1
 - Summer time (CEST): UTC+2
@@ -170,7 +170,7 @@ All meeting times in `src/data/meetings.js` must be specified in **Europe/Berlin
 
 ### Step-by-Step Guide
 
-1. **Open the file**: `src/data/meetings.js`
+1. **Open the file**: `data/meetings.js`
 2. **Choose the appropriate section**: Add your meeting to the `// General Office Hours`, `// Product Regular Meetings`, or `// One-time meetings` section
 3. **Copy an existing meeting** as a template
 4. **Update all fields** with your meeting information

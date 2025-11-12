@@ -24,11 +24,12 @@ import KitsCoreSvg from '@site/static/img/kits-2.0/tx-assembly-kit.svg'
 import ThemedImage from '@theme/ThemedImage';
 import ChatIcon from '@mui/icons-material/Chat';
 import GroupsIcon from '@mui/icons-material/Groups';
+import EventIcon from '@mui/icons-material/Event';
 import AddIcon from '@mui/icons-material/Add';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import SchoolIcon from '@mui/icons-material/School';
 import HandshakeIcon from '@mui/icons-material/Handshake';
-import LifecycleIcon from '@mui/icons-material/Recycling';
+import Code from '@mui/icons-material/Code';
 import styles from "./styles.module.scss";
 
 export default function KitsFooter({ disclaimer }) {
@@ -69,14 +70,18 @@ export default function KitsFooter({ disclaimer }) {
                 <ChatIcon className={styles.linkIcon} />
                 KIT Matrix Chat
               </a>
+              <Link to="/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour" className={styles.link}>
+                <EventIcon className={styles.linkIcon} />
+                Join our KIT Office Hours
+              </Link>
               <Link to="/documentation/kit-framework" className={styles.link}>
                 <SchoolIcon className={styles.linkIcon} />
                 Learn the KIT Framework
               </Link>
-              <Link to="/documentation/kit-lifecycle" className={styles.link}>
-                <LifecycleIcon className={styles.linkIcon} />
-                KIT Lifecycle
-              </Link>
+              <a href="https://github.com/eclipse-tractusx" className={styles.link} target="_blank" rel="noopener noreferrer">
+                <Code className={styles.linkIcon} />
+                Our Code 
+              </a>
               <Link to="/documentation/kit-getting-started" className={styles.link}>
                 <AddIcon className={styles.linkIcon} />
                 Create a KIT
