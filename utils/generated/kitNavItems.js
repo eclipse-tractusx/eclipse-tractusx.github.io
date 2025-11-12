@@ -19,7 +19,7 @@
 
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
- * Generated from data/kitsData.js on 2025-11-12T12:32:55.494Z
+ * Generated from data/kitsData.js on 2025-11-12T13:09:48.730Z
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -187,16 +187,7 @@ const kitsByCategory = {
       "deprecated": false
     }
   ],
-  "dataspaceKits": {
-    "factory-x": [
-      {
-        "id": "modular-production",
-        "name": "MODULAR PRODUCTION KIT",
-        "route": "/docs-kits/kits/modular-production-kit/adoption-view",
-        "deprecated": false
-      }
-    ]
-  }
+  "dataspaceKits": {}
 };
 
 /**
@@ -228,11 +219,10 @@ function generateKitNavItems() {
       className: 'kit-category-header'
     });
     
-    const activeKits = kitsByCategory.dataspaceFoundation
-      .filter(kit => !kit.deprecated)
+    const sortedKits = kitsByCategory.dataspaceFoundation
       .sort((a, b) => a.name.localeCompare(b.name));
     
-    activeKits.forEach(kit => {
+    sortedKits.forEach(kit => {
       items.push({
         to: kit.route,
         label: '  ' + formatKitLabel(kit.name),
@@ -253,11 +243,10 @@ function generateKitNavItems() {
       className: 'kit-category-header'
     });
     
-    const activeKits = kitsByCategory.industryCoreFoundation
-      .filter(kit => !kit.deprecated)
+    const sortedKits = kitsByCategory.industryCoreFoundation
       .sort((a, b) => a.name.localeCompare(b.name));
     
-    activeKits.forEach(kit => {
+    sortedKits.forEach(kit => {
       items.push({
         to: kit.route,
         label: '  ' + formatKitLabel(kit.name),
@@ -278,11 +267,10 @@ function generateKitNavItems() {
       className: 'kit-category-header'
     });
     
-    const activeKits = kitsByCategory.useCases
-      .filter(kit => !kit.deprecated)
+    const sortedKits = kitsByCategory.useCases
       .sort((a, b) => a.name.localeCompare(b.name));
     
-    activeKits.forEach(kit => {
+    sortedKits.forEach(kit => {
       items.push({
         to: kit.route,
         label: '  ' + formatKitLabel(kit.name),
@@ -306,11 +294,10 @@ function generateKitNavItems() {
         className: 'kit-category-header'
       });
       
-      const activeKits = kits
-        .filter(kit => !kit.deprecated)
+      const sortedKits = kits
         .sort((a, b) => a.name.localeCompare(b.name));
       
-      activeKits.forEach(kit => {
+      sortedKits.forEach(kit => {
         items.push({
           to: kit.route,
           label: '  ' + formatKitLabel(kit.name),

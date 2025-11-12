@@ -696,60 +696,34 @@ export const kitsData = {
       }
     },
     {
-      id: 'modular-production',
-      name: 'MODULAR PRODUCTION KIT',
-      logo: ModularProductionLogo,
-      logoHeight: 100,
-      logoWidth: 100,
-      route: '/docs-kits/kits/modular-production-kit/adoption-view',
-      colors: {
-        primary: '#A098A4',
-        gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
-      },
-      maturity: {
-        currentLevel: 'Incubating',
-        graduationStatus: 'in progress'
-      },
-      deprecated: false,
-      dataspaces: ['Factory-X'],
-      description: 'Enable customized production (batch size 1) without significant increase of costs.',
-      metadata: {
-        created: '2023-11-15',
-        lastUpdated: '2024-05-10',
-        latestVersion: '0.2.1',
-        new: false
-      }
+        id: 'modular-production',
+        name: 'MODULAR PRODUCTION KIT',
+        logo: ModularProductionLogo,
+        logoHeight: 100,
+        logoWidth: 100,
+        route: '/docs-kits/kits/modular-production-kit/adoption-view',
+        colors: {
+          primary: '#A098A4',
+          gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
+        },
+        maturity: {
+          currentLevel: 'Incubating',
+          graduationStatus: 'in progress'
+        },
+        deprecated: false,
+        dataspaces: ['Factory-X'],
+        description: 'Enable customized production (batch size 1) without significant increase of costs.',
+        metadata: {
+          created: '2023-11-15',
+          lastUpdated: '2024-05-10',
+          latestVersion: '0.2.1',
+          new: false
+        }
     }
   ],
   // List here the industry/dataspace specific KITs (will not be shown in the cross dataspace use cases gallery)
   dataspaceKits: {
-      "factory-x": [
-        {
-          id: 'modular-production',
-          name: 'MODULAR PRODUCTION KIT',
-          logo: ModularProductionLogo,
-          logoHeight: 100,
-          logoWidth: 100,
-          route: '/docs-kits/kits/modular-production-kit/adoption-view',
-          colors: {
-            primary: '#A098A4',
-            gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
-          },
-          maturity: {
-            currentLevel: 'Incubating',
-            graduationStatus: 'in progress'
-          },
-          deprecated: false,
-          dataspaces: ['Factory-X'],
-          description: 'Enable customized production (batch size 1) without significant increase of costs.',
-          metadata: {
-            created: '2023-11-15',
-            lastUpdated: '2024-05-10',
-            latestVersion: '0.2.1',
-            new: false
-          }
-        }
-      ],
+      "factory-x": [],
       "semiconductor-x": [],
       "construct-x": [],
       "catena-x": []

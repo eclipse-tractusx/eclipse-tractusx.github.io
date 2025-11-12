@@ -53,11 +53,18 @@ export default function GenericDataspacePage() {
     if (matchingDataspace) {
       setDataspace(matchingDataspace);
       
-      // Get all kits and filter for this dataspace (exclude deprecated)
+      // Get all kits and filter for this dataspace (include deprecated)
       const allKits = getAllKits();
       let kitsForDataspace = allKits.filter(kit => 
-        !kit.deprecated && kit.dataspaces && kit.dataspaces.includes(matchingDataspace.name)
+        kit.dataspaces && kit.dataspaces.includes(matchingDataspace.name)
       );
+      
+      // Also include dataspace-specific KITs if they exist
+      // Use the dataspace ID (lowercase) to match the keys in dataspaceKits
+      if (kitsData.dataspaceKits && kitsData.dataspaceKits[matchingDataspace.id]) {
+        const dataspaceSpecificKits = kitsData.dataspaceKits[matchingDataspace.id];
+        kitsForDataspace = [...kitsForDataspace, ...dataspaceSpecificKits];
+      }
       
       // Add category information to each kit based on its position in kitsData
       kitsForDataspace = kitsForDataspace.map(kit => {
@@ -70,6 +77,8 @@ export default function GenericDataspacePage() {
           categoryType = 'Industry Core Foundation';
         } else if (kitsData.useCases?.some(k => k.id === kit.id)) {
           categoryType = 'Cross-Industry Use Cases';
+        } else if (kitsData.dataspaceKits && kitsData.dataspaceKits[matchingDataspace.id]?.some(k => k.id === kit.id)) {
+          categoryType = `${matchingDataspace.name} Specific`;
         }
         
         return { ...kit, categoryType };

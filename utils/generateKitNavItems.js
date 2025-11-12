@@ -164,11 +164,10 @@ function generateKitNavItems() {
       className: 'kit-category-header'
     });
     
-    const activeKits = kitsByCategory.dataspaceFoundation
-      .filter(kit => !kit.deprecated)
+    const sortedKits = kitsByCategory.dataspaceFoundation
       .sort((a, b) => a.name.localeCompare(b.name));
     
-    activeKits.forEach(kit => {
+    sortedKits.forEach(kit => {
       items.push({
         to: kit.route,
         label: '  ' + formatKitLabel(kit.name),
@@ -189,11 +188,10 @@ function generateKitNavItems() {
       className: 'kit-category-header'
     });
     
-    const activeKits = kitsByCategory.industryCoreFoundation
-      .filter(kit => !kit.deprecated)
+    const sortedKits = kitsByCategory.industryCoreFoundation
       .sort((a, b) => a.name.localeCompare(b.name));
     
-    activeKits.forEach(kit => {
+    sortedKits.forEach(kit => {
       items.push({
         to: kit.route,
         label: '  ' + formatKitLabel(kit.name),
@@ -214,11 +212,10 @@ function generateKitNavItems() {
       className: 'kit-category-header'
     });
     
-    const activeKits = kitsByCategory.useCases
-      .filter(kit => !kit.deprecated)
+    const sortedKits = kitsByCategory.useCases
       .sort((a, b) => a.name.localeCompare(b.name));
     
-    activeKits.forEach(kit => {
+    sortedKits.forEach(kit => {
       items.push({
         to: kit.route,
         label: '  ' + formatKitLabel(kit.name),
@@ -242,11 +239,10 @@ function generateKitNavItems() {
         className: 'kit-category-header'
       });
       
-      const activeKits = kits
-        .filter(kit => !kit.deprecated)
+      const sortedKits = kits
         .sort((a, b) => a.name.localeCompare(b.name));
       
-      activeKits.forEach(kit => {
+      sortedKits.forEach(kit => {
         items.push({
           to: kit.route,
           label: '  ' + formatKitLabel(kit.name),
@@ -266,23 +262,22 @@ module.exports = { generateKitNavItems };
 const outputPath = path.join(__dirname, 'generated', 'kitNavItems.js');
 fs.writeFileSync(outputPath, outputContent);
 
-const activeByCategory = {
-  dataspaceFoundation: kitsByCategory.dataspaceFoundation.filter(k => !k.deprecated).length,
-  industryCoreFoundation: kitsByCategory.industryCoreFoundation.filter(k => !k.deprecated).length,
-  useCases: kitsByCategory.useCases.filter(k => !k.deprecated).length
+const kitCountByCategory = {
+  dataspaceFoundation: kitsByCategory.dataspaceFoundation.length,
+  industryCoreFoundation: kitsByCategory.industryCoreFoundation.length,
+  useCases: kitsByCategory.useCases.length
 };
 
 // Count dataspace-specific KITs
 let dataspaceKitsCount = 0;
 for (const [dataspace, kits] of Object.entries(kitsByCategory.dataspaceKits)) {
-  const activeKits = kits.filter(k => !k.deprecated).length;
-  dataspaceKitsCount += activeKits;
-  if (activeKits > 0) {
-    activeByCategory[dataspace] = activeKits;
+  dataspaceKitsCount += kits.length;
+  if (kits.length > 0) {
+    kitCountByCategory[dataspace] = kits.length;
   }
 }
 
-const totalActive = Object.values(activeByCategory).reduce((a, b) => a + b, 0);
+const totalKitsInNavbar = Object.values(kitCountByCategory).reduce((a, b) => a + b, 0);
 
 console.log(`✓ Generated ${outputPath}`);
-console.log(`✓ Extracted ${totalActive} active KITs and added to the navbar`);
+console.log(`✓ Extracted ${totalKitsInNavbar} KITs and added to the navbar`);

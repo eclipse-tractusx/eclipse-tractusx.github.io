@@ -57,13 +57,18 @@ export default function FilteredKitsGallery({
     
     const foundCategories = [...new Set(kits.map(kit => getKitCategory(kit)).filter(cat => cat !== 'Unknown'))];
     
-    // Define the desired order
+    // Define the desired order for standard categories
     const categoryOrder = ['Dataspace Foundation', 'Industry Core Foundation', 'Cross-Industry Use Cases'];
     
-    // Sort categories according to the defined order
+    // Sort standard categories according to the defined order
     const orderedCategories = categoryOrder.filter(cat => foundCategories.includes(cat));
     
-    return ['All Categories', ...orderedCategories];
+    // Add dataspace-specific categories (those ending with "Specific") at the end
+    const dataspaceSpecificCategories = foundCategories
+      .filter(cat => cat.endsWith(' Specific') && !categoryOrder.includes(cat))
+      .sort();
+    
+    return ['All Categories', ...orderedCategories, ...dataspaceSpecificCategories];
   }, [showCategoryFilter, kits]);
 
   // Filter kits based on selected dataspace and category
