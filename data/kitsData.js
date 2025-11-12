@@ -854,10 +854,22 @@ export const getUsedCategories = () => {
 
 // Get all kits from all sections
 export const getAllKits = () => {
+  const dataspaceSpecificKits = [];
+  
+  // Collect all dataspace-specific KITs
+  if (kitsData.dataspaceKits) {
+    Object.values(kitsData.dataspaceKits).forEach(kitsArray => {
+      if (Array.isArray(kitsArray)) {
+        dataspaceSpecificKits.push(...kitsArray);
+      }
+    });
+  }
+  
   return [
     ...kitsData.dataspaceFoundation,
     ...kitsData.industryCoreFoundation,
-    ...kitsData.useCases
+    ...kitsData.useCases,
+    ...dataspaceSpecificKits
   ];
 };
 

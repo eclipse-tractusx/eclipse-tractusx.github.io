@@ -21,7 +21,7 @@ import React, { useMemo } from 'react';
 import Link from '@docusaurus/Link';
 import CountUpNumber from '../CountUpNumber';
 import styles from './styles.module.scss';
-import BuildIcon from '@mui/icons-material/Build';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import LanguageIcon from '@mui/icons-material/Language';
 import SchoolIcon from '@mui/icons-material/School';
 import RocketIcon from '@mui/icons-material/Rocket';
@@ -42,26 +42,24 @@ const KitStatistics = ({ kitsData }) => {
       };
     }
 
-    // Count total KITs (excluding deprecated ones)
-    const totalKits = kitsData.filter(kit => !kit.deprecated).length;
+    // Count total KITs (including deprecated ones)
+    const totalKits = kitsData.length;
     
-    // Count unique dataspaces
+    // Count unique dataspaces (including from deprecated KITs)
     const allDataspaces = new Set();
     kitsData.forEach(kit => {
-      if (!kit.deprecated && kit.dataspaces) {
+      if (kit.dataspaces) {
         kit.dataspaces.forEach(dataspace => allDataspaces.add(dataspace));
       }
     });
     const totalDataspaces = allDataspaces.size;
     
-    // Count KITs by maturity level
-    const maturityCounts = kitsData
-      .filter(kit => !kit.deprecated)
-      .reduce((counts, kit) => {
-        const level = kit.maturity?.currentLevel?.toLowerCase() || 'unknown';
-        counts[level] = (counts[level] || 0) + 1;
-        return counts;
-      }, {});
+    // Count KITs by maturity level (including deprecated ones)
+    const maturityCounts = kitsData.reduce((counts, kit) => {
+      const level = kit.maturity?.currentLevel?.toLowerCase() || 'unknown';
+      counts[level] = (counts[level] || 0) + 1;
+      return counts;
+    }, {});
     
     const graduatedKits = maturityCounts.graduated || 0;
     const incubatingKits = maturityCounts.incubating || 0;
@@ -80,8 +78,8 @@ const KitStatistics = ({ kitsData }) => {
       id: 'total-kits',
       value: statistics.totalKits,
       label: 'KITs in Total',
-      description: 'Active KITs available across all categories',
-      icon: BuildIcon,
+      description: 'All KITs available across all categories and dataspaces',
+      icon: LibraryBooksIcon,
       duration: 800
     },
     {
