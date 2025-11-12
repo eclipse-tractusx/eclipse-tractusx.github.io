@@ -69,7 +69,7 @@ export default function ContributePage() {
       title: "Join Community Discussions",
       description: "Participate in our community office hours and help shape the future of dataspace technology.",
       icon: Groups,
-      link: "/community/open-meetings#general-office-hours",
+      link: "/community/open-meetings",
       primary: false
     },
     {

@@ -62,7 +62,7 @@ export default function KitsFooter({ disclaimer }) {
             </p>
             
             <div className={styles.links}>
-              <Link to="/community/open-meetings#general-office-hours" className={styles.link}>
+              <Link to="/community/open-meetings" className={styles.link}>
                 <GroupsIcon className={styles.linkIcon} />
                 Join our Community Office Hours
               </Link>
@@ -70,7 +70,7 @@ export default function KitsFooter({ disclaimer }) {
                 <ChatIcon className={styles.linkIcon} />
                 KIT Matrix Chat
               </a>
-              <Link to="/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour" className={styles.link}>
+              <Link to="/community/open-meetings" className={styles.link}>
                 <EventIcon className={styles.linkIcon} />
                 Join our KIT Office Hours
               </Link>
