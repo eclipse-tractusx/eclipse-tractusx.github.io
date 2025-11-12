@@ -37,50 +37,49 @@ import LinkIcon from '@mui/icons-material/Link';
 | Active     | 07-Nov-2025  | Initial creation of master data overview |
 
 export const KitCard = ({ kit }) => (
-  <div style={{
-    border: '1px solid var(--ifm-color-emphasis-300)',
-    borderRadius: '12px',
-    padding: '16px',
-    marginBottom: '16px',
-    backgroundColor: 'var(--ifm-color-emphasis-100)',
-    transition: 'all 0.2s ease',
-    cursor: 'pointer'
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.transform = 'translateY(-2px)';
-    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.transform = 'translateY(0)';
-    e.currentTarget.style.boxShadow = 'none';
-  }}>
-    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-      <div style={{
-        width: '60px',
-        height: '60px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: '8px',
-        background: kit.colors?.gradient || '#f3f4f6',
-        flexShrink: 0
-      }}>
-        {kit.logo && (
-          <kit.logo 
-            style={{ 
-              width: kit.logoWidth ? `${Math.min(kit.logoWidth, 40)}px` : '40px',
-              height: kit.logoHeight ? `${Math.min(kit.logoHeight, 40)}px` : '40px'
-            }} 
-          />
-        )}
-      </div>
-      <div style={{ flex: 1 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-          <h4 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold' }}>
-            <a href={kit.route} style={{ textDecoration: 'none', color: 'inherit' }}>
+  <a href={kit.route} style={{ textDecoration: 'none', color: 'inherit' }}>
+    <div style={{
+      border: '1px solid var(--ifm-color-emphasis-300)',
+      borderRadius: '12px',
+      padding: '16px',
+      marginBottom: '16px',
+      backgroundColor: 'var(--ifm-color-emphasis-100)',
+      transition: 'all 0.2s ease',
+      cursor: 'pointer'
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-2px)';
+      e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = 'none';
+    }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+        <div style={{
+          width: '60px',
+          height: '60px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '8px',
+          background: kit.colors?.gradient || '#f3f4f6',
+          flexShrink: 0
+        }}>
+          {kit.logo && (
+            <kit.logo 
+              style={{ 
+                width: kit.logoWidth ? `${Math.min(kit.logoWidth, 40)}px` : '40px',
+                height: kit.logoHeight ? `${Math.min(kit.logoHeight, 40)}px` : '40px'
+              }} 
+            />
+          )}
+        </div>
+        <div style={{ flex: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+            <h4 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold' }}>
               {kit.name}
-            </a>
-          </h4>
+            </h4>
           <span style={{
             backgroundColor: kit.maturity?.currentLevel === 'Graduated' ? '#10b981' : 
                            kit.maturity?.currentLevel === 'Incubation' ? '#f59e0b' : '#6b7280',
@@ -116,41 +115,42 @@ export const KitCard = ({ kit }) => (
               New
             </span>
           )}
-        </div>
-        <p style={{ margin: 0, fontSize: '14px', color: 'var(--ifm-color-content-secondary)', lineHeight: '1.4' }}>
-          {kit.description}
-        </p>
-        <div style={{ marginTop: '8px', display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-          {kit.dataspaces?.map((dataspace, index) => (
-            <span key={index} style={{
-              backgroundColor: 'var(--ifm-color-primary)',
-              color: 'white',
-              padding: '2px 6px',
-              borderRadius: '8px',
-              fontSize: '10px',
-              fontWeight: '500'
-            }}>
-              {dataspace}
-            </span>
-          ))}
-        </div>
-        {kit.metadata && (
-          <div style={{ marginTop: '8px', fontSize: '12px', color: 'var(--ifm-color-content-secondary)' }}>
-            Last Updated: {kit.metadata.lastUpdated} | Version: {kit.metadata.latestVersion}
-            {kit.maturity?.graduatedAt && (
-              <span style={{ 
-                marginLeft: '8px', 
-                color: '#10b981', 
-                fontWeight: '500' 
-              }}>
-                | Graduated: {kit.maturity.graduatedAt}
-              </span>
-            )}
           </div>
-        )}
+          <p style={{ margin: 0, fontSize: '14px', color: 'var(--ifm-color-content-secondary)', lineHeight: '1.4' }}>
+            {kit.description}
+          </p>
+          <div style={{ marginTop: '8px', display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+            {kit.dataspaces?.map((dataspace, index) => (
+              <span key={index} style={{
+                backgroundColor: 'var(--ifm-color-primary)',
+                color: 'white',
+                padding: '2px 6px',
+                borderRadius: '8px',
+                fontSize: '10px',
+                fontWeight: '500'
+              }}>
+                {dataspace}
+              </span>
+            ))}
+          </div>
+          {kit.metadata && (
+            <div style={{ marginTop: '8px', fontSize: '12px', color: 'var(--ifm-color-content-secondary)' }}>
+              Last Updated: {kit.metadata.lastUpdated} | Version: {kit.metadata.latestVersion}
+              {kit.maturity?.graduatedAt && (
+                <span style={{ 
+                  marginLeft: '8px', 
+                  color: '#10b981', 
+                  fontWeight: '500' 
+                }}>
+                  | Graduated: {kit.maturity.graduatedAt}
+                </span>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 );
 
 export const KitStatsCard = ({ title, count, color, IconComponent }) => (
@@ -386,7 +386,7 @@ export const MasterDataOverview = () => {
             kits && kits.length > 0 && (
               <CategorySection 
                 key={dataspaceName}
-                title={`${dataspaceName} Specific KITs`}
+                title={`${dataspaceName.toUpperCase()} Specific KITs`}
                 kits={kits}
                 color="#f59e0b"
               />

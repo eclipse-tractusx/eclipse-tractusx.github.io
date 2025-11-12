@@ -48,10 +48,10 @@ const sidebars = {
             },
             items: [
                 'kit-getting-started',
-                'kit-framework',
-                'kit-master-data-overview',
                 'kit-lifecycle',
-                'kit-statistics'
+                'kit-framework',
+                'kit-statistics',
+                'kit-master-data-overview',
             ]
         },
     ],

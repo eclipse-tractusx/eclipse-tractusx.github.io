@@ -549,16 +549,20 @@
     }
   }
   
+  .hero_bg {
+    filter: invert(1);
+  }
+  
   .title {
-    color: #333;
-    background: linear-gradient(135deg, #faa023 0%, #ff6b35 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #000000;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
   }
   
   .description {
-    color: #666;
+    color: rgb(43, 43, 43);
   }
   
   .contributionSection {
