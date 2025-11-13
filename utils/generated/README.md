@@ -18,3 +18,11 @@ npm run generate:nav-items
 ```
 
 This will extract KIT data from the master `data/kitsData.js` file and generate the navigation items.
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- Source URL: [Source Code](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/)
