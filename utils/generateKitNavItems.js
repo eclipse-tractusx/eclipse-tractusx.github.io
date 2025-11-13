@@ -28,6 +28,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 // Read the kitsData.js file
 const kitsDataPath = path.join(__dirname, '../data/kitsData.js');
@@ -100,6 +101,12 @@ for (const kit of allKitsWithPosition) {
 const totalKits = allKitsWithPosition.length;
 console.log(`Found ${totalKits} KITs in master data`);
 
+// Generate a hash of the kit data for change detection
+const dataHash = crypto
+  .createHash('sha256')
+  .update(JSON.stringify(kitsByCategory))
+  .digest('hex');
+
 // Generate the output file content
 const outputContent = `/********************************************************************************* 
  * Copyright (c) 2025 Contributors to the Eclipse Foundation
@@ -122,7 +129,8 @@ const outputContent = `/********************************************************
 
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
- * Generated from data/kitsData.js on ${new Date().toISOString()}
+ * Generated from data/kitsData.js
+ * Content hash: ${dataHash}
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -280,4 +288,5 @@ for (const [dataspace, kits] of Object.entries(kitsByCategory.dataspaceKits)) {
 const totalKitsInNavbar = Object.values(kitCountByCategory).reduce((a, b) => a + b, 0);
 
 console.log(`✓ Generated ${outputPath}`);
+console.log('✓ Content hash: ' + dataHash);
 console.log(`✓ Extracted ${totalKitsInNavbar} KITs and added to the navbar`);

@@ -19,7 +19,8 @@
 
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
- * Generated from data/kitsData.js on 2025-11-13T13:49:43.450Z
+ * Generated from data/kitsData.js
+ * Content hash: 3a7b86717cb0f273971d0e8e3377002e3050fff2cb97c32c48573fed80c19e9a
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -160,7 +161,7 @@ const kitsByCategory = {
       "id": "osim",
       "name": "ONLINE SIMULATION KIT",
       "route": "/docs-kits/kits/online-simulation-kit/adoption-view",
-      "deprecated": true
+      "deprecated": false
     },
     {
       "id": "model-based-production",
