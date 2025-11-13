@@ -209,7 +209,7 @@ export const kitsData = {
       dataspaces: ['Catena-X'],
       description: 'Generate Knowledge from Data. Scalable & Efficient Semantic Dataspace Federation.',
       metadata: {
-        created: '2023-05-15',
+        created: '2023-09-04',
         lastUpdated: '2024-12-09',
         latestVersion: '1.3.0',
         new: false
@@ -236,7 +236,7 @@ export const kitsData = {
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
       description: 'Digital Twins enable data-level interoperability - even between parties previously unknown to each other.',
       metadata: {
-        created: '2022-09-01',
+        created: '2023-07-12',
         lastUpdated: '2024-08-01',
         latestVersion: '2.0.1',
         new: false
@@ -261,7 +261,7 @@ export const kitsData = {
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Construct-X'],
       description: 'Connceting Use-Cases with Core Services',
       metadata: {
-        created: '2024-03-08',
+        created: '2024-02-28',
         lastUpdated: '2025-03-17',
         latestVersion: '1.4.0',
         new: false
@@ -287,8 +287,8 @@ export const kitsData = {
       description: 'Data Chain KIT is made for apps and services to access connected data distributed between organizations.',
       metadata: {
         created: '2023-03-01',
-        lastUpdated: '2024-03-07',
-        latestVersion: '2.1.0',
+        lastUpdated: '2024-05-28',
+        latestVersion: '3.0.1',
         new: false
       }
     },
@@ -311,9 +311,9 @@ export const kitsData = {
       dataspaces: ['Catena-X'],
       description: 'Data driven quality management enables data provider and consumer to exchange and analyse existing data across company boundaries.',
       metadata: {
-        created: '2023-01-15',
-        lastUpdated: '2024-03-08',
-        latestVersion: '1.2.0',
+        created: '2023-08-18',
+        lastUpdated: '2025-04-23',
+        latestVersion: '2.0.0',
         new: false
       }
     },
@@ -330,13 +330,13 @@ export const kitsData = {
       },
       maturity: {
         currentLevel: 'Graduated',
-        graduatedAt: '2024-06-07'
+        graduatedAt: '2024-12-01'
       },
       deprecated: false,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
       description: 'Trace parts and materials across the entire value chain to enable data driven use cases over all n-tier levels.',
       metadata: {
-        created: '2022-11-01',
+        created: '2023-04-12',
         lastUpdated: '2025-08-07',
         latestVersion: '7.0.0',
         new: false
@@ -362,8 +362,8 @@ export const kitsData = {
       description: 'Maximize the potential of usage data through calculation services and simulations.',
       metadata: {
         created: '2024-05-16',
-        lastUpdated: '2024-05-23',
-        latestVersion: '0.4.1',
+        lastUpdated: '2024-05-21',
+        latestVersion: '1.0.0',
         new: false
       }
     }
@@ -413,9 +413,9 @@ export const kitsData = {
       dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Semiconductor-X'],
       description: 'Product-specific CO2 footprint.',
       metadata: {
-        created: '2023-03-08',
-        lastUpdated: '2024-08-05',
-        latestVersion: '1.2.0',
+        created: '2023-08-23',
+        lastUpdated: '2025-09-29',
+        latestVersion: '1.3.0',
         new: false
       }
     },
@@ -438,7 +438,7 @@ export const kitsData = {
       dataspaces: ['Catena-X', 'Factory-X', 'Construct-X'],
       description: 'Leverage the transparency of digital product passports to strengthen sustainability & compliance.',
       metadata: {
-        created: '2023-03-08',
+        created: '2023-08-11',
         lastUpdated: '2024-07-25',
         latestVersion: '1.5.0',
         new: false
@@ -488,7 +488,7 @@ export const kitsData = {
       dataspaces: ['Catena-X'],
       description: 'Predictive Unit Realtime Information Service',
       metadata: {
-        created: '2024-03-08',
+        created: '2023-11-29',
         lastUpdated: '2025-08-16',
         latestVersion: '0.4.0',
         new: false
@@ -513,7 +513,7 @@ export const kitsData = {
       dataspaces: ['Catena-X', 'Semiconductor-X'],
       description: 'Quick build of solutions for companies of any size to engage a collaborative capacity management.',
       metadata: {
-        created: '2023-06-01',
+        created: '2023-03-01',
         lastUpdated: '2025-09-29',
         latestVersion: '1.4.0',
         new: false
@@ -538,9 +538,9 @@ export const kitsData = {
       dataspaces: ['Catena-X', 'Construct-X'],
       description: 'Provide packing information, transport data and customs topics.',
       metadata: {
-        created: '2025-02-03',
-        lastUpdated: '2025-03-11',
-        latestVersion: '0.2.1',
+        created: '2025-02-12',
+        lastUpdated: '2025-02-12',
+        latestVersion: '1.0.0',
         new: false
       }
     },
@@ -588,9 +588,9 @@ export const kitsData = {
       dataspaces: ['Catena-X'],
       description: 'Basis for a more efficient customs process and ensure a robust preference calculation result.',
       metadata: {
-        created: '2024-05-20',
-        lastUpdated: '2024-09-10',
-        latestVersion: '0.1.5',
+        created: '2025-02-25',
+        lastUpdated: '2025-05-16',
+        latestVersion: '0.0.0',
         new: false
       }
     },
@@ -607,16 +607,15 @@ export const kitsData = {
       },
       maturity: {
         currentLevel: 'Sandbox',
-        graduationStatus: 'draft',
-        deprecatedAt: '2025-10-06'
+        graduationStatus: 'draft'
       },
-      deprecated: true,
+      deprecated: false,
       dataspaces: ['Catena-X'],
       description: 'Gain increased supply chain transparency through collaborative simulation across all stakeholders.',
       metadata: {
-        created: '2023-03-08',
-        lastUpdated: '2024-08-05',
-        latestVersion: '3.0.0',
+        created: '2023-08-18',
+        lastUpdated: '2025-03-06',
+        latestVersion: '3.1.0',
         new: false
       }
     },
@@ -639,9 +638,9 @@ export const kitsData = {
       dataspaces: ['Catena-X'],
       description: 'Federated simulation and data processing.',
       metadata: {
-        created: '2024-01-30',
-        lastUpdated: '2024-08-12',
-        latestVersion: '0.3.2',
+        created: '2023-12-08',
+        lastUpdated: '2024-05-27',
+        latestVersion: '1.0.0',
         new: false
       }
     },
@@ -664,9 +663,9 @@ export const kitsData = {
       dataspaces: ['Catena-X'],
       description: 'Cross company requirements management to enable quick information access and multiple company collaboration.',
       metadata: {
-        created: '2025-10-05',
-        lastUpdated: '2025-10-05',
-        latestVersion: '0.2.3',
+        created: '2025-09-29',
+        lastUpdated: '2025-09-29',
+        latestVersion: '0.1.0',
         new: true
       }
     },
@@ -689,9 +688,9 @@ export const kitsData = {
       dataspaces: ['Catena-X', 'Factory-X'],
       description: 'Create a federated network of networks to connect manufacturing supply and demand.',
       metadata: {
-        created: '2024-03-08',
-        lastUpdated: '2024-09-20',
-        latestVersion: '0.1.0',
+        created: '2024-03-29',
+        lastUpdated: '2024-05-27',
+        latestVersion: '1.0.0',
         new: false
       }
     },
@@ -714,9 +713,9 @@ export const kitsData = {
         dataspaces: ['Factory-X'],
         description: 'Enable customized production (batch size 1) without significant increase of costs.',
         metadata: {
-          created: '2023-11-15',
+          created: '2023-11-20',
           lastUpdated: '2024-05-10',
-          latestVersion: '0.2.1',
+          latestVersion: '1.0.0',
           new: false
         }
     }
