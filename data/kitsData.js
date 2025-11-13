@@ -128,9 +128,10 @@ export const kitsData = {
       },
       maturity: {
         currentLevel: 'Sandbox',
-        graduationStatus: 'draft'
+        graduationStatus: 'draft',
+        deprecatedAt: '2025-11-13'
       },
-      deprecated: false,
+      deprecated: true,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
       description: 'Enable and simplify data governance within Catena-X.',
       metadata: {

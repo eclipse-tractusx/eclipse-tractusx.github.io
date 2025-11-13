@@ -20,6 +20,9 @@
 import React from 'react';
 import { kitsData } from '../../../../data/kitsData.js';
 import WarningIcon from '@mui/icons-material/Warning';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import UpdateIcon from '@mui/icons-material/Update';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const DeprecatedKitsList = ({ styles }) => {
   // Collect all KITs
@@ -55,6 +58,26 @@ const DeprecatedKitsList = ({ styles }) => {
       month: 'short', 
       day: 'numeric' 
     });
+  };
+
+  const calculateLifespan = (createdDate, deprecatedDate) => {
+    if (!createdDate || !deprecatedDate) return null;
+    const created = new Date(createdDate);
+    const deprecated = new Date(deprecatedDate);
+    const diffTime = Math.abs(deprecated - created);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const diffMonths = Math.floor(diffDays / 30);
+    const remainingDays = diffDays % 30;
+    
+    if (diffMonths === 0) {
+      return `${diffDays} day${diffDays !== 1 ? 's' : ''}`;
+    } else if (diffMonths < 12) {
+      return `${diffMonths} month${diffMonths !== 1 ? 's' : ''}${remainingDays > 0 ? `, ${remainingDays} day${remainingDays !== 1 ? 's' : ''}` : ''}`;
+    } else {
+      const years = Math.floor(diffMonths / 12);
+      const months = diffMonths % 12;
+      return `${years} year${years !== 1 ? 's' : ''}${months > 0 ? `, ${months} month${months !== 1 ? 's' : ''}` : ''}`;
+    }
   };
 
   if (deprecatedKits.length === 0) {
@@ -96,9 +119,9 @@ const DeprecatedKitsList = ({ styles }) => {
         {deprecatedKits.map((kit, index) => (
           <div key={kit.id || index} style={{
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '12px',
+            alignItems: 'stretch',
+            gap: '16px',
+            padding: '16px',
             backgroundColor: 'var(--ifm-background-color)',
             border: '1px solid var(--ifm-color-emphasis-200)',
             borderRadius: '8px',
@@ -122,53 +145,99 @@ const DeprecatedKitsList = ({ styles }) => {
             }
           }}
           >
-            <div style={{ flex: 1, minWidth: 0 }}>
+            {/* Left: KIT Name */}
+            <div style={{ 
+              flex: '0 0 200px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center'
+            }}>
               <div style={{
-                fontSize: 'clamp(12px, 2vw, 14px)',
+                fontSize: '14px',
                 fontWeight: '600',
                 color: 'var(--ifm-color-content)',
-                marginBottom: '4px',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
                 opacity: 0.7
               }}>
                 {kit.name}
               </div>
-              <div style={{
-                fontSize: 'clamp(10px, 1.8vw, 12px)',
-                color: 'var(--ifm-color-content-secondary)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px'
-              }}>
-                <WarningIcon style={{ fontSize: '12px', color: 'var(--ifm-color-danger)' }} />
-                {kit.maturity?.deprecatedAt ? formatDate(kit.maturity.deprecatedAt) : 'Deprecated'}
+            </div>
+
+            {/* Middle: Dates Information */}
+            <div style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '4px',
+              fontSize: '12px',
+              color: 'var(--ifm-color-content-secondary)',
+              justifyContent: 'center',
+              borderLeft: '1px solid var(--ifm-color-emphasis-200)',
+              borderRight: '1px solid var(--ifm-color-emphasis-200)',
+              paddingLeft: '16px',
+              paddingRight: '16px'
+            }}>
+              {kit.metadata?.created && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <AddCircleOutlineIcon style={{ fontSize: '14px', color: 'var(--ifm-color-success)' }} />
+                  <span style={{ fontWeight: '500' }}>Created:</span> {formatDate(kit.metadata.created)}
+                </div>
+              )}
+              {kit.metadata?.lastUpdated && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <UpdateIcon style={{ fontSize: '14px', color: 'var(--ifm-color-info)' }} />
+                  <span style={{ fontWeight: '500' }}>Last Updated:</span> {formatDate(kit.metadata.lastUpdated)}
+                </div>
+              )}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <WarningIcon style={{ fontSize: '14px', color: 'var(--ifm-color-danger)' }} />
+                <span style={{ fontWeight: '500' }}>Deprecated:</span> {kit.maturity?.deprecatedAt ? formatDate(kit.maturity.deprecatedAt) : 'Date unknown'}
               </div>
+              {kit.metadata?.created && kit.maturity?.deprecatedAt && (
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  marginTop: '2px',
+                  color: 'var(--ifm-color-primary)',
+                  fontWeight: '500'
+                }}>
+                  <AccessTimeIcon style={{ fontSize: '14px', color: 'var(--ifm-color-primary)' }} />
+                  <span style={{ fontWeight: '600' }}>Lifespan:</span> {calculateLifespan(kit.metadata.created, kit.maturity.deprecatedAt)}
+                </div>
+              )}
               {kit.maturity?.deprecationReason && (
                 <div style={{
                   fontSize: '11px',
-                  color: 'var(--ifm-color-content-secondary)',
                   marginTop: '4px',
-                  fontStyle: 'italic'
+                  fontStyle: 'italic',
+                  paddingTop: '4px',
+                  borderTop: '1px solid var(--ifm-color-emphasis-200)'
                 }}>
                   {kit.maturity.deprecationReason}
                 </div>
               )}
             </div>
             
-            {/* Deprecated badge */}
+            {/* Right: Deprecated badge */}
             <div style={{
-              backgroundColor: 'var(--ifm-color-danger)',
-              color: 'white',
-              padding: '4px 8px',
-              borderRadius: '12px',
-              fontSize: '10px',
-              fontWeight: '500',
-              textTransform: 'uppercase',
-              letterSpacing: '0.025em'
+              flex: '0 0 auto',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
             }}>
-              Deprecated
+              <div style={{
+                backgroundColor: 'var(--ifm-color-danger)',
+                color: 'white',
+                padding: '6px 12px',
+                borderRadius: '12px',
+                fontSize: '10px',
+                fontWeight: '500',
+                textTransform: 'uppercase',
+                letterSpacing: '0.025em',
+                whiteSpace: 'nowrap'
+              }}>
+                Deprecated
+              </div>
             </div>
           </div>
         ))}

@@ -22,6 +22,14 @@ import { kitsData } from '../../../../data/kitsData.js';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
 export const UpdateActivityChart = ({ styles }) => {
+  const formatDate = (dateString) => {
+    if (!dateString) return 'Date unknown';
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
   const allKits = [
     ...(kitsData.dataspaceFoundation || []),
     ...(kitsData.industryCoreFoundation || []),
@@ -61,7 +69,7 @@ export const UpdateActivityChart = ({ styles }) => {
     return 'Unknown';
   };
 
-  const kitsWithUpdateDates = allKits.filter(kit => kit.metadata?.lastUpdated);
+  const kitsWithUpdateDates = allKits.filter(kit => kit.metadata?.lastUpdated && !kit.deprecated);
   
   // Group by quarters (based on last updated date)
   const quarterGroups = {};
@@ -268,7 +276,7 @@ export const UpdateActivityChart = ({ styles }) => {
                       color: 'var(--ifm-color-content-secondary)',
                       fontSize: '9px'
                     }}>
-                      {new Date(kit.lastUpdated).toLocaleDateString()}
+                      {formatDate(kit.lastUpdated)}
                     </span>
                   </div>
                 ))}
@@ -377,7 +385,7 @@ export const UpdateActivityChart = ({ styles }) => {
                     color: 'var(--ifm-color-content-secondary)',
                     fontSize: '10px'
                   }}>
-                    {new Date(kit.lastUpdated).toLocaleDateString()}
+                    {formatDate(kit.lastUpdated)}
                   </span>
                 </div>
               ))}
@@ -459,7 +467,7 @@ export const UpdateActivityChart = ({ styles }) => {
             
             const staleKits = kitsWithUpdateDates.filter(kit => {
               const lastUpdated = new Date(kit.metadata.lastUpdated);
-              return lastUpdated < eighteenMonthsAgo;
+              return lastUpdated < eighteenMonthsAgo && !kit.deprecated;
             });
             
             if (staleKits.length === 0) {
@@ -589,7 +597,7 @@ export const UpdateActivityChart = ({ styles }) => {
                           color: 'var(--ifm-color-danger-contrast-foreground)',
                           opacity: 0.8
                         }}>
-                          Last updated: {new Date(kit.metadata.lastUpdated).toLocaleDateString()}
+                          Last updated: {formatDate(kit.metadata.lastUpdated)}
                         </div>
                         <div style={{
                           fontSize: '10px',
