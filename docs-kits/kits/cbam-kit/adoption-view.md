@@ -97,7 +97,7 @@ These must be reliably collected and submitted via the EU portal, which currentl
 
 ### Architecture
 Figure 2 gives an overview about the Archtechture of the CBAM service.
-
+![CbamCatena](res/CBAM_Architecture.drawio.svg)
 
 Figure 2: Architecture of CX-CBAM Service
 
@@ -106,12 +106,11 @@ Here is a tabular overview of the key roles in the CBAM (Carbon Border Adjustmen
 
 | Role | Description |
 | --- | --- |
-| Importer | Initiates the CBAM colletion process. Responsible for collecting data, purchasing CO₂ certificates, and submitting reports to the EU.|
-|Supplier/vendor| Direct business partner of the importer. Provides initial product and site information, and forwards requests to the actual operator if necessary.| 
-| Sub-Supplier | Actual operator of the goods. Responsible for providing verified CO₂ emission data, certified by an EU-accredited verifier.|
-| Intermediary | Trader or broker between supplier and sub-supplier. Not relevant for emissions data but must ensure data is passed along the supply chain correctly. |
-| EU |The European Commission, specifically the Directorate-General for Taxation and Customs Union (DG TAXUD), is responsible for the design, development, and maintenance of the CBAM Portal and its associated systems. <br> The portal is part of the CBAM Transitional Registry, which is the central platform for: <br> -	Submitting quarterly emissions reports. <br> -	Managing declarant authorizations. <br>-	Facilitating communication between importers, national authorities and the Commission. |
-| Submitter | An authorised CBAM declarant may delegate the submission of CBAM declarations to a person acting on behalf and in the name of that authorised CBAM declarant. (§7a). This is not in scope of the KIT V1 as the submitter can use the ID of the Importer to access Catena.|
+|Importer/Declarant|	Is responsible for to request CBAM relevant reporting data, purchasing CO₂ certificates, and submitting reports to the E U.|
+|Supplier|	Business (contractual) partner of the customer/Importer responsible to provide initial product and site information from the operator to the customer.  |
+|Operator|	Is a company who operates one or multiple installations (production sites). Responsible for providing verified CO₂ emission data, certified by an EU-accredited verifier.|
+|EU| 	<br/>The European Commission, specifically the Directorate-General for Taxation and Customs Union (DG TAXUD), is responsible for the design, development, and maintenance of the CBAM Portal and its associated systems.  <br/> <br/>The CBAM Registry, hich is the central platform for: <br/>  <br/>-	Managing declarant authorizations.  <br/> <br/>-	Submitting emissions reports (planned).  <br/><br/>-	Facilitating communication between importers, national authorities, and the Commission.<br/>|
+|Submitter|	An authorized CBAM declarant may delegate the submission of CBAM declarations to a person acting on behalf and in the name of that authorized CBAM declarant. (§7a). This is not in scope of the KIT V1 as the submitter can use the ID of the Importer to access Catena.|
 
 
 ### Semantic Models
