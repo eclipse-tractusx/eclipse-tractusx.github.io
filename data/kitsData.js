@@ -133,7 +133,7 @@ export const kitsData = {
       },
       deprecated: true,
       dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
-      description: 'Enable and simplify data governance within Catena-X.',
+      description: 'Enable and simplify data governance.',
       metadata: {
         created: '2024-03-08',
         lastUpdated: '2024-03-08',

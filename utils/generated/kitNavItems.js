@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 3a7b86717cb0f273971d0e8e3377002e3050fff2cb97c32c48573fed80c19e9a
+ * Content hash: c1458a9e0c332fdec8a1f874ea12998ab0107e5ff3531a05b8ef1d253292e84d
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -43,7 +43,7 @@ const kitsByCategory = {
       "id": "data-governance",
       "name": "DATA GOVERNANCE KIT",
       "route": "/docs-kits/kits/data-governance-kit/adoption-view",
-      "deprecated": false
+      "deprecated": true
     },
     {
       "id": "data-trust-security",

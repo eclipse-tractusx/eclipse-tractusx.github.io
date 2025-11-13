@@ -137,11 +137,13 @@ export default function KitsGalleryWithCategories({
                         backgroundColor: 'var(--ifm-hover-overlay)',
                       },
                       '&.Mui-selected': {
-                        backgroundColor: '#faa023',
-                        color: '#000000',
+                        backgroundColor: '#faa023 !important',
+                        color: '#000000 !important',
+                        opacity: '1 !important',
                         '&:hover': {
-                          backgroundColor: '#ed8c05',
-                          color: '#000000',
+                          backgroundColor: '#ed8c05 !important',
+                          color: '#000000 !important',
+                          opacity: '1 !important',
                         }
                       }
                     }}

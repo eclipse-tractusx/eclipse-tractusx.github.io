@@ -147,6 +147,18 @@ const KitCard = ({ kit }) => {
                           </span>
                         </div>
                       )}
+                      {kit.deprecated && kit.maturity?.deprecatedAt && (
+                        <div className={styles.metadataItem}>
+                          <span className={styles.metadataLabel}>Deprecated:</span>
+                          <span className={`${styles.metadataValue} ${styles.deprecatedDate}`}>
+                            {new Date(kit.maturity.deprecatedAt).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'short', 
+                              day: 'numeric' 
+                            })}
+                          </span>
+                        </div>
+                      )}
                       {kit.metadata.new && (
                         <div className={styles.metadataItem}>
                           <span className={`${styles.metadataLabel} ${styles.newBadge}`}>New KIT!</span>
