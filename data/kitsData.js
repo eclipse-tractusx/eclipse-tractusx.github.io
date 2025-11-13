@@ -460,8 +460,8 @@ export const kitsData = {
         graduationStatus: 'in review'
       },
       deprecated: false,
-      dataspaces: ['Catena-X'],
-      description: 'There will be more Kits coming in the next months. Stay tuned.',
+      dataspaces: ['Catena-X', 'Factory-X'],
+      description: 'Enable circular economy business models with data exchange across company boundaries.',
       metadata: {
         created: '2023-12-08',
         lastUpdated: '2024-09-17',
@@ -510,7 +510,7 @@ export const kitsData = {
         graduatedAt: '2025-09-29'
       },
       deprecated: false,
-      dataspaces: ['Catena-X'],
+      dataspaces: ['Catena-X', 'Semiconductor-X'],
       description: 'Quick build of solutions for companies of any size to engage a collaborative capacity management.',
       metadata: {
         created: '2023-06-01',

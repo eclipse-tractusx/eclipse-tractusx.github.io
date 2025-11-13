@@ -211,8 +211,19 @@ export default function GenericDataspacePage() {
             <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.5' }}>
               The Multi-Dataspace KIT 2.0 structure may not yet be fully implemented in every KIT. 
               The KITs assigned to {dataspace.name} may change, may not be fully correct or may be incomplete as we continue to evolve 
-              and refine the multi-dataspace architecture across the Eclipse Tractus-X KIT ecosystem. <br />
-              Ticket planned here:{' '}
+              and refine the multi-dataspace architecture across the Eclipse Tractus-X KIT ecosystem.
+              <br /><br />
+              This initial KIT assigment to the {dataspace.name} dataspace was done based on the Use Cases and information available at the public{' '}
+              <a 
+                href="https://projexpace.mx-guidanceboard.org/data-ecosystem" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
+              >
+                MX-Guidance Board website
+              </a>.
+              <br/>
+              The ticket to refactor the KITs content is planned here (to be published in R26.03):{' '}
               <a 
                 href="https://github.com/eclipse-tractusx/sig-release/issues/1567" 
                 target="_blank" 
@@ -220,7 +231,7 @@ export default function GenericDataspacePage() {
                 style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
               >
                 eclipse-tractusx/sig-release#1567
-              </a>. 
+              </a>. <br /><br />
               Feel free to contact{' '}
               <a 
                 href="mailto:mathias.moser@catena-x.net"

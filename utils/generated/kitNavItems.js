@@ -19,7 +19,7 @@
 
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
- * Generated from data/kitsData.js on 2025-11-13T12:10:43.913Z
+ * Generated from data/kitsData.js on 2025-11-13T13:49:43.450Z
  * 
  * To regenerate: npm run generate:nav-items
  * 
