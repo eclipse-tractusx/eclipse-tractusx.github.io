@@ -116,5 +116,14 @@ Here is a tabular overview of the key roles in the CBAM (Carbon Border Adjustmen
 ### Semantic Models
 Depending on the use case and related KIT, Catena-X provides different semantic models that help to structure and make use of data via semantic information. These models help to provide a basic meaning to the data and their relationship, thereby enabling interoperability between data sets. Catena-X data models rely on principles as understandability, standardization, accuracy, differentiation, audibility, comprehensiveness, and provision of insights to drive improvement actions.
 
+### Standards
+-	Legal base: [CBAM Guidance and Legislation - Taxation and Customs Union] https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-guidance-and-legislation_en
+-	No standards available
+
+### Non-technical requirement
+- None
+
+###   Reference Implementation
+- none
 
 
