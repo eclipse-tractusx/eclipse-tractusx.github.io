@@ -25,6 +25,7 @@ import { getAllKits, dataspaces, kitsData } from '@site/data/kitsData';
 import FilteredKitsGallery from '@site/src/components/2.0/FilteredKitsGallery';
 import KitGalleryHeader from '@site/src/components/2.0/KitGalleryHeader';
 import KitsFooter from '@site/src/components/2.0/KitsFooter';
+import WarningIcon from '@mui/icons-material/Warning';
 
 export default function GenericDataspacePage() {
   const location = useLocation();
@@ -179,6 +180,66 @@ export default function GenericDataspacePage() {
         statistics={kitStats}
         backButtonLink={ref ? `/Kits?scrollTo=${ref}` : `/Kits`}
       />
+
+      {/* Disclaimer for non-Catena-X dataspaces */}
+      {dataspace.id !== 'catena-x' && (
+        <div style={{
+          backgroundColor: 'var(--ifm-color-warning-contrast-background)',
+          border: '1px solid var(--ifm-color-warning-dark)',
+          borderRadius: '8px',
+          padding: '16px 24px',
+          margin: '24px auto',
+          maxWidth: '1200px',
+          display: 'flex',
+          alignItems: 'flex-start',
+          gap: '12px'
+        }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: '2px',
+            flexShrink: 0,
+            color: 'var(--ifm-color-warning-darkest)'
+          }}>
+            <WarningIcon sx={{ fontSize: 28 }} />
+          </div>
+          <div>
+            <strong style={{ display: 'block', marginBottom: '8px', fontSize: '16px' }}>
+              Multi-Dataspace KIT 2.0 Content Refactor in Progress
+            </strong>
+            <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.5' }}>
+              The Multi-Dataspace KIT 2.0 structure may not yet be fully implemented in every KIT. 
+              The KITs assigned to {dataspace.name} may change, are not fully correct or be incomplete as we continue to evolve 
+              and refine the multi-dataspace architecture across the Eclipse Tractus-X KIT ecosystem. <br />
+              Ticket planned here:{' '}
+              <a 
+                href="https://github.com/eclipse-tractusx/sig-release/issues/1567" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
+              >
+                eclipse-tractusx/sig-release#1567
+              </a>. 
+              Feel free to contact{' '}
+              <a 
+                href="mailto:mathias.moser@catena-x.net"
+                style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
+              >
+                mathias.moser@catena-x.net
+              </a>{' '}
+              for more information or want to remove something.
+              <br /> Additionally, you can also join our{' '}
+              <a 
+                href="/community/open-meetings#office-hours"
+                style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
+              >
+                KIT office hours
+              </a>.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* KITs Gallery */}
       <FilteredKitsGallery 
