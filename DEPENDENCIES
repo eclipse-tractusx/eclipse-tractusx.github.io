@@ -36,7 +36,7 @@ npm/npmjs/-/babel-plugin-polyfill-corejs3/0.13.0, MIT, approved, clearlydefined
 npm/npmjs/-/babel-plugin-polyfill-regenerator/0.6.5, MIT, approved, clearlydefined
 npm/npmjs/-/bail/2.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/balanced-match/1.0.2, MIT, approved, clearlydefined
-npm/npmjs/-/baseline-browser-mapping/2.8.10, Apache-2.0, approved, clearlydefined
+npm/npmjs/-/baseline-browser-mapping/2.8.10, Apache-2.0, approved, #24542
 npm/npmjs/-/batch/0.6.1, MIT, approved, clearlydefined
 npm/npmjs/-/big.js/5.2.2, MIT, approved, clearlydefined
 npm/npmjs/-/binary-extensions/2.3.0, MIT, approved, #13867
@@ -435,7 +435,7 @@ npm/npmjs/-/joi/17.13.3, BSD-3-Clause, approved, #15787
 npm/npmjs/-/jquery/3.7.1, MIT, approved, clearlydefined
 npm/npmjs/-/js-tokens/4.0.0, MIT, approved, #2401
 npm/npmjs/-/js-yaml/3.14.1, MIT, approved, clearlydefined
-npm/npmjs/-/js-yaml/4.1.0, MIT, approved, clearlydefined
+npm/npmjs/-/js-yaml/4.1.0, MIT, approved, #24673
 npm/npmjs/-/jsesc/3.1.0, MIT, approved, #18401
 npm/npmjs/-/json-buffer/3.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/json-parse-even-better-errors/2.3.1, MIT, approved, clearlydefined
@@ -806,7 +806,7 @@ npm/npmjs/-/safe-buffer/5.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/safe-buffer/5.2.1, MIT, approved, clearlydefined
 npm/npmjs/-/safer-buffer/2.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/sass-loader/16.0.5, MIT, approved, clearlydefined
-npm/npmjs/-/sass/1.93.2, Apache-2.0 AND BSD-3-Clause AND MIT, approved, clearlydefined
+npm/npmjs/-/sass/1.93.2, Apache-2.0 AND BSD-3-Clause AND MIT AND MIT, approved, #24554
 npm/npmjs/-/sax/1.4.1, ISC AND MIT AND ISC, approved, #14888
 npm/npmjs/-/scheduler/0.23.2, MIT, approved, #14588
 npm/npmjs/-/schema-dts/1.1.5, Apache-2.0, approved, #22387
