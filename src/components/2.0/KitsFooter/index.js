@@ -70,10 +70,10 @@ export default function KitsFooter({ disclaimer }) {
                 <ChatIcon className={styles.linkIcon} />
                 KIT Matrix Chat
               </a>
-              <Link to="/community/open-meetings" className={styles.link}>
+              <a href="https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour" className={styles.link}>
                 <EventIcon className={styles.linkIcon} />
                 Join our KIT Office Hours
-              </Link>
+              </a>
               <Link to="/documentation/kit-framework" className={styles.link}>
                 <SchoolIcon className={styles.linkIcon} />
                 Learn the KIT Framework
