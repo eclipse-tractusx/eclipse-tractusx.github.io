@@ -70,13 +70,15 @@ export const MaturityTimeline = ({ styles }) => {
         display: 'flex', 
         alignItems: 'end', 
         gap: 'clamp(8px, 2vw, 16px)', 
-        height: 'clamp(150px, 25vw, 200px)', 
+        minHeight: 'clamp(180px, 28vw, 230px)', 
         marginBottom: '16px',
-        paddingBottom: '10px'
+        paddingBottom: '10px',
+        paddingTop: '30px',
+        overflow: 'visible'
       }}>
         {years.map(year => {
           const stats = yearStats[year];
-          const height = (stats.total / maxKits) * 160;
+          const height = (stats.total / maxKits) * 140;
           
           return (
             <div key={year} style={{ 

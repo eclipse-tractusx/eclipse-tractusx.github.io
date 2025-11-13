@@ -385,7 +385,7 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Contruct-X'],
+      dataspaces: ['Catena-X', 'Construct-X'],
       description: 'Environmental and Social Standards Incident Management KIT',
       metadata: {
         created: '2024-03-06',
