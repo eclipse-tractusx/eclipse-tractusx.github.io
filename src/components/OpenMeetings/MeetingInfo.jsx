@@ -17,8 +17,10 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 import React from 'react';
+import { getScheduleDescription } from '@site/src/utils/meetingUtils';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
-export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined, additionalLinks = []}) {
+export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined, additionalLinks = [], meetingData = null, timezone = 'Europe/Berlin'}) {
     return (
         <section style={meetingInfo} id={title}>
             <div style={meetingOverview}>
@@ -26,7 +28,14 @@ export default function MeetingInfo({title, schedule, description, contact, sess
                     {title}
                     <a className="hash-link" href={`#${title}`} title="Direct link to open meeting"></a>
                 </h2>
-                <div style={meetingSchedule}>{schedule}</div>
+                <BrowserOnly fallback={<div style={meetingSchedule}>{schedule}</div>}>
+                  {() => {
+                    const displaySchedule = meetingData 
+                      ? getScheduleDescription(meetingData, timezone)
+                      : schedule;
+                    return <div style={meetingSchedule}>{displaySchedule}</div>;
+                  }}
+                </BrowserOnly>
             </div>
             <div style={meetingDetails}>
                 <p>{description}</p>
