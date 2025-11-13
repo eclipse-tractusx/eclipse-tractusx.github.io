@@ -242,7 +242,7 @@ export default function GenericDataspacePage() {
               for more information or want to remove something.
               <br /> Additionally, you can also join our{' '}
               <a 
-                href="/community/open-meetings#office-hours"
+                href="https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour"
                 style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
               >
                 KIT office hours
