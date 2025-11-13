@@ -43,9 +43,9 @@ Mandatory for every KIT, It **MUST** be included in every file (not just on the 
 KIT documentation works under the CC-BY-4.0 license. Therefore you need to add the "notice" part to make transparent which companies worked on this KIT.
 It **MUST** always include the `- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation` copyright statement.
 
-`Example:`
+Example:
 
-```
+```md
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
@@ -66,8 +66,9 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 In case its a new KIT the year can be referenced like that:
 
-`Example:`
-```
+Example:
+
+```md
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
@@ -164,6 +165,23 @@ Deliverable:
 - Description
 - Link to the whitepaper
 
+### Standards
+
+Optional but highly recommended
+Standards are essential for ensuring interoperability and consistency across different implementations of a KIT. By adhering to established standards, KITs can facilitate seamless integration and communication between various systems and stakeholders within the ecosystem.
+
+- A table of non-dataspace specific standards relevant for the KIT
+
+Example: 
+
+| Standard | Version | Reference |
+|----------|---------|-----------|
+| **Standard Name** | 1.0     | [Link to Standard](https://example.com) |
+
+:::warning
+If there is a dataspace specific standard, please include it on the Dataspace Extensions Tab of from your Dataspace.
+:::
+
 ### Semantic Models
 
 Mandatory for every KIT that is related to a use case + for the 'incubating' stage
@@ -175,8 +193,9 @@ Deliverables:
 `Example from Traceability:`
 [Traceability Semantic Models](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/adoption-view#semantic-models)
 
-> [!WARNING]
-> If there is a dataspace specific semantic model, please include it on the Dataspace Extensions Tab of from your Dataspace.
+:::warning
+If there is a dataspace specific semantic model, please include it on the Dataspace Extensions Tab of from your Dataspace.
+:::
 
 ### Logic / Schema
 
@@ -304,12 +323,36 @@ You can update that in ['/sidebarsDocsKits.js'](../sidebarsDocsKits.js) file at 
 
 The Dataspace Extensions view represents a specialized extension mechanism that allows KITs to be adapted and customized for specific dataspace implementations while maintaining their core structure and functionality. This approach ensures interoperability across different dataspaces while allowing for dataspace-specific requirements, policies, and standards.
 
+### Folder Structure
+
+The dataspace extensions are organized in a clear folder structure within each KIT:
+
+```
+docs-kits/kits/your-kit/
+├── adoption-view/
+├── development-view/
+├── operations-view/
+├── documentation/
+└── dataspace-extensions/
+    ├── catena-x/
+    │   ├── standards.md
+    │   ├── policies.md
+    │   └── semantic-models.md
+    ├── factory-x/
+    │   ├── standards.md
+    │   └── policies.md
+    └── semiconductor-x/
+        └── standards.md
+```
+
+Each dataspace folder contains only the specific extensions relevant to that dataspace, allowing for flexible and modular customization.
+
 ### Purpose and Scope
 
 Dataspace Extensions enable KITs to support multiple dataspace ecosystems (such as Catena-X, Factory-X, Semiconductor-X, etc.) without duplicating the core KIT content. Each dataspace extension contains:
 
 - **Dataspace-specific policies** that govern data usage and access within that particular ecosystem
-- **Custom data models** tailored to the specific industry or domain requirements
+- **Custom semantic models** tailored to the specific industry or domain requirements
 - **Dataspace standards** that may differ from generic implementations
 - **Compliance requirements** specific to regulatory or industry standards
 
@@ -317,8 +360,17 @@ Dataspace Extensions enable KITs to support multiple dataspace ecosystems (such 
 
 Mandatory for every KIT that wants to go to the 'incubating' stage
 Links to the relevant standards (Association Library). Add the relevant number of the standard, the name and version of the standard.
-`Example:`
-CX - 001 Standardname (Version 2.0)
+The dataspace specific standards should be added in this section and are hosted in the dataspace's standard library. 
+Normally it includes a table and a header similiar to this ones in the example.
+
+Example:
+
+#### Catena-X Standards
+
+| ID | Name | Link |
+| -- | ---- | ---- |
+| CX-0002 | Digital Twins in Catena-X v2.2.0 | [go to standard](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX) |
+
 
 ### Structure and Implementation
 
