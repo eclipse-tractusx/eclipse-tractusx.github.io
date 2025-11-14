@@ -267,7 +267,7 @@ export const meetings = [
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_Njg3ZTZjZWEtNjQ0Ni00NGNiLWJkNGQtZWI0ZTNkNzY5YzJh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22e461a1fa-5342-44e3-b2e8-32b399a9e867%22%7d',
     additionalLinks: [
       { title: 'Test Management Matrix Chat', url: 'https://matrix.to/#/#tractusx-test-management:matrix.eclipse.org' },
-      { title: 'News Blog', url: '/blog/testphase-R25.12' },
+      { title: 'News Blog', url: '/blog/testphase-R26.03' },
     ],
     recurrence: {
       frequency: 'once',
