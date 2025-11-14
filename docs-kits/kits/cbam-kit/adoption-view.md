@@ -119,11 +119,44 @@ Depending on the use case and related KIT, Catena-X provides different semantic 
 ### Standards
 -	Legal base: [CBAM Guidance and Legislation - Taxation and Customs Union] https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-guidance-and-legislation_en
 -	No standards available
+### Example Payload
+
+
+### Possible Use Cases
+####	1. Master data request/reply
+The master data request is used when a new supplier is to be created. Their master data is requested via the Catena-X network. The aim is to verify the supplier's identity and obtain important material-related/production-related master data. This exchange is requested via the *MasterDataRequest* API Aufruf. 
+The supplier responds (*MasterDataReply*. API Aufruf) with their own master data, including:
+-	Supplier identification (e.g., supplier number)
+-	Registration status in Catena-X
+-	Address and contact details
+-	Details on material composition
+-	Information on the production site
+
+However, if the supplier does not have a complete overview of the origin or composition of the material, the supplier can consult its sub-supplier. If the sub-supplier is also a Catena-X partner, the same infrastructure can be used.
+Once the sub-supplier responds, the supplier consolidates the data and sends it back to the importer. 
+
+#### 2.	Commission data request/replay
+The request for the composition of the import is made when data about the material itself and its ecological footprint is needed for an interim calculation during the year.
+Based on the master data, the importer uses the *CompositionDataRequest*-API call to reveive dara from the supplier. This includes:
+•	Exact material type and structure
+•	CN number (customs nomenclature)
+•	Verified CO₂ emission values from the previous year, if available
+•	The specific material mass delivered for the defined period
+•	The operator data of the plant in which it was manufactured
+This data is then sent back to the importer using the *CompositionDataRequest*-API call.
+
+####	3. Emission data request/reply
+The emissions data request is initiated after the end of the calendar year. Its purpose is to record the actual emissions values for all material deliveries per supplier that took place during the year.
+The importer sends an emissions data request using the *EmissionsDataRequest*-API call to each supplier, asking for the following:
+Actual CO₂ emissions per installation, per material/product produced there The location of the installation for each batch/material/product delivered using the *EmissionDataReply*-API call.
+If discrepancies are found—such as unknown locations, incorrect location names, or inconsistent emission values—clarification is requested. Once all data has been verified, the system aggregates it to calculate the annual emissions footprint per supplier and material.
+
 
 ### Non-technical requirement
 - None
 
 ###   Reference Implementation
 - none
+
 
 
