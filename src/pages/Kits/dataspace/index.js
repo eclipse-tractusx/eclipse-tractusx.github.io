@@ -211,7 +211,8 @@ export default function GenericDataspacePage() {
             <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.5' }}>
               The Multi-Dataspace KIT 2.0 structure may not yet be fully implemented in every KIT. 
               The KITs assigned to {dataspace.name} may change, may not be fully correct or may be incomplete as we continue to evolve 
-              and refine the multi-dataspace architecture across the Eclipse Tractus-X KIT ecosystem.
+              and refine the multi-dataspace architecture across the Eclipse Tractus-X KIT ecosystem. 
+              The intention of this page is to enable, reserve and prepare the space for the future {dataspace.name} KITs. The current assigned KITs may still contain content referring to Catena-X or other dataspaces.
               <br /><br />
               This initial KIT assigment to the {dataspace.name} dataspace was done based on the Use Cases and information available at the public{' '}
               <a 
@@ -239,7 +240,7 @@ export default function GenericDataspacePage() {
               >
                 mathias.moser@catena-x.net
               </a>{' '}
-              for more information or want to remove something.
+              for more information or if you want something to be removed.
               <br /> Additionally, you can also join our{' '}
               <a 
                 href="https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour"
