@@ -23,8 +23,9 @@
  export default function KitsArchitecture({dataspaces}) {
    return (
      <section className={styles.architecture_section}>
-       <div className={styles.container}>
-         <h2 className={styles.title}>Our KITs Architecture</h2>
+       <div className={`${styles.container}`}>
+         <h2 className={`${styles.title}`}>Our KITs Architecture</h2>
+         
          <p className={styles.subtitle}>Building the foundation for interoperable dataspaces across industries</p>
          
          {/* Interactive hint */}

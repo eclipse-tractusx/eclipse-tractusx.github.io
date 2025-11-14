@@ -23,11 +23,24 @@
 @use '../../../scss/config/variables' as *;
 @use '../../../scss/config/mixins';
 
+
 .architecture_section {
   padding: 4rem 0;
   background-color: var(--ifm-background-color);
   display: flex;
   justify-content: center;
+  position: relative;
+  
+  // Top divider line
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--ifm-color-primary) 50%, transparent 100%);
+  }
   
   // Force consistent font rendering to prevent flickering
   -webkit-font-smoothing: antialiased;
