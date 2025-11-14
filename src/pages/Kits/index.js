@@ -17,9 +17,6 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React, { useEffect } from "react";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Layout from "@theme/Layout";
 import { useLocation } from '@docusaurus/router';
 
 import KitHeader from "../../components/2.0/KitsHeader";
@@ -30,10 +27,13 @@ import KitsGallery from "../../components/2.0/KitsGallery";
 import KitsExtensions from "../../components/2.0/KitsExtensions";
 import KitsFooter from "../../components/2.0/KitsFooter";
 import { kitsData, getAllKits, dataspaces } from "@site/data/kitsData";
+import React, { useEffect } from "react";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
 
-export default function KitsPage() {
-  const { siteConfig } = useDocusaurusContext();
+export default function Kits2Page() {
   const location = useLocation();
+  const { siteConfig } = useDocusaurusContext();
   
   const allKits = getAllKits();
 
