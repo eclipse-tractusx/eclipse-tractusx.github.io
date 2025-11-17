@@ -138,11 +138,12 @@ Once the sub-supplier responds, the supplier consolidates the data and sends it 
 #### 2.	Composition data request/replay
 The request for the composition of the import is made when data about the material itself and its ecological footprint is needed for an interim calculation during the year.
 Based on the master data, the importer uses the *CompositionDataRequest*-API call to reveive dara from the supplier. This includes:
-•	Exact material type and structure
-•	CN number (customs nomenclature)
-•	Verified CO₂ emission values from the previous year, if available
-•	The specific material mass delivered for the defined period
-•	The operator data of the plant in which it was manufactured
+-	Exact material type and structure
+-	CN number (customs nomenclature)
+-	Verified CO₂ emission values from the previous year, if available
+-	The specific material mass delivered for the defined period
+-	The operator data of the plant in which it was manufactured
+  
 This data is then sent back to the importer using the *CompositionDataRequest*-API call.
 
 ####	3. Emission data request/reply
@@ -157,6 +158,7 @@ If discrepancies are found—such as unknown locations, incorrect location names
 
 ###   Reference Implementation
 - none
+
 
 
 
