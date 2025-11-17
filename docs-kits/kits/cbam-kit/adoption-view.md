@@ -135,7 +135,7 @@ The supplier responds (*MasterDataReply*. API Aufruf) with their own master data
 However, if the supplier does not have a complete overview of the origin or composition of the material, the supplier can consult its sub-supplier. If the sub-supplier is also a Catena-X partner, the same infrastructure can be used.
 Once the sub-supplier responds, the supplier consolidates the data and sends it back to the importer. 
 
-#### 2.	Commission data request/replay
+#### 2.	Composition data request/replay
 The request for the composition of the import is made when data about the material itself and its ecological footprint is needed for an interim calculation during the year.
 Based on the master data, the importer uses the *CompositionDataRequest*-API call to reveive dara from the supplier. This includes:
 •	Exact material type and structure
@@ -157,6 +157,7 @@ If discrepancies are found—such as unknown locations, incorrect location names
 
 ###   Reference Implementation
 - none
+
 
 
 
