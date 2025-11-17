@@ -2,11 +2,84 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2025-10-31T00:00:00.000Z</updated>
+    <updated>2025-11-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Community Office Hour 2025-11-14]]></title>
+        <id>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14"/>
+        <updated>2025-11-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Community Office Hour Meeting Minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="community-office-hour-meeting-minutes">Community Office Hour Meeting Minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#community-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Community Office Hour Meeting Minutes" title="Direct link to Community Office Hour Meeting Minutes" translate="no">​</a></h2>
+<p>Status updates discussed in meeting:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure-and-test-management">Infrastructure and Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#infrastructure-and-test-management" class="hash-link" aria-label="Direct link to Infrastructure and Test Management" title="Direct link to Infrastructure and Test Management" translate="no">​</a></h3>
+<ul>
+<li>Test phase for Release 25.12 is ongoing. Currently blocking issue with Portal onboarding of new test companies.<!-- -->
+<ul>
+<li>Workaround using existing ones is also limited due to issues with email notifications for new user accounts and presumed issue for creation of new technical users.</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<ul>
+<li>
+<p><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35" target="_blank" rel="noopener noreferrer">Release Planning Timeline</a>:</p>
+<ul>
+<li>26.03 Eclipse Tractus-X Open Planning was conducted on November 13th.</li>
+</ul>
+</li>
+<li>
+<p>Policy Hub recommendation to be archived: Decision of Data Sovereignty Expert Group that the Policy Hub is not needed anymore, as it adds no value to the ecosystem.</p>
+<ul>
+<li>See for details this issue on the <a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=139296712" target="_blank" rel="noopener noreferrer">Office Hour Board</a>.
+It will remain in progress to track further information.</li>
+<li>Input from <a href="https://github.com/matbmoser" target="_blank" rel="noopener noreferrer">Mathias Moser</a> to follow the official process as outlined in <a href="https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-09/" target="_blank" rel="noopener noreferrer">TRG 7.09</a></li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
+<ul>
+<li>Please check regularly if there are findings for vulnerabilities or dependency updates in the security tab of your project repository.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
+<ul>
+<li>Everyone is invited to join the Fifth Eclipse Tractus-X Community Days on December 4th and 5th in Stuttgart. See this <a href="https://arena2036.de/de/reader/fifth-eclipse-tractus-x-community-days" target="_blank" rel="noopener noreferrer">link for registration</a></li>
+<li>New Calendar View for open meetings, see for details the <a href="https://eclipse-tractusx.github.io/community/open-meetings" target="_blank" rel="noopener noreferrer">open meetings page</a>
+<ul>
+<li>Potentially type color for time and date could be set in white for better legibility.</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedback--questions--requests">Feedback / Questions / Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#feedback--questions--requests" class="hash-link" aria-label="Direct link to Feedback / Questions / Requests" title="Direct link to Feedback / Questions / Requests" translate="no">​</a></h3>
+<ul>
+<li>
+<p>Discussion of planned <a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=133107482" target="_blank" rel="noopener noreferrer">PostgreSQL updates and image provider change</a></p>
+<ul>
+<li><a href="https://github.com/mgarciaLKS" target="_blank" rel="noopener noreferrer">Mikel Garcia</a> has updated the applicable TRGs, including the change from Bitnami to Cloud Pirates images</li>
+<li>He also created a <a href="https://github.com/eclipse-tractusx/ssi-dim-wallet-stub/blob/b544ee4f4e7559ac16763a8457933c23eeeb089b/docs/admin/migration-guides/BITNAMI_TO_CLOUDPIRATES_MIGRATION_GUIDE.md" target="_blank" rel="noopener noreferrer">migration guide</a> using the SSI DIM Wallet Stub as an example.</li>
+<li>However there were issues encountered by <a href="https://github.com/lgblaumeiser" target="_blank" rel="noopener noreferrer">Lars Geyer-Blaumeiser</a> for the BDRS service with the automated Helm Upgrade failing, thus requiring a manual deletion and redeployment. See <a href="https://github.com/eclipse-tractusx/bpn-did-resolution-service/issues/284" target="_blank" rel="noopener noreferrer">this link</a> for further details.</li>
+</ul>
+</li>
+<li>
+<p>Question from <a href="https://github.com/ReneSchroederLJ" target="_blank" rel="noopener noreferrer">René Schröder</a> regarding maintenance of IRS -&gt; Will contact <a href="https://github.com/rogocof" target="_blank" rel="noopener noreferrer">Robin Gottschalk</a> to follow up.</p>
+</li>
+<li>
+<p>Suggestion from <a href="https://github.com/matbmoser" target="_blank" rel="noopener noreferrer">Mathias Moser</a>: TRG for quality of new or existing repositories in GitHub, e.g. with the 3 phases sandbox, incubating, graduated. He will elaborate this further. The plan would be in a later step to display this automatically as a "maturity level" for each repository in the Eclipse Tractus-X product list overview.</p>
+</li>
+<li>
+<p>Discussion regarding a legal need to remove/replace references to EPL licenses from files in Eclipse Tractus-X. Finding a solution is ongoing.</p>
+</li>
+</ul>]]></content>
+        <author>
+            <name>Harald Zimmer</name>
+            <uri>https://github.com/ds-hzimmer</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Community Office Hour 2025-10-31]]></title>
         <id>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31</id>
@@ -1056,68 +1129,5 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
         </author>
         <category label="meeting-minutes" term="meeting-minutes"/>
         <category label="security" term="security"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Community Office Hour 2024-06-28]]></title>
-        <id>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-06-28</id>
-        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-06-28"/>
-        <updated>2024-06-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-06-28#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-06-28#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
-<ul>
-<li>Info from Test / Infrastructure Management CX Association by <a href="https://github.com/ds-hzimmer" target="_blank" rel="noopener noreferrer">Harald</a>:<!-- -->
-<ul>
-<li>status of product onboarding and deployment progression to new environment</li>
-<li>clarifying dependencies, resolving blockers is ongoing</li>
-<li>handover of test cases to new CX Association Xray</li>
-<li>Invitation to E2E Test Management Daily beginning Monday (July 1, 2024): frequency determined determined to half an hour every 2nd day</li>
-</ul>
-</li>
-<li>Status about current works on API publishing by <a href="https://github.com/tomaszbarwicki" target="_blank" rel="noopener noreferrer">Tomasz</a> currently in progress: a separate repository to store API docs and publish via GitHub pages - <a href="https://github.com/eclipse-tractusx/api-hub" target="_blank" rel="noopener noreferrer">API Hub</a> - was created. He will present the topic a bit more hands on in one of the upcoming office hours</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-06-28#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team" translate="no">​</a></h3>
-<ul>
-<li>Info from security team by <a href="https://github.com/RoKrish14" target="_blank" rel="noopener noreferrer">Rohan</a>:<!-- -->
-<ul>
-<li>Replacement of GitGuardian with TruffleHog, see according pull request to update TX release guideline: <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/950" target="_blank" rel="noopener noreferrer">#950</a></li>
-<li>Updates to Trivy workflow , see according pull request to update TX release guideline: <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/949" target="_blank" rel="noopener noreferrer">#949</a></li>
-<li>Security tools walkthrough in the Committers Meeting of July 5, 2024 (about 20 minutes) - <a href="https://github.com/RoKrish14" target="_blank" rel="noopener noreferrer">Rohan</a> will announce the walkthrough next week on the TX mailing list while sending out a reminder for the meeting</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-06-28#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
-<ul>
-<li>Committer Election for <a href="https://github.com/ds-lcapellino" target="_blank" rel="noopener noreferrer">Lucas</a> concluded successfully, congratulations and welcome!</li>
-<li>Don't forget to update the legal docs!! Close the tickets in your repositories if its done: <a href="https://github.com/eclipse-tractusx/sig-infra/issues/477" target="_blank" rel="noopener noreferrer">eclipse-tractusx/sig-infra#477</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-06-28#open-planning--community" class="hash-link" aria-label="Direct link to Open planning / community" title="Direct link to Open planning / community" translate="no">​</a></h3>
-<ul>
-<li>Info by community manager <a href="https://github.com/stephanbcbauer" target="_blank" rel="noopener noreferrer">Stephan</a> about the Tractus-X/Catena-X working model and the refinement phase for the 24.12 release, which started this week, for more information see <a href="https://www.eclipse.org/lists/tractusx-dev/msg00434.html" target="_blank" rel="noopener noreferrer">TX mailing list: R24.12 next steps in refinement phase</a></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="discussions">Discussions<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-06-28#discussions" class="hash-link" aria-label="Direct link to Discussions" title="Direct link to Discussions" translate="no">​</a></h3>
-<ul>
-<li><a href="https://github.com/evegufy" target="_blank" rel="noopener noreferrer">Evelyn</a> suggested a consistent storing for environment specific deployment configuration (helm values files) in TX repositories:<!-- -->
-<ul>
-<li>IF products teams store deployment configuration in TX, it should be stored in a separate directory at root level (/environments) and the notice file should explain it is need for the end-to-end testing of TX releases</li>
-<li>no deployment configuration other than the one used for the official E2E Testing of TX releases should be kept in TX</li>
-<li>suggestion is not intended to promote the storing of this configuration in TX but if you do it, do it as proper as possible</li>
-<li>a benefit from (properly) storing the configuration in TX is the versioning with the TX GitHub releases, allowing to easily trace back the exact configuration used for testing</li>
-<li>other options for handling environment specific deployment configuration outside of TX were discussed as well as the option of <a href="https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/" target="_blank" rel="noopener noreferrer">multiple sources for Argo CD</a> was mentioned by <a href="https://github.com/carslen" target="_blank" rel="noopener noreferrer">Carsten</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/stephanbcbauer" target="_blank" rel="noopener noreferrer">Stephan</a> was wondering about how to handle outdated information on the <a href="https://eclipse-tractusx.github.io/community/products/" target="_blank" rel="noopener noreferrer">TX Product Page</a>:<!-- -->
-<ul>
-<li>product teams should check if the information on the page is still up to date, <a href="https://github.com/stephanbcbauer" target="_blank" rel="noopener noreferrer">Stephan</a> will write send a reminder on the TX mailing list</li>
-<li><a href="https://github.com/arnoweiss" target="_blank" rel="noopener noreferrer">Arno</a> mentioned that he would update the products which are still outdated in a couple of weeks, thanks for volunteering!</li>
-</ul>
-</li>
-</ul>]]></content>
-        <author>
-            <name>Evelyn Gurschler</name>
-            <uri>https://github.com/evegufy</uri>
-        </author>
-        <category label="community" term="community"/>
-        <category label="meeting-minutes" term="meeting-minutes"/>
     </entry>
 </feed>
