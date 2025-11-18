@@ -265,7 +265,7 @@ The following section gives an overview of the SingleLevelScenenNode aspect mode
 
 ```
 
-Also have a look at the example in Adoption View. 
+Also have a look at the example in Adoption View.
 
 ## Data Retrieval Flow
 
