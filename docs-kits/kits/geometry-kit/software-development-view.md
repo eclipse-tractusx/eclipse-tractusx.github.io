@@ -18,7 +18,6 @@ Copyright(c) 2025 Threedy GmbH
 Copyright(c) 2025 ZF Group
 Copyright(c) 2025 Contributors to the Eclipse Foundation
 
-
 See the NOTICE file(s) distributed with this work for additional
 information regarding copyright ownership.
 
@@ -96,8 +95,6 @@ The system architecture demonstrates how components interact to facilitate geome
 - **Submodel Service**
   - Provides SingleLevelSceneNode and Binary Exchange submodels to the Eclipse Dataspace Connector
   - Serves geometry metadata and structure information
-
-
 
 ### Geometry Data Exchange Sequence
 
@@ -300,7 +297,7 @@ In order to set up the EDC for the geometry use case, the following steps are ne
 The following Catena-X components are required for geometry data exchange:
 
 - **[Eclipse Dataspace Connector (EDC)](https://github.com/eclipse-edc/Connector)**: For secure and sovereign data exchange
-- **[Digital Twin Registry](../digital-twin-kit/software-development-view/)**: For Digital Twin discovery and management  
+- **[Digital Twin Registry](../digital-twin-kit/software-development-view/)**: For Digital Twin discovery and management
 - **[Submodel Service](https://github.com/eclipse-basyx/basyx-java-server-sdk)**: For SingleLevelSceneNode submodel handling
 - **Binary File Storage**: Secure storage solution for 3D geometry files with EDC integration
 

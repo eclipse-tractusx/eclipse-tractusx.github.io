@@ -18,7 +18,6 @@ Copyright(c) 2025 Threedy GmbH
 Copyright(c) 2025 ZF Group
 Copyright(c) 2025 Contributors to the Eclipse Foundation
 
-
 See the NOTICE file(s) distributed with this work for additional
 information regarding copyright ownership.
 
@@ -44,10 +43,10 @@ The Geometry KIT bundles the necessary Catena-X standards, profiles, APIs, seman
 
 By adopting existing Catena-X standards the Geometry KIT enables rapid implementation of multiple engineering use cases around geometry data exchange.
 
-
 ## Business Value & Benefits
 
 ### Business Value
+
 The Geometry KIT enables companies to build secure, cross-company engineering collaboration use cases within Catena-X. By providing standardized models and interfaces for geometry data exchange, it reduces integration costs, accelerates development cycles, and improves data quality. Companies benefit from faster iterations, streamlined onboarding, and robust IP protection—leveraging Catena-X’s architecture to collaborate efficiently while maintaining data sovereignty.
 
 ### Todays Challenge
@@ -59,10 +58,11 @@ Security and intellectual property protection add further complexity: companies 
 ### Benefits for OEM, Suppliers and Solution Provider
 
 #### OEM and suppliers
+
 The Geometry KIT empowers OEMs and suppliers or any Tier in the supplychain to streamline cross-company engineering collaboration. By bundling key standards—such as the Geometry Standard, SingleLevelSceneNode, Digital Engineering Masterdata Standard, Binary Exchange, and the Digital Twin Standard — it enables essential use cases like DMU analysis to be implemented efficiently within Catena-X. Leveraging the Catena-X architecture, Catena-X participants can securely exchange geometry data and collaborate across company borders, with IP protection and data sovereignty ensured by the underlying Catena-X design. This reduces manual effort, accelerates design cycles, improves data consistency, and enables automated feedback loops and faster onboarding throughout the supply chain.
 
-
 #### Solution Provider
+
 By implementing and aligning their offerings with Catena-X, solution providers can position their products for secure, standards-based data exchange and connect to a growing network of participants within the Catena-X ecosystem. This alignment puts their solutions at the forefront of modern geometry data exchange, enabling seamless integration, interoperability, and access to new business opportunities across industries. Solution providers benefit from increased market relevance, the ability to address customer requirements for secure collaboration, and the potential to drive innovation in digital engineering workflows.
 
 ## Use Case
@@ -75,8 +75,8 @@ At its core, DMU Analysis empowers engineers to perform essential digital engine
 
 This frequent, iterative exchange and review of engineering data between partners is the core collaboration scenario that the Geometry KIT enables, making secure, automated, and standards-based geometry data sharing possible across company boundaries.
 
-```mermaid 
-flowchart 
+```mermaid
+flowchart
  subgraph OEM["Tier n (OEM)"]
         o_start(["Requirements established and aligned"])
         o_req(["Request new geometry"])
@@ -145,21 +145,21 @@ flowchart
 
 #### High-Level Scenario
 
-In a typical DMU Analysis workflow, one partner *Tier n+1* (e.g. a supplier) creates or updates a 3D model and publishes it as a Digital Twin with geometry data into the Catena-X dataspace. Another partner *Tier n* (e.g. an OEM) finds, pulls, and reviews this geometry data in their own environment, performing analyses such as clash detection, assembly verification, and redlining and annotation feedback. The process is iterative: feedback is provided, updates are made, and the cycle repeats until the design is accepted—all while maintaining data sovereignty and security. (See User Journey section for more details.) 
+In a typical DMU Analysis workflow, one partner *Tier n+1* (e.g. a supplier) creates or updates a 3D model and publishes it as a Digital Twin with geometry data into the Catena-X dataspace. Another partner *Tier n* (e.g. an OEM) finds, pulls, and reviews this geometry data in their own environment, performing analyses such as clash detection, assembly verification, and redlining and annotation feedback. The process is iterative: feedback is provided, updates are made, and the cycle repeats until the design is accepted—all while maintaining data sovereignty and security. (See User Journey section for more details.)
 
 #### Practical Variants of DMU Analysis
 
 While the core DMU Analysis workflow remains consistent, its practical application can take several forms depending on the engineering context, data sensitivity, and collaboration needs. The following common variants illustrate how the use case is adapted in real-world scenarios:
 
-**1. Basic Build Room Analysis**
+##### 1. Basic Build Room Analysis
 
 In early design phases, engineers often need to ensure that a future part will fit within the available space of an assembly. For this purpose, it is common to exchange only simplified geometry—such as bounding boxes or build room-defining surfaces—rather than full detailed models. This approach enables rapid spatial checks and early alignment between partners, while minimizing the exposure of sensitive design details.
 
-**2. Exchange of Different Levels of Detail**
+##### 2. Exchange of Different Levels of Detail
 
 Not all collaboration requires the full geometric detail of a part or assembly. Depending on the phase of development and the sensitivity of the data, participants may choose to share reduced or simplified models (e.g., envelope geometry, de-featured shapes) to protect intellectual property or because such information is sufficient for the task at hand. Conversely, as the design matures and discussions move into detailed engineering, high-fidelity models with full precision may be exchanged to enable thorough analysis and validation.
 
-**3. Exchange of Different File Formats**
+##### 3. Exchange of Different File Formats
 
 Because partners often use different CAD systems and engineering tools, DMU Analysis scenarios frequently require the exchange of geometry in multiple formats. Common standards include JT and STEP, but native formats from systems like CATIA, Creo, or NX may also be used. The Geometry KIT supports this diversity by enabling the secure, standards-based transfer of various file types, ensuring interoperability across company and system boundaries.
 
@@ -171,21 +171,21 @@ The following simplified diagram illustrates the circular, iterative flow of eng
 
 ```mermaid
 flowchart TD
-	subgraph Partner_1 ["Tier n+1"]
-		A["Create/Update 3D Model"]
-		D["Review Feedback & Update Model if Needed"]
-	end
+ subgraph Partner_1 ["Tier n+1"]
+  A["Create/Update 3D Model"]
+  D["Review Feedback & Update Model if Needed"]
+ end
 
-	subgraph Partner_2 ["Tier n"]
-		B["Pull Geometry Data<br/>Review & Annotate (DMU, Bauraum, etc.)"]
-		C["Accept / Request Changes / Comment"]
-	end
+ subgraph Partner_2 ["Tier n"]
+  B["Pull Geometry Data<br/>Review & Annotate (DMU, Bauraum, etc.)"]
+  C["Accept / Request Changes / Comment"]
+ end
 
-	A --> B
-	B --> C
-	C --> D
-	D -- "If changes required" --> A
-	C -- "If accepted" --> E["Process Complete"]
+ A --> B
+ B --> C
+ C --> D
+ D -- "If changes required" --> A
+ C -- "If accepted" --> E["Process Complete"]
 ```
 
 **Description:**
@@ -204,32 +204,32 @@ The following diagram shows the main systems involved in the user journey, clear
 flowchart LR
     subgraph Partner1["Data Producer"]
         P1APP["Business App<br/>(Create/Publish/Review Feedback)"]
-		P1DS["Data Source<br/>(3D Data Persist/Update)"]
+  P1DS["Data Source<br/>(3D Data Persist/Update)"]
         P1EDC["EDC"]
     DTR["Digital Twin Registry"]
-        
+
     end
 
     subgraph Partner2["Data Consumer"]
         P2APP["Business App<br/>(Discover/Review/Annotate)"]
-		P2DS["Data Source<br/>(Local Copy/Updates)"]
+  P2DS["Data Source<br/>(Local Copy/Updates)"]
         P2EDC["EDC"]
-  
+
     end
 
     %% Data Producer Flows
     P1APP -- "Update 3D Data" --> P1DS
-	P1DS -- "Read 3D Data" --> P1APP
+ P1DS -- "Read 3D Data" --> P1APP
     P1DS -- "Expose Data" --> P1EDC
-	P1EDC -- "Receive Data" --> P1DS
+ P1EDC -- "Receive Data" --> P1DS
     P1EDC -- "Offer/Exchange Data" --> P2EDC
     P1EDC <-- "Register/Update/Discover Twin & Submodel" --> DTR
 
     %% Data Consumer Flows
-	
+
     P2EDC -- "Request Data" --> P1EDC
     P2EDC -- "Provide Data" --> P2DS
-    
+
     P2DS -- "Load Data" --> P2APP
     P2APP -- "Review/Annotate" --> P2DS
 
@@ -238,6 +238,7 @@ flowchart LR
 ```
 
 **Description:**
+
 - Each partner has its own Data Source (for persisting and updating 3D data), EDC (for secure data exchange), and Business Application (for creation, review, and annotation).
 - The Digital Twin Registry enables discovery and linkage of geometry data across partners.
 - Data flows from Partner 1's app to their data source, is registered in the DTR, and exchanged via EDC to Partner 2, where it is consumed and reviewed in their own environment.
@@ -252,15 +253,15 @@ The BOM structure, on the other hand, describes the logical and semantic product
 
 In short, SingleLevelSceneNode connects geometry within one digital twin, whereas SingleLevelBOM connects multiple digital twins with each other. The SingleLevelSceneNode model builds the internal spatial view of a twin, while the BOM model builds the external structural view across organizational boundaries — combined they complete a digital representation of both the product’s geometry and its multi-partner assembly hierarchy. The overview can be found in the following table.
 
-| Feature                       | **SingleLevelSceneNode**                                                                                | **SingleLevelBOM**                                                                                            |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| **Purpose / Function**        | Represents the **spatial and geometric structure** within a single digital twin.                        | Describes the **logical and functional product structure** (bill of materials) across multiple digital twins. |
-| **Scope / Level**             | Applies **only within one digital twin** — i.e., within its own data instance.                          | Connects **multiple digital twins** — components or assemblies across business partners.                      |
-| **Type of Relationship**      | **Geometric / spatial** relationships between parts (e.g., transform, bounding volume).       | **Structural / semantic** relationships (e.g., which component belongs to which assembly).                    |
-| **Main Entity**               | `modelItems` — links to a geometry data object or group of objects.                                                          | `childItem` — describes the relationship between parent and child twins.                       |                          |
-| **Linking Mechanism**         | Via `childItems`: connects **own geometries (SceneNodes)** hierarchically. No external references.      | Via `childItems`: connects **different digital twins**, forming a product structure.                          |
-| **Data Content**              | geometry as data ressource, transformations, bounding volumes.                                               | Product metadata, identifiers, classifications, and references to other aspects (e.g., Part Type).            |
-| **Typical Use Case**          | Visualization, simulation, DMU analysis, or digital mock-up of a geometry model.                                            | Building a complete product structure across company boundaries.                                              |
+| Feature                  | **SingleLevelSceneNode**                                                                           | **SingleLevelBOM**                                                                                            |
+|--------------------------|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| **Purpose / Function**   | Represents the **spatial and geometric structure** within a single digital twin.                   | Describes the **logical and functional product structure** (bill of materials) across multiple digital twins. |
+| **Scope / Level**        | Applies **only within one digital twin** — i.e., within its own data instance.                     | Connects **multiple digital twins** — components or assemblies across business partners.                      |
+| **Type of Relationship** | **Geometric / spatial** relationships between parts (e.g., transform, bounding volume).            | **Structural / semantic** relationships (e.g., which component belongs to which assembly).                    |
+| **Main Entity**          | `modelItems` — links to a geometry data object or group of objects.                                | `childItem` — describes the relationship between parent and child twins.                                      |                          |
+| **Linking Mechanism**    | Via `childItems`: connects **own geometries (SceneNodes)** hierarchically. No external references. | Via `childItems`: connects **different digital twins**, forming a product structure.                          |
+| **Data Content**         | geometry as data ressource, transformations, bounding volumes.                                     | Product metadata, identifiers, classifications, and references to other aspects (e.g., Part Type).            |
+| **Typical Use Case**     | Visualization, simulation, DMU analysis, or digital mock-up of a geometry model.                   | Building a complete product structure across company boundaries.                                              |
 
 ## Example Files and Understanding
 
@@ -280,34 +281,34 @@ In this example, the *Tier n* owns the bike, builds the frame, and assembles the
 flowchart LR
     subgraph Timeline [" "]
         direction LR
-        
+
         subgraph TierN ["Tier n"]
             direction LR
-            OEM1["1. Create & Publish<br/>Digital Twin<br/>• Digital Engineering Master Data<br/>• Single Level Scene Node"] 
+            OEM1["1. Create & Publish<br/>Digital Twin<br/>• Digital Engineering Master Data<br/>• Single Level Scene Node"]
             OEM1 --> OEM2["4. DMU Analysis<br/>& Feedback<br/>via semantic Models DMD and SLSN"]
             OEM2 --> OEM3["7. Final Approval in Aspect Model<br/>Combined geometry"]
         end
-        
+
         subgraph TierN1 ["Tier n+1"]
             direction LR
-            SUP1["2. Access & Analyze<br/> geometry<br/>"] 
+            SUP1["2. Access & Analyze<br/> geometry<br/>"]
             SUP1 --> SUP2["3. Create Digital Twin <br/>• SLSN & Binary Exchange<br/>• Meet Tier n constraints"]
             SUP2 --> SUP3["5. Incorporate<br/>Feedback &<br/>Design Iteration"]
             SUP3 --> SUP4["6. Publish Updated<br/>Digital Twin"]
         end
-        
+
     end
-    
+
     %% Cross-tier interactions
     OEM1 -.->|"DT Registry<br/>Access"| SUP1
     SUP2 -.->|"Provide DT<br/>for Review"| OEM2
     OEM2 -.->|"Feedback &<br/>Comments"| SUP3
     SUP4 -.->|"Updated DT<br/>Available"| OEM3
-        
+
     classDef oemStyle fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000
     classDef supStyle fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
     classDef interaction stroke:#ff6f00,stroke-width:2px,stroke-dasharray: 5 5
-    
+
     class OEM1,OEM2,OEM3 oemStyle
     class SUP1,SUP2,SUP3,SUP4 supStyle
 ```
@@ -376,7 +377,6 @@ The "Single Level Scene Node" is a core concept in the Catena-X Geometry Aspect 
 
 For full details, see the Catena-X [Geometry Standard (CX-0156)](https://github.com/catenax-eV/product-standardization-prod/blob/R25.12-release-bundle/standards/CX-0156-Geometry/CX-0156-Geometry.md).
 
-
 ### Masterdata
 
 urn:samm:io.catenax.digital_engineering_master_data:1.0.0#
@@ -385,13 +385,11 @@ The Masterdata standard (CX-0154) is essential as it provides the structured, in
 
 For full details, see the Catena-X [Masterdata Standard CX-0154](https://github.com/catenax-eV/product-standardization-prod/blob/main/standards/CX-0154-MasterDataManagement/CX-0154-MasterDataManagement.md).
 
-
 ### Digital Twin Standard
+
 The Digital Twin standard (CX-0002) is fundamental for Catena-X as it defines how assets are digitally represented, uniquely identified, and made discoverable across the network. It provides the architecture and APIs for registering, linking, and accessing digital twins and their aspects (such as 3D geometry, simulation, or master data) in a standardized, interoperable way. This enables seamless integration, traceability, and lifecycle management of 3D information and related data, forming the backbone for all data-driven collaboration and automation scenarios in the ecosystem. In the future, the 3D standard will enable Catena-X participants to communicate 3D data and information directly via digital twins, making 3D data exchange an integral part of the Catena-X dataspace.
 
 For full details, see the Catena-X [Digital Twin CX-0002](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX)
-
-
 
 ### BinaryExchange
 
@@ -401,16 +399,15 @@ The BinaryExchange aspect model is essential for standardized, secure, and inter
 
 For full details, see the Catena-X [Binary Exchange Aspect Model](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.binary_exchange/1.0.0/BinaryExchange.ttl)
 
-
 #### Media Type Types for Data Formats
 
 The Binary Exchange aspect model defines a dependency on Media Type types to describe the format of exchanged binary files. A Media Type type (Multipurpose Internet Mail Extensions type) is a standardized way to indicate the nature and format of a file, allowing systems to correctly interpret and process the data. In the context of geometry data exchange, specifying the correct Media Type type ensures that both sender and receiver understand the file format being transferred, enabling interoperability and automation.
 
-**What are Media Type types?**
+##### What are Media Type types?
 
 Media Type types are strings like `application/xml` or `model/jt` that identify the file type and its intended usage. They are widely used in web protocols, APIs, and file exchanges to signal how a file should be handled. The first part of a Media Type type indicates the general category (e.g., `application`, `model`, `image`), while the second part specifies the exact format (e.g., `step`, `jt`, `iges`).
 
-**CAD Formats Defined by IANA**
+##### CAD Formats Defined by IANA
 
 The Internet Assigned Numbers Authority (IANA) maintains a registry of official Media Type types. For an example of CAD and 3D model data, the following Media Type types are currently defined by IANA:
 
@@ -423,9 +420,10 @@ The Internet Assigned Numbers Authority (IANA) maintains a registry of official 
 
 Other formats commonly used in industry, such as native CAD formats (e.g., CATIA, NX, Creo), may not have official IANA registrations but are often used with custom or vendor-specific Media Type types. The Binary Exchange model allows for both standard and custom Media Type types to be referenced, supporting a wide range of geometry data formats in Catena-X.
 
-For a detailed overview of the supported Media Types see: https://www.iana.org/assignments/media-types/media-types.xhtml
+For a detailed overview of the supported Media Types see: <https://www.iana.org/assignments/media-types/media-types.xhtml>
 
-#### Binary vs. Encoded Data:
+#### Binary vs. Encoded Data
+
 Most aspect models, including BinaryExchange, are designed to reference or link to binary files (e.g., via a URI), not to embed the raw file content directly in the aspect payload. However, in some cases—such as for small files, or when direct embedding is required—binary data may be included as a base64-encoded string.
 
 Base64 Encoding:
@@ -436,7 +434,6 @@ The receiving system cannot handle binary payloads natively.
 There are constraints on the transport protocol (e.g., HTTP APIs that expect text).
 Interoperability and Clarity:
 The encoding method (e.g., base64) must be clearly specified in the aspect model’s schema or metadata (such as the contentType property in BinaryExchange). This ensures that all participants know how to decode and use the file data, avoiding misinterpretation or data corruption.
-
 
 ## Notice
 
