@@ -420,7 +420,7 @@ The Internet Assigned Numbers Authority (IANA) maintains a registry of official 
 
 Other formats commonly used in industry, such as native CAD formats (e.g., CATIA, NX, Creo), may not have official IANA registrations but are often used with custom or vendor-specific Media Type types. The Binary Exchange model allows for both standard and custom Media Type types to be referenced, supporting a wide range of geometry data formats in Catena-X.
 
-For a detailed overview of the supported Media Types see: <https://www.iana.org/assignments/media-types/media-types.xhtml>
+For a detailed overview of the supported Media Types, see the [official IANA registry](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 #### Binary vs. Encoded Data
 
