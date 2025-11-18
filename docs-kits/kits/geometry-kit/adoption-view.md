@@ -269,11 +269,8 @@ In short, SingleLevelSceneNode connects geometry within one digital twin, wherea
 
 The simplest example of geometry data being shared in the Catena-X ecosystem involves 2 participants. These participants are the *Tier n* and *Tier n+1*. The following example provides a guide for who owns which data and how these data are shared and used. The example consists of a bike, assembled from 2 components. A bike frame and a drive train. The geometry data for these components correspond to 2 STEP files, asm-frame.step and asm-drive.step, respectively. Both can be found in the basic-example directory of this KIT. Both can been seen rendered below.
 
-<div style="display: flex;  justify-content: center; gap: 16px; align-items: flex-start;">
-  <img src="./resources/basic-example/img/bike-frame.png" alt="Bike Frame" width="300"/>
-  <img src="./resources/basic-example/img/bike-drive-train.png" alt="Bike Drive Train" width="300"/>
-</div>
-<br>
+[![Bike Frame](./resources/basic-example/img/bike-frame.png)](./resources/basic-example/img/bike-frame.png)
+[![Bike Drive Train](./resources/basic-example/img/bike-drive-train.png)](./resources/basic-example/img/bike-drive-train.png)
 
 In this example, the *Tier n* owns the bike, builds the frame, and assembles the bike from components provided by various suppliers. Here, a single suppler is considered, *Tier n+1*, who provides the bike drive train. The diagram below depicts how the geometry data workflow between *Tier n* and *Tier n+1* could look, but it should be stressed again that this is only an example, and data sharing workflows will vary in design and complexity.
 
@@ -313,9 +310,7 @@ flowchart LR
     class SUP1,SUP2,SUP3,SUP4 supStyle
 ```
 
-<div style="text-align: center; margin: 20px 0; font-family: monospace; font-size: 16px;">
-    ─────────────────── Time ───────────────────&gt;
-</div>
+─────────────────── Time ───────────────────>
 
 Here, the workflow starts on the left and progressed to the right as a function of time.
 
@@ -333,37 +328,16 @@ Here, the workflow starts on the left and progressed to the right as a function 
 
 7. **Final Approval in Aspect Model**: Once *Tier n* is satisfied, the Digital Twin for the combined geometry can be approved. This is the last step in this example.
 
-<br>
-<div style="display: flex;  justify-content: center; gap: 16px; align-items: flex-start;">
-  <img src="./resources/basic-example/img/bike-frame-and-drive-train.png" alt="Bike frame and drive train combined" width="300"/>
-</div>
-<br>
+[![Bike frame and drive train combined](./resources/basic-example/img/bike-frame-and-drive-train.png)](./resources/basic-example/img/bike-frame-and-drive-train.png)
 
 In theory, both the *Tier n* and *Tier n+1* can view each others geometry data throughout the entire workflow, following the 1 up 1 down principal, after the initial sharing of participant's Digital Twin.
 
 #### Table of Data Ownership
 
-<br>
-<div style="display: flex;  justify-content: center; gap: 16px; align-items: flex-start;">
-<table>
-  <tr>
-    <th><strong></strong></th>
-    <th><strong>Tier n</strong></th>
-    <th><strong>Tier n+1</strong></th>
-  </tr>
-  <tr>
-    <td><strong>STEP Files</strong></td>
-    <td><a href="./resources/basic-example/STEP/asm-frame.step">asm-frame.step</a></td>
-    <td><a href="./resources/basic-example/STEP/asm-drive.step">asm-drive.step</a></td>
-  </tr>
-  <tr>
-  <td><strong>Created JSON Payloads</strong></td>
-    <td><a href="./resources/basic-example/json/slsn-frame-payload.json">slsn-frame-payload.json</a></td>
-    <td><a href="./resources/basic-example/json/slsn-drive-payload.json">slsn-drive-payload.json</a></td>
-  </tr>
-</table>
-</div>
-<br>
+| ** **                     | **Tier n**                                                                        | **Tier n+1**                                                                      |
+|---------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| **STEP Files**            | [asm-frame.step](./resources/basic-example/STEP/asm-frame.step)                   | [asm-drive.step](./resources/basic-example/STEP/asm-drive.step)                   |
+| **Created JSON Payloads** | [slsn-frame-payload.json](./resources/basic-example/json/slsn-frame-payload.json) | [slsn-drive-payload.json](./resources/basic-example/json/slsn-drive-payload.json) |
 
 The table above summarizes who owns which data throughout the progression of the workflow.
 
