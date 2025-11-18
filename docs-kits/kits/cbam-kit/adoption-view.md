@@ -1619,6 +1619,13 @@ If discrepancies are found—such as unknown locations, incorrect location names
 -	No standards available
 
 
+### NOTICE
+This work is licensed under the CC-BY-4.0.
+
+- Copyright (c) 2025 BASF SE
+- Copyright (c) 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- Copyright (c) 2025 SAP SE
+- Copyright (c) 2025 Siemens AG
 
 
 
