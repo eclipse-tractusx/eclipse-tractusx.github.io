@@ -334,7 +334,7 @@ In theory, both the *Tier n* and *Tier n+1* can view each others geometry data t
 
 #### Table of Data Ownership
 
-| ** **                     | **Tier n**                                                                        | **Tier n+1**                                                                      |
+|                           | **Tier n**                                                                        | **Tier n+1**                                                                      |
 |---------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | **STEP Files**            | [asm-frame.step](./resources/basic-example/STEP/asm-frame.step)                   | [asm-drive.step](./resources/basic-example/STEP/asm-drive.step)                   |
 | **Created JSON Payloads** | [slsn-frame-payload.json](./resources/basic-example/json/slsn-frame-payload.json) | [slsn-drive-payload.json](./resources/basic-example/json/slsn-drive-payload.json) |
