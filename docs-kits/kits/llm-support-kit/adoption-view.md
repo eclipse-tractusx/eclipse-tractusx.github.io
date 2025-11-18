@@ -38,19 +38,19 @@ These contributions bring interoperability and governance to participants' AI sy
 
 The integration of Catena-X, a globally trusted collaborative data ecosystem, with AI systems brings trust to AI systems.
 *EDC's* robust participant identity verification mechanism makes it difficult for malicious actors to engage with the ecosystem surrounding the AI system.
-It reduces the cost for business units to verify the trustworthiness of AI system providers when considering the use of external AI systems.
-It also reduces the security measures costs for business units when exposing AI systems externally.
+It reduces the cost for business as well as academic organizations to verify the trustworthiness of AI system providers when considering the use of external AI systems.
+It also reduces the security measures costs for business as well as academic organizations when exposing AI systems externally.
 
 ### Interoperability
 
 *EDC's* *Asset* representation capabilities possess sufficient flexibility to express AI systems with diverse forms.
-While this flexibility enables acceptance of various systems, it also permits multiple representations for AI systems of the same form. This can sometimes make it difficult for business units searching for external AI systems to correctly identify them.
+While this flexibility enables acceptance of various systems, it also permits multiple representations for AI systems of the same form. This can sometimes make it difficult for business as well as academic organizations searching for external AI systems to correctly identify them.
 Standardizing the notation of AI systems enables interoperability, allowing business units to quickly discover suitable AI systems from the vast and diverse array of external AI systems.
 
 ### Risk Avoidance
 
-Business units considering AI system adoption must address AI-specific considerations, including compliance with AI-related laws, regulations, and guidelines such as the AI Act.
-While thoroughly researching all relevant laws and guidelines is essential for risk mitigation, it represents a significant cost for business units.
+Business units considering AI system adoption must address AI-specific considerations, including compliance with AI-related laws, regulations, and guidelines such as the EU AI Act.
+While thoroughly researching all relevant laws and guidelines is essential for risk mitigation, it represents a significant cost for business as well as academic organizations.
 Standardizing *Usage policy* for AI systems reduces the cost for each company's business units to research AI-specific considerations and facilitates the adoption of AI systems in business use cases involving multiple companies, such as supply chains.
 
 ## Use Case
