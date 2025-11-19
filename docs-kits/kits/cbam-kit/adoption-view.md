@@ -29,7 +29,7 @@ Catena-X provides a reliable, standardized data infrastructure that enables indu
 - Facilitate recognition of foreign carbon pricing schemes, promoting fair treatment of non-EU producers.
 - Facilitate strategic decision-making by providing actionable insights into emissions hotspots, cost implications, and optimization opportunities within the supply chain.
 
-<https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en>
+[Carbon Border Adjustment Mechanism](https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en>)
 
 ### Business Process
 
@@ -1638,7 +1638,7 @@ If discrepancies are found—such as unknown locations, incorrect location names
 
 ### Standards
 
-- Legal base: [CBAM Guidance and Legislation - Taxation and Customs Union] <https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-guidance-and-legislation_en>
+- Legal base: [CBAM Guidance and Legislation - Taxation and Customs Union](<https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-guidance-and-legislation_en>)
 - No standards available
 
 ### NOTICE
@@ -1649,3 +1649,4 @@ This work is licensed under the CC-BY-4.0.
 - Copyright (c) 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 - Copyright (c) 2025 SAP SE
 - Copyright (c) 2025 Siemens AG
+
