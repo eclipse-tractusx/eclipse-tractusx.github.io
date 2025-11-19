@@ -2,8 +2,6 @@
 title: Adoption View
 ---
 
-![Cbam kit banner](@site/static/img/kits/circularity/cbam-kit-logo.svg)
-
 #### Introduction
 
 The steady advance of climate change is a global problem that requires global solutions. In view of the fact that the EU has set itself very high climate targets, which are constantly being increased, and that many non-EU countries have less stringent climate policies, there is a risk of carbon leakage. This occurs when companies based in the EU relocate their carbon-intensive production to countries with less stringent climate protection measures than in the EU, or when EU products are replaced by more carbon-intensive imports.
@@ -1651,3 +1649,4 @@ This work is licensed under the CC-BY-4.0.
 - Copyright (c) 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 - Copyright (c) 2025 SAP SE
 - Copyright (c) 2025 Siemens AG
+
