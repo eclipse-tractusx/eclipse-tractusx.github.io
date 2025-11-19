@@ -174,7 +174,7 @@ The relevant standards can be found in the [Catena-X Association Standard Librar
 - [CX-0122 Item Stock Exchange 2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0122-ItemStockExchange)
 - [CX-0145 Days of Supply Exchange 1.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0145-DaysofsupplyExchange)
 
-## Notice
+## NOTICE
 
 This work is licensed under the CC-BY-4.0
 
@@ -184,3 +184,4 @@ This work is licensed under the CC-BY-4.0
 - SPDX-FileCopyrightText: 2024 ISTOS GmbH (a member of the DMG Mori Group)
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-25.06/kits/puris-kit/adoption-view.md

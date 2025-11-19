@@ -152,7 +152,7 @@ It is recommended to use the following values for rightOperand of `FrameworkAgre
 
 More information can be found in the [Policies in Catena-X of the Connector KIT](./../../connector-kit/adoption-view/policies-in-catena.md).
 
-## Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -174,3 +174,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH
 - SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-25.09/kits/supply-chain-disruption-notification-kit/software-development-view/policies.md

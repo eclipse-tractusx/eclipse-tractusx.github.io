@@ -176,7 +176,7 @@ The relevant standards can be found in the [Catena-X Association Standard Librar
 - [CX-0122 Item Stock Exchange 2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0122-ItemStockExchange)
 - [CX-0145 Days of Supply Exchange 1.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0145-DaysofsupplyExchange)
 
-## Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -190,3 +190,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
 - SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/puris-kit/adoption-view/adoption-view.md

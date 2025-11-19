@@ -279,7 +279,7 @@ pie
 <strong>Over 50% of the companies indicated they would use PURIS in a proactive way,</strong> underscoring the strong interest and confidence in its capabilities. With PURIS, the overall efficiency will be significantly improved. For addressing shortages, applying PURIS is seen as a quick win since it can be seamlessly integrated with existing processes.
 </blockquote>
 
-## Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -291,3 +291,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
 - SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/puris-kit/adoption-view/business-value.md

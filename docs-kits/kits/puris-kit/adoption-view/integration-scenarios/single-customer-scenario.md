@@ -21,7 +21,7 @@ Although there is no physical separation in production in the second scenario, s
 
 As a result, PURIS can be implemented more quickly and with lower integration effort in such scenarios, making it an ideal starting point for pilot projects or initial rollouts.
 
-## Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -33,3 +33,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
 - SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/puris-kit/adoption-view/integration-scenarios/single-customer-scenario.md

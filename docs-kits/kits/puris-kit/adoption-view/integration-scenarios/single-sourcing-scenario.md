@@ -19,7 +19,7 @@ Even in cases where materials are processed together with others in production, 
 
 Figure 1: *Graphical representation of single sourcing scenario*
 
-## Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -31,3 +31,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
 - SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/puris-kit/adoption-view/integration-scenarios/single-sourcing-scenario.md

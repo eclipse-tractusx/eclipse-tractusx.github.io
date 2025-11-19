@@ -17,7 +17,7 @@ Figure 1 and 2: *Customer multi sourcing scenarios*
 
 In practice, this means that demand planning and inventory management are handled jointly, making it infeasible to assign data to a specific supplier context. Nevertheless, the data exchanged using this KIT must still be prepared and structured in a way that complies with applicable legal, regulatory, and contractual requirements — even if a clear technical separation is not possible.
 
-## Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -29,3 +29,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
 - SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/puris-kit/adoption-view/integration-scenarios/multi-sourcing-scenario.md

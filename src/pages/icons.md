@@ -30,3 +30,11 @@ In this page you'll be able to find a collection of all the authorized icons use
 |![open source v3](@site/static/icons/Icon_Open_Source_V3.svg) |Open Source V3| `https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/icons/Icon_Open_Source_V3.svg?raw=true`|
 |![unique data v1](@site/static/icons/Icon_Unique_Data_V1.svg) |Unique Data V1| `https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/icons/Icon_Unique_Data_V1.svg?raw=true`|
 |![unique data v2](@site/static/icons/Icon_Unique_Data_V2.svg) |Unique Data V2| `https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/icons/Icon_Unique_Data_V2.svg?raw=true`|
+
+## NOTICE
+
+This work is licensed under the CC-BY-4.0
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/src/pages/icons.md

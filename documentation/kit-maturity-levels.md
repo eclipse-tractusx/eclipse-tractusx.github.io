@@ -136,3 +136,11 @@ Gathered information thus far. A presentation of the main points validating the 
 ### Step 7: Validation
 
 ### Step 8: Publication
+
+## NOTICE
+
+This work is licensed under the CC-BY-4.0
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation/kit-maturity-levels.md

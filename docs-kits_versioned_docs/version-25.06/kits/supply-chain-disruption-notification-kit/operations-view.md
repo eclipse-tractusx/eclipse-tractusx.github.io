@@ -21,7 +21,7 @@ To run a test scenario locally, follow the [local testing and development guide]
 
 A guide to run the integration tests is found [here](https://github.com/eclipse-tractusx/puris/blob/29a20f9ea38e1eb54a9d9c938b94b57dfc898c32/local/postman/README.md).
 
-## Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -39,3 +39,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-25.06/kits/supply-chain-disruption-notification-kit/operations-view.md

@@ -68,7 +68,7 @@ All notable changes to this Kit will be documented in this file.
 
 - ./.
 
-## Notice
+## NOTICE
 
 This work is licensed under the CC-BY-4.0
 
@@ -78,3 +78,4 @@ This work is licensed under the CC-BY-4.0
 - SPDX-FileCopyrightText: 2024 ISTOS GmbH (a member of the DMG Mori Group)
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-24.12/kits/puris-kit/changelog.md

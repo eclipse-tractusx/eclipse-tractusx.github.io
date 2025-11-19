@@ -81,7 +81,7 @@ All notable changes to this KIT will be documented in this file.
 
 - ./.
 
-## Notice
+## NOTICE
 
 This work is licensed under the CC-BY-4.0
 
@@ -95,3 +95,4 @@ This work is licensed under the CC-BY-4.0
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
 - SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-25.09/kits/puris-kit/changelog.md
