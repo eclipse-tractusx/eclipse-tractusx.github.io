@@ -331,6 +331,10 @@ const config = {
                 label: 'Environmental and Social Standards',
               },
               {
+                to: '/docs-kits/next/kits/geometry-kit/adoption-view',
+                label: 'Geometry',
+              },
+              {
                 to: '/docs-kits/kits/industry-core-kit/adoption-view',
                 label: 'Industry Core',
               },
