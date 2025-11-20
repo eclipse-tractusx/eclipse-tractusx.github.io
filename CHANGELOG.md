@@ -1,9 +1,36 @@
 # Changelog
 
-All notable changes to the Eclipse Tractus-X KIT Documentation will be documented in this file.
+All notable changes to the Eclipse Tractus-X Webpage will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased] - 2025-11-20
+
+### Added
+
+#### New Components
+
+- **DataspaceComponent** (`/src/components/DataspaceComponent/`)
+  - Created new dataspace showcase carousel component
+  - Displays all dataspaces from industries with kit counts
+  - Features sophisticated 4-layer hover effect with color cascade animation
+  - Dual routing: card click navigates to dataspace KITs page, button opens external website
+  - Responsive design with carousel on desktop and stacked cards on mobile/tablet
+  - Grid-based layout using MUI Grid for better responsiveness
+  - Custom navigation arrows with glow effects
+  - Integrated into Kits page as new section
+
+#### Component Features
+
+- **DataspaceComponent Styling** (`styles.module.scss`)
+  - Square cards (250x250px) with dark background (#1e1e1e)
+  - 4-layer color system using dataspace-specific colors from kitsData
+  - Cascade animation on hover (layers translate top-right with staggered delays)
+  - Fast open (0.25s) and slow close (0.5s) animation timing
+  - Responsive breakpoints at 1200px, 900px, 768px, and 600px
+  - Centered text and cards on screens below 1200px
+  - Mobile-optimized with proper margins and padding
 
 ## [Unreleased] - 2025-11-11
 
