@@ -1,17 +1,17 @@
 ---
 id: changelog
 title: Changelog
-description:  LLM Support KIT
+description:  AI Service KIT
 ---
 
 <div style={{display:'block'}}>
   <div style={{display:'inline-block', verticalAlign:'top'}}>
 
-![LLM Support KIT banner]()
+![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-logo.svg)
 
   </div>
   <div style={{display:'inline-block', fontSize:17, color:'rgb(255,166,1)', marginLeft:7, verticalAlign:'top', paddingTop:6}}>
-LLM Support KIT
+AI Service KIT
   </div>
 </div>
 
@@ -21,7 +21,7 @@ LLM Support KIT
 
 #### GENERAL KIT
 
-- Initial version of the LLM Support KIT.
+- Initial version of the AI Service KIT.
 
 <!-- #### USE CASES -->
 
