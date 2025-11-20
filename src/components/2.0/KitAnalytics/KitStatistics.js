@@ -18,7 +18,7 @@
  */
 
 import React from 'react';
-import { kitsData, dataspaces } from '../../../../data/kitsData.js';
+import { kitsData, industries } from '../../../../data/kitsData.js';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import SchoolIcon from '@mui/icons-material/School';
 import CachedIcon from '@mui/icons-material/Cached';
@@ -33,7 +33,7 @@ import EventIcon from '@mui/icons-material/Event';
 
 import StatCard from './StatCard.js';
 import ProgressBar from './ProgressBar.js';
-import DataspaceDistribution from './DataspaceDistribution.js';
+import IndustryDistribution from './IndustryDistribution.js';
 import MaturityTimeline from './MaturityTimeline.js';
 import QuarterlyTrends from './QuarterlyTrends.js';
 import IncubatingKitsReview from './IncubatingKitsReview.js';
@@ -48,16 +48,16 @@ export const KitStatistics = () => {
   const industryCoreKits = [...(kitsData.industryCoreFoundation || [])];
   const useCaseKits = [...(kitsData.useCases || [])];
   
-  const dataspaceSpecificKits = [];
-  if (kitsData.dataspaceKits) {
-    Object.values(kitsData.dataspaceKits).forEach(kitsArray => {
+  const industrySpecificKits = [];
+  if (kitsData.industryKits) {
+    Object.values(kitsData.industryKits).forEach(kitsArray => {
       if (Array.isArray(kitsArray)) {
-        dataspaceSpecificKits.push(...kitsArray);
+        industrySpecificKits.push(...kitsArray);
       }
     });
   }
 
-  const allKits = [...foundationKits, ...industryCoreKits, ...useCaseKits, ...dataspaceSpecificKits];
+  const allKits = [...foundationKits, ...industryCoreKits, ...useCaseKits, ...industrySpecificKits];
 
   // Calculate statistics
   const totalKits = allKits.length;
@@ -66,7 +66,7 @@ export const KitStatistics = () => {
   const sandboxKits = allKits.filter(kit => kit.maturity?.currentLevel === 'Sandbox').length;
   const deprecatedKits = allKits.filter(kit => kit.deprecated).length;
   const newKits = allKits.filter(kit => kit.metadata?.new).length;
-  const totalDataspaces = dataspaces.length;
+  const totalIndustries = industries.length;
 
   // Review and Progress Statistics
   const kitsInReview = allKits.filter(kit => 
@@ -180,8 +180,8 @@ export const KitStatistics = () => {
           trend={null}
         />
         <StatCard 
-          title="Dataspaces" 
-          value={totalDataspaces} 
+          title="Industries" 
+          value={totalIndustries} 
           subtitle="Active ecosystems"
           IconComponent={PublicIcon} 
           color="#ec4899"
@@ -250,7 +250,7 @@ export const KitStatistics = () => {
         marginBottom: '40px' 
       }}>
         <div className={styles.chartsGrid}>
-          <DataspaceDistribution />
+          <IndustryDistribution />
           <MaturityTimeline styles={styles} />
         </div>
         
@@ -313,7 +313,7 @@ export const KitStatistics = () => {
       }}>
         <h4 style={{ marginBottom: '20px' }}>KITs by Category</h4>
         <ProgressBar 
-          label="Dataspace Foundation" 
+          label="Industry Foundation" 
           value={foundationKits.length} 
           total={totalKits} 
           color="#64748b" 
@@ -325,14 +325,14 @@ export const KitStatistics = () => {
           color="#3b82f6" 
         />
         <ProgressBar 
-          label="Cross Dataspace Use Cases" 
+          label="Cross-Industry Use Cases" 
           value={useCaseKits.length} 
           total={totalKits} 
           color="#059669" 
         />
         <ProgressBar 
-          label="Dataspace Specific" 
-          value={dataspaceSpecificKits.length} 
+          label="Industry Specific" 
+          value={industrySpecificKits.length} 
           total={totalKits} 
           color="#7c2d92" 
         />

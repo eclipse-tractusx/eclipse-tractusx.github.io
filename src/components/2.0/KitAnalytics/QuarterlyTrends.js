@@ -27,8 +27,8 @@ export const QuarterlyTrends = ({ styles }) => {
     ...(kitsData.useCases || [])
   ];
 
-  if (kitsData.dataspaceKits) {
-    Object.values(kitsData.dataspaceKits).forEach(kitsArray => {
+  if (kitsData.industryKits) {
+    Object.values(kitsData.industryKits).forEach(kitsArray => {
       if (Array.isArray(kitsArray)) {
         allKits.push(...kitsArray);
       }
