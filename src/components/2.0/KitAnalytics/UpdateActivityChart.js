@@ -36,8 +36,8 @@ export const UpdateActivityChart = ({ styles }) => {
     ...(kitsData.useCases || [])
   ];
 
-  if (kitsData.dataspaceKits) {
-    Object.values(kitsData.dataspaceKits).forEach(kitsArray => {
+  if (kitsData.industryKits) {
+    Object.values(kitsData.industryKits).forEach(kitsArray => {
       if (Array.isArray(kitsArray)) {
         allKits.push(...kitsArray);
       }
@@ -46,7 +46,7 @@ export const UpdateActivityChart = ({ styles }) => {
 
   // Determine category based on KIT source and create proper mapping
   const getCategoryFromKit = (kit) => {
-    // Check if kit is in dataspace foundation
+    // Check if kit is in Dataspace Foundation
     if (kitsData.dataspaceFoundation && kitsData.dataspaceFoundation.includes(kit)) {
       return 'Dataspace Foundation';
     }
@@ -58,11 +58,11 @@ export const UpdateActivityChart = ({ styles }) => {
     if (kitsData.useCases && kitsData.useCases.includes(kit)) {
       return 'Use Cases';
     }
-    // Check if kit is in dataspace specific kits
-    if (kitsData.dataspaceKits) {
-      for (const [dataspaceKey, kitsArray] of Object.entries(kitsData.dataspaceKits)) {
+    // Check if kit is in industry specific kits
+    if (kitsData.industryKits) {
+      for (const [industryKey, kitsArray] of Object.entries(kitsData.industryKits)) {
         if (Array.isArray(kitsArray) && kitsArray.includes(kit)) {
-          return 'Dataspace Specific';
+          return 'Industry Specific';
         }
       }
     }
@@ -114,7 +114,7 @@ export const UpdateActivityChart = ({ styles }) => {
     'Dataspace Foundation': '#64748b',
     'Industry Core Foundation': '#3b82f6', 
     'Use Cases': '#059669',
-    'Dataspace Specific': '#7c2d92',
+    'Industry Specific': '#7c2d92',
     'Unknown': '#d97706'
   };
 
