@@ -19,6 +19,8 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
+import React from 'react';
+
 
 /*
 
@@ -45,7 +47,8 @@ For each KIT the information model is the following:
         deprecatedAt: '<YYYY-MM-DD>'  // only if the kit is deprecated
       },
       deprecated: <status boolean  true|false >
-      dataspaces: [<list of dataspaces where the kit is used>],
+      domain: '<domain category>' // Only for use case KITs (e.g., 'Sustainability', 'Engineering', 'Supply Chain', 'Quality', 'Production')
+      industries: [<list of industries where the kit is used>], // Optional for foundation KITs, available for use case KITs
       description: '<kit description>',
       metadata: {
         created: '<YYYY-MM-DD>',
@@ -85,9 +88,16 @@ import BehaviorTwinKitLogo from "@site/static/img/kits/behavior-twin/behavior-tw
 import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-kit-raw-logo.svg";
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
 
+// Import Material-UI icons for industries
+import DirectionsCar from '@mui/icons-material/DirectionsCar';
+import PrecisionManufacturing from '@mui/icons-material/PrecisionManufacturing';
+import Memory from '@mui/icons-material/Memory';
+import ApartmentIcon from '@mui/icons-material/Apartment';
+import Science from '@mui/icons-material/Science';
+
 // Categories with their corresponding CSS class names and colors
 
-// Kit data with their respective logos, routes, dataspaces, and descriptions
+// Kit data with their respective logos, routes, industries, and descriptions
 export const kitsData = {
   dataspaceFoundation: [
     {
@@ -106,7 +116,7 @@ export const kitsData = {
         graduatedAt: '2024-06-07'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
+      domain: "Enablement Service",
       description: 'The EDC as a connector implements a framework agreement for sovereign, cross-organizational data exchange.',
       metadata: {
         created: '2022-08-01',
@@ -132,7 +142,7 @@ export const kitsData = {
         deprecatedAt: '2025-11-13'
       },
       deprecated: true,
-      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
+      domain: "Governance",
       description: 'Enable and simplify data governance.',
       metadata: {
         created: '2024-03-08',
@@ -157,7 +167,7 @@ export const kitsData = {
         graduationStatus: 'in progress'
       },
       deprecated: false,
-      dataspaces: ['Catena-X'],
+      domain: "Security",
       description: 'Enable content validation, certification and verification for any use case semantic data.',
       metadata: {
         created: '2025-09-30',
@@ -182,37 +192,12 @@ export const kitsData = {
         graduatedAt: '2025-09-08'
       },
       deprecated: false,
-      dataspaces: ['Catena-X','Construct-X'],
+      domain: "Participant Management",
       description: 'Get high-quality data business partner data records including the unique identifier.',
       metadata: {
         created: '2023-03-01',
         lastUpdated: '2025-09-08',
         latestVersion: '10.0.0',
-        new: false
-      }
-    },
-    {
-      id: 'agents',
-      name: 'KNOWLEDGE AGENTS KIT',
-      logo: AgentsKitLogo,
-      logoHeight: 80,
-      logoWidth: 80,
-      route: '/docs-kits/kits/knowledge-agents-kit/adoption-view/intro',
-      colors: {
-        primary: '#2718FA',
-        gradient: 'linear-gradient(135deg, #3372CC 0%, #2718FA 100%)'
-      },
-      maturity: {
-        currentLevel: 'Incubating',
-        graduationStatus: 'draft'
-      },
-      deprecated: false,
-      dataspaces: ['Catena-X'],
-      description: 'Generate Knowledge from Data. Scalable & Efficient Semantic Dataspace Federation.',
-      metadata: {
-        created: '2023-09-04',
-        lastUpdated: '2024-12-09',
-        latestVersion: '1.3.0',
         new: false
       }
     }
@@ -234,7 +219,7 @@ export const kitsData = {
         graduatedAt: '2024-08-01'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
+      domain: "Enablement Service",
       description: 'Digital Twins enable data-level interoperability - even between parties previously unknown to each other.',
       metadata: {
         created: '2023-07-12',
@@ -259,7 +244,7 @@ export const kitsData = {
         graduatedAt: '2025-03-17'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Semiconductor-X', 'Construct-X'],
+      domain: "Use Case Platform",
       description: 'Connceting Use-Cases with Core Services',
       metadata: {
         created: '2024-02-28',
@@ -284,37 +269,12 @@ export const kitsData = {
         graduatedAt: '2024-03-07'
       },
       deprecated: false,
-      dataspaces: ['Catena-X'],
+      domain: "Traceability",
       description: 'Data Chain KIT is made for apps and services to access connected data distributed between organizations.',
       metadata: {
         created: '2023-03-01',
         lastUpdated: '2024-05-28',
         latestVersion: '3.0.1',
-        new: false
-      }
-    },
-    {
-      id: 'data-driven-quality',
-      name: 'DATA DRIVEN QUALITY KIT',
-      logo: DataDrivenQualityLogo,
-      logoHeight: 120,
-      logoWidth: 120,
-      route: '/docs-kits/kits/data-driven-quality-management-kit/adoption-view',
-      colors: {
-        primary: '#EE6A28',
-        gradient: 'linear-gradient(135deg, #FFBD59 0%, #EE6A28 100%)'
-      },
-      maturity: {
-        currentLevel: 'Incubating',
-        graduationStatus: 'in review'
-      },
-      deprecated: false,
-      dataspaces: ['Catena-X'],
-      description: 'Data driven quality management enables data provider and consumer to exchange and analyse existing data across company boundaries.',
-      metadata: {
-        created: '2023-08-18',
-        lastUpdated: '2025-04-23',
-        latestVersion: '2.0.0',
         new: false
       }
     },
@@ -334,7 +294,7 @@ export const kitsData = {
         graduatedAt: '2024-12-01'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X'],
+      domain: "Traceability",
       description: 'Trace parts and materials across the entire value chain to enable data driven use cases over all n-tier levels.',
       metadata: {
         created: '2023-04-12',
@@ -344,30 +304,55 @@ export const kitsData = {
       }
     },
     {
-      id: 'behavior-twin',
-      name: 'BEHAVIOUR TWIN KIT',
-      logo: BehaviorTwinKitLogo,
+      id: 'supply-chain-disruption',
+      name: 'SUPPLY CHAIN DISRUPTION NOTIFICATION KIT',
+      logo: SupplyChainDisruptionLogo,
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
+      colors: {
+        primary: '#9653ED',
+        gradient: 'linear-gradient(135deg, #E5CCFF 0%, #9653ED 100%)'
+      },
+      maturity: {
+        currentLevel: 'Graduated',
+        graduatedAt: '2025-08-22'
+      },
+      deprecated: false,
+      domain: 'Supply Chain',
+      description: 'Inform partners about disruptions in the supply chain.',
+      metadata: {
+        created: '2024-08-01',
+        lastUpdated: '2025-08-22',
+        latestVersion: '2.0.0',
+        new: false
+      }
+    },
+    {
+      id: 'agents',
+      name: 'KNOWLEDGE AGENTS KIT',
+      logo: AgentsKitLogo,
       logoHeight: 80,
       logoWidth: 80,
-      route: '/docs-kits/kits/behaviour-twin-kit/overview',
+      route: '/docs-kits/kits/knowledge-agents-kit/adoption-view/intro',
       colors: {
-        primary: '#FFA601',
-        gradient: 'linear-gradient(135deg, #FFC357 0%, #FFA601 100%)'
+        primary: '#2718FA',
+        gradient: 'linear-gradient(135deg, #3372CC 0%, #2718FA 100%)'
       },
       maturity: {
         currentLevel: 'Incubating',
-        graduationStatus: 'in progress'
+        graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X'],
-      description: 'Maximize the potential of usage data through calculation services and simulations.',
+      domain: "Enablement Service",
+      description: 'Generate Knowledge from Data. Scalable & Efficient Semantic Dataspace Federation.',
       metadata: {
-        created: '2024-05-16',
-        lastUpdated: '2024-05-21',
-        latestVersion: '1.0.0',
+        created: '2023-09-04',
+        lastUpdated: '2024-12-09',
+        latestVersion: '1.3.0',
         new: false
       }
-    }
+    },
   ],
   useCases: [
     {
@@ -386,8 +371,9 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Construct-X'],
-      description: 'Environmental and Social Standards Incident Management KIT',
+      domain: 'Sustainability',
+      industries: ['automotive', 'construction'],
+      description: 'Environmental and Social Standards Incident Management in supply chains.',
       metadata: {
         created: '2024-03-06',
         lastUpdated: '2024-07-11',
@@ -411,7 +397,8 @@ export const kitsData = {
         graduatedAt: '2024-08-05'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Factory-X', 'Construct-X', 'Semiconductor-X'],
+      domain: 'Sustainability',
+      industries: ['automotive', 'shop-floor', 'construction', 'semiconductor'],
       description: 'Product-specific CO2 footprint.',
       metadata: {
         created: '2023-08-23',
@@ -436,7 +423,8 @@ export const kitsData = {
         graduationStatus: 'in review'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Factory-X', 'Construct-X'],
+      domain: 'Sustainability',
+      industries: ['automotive', 'shop-floor', 'construction'],
       description: 'Leverage the transparency of digital product passports to strengthen sustainability & compliance.',
       metadata: {
         created: '2023-08-11',
@@ -461,37 +449,13 @@ export const kitsData = {
         graduationStatus: 'in review'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Factory-X'],
+      domain: 'Sustainability',
+      industries: ['automotive', 'shop-floor'],
       description: 'Enable circular economy business models with data exchange across company boundaries.',
       metadata: {
         created: '2023-12-08',
         lastUpdated: '2024-09-17',
         latestVersion: '1.3.0',
-        new: false
-      }
-    },
-    {
-      id: 'puris',
-      name: 'PURIS KIT',
-      logo: PurisKitLogo,
-      logoHeight: 80,
-      logoWidth: 80,
-      route: '/docs-kits/kits/puris-kit/adoption-view',
-      colors: {
-        primary: '#A159FF',
-        gradient: 'linear-gradient(135deg, #E5CCFF 0%, #A159FF 100%)'
-      },
-      maturity: {
-        currentLevel: 'Graduated',
-        graduatedAt: '2025-08-16'
-      },
-      deprecated: false,
-      dataspaces: ['Catena-X'],
-      description: 'Predictive Unit Realtime Information Service',
-      metadata: {
-        created: '2023-11-29',
-        lastUpdated: '2025-08-16',
-        latestVersion: '0.4.0',
         new: false
       }
     },
@@ -511,7 +475,8 @@ export const kitsData = {
         graduatedAt: '2025-09-29'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Semiconductor-X'],
+      domain: 'Supply Chain',
+      industries: ['automotive', 'semiconductor'],
       description: 'Quick build of solutions for companies of any size to engage a collaborative capacity management.',
       metadata: {
         created: '2023-03-01',
@@ -536,37 +501,13 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X', 'Construct-X'],
+      domain: 'Supply Chain',
+      industries: ['automotive', 'construction'],
       description: 'Provide packing information, transport data and customs topics.',
       metadata: {
         created: '2025-02-12',
         lastUpdated: '2025-02-12',
         latestVersion: '1.0.0',
-        new: false
-      }
-    },
-    {
-      id: 'supply-chain-disruption',
-      name: 'SUPPLY CHAIN DISRUPTION NOTIFICATION KIT',
-      logo: SupplyChainDisruptionLogo,
-      logoHeight: 100,
-      logoWidth: 100,
-      route: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
-      colors: {
-        primary: '#9653ED',
-        gradient: 'linear-gradient(135deg, #E5CCFF 0%, #9653ED 100%)'
-      },
-      maturity: {
-        currentLevel: 'Graduated',
-        graduatedAt: '2025-08-22'
-      },
-      deprecated: false,
-      dataspaces: ['Catena-X', 'Factory-X'],
-      description: 'Inform partners about disruptions in the supply chain.',
-      metadata: {
-        created: '2024-08-01',
-        lastUpdated: '2025-08-22',
-        latestVersion: '2.0.0',
         new: false
       }
     },
@@ -586,7 +527,8 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X'],
+      domain: 'Supply Chain',
+      industries: ['automotive'],
       description: 'Basis for a more efficient customs process and ensure a robust preference calculation result.',
       metadata: {
         created: '2025-02-25',
@@ -611,12 +553,39 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X'],
+      domain: 'Supply Chain',
+      industries: ['automotive'],
       description: 'Gain increased supply chain transparency through collaborative simulation across all stakeholders.',
       metadata: {
         created: '2023-08-18',
         lastUpdated: '2025-03-06',
         latestVersion: '3.1.0',
+        new: false
+      }
+    },
+    {
+      id: 'puris',
+      name: 'PURIS KIT',
+      logo: PurisKitLogo,
+      logoHeight: 80,
+      logoWidth: 80,
+      route: '/docs-kits/kits/puris-kit/adoption-view',
+      colors: {
+        primary: '#A159FF',
+        gradient: 'linear-gradient(135deg, #E5CCFF 0%, #A159FF 100%)'
+      },
+      maturity: {
+        currentLevel: 'Graduated',
+        graduatedAt: '2025-08-16'
+      },
+      deprecated: false,
+      domain: 'Supply Chain',
+      industries: ['automotive'],
+      description: 'Predictive Unit Realtime Information Service',
+      metadata: {
+        created: '2023-11-29',
+        lastUpdated: '2025-08-16',
+        latestVersion: '0.4.0',
         new: false
       }
     },
@@ -636,12 +605,65 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X'],
+      domain: 'Engineering',
+      industries: ['automotive'],
       description: 'Federated simulation and data processing.',
       metadata: {
         created: '2023-12-08',
         lastUpdated: '2024-05-27',
         latestVersion: '1.0.0',
+        new: false
+      }
+    },
+    {
+      id: 'behavior-twin',
+      name: 'BEHAVIOUR TWIN KIT',
+      logo: BehaviorTwinKitLogo,
+      logoHeight: 80,
+      logoWidth: 80,
+      route: '/docs-kits/kits/behaviour-twin-kit/overview',
+      colors: {
+        primary: '#FFA601',
+        gradient: 'linear-gradient(135deg, #FFC357 0%, #FFA601 100%)'
+      },
+      maturity: {
+        currentLevel: 'Incubating',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: "Simulations",
+      industries: ['automotive'],
+      description: 'Maximize the potential of usage data through calculation services and simulations.',
+      metadata: {
+        created: '2024-05-16',
+        lastUpdated: '2024-05-21',
+        latestVersion: '1.0.0',
+        new: false
+      }
+    },
+    {
+      id: 'data-driven-quality',
+      name: 'DATA DRIVEN QUALITY KIT',
+      logo: DataDrivenQualityLogo,
+      logoHeight: 120,
+      logoWidth: 120,
+      route: '/docs-kits/kits/data-driven-quality-management-kit/adoption-view',
+      colors: {
+        primary: '#EE6A28',
+        gradient: 'linear-gradient(135deg, #FFBD59 0%, #EE6A28 100%)'
+      },
+      maturity: {
+        currentLevel: 'Incubating',
+        graduationStatus: 'in review'
+      },
+      deprecated: false,
+      domain: 'Quality',
+      industries: ['automotive'],
+      description: 'Data driven quality management enables data provider and consumer to exchange and analyse existing data across company boundaries.',
+      metadata: {
+        created: '2023-08-18',
+        lastUpdated: '2025-04-23',
+        latestVersion: '2.0.0',
         new: false
       }
     },
@@ -661,7 +683,8 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      dataspaces: ['Catena-X'],
+      domain: 'Engineering',
+      industries: ['automotive'],
       description: 'Cross company requirements management to enable quick information access and multiple company collaboration.',
       metadata: {
         created: '2025-09-29',
@@ -669,33 +692,38 @@ export const kitsData = {
         latestVersion: '0.1.0',
         new: true
       }
-    },
-    {
-      id: 'maas',
-      name: 'MANUFACTURING AS A SERVICE KIT',
-      logo: MaaSKitLogo,
-      logoHeight: 100,
-      logoWidth: 100,
-      route: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
-      colors: {
-        primary: '#A098A4',
-        gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
+    }
+  ],
+  // List here the industry-specific KITs (will not be shown in the cross-industry use cases gallery)
+  industryKits: {
+    "shop-floor": [
+      {
+        id: 'maas',
+        name: 'MANUFACTURING AS A SERVICE KIT',
+        logo: MaaSKitLogo,
+        logoHeight: 100,
+        logoWidth: 100,
+        route: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
+        colors: {
+          primary: '#A098A4',
+          gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Production',
+        industries: ['automotive', 'shop-floor'],
+        description: 'Create a federated network of networks to connect manufacturing supply and demand.',
+        metadata: {
+          created: '2024-03-29',
+          lastUpdated: '2024-05-27',
+          latestVersion: '1.0.0',
+          new: false
+        }
       },
-      maturity: {
-        currentLevel: 'Sandbox',
-        graduationStatus: 'draft'
-      },
-      deprecated: false,
-      dataspaces: ['Catena-X', 'Factory-X'],
-      description: 'Create a federated network of networks to connect manufacturing supply and demand.',
-      metadata: {
-        created: '2024-03-29',
-        lastUpdated: '2024-05-27',
-        latestVersion: '1.0.0',
-        new: false
-      }
-    },
-    {
+      {
         id: 'modular-production',
         name: 'MODULAR PRODUCTION KIT',
         logo: ModularProductionLogo,
@@ -711,7 +739,8 @@ export const kitsData = {
           graduationStatus: 'in progress'
         },
         deprecated: false,
-        dataspaces: ['Factory-X'],
+        domain: 'Production',
+        industries: ['shop-floor'],
         description: 'Enable customized production (batch size 1) without significant increase of costs.',
         metadata: {
           created: '2023-11-20',
@@ -719,98 +748,136 @@ export const kitsData = {
           latestVersion: '1.0.0',
           new: false
         }
-    }
-  ],
-  // List here the industry/dataspace specific KITs (will not be shown in the cross dataspace use cases gallery)
-  dataspaceKits: {
-      "factory-x": [],
-      "semiconductor-x": [],
-      "construct-x": [],
-      "catena-x": []
-    }
+      }
+    ],
+    "semiconductor": [],
+    "construction": [],
+    "automotive": [],
+    "chemical": []
+  }
 };
 
-// Information about the different dataspaces which use Eclipse Tractus-X.
-export const dataspaces = [
+// Information about the different industries which use Eclipse Tractus-X.
+export const industries = [
   {
-    id: 'catena-x',
-    name: 'Catena-X',
-    subtitle: 'Your Automotive Network',
-    description: 'The first open and collaborative data ecosystem for the automotive industry. Catena-X enables secure and standardized data exchange across the entire automotive value chain to drive innovation, sustainability, and transparency.',
-    logo: {
-      src: 'https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png',
-      alt: 'Catena-X Logo',
-      width: 70,
-      height: 70
-    },
-    colors: {
-      layer1: 'rgb(110, 200, 105)',
-      layer2: 'rgb(179, 203, 45)',
-      layer3: 'rgb(230, 163, 38)',
-      layer4: 'rgb(250, 160, 35)'
-    },
+    id: 'automotive',
+    name: 'Automotive',
+    subtitle: 'Automotive Industry',
+    description: 'Industry Specific KITs for the automotive industry, covering the entire value chain from suppliers to OEMs to aftermarket. Enable digital collaboration, supply chain transparency, quality management, and sustainable practices across automotive manufacturing and distribution.',
+    icon: DirectionsCar,
     gradient: 'linear-gradient(135deg, #ffa600, #b3cb2d)',
-    url: 'https://catena-x.net'
+    dataspaces: [
+      {
+        name: "Catena-X",
+        url: "https://catena-x.net/",
+        gradient: 'linear-gradient(135deg, #ffa600, #b3cb2d)',
+        logo: {
+          src: 'https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png',
+          alt: 'Catena-X Logo',
+          width: 70,
+          height: 70
+        },
+        colors: {
+          layer1: 'rgb(110, 200, 105)',
+          layer2: 'rgb(179, 203, 45)',
+          layer3: 'rgb(230, 163, 38)',
+          layer4: 'rgb(250, 160, 35)'
+        },
+        subtitle: 'Your Automotive Network',
+        description: 'The first open and collaborative data ecosystem for the automotive industry. Catena-X enables secure and standardized data exchange across the entire automotive value chain to drive innovation, sustainability, and transparency.',
+        kits: ['connector', 'data-governance', 'business-partner', 'agents', 'digital-twin', 'industry-core', 'data-chain', 'data-driven-quality', 'traceability', 'behavior-twin', 'ess', 'pcf', 'eco-pass', 'circularity', 'puris', 'dcm', 'logistics', 'supply-chain-disruption', 'customs', 'osim', 'model-based-production', 'requirements', 'maas']
+      }
+    ]
   },
   {
-    id: 'factory-x',
-    name: 'Factory-X',
-    subtitle: 'Shop Floor Industry KITs',
-    description: 'A manufacturing-focused dataspace that connects shop floors, production systems, and industrial equipment. Factory-X democratizes access to manufacturing capabilities and enables smart, flexible production networks.',
-    logo: {
-      src: 'https://factory-x.org/wp-content/uploads/factory-x-logo.svg',
-      alt: 'Factory-X Logo',
-      width: 80,
-      height: 'auto'
-    },
-    colors: {
-      layer1: '#81d100',
-      layer2: '#c1d100',
-      layer3: '#5ba9de',
-      layer4: '#1D71B8'
-    },
+    id: 'shop-floor',
+    name: 'Shop Floor',
+    subtitle: 'Shop Floor Industry Use Cases',
+    description: 'Industry Specific KITs for manufacturing and production environments, focusing on shop floor operations, industrial equipment integration, and production optimization. Enable smart manufacturing, flexible production networks, and real-time operational data exchange.',
+    icon: PrecisionManufacturing,
     gradient: 'linear-gradient(135deg, #1D71B8, #5ba9de, #c1d100)',
-    url: 'https://factory-x.org'
+    dataspaces: []
+    //    colors: {
+    //  layer1: '#81d100',
+    //  layer2: '#c1d100',
+    //  layer3: '#5ba9de',
+    //  layer4: '#1D71B8'
+    //},
   },
   {
-    id: 'semiconductor-x',
-    name: 'Semiconductor-X',
-    subtitle: 'Semiconductor Industry KITs',
-    description: 'Contributing to a cross-sector international dataspace and digital twin standards for resilient semiconductor supply chains.',
-    logo: {
-      src: 'https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg',
-      alt: 'Semiconductor-X Logo',
-      width: 70,
-      height: 50
-    },
-    colors: {
-      layer1: '#c1cb01',
-      layer2: '#d4b501',
-      layer3: '#e69f00',
-      layer4: '#e67900'
-    },
+    id: 'semiconductor',
+    name: 'Semiconductor',
+    subtitle: 'Semiconductor Industry Use Cases',
+    description: 'Industry Specific KITs for the semiconductor industry, addressing complex supply chains, manufacturing processes, and quality requirements. Enable traceability, capacity management, and digital collaboration across the global semiconductor value network.',
+    icon: Memory,
     gradient: 'linear-gradient(135deg, #c1cb01, #e67900)',
-    url: 'https://semiconductor-x.com'
+    dataspaces: [
+      {
+        name: "Semiconductor-X",
+        url: "https://semiconductor-x.com/",
+        gradient: 'linear-gradient(135deg, #c1cb01, #e67900)',
+        logo: {
+          src: 'https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg',
+          alt: 'Semiconductor-X Logo',
+          width: 100,
+          height: 80
+        },
+        colors: {
+          layer1: '#c1cb01',
+          layer2: '#d4b501',
+          layer3: '#e69f00',
+          layer4: '#e67900'
+        },
+        subtitle: 'Semiconductor Network',
+        description: 'Contributing to a cross-sector international dataspace and digital twin standards for resilient semiconductor supply chains.',
+        kits: ['connector', 'digital-twin', 'industry-core', 'traceability', 'pcf', 'dcm']
+      }
+    ]
   },
   {
-    id: 'construct-x',
-    name: 'Construct-X',
-    subtitle: 'Construction Industry KITs',
-    description: 'An innovative dataspace revolutionizing the construction industry through digital collaboration and sustainable building practices. Construct-X connects architects, builders, and suppliers in a unified digital ecosystem.',
-    logo: {
-      src: 'https://construct-x.org/wp-content/uploads/2025/05/Construct-X-Logo-pos-scaled.webp',
-      alt: 'Construct-X Logo',
-      width: 80,
-      height: 'auto'
-    },
-    colors: {
-      layer1: '#FF6B35',
-      layer2: '#FF8C42',
-      layer3: '#FFA726',
-      layer4: '#FFB74D'
-    },
+    id: 'construction',
+    name: 'Construction',
+    subtitle: 'Construction Industry Use Cases',
+    description: 'Industry Specific KITs in the construction and building industry, supporting project lifecycle management, material traceability, and sustainable building practices. Enable digital collaboration between architects, contractors, suppliers, and facility managers.',
+    icon: ApartmentIcon,
     gradient: 'linear-gradient(135deg,#002865, #FF6B35, #FFB74D )',
-    url: 'https://construct-x.org'
+    dataspaces: [
+      {
+        name: "Construct-X",
+        url: "https://construct-x.org",
+        gradient: 'linear-gradient(135deg, #002865, #FF6B35, #FFB74D)',
+        logo: {
+          src: 'https://construct-x.org/wp-content/uploads/2025/11/CX-BM-RGB.png',
+          alt: 'Construct-X Logo',
+          width: 70,
+          height: 70
+        },
+        colors: {
+          layer1: '#FF6B35',
+          layer2: '#FF8C42',
+          layer3: '#FFA726',
+          layer4: '#FFB74D'
+        },
+        subtitle: 'Construction Network',
+        description: 'An innovative dataspace revolutionizing the construction industry through digital collaboration and sustainable building practices. Construct-X connects architects, builders, and suppliers in a unified digital ecosystem.',
+        kits: ['connector', 'business-partner', 'digital-twin', 'industry-core', 'traceability', 'ess', 'pcf', 'eco-pass', 'logistics']
+      }
+    ]
+  },
+  {
+    id: 'chemical',
+    name: 'Chemical',
+    subtitle: 'Chemical Industry Use Cases',
+    description: 'Industry Specific KITs for the chemical industry, addressing product safety, regulatory compliance, and supply chain complexity. Enable secure data exchange, material traceability, sustainability reporting, and cross-industry standardization for chemical manufacturing and distribution.',
+    icon: Science,
+    gradient: 'linear-gradient(135deg, #00BCD4, #00838F)',
+    dataspaces: [],
+    //colors: {
+    //  layer1: '#00BCD4',
+    //  layer2: '#00ACC1',
+    //  layer3: '#0097A7',
+    //  layer4: '#00838F'
+    //}
   }
 ];
 
@@ -854,13 +921,13 @@ export const getUsedCategories = () => {
 
 // Get all kits from all sections
 export const getAllKits = () => {
-  const dataspaceSpecificKits = [];
+  const industrySpecificKits = [];
   
-  // Collect all dataspace-specific KITs
-  if (kitsData.dataspaceKits) {
-    Object.values(kitsData.dataspaceKits).forEach(kitsArray => {
+  // Collect all industry-specific KITs
+  if (kitsData.industryKits) {
+    Object.values(kitsData.industryKits).forEach(kitsArray => {
       if (Array.isArray(kitsArray)) {
-        dataspaceSpecificKits.push(...kitsArray);
+        industrySpecificKits.push(...kitsArray);
       }
     });
   }
@@ -869,7 +936,7 @@ export const getAllKits = () => {
     ...kitsData.dataspaceFoundation,
     ...kitsData.industryCoreFoundation,
     ...kitsData.useCases,
-    ...dataspaceSpecificKits
+    ...industrySpecificKits
   ];
 };
 
@@ -908,4 +975,44 @@ export const getRecentlyUpdatedKits = (daysBack = 30) => {
 export const getKitMetadata = (kitId) => {
   const kit = getKitById(kitId);
   return kit?.metadata || null;
+};
+
+// Get KITs associated with a specific dataspace
+export const getKitsByDataspace = (dataspaceName) => {
+  const allKits = getAllKits();
+  
+  // Find the dataspace across all industries
+  let dataspaceKitIds = [];
+  industries.forEach(industry => {
+    if (industry.dataspaces) {
+      const dataspace = industry.dataspaces.find(ds => ds.name === dataspaceName);
+      if (dataspace && dataspace.kits) {
+        dataspaceKitIds = dataspace.kits;
+      }
+    }
+  });
+  
+  // Return full kit objects for the IDs in the dataspace
+  if (dataspaceKitIds.length === 0) return [];
+  return allKits.filter(kit => dataspaceKitIds.includes(kit.id));
+};
+
+// Get all dataspaces with their associated KIT counts
+export const getDataspaceStats = () => {
+  const stats = [];
+  
+  industries.forEach(industry => {
+    if (industry.dataspaces) {
+      industry.dataspaces.forEach(dataspace => {
+        stats.push({
+          name: dataspace.name,
+          industry: industry.name,
+          kitCount: dataspace.kits ? dataspace.kits.length : 0,
+          kits: dataspace.kits || []
+        });
+      });
+    }
+  });
+  
+  return stats;
 };

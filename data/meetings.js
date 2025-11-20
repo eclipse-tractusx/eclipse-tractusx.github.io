@@ -94,6 +94,9 @@ export const meetings = [
       startTime: '09:30',
       endTime: '10:00',
     },
+    additionalLinks: [{
+      title: "Kanban Board KIT Office Hour", url: "https://github.com/orgs/eclipse-tractusx/projects/92"
+    }]
   },
   // Product Regular Meetings
   {

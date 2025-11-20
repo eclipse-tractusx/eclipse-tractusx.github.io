@@ -26,9 +26,7 @@ our [contributing guide](https://eclipse-tractusx.github.io/docs/oss/how-to-cont
 - __For product alignments__ please set up a meeting with a tool of your choice as a project manager. The preparation of
   meeting minutes is not required. Recurring formal meetings must be communicated via our Tractus-X mailing list. Ad hoc
   informal meetings may be organized without prior notice.
-- __For cross-product alignments__ the Catena-X Association is currently preparing various committees to support the
-  coordination of the open-source products and repositories. The goal of a committee is to discuss, define and create a
-  common vision, roadmap, standards, architecture, KITs, etc.
+- __For cross-product alignments__ there are office hours listed in the [Open Meetings](/community/open-meetings) which can be used for aligning product development, KITs and overall project topics.
 
 ## How to Create Open Meetings
 
