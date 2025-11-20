@@ -21,15 +21,16 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from '@docusaurus/router';
 import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
-import { getAllKits, dataspaces, kitsData } from '@site/data/kitsData';
+import { getKitsByDataspace, industries } from '@site/data/kitsData';
 import FilteredKitsGallery from '@site/src/components/2.0/FilteredKitsGallery';
 import KitGalleryHeader from '@site/src/components/2.0/KitGalleryHeader';
 import KitsFooter from '@site/src/components/2.0/KitsFooter';
 import WarningIcon from '@mui/icons-material/Warning';
 
-export default function GenericDataspacePage() {
+export default function DataspacePage() {
   const location = useLocation();
   const [dataspace, setDataspace] = useState(null);
+  const [industry, setIndustry] = useState(null);
   const [filteredKits, setFilteredKits] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -37,49 +38,62 @@ export default function GenericDataspacePage() {
   // Extract ref from URL query parameters
   const urlParams = new URLSearchParams(location.search);
   const ref = urlParams.get('ref');
+  const dataspaceName = urlParams.get('name');
 
   useEffect(() => {
-    // Extract dataspace ID and ref from URL query parameters
+    // Extract dataspace name from URL query parameters
     const urlParams = new URLSearchParams(location.search);
-    const dataspaceId = urlParams.get('id');
-    if (!dataspaceId) {
+    const dataspaceName = urlParams.get('name');
+    
+    if (!dataspaceName) {
       setNotFound(true);
       setLoading(false);
       return;
     }
 
-    // Find the matching dataspace by ID
-    const matchingDataspace = dataspaces.find(ds => ds.id === dataspaceId);
-
-    if (matchingDataspace) {
-      setDataspace(matchingDataspace);
-      
-      // Get all kits and filter for this dataspace (include deprecated)
-      const allKits = getAllKits();
-      let kitsForDataspace = allKits.filter(kit => 
-        kit.dataspaces && kit.dataspaces.includes(matchingDataspace.name)
-      );
-      
-      // Also include dataspace-specific KITs if they exist
-      // Use the dataspace ID (lowercase) to match the keys in dataspaceKits
-      if (kitsData.dataspaceKits && kitsData.dataspaceKits[matchingDataspace.id]) {
-        const dataspaceSpecificKits = kitsData.dataspaceKits[matchingDataspace.id];
-        kitsForDataspace = [...kitsForDataspace, ...dataspaceSpecificKits];
+    // Find the dataspace across all industries
+    let foundDataspace = null;
+    let foundIndustry = null;
+    
+    for (const ind of industries) {
+      if (ind.dataspaces) {
+        const ds = ind.dataspaces.find(d => d.name === dataspaceName);
+        if (ds) {
+          foundDataspace = ds;
+          foundIndustry = ind;
+          break;
+        }
       }
+    }
+
+    if (foundDataspace && foundIndustry) {
+      setDataspace(foundDataspace);
+      setIndustry(foundIndustry);
+      
+      // Get KITs associated with this dataspace
+      let kitsForDataspace = getKitsByDataspace(dataspaceName);
       
       // Add category information to each kit based on its position in kitsData
       kitsForDataspace = kitsForDataspace.map(kit => {
         let categoryType = 'Unknown';
         
         // Check which category the kit belongs to
+        const { kitsData } = require('@site/data/kitsData');
         if (kitsData.dataspaceFoundation?.some(k => k.id === kit.id)) {
           categoryType = 'Dataspace Foundation';
         } else if (kitsData.industryCoreFoundation?.some(k => k.id === kit.id)) {
           categoryType = 'Industry Core Foundation';
         } else if (kitsData.useCases?.some(k => k.id === kit.id)) {
           categoryType = 'Cross-Industry Use Cases';
-        } else if (kitsData.dataspaceKits && kitsData.dataspaceKits[matchingDataspace.id]?.some(k => k.id === kit.id)) {
-          categoryType = `${matchingDataspace.name} Specific`;
+        } else if (kitsData.industryKits) {
+          // Check if it's an industry-specific kit
+          for (const [industryId, kits] of Object.entries(kitsData.industryKits)) {
+            if (Array.isArray(kits) && kits.some(k => k.id === kit.id)) {
+              const ind = industries.find(i => i.id === industryId);
+              categoryType = ind ? `${ind.name} Specific` : 'Industry Specific';
+              break;
+            }
+          }
         }
         
         return { ...kit, categoryType };
@@ -167,7 +181,7 @@ export default function GenericDataspacePage() {
           property="og:description" 
           content={`Explore ${dataspace.name} KITs - comprehensive documentation and resources for building interoperable solutions in the ${dataspace.name} dataspace ecosystem.`}
         />
-        <link rel="canonical" href={`https://eclipse-tractusx.github.io/Kits/dataspace?id=${dataspace.id}`} />
+        <link rel="canonical" href={`https://eclipse-tractusx.github.io/Kits/dataspace?name=${encodeURIComponent(dataspace.name)}`} />
       </Head>
       
       <KitGalleryHeader
@@ -178,12 +192,23 @@ export default function GenericDataspacePage() {
         url={dataspace.url}
         gradient={dataspace.gradient}
         statistics={kitStats}
-        backButtonLink={ref ? `/Kits?scrollTo=${ref}` : `/Kits`}
+        backButtonLink={ref ? `/Kits?scrollTo=${ref}` : `/Kits/industry?id=${industry.id}`}
+        backButtonText={ref ? `Back to ${ref.charAt(0).toUpperCase() + ref.slice(1)}` : `Back to ${industry.name}`}
       />
 
-      {/* Disclaimer for non-Catena-X dataspaces */}
-      {dataspace.id !== 'catena-x' && (
-        <div style={{
+      {/* KITs Gallery */}
+      <FilteredKitsGallery 
+        kits={filteredKits}
+        showIndustryFilter={false}
+        showCategoryFilter={true}
+        showDomainFilter={true}
+        showHeader={false}
+        title={`${dataspace.name} KITs Collection`}
+        description={`All KITs available in the ${dataspace.name} dataspace ecosystem`}
+        backRef={ref}
+      />
+
+      <div style={{
           backgroundColor: 'var(--ifm-color-warning-contrast-background)',
           border: '1px solid var(--ifm-color-warning-dark)',
           borderRadius: '8px',
@@ -194,78 +219,47 @@ export default function GenericDataspacePage() {
           alignItems: 'flex-start',
           gap: '12px'
         }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: '2px',
-            flexShrink: 0,
-            color: 'var(--ifm-color-warning-darkest)'
-          }}>
-            <WarningIcon sx={{ fontSize: 28 }} />
-          </div>
-          <div>
-            <strong style={{ display: 'block', marginBottom: '8px', fontSize: '16px' }}>
-              Multi-Dataspace KIT 2.0 Content Refactor in Progress
-            </strong>
-            <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.5' }}>
-              The Multi-Dataspace KIT 2.0 structure may not yet be fully implemented in every KIT. 
-              The KITs assigned to {dataspace.name} may change, may not be fully correct or may be incomplete as we continue to evolve 
-              and refine the multi-dataspace architecture across the Eclipse Tractus-X KIT ecosystem. 
-              The intention of this page is to enable, reserve and prepare the space for the future {dataspace.name} KITs. The current assigned KITs may still contain content referring to Catena-X or other dataspaces.
-              <br /><br />
-              This initial KIT assigment to the {dataspace.name} dataspace was done based on the Use Cases and information available at the public{' '}
-              <a 
-                href="https://projexpace.mx-guidanceboard.org/data-ecosystem" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
-              >
-                MX-Guidance Board website
-              </a>.
-              <br/>
-              The ticket to refactor the KITs content is planned here (to be published in R26.03):{' '}
-              <a 
-                href="https://github.com/eclipse-tractusx/sig-release/issues/1567" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
-              >
-                eclipse-tractusx/sig-release#1567
-              </a>. <br /><br />
-              Feel free to contact{' '}
-              <a 
-                href="mailto:mathias.moser@catena-x.net"
-                style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
-              >
-                mathias.moser@catena-x.net
-              </a>{' '}
-              for more information or if you want something to be removed.
-              <br /> Additionally, you can also join our{' '}
-              <a 
-                href="https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour"
-                style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
-              >
-                KIT office hours
-              </a>.
-            </p>
-          </div>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginTop: '2px',
+          flexShrink: 0,
+          color: 'var(--ifm-color-warning-darkest)'
+        }}>
+          <WarningIcon sx={{ fontSize: 28 }} />
         </div>
-      )}
+        <div>
+          <strong style={{ display: 'block', marginBottom: '8px', fontSize: '16px' }}>
+            Multi-Dataspace/Industry KIT 2.0 Content Refactor in Progress
+          </strong>
+          <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.5' }}>
+            The Multi-Dataspace/Industry KIT 2.0 structure may not yet be fully implemented in every KIT. 
+            The KITs assigned to {dataspace.name} may change, may not be fully correct or may be incomplete as we continue to evolve.
+            The current assigned KITs may still contain content referring to Catena-X or other dataspaces/industries.
+            <br />
+            The ticket to refactor the KITs content is planned here (to be published in R26.03):{' '}
+            <a 
+              href="https://github.com/eclipse-tractusx/sig-release/issues/1567" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
+            >
+              eclipse-tractusx/sig-release#1567
+            </a>. <br /><br />
+            To collaborate, add your dataspace to this industry or support the content refactor, please join our{' '}
+            <a 
+              href="https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour"
+              style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
+            >
+              KIT office hours
+            </a>.
+          </p>
+        </div>
+      </div>
 
-      {/* KITs Gallery */}
-      <FilteredKitsGallery 
-        kits={filteredKits}
-        showDataspaceFilter={false}
-        showCategoryFilter={true}
-        showHeader={false}
-        title={`${dataspace.name} KITs Collection`}
-        description={`All KITs available for the ${dataspace.name} dataspace ecosystem`}
-        backRef={ref}
-      />
-      
       <KitsFooter 
-        disclaimer={`* The ${dataspace?.name} logo is a trademark property of its affiliated companies and organizations.`}
+        disclaimer={`* The ${dataspace?.name} logo and branding are trademark properties of ${dataspace?.name} and its affiliated organizations.`}
       />
     </Layout>
   );

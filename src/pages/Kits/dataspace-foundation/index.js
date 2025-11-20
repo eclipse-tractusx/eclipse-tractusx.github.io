@@ -20,18 +20,18 @@
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import DataspaceIcon from '@mui/icons-material/Hub';
+import VpnLockIcon from '@mui/icons-material/VpnLock';
 
 import FilteredKitsGallery from "@site/src/components/2.0/FilteredKitsGallery";
 import { kitsData } from "@site/data/kitsData";
-
+import KitsFooter from '@site/src/components/2.0/KitsFooter';
 export default function DataspaceFoundationKitsPage() {
   const { siteConfig } = useDocusaurusContext();
   
   const categoryData = {
     title: 'Dataspace Foundation',
     description: 'Explore Dataspace Foundation KITs that enable the creation and operation of secure, interoperable dataspaces.',
-    icon: DataspaceIcon,
+    icon: VpnLockIcon,
     gradient: 'linear-gradient(135deg, #595959, #404040)'
   };
   
@@ -43,7 +43,10 @@ export default function DataspaceFoundationKitsPage() {
       <FilteredKitsGallery
         categoryData={categoryData}
         kits={kitsData.dataspaceFoundation}
+        showDomainFilter={true}
+        backRef="architecture"
       />
+      <KitsFooter />
     </Layout>
   );
 }

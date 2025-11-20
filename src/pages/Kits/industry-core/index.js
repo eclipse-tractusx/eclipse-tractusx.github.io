@@ -21,17 +21,17 @@ import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import IndustryCoreIcon from '@mui/icons-material/Engineering';
-
+import KitsFooter from '@site/src/components/2.0/KitsFooter';
 import FilteredKitsGallery from "@site/src/components/2.0/FilteredKitsGallery";
 import { kitsData } from "@site/data/kitsData";
-
+import FoundationIcon from '@mui/icons-material/Foundation';
 export default function IndustryCoreKitsPage() {
   const { siteConfig } = useDocusaurusContext();
   
   const categoryData = {
     title: 'Industry Core Foundation',
     description: 'Explore the Industry Core Foundation KITs, where you can build the foundation for the use cases of tomorrow.',
-    icon: IndustryCoreIcon,
+    icon: FoundationIcon,
     gradient: 'linear-gradient(135deg, #0070C0, #002060)'
   };
   
@@ -44,7 +44,10 @@ export default function IndustryCoreKitsPage() {
         categoryData={categoryData}
         kits={kitsData.industryCoreFoundation}
         backRef="architecture"
+        showIndustryFilter={false}
+        showDomainFilter={true}
       />
+      <KitsFooter />
     </Layout>
   );
 }

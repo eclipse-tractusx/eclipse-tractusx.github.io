@@ -19,7 +19,7 @@ import UsageSvg from '@site/static/icons/Icon_App_Service_Grey.svg';
 import styles from "./styles.module.css";
 import IFrameComponent from "../../components/IFrameComponent"
 import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters"
-import { kitsData, getAllKits, dataspaces } from "@site/data/kitsData";
+import { kitsData, getAllKits, industries } from "@site/data/kitsData";
 import KitsGallery from "@site/src/components/2.0/KitsGallery";
 export default function AppProvider() {
   const { siteConfig } = useDocusaurusContext();

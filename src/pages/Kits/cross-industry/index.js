@@ -20,7 +20,7 @@
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import CrossIndustryIcon from '@mui/icons-material/Public';
+import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 
 import FilteredKitsGallery from "@site/src/components/2.0/FilteredKitsGallery";
 import { kitsData } from "@site/data/kitsData";
@@ -31,7 +31,7 @@ export default function CrossIndustryKitsPage() {
   const categoryData = {
     title: 'Cross-Industry Use Cases',
     description: 'Explore Cross-Industry Use Cases KITs that provide solutions and patterns applicable across multiple dataspaces and sectors.',
-    icon: CrossIndustryIcon,
+    icon: AllInclusiveIcon,
     gradient: 'linear-gradient(135deg, #10b981, #047857)'
   };
   
@@ -43,6 +43,8 @@ export default function CrossIndustryKitsPage() {
       <FilteredKitsGallery
         categoryData={categoryData}
         kits={kitsData.useCases}
+        backRef="architecture"
+        showDomainFilter={true}
       />
     </Layout>
   );
