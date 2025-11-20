@@ -1,0 +1,95 @@
+---
+title: TRG 10.03 - KIT Lifecycle
+---
+
+import SchoolIcon from '@mui/icons-material/School';
+import ScienceIcon from '@mui/icons-material/Science';
+import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import EditIcon from '@mui/icons-material/Edit';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+
+
+| Status     | Created      | Post-History                           |
+|------------|--------------|----------------------------------------|
+| Draft      | 12-Apr-2024  | Initial contribution                   |
+| Active     | 20-Nov-2025  | Splitted 09.01 Draft into 10.01, 10.02, 10.03 adding the new KIT 2.0 Content Structure |
+
+## Why
+
+This TRG serves to maintain a **consistent structure** and ensure **content quality** for the KIT developers. And keep the quality of the KITs along their lifecycle.
+
+Here is a detailed explanation of the KIT Framework:
+[KIT Framework](../../../documentation/kit-framework) and the [KIT Lifecycle](../../../documentation/kit-lifecycle) documentation.
+
+In this TRG we describe the different maturity levels a KIT can have, the required artifacts for each level, and the graduation process.
+
+## General Requirements
+
+- A KIT must indicate its maturity level (sandbox, incubating, graduated) - see [KIT Lifecycle](../../../documentation/kit-lifecycle)
+- A KIT must have a clear version history following semantic versioning - see [TRG 1.03 - CHANGELOG.md](/docs/release/trg-1/trg-1-03)
+- A KIT lifecycle level must only change via a release - see [KIT Release Process](../../../docs/oss/release-process) describing it in the [KIT Release Checks Ticket](https://github.com/eclipse-tractusx/sig-release/issues/new?template=4_KIT_release_checks.md)
+- A KIT must contain a `Creation Date` and `Last Updated Date` documented at the KIT Master Data - see [KIT Master Data Overview](../../../documentation/kit-master-data-overview)
+- A KIT can achieve graduation if it fulfills the required artifacts and passes the graduation process - see [Graduation Process](./trg-10-04.mdx)
+- If a KIT is no longer maintained or relevant, it must follow the deprecation process - see [TRG 10.05 - KIT Deprecation Process](./trg-10-05.mdx)
+
+### Maturity Level Overview
+
+```mermaid
+graph TD
+    A[Sandbox] --> B[Incubating]
+    B --> B1[Draft]
+    B --> B2[In Progress] 
+    B --> B3[In Review]
+    B1 --> B2
+    B2 --> B3
+    B3 --> C[Graduated]
+    A -.-> D[Deprecated]
+    B -.-> D
+    C -.-> D
+
+```
+
+
+## Artifacts and Deliverables
+
+This section provides an overview of required artifacts for each maturity level and incubating sub-state. For detailed examples and specifications, please refer to [TRG 10.02 - KIT Content Structure](./trg-10-02.mdx).
+
+**Legend**:
+
+- <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981', verticalAlign: 'middle' }} /> Mandatory
+- <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280', verticalAlign: 'middle' }} />* Optional/Recommended
+- <EditIcon sx={{ fontSize: 14, color: '#f59e0b', verticalAlign: 'middle' }} /> In Development
+- <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6', verticalAlign: 'middle' }} /> Under Review
+
+### Artifact Requirements by Maturity Level
+
+| Artifact / Stage | Sandbox | Incubating Draft | Incubating In Progress | Incubating In Review | Graduated | Additional Info |
+|---|---|---|---|---|---|---|
+| Vision / Mission | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Core foundation document |
+| Business Value(s) | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | May not be relevant for Network Services |
+| Use Case / Domain explanation | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | May not be relevant for Network Services |
+| Notice | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Legal and compliance notice |
+| Changelog | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Version history and updates |
+| Standards | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Industry standards compliance |
+| API-Specification / Protocols | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Technical interface definitions |
+| Logic / Schema | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | May not be relevant for Network Services |
+| Documentation | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Complete technical documentation |
+| Architecture | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | System design and architecture |
+| Quick Setup Guide | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Exception: not needed without reference implementation |
+| Semantic Models | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | May not be relevant for Network Services |
+| Business Processes | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | May not be relevant for Network Services |
+| Tutorials / Videos | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | Educational content |
+| Sample Data | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | Example datasets |
+| Reference Implementation | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | Working code examples |
+| Whitepaper | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | Research and analysis document |
+| Code Owner | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Required for graduation - see [TRG 10.02 - KIT Content Structure](./trg-10-02.mdx) |
+
+## Further Specifications
+
+- The KIT graduation process is detailed in the [TRG 10.04 - KIT Graduation Process](./trg-10-04.mdx) document.
+- The KIT deprecation process is detailed in the [TRG 10.05 - KIT Deprecation Process](./trg-10-05.mdx) document.

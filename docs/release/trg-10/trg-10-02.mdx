@@ -1,0 +1,112 @@
+---
+title: TRG 10.02 - KIT Content Structure
+---
+
+import KitStructureTable from '@site/src/components/2.0/KitComponents/KitStructureTable';
+
+| Status     | Created      | Post-History                           |
+|------------|--------------|----------------------------------------|
+| Draft      | 12-Apr-2024  | Initial contribution                   |
+| Active     | 20-Nov-2025  | Splitted 09.01 Draft into 10.01, 10.02, 10.03 adding the new KIT 2.0 Content Structure |
+
+## Why
+
+This TRG serves to maintain a **consistent structure** and ensure **content quality** for the KIT developers, including details for KIT content structure and KIT content owners/maintainers.
+
+**KIT**, short for **Keep It Together**, is an open-source toolbox with comprehensive documentation that enables multiple stakeholders **(Business, Solution Providers, Developers)** to build interoperable applications compatible with the Eclipse Tractus-X dataspace technologies, and support the compliance with industrial standards from standarization organizations (Catena-X e.V., IDTA, ISO/DIN, EDWG, Manufacturing-X, etc.) and in some cases enable regulatory compliance.
+
+A detailed explanation can be found here:
+[KIT Framework](../../../documentation/kit-framework)
+
+## General Requirements
+
+- A KIT must have a <code>changelog.md</code> following semantic versioning + the release date of Tractus-X - see [TRG 1.03 - CHANGELOG.md](/docs/release/trg-1/trg-1-03)
+- A KIT must have, at minimum, an adoption view (Sandbox stage) - see [KIT Lifecycle Levels](https://eclipse-tractusx.github.io/documentation/kit-lifecycle)
+- KIT artifacts must be structured according to the respective views (i.e. adoption, development, operations) - see [KIT Artifacts](https://eclipse-tractusx.github.io/documentation/kit-framework)
+- Linked documents (e.g., Catena-X standards, Whitepapers) must include the current valid version (e.g. Business Partner Number (Version 2.0.0))
+- Each KIT view (business, development, ..) must include a license notice and adhere to the CY BB 4.0 license - see [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08)
+- Images must be neutral without any branding, and displayed on a. Images need to follow a the legal notice TRG - see [Legal notice for non-code](/docs/release/trg-7/trg-7-07)
+- A KIT must have a defined code owner for each industry extension - see [Industry Extensions](#industry-extensions)
+- A KIT must have defined code owners for kit maintenance - see [KIT Maintainers & Code Owners](#kit-maintainers--code-owners)
+
+## Description
+
+:::info Generic Requirements for All KITs
+In addition to the view-specific content below, every KIT must include:
+- **Copyright Notice** - Mandatory CC-BY-4.0 licensing information and contributor copyright statements at every file
+- **Changelog** - Version history file following [semantic versioning](https://semver.org/)
+
+The views below are organized in "folders" so that its sections are harmonized and the content from each view remains flexible.
+:::
+<KitStructureTable />
+
+
+A deep dive extension of each section can be found at the [KIT Framework Documentation](../../../documentation/kit-framework) guideline.
+
+
+## KIT Maintainers & Code Owners
+
+- A code owner must be set by adding to the `CODEOWNERS` at the folder path, the file is located here [`.github/CODEOWNERS`](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/.github/CODEOWNERS).
+
+The `CODEOWNERS` file must follow the structure described at the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
+
+No company/organization can be added as a code owner, only a contributor with a GitHub account. Ownership and Copyright for organizations are described in the following [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08)
+
+Example:
+
+
+```plaintext
+# In this example, @doctocat owns any file in the `/docs-kits/kits/connector-kit/`
+# directory, it will be notified of any changes to files in that directory, if he is a committer.
+# subdirectories.
+/docs-kits/kits/connector-kit/ @doctocat
+```
+
+### Industry Extensions
+
+The following rules apply for the industry extension section:
+
+- Only releavant/updated content for the specific industry extension should be included, in case legacy content is needed, the content can be kept previous versions of the KIT or archived at the [large-files repository](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles).
+- A code owner must be set by adding to the `CODEOWNERS` at the specific industry extension folder path, the file is located here [`.github/CODEOWNERS`](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/.github/CODEOWNERS).
+
+The `CODEOWNERS` file must follow the structure described at the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
+
+No company/organization can be added as a code owner, only a contributor with a GitHub account. Ownership and Copyright for organizations are described in the following [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08)
+
+
+Example:
+
+
+```plaintext
+# In this example, @doctocat owns any file in the `/docs-kits/kits/connector-kit/industry-extensions/automotive`
+# directory, it will be notified of any changes to files in that directory, if he is a committer.
+# subdirectories.
+/docs-kits/kits/connector-kit/industry-extensions/automotive/ @doctocat
+```
+
+When a change is done to the industry extension folder, please contact the code owner via the available channels (Matrix Chat, Mailing List, etc.) to inform them about the change.
+
+## Alignment Mechanisms
+
+To ensure the quality and consistency of KITs, the following alignment mechanisms are in place, not all channels need to be activated:
+
+### Main KIT Alignment Channels:
+
+| Channel | Purpose | Link |
+|---------|---------|------|
+| Alignment Day | Quarterly refinement sessions | [Alignment Days Docs](https://eclipse-tractusx.github.io/docs/oss/release-process#alignment-day) |
+| Open Planning Day | Quarterly open planning sessions | [Open Planning Days Docs](https://eclipse-tractusx.github.io/docs/oss/release-process#open-planning-day) |
+| Matrix Chat | Daily discussions & support | [#tractusx-kits:matrix.eclipse.org](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) |
+| KIT Community Office Hours | Weekly alignment meetings | [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour) |
+
+### Support KIT Alignment Channels:
+
+| Channel | Purpose | Link |
+|---------|---------|------|
+| KIT Office Hour Kanban | Development items tracking | [Github Project](https://github.com/orgs/eclipse-tractusx/projects/92) |
+| Matrix Chat | Daily discussions & support | [#tractusx-kits:matrix.eclipse.org](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) |
+| GitHub Issues | Technical issues & bugs | [Create Issue](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues) |
+| SIG-Release | Official KIT Release Tracking | [eclipse-tractusx/sig-release](https://github.com/eclipse-tractusx/sig-release) |
+| KIT Discussions | Offical KIT Proposal and Discussion Location | [KIT Discussions](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/discussions/categories/kits) |
+
+In case a change to a existing KIT is planned, it is recommended to use the KIT Discussions or GitHub Issues to discuss the change with the community before starting the implementation. This will help to gather feedback and ensure alignment with other KIT developers.
