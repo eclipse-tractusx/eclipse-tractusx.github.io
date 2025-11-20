@@ -32,11 +32,11 @@ import KitsTitle from "@site/src/components/2.0/KitsTitle";
 import KitStatistics from "@site/src/components/2.0/KitStatistics";
 import KitsArchitecture from "@site/src/components/2.0/KitsArchitecture";
 import KitsGallery from "@site/src/components/2.0/KitsGallery";
-import DataspaceComponent from "@site/src/components/DataspaceComponent";
+import DataspaceComponent from "@site/src/components/2.0/DataspaceComponent";
 import KitsFooter from "@site/src/components/2.0/KitsFooter";
 import { kitsData, getAllKits, industries } from "@site/data/kitsData";
-import ContributionSection from "@site/src/components/ContributionSection";
-import GetStartedSection from "@site/src/components/GetStartedSection";
+import ContributionSection from "@site/src/components/2.0/ContributionSection";
+import GetStartedSection from "@site/src/components/2.0/GetStartedSection";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();

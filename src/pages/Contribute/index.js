@@ -21,8 +21,8 @@ import React, { useEffect, useState } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import ThemedImage from '@theme/ThemedImage';
-import ContributionSection from '@site/src/components/ContributionSection';
-import GetStartedSection from '@site/src/components/GetStartedSection';
+import ContributionSection from '@site/src/components/2.0/ContributionSection';
+import GetStartedSection from '@site/src/components/2.0/GetStartedSection';
 import styles from './styles.module.scss';
 
 export default function ContributePage() {

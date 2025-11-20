@@ -28,7 +28,7 @@ import KitsArchitecture from "../../components/2.0/KitsArchitecture";
 import KitsGallery from "../../components/2.0/KitsGallery";
 import KitsExtensions from "../../components/2.0/KitsExtensions";
 import KitsFooter from "../../components/2.0/KitsFooter";
-import DataspaceComponent from "../../components/DataspaceComponent";
+import DataspaceComponent from "@site/src/components/2.0/DataspaceComponent";
 import { kitsData, getAllKits, industries } from "@site/data/kitsData";
 import React, { useEffect } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";

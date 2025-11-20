@@ -258,9 +258,16 @@ export default function FilteredKitsGallery({
         )}
       </div>
 
-      {/* KITs Grid */}
+      {/* KITs Grid or No Results Message */}
       <div className={styles.kits_grid}>
-        <ExpandedKitsGrid kits={filteredKits} noResultsMessage={noResultsMessage} />
+        {filteredKits.length === 0 ? (
+          <div className={styles.no_results}>
+            <p>No KITs available for this scope.</p>
+            <p>Try adjusting your filters to see more results.</p>
+          </div>
+        ) : (
+          <ExpandedKitsGrid kits={filteredKits} noResultsMessage={noResultsMessage} />
+        )}
       </div>
     </div>
   );
