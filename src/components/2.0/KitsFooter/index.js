@@ -32,7 +32,7 @@ import HandshakeIcon from '@mui/icons-material/Handshake';
 import Code from '@mui/icons-material/Code';
 import styles from "./styles.module.scss";
 
-export default function KitsFooter({ disclaimer }) {
+export default function KitsFooter({ disclaimer, simple = false, title = 'Want to join?' }) {
   const { colorMode } = useColorMode();
 
   return (
@@ -54,7 +54,7 @@ export default function KitsFooter({ disclaimer }) {
           
           <div className={styles.textSection}>
             <h2 className={styles.title}>
-              Want to join?
+              {title}
             </h2>
             <p className={styles.description}>
               Join the Eclipse Tractus-X community and help shape the next generation of global dataspace technology. 
@@ -62,34 +62,38 @@ export default function KitsFooter({ disclaimer }) {
             </p>
             
             <div className={styles.links}>
-              <Link to="/community/open-meetings" className={styles.link}>
-                <GroupsIcon className={styles.linkIcon} />
-                Join our Community Office Hours
-              </Link>
-              <a href="https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org" className={styles.link} target="_blank" rel="noopener noreferrer">
-                <ChatIcon className={styles.linkIcon} />
-                KIT Matrix Chat
-              </a>
               <a href="https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour" className={styles.link}>
                 <EventIcon className={styles.linkIcon} />
                 Join our KIT Office Hours
               </a>
-              <Link to="/documentation/kit-framework" className={styles.link}>
-                <SchoolIcon className={styles.linkIcon} />
-                Learn the KIT Framework
-              </Link>
-              <a href="https://github.com/eclipse-tractusx" className={styles.link} target="_blank" rel="noopener noreferrer">
-                <Code className={styles.linkIcon} />
-                Our Code 
+              <a href="https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org" className={styles.link} target="_blank" rel="noopener noreferrer">
+                <ChatIcon className={styles.linkIcon} />
+                KIT Matrix Chat
               </a>
-              <Link to="/documentation/kit-getting-started" className={styles.link}>
-                <AddIcon className={styles.linkIcon} />
-                Create a KIT
-              </Link>
-              <Link to="/Contribute" className={styles.link}>
-                <RocketLaunchIcon className={styles.linkIcon} />
-                Contribute
-              </Link>
+              {!simple && (
+                <>
+                  <Link to="/documentation/kit-framework" className={styles.link}>
+                    <SchoolIcon className={styles.linkIcon} />
+                    Learn the KIT Framework
+                  </Link>
+                  <Link to="/community/open-meetings" className={styles.link}>
+                    <GroupsIcon className={styles.linkIcon} />
+                    Join Community Office Hours
+                  </Link>
+                  <a href="https://github.com/eclipse-tractusx" className={styles.link} target="_blank" rel="noopener noreferrer">
+                    <Code className={styles.linkIcon} />
+                    Our Code 
+                  </a>
+                  <Link to="/documentation/kit-getting-started" className={styles.link}>
+                    <AddIcon className={styles.linkIcon} />
+                    Create a KIT
+                  </Link>
+                  <Link to="/Contribute" className={styles.link}>
+                    <RocketLaunchIcon className={styles.linkIcon} />
+                    Contribute
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

@@ -17,13 +17,14 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import styles from './styles.module.scss';
 import KitsGrid from '../KitsGrid';
+import { industries, kitsData } from '@site/data/kitsData';
 
 export default function KitsGalleryWithCategories({ 
   title, 
@@ -32,21 +33,75 @@ export default function KitsGalleryWithCategories({
   industryCoreFoundation = [], 
   useCases = [] 
 }) {
-  const [selectedDataspace, setSelectedDataspace] = useState('All Dataspaces');
+  const [selectedDataspace, setSelectedDataspace] = useState('all');
+  const [selectedDomain, setSelectedDomain] = useState('All Domains');
   const [sortOrder, setSortOrder] = useState('default'); // 'default', 'asc', 'desc'
 
-  // Get all unique dataspaces from all kits
-  const allDataspaces = Array.from(new Set(
-    [...dataspaceFoundation, ...industryCoreFoundation, ...useCases]
-      .flatMap(kit => kit.dataspaces)
-  )).sort();
-
-  // Filter kits based on selected dataspace
-  const filterKits = (kits) => {
-    if (selectedDataspace === 'All Dataspaces') {
-      return kits;
+  // Get all dataspaces from industries
+  const allDataspaces = [];
+  industries.forEach(industry => {
+    if (industry.dataspaces) {
+      industry.dataspaces.forEach(ds => {
+        if (!allDataspaces.find(d => d.name === ds.name)) {
+          allDataspaces.push({
+            name: ds.name,
+            kits: ds.kits || []
+          });
+        }
+      });
     }
-    return kits.filter(kit => kit.dataspaces.includes(selectedDataspace));
+  });
+  allDataspaces.sort((a, b) => a.name.localeCompare(b.name));
+
+  // Collect all industry-specific kits
+  const industrySpecificKits = useMemo(() => {
+    const allIndustryKits = [];
+    if (kitsData.industryKits) {
+      Object.entries(kitsData.industryKits).forEach(([industryId, kitsArray]) => {
+        if (Array.isArray(kitsArray) && kitsArray.length > 0) {
+          const industry = industries.find(ind => ind.id === industryId);
+          const industryName = industry ? industry.name : industryId;
+          // Add categoryType to each kit
+          kitsArray.forEach(kit => {
+            allIndustryKits.push({
+              ...kit,
+              categoryType: `${industryName} Specific`,
+              categoryId: industryId
+            });
+          });
+        }
+      });
+    }
+    return allIndustryKits;
+  }, []);
+
+  // Get all unique domains from ALL kits including industry-specific ones
+  const allDomains = useMemo(() => {
+    return Array.from(new Set(
+      [...dataspaceFoundation, ...industryCoreFoundation, ...useCases, ...industrySpecificKits]
+        .map(kit => kit.domain)
+        .filter(Boolean)
+    )).sort();
+  }, [dataspaceFoundation, industryCoreFoundation, useCases, industrySpecificKits]);
+
+  // Filter kits based on selected dataspace and domain
+  const filterKits = (kits, includeDomainFilter = true) => {
+    let filtered = kits;
+    
+    // Filter by dataspace
+    if (selectedDataspace !== 'all') {
+      const dataspace = allDataspaces.find(ds => ds.name === selectedDataspace);
+      if (dataspace && dataspace.kits) {
+        filtered = filtered.filter(kit => dataspace.kits.includes(kit.id));
+      }
+    }
+    
+    // Filter by domain
+    if (includeDomainFilter && selectedDomain !== 'All Domains') {
+      filtered = filtered.filter(kit => kit.domain === selectedDomain);
+    }
+    
+    return filtered;
   };
 
   // Sort kits based on sort order
@@ -59,12 +114,16 @@ export default function KitsGalleryWithCategories({
   };
 
   // Apply both filter and sort
-  const processKits = (kits) => {
-    return sortKits(filterKits(kits));
+  const processKits = (kits, includeDomainFilter = false) => {
+    return sortKits(filterKits(kits, includeDomainFilter));
   };
 
   const handleDataspaceChange = (event) => {
     setSelectedDataspace(event.target.value);
+  };
+
+  const handleDomainChange = (event) => {
+    setSelectedDomain(event.target.value);
   };
 
   const handleSort = () => {
@@ -77,9 +136,32 @@ export default function KitsGalleryWithCategories({
     }
   };
 
-  const filteredDataspaceFoundation = processKits(dataspaceFoundation);
-  const filteredIndustryCoreFoundation = processKits(industryCoreFoundation);
-  const filteredUseCases = processKits(useCases);
+  const filtereddataspaceFoundation = processKits(dataspaceFoundation, true);
+  const filteredIndustryCoreFoundation = processKits(industryCoreFoundation, true);
+  const filteredUseCases = processKits(useCases, true);
+
+  // Group industry-specific kits by category and filter them
+  const filteredIndustryKitsByCategory = useMemo(() => {
+    const grouped = {};
+    industrySpecificKits.forEach(kit => {
+      const category = kit.categoryType;
+      if (!grouped[category]) {
+        grouped[category] = [];
+      }
+      grouped[category].push(kit);
+    });
+    
+    // Filter each group
+    const filtered = {};
+    Object.entries(grouped).forEach(([category, kits]) => {
+      const filteredKits = processKits(kits, true);
+      if (filteredKits.length > 0) {
+        filtered[category] = filteredKits;
+      }
+    });
+    
+    return filtered;
+  }, [industrySpecificKits, selectedDataspace, selectedDomain, sortOrder]);
 
   return (
     <section className={styles.kitsGallery}>
@@ -130,7 +212,7 @@ export default function KitsGalleryWithCategories({
                   }}
                 >
                   <MenuItem 
-                    value={'All Dataspaces'}
+                    value={'all'}
                     sx={{
                       color: 'var(--ifm-font-color-base)',
                       '&:hover': {
@@ -152,8 +234,8 @@ export default function KitsGalleryWithCategories({
                   </MenuItem>
                   {allDataspaces.map(dataspace => (
                     <MenuItem 
-                      key={dataspace} 
-                      value={dataspace}
+                      key={dataspace.name} 
+                      value={dataspace.name}
                       sx={{
                         color: 'var(--ifm-font-color-base)',
                         '&:hover': {
@@ -169,7 +251,89 @@ export default function KitsGalleryWithCategories({
                         }
                       }}
                     >
-                      {dataspace}
+                      {dataspace.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
+
+            <Box>
+              <FormControl size="small">
+                <Select
+                  labelId="domain-label"
+                  id="domain-options"
+                  value={selectedDomain}
+                  onChange={handleDomainChange}
+                  className={styles.selectInput}
+                  sx={{
+                    padding: '0 0.5rem',
+                    color: 'var(--ifm-font-color-base)',
+                    '& .MuiSvgIcon-root': {
+                      color: 'var(--ifm-color-primary)',
+                    },
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'var(--ifm-color-primary)'
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'var(--ifm-color-primary-dark)',
+                    },
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'var(--ifm-color-primary-darker)',
+                    }
+                  }}
+                  inputProps={{
+                    MenuProps: {
+                      MenuListProps: {
+                        sx: {
+                          backgroundColor: 'var(--ifm-background-color)',
+                          color: 'var(--ifm-font-color-base)',
+                        }
+                      },
+                    }
+                  }}
+                >
+                  <MenuItem 
+                    value={'All Domains'}
+                    sx={{
+                      color: 'var(--ifm-font-color-base)',
+                      '&:hover': {
+                        backgroundColor: 'var(--ifm-hover-overlay)',
+                      },
+                      '&.Mui-selected': {
+                        backgroundColor: '#faa023 !important',
+                        color: '#000000 !important',
+                        opacity: '1 !important',
+                        '&:hover': {
+                          backgroundColor: '#ed8c05 !important',
+                          color: '#000000 !important',
+                          opacity: '1 !important',
+                        }
+                      }
+                    }}
+                  >
+                    All Domains
+                  </MenuItem>
+                  {allDomains.map(domain => (
+                    <MenuItem 
+                      key={domain} 
+                      value={domain}
+                      sx={{
+                        color: 'var(--ifm-font-color-base)',
+                        '&:hover': {
+                          backgroundColor: 'var(--ifm-hover-overlay)',
+                        },
+                        '&.Mui-selected': {
+                          backgroundColor: '#faa023',
+                          color: '#000000',
+                          '&:hover': {
+                            backgroundColor: '#ed8c05',
+                            color: '#000000',
+                          }
+                        }
+                      }}
+                    >
+                      {domain}
                     </MenuItem>
                   ))}
                 </Select>
@@ -187,22 +351,39 @@ export default function KitsGalleryWithCategories({
             </div>
           </div>
         {/* Dataspace Foundation Section */}
-        <KitsGrid 
-          title="DATASPACE FOUNDATION"
-          kits={filteredDataspaceFoundation}
-        />
+        {filtereddataspaceFoundation.length > 0 && (
+          <KitsGrid 
+            title="Dataspace Foundation"
+            kits={filtereddataspaceFoundation}
+          />
+        )}
 
         {/* Industry Core Foundation Section */}
-        <KitsGrid 
-          title="INDUSTRY CORE FOUNDATION"
-          kits={filteredIndustryCoreFoundation}
-        />
+        {filteredIndustryCoreFoundation.length > 0 && (
+          <KitsGrid 
+            title="INDUSTRY CORE FOUNDATION"
+            kits={filteredIndustryCoreFoundation}
+          />
+        )}
 
         {/* Use Cases Section */}
-        <KitsGrid 
-          title="CROSS-INDUSTRY USE CASES"
-          kits={filteredUseCases}
-        />
+        {filteredUseCases.length > 0 && (
+          <KitsGrid 
+            title="CROSS-INDUSTRY USE CASES"
+            kits={filteredUseCases}
+          />
+        )}
+
+        {/* Industry-Specific Sections - Dynamically rendered */}
+        {Object.entries(filteredIndustryKitsByCategory)
+          .sort(([categoryA], [categoryB]) => categoryA.localeCompare(categoryB))
+          .map(([category, kits]) => (
+            <KitsGrid 
+              key={category}
+              title={category.toUpperCase()}
+              kits={kits}
+            />
+          ))}
 
       </div>
     </section>

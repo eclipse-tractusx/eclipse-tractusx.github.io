@@ -35,7 +35,7 @@ const KitStatistics = ({ kitsData }) => {
     if (!kitsData || kitsData.length === 0) {
       return {
         totalKits: 0,
-        totalDataspaces: 0,
+        totalIndustries: 0,
         graduatedKits: 0,
         incubatingKits: 0,
         sandboxKits: 0
@@ -45,14 +45,14 @@ const KitStatistics = ({ kitsData }) => {
     // Count total KITs (including deprecated ones)
     const totalKits = kitsData.length;
     
-    // Count unique dataspaces (including from deprecated KITs)
-    const allDataspaces = new Set();
+    // Count unique industries (including from deprecated KITs)
+    const allIndustries = new Set();
     kitsData.forEach(kit => {
-      if (kit.dataspaces) {
-        kit.dataspaces.forEach(dataspace => allDataspaces.add(dataspace));
+      if (kit.industries) {
+        kit.industries.forEach(industry => allIndustries.add(industry));
       }
     });
-    const totalDataspaces = allDataspaces.size;
+    const totalIndustries = allIndustries.size;
     
     // Count KITs by maturity level (including deprecated ones)
     const maturityCounts = kitsData.reduce((counts, kit) => {
@@ -67,7 +67,7 @@ const KitStatistics = ({ kitsData }) => {
     
     return {
       totalKits,
-      totalDataspaces,
+      totalIndustries,
       graduatedKits,
       incubatingKits,
       sandboxKits
@@ -83,10 +83,10 @@ const KitStatistics = ({ kitsData }) => {
       duration: 800
     },
     {
-      id: 'dataspaces',
-      value: statistics.totalDataspaces,
-      label: 'Dataspaces',
-      description: 'Dataspaces contributing to our KITs',
+      id: 'industries',
+      value: statistics.totalIndustries,
+      label: 'Industries',
+      description: 'Industries contributing to our KITs',
       icon: LanguageIcon,
       duration: 800
     },
@@ -158,7 +158,7 @@ const KitStatistics = ({ kitsData }) => {
             startIcon={<AddIcon />}
             className={styles.primaryButton}
             component={Link}
-            to="/Contribute"
+            to="/documentation/kit-getting-started"
             size="large"
           >
             Contribute
