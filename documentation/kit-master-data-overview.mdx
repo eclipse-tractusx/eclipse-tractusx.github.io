@@ -545,12 +545,6 @@ Dataspace Foundation
       └── ... (other industries)
 ``` 
 
-This structure allows:
-- **Clear organization**: Industries group related dataspaces
-- **Flexible KIT association**: KITs can serve one or multiple industries
-- **Scalability**: Easy to add new industries and dataspaces
-- **Logical navigation**: Users can explore by industry or dataspace
-
 ### What is Master Data?
 
 The master data includes two primary components that structure the entire ecosystem:
@@ -560,13 +554,12 @@ Core information about each industry vertical:
 - **Identity**: Unique ID, name, and subtitle
 - **Visual Branding**: Icon component, colors, and gradient styling
 - **Content**: Description and purpose within the ecosystem
-- **Navigation**: URL route to industry-specific pages
 - **Associated Dataspaces**: Array of dataspace implementations within this industry
 
 #### Dataspace Master Data  
 Essential information about each dataspace implementation:
 - **Identity**: Unique ID, name, and subtitle
-- **Branding**: Logo (SVG/PNG), colors, and gradient styling
+- **Branding**: Logo (SVG/PNG), colors, and gradient styling (**MUST** be hosted by the dataspace owner)
 - **Content**: Detailed description and purpose
 - **Links**: Official website URL for the dataspace
 - **Industry Association**: Which industry vertical this dataspace belongs to
@@ -577,63 +570,11 @@ Essential information about each dataspace implementation:
 
 To add a new industry to the master data:
 
-1. **Define the industry structure**: Add to the `industries` array in `kitsData.js`
-2. **Import the icon**: Choose an appropriate Material-UI icon for the industry
-3. **Set up branding**: Define color palette (4 layers) and gradient
-4. **Create industry route**: Set up the URL path (e.g., `/docs-kits/industry/automotive`)
-5. **Initialize dataspaces array**: Start with an empty array, ready for dataspace additions
-6. **Write industry description**: Generic description focusing on the industry context, not specific dataspaces
-
 **Required fields:**
 - `id`, `name`, `subtitle`, `description`
 - `icon` (Material-UI component)
 - `colors` (layer1-4), `gradient`
 - `url`, `dataspaces` (array)
-
-### Adding a New Dataspace
-
-To add a new dataspace to the master data:
-
-1. **Determine industry association**: Identify which industry this dataspace belongs to
-2. **Add to industry's dataspaces array**: Insert complete dataspace object
-3. **Set up branding**: Logo URL/file, colors (4 layers), and gradient
-4. **Define identity**: Name, subtitle, and comprehensive description
-5. **Link website**: Add the official dataspace website URL
-6. **Create dataspace-specific KIT section** (optional): Add array in `dataspaceKits` object if needed
-
-**Required fields:**
-- `name`, `url`, `subtitle`, `description`
-- `logo` (object with src, alt, width, height)
-- `colors` (layer1-4), `gradient`
-
-### Managing Industry-Dataspace Relationships
-
-When managing the ecosystem structure:
-
-- **One industry, multiple dataspaces**: Industries can have multiple dataspace implementations
-- **Dataspace uniqueness**: Each dataspace should have distinct branding and purpose
-- **KIT association**: KITs reference industries in their `industries` array
-- **Cross-industry KITs**: Some KITs may serve multiple industries
-
-### Updating Industry or Dataspace Information
-
-When updating master data:
-
-- **Branding updates**: Change colors, gradients, or logos as organizations rebrand
-- **Description refinement**: Keep descriptions current and accurate
-- **URL changes**: Update website links when organizations migrate domains
-- **New dataspaces**: Add new dataspace implementations to industry arrays
-
-### File Location
-
-The master data is located at:
-```
-/data/kitsData.js
-```
-
-### Data Structures
-
-#### Industry Structure
 
 Each industry entry follows this structure:
 
@@ -644,15 +585,11 @@ Each industry entry follows this structure:
   subtitle: 'Brief industry tagline',
   description: 'Generic description focusing on industry context and purpose',
   icon: MaterialUIIconComponent,
-  colors: {
-    layer1: '#hexcolor',
-    layer2: '#hexcolor',
-    layer3: '#hexcolor',
-    layer4: '#hexcolor'
-  },
   gradient: 'linear-gradient(135deg, #color1, #color2, #color3)',
   url: '/docs-kits/industry/industry-name',
-  dataspaces: [/* array of dataspace objects */]
+  dataspaces: [
+    /* array of dataspace objects (described below)*/
+  ]
 }
 ```
 
@@ -668,12 +605,6 @@ Here's a complete example from the actual master data:
   subtitle: 'Driving Innovation in Mobility',
   description: 'KITs used by the automotive industry, covering the entire value chain from raw materials to end-of-life recycling...',
   icon: DirectionsCar,
-  colors: {
-    layer1: '#FFA500',
-    layer2: '#FFD700',
-    layer3: '#FF8C00',
-    layer4: '#FF6347'
-  },
   gradient: 'linear-gradient(135deg, #FFA500, #FFD700, #FF8C00)',
   url: '/docs-kits/industry/automotive',
   dataspaces: [
@@ -688,16 +619,18 @@ Here's a complete example from the actual master data:
 }
 ```
 
-This example shows:
-- **Visual Identity**: Orange-yellow gradient representing automotive energy
-- **Material-UI Icon**: DirectionsCar for instant recognition
-- **Industry Focus**: Generic description covering automotive value chain
-- **Single Dataspace**: Catena-X as the primary automotive dataspace
-- **Navigation**: Clear URL structure for industry pages
-
 </details>
 
-#### Dataspace Structure
+### Adding a New Dataspace
+
+To add a new dataspace to the master data:
+
+**Required fields:**
+- `name`, `url`, `subtitle`, `description`
+- `logo` (object with src, alt, width, height)
+- `colors` (layer1-4), `gradient`
+
+
 
 Each dataspace entry follows this structure:
 
@@ -745,21 +678,20 @@ Here's a complete example from the actual master data (nested within Automotive 
 }
 ```
 
-This example shows:
-- **Industry Association**: Part of the Automotive industry
-- **Visual Branding**: Orange-yellow gradient matching automotive energy
-- **Local Logo**: SVG imported from static assets
-- **Clear Purpose**: First open automotive data ecosystem
-- **Active Organization**: Links to the official Catena-X website
-- **Value Chain Focus**: Emphasizes complete automotive value chain coverage
-
 </details>
+
+
+### File Location
+
+The master data is located at:
+```
+/data/kitsData.js
+```
+
 
 ## Master Data
 
 <MasterDataOverview />
-
-
 
 ### Related Documentation
 
