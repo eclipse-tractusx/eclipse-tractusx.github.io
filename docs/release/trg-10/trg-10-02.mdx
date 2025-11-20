@@ -18,6 +18,13 @@ This TRG serves to maintain a **consistent structure** and ensure **content qual
 A detailed explanation can be found here:
 [KIT Framework](../../../documentation/kit-framework)
 
+## Mandatory TRGs
+
+For the KIT Content this two TRGs must be followed:
+
+- [TRG 7.07 - Legal notice for non-code](/docs/release/trg-7/trg-7-07) - Image and media licensing requirements
+- [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08) - Documentation licensing
+
 ## General Requirements
 
 - A KIT must have a <code>changelog.md</code> following semantic versioning + the release date of Tractus-X - see [TRG 1.03 - CHANGELOG.md](/docs/release/trg-1/trg-1-03)
@@ -29,7 +36,33 @@ A detailed explanation can be found here:
 - A KIT must have a defined code owner for each industry extension - see [Industry Extensions](#industry-extensions)
 - A KIT must have defined code owners for kit maintenance - see [KIT Maintainers & Code Owners](#kit-maintainers--code-owners)
 
-## Description
+## KIT Creation Process
+
+The following process must be followed to create a new KIT:
+
+```mermaid
+flowchart LR
+    A["Create/Discuss Idea"] --> B["Create Ticket"] --> C["Build KIT"] --> D["Submit & Review"]
+```
+
+<details>
+<summary><strong>Detailed Step by Step Process</strong> (click to expand)</summary>
+
+```mermaid
+flowchart TD
+    A["1. Create/Discuss Idea in Discussions (Optional)"] --> B["2. Create Ticket in sig-release"]
+    B --> C["3. Present ticket in Open Planning of Target Release"]
+    C --> D["4. Build KIT in your fork"]
+    D --> E["5. Submit PR to eclipse-tractusx.github.io (with changelog + updated master data)"]
+    E --> F["6. Get PR approved by the responsible committer for the ticket"]
+    F --> G["7. KIT is published in target release changelogs (responsibility of committer)"]
+```
+
+</details>
+
+The detailed steps for the KIT creation are defined in the [KIT Getting Started Guide](../../../documentation/kit-getting-started#how-to-create-a-kit).
+
+## KIT Content Sections/Artifacts
 
 :::info Generic Requirements for All KITs
 In addition to the view-specific content below, every KIT must include:
@@ -40,8 +73,34 @@ The views below are organized in "folders" so that its sections are harmonized a
 :::
 <KitStructureTable />
 
+A deep dive explanation of each section can be found at the [KIT Framework Documentation](../../../documentation/kit-framework) guideline.
 
-A deep dive extension of each section can be found at the [KIT Framework Documentation](../../../documentation/kit-framework) guideline.
+### Sections File/Folder Structure
+
+#### Only per view
+
+In case a VIEW has only one file it shall be described in this way as a `md` or `mdx` file:
+
+```plaintext
+/docs-kits/kits/
+  <kit-name>/
+    adoption-view.md
+```
+
+#### Multiple files per view
+In case a VIEW has multiple files it shall be described in this way as a folder with multiple `md` or `mdx` files:
+
+```plaintext
+/docs-kits/kits/
+  <kit-name>/
+    development-view/
+        architecture.md
+        api-specifications.mdx
+    operation-view/
+        deployment-guide.md
+        monitoring.md
+    ...
+```
 
 
 ## KIT Maintainers & Code Owners
