@@ -1,17 +1,17 @@
 ---
 id: adoption-view
 title: Adoption View
-description: LLM Support KIT
+description: AI Service KIT
 sidebar_position: 2
 ---
 
-![LLM-Sup Kit Pictotogram](@site/static/img/kits/llm-support/llm-support-kit-logo.svg)
+![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-logo.svg)
 
 ## Vision & Mission
 
 ### Vision
 
-The LLM Support KIT envisions a future where business processes are optimized through the collaboration of diversely specialized AI systems across various inter-company collaborations such as automotive supply chains.
+The AI Service KIT envisions a future where business processes are optimized through the collaboration of diversely specialized AI systems across various inter-company collaborations.
 For achieving this vision, an ecosystem is needed where AI systems can collaborate while trusting each other.
 
 The purpose of this KIT is to seamlessly integrate AI systems with Catena-X, a globally trusted collaborative data ecosystem.

@@ -1,7 +1,7 @@
 ---
 id: software-development-view
-title: Developing with the DT KIT
-description: LLM Support KIT - Software Development View
+title: Developing with the AI Service KIT
+description: AI Service KIT - Software Development View
 sidebar_position: 1
 ---
 
@@ -10,7 +10,7 @@ sidebar_position: 1
 Development View of the Kit.
 -->
 
-![DT Kit Pictotogram](@site/static/img/kits/digital-twin/digital-twin-kit-logo.svg)
+![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-logo.svg)
 
 ## Introduction
 
