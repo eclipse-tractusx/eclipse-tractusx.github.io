@@ -1,0 +1,16 @@
+# In this file is located the code owners for the Website/KIT Maintenance
+
+# Website
+
+# KIT Architecture
+/documentation/ @matbmoser
+/src/pages/Kits/ @matbmoser
+/src/components/2.0/ @matbmoser
+
+# KITS
+
+# Master Data
+/data/ @matbmoser
+
+# Example of KIT Code Owner eg. Data Trust & Security KIT
+/docs-kits/kits/data-trust-and-security-kit/ @matbmoser
