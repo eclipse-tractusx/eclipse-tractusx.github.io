@@ -22,7 +22,7 @@ title: KIT Master Data Overview
  ********************************************************************************/
  }
 
-import { kitsData, dataspaces } from '../data/kitsData.js';
+import { kitsData, industries } from '../data/kitsData.js';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import SchoolIcon from '@mui/icons-material/School';
 import CachedIcon from '@mui/icons-material/Cached';
@@ -192,86 +192,211 @@ export const CategorySection = ({ title, kits, color }) => (
   </div>
 );
 
-export const DataspaceCard = ({ dataspace }) => (
-  <div style={{
-    border: '1px solid var(--ifm-color-emphasis-300)',
-    borderRadius: '12px',
-    padding: '20px',
-    marginBottom: '20px',
-    background: dataspace.gradient || 'var(--ifm-color-emphasis-100)',
-    color: 'white',
-    transition: 'all 0.2s ease',
-    cursor: 'pointer'
-  }}
-  onClick={() => window.open(dataspace.url, '_blank')}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.transform = 'translateY(-3px)';
-    e.currentTarget.style.boxShadow = '0 6px 25px rgba(0,0,0,0.15)';
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.transform = 'translateY(0)';
-    e.currentTarget.style.boxShadow = 'none';
-  }}>
-    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
+export const IndustryCard = ({ industry }) => {
+  const IconComponent = industry.icon;
+  return (
+    <div style={{
+      border: '1px solid var(--ifm-color-emphasis-300)',
+      borderRadius: '16px',
+      overflow: 'hidden',
+      marginBottom: '24px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      {/* Industry Header */}
       <div style={{
-        width: '80px',
-        height: '80px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: '12px',
-        backgroundColor: 'white',
-        flexShrink: 0
+        background: industry.gradient || 'var(--ifm-color-emphasis-100)',
+        color: 'white',
+        padding: '24px'
       }}>
-        {dataspace.logo && (
-          <img 
-            src={dataspace.logo.src}
-            alt={dataspace.logo.alt}
-            style={{ 
-              width: dataspace.logo.width ? `${Math.min(dataspace.logo.width, 60)}px` : '60px',
-              height: dataspace.logo.height ? `${Math.min(dataspace.logo.height, 60)}px` : 'auto',
-              objectFit: 'contain'
-            }} 
-          />
-        )}
-      </div>
-      <div style={{ flex: 1 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-          <h4 style={{ margin: 0, fontSize: '24px', fontWeight: 'bold', color: 'white' }}>
-            {dataspace.name}
-          </h4>
-          <span style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.25)',
-            color: 'white',
-            padding: '4px 12px',
-            borderRadius: '16px',
-            fontSize: '12px',
-            fontWeight: '500',
-            backdropFilter: 'blur(5px)',
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+          <div style={{
+            width: '70px',
+            height: '70px',
             display: 'flex',
             alignItems: 'center',
-            gap: '4px'
+            justifyContent: 'center',
+            borderRadius: '12px',
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            flexShrink: 0,
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
           }}>
-            <PublicIcon sx={{ fontSize: 14 }} />
-            Dataspace
-          </span>
-        </div>
-        <p style={{ margin: '0 0 8px 0', fontSize: '16px', fontWeight: '500', opacity: 0.9 }}>
-          {dataspace.subtitle}
-        </p>
-        <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.5', opacity: 0.85 }}>
-          {dataspace.description}
-        </p>
-        <div style={{ marginTop: '12px', fontSize: '13px', opacity: 0.8, display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <LinkIcon sx={{ fontSize: 16 }} />
-          <span>{dataspace.url}</span>
+            {IconComponent && (
+              <IconComponent 
+                sx={{ 
+                  fontSize: 44,
+                  color: industry.colors?.layer4 || '#3b82f6'
+                }} 
+              />
+            )}
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
+              <h4 style={{ margin: 0, fontSize: '26px', fontWeight: '700', color: 'white' }}>
+                {industry.name}
+              </h4>
+              <span style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                color: 'white',
+                padding: '3px 10px',
+                borderRadius: '12px',
+                fontSize: '11px',
+                fontWeight: '600',
+                backdropFilter: 'blur(5px)',
+                border: '1px solid rgba(255, 255, 255, 0.3)'
+              }}>
+                INDUSTRY
+              </span>
+            </div>
+            <p style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: '500', opacity: 0.95 }}>
+              {industry.subtitle}
+            </p>
+            <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.5', opacity: 0.9 }}>
+              {industry.description}
+            </p>
+          </div>
         </div>
       </div>
+      
+      {/* Dataspaces Section */}
+      {industry.dataspaces && industry.dataspaces.length > 0 && (
+        <div style={{ 
+          backgroundColor: 'var(--ifm-background-color)',
+          padding: '24px'
+        }}>
+          <h5 style={{ 
+            margin: '0 0 16px 0', 
+            fontSize: '16px', 
+            fontWeight: '600', 
+            color: 'var(--ifm-font-color-base)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}>
+            <span>Dataspaces in this Industry</span>
+            <span style={{
+              backgroundColor: 'var(--ifm-color-primary)',
+              color: 'white',
+              padding: '2px 8px',
+              borderRadius: '10px',
+              fontSize: '12px',
+              fontWeight: '600'
+            }}>
+              {industry.dataspaces.length}
+            </span>
+          </h5>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: industry.dataspaces.length === 1 ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
+            gap: '16px'
+          }}>
+            {industry.dataspaces.map((dataspace, index) => (
+              <div 
+                key={index}
+                onClick={() => window.open(dataspace.url, '_blank')}
+                style={{
+                  backgroundColor: 'var(--ifm-color-emphasis-100)',
+                  border: '1px solid var(--ifm-color-emphasis-300)',
+                  borderRadius: '12px',
+                  padding: industry.dataspaces.length === 1 ? '24px' : '16px',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  display: 'flex',
+                  flexDirection: industry.dataspaces.length === 1 ? 'row' : 'column',
+                  alignItems: industry.dataspaces.length === 1 ? 'center' : 'stretch',
+                  gap: industry.dataspaces.length === 1 ? '24px' : '0',
+                  height: '100%'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.15)';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-primary)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-300)';
+                }}
+              >
+                {dataspace.logo && (
+                  <div style={{ 
+                    marginBottom: industry.dataspaces.length === 1 ? '0' : '12px',
+                    display: 'flex', 
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    minHeight: industry.dataspaces.length === 1 ? 'auto' : '60px',
+                    flexShrink: 0
+                  }}>
+                    <img 
+                      src={dataspace.logo.src} 
+                      alt={dataspace.logo.alt}
+                      style={{ 
+                        width: dataspace.logo.width ? `${dataspace.logo.width}px` : (industry.dataspaces.length === 1 ? '100px' : '70px'),
+                        height: dataspace.logo.height || 'auto',
+                        objectFit: 'contain',
+                        maxHeight: industry.dataspaces.length === 1 ? '80px' : '60px'
+                      }}
+                    />
+                  </div>
+                )}
+                <div style={{ 
+                  flex: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  textAlign: industry.dataspaces.length === 1 ? 'left' : 'center'
+                }}>
+                  <h6 style={{ 
+                    margin: '0 0 6px 0', 
+                    fontSize: industry.dataspaces.length === 1 ? '22px' : '16px',
+                    fontWeight: '700',
+                    color: 'var(--ifm-font-color-base)'
+                  }}>
+                    {dataspace.name}
+                  </h6>
+                  {dataspace.subtitle && (
+                    <p style={{ 
+                      margin: '0 0 10px 0', 
+                      fontSize: industry.dataspaces.length === 1 ? '14px' : '12px',
+                      color: 'var(--ifm-color-primary)',
+                      fontWeight: '600'
+                    }}>
+                      {dataspace.subtitle}
+                    </p>
+                  )}
+                  <p style={{ 
+                    margin: 0, 
+                    fontSize: industry.dataspaces.length === 1 ? '15px' : '13px',
+                    lineHeight: '1.5',
+                    color: 'var(--ifm-color-content-secondary)',
+                    flex: 1
+                  }}>
+                    {dataspace.description}
+                  </p>
+                  <div style={{
+                    marginTop: '12px',
+                    paddingTop: '12px',
+                    borderTop: '1px solid var(--ifm-color-emphasis-300)',
+                    display: 'flex',
+                    justifyContent: industry.dataspaces.length === 1 ? 'flex-start' : 'center',
+                    alignItems: 'center',
+                    gap: '6px',
+                    color: 'var(--ifm-color-primary)',
+                    fontSize: industry.dataspaces.length === 1 ? '14px' : '12px',
+                    fontWeight: '600'
+                  }}>
+                    <span>Visit Website</span>
+                    <LinkIcon sx={{ fontSize: industry.dataspaces.length === 1 ? 16 : 14 }} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
-  </div>
-);
+  );
+};
 
-export const DataspaceSection = ({ title, dataspaces, color }) => (
+export const IndustrySection = ({ title, industries, color }) => (
   <div style={{ marginBottom: '40px' }}>
     <h3 style={{ 
       color: color, 
@@ -279,11 +404,11 @@ export const DataspaceSection = ({ title, dataspaces, color }) => (
       paddingBottom: '8px',
       marginBottom: '20px'
     }}>
-      {title} ({dataspaces.length})
+      {title} ({industries.length})
     </h3>
     <div>
-      {dataspaces.map((dataspace, index) => (
-        <DataspaceCard key={index} dataspace={dataspace} />
+      {industries.map((industry, index) => (
+        <IndustryCard key={index} industry={industry} />
       ))}
     </div>
   </div>
@@ -295,17 +420,17 @@ export const MasterDataOverview = () => {
   const industryCoreKits = [...(kitsData.industryCoreFoundation || [])];
   const useCaseKits = [...(kitsData.useCases || [])];
   
-  // Collect all dataspace-specific KITs
-  const dataspaceSpecificKits = [];
-  if (kitsData.dataspaceKits) {
-    Object.values(kitsData.dataspaceKits).forEach(kitsArray => {
+  // Collect all industry-specific KITs
+  const industrySpecificKits = [];
+  if (kitsData.industryKits) {
+    Object.values(kitsData.industryKits).forEach(kitsArray => {
       if (Array.isArray(kitsArray)) {
-        dataspaceSpecificKits.push(...kitsArray);
+        industrySpecificKits.push(...kitsArray);
       }
     });
   }
 
-  const allKits = [...foundationKits, ...industryCoreKits, ...useCaseKits, ...dataspaceSpecificKits];
+  const allKits = [...foundationKits, ...industryCoreKits, ...useCaseKits, ...industrySpecificKits];
 
   const totalKits = allKits.length;
   const graduatedKits = allKits.filter(kit => kit.maturity?.currentLevel === 'Graduated').length;
@@ -314,11 +439,11 @@ export const MasterDataOverview = () => {
   const deprecatedKits = allKits.filter(kit => kit.deprecated).length;
   const newKits = allKits.filter(kit => kit.metadata?.new).length;
 
-  // Get unique dataspaces
-  const allDataspaces = [...new Set(allKits.flatMap(kit => kit.dataspaces || []))];
+  // Get unique industries
+  const allIndustries = [...new Set(allKits.flatMap(kit => kit.industries || []))];
   
-  // Get dataspace names that have specific KITs
-  const dataspaceNames = kitsData.dataspaceKits ? Object.keys(kitsData.dataspaceKits) : [];
+  // Get industry names that have specific KITs
+  const industryNames = kitsData.industryKits ? Object.keys(kitsData.industryKits) : [];
   
   return (
     <div>
@@ -335,14 +460,14 @@ export const MasterDataOverview = () => {
         <KitStatsCard title="Incubation" count={incubationKits} color="#f59e0b" IconComponent={CachedIcon} />
         <KitStatsCard title="Sandbox" count={sandboxKits} color="#6b7280" IconComponent={ScienceIcon} />
         <KitStatsCard title="New KITs" count={newKits} color="#8b5cf6" IconComponent={AutoAwesomeIcon} />
-        <KitStatsCard title="Dataspaces" count={allDataspaces.length} color="#ec4899" IconComponent={PublicIcon} />
+        <KitStatsCard title="Industries" count={allIndustries.length} color="#ec4899" IconComponent={PublicIcon} />
       </div>
 
-      {/* Dataspace Master Data */}
-      {dataspaces && dataspaces.length > 0 && (
-        <DataspaceSection 
-          title="Dataspaces"
-          dataspaces={dataspaces}
+      {/* Industry Master Data */}
+      {industries && industries.length > 0 && (
+        <IndustrySection 
+          title="Industries"
+          industries={industries}
           color="#ec4899"
         />
       )}
@@ -372,21 +497,21 @@ export const MasterDataOverview = () => {
         />
       )}
 
-      {/* Dataspace Specific KITs */}
-      {kitsData.dataspaceKits && Object.entries(kitsData.dataspaceKits).some(([_, kits]) => kits && kits.length > 0) && (
+      {/* Industry Specific KITs */}
+      {kitsData.industryKits && Object.entries(kitsData.industryKits).some(([_, kits]) => kits && kits.length > 0) && (
         <div style={{ marginTop: '40px' }}>
           <h2 style={{ 
             paddingBottom: '12px',
             marginBottom: '30px',
             fontSize: '28px'
           }}>
-            Dataspace Specifics
+            Industry Specifics
           </h2>
-          {Object.entries(kitsData.dataspaceKits).map(([dataspaceName, kits]) => (
+          {Object.entries(kitsData.industryKits).map(([industryName, kits]) => (
             kits && kits.length > 0 && (
               <CategorySection 
-                key={dataspaceName}
-                title={`${dataspaceName.toUpperCase()} Specific KITs`}
+                key={industryName}
+                title={`${industryName.charAt(0).toUpperCase() + industryName.slice(1)} Specific KITs`}
                 kits={kits}
                 color="#f59e0b"
               />
@@ -398,67 +523,106 @@ export const MasterDataOverview = () => {
   );
 };
 
-## KIT Master Data Overview
+## Industry & Dataspace Master Data Overview
 
-This page provides a comprehensive overview of all KITs (Keep It Together) registered in the Tractus-X ecosystem. The master data is maintained in the [`kitsData.js`](../data/kitsData.js) file and includes information about maturity levels, dataspaces, versions, and more.
+This page provides a comprehensive overview of all industries and dataspaces in the Tractus-X ecosystem. The master data is maintained in the [`kitsData.js`](../data/kitsData.js) file and serves as the foundation for organizing KITs and dataspace implementations.
+
+### Ecosystem Hierarchy
+
+The master data follows this organizational hierarchy:
+
+```
+Dataspace Foundation
+└── Industry Core KITs
+  └── Cross-Dataspace Use Cases
+    └── Industry-Specific KITs
+      ├── Automotive Industry
+      │   └── Dataspaces
+      │       └── Catena-X
+      ├── Shop Floor Industry
+      │   └── Dataspaces
+      │       └── <Future Implementations>
+      └── ... (other industries)
+``` 
+
+This structure allows:
+- **Clear organization**: Industries group related dataspaces
+- **Flexible KIT association**: KITs can serve one or multiple industries
+- **Scalability**: Easy to add new industries and dataspaces
+- **Logical navigation**: Users can explore by industry or dataspace
 
 ### What is Master Data?
 
-The master data includes two main components:
+The master data includes two primary components that structure the entire ecosystem:
 
-#### KIT Master Data
-Essential metadata for each KIT including:
-- **Identification**: Unique ID, name, and route
-- **Visual Elements**: Logo, colors, and styling
-- **Maturity Information**: Current level (Sandbox, Incubation, Graduated) and graduation status
-- **Dataspace Association**: Which dataspaces use this KIT
-- **Versioning**: Creation date, last update, and current version
-- **Status Flags**: New, deprecated, or active status
+#### Industry Master Data
+Core information about each industry vertical:
+- **Identity**: Unique ID, name, and subtitle
+- **Visual Branding**: Icon component, colors, and gradient styling
+- **Content**: Description and purpose within the ecosystem
+- **Navigation**: URL route to industry-specific pages
+- **Associated Dataspaces**: Array of dataspace implementations within this industry
 
 #### Dataspace Master Data  
-Information about each dataspace in the Tractus-X ecosystem:
+Essential information about each dataspace implementation:
 - **Identity**: Unique ID, name, and subtitle
-- **Branding**: Logo, colors, and gradient styling
-- **Content**: Description and purpose
-- **Links**: Official website URL
+- **Branding**: Logo (SVG/PNG), colors, and gradient styling
+- **Content**: Detailed description and purpose
+- **Links**: Official website URL for the dataspace
+- **Industry Association**: Which industry vertical this dataspace belongs to
 
 ## Managing Master Data
 
-### Adding a New KIT
+### Adding a New Industry
 
-To add a new KIT to the master data:
+To add a new industry to the master data:
 
-1. **Choose the correct category**: `dataspaceFoundation`, `industryCoreFoundation`, `useCase`, or `dataspaceSpecific`
-2. **Import the logo**: Add SVG logo to `/static/img/kits/<kit-name>/` and import it
-3. **Follow the data structure**: Use the template above with all required fields
-4. **Set appropriate maturity level**: Start with "Sandbox" for new KITs, and set the new flag if applicable
-5. **Add dataspace associations**: Specify which dataspaces use this KIT
+1. **Define the industry structure**: Add to the `industries` array in `kitsData.js`
+2. **Import the icon**: Choose an appropriate Material-UI icon for the industry
+3. **Set up branding**: Define color palette (4 layers) and gradient
+4. **Create industry route**: Set up the URL path (e.g., `/docs-kits/industry/automotive`)
+5. **Initialize dataspaces array**: Start with an empty array, ready for dataspace additions
+6. **Write industry description**: Generic description focusing on the industry context, not specific dataspaces
 
-### Updating KIT Information
-
-When updating KIT information:
-
-- **Update `lastUpdated`**: Change to current date when making modifications
-- **Version bumping**: Update `latestVersion` when KIT content changes significantly
-- **Maturity progression**: Update `currentLevel` when KIT graduates to next level
-- **Deprecation**: Set `deprecated: true` for KITs no longer maintained
+**Required fields:**
+- `id`, `name`, `subtitle`, `description`
+- `icon` (Material-UI component)
+- `colors` (layer1-4), `gradient`
+- `url`, `dataspaces` (array)
 
 ### Adding a New Dataspace
 
 To add a new dataspace to the master data:
 
-1. **Add to dataspaces array**: Include complete dataspace information
-2. **Set up branding**: Logo, colors, and gradient for visual identity
-3. **Create dataspace KIT section**: Add empty array in `dataspaceKits` object
-4. **Update documentation**: Include dataspace in relevant documentation
+1. **Determine industry association**: Identify which industry this dataspace belongs to
+2. **Add to industry's dataspaces array**: Insert complete dataspace object
+3. **Set up branding**: Logo URL/file, colors (4 layers), and gradient
+4. **Define identity**: Name, subtitle, and comprehensive description
+5. **Link website**: Add the official dataspace website URL
+6. **Create dataspace-specific KIT section** (optional): Add array in `dataspaceKits` object if needed
 
-### Managing Dataspace KITs
+**Required fields:**
+- `name`, `url`, `subtitle`, `description`
+- `logo` (object with src, alt, width, height)
+- `colors` (layer1-4), `gradient`
 
-When managing dataspace-specific KITs:
+### Managing Industry-Dataspace Relationships
 
-- **Add to correct dataspace**: Use the appropriate key in `dataspaceKits`
-- **Cross-dataspace compatibility**: KITs can be used by multiple dataspaces
-- **Dataspace association**: Update the `dataspaces` array in KIT metadata
+When managing the ecosystem structure:
+
+- **One industry, multiple dataspaces**: Industries can have multiple dataspace implementations
+- **Dataspace uniqueness**: Each dataspace should have distinct branding and purpose
+- **KIT association**: KITs reference industries in their `industries` array
+- **Cross-industry KITs**: Some KITs may serve multiple industries
+
+### Updating Industry or Dataspace Information
+
+When updating master data:
+
+- **Branding updates**: Change colors, gradients, or logos as organizations rebrand
+- **Description refinement**: Keep descriptions current and accurate
+- **URL changes**: Update website links when organizations migrate domains
+- **New dataspaces**: Add new dataspace implementations to industry arrays
 
 ### File Location
 
@@ -467,80 +631,71 @@ The master data is located at:
 /data/kitsData.js
 ```
 
-### Data Structure
+### Data Structures
 
-Each KIT entry follows this structure:
+#### Industry Structure
+
+Each industry entry follows this structure:
 
 ```javascript
 {
-  id: 'unique-kit-id',
-  name: 'KIT NAME IN UPPERCASE',
-  logo: KitLogoComponent,
-  logoHeight: 80,
-  logoWidth: 80,
-  route: '/docs-kits/kits/kit-name/adoption-view',
+  id: 'unique-industry-id',
+  name: 'Industry Name',
+  subtitle: 'Brief industry tagline',
+  description: 'Generic description focusing on industry context and purpose',
+  icon: MaterialUIIconComponent,
   colors: {
-    primary: '#hexcolor',
-    gradient: 'linear-gradient(...)'
+    layer1: '#hexcolor',
+    layer2: '#hexcolor',
+    layer3: '#hexcolor',
+    layer4: '#hexcolor'
   },
-  maturity: {
-    currentLevel: 'Graduated|Incubation|Sandbox',
-    graduationStatus: 'Draft|In Progress|In Review|No Further Development'
-  },
-  deprecated: false,
-  dataspaces: ['Catena-X', 'Factory-X'],
-  description: 'Kit description text',
-  metadata: {
-    created: 'YYYY-MM-DD',
-    lastUpdated: 'YYYY-MM-DD',
-    latestVersion: 'x.y.z',
-    new: false
-  }
+  gradient: 'linear-gradient(135deg, #color1, #color2, #color3)',
+  url: '/docs-kits/industry/industry-name',
+  dataspaces: [/* array of dataspace objects */]
 }
 ```
 
 <details>
-<summary><strong>Real Example: Connector KIT</strong></summary>
+<summary><strong>Real Example: Automotive Industry</strong></summary>
 
 Here's a complete example from the actual master data:
 
 ```javascript
 {
-  id: 'connector',
-  name: 'CONNECTOR KIT',
-  logo: ConnectorKitLogo,
-  logoHeight: 80,
-  logoWidth: 80,
-  route: '/docs-kits/kits/connector-kit/adoption-view',
+  id: 'automotive',
+  name: 'Automotive',
+  subtitle: 'Driving Innovation in Mobility',
+  description: 'KITs used by the automotive industry, covering the entire value chain from raw materials to end-of-life recycling...',
+  icon: DirectionsCar,
   colors: {
-    primary: '#2316E3',
-    gradient: 'linear-gradient(135deg, #3372CC 0%, #2316E3 100%)'
+    layer1: '#FFA500',
+    layer2: '#FFD700',
+    layer3: '#FF8C00',
+    layer4: '#FF6347'
   },
-  maturity: {
-    currentLevel: 'Graduated'
-  },
-  deprecated: false,
-  dataspaces: ['Catena-X', 'Semiconductor-X', 'Factory-X', 'Construct-X', 'Chem-X'],
-  description: 'The EDC as a connector implements a framework agreement for sovereign, cross-organizational data exchange.',
-  metadata: {
-    created: '2022-08-01',
-    lastUpdated: '2024-06-07',
-    latestVersion: '3.0.0',
-    new: false
-  }
+  gradient: 'linear-gradient(135deg, #FFA500, #FFD700, #FF8C00)',
+  url: '/docs-kits/industry/automotive',
+  dataspaces: [
+    {
+      name: "Catena-X",
+      url: "https://catena-x.net/",
+      logo: { src: '...', alt: 'Catena-X Logo', width: 70, height: 70 },
+      subtitle: 'Your Automotive Network',
+      description: 'The first open and collaborative data ecosystem...'
+    }
+  ]
 }
 ```
 
 This example shows:
-- **Mature KIT**: Graduated status with no graduation status needed
-- **Multi-dataspace**: Used across all 5 dataspaces in the ecosystem
-- **Established**: Created in 2022, regularly updated, version 3.0.0
-- **Foundation**: Critical dataspace foundation component
-- **Visual Identity**: Blue gradient matching the foundation theme
+- **Visual Identity**: Orange-yellow gradient representing automotive energy
+- **Material-UI Icon**: DirectionsCar for instant recognition
+- **Industry Focus**: Generic description covering automotive value chain
+- **Single Dataspace**: Catena-X as the primary automotive dataspace
+- **Navigation**: Clear URL structure for industry pages
 
 </details>
-
-
 
 #### Dataspace Structure
 
@@ -570,43 +725,35 @@ Each dataspace entry follows this structure:
 ```
 
 <details>
-<summary><strong>Real Example: Factory-X Dataspace</strong></summary>
+<summary><strong>Real Example: Catena-X Dataspace</strong></summary>
 
-Here's a complete example from the actual master data:
+Here's a complete example from the actual master data (nested within Automotive industry):
 
 ```javascript
 {
-  id: 'factory-x',
-  name: 'Factory-X',
-  subtitle: 'Shop Floor Industry KITs',
-  description: 'A manufacturing-focused dataspace that connects shop floors, production systems, and industrial equipment. Factory-X democratizes access to manufacturing capabilities and enables smart, flexible production networks.',
+  name: "Catena-X",
+  url: "https://catena-x.net/",
   logo: {
-    src: 'https://factory-x.org/wp-content/uploads/factory-x-logo.svg',
-    alt: 'Factory-X Logo',
-    width: 80,
-    height: 'auto'
+    src: require('@site/static/img/catenax-logo.svg').default,
+    alt: 'Catena-X Logo',
+    width: 70,
+    height: 70
   },
-  colors: {
-    layer1: '#81d100',
-    layer2: '#c1d100',
-    layer3: '#5ba9de',
-    layer4: '#1D71B8'
-  },
-  gradient: 'linear-gradient(135deg, #1D71B8, #5ba9de, #c1d100)',
-  url: 'https://factory-x.org'
+  subtitle: 'Your Automotive Network',
+  description: 'The first open and collaborative data ecosystem for the automotive industry, enabling secure and standardized data exchange across the entire value chain.',
+  gradient: 'linear-gradient(135deg, #FFA500, #FFD700, #FF8C00)'
 }
 ```
 
 This example shows:
-- **Industry Focus**: Manufacturing and shop floor systems
-- **Visual Branding**: Blue-green gradient matching manufacturing themes
-- **Real Logo**: Direct link to official Factory-X logo SVG withouth background
-- **Multi-layer Colors**: Four color layers for complex gradients
-- **Active Website**: Links to the official Factory-X organization site
-- **Descriptive Content**: Clear explanation of purpose and target audience
+- **Industry Association**: Part of the Automotive industry
+- **Visual Branding**: Orange-yellow gradient matching automotive energy
+- **Local Logo**: SVG imported from static assets
+- **Clear Purpose**: First open automotive data ecosystem
+- **Active Organization**: Links to the official Catena-X website
+- **Value Chain Focus**: Emphasizes complete automotive value chain coverage
 
 </details>
-
 
 ## Master Data
 

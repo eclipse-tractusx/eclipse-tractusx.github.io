@@ -23,6 +23,8 @@ title: KIT Getting started
  ********************************************************************************/
  }
 
+import React from 'react';
+
 import { KitStructureTable } from '@site/src/components/2.0/KitComponents';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
@@ -31,11 +33,80 @@ import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ChatIcon from '@mui/icons-material/Chat';
 import DatasetIcon from '@mui/icons-material/Dataset';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import RecyclingIcon from '@mui/icons-material/Recycling';
 
 | Status     | Created      | Post-History                           |
 |------------|--------------|----------------------------------------|
 | Draft      | 04-Apr-2024  | Initial contribution                   |
 | Active     | 07-Nov-2025  | Extended Contribution to KITs 2.0     |
+
+Welcome to the Eclipse Tractus-X KITs Getting Started Guide! This guide is designed to help you understand what KITs are, how to get started with them, and how to create your own KITs for the Eclipse Tractus-X ecosystem.
+
+export const InfoCard = ({ icon: Icon, title, description, href }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+  
+  return (
+    <a 
+      href={href}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '14px',
+        padding: '16px 20px',
+        backgroundColor: 'var(--ifm-color-emphasis-100)',
+        border: '1px solid var(--ifm-color-emphasis-300)',
+        borderRadius: '10px',
+        textDecoration: 'none',
+        color: 'var(--ifm-color-content)',
+        transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+        cursor: 'pointer',
+        borderLeft: isHovered ? '3px solid var(--ifm-color-primary)' : '1px solid var(--ifm-color-emphasis-300)',
+        paddingLeft: isHovered ? '18px' : '20px'
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '40px',
+        height: '40px',
+        backgroundColor: isHovered ? 'var(--ifm-color-primary)' : 'var(--ifm-color-emphasis-200)',
+        borderRadius: '8px',
+        flexShrink: 0,
+        transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
+      }}>
+        <Icon sx={{ fontSize: 20, color: isHovered ? 'white' : 'var(--ifm-color-primary)' }} />
+      </div>
+      <div style={{ flex: 1 }}>
+        <div style={{ 
+          fontWeight: '600', 
+          fontSize: '15px', 
+          marginBottom: '2px',
+          color: isHovered ? 'var(--ifm-color-primary)' : 'var(--ifm-color-content)',
+          transition: 'color 0.2s ease'
+        }}>
+          {title}
+        </div>
+        <div style={{ 
+          fontSize: '13px', 
+          color: 'var(--ifm-color-content-secondary)',
+          lineHeight: '1.4'
+        }}>
+          {description}
+        </div>
+      </div>
+      <OpenInNewIcon sx={{ 
+        fontSize: 16, 
+        color: 'var(--ifm-color-emphasis-600)',
+        opacity: isHovered ? 1 : 0.5,
+        transition: 'opacity 0.2s ease'
+      }} />
+    </a>
+  );
+};
 
 export const ProcessReference = ({ stepNumber, detailedSteps, description }) => (
   <div style={{
@@ -103,28 +174,101 @@ export const ProcessReference = ({ stepNumber, detailedSteps, description }) => 
   </div>
 );
 
-## Why
+## What is a KIT?
 
-This TRG serves to maintain a **consistent structure** and ensure **content quality** for the stakeholders.
-KIT means Keep It Together. A KIT contains all the artifacts that are relevant to participate in the Catena-X data space as an operator, data provider or solution / app provider. These stakeholders have one place with all the information they need. For example an explanation of an API, the specification of it and the deployment instructions. The goal of a KIT should be that you have no need to visit any other information source.
-A detailed explanation can be found here:
-[KIT General Introduction](https://eclipse-tractusx.github.io/Kits)
+> **KIT**, short for **Keep It Together**, is an open-source toolbox with comprehensive documentation that enables multiple stakeholders **(Business, Solution Providers, Developers)** to build interoperable applications compatible with the Eclipse Tractus-X dataspace technologies, support the compliance with industrial standards from standarization organizations (Catena-X e.V., IDTA, ISO/DIN, EDWG, Manufacturing-X, etc.) and in some use cases enable also regulatory compliance.
 
-## Description
+<div style={{
+  margin: '20px 0'
+}}>
+  <a 
+    href="./kit-framework" 
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      width: '100%',
+      padding: '18px 28px',
+      background: 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)',
+      color: 'white',
+      textDecoration: 'none',
+      borderRadius: '12px',
+      fontWeight: '700',
+      fontSize: '16px',
+      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+      border: 'none',
+      boxSizing: 'border-box',
+      boxShadow: '0 4px 14px 0 rgba(76, 175, 80, 0.3)',
+      cursor: 'pointer',
+      position: 'relative',
+      overflow: 'hidden'
+    }}
+    onMouseEnter={(e) => {
+      e.target.style.transform = 'translateY(-2px) scale(1.02)';
+      e.target.style.boxShadow = '0 8px 25px 0 rgba(76, 175, 80, 0.4)';
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.transform = 'translateY(0) scale(1)';
+      e.target.style.boxShadow = '0 4px 14px 0 rgba(76, 175, 80, 0.3)';
+    }}
+    onMouseDown={(e) => {
+      e.target.style.transform = 'translateY(0) scale(0.98)';
+    }}
+    onMouseUp={(e) => {
+      e.target.style.transform = 'translateY(-2px) scale(1.02)';
+    }}
+  >
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '12px'
+    }}>
+      <AccountBalanceIcon sx={{ fontSize: 20 }} />
+      <span>Learn what is a KIT</span>
+    </div>
+    <OpenInNewIcon sx={{ fontSize: 18, opacity: 0.8 }} />
+  </a>
+</div>
 
-For providing a KIT to the Eclipse project Tractus-X please be aware of the "getting started" as a contributor.
+## First Steps
 
-- **TRG 9.02 KIT Maturity Levels** A KIT is always structured the same way and follows three graduation stages
-- **TRG 9.03 KIT Framework** Each of the artifacts in a KIT are explained with examples
+Take your first steps on creating your KIT by following this guide. Here you will find detailed step by step explanations from **ZERO TO KIT**. More information can be found in other pages:
 
-## Prerequisites
+<div style={{ display: 'flex', flexDirection: 'column', gap: '12px', margin: '20px 0' }}>
+  <InfoCard 
+    icon={MenuBookIcon}
+    title="KIT Framework Guide"
+    description="Understand the KIT structure, artefacts and requirements."
+    href="./kit-framework"
+  />
+  <InfoCard 
+    icon={RecyclingIcon}
+    title="KIT Lifecycle Guide"
+    description="Understand how KITs are released, quality metrics and maintained."
+    href="./kit-lifecycle"
+  />
+  <InfoCard 
+    icon={DatasetIcon}
+    title="KIT Master Data Overview"
+    description="Complete KIT metadata and statistics."
+    href="./kit-master-data-overview"
+  />
+  <InfoCard 
+    icon={AssignmentIcon}
+    title="KIT Statistics & Analytics"
+    description="Analyze KIT data, state of life and development metrics."
+    href="./kit-statistics"
+  />
+</div>
+
+
+### Prerequisites
 
 You need to have a Github Account and to fulfill the requirements from the [Developer Hub Getting Started Guide](/docs/getting-started).
 
-## Get Informed
-
-
 ### Contact & Support
+
+Get informed about what are the KITs and how to contribute by reaching out to the KITs Program Manager or attending our KIT community office hours:
 
 <div 
   style={{
@@ -307,6 +451,7 @@ You need to have a Github Account and to fulfill the requirements from the [Deve
 | Channel | Purpose | Link |
 |---------|---------|------|
 | KIT Community Office Hours | Weekly alignment meetings | [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour) |
+| KIT Office Hour Kanban | Development items tracking | [Github Project](https://github.com/orgs/eclipse-tractusx/projects/92) |
 | Matrix Chat | Daily discussions & support | [#tractusx-kits:matrix.eclipse.org](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) |
 | GitHub Issues | Technical issues & bugs | [Create Issue](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues) |
 | SIG-Release | Official KIT Release Tracking | [eclipse-tractusx/sig-release](https://github.com/eclipse-tractusx/sig-release) |
@@ -378,7 +523,13 @@ flowchart TD
 Follow this structure:
 
 <KitStructureTable />
+:::info Generic Requirements for All KITs
+In addition to the view-specific content above, every KIT must include:
+- **Copyright Notice** - Mandatory CC-BY-4.0 licensing information and contributor copyright statements at every file
+- **Changelog** - Version history file following [semantic versioning](https://semver.org/)
 
+The views above are organized in "folders" so that its sections are harmonized and the content from each view remains flexible.
+:::
 
 <div style={{
   margin: '20px 0'
