@@ -49,3 +49,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixed broken links
 - Remove many Catena-X specific references from the consortia time.
+- Fixed TRG folder structure
