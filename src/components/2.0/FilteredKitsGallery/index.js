@@ -22,19 +22,30 @@ import KitGalleryHeader from '@site/src/components/2.0/KitGalleryHeader';
 import styles from './styles.module.scss';
 import ExpandedKitsGrid from '@site/src/components/2.0/ExpandedKitsGrid';
 
+import { industries } from '@site/data/kitsData';
+
 export default function FilteredKitsGallery({ 
   categoryData,
   kits = [],
-  showDataspaceFilter = true,
+  showIndustryFilter = true,
   showCategoryFilter = false,
+  showDomainFilter = false,
   showHeader = true,
   title,
   description,
-  backRef
+  backRef,
+  noResultsMessage
 }) {
-  const [selectedDataspace, setSelectedDataspace] = useState('All Dataspaces');
+  const [selectedIndustry, setSelectedIndustry] = useState('all'); // Store industry ID
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const [selectedDomain, setSelectedDomain] = useState('All Domains');
   const [sortOrder, setSortOrder] = useState('default');
+
+  // Helper to get industry name from ID
+  const getIndustryName = (industryId) => {
+    const industry = industries.find(i => i.id === industryId);
+    return industry ? industry.name : industryId;
+  };
 
   // Helper function to get kit category from the kit's categoryType property
   const getKitCategory = (kit) => {
@@ -45,10 +56,15 @@ export default function FilteredKitsGallery({
     return 'Unknown';
   };
 
-  // Get unique dataspace names
-  const uniqueDataspaces = useMemo(() => {
-    const dataspaces = [...new Set(kits.flatMap(kit => kit.dataspaces))].sort();
-    return ['All Dataspaces', ...dataspaces];
+  // Get unique industry IDs and names
+  const uniqueIndustries = useMemo(() => {
+    const industryIds = [...new Set(kits.flatMap(kit => kit.industries).filter(Boolean))];
+    // Map IDs to objects with id and name
+    const industryObjects = industryIds.map(id => ({
+      id,
+      name: getIndustryName(id)
+    })).sort((a, b) => a.name.localeCompare(b.name));
+    return [{ id: 'all', name: 'All Industries' }, ...industryObjects];
   }, [kits]);
 
   // Get unique categories from kits in specific order
@@ -63,26 +79,39 @@ export default function FilteredKitsGallery({
     // Sort standard categories according to the defined order
     const orderedCategories = categoryOrder.filter(cat => foundCategories.includes(cat));
     
-    // Add dataspace-specific categories (those ending with "Specific") at the end
-    const dataspaceSpecificCategories = foundCategories
+    // Add industry-specific categories (those ending with "Specific") at the end
+    const industrySpecificCategories = foundCategories
       .filter(cat => cat.endsWith(' Specific') && !categoryOrder.includes(cat))
       .sort();
     
-    return ['All Categories', ...orderedCategories, ...dataspaceSpecificCategories];
+    return ['All Categories', ...orderedCategories, ...industrySpecificCategories];
   }, [showCategoryFilter, kits]);
 
-  // Filter kits based on selected dataspace and category
+  // Get unique domains from kits (for use case filtering)
+  const uniqueDomains = useMemo(() => {
+    if (!showDomainFilter) return [];
+    
+    const domains = [...new Set(kits.map(kit => kit.domain).filter(Boolean))].sort();
+    return ['All Domains', ...domains];
+  }, [showDomainFilter, kits]);
+
+  // Filter kits based on selected industry, category, and domain
   const filterKits = (kits) => {
     let filtered = kits;
     
-    // Filter by dataspace
-    if (selectedDataspace !== 'All Dataspaces') {
-      filtered = filtered.filter(kit => kit.dataspaces.includes(selectedDataspace));
+    // Filter by industry (selectedIndustry now stores the ID)
+    if (selectedIndustry !== 'all') {
+      filtered = filtered.filter(kit => kit.industries && kit.industries.includes(selectedIndustry));
     }
     
     // Filter by category
     if (selectedCategory !== 'All Categories' && showCategoryFilter) {
       filtered = filtered.filter(kit => getKitCategory(kit) === selectedCategory);
+    }
+    
+    // Filter by domain
+    if (selectedDomain !== 'All Domains' && showDomainFilter) {
+      filtered = filtered.filter(kit => kit.domain === selectedDomain);
     }
     
     return filtered;
@@ -128,23 +157,17 @@ export default function FilteredKitsGallery({
       {/* Filters */}
       <div className={styles.filters_container}>
         <div className={styles.filters}>
-          {showDataspaceFilter && uniqueDataspaces.length > 1 && (
+          {showIndustryFilter && uniqueIndustries.length > 1 && (
             <div className={styles.filter_group}>
-              <label className={styles.filter_label}>Filter by Dataspace</label>
+              <label className={styles.filter_label}>Filter by Industry</label>
               <div className={styles.button_group}>
-                <button
-                  className={`${styles.filter_button} ${selectedDataspace === 'All Dataspaces' ? styles.active : ''}`}
-                  onClick={() => setSelectedDataspace('All Dataspaces')}
-                >
-                  All Dataspaces
-                </button>
-                {uniqueDataspaces.slice(1).map((dataspace) => (
+                {uniqueIndustries.map((industry) => (
                   <button
-                    key={dataspace}
-                    className={`${styles.filter_button} ${selectedDataspace === dataspace ? styles.active : ''}`}
-                    onClick={() => setSelectedDataspace(dataspace)}
+                    key={industry.id}
+                    className={`${styles.filter_button} ${selectedIndustry === industry.id ? styles.active : ''}`}
+                    onClick={() => setSelectedIndustry(industry.id)}
                   >
-                    {dataspace}
+                    {industry.name}
                   </button>
                 ))}
               </div>
@@ -174,43 +197,70 @@ export default function FilteredKitsGallery({
             </div>
           )}
 
-          <div className={styles.filter_group}>
-            <label className={styles.filter_label}>Sort Order</label>
-            <div className={styles.button_group}>
-              <button
-                className={`${styles.filter_button} ${sortOrder === 'default' ? styles.active : ''}`}
-                onClick={() => setSortOrder('default')}
-              >
-                Default Order
-              </button>
-              <button
-                className={`${styles.filter_button} ${sortOrder === 'asc' ? styles.active : ''}`}
-                onClick={() => setSortOrder('asc')}
-              >
-                A-Z
-              </button>
-              <button
-                className={`${styles.filter_button} ${sortOrder === 'desc' ? styles.active : ''}`}
-                onClick={() => setSortOrder('desc')}
-              >
-                Z-A
-              </button>
+          {showDomainFilter && uniqueDomains.length > 1 && (
+            <div className={styles.filter_group}>
+              <label className={styles.filter_label}>Filter by Domain</label>
+              <div className={styles.button_group}>
+                <button
+                  className={`${styles.filter_button} ${selectedDomain === 'All Domains' ? styles.active : ''}`}
+                  onClick={() => setSelectedDomain('All Domains')}
+                >
+                  All Domains
+                </button>
+                {uniqueDomains.slice(1).map((domain) => (
+                  <button
+                    key={domain}
+                    className={`${styles.filter_button} ${selectedDomain === domain ? styles.active : ''}`}
+                    onClick={() => setSelectedDomain(domain)}
+                  >
+                    {domain}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
+          )}
 
-        <div className={styles.results_info}>
-          {selectedDataspace === 'All Dataspaces' ? (
-            <span>Showing all {filteredKits.length} KIT{filteredKits.length !== 1 ? 's' : ''}</span>
-          ) : (
-            <span>Showing {filteredKits.length} KIT{filteredKits.length !== 1 ? 's' : ''} for {selectedDataspace}</span>
+          {filteredKits.length > 0 && (
+            <div className={styles.filter_group}>
+              <label className={styles.filter_label}>Sort Order</label>
+              <div className={styles.button_group}>
+                <button
+                  className={`${styles.filter_button} ${sortOrder === 'default' ? styles.active : ''}`}
+                  onClick={() => setSortOrder('default')}
+                >
+                  Default Order
+                </button>
+                <button
+                  className={`${styles.filter_button} ${sortOrder === 'asc' ? styles.active : ''}`}
+                  onClick={() => setSortOrder('asc')}
+                >
+                  A-Z
+                </button>
+                <button
+                  className={`${styles.filter_button} ${sortOrder === 'desc' ? styles.active : ''}`}
+                  onClick={() => setSortOrder('desc')}
+                >
+                  Z-A
+                </button>
+              </div>
+            </div>
           )}
         </div>
+
+        {filteredKits.length > 0 && (
+          <div className={styles.results_info}>
+            {selectedIndustry === 'all' ? (
+              <span>Showing all {filteredKits.length} KIT{filteredKits.length !== 1 ? 's' : ''}</span>
+            ) : (
+              <span>Showing {filteredKits.length} KIT{filteredKits.length !== 1 ? 's' : ''} for {getIndustryName(selectedIndustry)}</span>
+            )}
+          </div>
+        )}
       </div>
 
       {/* KITs Grid */}
       <div className={styles.kits_grid}>
-        <ExpandedKitsGrid kits={filteredKits} />
+        <ExpandedKitsGrid kits={filteredKits} noResultsMessage={noResultsMessage} />
       </div>
     </div>
   );

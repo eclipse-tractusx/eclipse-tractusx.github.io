@@ -35,13 +35,24 @@
   gap: 1.5rem;
   padding: 0;
   align-items: start;
-  justify-content: center; /* Center grid items when fewer than 4 cards */
+  justify-items: center; /* Center individual cards in their grid cells */
   max-width: 1360px; /* Allow for 4 cards with proper spacing */
   margin: 0 auto; /* Center the entire grid */
+  
+  /* When there are fewer than 4 items, center them */
+  &:has(> :nth-child(-n+3):last-child) {
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 320px));
+  }
   
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr); /* 3 cards per row on smaller screens */
     max-width: 1000px;
+    
+    &:has(> :nth-child(-n+2):last-child) {
+      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    }
   }
   
   @media (max-width: 768px) {
@@ -49,6 +60,11 @@
     gap: 1rem;
     max-width: 640px; /* Better width for 2 cards */
     padding: 0 1rem; /* Add side padding */
+    
+    &:has(> :nth-child(1):last-child) {
+      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    }
   }
   
   @media (max-width: 600px) {
@@ -66,11 +82,83 @@
 .noMatch {
   grid-column: 1 / -1;
   text-align: center;
-  color: #888;
-  font-size: 1.1rem;
-  padding: 3rem 0;
-  background: rgba(250, 160, 35, 0.05);
-  border: 1px solid rgba(250, 160, 35, 0.2);
-  border-radius: 12px;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(250, 160, 35, 0.08) 0%, rgba(250, 160, 35, 0.03) 100%);
+  border: 2px solid rgba(250, 160, 35, 0.3);
+  border-radius: 16px;
   margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(250, 160, 35, 0.5);
+    background: linear-gradient(135deg, rgba(250, 160, 35, 0.12) 0%, rgba(250, 160, 35, 0.05) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(250, 160, 35, 0.15);
+  }
+}
+
+.noMatchIcon {
+  color: var(--ifm-color-primary);
+  opacity: 0.8;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.noMatchMessage {
+  color: var(--ifm-font-color-base);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.noMatchSubtext {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1rem;
+  margin: 0;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.75rem;
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, #faa023 0%, #ed8c05 100%);
+  color: #000000 !important;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(250, 160, 35, 0.3);
+
+  &:hover {
+    background: linear-gradient(135deg, #ed8c05 0%, #d67a00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(250, 160, 35, 0.4);
+    color: #000000 !important;
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(250, 160, 35, 0.3);
+  }
 }

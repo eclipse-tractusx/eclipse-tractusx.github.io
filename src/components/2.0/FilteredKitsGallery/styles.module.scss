@@ -352,8 +352,12 @@
 .kits_grid {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 2rem 2rem 3rem;
   display: block; /* keep semantics simple, grid lives in the inner component */
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* No KITs State */

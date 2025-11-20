@@ -18,16 +18,30 @@
  ********************************************************************************/
 
 import React from 'react';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.scss';
 import ExpandedKitCard from '@site/src/components/2.0/ExpandedKitCard';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
-const ExpandedKitsGrid = ({ title, kits }) => {
+const ExpandedKitsGrid = ({ title, kits, noResultsMessage = "No kits found for this scope" }) => {
   return (
     <div className={styles.section}>
       {title && <h3 className={styles.sectionTitle}>{title}</h3>}
       <div className={styles.expandedGrid}>
         {kits.length === 0 ? (
-          <p className={styles.noMatch}>No kits found for this scope</p>
+          <div className={styles.noMatch}>
+            <div className={styles.noMatchIcon}>
+              <RocketLaunchIcon sx={{ fontSize: 48 }} />
+            </div>
+            <p className={styles.noMatchMessage}>{noResultsMessage}</p>
+            <p className={styles.noMatchSubtext}>
+              Want to contribute? Start building KITs and join the Eclipse Tractus-X community!
+            </p>
+            <Link to="/documentation/kit-getting-started" className={styles.ctaButton}>
+              <RocketLaunchIcon sx={{ fontSize: 20, marginRight: '0.5rem' }} />
+              Get Started with KIT Development
+            </Link>
+          </div>
         ) : (
           kits.map((kit) => (
             <ExpandedKitCard key={kit.id} kit={kit} />
