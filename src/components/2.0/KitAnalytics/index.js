@@ -24,7 +24,7 @@ export { default as ProgressBar } from './ProgressBar.js';
 export { default as PieChart } from './PieChart.js';
 
 // Chart Components
-export { default as DataspaceDistribution } from './DataspaceDistribution.js';
+export { default as IndustryDistribution } from './IndustryDistribution.js';
 export { default as MaturityTimeline } from './MaturityTimeline.js';
 export { default as QuarterlyTrends } from './QuarterlyTrends.js';
 export { default as UpdateActivityChart } from './UpdateActivityChart.js';

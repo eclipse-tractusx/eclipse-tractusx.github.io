@@ -30,16 +30,16 @@ const DeprecatedKitsList = ({ styles }) => {
   const industryCoreKits = [...(kitsData.industryCoreFoundation || [])];
   const useCaseKits = [...(kitsData.useCases || [])];
   
-  const dataspaceSpecificKits = [];
-  if (kitsData.dataspaceKits) {
-    Object.values(kitsData.dataspaceKits).forEach(kitsArray => {
+  const industrySpecificKits = [];
+  if (kitsData.industryKits) {
+    Object.values(kitsData.industryKits).forEach(kitsArray => {
       if (Array.isArray(kitsArray)) {
-        dataspaceSpecificKits.push(...kitsArray);
+        industrySpecificKits.push(...kitsArray);
       }
     });
   }
 
-  const allKits = [...foundationKits, ...industryCoreKits, ...useCaseKits, ...dataspaceSpecificKits];
+  const allKits = [...foundationKits, ...industryCoreKits, ...useCaseKits, ...industrySpecificKits];
 
   // Filter deprecated KITs and sort by deprecation date (most recent first)
   const deprecatedKits = allKits

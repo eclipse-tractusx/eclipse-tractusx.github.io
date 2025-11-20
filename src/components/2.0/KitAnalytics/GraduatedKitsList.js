@@ -29,9 +29,9 @@ export const GraduatedKitsList = ({ styles }) => {
     ...(kitsData.useCases || [])
   ];
 
-  // Add dataspace-specific KITs
-  if (kitsData.dataspaceKits) {
-    Object.values(kitsData.dataspaceKits).forEach(kitsArray => {
+  // Add industry-specific KITs
+  if (kitsData.industryKits) {
+    Object.values(kitsData.industryKits).forEach(kitsArray => {
       if (Array.isArray(kitsArray)) {
         allKits.push(...kitsArray);
       }
