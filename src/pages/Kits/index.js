@@ -26,7 +26,8 @@ import KitsArchitecture from "../../components/2.0/KitsArchitecture";
 import KitsGallery from "../../components/2.0/KitsGallery";
 import KitsExtensions from "../../components/2.0/KitsExtensions";
 import KitsFooter from "../../components/2.0/KitsFooter";
-import { kitsData, getAllKits, dataspaces } from "@site/data/kitsData";
+import DataspaceComponent from "../../components/DataspaceComponent";
+import { kitsData, getAllKits, industries } from "@site/data/kitsData";
 import React, { useEffect } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
@@ -63,12 +64,12 @@ export default function Kits2Page() {
   return (
     <Layout
       title={`KITs | ${siteConfig.title}`}
-      description="This is the home of the Eclipse Tractus-X KITs (Keep It Together) - your comprehensive documentation, for boosting adoption and building interoperable dataspaces across industries."
+      description="This is the home of the Eclipse Tractus-X KITs (Keep It Together) - your comprehensive documentation, for boosting adoption and building interoperable solutions across industries."
     >
       <KitHeader />
       <KitsTitle />
       <section id="architecture">
-        <KitsArchitecture dataspaces={dataspaces}/>
+        <KitsArchitecture industries={industries}/>
       </section>
       <KitStatistics kitsData={allKits} />
       <KitsGallery
@@ -78,10 +79,10 @@ export default function Kits2Page() {
         industryCoreFoundation={kitsData.industryCoreFoundation}
         useCases={kitsData.useCases}
       />
-      <section id="extensions">
-        <KitsExtensions dataspaces={dataspaces} />
+      <section id="dataspaces">
+        <DataspaceComponent />
       </section>
-      <KitsFooter disclaimer={`* All dataspace logos are trademarks of their affiliated companies and organizations.`} />
+      <KitsFooter disclaimer={`* All dataspace logos and trademarks are property of their affiliated companies and organizations.`} />
     </Layout>
   );
 }

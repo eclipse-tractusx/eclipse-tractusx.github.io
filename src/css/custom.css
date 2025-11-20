@@ -376,11 +376,6 @@
 
 /* Media Queries */
 @media screen and (min-width: 2200px) {
-  .navbar {
-    width: 70vw;
-    margin: auto;
-  }
-
   .headers-subtitle-p {
     width: 50%;
   }
@@ -388,11 +383,6 @@
 
 
 @media screen and (min-width: 3200px) {
-  .navbar {
-    width: 60vw;
-    margin: auto;
-  }
-  
   .headers-subtitle-p {
     width: 40%;
   }
@@ -423,6 +413,17 @@
 }
 .color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(7) {
   fill: #6B5010 !important;
+}
+
+/* Ensure full width layout */
+main {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+main > * {
+  max-width: 100% !important;
 }
 
 /* KIT Category Headers in Navbar Dropdown */
