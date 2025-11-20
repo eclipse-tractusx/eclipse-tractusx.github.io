@@ -20,6 +20,8 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import PublicIcon from '@mui/icons-material/Public';
+import DataspaceCard from '@site/src/components/2.0/DataspaceCard';
 import styles from './styles.module.scss';
 
 export default function KitGalleryHeader({ 
@@ -31,6 +33,7 @@ export default function KitGalleryHeader({
   url,
   gradient,
   statistics,
+  dataspaces,
   backButtonLink = "/Kits",
   backButtonText = "Back to All KITs"
 }) {
@@ -157,6 +160,38 @@ export default function KitGalleryHeader({
             </div>
           )}
         </div>
+
+        {/* Dataspace Section */}
+        {dataspaces && dataspaces.length > 0 && (
+          <div className={styles.dataspace_section}>
+            <div className={styles.section_header}>
+              <PublicIcon className={styles.section_icon} />
+              <h2 className={styles.section_title}>
+                Associated {dataspaces.length === 1 ? 'Dataspace' : 'Dataspaces'}
+              </h2>
+            </div>
+
+            <div className={styles.dataspace_grid} data-count={dataspaces.length}>
+              {dataspaces.map((dataspace, index) => (
+                <DataspaceCard 
+                  key={index}
+                  dataspace={dataspace}
+                  gradient={gradient}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+        
+        {dataspaces && dataspaces.length === 0 && (
+          <div className={styles.no_dataspace_section}>
+            <div className={styles.no_dataspace_container}>
+              <p className={styles.no_dataspace_message}>
+                No associated dataspaces published to Eclipse Tractus-X and assigned to this industry category yet.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
