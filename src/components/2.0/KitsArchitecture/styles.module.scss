@@ -217,11 +217,11 @@
 }
 
 // Dynamic hexagon gradients using CSS custom properties
-.hexagon_catena_x,
-.hexagon_factory_x, 
-.hexagon_semiconductor_x,
-.hexagon_chem_x,
-.hexagon_construct_x {
+.hexagon_automotive,
+.hexagon_shop_floor, 
+.hexagon_semiconductor,
+.hexagon_construction,
+.hexagon_chemical {
   &::before {
     background: var(--hexagon-gradient, linear-gradient(135deg, #6366f1, #ff00ff));
   }
@@ -260,8 +260,8 @@
   
   // Logo styles
   svg, img {
-    width: 80px;
-    height: 40px;
+    width: 100px;
+    height: 50px;
     transition: transform 0.3s ease;
     
     // For PNG images
@@ -278,10 +278,12 @@
   }
 }
 
-// Specific sizing for Catena-X logo to make it smaller and more proportional
-.hexagon_catena_x .hexagon_content img {
-  width: 45px !important;
-  height: 45px !important;
+// Icon sizing for industry hexagons
+.hexagon_automotive .hexagon_content svg,
+.hexagon_shop_floor .hexagon_content svg,
+.hexagon_semiconductor .hexagon_content svg,
+.hexagon_construction .hexagon_content svg {
+  font-size: 70px;
 }
 
 .hexagon_title {
@@ -302,10 +304,10 @@
 }
 
 // Dynamic title colors using CSS custom properties
-.hexagon_catena_x .hexagon_title,
-.hexagon_factory_x .hexagon_title, 
-.hexagon_semiconductor_x .hexagon_title,
-.hexagon_chem_x .hexagon_title {
+.hexagon_automotive .hexagon_title,
+.hexagon_shop_floor .hexagon_title, 
+.hexagon_semiconductor .hexagon_title,
+.hexagon_construction .hexagon_title {
   background: var(--hexagon-gradient, linear-gradient(45deg, #6366f1, #ff00ff));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -322,10 +324,10 @@
 }
 
 // Hover states for all titles to turn white
-.hexagon_catena_x:hover .hexagon_title,
-.hexagon_factory_x:hover .hexagon_title,
-.hexagon_semiconductor_x:hover .hexagon_title,
-.hexagon_chem_x:hover .hexagon_title,
+.hexagon_automotive:hover .hexagon_title,
+.hexagon_shop_floor:hover .hexagon_title,
+.hexagon_semiconductor:hover .hexagon_title,
+.hexagon_construction:hover .hexagon_title,
 .hexagon_other:hover .other_title {
   -webkit-text-fill-color: white;
   color: white;
@@ -339,22 +341,12 @@
   -moz-osx-font-smoothing: grayscale !important;
 }
 
-// Smart logo hover effects that preserve readability
-.hexagon:hover svg {
-  // Add white glow/outline instead of changing colors
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) 
-          drop-shadow(0 0 4px rgba(255, 255, 255, 0.6))
-}
-
-// For PNG images, add white glow and slight brightness boost
-.hexagon:hover img {
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) 
-          drop-shadow(0 0 4px rgba(255, 255, 255, 0.6))
-}
-
-// Specific rule for Catena-X logo to turn white on hover
-.hexagon_catena_x:hover img {
-  filter: brightness(0) invert(1) !important;
+// Keep icons visible on hover
+.hexagon_automotive:hover svg,
+.hexagon_shop_floor:hover svg,
+.hexagon_semiconductor:hover svg,
+.hexagon_construction:hover svg {
+  color: white;
 }
 
 .rectangle_column {
@@ -558,7 +550,7 @@
   }
 }
 
-.rectangle_dataspace {
+.rectangle_industry {
   border-color: #595959;
   &:hover {
     background: linear-gradient(135deg, #595959, #404040);
@@ -672,13 +664,13 @@
   }
   
   .hexagon_content svg, .hexagon_content img {
-    width: 58px;
-    height: 58px;
+    width: 70px;
+    height: 70px;
   }
   
   .hexagon_catena_x .hexagon_content img {
-    width: 40px !important;
-    height: 40px !important;
+    width: 50px !important;
+    height: 50px !important;
   }
   
   // Responsive styles for new elements
@@ -758,13 +750,13 @@
   }
   
   .hexagon_content svg, .hexagon_content img {
-    width: 52px;
-    height: 52px;
+    width: 62px;
+    height: 62px;
   }
   
   .hexagon_catena_x .hexagon_content img {
-    width: 36px !important;
-    height: 36px !important;
+    width: 44px !important;
+    height: 44px !important;
   }
   
   .rectangle {
@@ -839,13 +831,13 @@
   }
   
   .hexagon_content svg, .hexagon_content img {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
   }
   
   .hexagon_catena_x .hexagon_content img {
-    width: 32px !important;
-    height: 32px !important;
+    width: 40px !important;
+    height: 40px !important;
   }
   
   .rectangle {
@@ -975,13 +967,13 @@
   }
   
   .hexagon_content svg, .hexagon_content img {
-    width: 40px; /* Better size for mobile */
-    height: 40px;
+    width: 50px; /* Better size for mobile */
+    height: 50px;
   }
   
   .hexagon_catena_x .hexagon_content img {
-    width: 48px !important; /* Better proportional size */
-    height: 48px !important;
+    width: 56px !important; /* Better proportional size */
+    height: 56px !important;
   }
   
   .rectangle {
@@ -1081,13 +1073,13 @@
   }
   
   .hexagon_content svg, .hexagon_content img {
-    width: 35px; /* Reasonable size for very small screens */
-    height: 35px;
+    width: 45px; /* Reasonable size for very small screens */
+    height: 45px;
   }
   
   .hexagon_catena_x .hexagon_content img {
-    width: 35px !important; /* Better proportional size */
-    height: 35px !important;
+    width: 45px !important; /* Better proportional size */
+    height: 45px !important;
   }
   
   .rectangle {
