@@ -153,7 +153,7 @@ When a Consumer App [requests a catalog](https://github.com/eclipse-tractusx/tra
     }
 ```
 
-The keywords used for this `serviceOffering` should utilize the [W3C Data Catalog Vocabulary (DCAT) - Version 3](https://www.w3.org/TR/vocab-dcat-3/) as much as possible.
+The keywords used for this `serviceOffering` should utilize the [W3C Data Catalog Vocabulary (DCAT) - Version 3](https://www.w3.org/TR/vocab-dcat-3/) and [Eclipse ADL](https://www.heise.de/en/news/Eclipse-ADL-Standardized-Language-for-Design-and-Control-of-AI-Agents-10962811.html) as much as possible.
 
 The `serviceOffering` property includes these properties:
 
