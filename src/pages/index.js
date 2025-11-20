@@ -14,19 +14,21 @@
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import Link from '@docusaurus/Link';
 
 import HomePageHeader from "@site/src/components/HomePageHeader/index";
 import AboutUsCard from "@site/src/components/AboutUsCard";
 import RoleBasedEnrtyComponent from "@site/src/components/RoleBasedEnrtyComponent";
-import CommunityComponent from "@site/src/components/CommunityComponent";
 import { carouselRoleBased } from "@site/utils/carouselRoleBased";
 import KitsTitle from "@site/src/components/2.0/KitsTitle";
 import KitStatistics from "@site/src/components/2.0/KitStatistics";
 import KitsArchitecture from "@site/src/components/2.0/KitsArchitecture";
 import KitsGallery from "@site/src/components/2.0/KitsGallery";
-import KitsExtensions from "@site/src/components/2.0/KitsExtensions";
+import DataspaceComponent from "@site/src/components/DataspaceComponent";
 import KitsFooter from "@site/src/components/2.0/KitsFooter";
-import { kitsData, getAllKits, dataspaces } from "@site/data/kitsData";
+import { kitsData, getAllKits, industries } from "@site/data/kitsData";
+import ContributionSection from "@site/src/components/ContributionSection";
+import GetStartedSection from "@site/src/components/GetStartedSection";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -49,7 +51,7 @@ export default function Home() {
         <RoleBasedEnrtyComponent data={carouselRoleBased} />
         <AboutUsCard {...aboutInput} />
         <KitsTitle />
-        <KitsArchitecture dataspaces={dataspaces}/>
+        <KitsArchitecture industries={industries}/>
         <KitStatistics kitsData={allKits} />
         <KitsGallery
           title={"Our Gallery"}
@@ -58,9 +60,12 @@ export default function Home() {
           industryCoreFoundation={kitsData.industryCoreFoundation}
           useCases={kitsData.useCases}
         />
-        <KitsExtensions dataspaces={dataspaces} />
-        <KitsFooter disclaimer={`* All dataspace logos are trademarks of their affiliated companies and organizations.`} />
-        <CommunityComponent />
+        <section id="dataspaces">
+          <DataspaceComponent />
+        </section>
+        <KitsFooter title={`Want to join our KIT Community?`} simple={true} disclaimer={`* All dataspace logos and trademarks are property of their affiliated companies and organizations.`} />
+        <ContributionSection title={`More Ways to Contribute`} />
+        <GetStartedSection />
       </main>
     </Layout>
   );

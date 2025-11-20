@@ -20,18 +20,9 @@
 import React, { useEffect, useState } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import Link from '@docusaurus/Link';
 import ThemedImage from '@theme/ThemedImage';
-import Chat from '@mui/icons-material/Chat';
-import Groups from '@mui/icons-material/Groups';
-import Add from '@mui/icons-material/Add';
-import RocketLaunch from '@mui/icons-material/RocketLaunch';
-import Code from '@mui/icons-material/Code';
-import Description from '@mui/icons-material/Description';
-import BugReport from '@mui/icons-material/BugReport';
-import Lightbulb from '@mui/icons-material/Lightbulb';
-import QuestionIcon from '@mui/icons-material/QuestionMark';
-import EventIcon from '@mui/icons-material/Event';
+import ContributionSection from '@site/src/components/ContributionSection';
+import GetStartedSection from '@site/src/components/GetStartedSection';
 import styles from './styles.module.scss';
 
 export default function ContributePage() {
@@ -49,79 +40,6 @@ export default function ContributePage() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const contributionOptions = [
-    {
-      title: "Create a KIT",
-      description: "Build and contribute your own KIT to help the community with comprehensive documentation and reference implementations.",
-      icon: Add,
-      link: "/documentation/kit-getting-started",
-      primary: true
-    },
-    {
-      title: "Ask questions about KITs",
-      description: "Get help and support from the community by asking questions about KITs on our Matrix channel.",
-      icon: QuestionIcon,
-      link: "https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org",
-      primary: false
-    },
-    {
-      title: "Join Community Discussions",
-      description: "Participate in our community office hours and help shape the future of dataspace technology.",
-      icon: Groups,
-      link: "/community/open-meetings",
-      primary: false
-    },
-    {
-      title: "Chat with Developers",
-      description: "Chat with us at our main Eclipse Tractus-X Matrix channel (a open source chat service), and become one of us!",
-      icon: Chat,
-      link: "https://chat.eclipse.org/#/room/#tractusx:matrix.eclipse.org",
-      primary: false
-    },
-    {
-      title: "Get Started",
-      description: "New to Eclipse Tractus-X? Follow our getting started guide to learn how to contribute.",
-      icon: RocketLaunch,
-      link: "https://eclipse-tractusx.github.io/docs/getting-started/",
-      primary: false
-    },
-    {
-      title: "Contribute Code",
-      description: "Help improve existing free and open source software (FOSS) by contributing code, fixes, and enhancements to our repositories.",
-      icon: Code,
-      link: "https://github.com/eclipse-tractusx",
-      primary: false
-    },
-    {
-      title: "Learn and Improve Documentation",
-      description: "Help make the content of the KITs better by fixing errors, adding examples and diagrams, or improving clarity.",
-      icon: Description,
-      link: "/documentation/kit-framework",
-      primary: false
-    },
-    {
-      title: "Report Issues",
-      description: "Found a bug or issue? Report it to help us improve the quality of our KITs and reference implementations.",
-      icon: BugReport,
-      link: "https://github.com/eclipse-tractusx/sig-release/issues",
-      primary: false
-    },
-    {
-      title: "Share Ideas",
-      description: "Have an idea for a new KIT or improvement? Share it with the community and start a discussion.",
-      icon: Lightbulb,
-      link: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/discussions/categories/kits",
-      primary: false
-    },
-    {
-      title: "Join our Community Days",
-      description: "Participate in our community days to learn, collaborate and share ideas with others.",
-      icon: EventIcon,
-      link: "/blog/community-days-12-2025",
-      primary: false
-    }
-  ];
 
   return (
     <Layout
@@ -165,75 +83,8 @@ export default function ContributePage() {
           </div>
         </div>
 
-        <div className={styles.contributionSection}>
-          <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <h2 className={styles.sectionTitle}>Ways to Contribute</h2>
-              <p className={styles.sectionDescription}>
-                There are many ways to get involved and make a difference in the Eclipse Tractus-X ecosystem.
-              </p>
-            </div>
-
-            <div className={styles.contributionGrid}>
-              {contributionOptions.map((option, index) => {
-                const IconComponent = option.icon;
-                const isExternal = option.link.startsWith('http');
-                const CardComponent = isExternal ? 'a' : Link;
-                const linkProps = isExternal 
-                  ? { href: option.link, target: '_blank', rel: 'noopener noreferrer' }
-                  : { to: option.link };
-                const isLastItem = index === contributionOptions.length - 1;
-                
-                return (
-                  <CardComponent
-                    key={index}
-                    {...linkProps}
-                    className={`${styles.contributionCard} ${option.primary ? styles.primary : ''}`}
-                    style={isLastItem ? { gridColumn: '1 / -1' } : {}}
-                  >
-                    <div className={styles.cardIcon}>
-                      <IconComponent />
-                    </div>
-                    <h3 className={styles.cardTitle}>
-                      {option.title}
-                    </h3>
-                    <p className={styles.cardDescription}>
-                      {option.description}
-                    </p>
-                  </CardComponent>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.getStartedSection}>
-          <div className={styles.container}>
-            <div className={styles.getStartedContent}>
-              <h2 className={styles.getStartedTitle}>Ready to Get Started?</h2>
-              <p className={styles.getStartedDescription}>
-                The best way to get started is to join our community and introduce yourself. 
-                We're here to help you find the right way to contribute.
-              </p>
-              <div className={styles.getStartedButtons}>
-                <Link 
-                  to="/community/open-meetings#general-office-hours" 
-                  className={styles.primaryButton}
-                >
-                  <Groups className={styles.buttonIcon} />
-                  Join Community Office Hours
-                </Link>
-                <Link 
-                  to="/documentation/kit-getting-started" 
-                  className={styles.secondaryButton}
-                >
-                  <RocketLaunch className={styles.buttonIcon} />
-                  Start Creating a KIT
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ContributionSection />
+        <GetStartedSection />
       </main>
     </Layout>
   );
