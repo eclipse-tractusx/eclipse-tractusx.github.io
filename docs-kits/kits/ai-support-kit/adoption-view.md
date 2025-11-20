@@ -32,6 +32,23 @@ This KIT provides comprehensive notation rules and semantics for expressing thes
 
 These contributions bring interoperability and governance to participants' AI systems in inter-company collaboration.
 
+### Scope
+
+While there are variety of ways to use AI systems in conjunction with dataspace, we discuss "AI agents", "AI service" or "Agentic System" that are connected **directly** to EDC.
+
+Required Policy Decision and Enfrocement Points (PDP and PEP) as independent security assets.
+
+AI supply chain in contrast to existing software supply chain
+
+- Category 1: Agent offers capabilities **within** the boundaries of Catena-X Use Case
+  - SSI and IAM
+  - Attribute based access control
+  - Data usage contracts
+  - Standardized semantic models
+  - PDP, PEP extensions?
+- Category 2: Agent offers capabilities **outside** any Catena-X Use Case
+  - Catena-X compliant guard rails
+
 ## Business Value
 
 ### Trust
