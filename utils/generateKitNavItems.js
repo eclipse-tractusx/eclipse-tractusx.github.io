@@ -47,7 +47,7 @@ const kitsByCategory = {
   dataspaceFoundation: [],
   industryCoreFoundation: [],
   useCases: [],
-  dataspaceKits: {}
+  industryKits: {}
 };
 
 // First, collect all kits with their positions in the file
@@ -70,7 +70,7 @@ for (const match of kitMatches) {
 const dataspaceFoundationStart = relevantContent.indexOf('dataspaceFoundation: [');
 const industryCoreFoundationStart = relevantContent.indexOf('industryCoreFoundation: [');
 const useCasesStart = relevantContent.indexOf('useCases: [');
-const dataspaceKitsStart = relevantContent.indexOf('dataspaceKits: {');
+const industryKitsStart = relevantContent.indexOf('industryKits: {');
 
 for (const kit of allKitsWithPosition) {
   // Remove position field before adding to category
@@ -80,25 +80,27 @@ for (const kit of allKitsWithPosition) {
     kitsByCategory.dataspaceFoundation.push(kitWithoutPosition);
   } else if (kit.position > industryCoreFoundationStart && kit.position < useCasesStart) {
     kitsByCategory.industryCoreFoundation.push(kitWithoutPosition);
-  } else if (kit.position > useCasesStart && (dataspaceKitsStart === -1 || kit.position < dataspaceKitsStart)) {
+  } else if (kit.position > useCasesStart && (industryKitsStart === -1 || kit.position < industryKitsStart)) {
     kitsByCategory.useCases.push(kitWithoutPosition);
-  } else if (dataspaceKitsStart !== -1 && kit.position > dataspaceKitsStart) {
-    // This kit is in the dataspaceKits section - need to determine which dataspace
-    const kitContext = relevantContent.substring(dataspaceKitsStart, kit.position);
+  } else if (industryKitsStart !== -1 && kit.position > industryKitsStart) {
+    // This kit is in the industryKits section - need to determine which dataspace
+    const kitContext = relevantContent.substring(industryKitsStart, kit.position);
     
-    // Find the last dataspace name before this kit
-    const dataspaceMatches = [...kitContext.matchAll(/"([^"]+)":\s*\[/g)];
-    if (dataspaceMatches.length > 0) {
-      const dataspaceName = dataspaceMatches[dataspaceMatches.length - 1][1];
-      if (!kitsByCategory.dataspaceKits[dataspaceName]) {
-        kitsByCategory.dataspaceKits[dataspaceName] = [];
+    // Find the last industry name before this kit
+    const industryMatches = [...kitContext.matchAll(/"([^"]+)":\s*\[/g)];
+    if (industryMatches.length > 0) {
+      const industryName = industryMatches[industryMatches.length - 1][1];
+      if (!kitsByCategory.industryKits[industryName]) {
+        kitsByCategory.industryKits[industryName] = [];
       }
-      kitsByCategory.dataspaceKits[dataspaceName].push(kitWithoutPosition);
+      kitsByCategory.industryKits[industryName].push(kitWithoutPosition);
     }
   }
 }
 
 const totalKits = allKitsWithPosition.length;
+console.log('═'.repeat(60));
+console.log('Starting KIT navbar generation from master data...');
 console.log(`Found ${totalKits} KITs in master data`);
 
 // Generate a hash of the kit data for change detection
@@ -232,18 +234,18 @@ function generateKitNavItems() {
     });
   }
   
-  // Dataspace-specific KITs (if any)
-  for (const [dataspace, kits] of Object.entries(kitsByCategory.dataspaceKits)) {
+  // Industry-specific KITs (if any)
+  for (const [industry, kits] of Object.entries(kitsByCategory.industryKits)) {
     if (kits && kits.length > 0) {
       items.push({
         type: 'html',
         value: '<hr style="margin: 8px 0; border-color: var(--ifm-color-emphasis-300);">'
       });
-      const dataspaceId = dataspace.toLowerCase().replace(/\s+/g, '-');
-      const encodedDataspaceId = encodeURIComponent(dataspaceId);
+      // industry is already the correct ID (e.g., "shop-floor"), use it directly
+      const encodedIndustryId = encodeURIComponent(industry);
       items.push({
-        to: \`/Kits/dataspace?id=\${encodedDataspaceId}\`,
-        label: dataspace.toUpperCase(),
+        to: \`/Kits/industry?id=\${encodedIndustryId}\`,
+        label: industry.toUpperCase(),
         className: 'kit-category-header'
       });
       
@@ -277,9 +279,9 @@ const kitCountByCategory = {
 };
 
 // Count dataspace-specific KITs
-let dataspaceKitsCount = 0;
-for (const [dataspace, kits] of Object.entries(kitsByCategory.dataspaceKits)) {
-  dataspaceKitsCount += kits.length;
+let industryKitsCount = 0;
+for (const [dataspace, kits] of Object.entries(kitsByCategory.industryKits)) {
+  industryKitsCount += kits.length;
   if (kits.length > 0) {
     kitCountByCategory[dataspace] = kits.length;
   }
@@ -290,3 +292,4 @@ const totalKitsInNavbar = Object.values(kitCountByCategory).reduce((a, b) => a +
 console.log(`✓ Generated ${outputPath}`);
 console.log('✓ Content hash: ' + dataHash);
 console.log(`✓ Extracted ${totalKitsInNavbar} KITs and added to the navbar`);
+console.log('═'.repeat(60));

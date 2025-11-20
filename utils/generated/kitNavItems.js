@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: c1458a9e0c332fdec8a1f874ea12998ab0107e5ff3531a05b8ef1d253292e84d
+ * Content hash: d16339d3fb52d8bc53d3a22afb7494eaa91200b9aa9359ef2a8e69e41b35628a
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -56,12 +56,6 @@ const kitsByCategory = {
       "name": "BUSINESS PARTNER KIT",
       "route": "/docs-kits/kits/business-partner-kit/adoption-view",
       "deprecated": false
-    },
-    {
-      "id": "agents",
-      "name": "KNOWLEDGE AGENTS KIT",
-      "route": "/docs-kits/kits/knowledge-agents-kit/adoption-view/intro",
-      "deprecated": false
     }
   ],
   "industryCoreFoundation": [
@@ -84,21 +78,21 @@ const kitsByCategory = {
       "deprecated": false
     },
     {
-      "id": "data-driven-quality",
-      "name": "DATA DRIVEN QUALITY KIT",
-      "route": "/docs-kits/kits/data-driven-quality-management-kit/adoption-view",
-      "deprecated": false
-    },
-    {
       "id": "traceability",
       "name": "TRACEABILITY KIT",
       "route": "/docs-kits/kits/traceability-kit/adoption-view",
       "deprecated": false
     },
     {
-      "id": "behavior-twin",
-      "name": "BEHAVIOUR TWIN KIT",
-      "route": "/docs-kits/kits/behaviour-twin-kit/overview",
+      "id": "supply-chain-disruption",
+      "name": "SUPPLY CHAIN DISRUPTION NOTIFICATION KIT",
+      "route": "/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "agents",
+      "name": "KNOWLEDGE AGENTS KIT",
+      "route": "/docs-kits/kits/knowledge-agents-kit/adoption-view/intro",
       "deprecated": false
     }
   ],
@@ -128,12 +122,6 @@ const kitsByCategory = {
       "deprecated": false
     },
     {
-      "id": "puris",
-      "name": "PURIS KIT",
-      "route": "/docs-kits/kits/puris-kit/adoption-view",
-      "deprecated": false
-    },
-    {
       "id": "dcm",
       "name": "DEMAND & CAPACITY MANAGEMENT KIT",
       "route": "/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview",
@@ -143,12 +131,6 @@ const kitsByCategory = {
       "id": "logistics",
       "name": "LOGISTICS KIT",
       "route": "/docs-kits/kits/logistics-kit/adoption-view",
-      "deprecated": false
-    },
-    {
-      "id": "supply-chain-disruption",
-      "name": "SUPPLY CHAIN DISRUPTION NOTIFICATION KIT",
-      "route": "/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view",
       "deprecated": false
     },
     {
@@ -164,9 +146,27 @@ const kitsByCategory = {
       "deprecated": false
     },
     {
+      "id": "puris",
+      "name": "PURIS KIT",
+      "route": "/docs-kits/kits/puris-kit/adoption-view",
+      "deprecated": false
+    },
+    {
       "id": "model-based-production",
       "name": "MODEL BASED PRODUCTION KIT",
       "route": "/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "behavior-twin",
+      "name": "BEHAVIOUR TWIN KIT",
+      "route": "/docs-kits/kits/behaviour-twin-kit/overview",
+      "deprecated": false
+    },
+    {
+      "id": "data-driven-quality",
+      "name": "DATA DRIVEN QUALITY KIT",
+      "route": "/docs-kits/kits/data-driven-quality-management-kit/adoption-view",
       "deprecated": false
     },
     {
@@ -174,21 +174,24 @@ const kitsByCategory = {
       "name": "REQUIREMENTS KIT",
       "route": "/docs-kits/kits/requirements-kit/adoption-view",
       "deprecated": false
-    },
-    {
-      "id": "maas",
-      "name": "MANUFACTURING AS A SERVICE KIT",
-      "route": "/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view",
-      "deprecated": false
-    },
-    {
-      "id": "modular-production",
-      "name": "MODULAR PRODUCTION KIT",
-      "route": "/docs-kits/kits/modular-production-kit/adoption-view",
-      "deprecated": false
     }
   ],
-  "dataspaceKits": {}
+  "industryKits": {
+    "shop-floor": [
+      {
+        "id": "maas",
+        "name": "MANUFACTURING AS A SERVICE KIT",
+        "route": "/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view",
+        "deprecated": false
+      },
+      {
+        "id": "modular-production",
+        "name": "MODULAR PRODUCTION KIT",
+        "route": "/docs-kits/kits/modular-production-kit/adoption-view",
+        "deprecated": false
+      }
+    ]
+  }
 };
 
 /**
@@ -280,18 +283,18 @@ function generateKitNavItems() {
     });
   }
   
-  // Dataspace-specific KITs (if any)
-  for (const [dataspace, kits] of Object.entries(kitsByCategory.dataspaceKits)) {
+  // Industry-specific KITs (if any)
+  for (const [industry, kits] of Object.entries(kitsByCategory.industryKits)) {
     if (kits && kits.length > 0) {
       items.push({
         type: 'html',
         value: '<hr style="margin: 8px 0; border-color: var(--ifm-color-emphasis-300);">'
       });
-      const dataspaceId = dataspace.toLowerCase().replace(/s+/g, '-');
-      const encodedDataspaceId = encodeURIComponent(dataspaceId);
+      // industry is already the correct ID (e.g., "shop-floor"), use it directly
+      const encodedIndustryId = encodeURIComponent(industry);
       items.push({
-        to: `/Kits/dataspace?id=${encodedDataspaceId}`,
-        label: dataspace.toUpperCase(),
+        to: `/Kits/industry?id=${encodedIndustryId}`,
+        label: industry.toUpperCase(),
         className: 'kit-category-header'
       });
       
