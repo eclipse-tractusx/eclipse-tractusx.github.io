@@ -21,13 +21,13 @@ This template shows a use case where an external consumer defines a skill, where
 
 ## CONTENTS
 
-- [Change Log](./changelog)
+- [Changelog](../../changelog.md)
 - [Adoption View](adoption-view/overview)
 - [Development View](development-view/overview)
 
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0 ![(external link)](../../assets/external-link.svg)](https://creativecommons.org/licenses/by/4.0/legalcode).
+This work is licensed under the [CC-BY-4.0 ![(external link)](/icons/external-link.svg)](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2022-2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)

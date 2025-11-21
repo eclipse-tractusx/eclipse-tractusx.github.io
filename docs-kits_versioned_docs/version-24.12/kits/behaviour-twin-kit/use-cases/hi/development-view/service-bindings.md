@@ -19,18 +19,18 @@ Applies to role: *HI calculation service provider*
 
 ### OVERVIEW
 
-For general information about service bindings, have a look at the [generalized Service Bindings section](../../../development-view/service-bindings) and the [Agents KIT's Operation View](../../../../knowledge-agents/operation-view/provider). In the current section, only a dedicated example is shown.
+For general information about service bindings, have a look at the [generalized Service Bindings section](../../../software-development-view/service-bindings) and the [Agents KIT's Operation View](../../../../knowledge-agents-kit/operation-view/provider). In the current section, only a dedicated example is shown.
 
 ### SERVICE MAPPING CONFIGURATION (FULL EXAMPLE)
 
-The following configuration for the mapping of a Health Indicator (HI) calculation service is written in the [Terse RDF Triple Language ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/turtle/), also known as *Turtle*.
+The following configuration for the mapping of a Health Indicator (HI) calculation service is written in the [Terse RDF Triple Language ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/turtle/), also known as *Turtle*.
 
 In this example, an asynchronous calculation service for gearbox HI values is bound. It uses the Catena-X notification format as a container for the input data. The content of the notification is a JSON structure with a list of load spectra in it. The input format provides more than one Element (batch processing), but the HI logic always requires exact one input per calculation. Therefore, always the first (and only the first) item of the input list is bound.
 
 ```ttl
 ################################################################
 # Copyright (c) 2022-2024 T-Systems International GmbH
-# Copyright (c) 2022-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) 
+# Copyright (c) 2022-2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 # Copyright (c) 2022-2024 ZF Friedrichshafen AG
 # Copyright (c) 2023-2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)
 # Copyright (c) 2022-2024 Mercedes-Benz AG
@@ -184,7 +184,7 @@ cx-behaviour:classification rdf:type cx-fx:Argument ;
   cx-fx:default "HealthIndicatorService" .
 
 cx-behaviour:component rdf:type cx-fx:Argument ;
-  dcterms:description "Component of the Predicition."@en ;
+  dcterms:description "Component of the Prediction."@en ;
   dcterms:title "Predicted Component" ;
   cx-fx:formsBatchGroup "true"^^xsd:boolean ;
   cx-fx:argumentName "content.endurancePredictorInputs.0.componentId,content.endurancePredictorInputs.0.classifiedLoadSpectrum{https://w3id.org/catenax/ontology/behaviour#observationType}.targetComponentId" .
@@ -336,7 +336,7 @@ The following example is a full asset description, that can be registered at the
 }
 ```
 
-The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](../../../assets/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a Health Indicator function and its output:
+The property `sh:shapesGraph` contains the graph shape of the offered data, written in [Shapes Constraint Language (SHACL) ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/shacl/). It describes the shape of a Health Indicator function and its output:
 
 ```shacl
 <https://w3id.org/catenax/ontology/common>,<https://w3id.org/catenax/ontology/core>,<https://w3id.org/catenax/ontology/function>,<https://w3id.org/catenax/ontology/behaviour>,<https://w3id.org/catenax/ontology/behaviour>",
@@ -380,7 +380,7 @@ The property `sh:shapesGraph` contains the graph shape of the offered data, writ
         cx-sh:hasAsArgument cx-reliability:classes ;
         sh:path cx-behaviour:bodyClasses ;
     ] .
-    
+
 :HealthIndicationShape a sh:NodeShape ;
     cx-sh:extensionOf :PrognosisFunctionShape ;
     sh:targetClass cx-behaviour:HealthIndication ;
@@ -390,7 +390,7 @@ The property `sh:shapesGraph` contains the graph shape of the offered data, writ
         sh:in ( cx-taxo:Clutch ) ;
     ] ;
     sh:property :HealthIndicationResultShape .
-    
+
 :HealthIndicationResultShape a sh:PropertyShape ;
     cx-sh:outputOf :HealthIndicationShape ;
     sh:path cx-behaviour:HealthIndicationResult .
@@ -398,4 +398,4 @@ The property `sh:shapesGraph` contains the graph shape of the offered data, writ
 
 #### POLICY AND CONTRACT FOR THE GRAPH ASSET
 
-All assets, including graph assets, must have a related policy and contract definition. These are described in the use-case-independent [general Contracts And Policies section](../../../development-view/contracts-and-policies).
+All assets, including graph assets, must have a related policy and contract definition. These are described in the use-case-independent [general Contracts And Policies section](../../../software-development-view/contracts-and-policies).

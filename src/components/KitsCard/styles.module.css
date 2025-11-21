@@ -84,7 +84,7 @@
 
 .img {
   width: 100%;
-  border: 7px solid #fff;
+  border: 7px solid var(--ifm-font-color-base);
   border-radius: 10px;
 }
 

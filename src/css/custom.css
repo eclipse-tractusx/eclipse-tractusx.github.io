@@ -1,3 +1,25 @@
+/********************************************************************************
+ * Eclipse Tractus-X - eclipse-tractusx.github.io
+ *
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the
+ * License for the specific language govern in permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+********************************************************************************/
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -11,13 +33,6 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e; */
   --ifm-color-primary: #faa023;
   --ifm-color-primary-dark: #f99407;
   --ifm-color-primary-darker: #ed8c05;
@@ -25,9 +40,15 @@
   --ifm-color-primary-light: #fbac3f;
   --ifm-color-primary-lighter: #fbb24d;
   --ifm-color-primary-lightest: #fcc477;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-family-base: 'Manrope';
+  --ifm-background-color: #fff;
+  --ifm-navbar-background-color: #f0f0f0;
+  --ifm-menu-color: #00000099;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-heading-color: #000;
+  --ifm-font-color-base: #000;
+  --ifm-navbar-link-color: #00000099;
+  --ifm-color-secondary-darkest: #626262;
+  --ifm-color-card-border: rgba(0, 0, 0, 0.3);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -41,13 +62,43 @@
   --ifm-color-primary-lightest: #fcc477;
   --ifm-background-color: #000;
   --ifm-navbar-background-color: #000;
+  --ifm-menu-color: #fff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-heading-color: #fff;
   --ifm-font-color-base: #fff;
   --ifm-navbar-link-color: #fff;
+  --ifm-color-secondary-darkest: #000;
+  --ifm-color-card-border: rgba(255, 255, 255, 0.3);
 }
 
 /* Algolia DocSearch Component */
+[data-theme='light'] .DocSearch {
+  --docsearch-text-color: var(--ifm-navbar-link-color);
+  --docsearch-muted-color: var(--ifm-navbar-link-color);
+  --docsearch-container-background: rgba(47, 55, 69, 0.7);
+  /* Modal */
+  --docsearch-modal-background: var(--ifm-background-color);
+  --docsearch-highlight-color: var(--ifm-color-primary-darker);
+  --docsearch-modal-width: 50vw;
+  /* Search box */
+  --docsearch-searchbox-background: var(--ifm-background-color);
+  --docsearch-searchbox-focus-background: var(--ifm-color-white);
+  /* Hit */
+  --docsearch-hit-color: var(--ifm-font-color-base);
+  --docsearch-hit-active-color: var(--ifm-color-white);
+  --docsearch-hit-background: var(--ifm-color-emphasis-100);
+  /* Footer */
+  --docsearch-footer-background: var(--ifm-background-color);
+  --docsearch-key-gradient: linear-gradient(
+    -26.5deg,
+    var(--ifm-color-emphasis-200) 0%,
+    var(--ifm-color-emphasis-100) 100%
+  );
+  --docsearch-searchbox-shadow: none;
+  --docsearch-key-shadow: none;
+  --docsearch-key-gradient: none;
+}
+
 [data-theme='dark'] .DocSearch {
   --docsearch-text-color: var(--ifm-navbar-link-color);
   --docsearch-muted-color: var(--ifm-navbar-link-color);
@@ -104,6 +155,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
+  width: 80%;
 }
 
 .title-h2 {
@@ -181,7 +233,18 @@
 }
 
 .footer--dark {
-  --ifm-footer-background-color: #000;
+  background-color: var(--ifm-color-secondary-darkest);
+}
+
+/* .footer__title,
+.footer__link-item,
+.footer__copyright {
+  color: var(--ifm-navbar-link-color);
+} */
+
+/* Docusaurus Menu */
+.menu__list-item {
+  background-color: var(--ifm-background-color);
 }
 
 .hidden {
@@ -226,6 +289,7 @@
     font-size: 16px;
     line-height: 20px;
     margin-top: -1rem;
+    width: 50%;
   }
 
   .title-h2 {
@@ -250,6 +314,7 @@
   .headers-subtitle-p {
     font-size: 14px;
     line-height: 16px;
+    width: 50%;
   }
 
   .button {
@@ -315,6 +380,10 @@
     width: 70vw;
     margin: auto;
   }
+
+  .headers-subtitle-p {
+    width: 50%;
+  }
 }
 
 
@@ -323,4 +392,35 @@
     width: 60vw;
     margin: auto;
   }
+  
+  .headers-subtitle-p {
+    width: 40%;
+  }
+}
+
+.MuiAccordionSummary-root,
+.MuiAccordionDetails-root {
+     background-color: var(--ifm-background-color) !important;
+}
+
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(1) {
+  fill: #F8E4D0 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(2) {
+  fill: #F1C99A !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(3) {
+  fill: #E7A844 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(4) {
+  fill: #C78F33 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(5) {
+  fill: #A97C2B !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(6) {
+  fill: #8B6914 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(7) {
+  fill: #6B5010 !important;
 }

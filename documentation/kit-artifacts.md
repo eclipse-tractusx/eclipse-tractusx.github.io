@@ -5,7 +5,7 @@ title: KIT Artifacts
 |------------|--------------|----------------------------------------|
 | Draft      | 04-Apr-2024  | Initial contribution                   |
 
-This explains each artifact a KIT can or must follow - depending on the graduation stage [TRG 9.01](@site/docs/release/trg-0/trg-9-01.md). An artifact is textual content or a technical component that is part of a KIT (e.g. a Vision statement).
+This explains each artifact a KIT can or must follow - depending on the graduation stage [TRG 9.01](/docs/release/trg-0/trg-9-01). An artifact is textual content or a technical component that is part of a KIT (e.g. a Vision statement).
 
 ## CHANGELOG
 
@@ -24,9 +24,9 @@ The first released version of the KIT. It´s ready to be used by data providers 
 
 Upon reaching the Graduation Phase, a KIT got verified by a data providers / consumers, app-/service providers or operators. Since the KITs are maintained and further developed by the community, changes can be made that result in an incompatibility.
 
-## Business View
+## Adoption View
 
-The business view gives a general introduction to the KIT. It aims to provide insights to industry problems, the KIT is addressing.
+The adoption view gives a general introduction to the KIT. It aims to provide insights to industry problems, the KIT is addressing.
 Mandatory for every KIT and all graduation stages
 The vision describes the strategic objectives of a KIT and how it aims to inspire solution providers.
 Deliverables:
@@ -72,7 +72,7 @@ This gives more insights into the use case or domain itself.
 Deliverable: Status quo, challenge and the benefits from different perspectives
 `Example from BPDM:`
 Business Partner KIT comes from the use case Business Partner Data Management.
-Status Quo / Todays challenge:  
+Status Quo / Todays challenge:
 Most of today’s automotive companies have to invest a significant amount to keep their individual partner master data updated and correct, since outdated or incorrect data records result in federal fines and wrong claims / billing processes. The industry spends a vast amount into an area that is non differentiating, regulated and executed redundantly across the partners.
 For this, cutting individual company costs by offering the golden master data record as a shared service and proactively reduce Business Partner risk via collaborative value-add services.
 This will become the industry’s largest golden record collection as a shared and cost-optimized service (quality tested by the biggest players).
@@ -113,7 +113,7 @@ Deliverables:
 - Description
 - Link to the semantic data models (GitHub)
 `Example from Traceability:`
-[Traceability Semantic Models](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit#semantic-models)
+[Traceability Semantic Models](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/adoption-view#semantic-models)
 
 ### Logic / Schema
 
@@ -169,7 +169,7 @@ Deliverables:
 - Integration of the OpenAPI file
 - Use case examples for the API endpoints and how to use them
 `Example from DataChain KIT:` The API of the Item Relationship Service (IRS) for retrieving item graphs along the value chain of Catena-X partners.
-[`Example for OpenAPI integration:`](/docs-kits/kits/Business%20Partner%20Kit/Software%20Development%20View/Pool%20Api/business-partner-data-management-pool)
+[`Example for OpenAPI integration:`](/docs-kits/kits/business-partner-kit/software-development-view)
 
 ### Sample Data
 
@@ -207,4 +207,4 @@ Deliverables:
 ## Architecture View
 
 The architecture view is an optional chapter. It offers an architecture perspective including the main building blocks and the runtime view. It can be extended with more architecture documentation like an ARC42.
-[`Example for an Architecture View:`](https://eclipse-tractusx.github.io/docs-kits/kits/Traceability%20Kit/Architecture%20View%20Traceability%20Kit#scope-and-context).
+[`Example for an Architecture View:`](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#scope-and-context).

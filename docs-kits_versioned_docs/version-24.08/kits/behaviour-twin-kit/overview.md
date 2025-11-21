@@ -11,7 +11,7 @@ description: Behaviour Twin KIT
 
 ## PURPOSE
 
-Maximize the potential of usage data. Use the Behaviour Twin KIT (based on [Agents KIT](../knowledge-agents/adoption-view/intro)) to connect heterogeneous and distributed usage data and services seamlessly.
+Maximize the potential of usage data. Use the Behaviour Twin KIT (based on [Agents KIT](../knowledge-agents-kit/adoption-view/intro)) to connect heterogeneous and distributed usage data and services seamlessly.
 
 ## DISCLAIMER
 
@@ -19,14 +19,14 @@ This KIT is a part of the Tractus-X community, the official open-source project 
 
 ## CONTENTS
 
-- [Change Log](./changelog)
+- [Changelog](changelog.md)
 - [Adoption View](adoption-view/overview) - Understand & Decide
-- [Development View](development-view/overview) - Develop & Operate
+- [Development View](software-development-view/overview) - Develop & Operate
 - [Use Cases](use-cases/overview) - Templates for use cases *Health Indicator* and *Remaining useful Life*
 
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0 ![(external link)](./assets/external-link.svg)](https://creativecommons.org/licenses/by/4.0/legalcode).
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2022-2024 Allgemeiner Deutscher Automobil-Club e.V. (ADAC)

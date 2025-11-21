@@ -1,6 +1,6 @@
 # Eclipse Tractus-X website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
 
 ## How to deploy
 
@@ -27,7 +27,7 @@ You can also run the linting step manually by running `npm run lint-doc` or `npm
 
 ## 3rd Party dependency checks
 
-This repository enforces license compatibility checks on all Pull Requests. This is demanded by [TRG 7.04](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-04#checking-libraries-using-the-eclipse-dash-license-tool).
+This repository enforces license compatibility checks on all Pull Requests. This is demanded by [TRG 7.04](/docs/release/trg-7/trg-7-04#checking-libraries-using-the-eclipse-dash-license-tool).
 Follow these steps if your PR's workflow fails on the action `3rd Party dependency check (Eclipse Dash)`:
 
 1. Make sure the error-message is not `[main] ERROR Error response from XYZ HTTP 524` or anything else pointing to

@@ -39,7 +39,7 @@ In case you want to install Tractus-X components or [Kits] directly on your loca
 - Your local system should run a Linux Version (Debian or Ubuntu 22.04 or higher are recommended)
 - You need super user privileges (either root access or the right to use sudo)
 - The above tools should be installed (Docker, Kubernetes, Kubectl, Minikube, Helm and Browser, X-Environment)
-- To enable users to run the tutorial after you ave installed the required environment setup the environment as described in the last section.
+- To enable users to run the tutorial after you have installed the required environment setup the environment as described in the last section.
 
 ### Access to the Internet
 
@@ -207,9 +207,9 @@ kubectl will be installed with snap, we need to use snap security policy "classi
 sudo snap install kubectl --classic
 ```
 
-::: note
+:::note
 
-Occasionally snap will fail with an error message "Access forbidden", alternatively you may try to install Kubectl using the native package as follows. Please check <https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/> for further information.
+Occasionally snap will fail with an error message "Access forbidden", alternatively you may try to install Kubectl using the native package as follows. Please check [here](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux) for further information.
 
 :::
 
@@ -261,7 +261,7 @@ kubectl cluster-info
 
 #### Install Minikube
 
-To install minikube just download the executable from the repository. (Please check also <https://kubernetes.io/de/docs/tasks/tools/install-minikube/>)
+To install minikube just download the executable from the repository. (Please check also [here](https://kubernetes.io/de/docs/tasks/tools/install-minikube)
 
 ```bash
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
@@ -280,7 +280,7 @@ chmod 750 /usr/bin/minikube
 
 We will need Umbrella Helm Charts for the deployment of the tutorial Catena-X environment, teh required tool helm will be installed with snap.
 
-::: note
+:::note
 
 This revision of snap "helm" is published using classic confinement and thus may perform
 arbitrary system changes outside of the security sandbox that snaps are usually confined to.
@@ -362,6 +362,16 @@ sudo apt-get update
 sudo apt-get install insomnia
 ```
 
+:::note
+
+If you using recent Ubuntu and got the following error: Unable to locate package insomnia, you can install with snap: (other tool like Bruno is also recommended)
+
+```bash
+sudo snap install insomnia
+```
+
+:::
+
 ### Setup a user environment for running the tutorial with a minimum set of privileges
 
 You do not need full system access to proceed with the following steps of tutorial (even not for the deployment). Further you may allow several users to deploy their environment at the same time on the same system. But there are a few critical aspects, you need to consider. But first we begin with setting up the appropriate permissions for a user.
@@ -379,14 +389,14 @@ The user tx01 needs the following permissions to be able to successfully complet
 So we run the following commands, assuming the user already exists:
 
 ```bash
-sudo addusr tx01 docker               # adds the user to the group docker
+sudo adduser tx01 docker              # adds the user to the group docker
 sudo chgrp docker /etc/hosts          # change the group permission from root to docker
 sudo chmod 664 /etc/hosts             # This allow now our user tx01 to edit /etc/hosts
 ```
 
 You should brief your user regarding their responsibility when they are editing /etc/hosts.
 
-:::Warning
+:::warning
 
 Users like tx01 with the above permissions can start minikube clusters, which will bring up kubernetes and Umbrella helm charts. By sharing the permission via the group docker, they are also able to disturb clusters and services of another user within the same group docker. Therefore, it is important that they choose individual names for their minikube profiles and Umbrella namespaces. Further they should avoid any option like "--all". See also additional hints in the next chapter "deploy".
 

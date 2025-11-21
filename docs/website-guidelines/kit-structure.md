@@ -8,18 +8,18 @@ Following our project structure, the collection of our KITs documentation is dev
 
 Each folder/KIT's content is structured in at least four pages/subfolders:
 
-- Adoption View -> `page_adoption-view.md`
-- Software Operation View -> `page_software-operation-view.md`
-- Documentation -> `page_documentation.md`
+- Adoption View -> `adoption-view.md`
+- Software Operation View -> `software-operation-view.md`
+- Documentation -> `documentation.md`
 - Software Development View/
-  - Specification -> `page_software-development-view.md`
+  - Specification -> `software-development-view.md`
   - OpenAPI link to SwaggerHub
   - Another OpenAPI definition/
   - ...
 
 ## Steps to add a NewKit documentation
 
-1. Create a folder under the `./docs/kits` with the name of the KIT you are developing the documentation of
+1. Create a folder under the `./docs-kits/kits` with the name of the KIT you are developing the documentation of using the kebab-case naming schema.
 
     ```md
     root
@@ -28,68 +28,98 @@ Each folder/KIT's content is structured in at least four pages/subfolders:
             └── new-kit
     ```
 
-2. Inside the `new-kit` folder, add a `page_adoption-view.md` file with the content that suits your use case
+2. Inside the `new-kit` folder, add a `changelog.md` file.
 
     ```md
     root
     └── docs-kits
         └── kits
             └── new-kit
-                └── page_adoption-view.md
-    ```
+                └── changelog.md
 
-3. Inside the `new-kit` folder, add a `page_software-operation-view.md` file with the content that suits your use case
-
-    ```md
-    root
-    └── docs-kits
-        └── kits
-            └── new-kit
-                ├── page_adoption-view.md
-                └── page_software-operation-view.md
-    ```
-
-4. Inside the `new-kit` folder, add a `page_documentation.md` file with the content that suits your use case
+3. Inside the `new-kit` folder, add a `adoption-view.md` file with the content that suits your use case.
 
     ```md
     root
     └── docs-kits
         └── kits
             └── new-kit
-                ├── page_adoption-view.md
-                ├── page_software-operation-view.md
-                └── page_documentation.md
+                ├── changelog.md
+                └── adoption-view.md
     ```
 
-5. Inside the `new-kit` folder, add a `SoftwareDevelopmentView` folder that contains a `page_software-development-view.md` file with the content that suits your use case
+4. Inside the `new-kit` folder, add a `software-development-view.md` file with the content that suits your use case.
 
     ```md
     root
     └── docs-kits
         └── kits
             └── new-kit
-                ├── page_adoption-view.md
-                ├── page_software-operation-view.md
-                ├── page_documentation.md
-                └── Software Development View
-                    └──page_software-development-view.md
+                ├── changelog.md
+                ├── adoption-view.md
+                └── software-development-view.md
     ```
 
-6. To generate the `OpenAPI` based documentation of your KIT, please publish the API on SwaggerHub
+5. Inside the `new-kit` folder, add a `software-operation-view.md` file with the content that suits your use case.
+
+    ```md
+    root
+    └── docs-kits
+        └── kits
+            └── new-kit
+                ├── changelog.md
+                ├── adoption-view.md
+                ├── software-development.md
+                └── software-operation-view.md
+    ```
+
+6. Inside the `new-kit` folder, add a `documentation.md` file with the content that suits your use case.
+
+    ```md
+    root
+    └── docs-kits
+        └── kits
+            └── new-kit
+                ├── changelog.md
+                ├── adoption-view.md
+                ├── software-development.md
+                ├── software-operation-view.md
+                └── documentation.md
+
+7. If you want to add additional pages to your KIT, add a folder with the same name as the .md file under which the pages should be added (e.g.`software-development-view` - `software-development-view.md`) and place the .md in it and the additional pages.
+
+    ```md
+    root
+    └── docs-kits
+        └── kits
+            └── new-kit
+                ├── changelog.md
+                ├── adoption-view.md
+                ├── software-operation-view.md
+                └── software-development-view
+                    ├── software-development-view.md
+                    └── additional-page.md
+                └── documentation.md
+
+    ```
+
+8. To generate the `OpenAPI` based documentation of your KIT, please see the [api-hub](https://github.com/eclipse-tractusx/api-hub/blob/main/README.md) documentation and related [TRG 1.08 - Interface documentation (APIs)](/docs/release/trg-1/trg-1-08)
 
 **For KITs without reference implementation:**
 
 After evaluation, a "semi-automated" or "manual" solution is not considered effective.
 Please place the openAPI.yaml file directly in your KIT folder and link it to the appropriate location in your .md file.
-Optional for short APIs: Integrate your API in-line as a code block, for example: [Agent KIT](https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents/development-view/api/agent/agent-get/).
+Optional for short APIs: Integrate your API in-line as a code block, for example: [Agent KIT](https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents-kit/software-development-view/api/agent/agent-get/).
 Future: Standardized APIs will be released with yaml file in the Standard library. KIT links to standard and yaml published by the Catena-X e.V.
 
 **For KITs with reference implementation:**
 
 Please use (or adapt existing) automated workflows to publish on SwaggerHub. Maintain your openAPI.yaml and the publishing workflow in the repository of the reference implementation. Remove everything related to that from the website repo and only link to SwaggerHub in your KIT from now on. We utilize a user provided by the Eclipse Foundation to publish on SwaggerHub. Credentials for this user can be used through in the eclipse-tractusx GitHub org secrets and can be utilized in automated workflows. Pay special attention to the "swaggerHub" CLI commands. The location where the openAPI file is maintained may vary. The BPDM example showcases how the application is initiated to download and publish the current file from that location.
 
+```yaml
 SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
-      SWAGGERHUB_USER: ${{ secrets.SWAGGERHUB_USER }}
+SWAGGERHUB_USER: ${{ secrets.SWAGGERHUB_USER }}
+```
 
 Examples:
 [BPDM Certificate Management](https://github.com/eclipse-tractusx/bpdm-certificate-management/blob/main/.github/workflows/publish-swagger-hub.yaml)
@@ -148,22 +178,22 @@ If you have any questions, please use our [“Tractus-X community call”](https
             to: '/developer',
             items: [
               {
-                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/business-partner-kit/adoption-view',
                 label: 'Business Partner',
               },
               {
-                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View',
+                to: '/docs-kits/kits/data-chain-kit/adoption-view',
                 label: 'Data Chain',
               },
               {
-                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
+                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view',
                 label: 'Connector',
               },
               {
-                to: '/docs-kits/kits/Traceability%20Kit/Adoption%20View%20Traceability%20Kit',
+                to: '/docs-kits/kits/traceability-kit/adoption-view',
                 label: 'Traceability',
               },
-              // ********* add here your object specifying "to" and "label" *********** 
+              // ********* add here your object specifying "to" and "label" ***********
             ],
           },
           // ...
