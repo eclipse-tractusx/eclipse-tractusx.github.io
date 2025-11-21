@@ -36,6 +36,36 @@
  */
 
 export const artifactRequirementsData = [
+  {
+    artifact: "Changelog",
+    view: "General Requirements",
+    sandbox: 1,
+    incubatingDraft: 1,
+    incubatingInProgress: 1,
+    incubatingInReview: 1,
+    graduated: 1,
+    additionalInfo: "Version history and updates, is mandatory for all lifecycles"
+  },
+  {
+    artifact: "Code Owner",
+    view: "General Requirements",
+    sandbox: 0,
+    incubatingDraft: 3,
+    incubatingInProgress: 2,
+    incubatingInReview: 1,
+    graduated: 1,
+    additionalInfo: "Required for graduation - how to configure see TRG 10.02 - KIT Content Structure and see also TRG 10.05 - KIT Graduation Process"
+  },
+  {
+    artifact: "Notice",
+    view: "All Files",
+    sandbox: 1,
+    incubatingDraft: 1,
+    incubatingInProgress: 1,
+    incubatingInReview: 1,
+    graduated: 1,
+    additionalInfo: "Legal and compliance notice in every file as described in TRG 07.07 and TRG 07.08"
+  },
   // ==================== ADOPTION VIEW ====================
   {
     artifact: "Vision / Mission",
@@ -68,54 +98,14 @@ export const artifactRequirementsData = [
     additionalInfo: "Explains the Use Case (What is its context) and how it works"
   },
   {
-    artifact: "Adoption View",
-    view: "Adoption View",
-    sandbox: 1,
-    incubatingDraft: 1,
-    incubatingInProgress: 1,
-    incubatingInReview: 1,
-    graduated: 1,
-    additionalInfo: "Overview of KIT adoption and implementation guidance"
-  },
-  {
-    artifact: "Notice",
-    view: "Adoption View",
-    sandbox: 1,
-    incubatingDraft: 1,
-    incubatingInProgress: 1,
-    incubatingInReview: 1,
-    graduated: 1,
-    additionalInfo: "Legal and compliance notice in every file as described in TRG 07.07 and TRG 07.06"
-  },
-  {
-    artifact: "Changelog",
-    view: "Adoption View",
-    sandbox: 1,
-    incubatingDraft: 1,
-    incubatingInProgress: 1,
-    incubatingInReview: 1,
-    graduated: 1,
-    additionalInfo: "Version history and updates, is mandatory for all lifecycles"
-  },
-  {
-    artifact: "Code Owner",
+    artifact: "Business Processes",
     view: "Adoption View",
     sandbox: 0,
     incubatingDraft: 3,
-    incubatingInProgress: 2,
-    incubatingInReview: 1,
-    graduated: 1,
-    additionalInfo: "Required for graduation - how to configure see TRG 10.02 - KIT Content Structure and see also TRG 10.05 - KIT Graduation Process"
-  },
-  {
-    artifact: "Industry Extension",
-    view: "Adoption View",
-    sandbox: 0,
-    incubatingDraft: 3,
-    incubatingInProgress: 2,
+    incubatingInProgress: 1,
     incubatingInReview: 4,
     graduated: 1,
-    additionalInfo: "Required for graduation - at least one industry extension with industrial standards compliance - see TRG 10.02 - Industry Extensions"
+    additionalInfo: "May not be relevant for Network Services"
   },
   {
     artifact: "Tutorials / Videos",
@@ -140,11 +130,31 @@ export const artifactRequirementsData = [
 
   // ==================== DEVELOPMENT VIEW ====================
   {
+    artifact: "Architecture Overview",
+    view: "Development View",
+    sandbox: 3,
+    incubatingDraft: 2,
+    incubatingInProgress: 1,
+    incubatingInReview: 1,
+    graduated: 1,
+    additionalInfo: "System design and architecture diagrams that describe the system and its contexts. "
+  },
+  {
+    artifact: "Component/Sequence Diagrams",
+    view: "Development View",
+    sandbox: 0,
+    incubatingDraft: 3,
+    incubatingInProgress: 2,
+    incubatingInReview: 4,
+    graduated: 1,
+    additionalInfo: "Implementation details on the components and services from a KIT and how they interact with each other"
+  },
+  {
     artifact: "Standards",
     view: "Development View",
     sandbox: 0,
     incubatingDraft: 3,
-    incubatingInProgress: 1,
+    incubatingInProgress: 2,
     incubatingInReview: 4,
     graduated: 1,
     additionalInfo: "Industry standards compliance, if industry specific like (Catena-X e.V. standards) shall be referenced in the Industry Extension under the industry branch"
@@ -154,7 +164,7 @@ export const artifactRequirementsData = [
     view: "Development View",
     sandbox: 0,
     incubatingDraft: 3,
-    incubatingInProgress: 1,
+    incubatingInProgress: 2,
     incubatingInReview: 4,
     graduated: 1,
     additionalInfo: "Technical interface definitions, required for developing microservices"
@@ -164,73 +174,42 @@ export const artifactRequirementsData = [
     view: "Development View",
     sandbox: 0,
     incubatingDraft: 3,
-    incubatingInProgress: 1,
+    incubatingInProgress: 2,
     incubatingInReview: 4,
     graduated: 1,
     additionalInfo: "Required for documenting the context, diagrams which specify the system that can be built with the KIT"
   },
   {
-    artifact: "Architecture",
+    artifact: "Semantic Models / Data Structures",
     view: "Development View",
     sandbox: 0,
     incubatingDraft: 3,
     incubatingInProgress: 1,
     incubatingInReview: 4,
     graduated: 1,
-    additionalInfo: "System design and architecture"
+    additionalInfo: "Described the Data Models and Data Structures handled by applications based on this KIT"
   },
   {
-    artifact: "Documentation",
+    artifact: "Test Cases",
     view: "Development View",
     sandbox: 0,
-    incubatingDraft: 2,
-    incubatingInProgress: 2,
-    incubatingInReview: 2,
-    graduated: 2,
-    additionalInfo: "Optional/Recommended at all phases"
-  },
-  {
-    artifact: "Sample Data",
-    view: "Development View",
-    sandbox: 0,
-    incubatingDraft: 0,
+    incubatingDraft: 3,
     incubatingInProgress: 2,
     incubatingInReview: 4,
-    graduated: 2,
-    additionalInfo: "Example datasets"
+    graduated: 1,
+    additionalInfo: "Described test cases how to validate the functionality of this KIT"
   },
+  // ==================== OPERATION VIEW ====================
   {
     artifact: "Quick Setup Guide",
-    view: "Development View",
+    view: "Operation View",
     sandbox: 0,
     incubatingDraft: 3,
     incubatingInProgress: 1,
     incubatingInReview: 4,
     graduated: 1,
-    additionalInfo: "Exception: not needed without reference implementation"
+    additionalInfo: "How to set the system and bring it up and running"
   },
-  {
-    artifact: "Semantic Models",
-    view: "Development View",
-    sandbox: 0,
-    incubatingDraft: 0,
-    incubatingInProgress: 1,
-    incubatingInReview: 4,
-    graduated: 1,
-    additionalInfo: "May not be relevant for Network Services"
-  },
-  {
-    artifact: "Business Processes",
-    view: "Development View",
-    sandbox: 0,
-    incubatingDraft: 0,
-    incubatingInProgress: 1,
-    incubatingInReview: 4,
-    graduated: 1,
-    additionalInfo: "May not be relevant for Network Services"
-  },
-
-  // ==================== OPERATION VIEW ====================
   {
     artifact: "Operation Guidelines",
     view: "Operation View",
@@ -254,13 +233,44 @@ export const artifactRequirementsData = [
 
   // ==================== SUCCESS STORIES ====================
   {
-    artifact: "Reference Implementation",
+    artifact: "Reference Implementations",
     view: "Success Stories",
     sandbox: 0,
     incubatingDraft: 0,
     incubatingInProgress: 2,
     incubatingInReview: 4,
+    graduated: 1,
+    additionalInfo: "COTS or Open Source implementations that used this KIT to build an application successfully, showing clear adoption paths and demonstrating the value of the KIT"
+  },
+  // ==================== SUCCESS STORIES ====================
+  {
+    artifact: "Extra Documentation / Links",
+    view: "Documentation",
+    sandbox: 0,
+    incubatingDraft: 2,
+    incubatingInProgress: 2,
+    incubatingInReview: 2,
     graduated: 2,
-    additionalInfo: "Working code examples"
-  }
+    additionalInfo: "A KIT can include additional documenation or links if is relevant for the users of the KIT"
+  },
+  {
+    artifact: "Sample Data",
+    view: "Documentation",
+    sandbox: 0,
+    incubatingDraft: 0,
+    incubatingInProgress: 2,
+    incubatingInReview: 4,
+    graduated: 1,
+    additionalInfo: "Example datasets from this KIT to help users understand and implement the datamodels effectively at the systems"
+  },
+  {
+    artifact: "At least one Industry Extension",
+    view: "Industry Extensions",
+    sandbox: 0,
+    incubatingDraft: 3,
+    incubatingInProgress: 2,
+    incubatingInReview: 4,
+    graduated: 1,
+    additionalInfo: "Required for graduation - at least one industry extension with industrial standards compliance - see TRG 10.02 - Industry Extensions"
+  },
 ];
