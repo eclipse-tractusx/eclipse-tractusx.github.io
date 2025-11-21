@@ -36,6 +36,8 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 import GradientButton from '@site/src/components/2.0/GradientButton';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 | Status     | Created      | Post-History                           |
 |------------|--------------|----------------------------------------|
@@ -44,9 +46,27 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 In this documentation you will find a comprehensive overview of the KIT framework, including its architecture, content structure, and the various artifacts that make up a KIT. Whether you are a developer looking to implement a KIT, an operator seeking deployment guidance, or a business stakeholder interested in understanding the value proposition of a KIT, this documentation provides the necessary insights and resources to get started.
 
+
 ## What is a KIT?
 
-**KIT**, short for **Keep It Together**, is an open-source toolbox with comprehensive documentation that enables multiple stakeholders **(Business, Solution Providers, Developers)** to build interoperable applications compatible with the Eclipse Tractus-X dataspace technologies, and support the compliance with industrial standards from standarization organizations (Catena-X e.V., IDTA, ISO/DIN, EDWG, Manufacturing-X, etc.) and in some cases enable regulatory compliance.
+<div style={{ textAlign: 'left', margin: '20px 0' }}>
+  <ThemedImage
+    alt="KIT Framework Overview"
+    sources={{
+      light: useBaseUrl('/img/kits-2.0/tx-white-kit.svg'),
+      dark: useBaseUrl('/img/kits-2.0/tx-black-kit.svg'),
+    }}
+    style={{ 
+      maxWidth: '220px',
+      transition: 'transform 0.3s ease',
+      cursor: 'pointer'
+    }}
+    onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+    onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+  />
+</div>
+
+> **KIT**, short for **Keep It Together**, is an open-source toolbox with comprehensive documentation that enables multiple stakeholders **(Business, Solution Providers, Developers)** to build interoperable applications compatible with the Eclipse Tractus-X dataspace technologies, and support the compliance with industrial standards from standarization organizations (Catena-X e.V., IDTA, ISO/DIN, EDWG, Manufacturing-X, etc.) and in some cases enable regulatory compliance.
 
 A KIT provides everything needed to implement and deploy specific business scenarios within a dataspace environment - from architectural guidance and API specifications to reference implementations and operational procedures. Each KIT serves as a complete, self-contained package that enables developers, operators, and business stakeholders to understand, build, and run solutions that are interoperable across the dataspace network.
 
@@ -127,6 +147,24 @@ KITs in Eclipse Tractus-X are organized into four main categories, each serving 
 />
 
 ## KIT Template
+
+<div style={{ textAlign: 'left', margin: '20px 0' }}>
+  <ThemedImage
+    alt="KIT Framework Overview"
+    sources={{
+      light: useBaseUrl('/img/kits-2.0/tx-assembly-kit.svg'),
+      dark: useBaseUrl('/img/kits-2.0/tx-assembly-kit.svg'),
+    }}
+    style={{
+      maxWidth: '220px',
+      transition: 'transform 0.3s ease',
+      cursor: 'pointer'
+    }}
+    onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+    onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+  />
+</div>
+
 
 Follow the KIT template to have an example of folder structure that can be followed following the [KIT Framework Guide](./kit-framework) and the needed content for each view in order to achieve all requirements from the [KIT Lifecycle](./kit-lifecycle).
 

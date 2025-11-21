@@ -24,6 +24,8 @@ title: KIT Getting started
  }
 
 import React from 'react';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import { KitStructureTable } from '@site/src/components/2.0/KitComponents';
 import { GradientButton } from '@site/src/components/2.0/GradientButton';
@@ -178,7 +180,25 @@ export const ProcessReference = ({ stepNumber, detailedSteps, description }) => 
 
 ## What is a KIT?
 
+<div style={{ textAlign: 'left', margin: '20px 0' }}>
+  <ThemedImage
+    alt="KIT Framework Overview"
+    sources={{
+      light: useBaseUrl('/img/kits-2.0/tx-white-kit.svg'),
+      dark: useBaseUrl('/img/kits-2.0/tx-black-kit.svg'),
+    }}
+    style={{ 
+      maxWidth: '220px',
+      transition: 'transform 0.3s ease',
+      cursor: 'pointer'
+    }}
+    onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+    onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+  />
+</div>
+
 > **KIT**, short for **Keep It Together**, is an open-source toolbox with comprehensive documentation that enables multiple stakeholders **(Business, Solution Providers, Developers)** to build interoperable applications compatible with the Eclipse Tractus-X dataspace technologies, support the compliance with industrial standards from standarization organizations (Catena-X e.V., IDTA, ISO/DIN, EDWG, Manufacturing-X, etc.) and in some use cases enable also regulatory compliance.
+
 
 <div style={{ display: 'flex', justifyContent: 'left', marginTop: '20px', marginLeft: '2px' }}>
   <GradientButton 
@@ -188,6 +208,8 @@ export const ProcessReference = ({ stepNumber, detailedSteps, description }) => 
     external={false}
   />
 </div>
+
+
 
 ## First Steps
 
@@ -251,7 +273,24 @@ Get informed about what are the KITs and how to contribute by reaching out to th
 | KIT Discussions | Offical KIT Proposal and Discussion Location | [KIT Discussions](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/discussions/categories/kits) |
 
 
-### KIT Template
+## KIT Template
+
+<div style={{ textAlign: 'left', margin: '20px 0' }}>
+  <ThemedImage
+    alt="KIT Framework Overview"
+    sources={{
+      light: useBaseUrl('/img/kits-2.0/tx-assembly-kit.svg'),
+      dark: useBaseUrl('/img/kits-2.0/tx-assembly-kit.svg'),
+    }}
+    style={{ 
+      maxWidth: '200px',
+      transition: 'transform 0.3s ease',
+      cursor: 'pointer'
+    }}
+    onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+    onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+  />
+</div>
 
 Follow the KIT template to have an example of folder structure that can be followed following the [KIT Framework Guide](./kit-framework) and the needed content for each view in order to achieve all requirements from the [KIT Lifecycle](./kit-lifecycle).
 
