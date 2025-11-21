@@ -37,7 +37,25 @@ For the KIT Content this two TRGs must be followed:
 - Each KIT view (business, development, ..) must include a license notice and adhere to the CY BB 4.0 license - see [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08)
 - Images must be neutral without any branding, and displayed on a. Images need to follow a the legal notice TRG - see [Legal notice for non-code](/docs/release/trg-7/trg-7-07)
 - A KIT must have a defined code owner for each industry extension - see [Industry Extensions](#industry-extensions)
+
+## KIT Logo
+
 - A KIT must have defined code owners for kit maintenance - see [KIT Maintainers & Code Owners](#kit-maintainers--code-owners)
+- A KIT must have a SVG icon as described the [TRG 10.01](trg-10-01.mdx) and be stored in the `/static/img/kits/<kit-id>/<kit-id>-raw.svg` folder and be correctly licenses following the [TRG 7.07](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-07).
+- A KIT logo must be included in every file in the following way (under the page title):
+
+```markdown
+## Adoption View
+
+![KIT NAME Icon](@site/static/img/kits-2.0/tx-black-kit.svg)
+
+...
+```
+
+## Images Storage & Licensing
+
+- Any image or diagram used in the KIT documentation must be stored in a folders `/resources` folder.
+
 
 ## KIT Creation Process
 
@@ -80,31 +98,90 @@ A deep dive explanation of each section can be found at the [KIT Framework Docum
 
 ### Sections File/Folder Structure
 
+The following folder structure represents a complete KIT template with all required sections and views (example of a KIT folder structures):
+
+```plaintext
+docs-kits/kits/
+  <kit-name>/
+    ├── README.md                          # Main KIT overview and quick start guide
+    ├── CHANGELOG.md                       # Version history following semantic versioning
+    ├── CODEOWNERS                         # GitHub code ownership definitions
+    ├── adoption-view/
+    │   ├── _category_.json
+    │   └── adoption-view.md               # Business value, use cases, policies, standards
+    ├── development-view/
+    │   ├── _category_.json
+    │   └── development-view.md            # Architecture, API specs, semantic models, tutorials
+    ├── operations-view/
+    │   ├── _category_.json
+    │   └── operations-view.md             # Deployment guides, monitoring, security, troubleshooting
+    ├── industry-extensions/
+    │   ├── _category_.json
+    │   ├── README.md                      # Industry extensions framework overview
+    │   ├── automotive/
+    │   │   ├── _category_.json
+    │   │   └── overview.md                # Catena-X automotive-specific content
+    │   └── shop-floor/
+    │       ├── _category_.json
+    │       └── overview.md                # Manufacturing-X shop-floor-specific content
+    ├── success-stories/
+    │   ├── _category_.json
+    │   └── my-app.md                      # Template for implementation success stories
+    ├── documentation/
+    │   ├── _category_.json
+    │   ├── github-repository.md           # Link to GitHub repository
+    │   ├── api-documentation.md           # Link to API documentation
+    │   ├── community-support.md           # Link to community support channels
+    │   └── related-standards.md           # Links to related standards
+    └── resources/
+        └── images/                        # KIT-specific images and diagrams
+```
+
+:::tip Template Available
+A complete KIT template with all required files and structure is available at:
+`/docs-kits/kit-template/`
+
+This template includes detailed guidelines and examples for each section.
+:::
+
+<div style={{ display: 'flex', gap: '12px', justifyContent: 'left', marginTop: '20px', marginBottom: '20px', flexWrap: 'wrap' }}>
+  <GradientButton 
+    href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template"
+    text="View KIT Template"
+    icon={MenuBookIcon}
+    gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+    shadowColor="rgba(102, 126, 234, 0.3)"
+    shadowColorHover="rgba(102, 126, 234, 0.4)"
+    external={true}
+  />
+</div>
+
 #### Only per view
 
-In case a VIEW has only one file it shall be described in this way as a `md` or `mdx` file:
+In case a VIEW has only one file it shall be described in this way as a `md` or `mdx` file insice of its respective folder (using the same name of the view):
 
 ```plaintext
 /docs-kits/kits/
   <kit-name>/
-    adoption-view.md
+    adoption-view/
+        adoption-view.md
 ```
 
 #### Multiple files per view
-In case a VIEW has multiple files it shall be described in this way as a folder with multiple `md` or `mdx` files:
+
+In case a VIEW has multiple files it shall be described in this way as a folder with multiple `md` or `mdx` files (main views have the same name as the folder):
 
 ```plaintext
 /docs-kits/kits/
   <kit-name>/
     development-view/
         architecture.md
-        api-specifications.mdx
+        deployment-view.mdx
     operation-view/
-        deployment-guide.md
+        operation-view.md
         monitoring.md
     ...
 ```
-
 
 ## KIT Maintainers & Code Owners
 

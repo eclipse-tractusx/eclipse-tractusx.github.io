@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   -  KIT Getting Started
 - Improved KIT content structure to be multi-industry and multi-dataspace
 - Improved KIT overall architecture to be more modular.
+- Added a KIT template in (./docs-kits/kit-template)
 
 ### Updated
 

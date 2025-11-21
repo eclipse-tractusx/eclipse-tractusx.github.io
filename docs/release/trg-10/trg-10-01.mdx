@@ -2,6 +2,8 @@
 title: TRG 10.01 - KIT Architecture
 ---
 
+import ArchitectureDiagram from '@site/src/components/2.0/KitArchitectureDiagram';
+
 | Status     | Created      | Post-History                           |
 |------------|--------------|----------------------------------------|
 | Draft      | 12-Apr-2024  | Initial contribution                   |
@@ -25,10 +27,9 @@ A detailed explanation can be found here:
 ## Master Data
 
 - Every KIT must be added to the [KIT master data](../../../documentation/kit-master-data-overview), which is located at the `/docs/kitData.js` file, and it must follow the structure described in this [JSON schema](../../../utils/schemas/kitsData.schema.json) and at the [documentation](../../../documentation/kit-master-data-overview).
-- The Masted Data structure must be respected, since it is used for autoomatization of the KIT webpage generation, for that automated checks are done in compilation time.
-
-import ArchitectureDiagram from '@site/src/components/2.0/KitArchitectureDiagram';
-
+- The Masted Data structure must be respected, since it is used for automatization of the KIT webpage generation, for that automated checks are done in compilation time.
+- The KIT logos must be added to the `/static/img/kits/<kit-id>/<kit-id>-raw.svg` folder, in SVG format **without background, in white color, without claim** and imported in the master data at the `logo` field. 
+- The KIT logo must be licensed following the [TRG 7.07 - Legal notice for non-code](/docs/release/trg-7/trg-7-07) guidelines. 
 
 ## KIT Framework Architecture
 In order to provide intereperability and a clear context where a KIT is used within the overall dataspace architecture, a KIT must be included in one of the four categories:

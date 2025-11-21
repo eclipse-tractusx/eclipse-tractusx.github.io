@@ -66,6 +66,16 @@ export const artifactRequirementsData = [
     graduated: 1,
     additionalInfo: "Legal and compliance notice in every file as described in TRG 07.07 and TRG 07.08"
   },
+  {
+    artifact: "KIT Icon",
+    view: "All Files",
+    sandbox: 1,
+    incubatingDraft: 1,
+    incubatingInProgress: 1,
+    incubatingInReview: 1,
+    graduated: 1,
+    additionalInfo: "SVG KIT icon stored at /static/img/kits/<kit-id>/<kit-id>-kit.svg as described in TRG 10.02 - KIT Content Structure"
+  },
   // ==================== ADOPTION VIEW ====================
   {
     artifact: "Vision / Mission",
@@ -201,7 +211,7 @@ export const artifactRequirementsData = [
   },
   // ==================== OPERATION VIEW ====================
   {
-    artifact: "Quick Setup Guide",
+    artifact: "Deployment Guide",
     view: "Operation View",
     sandbox: 0,
     incubatingDraft: 3,
@@ -211,7 +221,7 @@ export const artifactRequirementsData = [
     additionalInfo: "How to set the system and bring it up and running"
   },
   {
-    artifact: "Operation Guidelines",
+    artifact: "Operation/Monitoring Guidelines",
     view: "Operation View",
     sandbox: 0,
     incubatingDraft: 0,
