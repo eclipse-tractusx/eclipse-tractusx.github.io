@@ -23,6 +23,16 @@ The mission of this KIT is to make the AI system bundled with participants' *EDC
 
 [![Topology of KIT](./resources/topology-small.png)](./resources/topology.png)
 
+The AI service in this document is defined as a service that provides users with functionalities and/or value through the use of AI systems.
+
+While there are variety of ways to use AI systems in conjunction with dataspace, we discuss "AI agents", "Agentic System" that are connected **directly** to EDC.
+
+AI systems, a part of AI service, directly connected to EDCs can offer capabilities in many ways:
+- Category 1: AI systems offers capabilities **within** the boundaries of Catena-X Use Case
+- Category 2: AI Systems offers capabilities **outside** any Catena-X Use Case
+
+In either way, AI systems will be connected and be accessible via EDCs.
+
 AI systems exist in diverse forms, including LLMs (public and local), RAG applications that interact with LLMs, and AI agents that oversee them.
 For enabling participants to recognize AI systems with such diverse forms, a unified notation method to express AI systems as *Assets* is necessary.
 This KIT provides notation rules and vocabulary to serve as guidelines for participants when registering their AI systems as *Assets*.
@@ -31,23 +41,6 @@ Furthermore, AI systems involve numerous considerations for use due to their nat
 This KIT provides comprehensive notation rules and semantics for expressing these considerations as *Usage Policy*.
 
 These contributions bring interoperability and governance to participants' AI systems in inter-company collaboration.
-
-### Scope
-
-While there are variety of ways to use AI systems in conjunction with dataspace, we discuss "AI agents", "AI service" or "Agentic System" that are connected **directly** to EDC.
-
-Required Policy Decision and Enfrocement Points (PDP and PEP) as independent security assets.
-
-AI supply chain in contrast to existing software supply chain
-
-- Category 1: Agent offers capabilities **within** the boundaries of Catena-X Use Case
-  - SSI and IAM
-  - Attribute based access control
-  - Data usage contracts
-  - Standardized semantic models
-  - PDP, PEP extensions?
-- Category 2: Agent offers capabilities **outside** any Catena-X Use Case
-  - Catena-X compliant guard rails
 
 ## Business Value
 
