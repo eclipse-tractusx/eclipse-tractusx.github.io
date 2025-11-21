@@ -34,6 +34,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Link from '@docusaurus/Link';
 import DeprecatedKitsList from '../src/components/2.0/KitAnalytics/DeprecatedKitsList.js';
+import ArtifactRequirementsTable from '@site/src/components/2.0/ArtifactRequirementsTable';
+import { artifactRequirementsData } from '@site/data/kitArtifactRequirementsData';
 
 | Status     | Created      | Post-History                           |
 |------------|--------------|----------------------------------------|
@@ -414,34 +416,9 @@ Steps of the Incubating phase:
 
 This section provides an overview of required artifacts for each maturity level and incubating sub-state. For detailed examples and specifications, please refer to TRG 8.03 - KIT Framework.
 
-**Legend**:
-
-- <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981', verticalAlign: 'middle' }} /> Mandatory
-- <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280', verticalAlign: 'middle' }} />* Optional/Recommended
-- <EditIcon sx={{ fontSize: 14, color: '#f59e0b', verticalAlign: 'middle' }} /> In Development
-- <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6', verticalAlign: 'middle' }} /> Under Review
-
 ### Artifact Requirements by Maturity Level
 
-| Artifact / Stage | Sandbox | Incubating Draft | Incubating In Progress | Incubating In Review | Graduated | Additional Info |
-|---|---|---|---|---|---|---|
-| Vision / Mission | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Core foundation document |
-| Business Value(s) | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | May not be relevant for Network Services |
-| Use Case / Domain explanation | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | May not be relevant for Network Services |
-| Notice | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Legal and compliance notice |
-| Changelog | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Version history and updates |
-| Standards | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Industry standards compliance |
-| API-Specification / Protocols | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Technical interface definitions |
-| Logic / Schema | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | May not be relevant for Network Services |
-| Documentation | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Complete technical documentation |
-| Architecture | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | System design and architecture |
-| Quick Setup Guide | | <EditIcon sx={{ fontSize: 14, color: '#f59e0b' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | Exception: not needed without reference implementation |
-| Semantic Models | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | May not be relevant for Network Services |
-| Business Processes | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981' }} /> | May not be relevant for Network Services |
-| Tutorials / Videos | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | Educational content |
-| Sample Data | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | Example datasets |
-| Reference Implementation | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | Working code examples |
-| Whitepaper | | | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6' }} /> | <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280' }} />* | Research and analysis document |
+<ArtifactRequirementsTable data={artifactRequirementsData} />
 
 ### Incubating Sub-State Progression
 
@@ -604,3 +581,27 @@ Community members can appeal a deprecation by:
 ## Currently Deprecated KITs
 
 <DeprecatedKitsList />
+
+## Additional Resources
+
+### KIT Documentation
+
+- [KIT Framework](./kit-framework) - Complete guide to KIT structure, artifacts, and requirements
+- [KIT Getting Started](./kit-getting-started) - How to create a KIT
+- [KIT Master Data Overview](./kit-master-data-overview) - Complete KIT metadata, statistics, and data structure
+- [KIT Statistics](./kit-statistics) - Analytics dashboard for KIT ecosystem metrics
+
+### Documentation References
+
+#### KIT-Specific TRGs (Tractus-X Release Guidelines)
+
+- [TRG 10.01 - KIT Architecture](/docs/release/trg-10/trg-10-01) - KIT framework categories and classification
+- [TRG 10.02 - KIT Content Structure](/docs/release/trg-10/trg-10-02) - Required content and structure
+- [TRG 10.03 - KIT Lifecycle](/docs/release/trg-10/trg-10-03) - Maturity levels and lifecycle management
+- [TRG 10.04 - KIT Graduation Process](/docs/release/trg-10/trg-10-04) - Graduation requirements and process
+- [TRG 10.05 - KIT Deprecation Process](/docs/release/trg-10/trg-10-05) - Deprecation criteria and procedures
+
+#### Legal & Licensing
+
+- [TRG 7.07 - Legal notice for non-code](/docs/release/trg-7/trg-7-07) - Image and media licensing requirements
+- [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08) - Documentation licensing

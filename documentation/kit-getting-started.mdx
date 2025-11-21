@@ -26,6 +26,8 @@ title: KIT Getting started
 import React from 'react';
 
 import { KitStructureTable } from '@site/src/components/2.0/KitComponents';
+import { GradientButton } from '@site/src/components/2.0/GradientButton';
+import { TractusXBusinessCard } from '@site/src/components/2.0/TractusXBusinessCard';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
@@ -178,56 +180,13 @@ export const ProcessReference = ({ stepNumber, detailedSteps, description }) => 
 
 > **KIT**, short for **Keep It Together**, is an open-source toolbox with comprehensive documentation that enables multiple stakeholders **(Business, Solution Providers, Developers)** to build interoperable applications compatible with the Eclipse Tractus-X dataspace technologies, support the compliance with industrial standards from standarization organizations (Catena-X e.V., IDTA, ISO/DIN, EDWG, Manufacturing-X, etc.) and in some use cases enable also regulatory compliance.
 
-<div style={{
-  margin: '20px 0'
-}}>
-  <a 
-    href="./kit-framework" 
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      width: '100%',
-      padding: '18px 28px',
-      background: 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)',
-      color: 'white',
-      textDecoration: 'none',
-      borderRadius: '12px',
-      fontWeight: '700',
-      fontSize: '16px',
-      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-      border: 'none',
-      boxSizing: 'border-box',
-      boxShadow: '0 4px 14px 0 rgba(76, 175, 80, 0.3)',
-      cursor: 'pointer',
-      position: 'relative',
-      overflow: 'hidden'
-    }}
-    onMouseEnter={(e) => {
-      e.target.style.transform = 'translateY(-2px) scale(1.02)';
-      e.target.style.boxShadow = '0 8px 25px 0 rgba(76, 175, 80, 0.4)';
-    }}
-    onMouseLeave={(e) => {
-      e.target.style.transform = 'translateY(0) scale(1)';
-      e.target.style.boxShadow = '0 4px 14px 0 rgba(76, 175, 80, 0.3)';
-    }}
-    onMouseDown={(e) => {
-      e.target.style.transform = 'translateY(0) scale(0.98)';
-    }}
-    onMouseUp={(e) => {
-      e.target.style.transform = 'translateY(-2px) scale(1.02)';
-    }}
-  >
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      gap: '12px'
-    }}>
-      <AccountBalanceIcon sx={{ fontSize: 20 }} />
-      <span>Learn what is a KIT</span>
-    </div>
-    <OpenInNewIcon sx={{ fontSize: 18, opacity: 0.8 }} />
-  </a>
+<div style={{ display: 'flex', justifyContent: 'left', marginTop: '20px', marginLeft: '2px' }}>
+  <GradientButton 
+    href="./kit-framework"
+    text="Learn what is a KIT"
+    icon={AccountBalanceIcon}
+    external={false}
+  />
 </div>
 
 ## First Steps
@@ -270,181 +229,15 @@ You need to have a Github Account and to fulfill the requirements from the [Deve
 
 Get informed about what are the KITs and how to contribute by reaching out to the KITs Program Manager or attending our KIT community office hours:
 
-<div 
-  style={{
-    backgroundImage: 'url(/img/tx-logos/221103_TractusX_Gradient_slim.png)',
-    backgroundSize: '120% 120%',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    borderRadius: '20px',
-    padding: '48px 40px',
-    margin: '30px 0',
-    position: 'relative',
-    overflow: 'hidden',
-    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
-    maxWidth: '500px',
-    minHeight: '250px',
-    color: 'white',
-    transition: 'all 0.3s ease',
-    cursor: 'pointer'
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.transform = 'translateY(-4px)';
-    e.currentTarget.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.4)';
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.transform = 'translateY(0)';
-    e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-  }}
->
-  <div style={{
-    display: 'flex',
-    alignItems: 'flex-start',
-    gap: '20px',
-    marginBottom: '32px'
-  }}>
-    <img 
-      src="https://github.com/matbmoser.png" 
-      alt="Mathias Moser"
-      style={{
-        width: '100px',
-        height: '100px',
-        borderRadius: '16px',
-        border: '2px solid rgba(255, 255, 255, 0.4)',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-        objectFit: 'cover',
-        backdropFilter: 'blur(10px)',
-        background: 'rgba(255, 255, 255, 0.05)'
-      }}
-    />
-    <div style={{ flex: 1 }}>
-      <h3 style={{
-        margin: '0 0 8px 0',
-        fontSize: '24px',
-        fontWeight: '700',
-        color: 'white',
-        textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)'
-      }}>
-        Mathias Moser
-      </h3>
-      <div style={{
-        fontSize: '16px',
-        color: 'rgba(255, 255, 255, 0.9)',
-        marginBottom: '8px',
-        fontWeight: '500'
-      }}>
-        KITs Program Manager
-      </div>
-      <div style={{
-        fontSize: '13px',
-        color: 'rgba(255, 255, 255, 0.8)',
-        lineHeight: '1.4',
-        fontStyle: 'italic'
-      }}>
-        Eclipse Tractus-X Project Lead
-      </div>
-    </div>
-  </div>
-  
-  <div style={{
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
-    gap: '10px'
-  }}>
-    <a 
-      href="mailto:mathias.moser@catena-x.net"
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '6px',
-        padding: '10px 12px',
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-        color: 'white',
-        textDecoration: 'none',
-        borderRadius: '8px',
-        fontSize: '13px',
-        fontWeight: '500',
-        transition: 'all 0.2s ease',
-        border: '1px solid rgba(255, 255, 255, 0.3)',
-        backdropFilter: 'blur(10px)'
-      }}
-      onMouseEnter={(e) => {
-        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
-        e.target.style.transform = 'translateY(-1px)';
-      }}
-      onMouseLeave={(e) => {
-        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-        e.target.style.transform = 'translateY(0)';
-      }}
-    >
-      <EmailIcon sx={{ fontSize: 16 }} />
-      <span>Email</span>
-    </a>
-    
-    <a 
-      href="https://github.com/matbmoser"
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '6px',
-        padding: '10px 12px',
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-        color: 'white',
-        textDecoration: 'none',
-        borderRadius: '8px',
-        fontSize: '13px',
-        fontWeight: '500',
-        transition: 'all 0.2s ease',
-        border: '1px solid rgba(255, 255, 255, 0.3)',
-        backdropFilter: 'blur(10px)'
-      }}
-      onMouseEnter={(e) => {
-        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
-        e.target.style.transform = 'translateY(-1px)';
-      }}
-      onMouseLeave={(e) => {
-        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-        e.target.style.transform = 'translateY(0)';
-      }}
-    >
-      <GitHubIcon sx={{ fontSize: 16 }} />
-      <span>GitHub</span>
-    </a>
-    
-    <a 
-      href="https://chat.eclipse.org/#/user/@matbmoser:matrix.eclipse.org"
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '6px',
-        padding: '10px 12px',
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-        color: 'white',
-        textDecoration: 'none',
-        borderRadius: '8px',
-        fontSize: '13px',
-        fontWeight: '500',
-        transition: 'all 0.2s ease',
-        border: '1px solid rgba(255, 255, 255, 0.3)',
-        backdropFilter: 'blur(10px)'
-      }}
-      onMouseEnter={(e) => {
-        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
-        e.target.style.transform = 'translateY(-1px)';
-      }}
-      onMouseLeave={(e) => {
-        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-        e.target.style.transform = 'translateY(0)';
-      }}
-    >
-      <ChatIcon sx={{ fontSize: 16 }} />
-      <span>Matrix</span>
-    </a>
-  </div>
-</div>
+<TractusXBusinessCard 
+  name="Mathias Moser"
+  title="KITs Program Manager"
+  subtitle="Eclipse Tractus-X Project Lead"
+  avatarUrl="https://github.com/matbmoser.png"
+  email="mathias.moser@catena-x.net"
+  github="matbmoser"
+  matrix="@matbmoser:matrix.eclipse.org"
+/>
 
 ### Community Channels
 
@@ -532,56 +325,14 @@ In addition to the view-specific content above, every KIT must include:
 The views above are organized in "folders" so that its sections are harmonized and the content from each view remains flexible.
 :::
 
-<div style={{
-  margin: '20px 0'
-}}>
-  <a 
-    href="./kit-framework" 
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      width: '100%',
-      padding: '18px 28px',
-      background: 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)',
-      color: 'white',
-      textDecoration: 'none',
-      borderRadius: '12px',
-      fontWeight: '700',
-      fontSize: '16px',
-      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-      border: 'none',
-      boxSizing: 'border-box',
-      boxShadow: '0 4px 14px 0 rgba(76, 175, 80, 0.3)',
-      cursor: 'pointer',
-      position: 'relative',
-      overflow: 'hidden'
-    }}
-    onMouseEnter={(e) => {
-      e.target.style.transform = 'translateY(-2px) scale(1.02)';
-      e.target.style.boxShadow = '0 8px 25px 0 rgba(76, 175, 80, 0.4)';
-    }}
-    onMouseLeave={(e) => {
-      e.target.style.transform = 'translateY(0) scale(1)';
-      e.target.style.boxShadow = '0 4px 14px 0 rgba(76, 175, 80, 0.3)';
-    }}
-    onMouseDown={(e) => {
-      e.target.style.transform = 'translateY(0) scale(0.98)';
-    }}
-    onMouseUp={(e) => {
-      e.target.style.transform = 'translateY(-2px) scale(1.02)';
-    }}
-  >
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      gap: '12px'
-    }}>
-      <MenuBookIcon sx={{ fontSize: 20 }} />
-      <span>Click here to view the KIT Framework Guide with details on content structure</span>
-    </div>
-    <OpenInNewIcon sx={{ fontSize: 18, opacity: 0.8 }} />
-  </a>
+<div style={{ margin: '20px 0' }}>
+  <GradientButton 
+    href="./kit-framework"
+    text="Click here to view the KIT Framework Guide with details on content structure"
+    icon={MenuBookIcon}
+    external={false}
+    minWidth="100%"
+  />
 </div>
 
 <ProcessReference 
@@ -599,56 +350,17 @@ The views above are organized in "folders" so that its sections are harmonized a
 1. Fork [eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
 2. Add your KIT to the [master data](/documentation/kit-master-data-overview)
 
-<div style={{
-  margin: '20px 0'
-}}>
-  <a 
-    href="./kit-master-data-overview" 
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      width: '100%',
-      padding: '18px 28px',
-      background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
-      color: 'white',
-      textDecoration: 'none',
-      borderRadius: '12px',
-      fontWeight: '700',
-      fontSize: '16px',
-      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-      border: 'none',
-      boxSizing: 'border-box',
-      boxShadow: '0 4px 14px 0 rgba(37, 99, 235, 0.3)',
-      cursor: 'pointer',
-      position: 'relative',
-      overflow: 'hidden'
-    }}
-    onMouseEnter={(e) => {
-      e.target.style.transform = 'translateY(-2px) scale(1.02)';
-      e.target.style.boxShadow = '0 8px 25px 0 rgba(37, 99, 235, 0.4)';
-    }}
-    onMouseLeave={(e) => {
-      e.target.style.transform = 'translateY(0) scale(1)';
-      e.target.style.boxShadow = '0 4px 14px 0 rgba(37, 99, 235, 0.3)';
-    }}
-    onMouseDown={(e) => {
-      e.target.style.transform = 'translateY(0) scale(0.98)';
-    }}
-    onMouseUp={(e) => {
-      e.target.style.transform = 'translateY(-2px) scale(1.02)';
-    }}
-  >
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      gap: '12px'
-    }}>
-      <DatasetIcon sx={{ fontSize: 20 }} />
-      <span>View Master Data Overview - Complete KIT metadata and statistics</span>
-    </div>
-    <OpenInNewIcon sx={{ fontSize: 18, opacity: 0.8 }} />
-  </a>
+<div style={{ margin: '20px 0' }}>
+  <GradientButton 
+    href="./kit-master-data-overview"
+    text="View Master Data Overview - Complete KIT metadata and statistics"
+    icon={DatasetIcon}
+    gradient="linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)"
+    shadowColor="rgba(37, 99, 235, 0.3)"
+    shadowColorHover="rgba(37, 99, 235, 0.4)"
+    external={false}
+    minWidth="100%"
+  />
 </div>
 
 3. Add your KIT in this file by updating the sidebar configuration in ['/sidebarsDocsKits.js'](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/sidebarsDocsKits.js) at the root folder (a template will be provided).

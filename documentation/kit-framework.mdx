@@ -34,6 +34,7 @@ import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturi
 import Button from '@mui/material/Button';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
+import GradientButton from '@site/src/components/2.0/GradientButton';
 
 | Status     | Created      | Post-History                           |
 |------------|--------------|----------------------------------------|
@@ -64,57 +65,14 @@ The transition from KIT 1.0 to KIT 2.0 represents a fundamental shift in how we 
 
 This evolution ensures that core dataspace capabilities remain consistent and interoperable, while allowing each industry to build specialized solutions on top of a shared foundation.
 
-<div style={{
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  margin: '3rem 0',
-}}>
-  <Button
-    variant="contained"
-    endIcon={<RocketLaunchIcon />}
-    href="/documentation/kit-getting-started"
-    sx={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      background: 'linear-gradient(135deg, var(--ifm-color-primary) 0%, #0096c7 100%)',
-      color: 'white',
-      padding: '16px 48px',
-      fontSize: '1.1rem',
-      fontWeight: 700,
-      textTransform: 'none',
-      borderRadius: '50px',
-      boxShadow: '0 8px 24px rgba(0, 184, 217, 0.35)',
-      border: '2px solid transparent',
-      position: 'relative',
-      overflow: 'hidden',
-      lineHeight: 1,
-      '&::before': {
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: '-100%',
-        width: '100%',
-        height: '100%',
-        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
-        transition: 'left 0.5s ease',
-      },
-      '&:hover': {
-        background: 'linear-gradient(135deg, #0096c7 0%, var(--ifm-color-primary) 100%)',
-        boxShadow: '0 12px 32px rgba(0, 184, 217, 0.5)',
-        transform: 'translateY(-4px) scale(1.02)',
-        border: '2px solid rgba(255, 255, 255, 0.3)',
-      },
-      '&:hover::before': {
-        left: '100%',
-      },
-      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-    }}
-  >
-    Support us on the KIT 2.0 Evolution
-  </Button>
-</div>
+<GradientButton 
+href="https://eclipse-tractusx.github.io/documentation/kit-getting-started"
+text="Support us on the KIT Evolution!"
+icon={RocketLaunchIcon}
+gradient="linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)"
+shadowColor="rgba(102, 126, 234, 0.4)"
+shadowColorHover="rgba(118, 75, 162, 0.6)"
+/>
 
 ## KIT Framework Architecture
 
@@ -556,3 +514,27 @@ flowchart TD
 ```
 
 This modular approach enables KITs to serve as universal building blocks that can be specialized for different industry verticals while maintaining their core value proposition and functionality.
+
+## Additional Resources
+
+### KIT Documentation
+
+- [KIT Getting Started](./kit-getting-started) - How to create a KIT
+- [KIT Lifecycle](./kit-lifecycle) - KIT maturity levels, graduation, and maintenance processes
+- [KIT Master Data Overview](./kit-master-data-overview) - Complete KIT metadata, statistics, and data structure
+- [KIT Statistics](./kit-statistics) - Analytics dashboard for KIT ecosystem metrics
+
+### Documentation References
+
+#### KIT-Specific TRGs (Tractus-X Release Guidelines)
+
+- [TRG 10.01 - KIT Architecture](/docs/release/trg-10/trg-10-01) - KIT framework categories and classification
+- [TRG 10.02 - KIT Content Structure](/docs/release/trg-10/trg-10-02) - Required content and structure
+- [TRG 10.03 - KIT Lifecycle](/docs/release/trg-10/trg-10-03) - Maturity levels and lifecycle management
+- [TRG 10.04 - KIT Graduation Process](/docs/release/trg-10/trg-10-04) - Graduation requirements and process
+- [TRG 10.05 - KIT Deprecation Process](/docs/release/trg-10/trg-10-05) - Deprecation criteria and procedures
+
+#### Legal & Licensing
+
+- [TRG 7.07 - Legal notice for non-code](/docs/release/trg-7/trg-7-07) - Image and media licensing requirements
+- [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08) - Documentation licensing

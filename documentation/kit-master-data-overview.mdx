@@ -523,9 +523,230 @@ export const MasterDataOverview = () => {
   );
 };
 
-## Industry & Dataspace Master Data Overview
+## Master Data Overview
 
-This page provides a comprehensive overview of all industries and dataspaces in the Tractus-X ecosystem. The master data is maintained in the [`kitsData.js`](../data/kitsData.js) file and serves as the foundation for organizing KITs and dataspace implementations.
+This page provides a comprehensive overview of all KITs, industries and dataspaces in the Eclipse Tractus-X ecosystem. The master data is maintained in the [`kitsData.js`](https://github.com/eclipse-tractusx/tractusx-website/blob/main/data/kitsData.js) file and serves as the foundation for organizing KITs and dataspace implementations for the dynamic website generation.
+In this documentation you will find the different data models that are needed to be followed in order for the webpage to render correctly the different KITs, sections and industries.
+
+## KIT Master Data File Location
+
+The master data is located at the [kit master data file](https://github.com/eclipse-tractusx/tractusx-website/blob/main/data/kitsData.js):
+
+```
+/data/kitsData.js
+```
+
+
+### What is Master Data?
+
+The master data includes two primary components that structure the entire ecosystem, it is there to automatizate the website visualization of the KITs and allows the tracking of the [KIT Lifecycle](kit-lifecycle.mdx) on a **single source of truth.**
+It also allows to easily add new industries, dataspaces, and KITs without modifying the website codebase.
+
+#### Industry Master Data
+Core information about each industry vertical:
+- Unique ID, name, and subtitle
+- Icon component, colors, and gradient styling
+- Description and purpose within the ecosystem
+- Array of dataspace implementations within this industry (content is optional)
+
+#### Dataspace Master Data  
+Essential information about each dataspace implementation:
+- Unique ID, name, and subtitle
+- Logo (SVG/PNG) (transparent background and no claims & **MUST** be hosted by the dataspace owner)
+- Dataspace Layers colors, and gradient styling 
+- Detailed description and subtitle
+- Official website URL for the dataspace
+- Which industry vertical this dataspace belongs to
+
+#### KIT Master Data
+Includes the essential details for each KIT, such as:
+- Unique identifier, name, logo, and route to documentation
+- Branding colors and gradients
+- Maturity level and status
+- Domain categorization and deprecation status
+
+
+## Industry Data Model
+
+To add an industry a object with the semantic described in this section must be added to the master data at the `industries` key.
+
+### Field Descriptions
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | Yes | Unique identifier for the industry (lowercase, hyphenated) |
+| `name` | string | Yes | Display name of the industry |
+| `subtitle` | string | Yes | Descriptive subtitle for the industry |
+| `description` | string | Yes | Comprehensive description of the industry's scope and KIT applications |
+| `icon` | Component | Yes | Material-UI icon component representing the industry |
+| `gradient` | string | Yes | CSS gradient definition for visual branding |
+| `dataspaces` | array | Yes (can be empty) | Array of dataspace objects associated with this industry |
+
+### Structure
+
+```javascript
+import MaterialUIIcon from '@mui/icons-material/MaterialUIIcon';
+
+industries: [
+  {
+    id: 'industry-id',
+    name: 'Industry Name',
+    subtitle: 'Industry Subtitle',
+    description: 'Detailed description of the industry...',
+    icon: MaterialUIIcon,
+    gradient: 'linear-gradient(135deg, #color1, #color2)',
+    dataspaces: [
+      // Array of dataspace objects (with the dataspace data model)
+    ]
+  },
+  ...
+]
+```
+
+<details>
+<summary><strong>Example: Automotive Industry</strong></summary>
+
+```javascript
+{
+  id: 'automotive',
+  name: 'Automotive',
+  subtitle: 'Automotive Industry',
+  description: 'Industry Specific KITs for the automotive industry, ...',
+  icon: DirectionsCar,
+  gradient: 'linear-gradient(135deg, #ffa600, #b3cb2d)',
+  dataspaces: [
+    {
+      name: "Catena-X",
+      url: "https://catena-x.net/",
+      gradient: 'linear-gradient(135deg, #ffa600, #b3cb2d)',
+      logo: {
+        src: 'https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png',
+        alt: 'Catena-X Logo',
+        width: 70,
+        height: 70
+      },
+      colors: {
+        layer1: 'rgb(110, 200, 105)',
+        layer2: 'rgb(179, 203, 45)',
+        layer3: 'rgb(230, 163, 38)',
+        layer4: 'rgb(250, 160, 35)'
+      },
+      subtitle: 'Your Automotive Network',
+      description: 'The first open and collaborative data ecosystem for the automotive industry...',
+      kits: ['connector', 'data-governance', 'business-partner', /* ... */]
+    }
+  ]
+}
+```
+
+</details>
+
+## Dataspace Data Model
+
+To add an dataspace it must be added as an item in the `dataspaces` key at the indudstry master data.
+
+### Field Descriptions
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `name` | string | Yes | Display name of the dataspace |
+| `url` | string | Yes | Official website URL of the dataspace |
+| `gradient` | string | Yes | CSS gradient definition for the dataspace's visual identity |
+| `logo.src` | string | Yes | URL to the dataspace logo image |
+| `logo.alt` | string | Yes | Alt text for the logo image (accessibility) |
+| `logo.width` | number | Yes | Logo width in pixels |
+| `logo.height` | number | Yes | Logo height in pixels |
+| `colors.layer1` | string | Yes | First layer color for hover effects (hex or rgb) |
+| `colors.layer2` | string | Yes | Second layer color for hover effects (hex or rgb) |
+| `colors.layer3` | string | Yes | Third layer color for hover effects (hex or rgb) |
+| `colors.layer4` | string | Yes | Fourth layer color for hover effects (hex or rgb) |
+| `subtitle` | string | Yes | Short tagline for the dataspace |
+| `description` | string | Yes | Comprehensive description of the dataspace's purpose and capabilities |
+| `kits` | array | Yes | Array of KIT IDs that are available in this dataspace |
+
+### Structure
+
+```javascript
+{
+  name: 'Dataspace Name',
+  url: 'https://dataspace-website.com',
+  gradient: 'linear-gradient(135deg, #color1, #color2)',
+  logo: {
+    src: 'https://example.com/logo.svg',
+    alt: 'Logo Alt Text',
+    width: 80,
+    height: 80
+  },
+  colors: {
+    layer1: '#color1',
+    layer2: '#color2',
+    layer3: '#color3',
+    layer4: '#color4'
+  },
+  subtitle: 'Dataspace Tagline',
+  description: 'Comprehensive description of the dataspace...',
+  kits: ['kit-id-1', 'kit-id-2', 'kit-id-3']
+}
+```
+
+<details>
+<summary><strong>Example: Catena-X Dataspace</strong></summary>
+
+```javascript
+{
+  name: "Catena-X",
+  url: "https://catena-x.net/",
+  gradient: 'linear-gradient(135deg, #ffa600, #b3cb2d)',
+  logo: {
+    src: 'https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png',
+    alt: 'Catena-X Logo',
+    width: 70,
+    height: 70
+  },
+  colors: {
+    layer1: 'rgb(110, 200, 105)',
+    layer2: 'rgb(179, 203, 45)',
+    layer3: 'rgb(230, 163, 38)',
+    layer4: 'rgb(250, 160, 35)'
+  },
+  subtitle: 'Your Automotive Network',
+  description: 'The first open and collaborative data ecosystem for the automotive industry...',
+  kits: ['connector', 'data-governance', 'business-partner', ...]
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Example: Semiconductor-X Dataspace</strong></summary>
+
+```javascript
+{
+  name: "Semiconductor-X",
+  url: "https://semiconductor-x.com/",
+  gradient: 'linear-gradient(135deg, #c1cb01, #e67900)',
+  logo: {
+    src: 'https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg',
+    alt: 'Semiconductor-X Logo',
+    width: 100,
+    height: 80
+  },
+  colors: {
+    layer1: '#c1cb01',
+    layer2: '#d4b501',
+    layer3: '#e69f00',
+    layer4: '#e67900'
+  },
+  subtitle: 'Semiconductor Network',
+  description: 'Contributing to a cross-sector international dataspace...',
+  kits: ['connector', 'digital-twin', 'industry-core', 'traceability', 'pcf', 'dcm']
+}
+```
+
+</details>
+
+
+
 
 ### Ecosystem Hierarchy
 
@@ -535,166 +756,291 @@ The master data follows this organizational hierarchy:
 Dataspace Foundation
 └── Industry Core KITs
   └── Cross-Dataspace Use Cases
-    └── Industry-Specific KITs
-      ├── Automotive Industry
-      │   └── Dataspaces
-      │       └── Catena-X
-      ├── Shop Floor Industry
-      │   └── Dataspaces
-      │       └── <Future Implementations>
-      └── ... (other industries)
+  └── Industry-Specific KITs
+    ├── Automotive Industry
+    │   └── Dataspaces
+    │       └── Catena-X
+    ├── Shop Floor Industry
+    │   └── Dataspaces
+    │       └── <Future Implementations>
+    └── ... (other industries)
 ``` 
 
-### What is Master Data?
+The complete architecture of the KITs is documented at the [KIT Framework](kit-framework.mdx) page.
 
-The master data includes two primary components that structure the entire ecosystem:
 
-#### Industry Master Data
-Core information about each industry vertical:
-- **Identity**: Unique ID, name, and subtitle
-- **Visual Branding**: Icon component, colors, and gradient styling
-- **Content**: Description and purpose within the ecosystem
-- **Associated Dataspaces**: Array of dataspace implementations within this industry
 
-#### Dataspace Master Data  
-Essential information about each dataspace implementation:
-- **Identity**: Unique ID, name, and subtitle
-- **Branding**: Logo (SVG/PNG), colors, and gradient styling (**MUST** be hosted by the dataspace owner)
-- **Content**: Detailed description and purpose
-- **Links**: Official website URL for the dataspace
-- **Industry Association**: Which industry vertical this dataspace belongs to
+## KIT Data Model
 
-## Managing Master Data
+### Field Descriptions
 
-### Adding a New Industry
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | Yes | Unique identifier for the KIT (lowercase, hyphenated) |
+| `name` | string | Yes | Display name of the KIT (UPPERCASE) |
+| `logo` | Component | Yes | React SVG component for the KIT logo |
+| `logoHeight` | number | Yes | Height of the logo in pixels |
+| `logoWidth` | number | Yes | Width of the logo in pixels |
+| `route` | string | Yes | Path to the KIT's adoption view documentation |
+| `colors.primary` | string | Yes | Primary brand color in hex format |
+| `colors.gradient` | string | Yes | CSS gradient definition for visual effects |
+| `maturity.currentLevel` | string | Yes | Current maturity level: `Sandbox`, `Incubating`, or `Graduated` |
+| `maturity.graduationStatus` | string | Conditional | Required for Incubating KITs: `draft`, `in progress`, or `in review` |
+| `maturity.graduatedAt` | string | Conditional | Date when KIT graduated (YYYY-MM-DD format). Required for Graduated KITs |
+| `maturity.deprecatedAt` | string | Conditional | Date when KIT was deprecated (YYYY-MM-DD format). Required if deprecated |
+| `deprecated` | boolean | Yes | Indicates if the KIT is deprecated (`true` or `false`) |
+| `domain` | string | Yes | Domain category (e.g., 'Sustainability', 'Engineering', 'Supply Chain', 'Enablement Service') |
+| `industries` | array | No | Array of industry IDs where the KIT applies. Optional for foundation KITs |
+| `description` | string | Yes | Short description of the KIT's purpose and functionality |
+| `metadata.created` | string | Yes | Creation date of the KIT (YYYY-MM-DD format) |
+| `metadata.lastUpdated` | string | Yes | Date of the last update (YYYY-MM-DD format) |
+| `metadata.latestVersion` | string | Yes | Current version using semantic versioning (e.g., '3.0.0') |
+| `metadata.new` | boolean | Yes | Indicates if the KIT is newly added (`true` or `false`) |
 
-To add a new industry to the master data:
+### Structure
 
-**Required fields:**
-- `id`, `name`, `subtitle`, `description`
-- `icon` (Material-UI component)
-- `colors` (layer1-4), `gradient`
-- `url`, `dataspaces` (array)
-
-Each industry entry follows this structure:
-
-```javascript
-{
-  id: 'unique-industry-id',
-  name: 'Industry Name',
-  subtitle: 'Brief industry tagline',
-  description: 'Generic description focusing on industry context and purpose',
-  icon: MaterialUIIconComponent,
-  gradient: 'linear-gradient(135deg, #color1, #color2, #color3)',
-  url: '/docs-kits/industry/industry-name',
-  dataspaces: [
-    /* array of dataspace objects (described below)*/
-  ]
-}
-```
-
-<details>
-<summary><strong>Real Example: Automotive Industry</strong></summary>
-
-Here's a complete example from the actual master data:
+Each KIT in the master data follows this structure:
 
 ```javascript
 {
-  id: 'automotive',
-  name: 'Automotive',
-  subtitle: 'Driving Innovation in Mobility',
-  description: 'KITs used by the automotive industry, covering the entire value chain from raw materials to end-of-life recycling...',
-  icon: DirectionsCar,
-  gradient: 'linear-gradient(135deg, #FFA500, #FFD700, #FF8C00)',
-  url: '/docs-kits/industry/automotive',
-  dataspaces: [
-    {
-      name: "Catena-X",
-      url: "https://catena-x.net/",
-      logo: { src: '...', alt: 'Catena-X Logo', width: 70, height: 70 },
-      subtitle: 'Your Automotive Network',
-      description: 'The first open and collaborative data ecosystem...'
-    }
-  ]
-}
-```
-
-</details>
-
-### Adding a New Dataspace
-
-To add a new dataspace to the master data:
-
-**Required fields:**
-- `name`, `url`, `subtitle`, `description`
-- `logo` (object with src, alt, width, height)
-- `colors` (layer1-4), `gradient`
-
-
-
-Each dataspace entry follows this structure:
-
-```javascript
-{
-  id: 'dataspace-id',
-  name: 'Dataspace Name',
-  subtitle: 'Industry Focus',
-  description: 'Detailed description of the dataspace purpose and goals',
-  logo: {
-    src: 'https://example.com/logo.svg',
-    alt: 'Logo Alt Text',
-    width: 80,
-    height: 'auto'
-  },
+  id: '<unique-kit-id>',                    // Unique identifier for the KIT
+  name: '<KIT NAME IN UPPERCASE>',          // Display name
+  logo: <KitLogoComponent>,                 // React SVG component
+  logoHeight: <number>,                     // Logo height in pixels
+  logoWidth: <number>,                      // Logo width in pixels
+  route: '<route-to-kit-adoption-view>',    // Path to KIT documentation
   colors: {
-    layer1: '#color1',
-    layer2: '#color2',
-    layer3: '#color3',
-    layer4: '#color4'
+    primary: '<hex-color>',                 // Primary brand color
+    gradient: 'linear-gradient(...)'        // CSS gradient definition
   },
-  gradient: 'linear-gradient(135deg, #color1, #color2)',
-  url: 'https://dataspace-website.com'
+  maturity: {
+    currentLevel: '<level>',                // 'Sandbox' | 'Incubating' | 'Graduated'
+    graduationStatus: '<status>',           // 'draft' | 'in progress' | 'in review' (for Incubating only)
+    graduatedAt: '<YYYY-MM-DD>',           // Date when graduated (only if Graduated)
+    deprecatedAt: '<YYYY-MM-DD>'           // Date when deprecated (only if deprecated)
+  },
+  deprecated: <boolean>,                    // true | false
+  domain: '<domain-category>',              // e.g., 'Sustainability', 'Engineering', 'Supply Chain'
+  industries: ['<industry-id>', ...],       // Array of industry IDs (optional for foundation KITs)
+  description: '<kit-description>',         // Short description of the KIT
+  metadata: {
+    created: '<YYYY-MM-DD>',               // Creation date
+    lastUpdated: '<YYYY-MM-DD>',           // Last update date
+    latestVersion: '<version>',            // Current version (semantic versioning)
+    new: <boolean>                         // true if recently added
+  }
 }
 ```
 
 <details>
-<summary><strong>Real Example: Catena-X Dataspace</strong></summary>
+<summary><strong>Real Example: Connector KIT</strong></summary>
 
-Here's a complete example from the actual master data (nested within Automotive industry):
+Here's the actual master data for the Connector KIT:
 
 ```javascript
 {
-  name: "Catena-X",
-  url: "https://catena-x.net/",
-  logo: {
-    src: require('@site/static/img/catenax-logo.svg').default,
-    alt: 'Catena-X Logo',
-    width: 70,
-    height: 70
+  id: 'connector',
+  name: 'CONNECTOR KIT',
+  logo: ConnectorKitLogo,
+  logoHeight: 80,
+  logoWidth: 80,
+  route: '/docs-kits/kits/connector-kit/adoption-view',
+  colors: {
+    primary: '#2316E3',
+    gradient: 'linear-gradient(135deg, #3372CC 0%, #2316E3 100%)'
   },
-  subtitle: 'Your Automotive Network',
-  description: 'The first open and collaborative data ecosystem for the automotive industry, enabling secure and standardized data exchange across the entire value chain.',
-  gradient: 'linear-gradient(135deg, #FFA500, #FFD700, #FF8C00)'
+  maturity: {
+    currentLevel: 'Graduated',
+    graduatedAt: '2024-06-07'
+  },
+  deprecated: false,
+  domain: "Enablement Service",
+  description: 'The EDC as a connector implements a framework agreement for sovereign, cross-organizational data exchange.',
+  metadata: {
+    created: '2022-08-01',
+    lastUpdated: '2024-06-07',
+    latestVersion: '3.0.0',
+    new: false
+  }
 }
 ```
 
 </details>
 
+<details>
+<summary><strong>Example: Incubating KIT with Graduation Status</strong></summary>
 
-### File Location
-
-The master data is located at:
+```javascript
+{
+  id: 'data-trust-security',
+  name: 'DATA TRUST & SECURITY KIT',
+  logo: DataTrustSecurityLogo,
+  logoHeight: 120,
+  logoWidth: 120,
+  route: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
+  colors: {
+    primary: '#2A1FB3',
+    gradient: 'linear-gradient(135deg, #3372CC 0%, #2A1FB3 100%)'
+  },
+  maturity: {
+    currentLevel: 'Incubating',
+    graduationStatus: 'in progress'
+  },
+  deprecated: false,
+  domain: "Security",
+  description: 'Enable content validation, certification and verification for any use case semantic data.',
+  metadata: {
+    created: '2025-09-30',
+    lastUpdated: '2025-09-30',
+    latestVersion: '0.0.1',
+    new: true
+  }
+}
 ```
-/data/kitsData.js
+
+</details>
+
+<details>
+<summary><strong>Example: Deprecated KIT</strong></summary>
+
+```javascript
+{
+  id: 'data-governance',
+  name: 'DATA GOVERNANCE KIT',
+  logo: DataGovernanceLogo,
+  logoHeight: 90,
+  logoWidth: 90,
+  route: '/docs-kits/kits/data-governance-kit/adoption-view',
+  colors: {
+    primary: '#1E13C2',
+    gradient: 'linear-gradient(135deg, #3372CC 0%, #1E13C2 100%)'
+  },
+  maturity: {
+    currentLevel: 'Sandbox',
+    graduationStatus: 'draft',
+    deprecatedAt: '2025-11-13'
+  },
+  deprecated: true,
+  domain: "Governance",
+  description: 'Enable and simplify data governance.',
+  metadata: {
+    created: '2024-03-08',
+    lastUpdated: '2024-03-08',
+    latestVersion: '0.1.0',
+    new: false
+  }
+}
 ```
 
+</details>
+
+## Industry-Specific KITs
+
+Industry-specific KITs are KITs that are tailored to meet the unique requirements and use cases of particular industries. Unlike foundation KITs that provide generic capabilities across all dataspaces, industry-specific KITs address specialized needs within a vertical market.
+They are not displayed in the cross-industry KITs section, but only in the industry specific view.
+
+### Organizing Industry-Specific KITs
+
+Industry-specific KITs are organized in the master data under the `industryKits` object, grouped by industry (using the industry ids from the [industry master data](#industry-data-model) as keys):
+
+```javascript
+industryKits: {
+  "automotive": [
+    // Automotive-specific KITs
+  ],
+  "shop-floor": [
+    // Shopfloor-specific KITs
+  ],
+  // ... other industries
+}
+```
+
+### Adding an Industry-Specific KIT
+
+
+Here is an example on how to add a industry specific KIT:
+
+<details>
+<summary><strong>Example: Industry-Specific KIT Structure</strong></summary>
+
+```javascript
+// In kitsData.js
+export const kitsData = {
+  // ... other sections
+  
+  industryKits: {
+    "automotive": [
+      {
+        id: 'industry-specific-kit',
+        name: 'INDUSTRY SPECIFIC KIT',
+        logo: IndustryKitLogo,
+        logoHeight: 80,
+        logoWidth: 80,
+        route: '/docs-kits/kits/industry-specific-kit/adoption-view',
+        colors: {
+          primary: '#FF5733',
+          gradient: 'linear-gradient(135deg, #FF5733 0%, #C70039 100%)'
+        },
+        maturity: {
+          currentLevel: 'Incubating',
+          graduationStatus: 'in progress'
+        },
+        deprecated: false,
+        domain: 'Engineering',
+        description: 'Specialized KIT for automotive industry processes...',
+        metadata: {
+          created: '2025-01-15',
+          lastUpdated: '2025-01-15',
+          latestVersion: '1.0.0',
+          new: true
+        }
+      }
+    ],
+    "shop-floor": [
+      // Shopfloor-specific KITs
+    ]
+  }
+}
+```
+
+</details>
+
+### Relationship to Industries and Dataspaces
+
+Industry-specific KITs create a hierarchical relationship:
+
+```
+Industry (e.g., Automotive)
+  └── Dataspace (e.g., Catena-X)
+      └── Industry-Specific KITs (e.g., Requirements KIT, MaaS KIT)
+```
+
+Each industry can have multiple dataspaces, and each dataspace can implement multiple industry-specific KITs that are relevant to their use cases.
 
 ## Master Data
 
 <MasterDataOverview />
 
-### Related Documentation
+## Additional Resources
 
-- [KIT Getting Started Guide](./kit-getting-started)
-- [TRG 9.02 KIT Maturity Levels](./kit-lifecycle)
-- [TRG 9.03 KIT Framework](./kit-framework)
+### KIT Documentation
+
+- [KIT Framework](./kit-framework) - Complete guide to KIT structure, artifacts, and requirements
+- [KIT Lifecycle](./kit-lifecycle) - KIT maturity levels, graduation, and maintenance processes
+- [KIT Getting Started](./kit-getting-started) - How to create a KIT
+- [KIT Statistics](./kit-statistics) - Analytics dashboard for KIT ecosystem metrics
+
+### Documentation References
+
+#### KIT-Specific TRGs (Tractus-X Release Guidelines)
+
+- [TRG 10.01 - KIT Architecture](/docs/release/trg-10/trg-10-01) - KIT framework categories and classification
+- [TRG 10.02 - KIT Content Structure](/docs/release/trg-10/trg-10-02) - Required content and structure
+- [TRG 10.03 - KIT Lifecycle](/docs/release/trg-10/trg-10-03) - Maturity levels and lifecycle management
+- [TRG 10.04 - KIT Graduation Process](/docs/release/trg-10/trg-10-04) - Graduation requirements and process
+- [TRG 10.05 - KIT Deprecation Process](/docs/release/trg-10/trg-10-05) - Deprecation criteria and procedures
+
+#### Legal & Licensing
+
+- [TRG 7.07 - Legal notice for non-code](/docs/release/trg-7/trg-7-07) - Image and media licensing requirements
+- [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08) - Documentation licensing

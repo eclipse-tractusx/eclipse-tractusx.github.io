@@ -3,6 +3,9 @@ title: TRG 10.02 - KIT Content Structure
 ---
 
 import KitStructureTable from '@site/src/components/2.0/KitComponents/KitStructureTable';
+import GradientButton from '@site/src/components/2.0/GradientButton';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 | Status     | Created      | Post-History                           |
 |------------|--------------|----------------------------------------|
@@ -106,6 +109,33 @@ In case a VIEW has multiple files it shall be described in this way as a folder 
 ## KIT Maintainers & Code Owners
 
 - A code owner must be set by adding to the `CODEOWNERS` at the folder path, the file is located here [`.github/CODEOWNERS`](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/.github/CODEOWNERS).
+- As stated in the [Eclipse Foundation Projects Governance (Handbook)](https://www.eclipse.org/projects/handbook/#roles-cm) and in [Eclipse Foundation Development Process/Rules of Engagement](https://www.eclipse.org/projects/handbook/#edp), that **only [Committers](https://eclipse-tractusx.github.io/docs/oss/contributor-committer#committer)** can approve and merge PRs to repositories under the eclipse rule, therefore is responsability from the Committers in Eclipse Tractus-X to approve and check for this TRGs at every KIT PR. And in case the committer is unsurem or has not necessary knowlage to approve the content from the PR it is recommended to get Expert Review and approval, via the [Alignment Mechanisms](#alignment-mechanisms).
+
+<div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '20px', marginBottom: '20px', flexWrap: 'wrap' }}>
+  <GradientButton 
+    href="https://www.eclipse.org/projects/handbook/#elections-committer"
+    text="How to become a Committer?"
+    icon={HowToRegIcon}
+    gradient="linear-gradient(135deg, #4CAF50 0%, #45a049 100%)"
+    shadowColor="rgba(76, 175, 80, 0.3)"
+    shadowColorHover="rgba(76, 175, 80, 0.4)"
+  />
+  
+  <GradientButton 
+    href="https://eclipse-tractusx.github.io/docs/oss/contributor-committer"
+    text="Contributor & Committer Guide"
+    icon={MenuBookIcon}
+    gradient="linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)"
+    shadowColor="rgba(37, 99, 235, 0.3)"
+    shadowColorHover="rgba(37, 99, 235, 0.4)"
+  />
+</div>
+
+
+:::warning Expert Review
+In case the content needs expert review, is **recommended** for the code owner/committer to request reviews from the relevant experts in the community before merging the PR. This applies for any KIT Lifeclycle status.
+:::
+
 
 The `CODEOWNERS` file must follow the structure described at the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
 
@@ -120,6 +150,15 @@ Example:
 # subdirectories.
 /docs-kits/kits/connector-kit/ @doctocat
 ```
+
+:::tip Code Owner Responsibilities
+
+If the committer is the one contributing the KIT content, when merging the PRs they shall ensure that:
+- All required documentation sections are complete and follow the KIT structure described in the [KIT 10.xx TRGs](https://eclipse-tractusx.github.io/docs/category/trg-10---keep-it-together-kits)
+- Copyright notices and licensing information are properly included
+- The changelog is updated with accurate version information
+- All linked resources and references are valid and up-to-date
+:::
 
 ### Industry Extensions
 
@@ -149,7 +188,7 @@ When a change is done to the industry extension folder, please contact the code 
 
 To ensure the quality and consistency of KITs, the following alignment mechanisms are in place, not all channels need to be activated:
 
-### Main KIT Alignment Channels:
+### Main KIT Alignment Channels
 
 | Channel | Purpose | Link |
 |---------|---------|------|
@@ -158,7 +197,7 @@ To ensure the quality and consistency of KITs, the following alignment mechanism
 | Matrix Chat | Daily discussions & support | [#tractusx-kits:matrix.eclipse.org](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) |
 | KIT Community Office Hours | Weekly alignment meetings | [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour) |
 
-### Support KIT Alignment Channels:
+### Support KIT Alignment Channels
 
 | Channel | Purpose | Link |
 |---------|---------|------|
