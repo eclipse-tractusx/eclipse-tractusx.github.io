@@ -12,16 +12,11 @@ TODO: check the actual definitions in the specifications
 
 | Term | Definition | Source |
 |------|------------|--------|
-|Agentic system|||
-|AI agent|Business Application augmented by GenAI / LLM capabilities enabling program actions and tool use without direct human oversight and not limited to pre-programmed functions||
-|AI supply chain|||
-|AI system|||
-|Identity and Access Management (IAM)||NIST SP 800-63（Digital Identity Guidelines）<BR>ISO/IEC 24760（Identity Management Framework）|
-|Policy Decition Point (PDP)||NIST SP 800-207（Zero Trust Architecture）<BR>OASIS XACML（eXtensible Access Control Markup Language）|
-|Policy Enforcement Point (PEP)||NIST SP 800-207（Zero Trust Architecture）<BR>OASIS XACML（eXtensible Access Control Markup Language）|
-|Self-Sovereign Identity (SSI)||W3C Decentralized Identifiers (DID)仕様→ W3C DID Core<BR>W3C Verifiable Credentials Data Model|
-|Trust|||
-|Trustworthiness|||
-||||
+|Agentic system|Agentic AI is an artificial intelligence system that can accomplish a specific goal with limited supervision.|[What is agentic AI?](https://www.ibm.com/think/topics/agentic-ai)|
+|AI agent|automated entity that senses and responds to its environment and takes actions to achieve its goals|[ISO/IEC 22989:2022](https://cdn.standards.iteh.ai/samples/74296/c4efbadbf1a146d4af6d62fcad09438f/ISO-IEC-22989-2022.pdf)|
+|AI service|A service that provides users with functionalities and/or value through the use of AI systems|this KIT|
+|AI system|‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments|[EU AI Act](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202401689)|
+|Trust|degree to which a user or other stakeholder has confidence that a product or system will behave as intended|[ISO/IEC TR 24028:2020](https://cdn.standards.iteh.ai/samples/77608/76004329cc2f49e5803a0ba7d8104f81/ISO-IEC-TR-24028-2020.pdf)|
+|Trustworthiness|ability to meet stakeholders' expectations in a verifiable way|[ISO/IEC TR 24028:2020](https://cdn.standards.iteh.ai/samples/77608/76004329cc2f49e5803a0ba7d8104f81/ISO-IEC-TR-24028-2020.pdf)|
 
 
