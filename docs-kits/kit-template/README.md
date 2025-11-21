@@ -23,8 +23,8 @@ Follow these steps to create your KIT:
 #### 1. **Copy and Rename**
 ```bash
 # From the docs-kits/kits/ directory
-cp -r ../kit-template ./your-kit-name-kit
-cd your-kit-name-kit
+cp -r ../kit-template ./<kit-id>-kit
+cd <kit-id>-kit
 ```
 
 #### 2. **Update Placeholders**
@@ -52,6 +52,7 @@ Add your KIT to `/sidebarsDocsKits.js` to make it navigable
 
 #### 6. **Set Code Owners**
 Add maintainers to `/.github/CODEOWNERS`:
+
 ```
 /docs-kits/kits/your-kit-name-kit/ @your-github-username
 ```
@@ -91,10 +92,8 @@ kit-template/
 │   ├── _category_.json
 │   └── overview.md              # External links, glossary, FAQ
 │
-└── assets/                      # Images, diagrams, files
-    ├── kit-banner.svg
-    └── kit-logo.svg
-```
+└── resources/                      # Images, diagrams, files
+        img/
 ```
 
 ## Maturity Levels
