@@ -27,8 +27,8 @@ import UsageSvg from '@site/static/icons/Icon_App_Service_Grey.svg';
 import styles from "./styles.module.css";
 import IFrameComponent from "../../components/IFrameComponent"
 import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters"
-import { kitsGallery } from "@site/utils/kitsGallery";
-
+import { kitsData, getAllKits, industries } from "@site/data/kitsData";
+import KitsGallery from "@site/src/components/2.0/KitsGallery";
 export default function AppProvider() {
   const { siteConfig } = useDocusaurusContext();
 
@@ -69,15 +69,15 @@ export default function AppProvider() {
                 There are two main customer groups for KITs:
               </p>
             </div>
-
-            <KitsGalleryWithFilters
-          itemsArray={kitsGallery}
-          title={"Our KITs"}
-          description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
-        />
-
           </div>
         </section>
+        <KitsGallery
+          title={"Our Gallery"}
+          description={"Unlock the full power of the KITs. Browse all the available specifications, blueprints, and reference implementations."}
+          dataspaceFoundation={kitsData.dataspaceFoundation}
+          industryCoreFoundation={kitsData.industryCoreFoundation}
+          useCases={kitsData.useCases}
+        />
       </main>
     </Layout>
   );

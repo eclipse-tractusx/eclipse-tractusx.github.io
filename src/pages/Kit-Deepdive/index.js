@@ -29,7 +29,7 @@ export default function KitDeepdivePage() {
   const { siteConfig } = useDocusaurusContext();
   const headerInput = {
     title: "KIT Deepdive",
-    description: "KIT, short for Keep It Together, offers open-source resources and comprehensive documentation designed for the use cases of Catena-X ecosystem.",
+    description: "KIT, short for Keep It Together, offers open-source resources and comprehensive documentation designed for the use cases of Catena-X ecosystem and in several Manufacturing-X dataspaces.",
     showImage: false
   }
   return (

@@ -26,9 +26,7 @@ our [contributing guide](https://eclipse-tractusx.github.io/docs/oss/how-to-cont
 - __For product alignments__ please set up a meeting with a tool of your choice as a project manager. The preparation of
   meeting minutes is not required. Recurring formal meetings must be communicated via our Tractus-X mailing list. Ad hoc
   informal meetings may be organized without prior notice.
-- __For cross-product alignments__ the Catena-X Association is currently preparing various committees to support the
-  coordination of the open-source products and repositories. The goal of a committee is to discuss, define and create a
-  common vision, roadmap, standards, architecture, KITs, etc.
+- __For cross-product alignments__ there are office hours listed in the [Open Meetings](/community/open-meetings) which can be used for aligning product development, KITs and overall project topics.
 
 ## How to Create Open Meetings
 
@@ -36,7 +34,7 @@ You can add new meetings to the [Open Meetings](/community/open-meetings) calend
 
 :::tip Quick Start
 
-To add a new meeting, edit the `src/data/meetings.js` file and add a new meeting object to the `meetings` array. The meeting will automatically appear in both the calendar and the list on the [Open Meetings page](/community/open-meetings).
+To add a new meeting, edit the `data/meetings.js` file and add a new meeting object to the `meetings` array. The meeting will automatically appear in both the calendar and the list on the [Open Meetings page](/community/open-meetings).
 
 :::
 
@@ -161,7 +159,7 @@ Meetings are color-coded in the calendar based on their category:
 
 :::warning Important
 
-All meeting times in `src/data/meetings.js` must be specified in **Europe/Berlin timezone** (CET/CEST). The system will automatically convert these times to the user's selected timezone for display.
+All meeting times in `data/meetings.js` must be specified in **Europe/Berlin timezone** (CET/CEST). The system will automatically convert these times to the user's selected timezone for display.
 
 - Winter time (CET): UTC+1
 - Summer time (CEST): UTC+2
@@ -170,7 +168,7 @@ All meeting times in `src/data/meetings.js` must be specified in **Europe/Berlin
 
 ### Step-by-Step Guide
 
-1. **Open the file**: `src/data/meetings.js`
+1. **Open the file**: `data/meetings.js`
 2. **Choose the appropriate section**: Add your meeting to the `// General Office Hours`, `// Product Regular Meetings`, or `// One-time meetings` section
 3. **Copy an existing meeting** as a template
 4. **Update all fields** with your meeting information

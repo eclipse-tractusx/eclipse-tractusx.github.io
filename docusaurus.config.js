@@ -3,6 +3,7 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -276,108 +277,36 @@ const config = {
             items: [
               {
                 to: 'Kits',
-                label: 'Kits General',
+                label: 'KITs HOMEPAGE',
+                className: 'kit-category-header kit-home-icon'
               },
               {
-                to: '/docs-kits/kits/behaviour-twin-kit/overview',
-                label: 'Behaviour Twin',
+                to: '/documentation/kit-getting-started',
+                label: 'KIT Getting Started',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/business-partner-kit/adoption-view',
-                label: 'Business Partner',
+                to: '/documentation/kit-lifecycle',
+                label: 'KIT Lifecycle',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/circularity-kit/adoption-view',
-                label: 'Circularity',
+                to: '/documentation/kit-framework',
+                label: 'KIT Framework',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/connector-kit/adoption-view',
-                label: 'Connector',
+                to: '/documentation/kit-statistics',
+                label: 'KIT Statistics',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/customs-kit/adoption-view',
-                label: 'Customs',
+                to: '/documentation/kit-master-data-overview',
+                label: 'KIT Master Data',
+                className: 'kit-nav-item'
               },
-              {
-                to: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
-                label: 'Data Trust & Security',
-              },
-              {
-                to: '/docs-kits/kits/data-chain-kit/adoption-view',
-                label: 'Data Chain',
-              },
-              {
-                to: '/docs-kits/kits/data-driven-quality-management-kit/adoption-view',
-                label: 'Data Driven Quality Management',
-              },
-              {
-                to: '/docs-kits/kits/data-governance-kit/adoption-view',
-                label: 'Data Governance',
-              },
-              {
-                to: '/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
-                label: 'Demand and Capacity Management',
-              },
-              {
-                to: '/docs-kits/kits/digital-twin-kit/adoption-view',
-                label: 'Digital Twin',
-              },
-              {
-                to: '/docs-kits/kits/eco-pass-kit/adoption-view',
-                label: 'Eco Pass',
-              },
-              {
-                to: '/docs-kits/kits/environmental-and-social-standards-kit/adoption-view',
-                label: 'Environmental and Social Standards',
-              },
-              {
-                to: '/docs-kits/kits/industry-core-kit/adoption-view',
-                label: 'Industry Core',
-              },
-              {
-                to: '/docs-kits/kits/knowledge-agents-kit/adoption-view/intro',
-                label: 'Knowledge Agents',
-              },
-              {
-                to: '/docs-kits/kits/logistics-kit/adoption-view',
-                label: 'Logistics',
-              },
-              {
-                to: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
-                label: 'Manufacturing as a Service',
-              },
-              {
-                to: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
-                label: 'Model Based Development and Data Processing',
-              },
-              {
-                to: '/docs-kits/kits/modular-production-kit/adoption-view',
-                label: 'Modular Production',
-              },
-              {
-                to: '/docs-kits/kits/online-simulation-kit/adoption-view',
-                label: 'Online Simulation',
-              },
-              {
-                to: '/docs-kits/kits/puris-kit/adoption-view',
-                label: 'Predictive Unit Real-Time Information Service',
-              },
-              {
-                to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
-                label: 'Product Carbon Footprint Exchange',
-              },
-                            {
-                to: '/docs-kits/kits/requirements-kit/adoption-view',
-                label: 'Requirements',
-              },
-              {
-                to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
-                label: 'Supply Chain Disruption Notification',
-              },
-              {
-                to: '/docs-kits/kits/traceability-kit/adoption-view',
-                label: 'Traceability',
-              },
+              // Dynamically generated from kitsData
+              ...generateKitNavItems(),
             ],
           },
           {

@@ -1,0 +1,8 @@
+version = 1
+
+[[annotations]]
+path = ["*.svg"]
+precedence = "closest"
+SPDX-FileCopyrightText = "[XXXX] [YOUR COMPANY]"
+SPDX-FileCopyrightText = "[XXXX] Contributors of the Eclipse Foundation"
+SPDX-License-Identifier = "CC-BY-4.0"

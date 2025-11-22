@@ -20,7 +20,7 @@
 import React, { useState, useEffect } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import MeetingInfo from './MeetingInfo';
-import { meetings, MEETING_CATEGORIES } from '@site/src/data/meetings';
+import { meetings, MEETING_CATEGORIES } from '@site/data/meetings';
 
 export default function MeetingsList({ category }) {
   const [selectedTimezone, setSelectedTimezone] = useState('Europe/Berlin');

@@ -376,11 +376,6 @@
 
 /* Media Queries */
 @media screen and (min-width: 2200px) {
-  .navbar {
-    width: 70vw;
-    margin: auto;
-  }
-
   .headers-subtitle-p {
     width: 50%;
   }
@@ -388,11 +383,6 @@
 
 
 @media screen and (min-width: 3200px) {
-  .navbar {
-    width: 60vw;
-    margin: auto;
-  }
-  
   .headers-subtitle-p {
     width: 40%;
   }
@@ -423,4 +413,58 @@
 }
 .color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(7) {
   fill: #6B5010 !important;
+}
+
+/* Ensure full width layout */
+main {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+main > * {
+  max-width: 100% !important;
+}
+
+/* KIT Category Headers in Navbar Dropdown */
+.kit-category-header {
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  color: #faa023 !important;
+  letter-spacing: 0.05em !important;
+  text-align: left !important;
+}
+
+.kit-category-header:hover {
+  color: #f99407 !important;
+  background-color: var(--ifm-color-emphasis-100) !important;
+}
+
+[data-theme='dark'] .kit-category-header {
+  color: #fbb24d !important;
+}
+
+[data-theme='dark'] .kit-category-header:hover {
+  color: #fcc477 !important;
+}
+
+.kit-nav-item{
+  padding-left: 24px!important;
+}
+
+/* Add home icon to KITs HOMEPAGE using pseudo-element */
+.kit-home-icon::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23faa023"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: sub;
+}
+
+[data-theme='dark'] .kit-home-icon::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fbb24d"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>');
 }
