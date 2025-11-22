@@ -187,7 +187,7 @@ export default function KitGalleryHeader({
           <div className={styles.no_dataspace_section}>
             <div className={styles.no_dataspace_container}>
               <p className={styles.no_dataspace_message}>
-                No associated dataspaces published to Eclipse Tractus-X and assigned to this industry category yet.
+                No associated dataspaces published to our Eclipse Tractus-X Dataspace Network and assigned to this industry category yet.
               </p>
             </div>
           </div>

@@ -26,7 +26,7 @@ sidebar_position: 1
 
 ## Operations View
 
-![KIT NAME Icon](@site/static/img/kits-2.0/tx-black-kit.svg)
+![KIT NAME Icon](../../../static/img/kits-2.0/tx-black-kit.svg)
 
 Guidance for deploying, operating, and maintaining this KIT in production environments.
 

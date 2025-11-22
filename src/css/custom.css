@@ -426,6 +426,33 @@ main > * {
   max-width: 100% !important;
 }
 
+/* Blog layout full width */
+.container,
+.row,
+.markdown,
+article[class*="blogPostPage"],
+div[class*="blogPostPage"],
+.blogPostPage,
+.blogPostPage > div,
+.blogPostPage .container,
+.blogPostPage .row,
+.col {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Keep reasonable padding for text content */
+.blogPostPage .markdown > p,
+.blogPostPage .markdown > h1,
+.blogPostPage .markdown > h2,
+.blogPostPage .markdown > h3,
+.blogPostPage .markdown > h4,
+.blogPostPage .markdown > ul,
+.blogPostPage .markdown > ol {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 /* KIT Category Headers in Navbar Dropdown */
 .kit-category-header {
   font-weight: 600 !important;

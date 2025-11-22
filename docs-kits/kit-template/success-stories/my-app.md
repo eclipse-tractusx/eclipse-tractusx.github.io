@@ -26,7 +26,7 @@ sidebar_position: 2
 
 ## [Your Application Name] - Success Story
 
-![KIT NAME Icon](@site/static/img/kits-2.0/tx-black-kit.svg) or [Application Logo]
+![KIT NAME Icon](../../../static/img/kits-2.0/tx-black-kit.svg) or [Application Logo]
 
 **Organization**: [Company/Organization Name]
 

@@ -26,7 +26,7 @@ sidebar_position: 2
 
 ## Shop-Floor Industry Extension
 
-![KIT NAME Icon](@site/static/img/kits-2.0/tx-black-kit.svg)
+![KIT NAME Icon](../../../../static/img/kits-2.0/tx-black-kit.svg)
 
 ## Overview
 

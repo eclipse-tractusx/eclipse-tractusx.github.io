@@ -265,27 +265,42 @@
   
   .statistics_container {
     margin: 2rem 0 0 0;
-    align-self: stretch;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
   
   .statistics_grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
+    width: 100%;
     max-width: 100%;
+    padding: 0 1rem;
   }
   
   .stat_card {
-    padding: 20px 16px;
-    min-width: auto;
+    padding: 20px;
+    min-width: 140px;
+    width: 140px;
+    height: 140px;
+    flex: 0 0 140px;
+    max-width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .stat_number {
     font-size: 1.5rem;
-    height: 40px;
+    height: auto;
+    margin-bottom: 12px;
   }
   
   .stat_label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
 
