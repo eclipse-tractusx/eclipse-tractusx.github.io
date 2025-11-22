@@ -625,7 +625,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1050px) {
   .container {
     max-width: 900px;
     padding: 0 1.5rem;
@@ -637,40 +637,49 @@
   }
   
   .hexagon_row {
-    gap: 1.2rem;
+    gap: 1rem;
   }
   
   .hexagon {
-    width: 130px;
-    height: 150px;
+    width: 110px;
+    height: 130px;
     
     &::before {
-      width: 150px;
-      height: 140px;
+      width: 130px;
+      height: 120px;
     }
     
     &::after {
-      width: 140px;
-      height: 130px;
+      width: 120px;
+      height: 110px;
     }
   }
   
   .hexagon_title {
-    font-size: 16px;
+    font-size: 14px;
   }
   
   .hexagon_subtitle {
-    font-size: 13px;
+    font-size: 11px;
   }
   
   .hexagon_content svg, .hexagon_content img {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  // Icon sizing for industry hexagons in tablet mode
+  .hexagon_automotive .hexagon_content svg,
+  .hexagon_shop_floor .hexagon_content svg,
+  .hexagon_semiconductor .hexagon_content svg,
+  .hexagon_construction .hexagon_content svg,
+  .hexagon_chemical .hexagon_content svg {
+    font-size: 50px !important;
   }
   
   .hexagon_catena_x .hexagon_content img {
-    width: 50px !important;
-    height: 50px !important;
+    width: 40px !important;
+    height: 40px !important;
   }
   
   // Responsive styles for new elements
@@ -750,13 +759,22 @@
   }
   
   .hexagon_content svg, .hexagon_content img {
-    width: 62px;
-    height: 62px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  // Icon sizing for industry hexagons in mobile/small tablet mode
+  .hexagon_automotive .hexagon_content svg,
+  .hexagon_shop_floor .hexagon_content svg,
+  .hexagon_semiconductor .hexagon_content svg,
+  .hexagon_construction .hexagon_content svg,
+  .hexagon_chemical .hexagon_content svg {
+    font-size: 45px !important;
   }
   
   .hexagon_catena_x .hexagon_content img {
-    width: 44px !important;
-    height: 44px !important;
+    width: 38px !important;
+    height: 38px !important;
   }
   
   .rectangle {

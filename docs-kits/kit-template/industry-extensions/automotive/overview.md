@@ -26,7 +26,7 @@ sidebar_position: 1
 
 ## Automotive Industry Extension
 
-![KIT NAME Icon](@site/static/img/kits-2.0/tx-black-kit.svg)
+![KIT NAME Icon](../../../../static/img/kits-2.0/tx-black-kit.svg)
 
 This extension adapts the **[KIT_NAME] KIT** for the automotive industry with Catena-X standards compliance.
 

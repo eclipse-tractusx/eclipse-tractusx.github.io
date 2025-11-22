@@ -26,7 +26,7 @@ sidebar_position: 1
 
 ## Development View
 
-![KIT NAME Icon](@site/static/img/kits-2.0/tx-black-kit.svg)
+![KIT NAME Icon](../../../static/img/kits-2.0/tx-black-kit.svg)
 
 Technical documentation for developers, architects, and implementers.
 

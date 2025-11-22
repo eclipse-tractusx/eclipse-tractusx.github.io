@@ -12,8 +12,8 @@ Before creating a new KIT, ensure you have:
 
 - A clear understanding of the business problem your KIT addresses
 - Familiarity with the [KIT Framework Documentation](https://eclipse-tractusx.github.io/documentation/kit-framework)
-- Read the [TRG 10.01 - KIT Architecture](/docs/release/trg-10/trg-10-01)
-- Read the [TRG 10.02 - KIT Content Structure](/docs/release/trg-10/trg-10-02)
+- Read the [TRG 10.01 - KIT Architecture](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-01)
+- Read the [TRG 10.02 - KIT Content Structure](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-02)
 - Reviewed existing KITs for reference at [Eclipse Tractus-X KITs](https://eclipse-tractusx.github.io/Kits)
 
 ### How to Use This Template
