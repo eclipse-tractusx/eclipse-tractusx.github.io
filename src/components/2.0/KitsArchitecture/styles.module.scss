@@ -282,8 +282,19 @@
 .hexagon_automotive .hexagon_content svg,
 .hexagon_shop_floor .hexagon_content svg,
 .hexagon_semiconductor .hexagon_content svg,
-.hexagon_construction .hexagon_content svg {
+.hexagon_construction .hexagon_content svg,
+.hexagon_chemical .hexagon_content svg {
   font-size: 70px;
+  
+  // Black icons in light mode
+  [data-theme='light'] & {
+    color: #000000;
+  }
+  
+  // White icons in dark mode
+  [data-theme='dark'] & {
+    color: #ffffff;
+  }
 }
 
 .hexagon_title {
@@ -341,12 +352,13 @@
   -moz-osx-font-smoothing: grayscale !important;
 }
 
-// Keep icons visible on hover
+// Keep icons white on hover (both light and dark mode)
 .hexagon_automotive:hover svg,
 .hexagon_shop_floor:hover svg,
 .hexagon_semiconductor:hover svg,
-.hexagon_construction:hover svg {
-  color: white;
+.hexagon_construction:hover svg,
+.hexagon_chemical:hover svg {
+  color: white !important;
 }
 
 .rectangle_column {

@@ -40,6 +40,7 @@ import IncubatingKitsReview from './IncubatingKitsReview.js';
 import UpdateActivityChart from './UpdateActivityChart.js';
 import GraduatedKitsList from './GraduatedKitsList.js';
 import DeprecatedKitsList from './DeprecatedKitsList.js';
+import PieChart from './PieChart.js';
 import styles from './KitAnalytics.module.css';
 
 export const KitStatistics = () => {
@@ -341,6 +342,35 @@ export const KitStatistics = () => {
       {/* KIT Update Activity Plot */}
       <div style={{ marginTop: '40px' }}>
         <UpdateActivityChart styles={styles} />
+      </div>
+
+      {/* KIT Architecture Distribution */}
+      <div style={{
+        backgroundColor: 'var(--ifm-color-emphasis-100)',
+        border: '1px solid var(--ifm-color-emphasis-300)',
+        borderRadius: '12px',
+        padding: '24px',
+        marginTop: '40px'
+      }}>
+        <h4 style={{ marginBottom: '20px' }}>KIT Architecture Distribution</h4>
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          width: '100%'
+        }}>
+          <div style={{ maxWidth: '400px', width: '100%' }}>
+            <PieChart 
+              data={[
+                { label: 'Dataspace Foundation', value: foundationKits.length, color: '#404040' },
+                { label: 'Industry Core', value: industryCoreKits.length, color: '#0070C0' },
+                { label: 'Cross-Industry', value: useCaseKits.length, color: '#00c853' },
+                { label: 'Industry-Specific', value: industrySpecificKits.length, color: '#ff6d00' }
+              ]} 
+              title="KITs by Architecture Layer" 
+            />
+          </div>
+        </div>
       </div>
 
       {/* Deprecated KITs List */}
