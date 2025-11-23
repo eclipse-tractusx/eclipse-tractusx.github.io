@@ -30,6 +30,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import BuildIcon from '@mui/icons-material/Build';
 import SchoolIcon from '@mui/icons-material/School';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import KitStructureTable from '@site/src/components/2.0/KitComponents/KitStructureTable';
 import ArtifactRequirementsTable from '@site/src/components/2.0/ArtifactRequirementsTable';
 import { artifactRequirementsData } from '@site/data/kitArtifactRequirementsData';
@@ -85,6 +86,8 @@ Click in the architecture components to see a personalized views! Or continue sc
 </div>
 
 ### Modular Reusable Architecture
+
+Here is a detailed explana of the diagram above, and how this architecture improves reusability:
 
 <KitArchitectureDiagram />
 
@@ -472,8 +475,20 @@ Office hours are held regularly and open to all community members. Whether you'r
 :::tip Join the Conversation
 Every Thursday from 09:30 - 10:00 GMT+1
 
-Check the [Eclipse Tractus-X Community Calendar](https://eclipse-tractusx.github.io/community/open-meetings/#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour) for upcoming KIT Office Hours sessions and join us!
+Check the Eclipse Tractus-X Community Calendar for upcoming KIT Office Hours sessions and join us!
 :::
+
+<div style={{ display: 'flex', justifyContent: 'left', gap: '12px', margin: '20px 0', flexWrap: 'wrap' }}>
+  <GradientButton 
+    href="https://eclipse-tractusx.github.io/community/open-meetings/#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour"
+    text="Join the Communnity KIT Office Hours"
+    icon={CalendarMonthIcon}
+    gradient="linear-gradient(135deg, #4facfe 0%, #0061feff 100%)"
+    shadowColor="rgba(79, 172, 254, 0.3)"
+    shadowColorHover="rgba(79, 172, 254, 0.5)"
+    external={true}
+  />
+</div>
 
 ---
 
