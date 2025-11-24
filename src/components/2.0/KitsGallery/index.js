@@ -22,6 +22,8 @@ import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Link from '@docusaurus/Link';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import styles from './styles.module.scss';
 import KitsGrid from '../KitsGrid';
 import { industries, kitsData } from '@site/data/kitsData';
@@ -350,40 +352,65 @@ export default function KitsGalleryWithCategories({
               )}
             </div>
           </div>
-        {/* Dataspace Foundation Section */}
-        {filtereddataspaceFoundation.length > 0 && (
-          <KitsGrid 
-            title="Dataspace Foundation"
-            kits={filtereddataspaceFoundation}
-          />
-        )}
 
-        {/* Industry Core Foundation Section */}
-        {filteredIndustryCoreFoundation.length > 0 && (
-          <KitsGrid 
-            title="INDUSTRY CORE FOUNDATION"
-            kits={filteredIndustryCoreFoundation}
-          />
-        )}
+        {/* Check if all filtered results are empty */}
+        {filtereddataspaceFoundation.length === 0 && 
+         filteredIndustryCoreFoundation.length === 0 && 
+         filteredUseCases.length === 0 && 
+         Object.keys(filteredIndustryKitsByCategory).length === 0 ? (
+          <div className={styles.noMatch}>
+            <div className={styles.noMatchIcon}>
+              <RocketLaunchIcon sx={{ fontSize: 48 }} />
+            </div>
+            <p className={styles.noMatchMessage}>
+              No KITs found for the selected filters
+            </p>
+            <p className={styles.noMatchSubtext}>
+              Want to contribute? Start building KITs and join the Eclipse Tractus-X community!
+            </p>
+            <Link to="/documentation/kit-getting-started" className={styles.ctaButton}>
+              <RocketLaunchIcon sx={{ fontSize: 20, marginRight: '0.5rem' }} />
+              Get Started with KIT Development
+            </Link>
+          </div>
+        ) : (
+          <>
+            {/* Dataspace Foundation Section */}
+            {filtereddataspaceFoundation.length > 0 && (
+              <KitsGrid 
+                title="Dataspace Foundation"
+                kits={filtereddataspaceFoundation}
+              />
+            )}
 
-        {/* Use Cases Section */}
-        {filteredUseCases.length > 0 && (
-          <KitsGrid 
-            title="CROSS-INDUSTRY USE CASES"
-            kits={filteredUseCases}
-          />
-        )}
+            {/* Industry Core Foundation Section */}
+            {filteredIndustryCoreFoundation.length > 0 && (
+              <KitsGrid 
+                title="INDUSTRY CORE FOUNDATION"
+                kits={filteredIndustryCoreFoundation}
+              />
+            )}
 
-        {/* Industry-Specific Sections - Dynamically rendered */}
-        {Object.entries(filteredIndustryKitsByCategory)
-          .sort(([categoryA], [categoryB]) => categoryA.localeCompare(categoryB))
-          .map(([category, kits]) => (
-            <KitsGrid 
-              key={category}
-              title={category.toUpperCase()}
-              kits={kits}
-            />
-          ))}
+            {/* Use Cases Section */}
+            {filteredUseCases.length > 0 && (
+              <KitsGrid 
+                title="CROSS-INDUSTRY USE CASES"
+                kits={filteredUseCases}
+              />
+            )}
+
+            {/* Industry-Specific Sections - Dynamically rendered */}
+            {Object.entries(filteredIndustryKitsByCategory)
+              .sort(([categoryA], [categoryB]) => categoryA.localeCompare(categoryB))
+              .map(([category, kits]) => (
+                <KitsGrid 
+                  key={category}
+                  title={category.toUpperCase()}
+                  kits={kits}
+                />
+              ))}
+          </>
+        )}
 
       </div>
     </section>
