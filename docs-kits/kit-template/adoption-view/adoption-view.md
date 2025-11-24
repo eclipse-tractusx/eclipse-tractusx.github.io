@@ -26,7 +26,7 @@ sidebar_position: 1
 
 ## Adoption View
 
-![KIT NAME Icon](@site/static/img/kits-2.0/tx-black-kit.svg)
+![KIT NAME Icon](../../../static/img/kits-2.0/tx-black-kit.svg)
 
 Welcome to the **[KIT_NAME] KIT Adoption View**. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
 
