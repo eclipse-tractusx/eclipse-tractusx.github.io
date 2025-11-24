@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: d16339d3fb52d8bc53d3a22afb7494eaa91200b9aa9359ef2a8e69e41b35628a
+ * Content hash: b9dc4c5ee45fdc09a6deb927908660906c35ce79b6cc169826a59fb3ae564341
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -146,24 +146,6 @@ const kitsByCategory = {
       "deprecated": false
     },
     {
-      "id": "puris",
-      "name": "PURIS KIT",
-      "route": "/docs-kits/kits/puris-kit/adoption-view",
-      "deprecated": false
-    },
-    {
-      "id": "model-based-production",
-      "name": "MODEL BASED PRODUCTION KIT",
-      "route": "/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view",
-      "deprecated": false
-    },
-    {
-      "id": "behavior-twin",
-      "name": "BEHAVIOUR TWIN KIT",
-      "route": "/docs-kits/kits/behaviour-twin-kit/overview",
-      "deprecated": false
-    },
-    {
       "id": "data-driven-quality",
       "name": "DATA DRIVEN QUALITY KIT",
       "route": "/docs-kits/kits/data-driven-quality-management-kit/adoption-view",
@@ -188,6 +170,26 @@ const kitsByCategory = {
         "id": "modular-production",
         "name": "MODULAR PRODUCTION KIT",
         "route": "/docs-kits/kits/modular-production-kit/adoption-view",
+        "deprecated": false
+      }
+    ],
+    "automotive": [
+      {
+        "id": "puris",
+        "name": "PURIS KIT",
+        "route": "/docs-kits/kits/puris-kit/adoption-view",
+        "deprecated": false
+      },
+      {
+        "id": "model-based-production",
+        "name": "MODEL BASED PRODUCTION KIT",
+        "route": "/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view",
+        "deprecated": false
+      },
+      {
+        "id": "behavior-twin",
+        "name": "BEHAVIOUR TWIN KIT",
+        "route": "/docs-kits/kits/behaviour-twin-kit/overview",
         "deprecated": false
       }
     ]

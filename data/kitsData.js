@@ -564,84 +564,6 @@ export const kitsData = {
       }
     },
     {
-      id: 'puris',
-      name: 'PURIS KIT',
-      logo: PurisKitLogo,
-      logoHeight: 80,
-      logoWidth: 80,
-      route: '/docs-kits/kits/puris-kit/adoption-view',
-      colors: {
-        primary: '#A159FF',
-        gradient: 'linear-gradient(135deg, #E5CCFF 0%, #A159FF 100%)'
-      },
-      maturity: {
-        currentLevel: 'Graduated',
-        graduatedAt: '2025-08-16'
-      },
-      deprecated: false,
-      domain: 'Supply Chain',
-      industries: ['automotive'],
-      description: 'Predictive Unit Realtime Information Service',
-      metadata: {
-        created: '2023-11-29',
-        lastUpdated: '2025-08-16',
-        latestVersion: '0.4.0',
-        new: false
-      }
-    },
-    {
-      id: 'model-based-production',
-      name: 'MODEL BASED PRODUCTION KIT',
-      logo: ModelBasedProductionLogo,
-      logoHeight: 100,
-      logoWidth: 100,
-      route: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
-      colors: {
-        primary: '#FEBC02',
-        gradient: 'linear-gradient(135deg, #FFC357 0%, #FEBC02 100%)'
-      },
-      maturity: {
-        currentLevel: 'Sandbox',
-        graduationStatus: 'draft'
-      },
-      deprecated: false,
-      domain: 'Engineering',
-      industries: ['automotive'],
-      description: 'Federated simulation and data processing.',
-      metadata: {
-        created: '2023-12-08',
-        lastUpdated: '2024-05-27',
-        latestVersion: '1.0.0',
-        new: false
-      }
-    },
-    {
-      id: 'behavior-twin',
-      name: 'BEHAVIOUR TWIN KIT',
-      logo: BehaviorTwinKitLogo,
-      logoHeight: 80,
-      logoWidth: 80,
-      route: '/docs-kits/kits/behaviour-twin-kit/overview',
-      colors: {
-        primary: '#FFA601',
-        gradient: 'linear-gradient(135deg, #FFC357 0%, #FFA601 100%)'
-      },
-      maturity: {
-        currentLevel: 'Incubating',
-        graduationStatus: 'draft'
-      },
-      deprecated: false,
-      domain: "Simulations",
-      industries: ['automotive'],
-      description: 'Maximize the potential of usage data through calculation services and simulations.',
-      metadata: {
-        created: '2024-05-16',
-        lastUpdated: '2024-05-21',
-        latestVersion: '1.0.0',
-        new: false
-      }
-    },
-    {
       id: 'data-driven-quality',
       name: 'DATA DRIVEN QUALITY KIT',
       logo: DataDrivenQualityLogo,
@@ -752,7 +674,86 @@ export const kitsData = {
     ],
     "semiconductor": [],
     "construction": [],
-    "automotive": [],
+    "automotive": [
+      {
+        id: 'puris',
+        name: 'PURIS KIT',
+        logo: PurisKitLogo,
+        logoHeight: 80,
+        logoWidth: 80,
+        route: '/docs-kits/kits/puris-kit/adoption-view',
+        colors: {
+          primary: '#A159FF',
+          gradient: 'linear-gradient(135deg, #E5CCFF 0%, #A159FF 100%)'
+        },
+        maturity: {
+          currentLevel: 'Graduated',
+          graduatedAt: '2025-08-16'
+        },
+        deprecated: false,
+        domain: 'Supply Chain',
+        industries: ['automotive'],
+        description: 'Predictive Unit Realtime Information Service',
+        metadata: {
+          created: '2023-11-29',
+          lastUpdated: '2025-08-16',
+          latestVersion: '0.4.0',
+          new: false
+        }
+      },
+      {
+        id: 'model-based-production',
+        name: 'MODEL BASED PRODUCTION KIT',
+        logo: ModelBasedProductionLogo,
+        logoHeight: 100,
+        logoWidth: 100,
+        route: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
+        colors: {
+          primary: '#FEBC02',
+          gradient: 'linear-gradient(135deg, #FFC357 0%, #FEBC02 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Engineering',
+        industries: ['automotive'],
+        description: 'Federated simulation and data processing.',
+        metadata: {
+          created: '2023-12-08',
+          lastUpdated: '2024-05-27',
+          latestVersion: '1.0.0',
+          new: false
+        }
+      },
+      {
+        id: 'behavior-twin',
+        name: 'BEHAVIOUR TWIN KIT',
+        logo: BehaviorTwinKitLogo,
+        logoHeight: 80,
+        logoWidth: 80,
+        route: '/docs-kits/kits/behaviour-twin-kit/overview',
+        colors: {
+          primary: '#FFA601',
+          gradient: 'linear-gradient(135deg, #FFC357 0%, #FFA601 100%)'
+        },
+        maturity: {
+          currentLevel: 'Incubating',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: "Simulations",
+        industries: ['automotive'],
+        description: 'Maximize the potential of usage data through calculation services and simulations.',
+        metadata: {
+          created: '2024-05-16',
+          lastUpdated: '2024-05-21',
+          latestVersion: '1.0.0',
+          new: false
+        }
+      }
+    ],
     "chemical": []
   }
 };
