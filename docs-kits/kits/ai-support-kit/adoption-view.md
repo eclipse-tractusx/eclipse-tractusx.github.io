@@ -27,9 +27,7 @@ The AI service in this document is defined as a service that provides users with
 
 While there are variety of ways to use AI systems in conjunction with dataspace, we discuss "AI agents", "Agentic System" that are connected **directly** to EDC.
 
-AI systems, a part of AI service, directly connected to EDCs can offer capabilities in many ways:
-- Category 1: AI systems offers capabilities **within** the boundaries of Catena-X Use Case
-- Category 2: AI Systems offers capabilities **outside** any Catena-X Use Case
+AI systems, a part of AI service, directly connected to EDCs can offer capabilities  both **within** and **outside** automotive Use cases.
 
 In either way, AI systems will be connected and be accessible via EDCs.
 
@@ -72,4 +70,4 @@ TBD
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2025 FUJITSU
+- SPDX-FileCopyrightText: 2025 FUJITSU LIMITED
