@@ -75,12 +75,20 @@ For the `Consumer App` to use `Provider AI` in this configuration, the `Provider
 Refer to the [Management API Overview](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/README.md) for general procedures and the functionality of individual API calls.
 
 The parts of this procedure relevant to this KIT are as follows:
-- `create asset` step: The `Provider App` registers clues for the `Client App` to find `Provider AI` with EDC. See the [Creating an Asset of LLM](#creating-an-asset-of-llm) section for details.
-- `create contract` step: The `Provider App` registers a contract with EDC that references AI-specific rules. For details, see [Creating a Usage Policy for LLM](#creating-a-usage-policy-for-llm).
+- `create asset` step: The `Provider App` registers clues for the `Client App` to find `Provider AI` with EDC. See the [Creating an Asset of AI system](#creating-an-asset-of-ai-system) section for details.
+- `create contract` step: The `Provider App` registers a contract with EDC that references AI-specific rules. For details, see [Creating a Usage Policy for AI system](#creating-a-usage-policy-for-ai-system).
+
+By adding these property and definition, consumer will be able to find AI system it wants, and then to agree to the Provider's request that it should follow the EU AI Act, for example.
+
+[![c](concept-ai-small.png)](concept-ai.png)
+
+The figure shown above shows how the Provider and Consumer can use the definitions discussed in this KIT.
+
+Note: data plane in the figure goes through http proxy, but this is not a requirement.
 
 ## Sample Data
 
-### Creating an Asset of LLM
+### Creating an Asset of AI System
 
 To register an AI ssytem to EDC, `Provider App` needs to `POST` a JSON object to `/v3/assets`. The JSON object needs the following property added to `properties` section:
 
@@ -180,9 +188,9 @@ The `subType` property can have one of the following values:
 
 `details` property may have an object containing any kinds of propererties.
 
-## Creating a Usage Policy for LLM
+## Creating a Usage Policy for AI System
 
-When utilizing AI, aspects such as safety, transparency, ethics, and privacy protection are of critical importance, and AI regulations addressing these concerns are established across different regions and countries. These regulations must be observed by all parties involved, including data providers, data users (AI system developers and AI users). Therefore, compliance with AI regulations is essential when using the LLM Support KIT. Below is an explanation of how AI regulations are applied within EDC.
+When utilizing AI, aspects such as safety, transparency, ethics, and privacy protection are of critical importance, and AI regulations addressing these concerns are established across different regions and countries. These regulations must be observed by all parties involved, including data providers, data users (AI system developers and AI users). Therefore, compliance with AI regulations is essential when using the AI Service KIT. Below is an explanation of how AI regulations are applied within EDC.
 
 ### *List of AI-related Laws and Regulations by Country/Region
 
@@ -225,7 +233,7 @@ Here's an example
             "@type": "LogicalConstraint",
             "leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
             "operator": "eq",
-            "rightOperand": "cx.llm.base:1"
+            "rightOperand": "cx.ai.base:1"
           }
         ]
       }
@@ -236,11 +244,13 @@ Here's an example
 }
 ```
 
-The expression rightOperand: "cx.llm.base:1" indicates that data usage is permitted only when it aligns with the purpose defined as "cx.llm.base:1". This purpose requires the data consumer to comply with the obligations of ["deployer"](https://artificialintelligenceact.eu/article/3/) as stipulated in the AI Act.
+The expression rightOperand: "cx.ai.base:1" indicates that data usage is permitted only when it aligns with the purpose defined as "cx.ai.base:1". This purpose requires the data consumer to comply with the obligations of ["deployer"](https://artificialintelligenceact.eu/article/3/) as stipulated in the AI Act.
+
+Note: the "cx.ai.base:1" mentioned in the example and the description above is under discussionnot and not defined yet. Please be reminded that you may not use this value at the moment.
 
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2025 FUJITSU
+- SPDX-FileCopyrightText: 2025 FUJITSU LIMITED
