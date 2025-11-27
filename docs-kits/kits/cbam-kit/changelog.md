@@ -11,8 +11,9 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Initial Version of CBMA KIT
+- Initial Version of CBMA KIT: adaption view
 
 ### Changed
 
 ### Removed
+
