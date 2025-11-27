@@ -37,7 +37,7 @@ Catena-X provides a reliable, standardized data infrastructure that enables indu
 
 The CBAM (Carbon Border Adjustment Mechanism) process begins when a product is imported into the EU under a customs code that is subject to CBAM reporting and originates from specified countries.  Importers below the defined single mass-based threshold of annual imports are not required to follow the CBAM rules. The importer initiates the process via Catena-X.  (see figure 1)
 
-![CbamCatena](res/magesCBAM-Seite-1.drawio.svg)
+![CbamCatena](res/cbam-process.svg)
 
 Figure 1: The CBAM Data Exchange mechanism with Catena-X
 
@@ -109,7 +109,7 @@ These must be reliably collected and submitted via the EU portal, which currentl
 ### Architecture
 
 Figure 2 gives an overview about the Archtechture of the CBAM service.
-![CbamCatena](res/CBAM_Architecture.drawio.svg)
+![CbamCatena](res/cbam-architecture.svg)
 
 Figure 2: Architecture of CX-CBAM Service
 
@@ -1649,3 +1649,4 @@ This work is licensed under the CC-BY-4.0.
 - Copyright (c) 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 - Copyright (c) 2025 SAP SE
 - Copyright (c) 2025 Siemens AG
+
