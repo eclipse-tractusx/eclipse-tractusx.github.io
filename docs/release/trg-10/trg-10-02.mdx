@@ -106,7 +106,8 @@ docs-kits/kits/
     ├── changelog.md                       # Version history following semantic versioning
     ├── adoption-view/
     │   ├── _category_.json
-    │   └── adoption-view.md               # Business value, use cases, policies, standards
+    │   ├── adoption-view.md               # Business value, use cases, policies, standards
+    │   ├── glossary.md                    # You can include here more files if necessaary 
     ├── development-view/
     │   ├── _category_.json
     │   └── development-view.md            # Architecture, API specs, semantic models, tutorials
@@ -126,12 +127,14 @@ docs-kits/kits/
     │   └── my-app.md                      # Template for implementation success stories
     ├── documentation/
     │   ├── _category_.json
+    │   ├── attachments.md                 # Here you can include more files if necessary
     │   ├── github-repository              # NOT A FILE (OPTIONAL): External Link to GitHub repository
-    │   ├── api-documentation              # NOT A FILE OPTIONAL: Link to API documentation
-    │   ├── community-support              # NOT A FILE OPTIONAL: Link to community support channels
-    │   └── related-standards              # NOT A FILE OPTIONAL: Links to related standards
+    │   ├── api-documentation              # NOT A FILE (OPTIONAL): Link to API documentation
+    │   ├── community-support              # NOT A FILE (OPTIONAL): Link to community support channels
+    │   └── related-standards              # NOT A FILE (OPTIONAL): Links to related standards
     └── resources/
         └── img/                           # KIT-specific images and diagrams
+           └── REUSE.toml                  # Declare the license from your images (See TRG 7.07)
         └── ...
 ```
 
@@ -154,7 +157,7 @@ This template includes detailed guidelines and examples for each section.
   />
 </div>
 
-#### Only per view
+#### Only one file per view
 
 In case a VIEW has only one file it shall be described in this way as a `md` or `mdx` file insice of its respective folder (using the same name of the view):
 
@@ -172,6 +175,9 @@ In case a VIEW has multiple files it shall be described in this way as a folder 
 ```plaintext
 /docs-kits/kits/
   <kit-name>/
+    adoption-view/
+        adoption-view.md
+        glossary.md
     development-view/
         architecture.md
         deployment-view.mdx
@@ -180,6 +186,12 @@ In case a VIEW has multiple files it shall be described in this way as a folder 
         monitoring.md
     ...
 ```
+
+:: tip MDX Files are allowed only for advanced cases
+
+Use `mdx` formats only if it is necessary.
+
+::
 
 ## KIT Maintainers & Code Owners
 
