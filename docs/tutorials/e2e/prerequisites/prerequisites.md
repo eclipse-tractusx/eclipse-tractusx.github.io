@@ -278,7 +278,7 @@ chmod 750 /usr/bin/minikube
 
 #### Install helm
 
-We will need Umbrella Helm Charts for the deployment of the tutorial Catena-X environment, teh required tool helm will be installed with snap.
+We will need Umbrella Helm Charts for the deployment of the tutorial Catena-X environment, the required tool helm will be installed with snap.
 
 :::note
 
