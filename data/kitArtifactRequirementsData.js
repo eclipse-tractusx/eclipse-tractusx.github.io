@@ -108,6 +108,16 @@ export const artifactRequirementsData = [
     additionalInfo: "Explains the Use Case (What is its context) and how it works"
   },
   {
+    artifact: "Access & Usage Policies",
+    view: "Adoption View",
+    sandbox: 0,
+    incubatingDraft: 3,
+    incubatingInProgress: 1,
+    incubatingInReview: 4,
+    graduated: 1,
+    additionalInfo: "In case DSP (Connector) is used, the specific policies needed for this use case need to be referenced. In case policies from other foundation KITs are use it can be avoided"
+  },
+  {
     artifact: "Business Processes",
     view: "Adoption View",
     sandbox: 0,
