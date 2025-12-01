@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
+    "start": "npm run pre-build:kit-master-data && docusaurus start",
+    "build": "npm run pre-build:kit-master-data && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -13,7 +13,11 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "lint-doc": "markdownlint-cli2-config .markdownlint.yaml \"docs/**/*.md\" \"#node_modules\"",
-    "lint-kits": "markdownlint-cli2-config .markdownlint.yaml \"docs-kits/**/*.md\" \"#node_modules\"",
+    "lint-kits": "markdownlint-cli2-config .markdownlint.yaml \"docs-kits/kits/**/*.md\" \"#node_modules\"",
+    "generate:nav-items": "node utils/generateKitNavItems.js",
+    "pre-build:kit-master-data": "npm run validate:kits:silent && npm run generate:nav-items",
+    "validate:kits": "node utils/validate-kits-data.js",
+    "validate:kits:silent": "node utils/validate-kits-data.js --silent",
     "prepare": "husky install"
   },
   "dependencies": {

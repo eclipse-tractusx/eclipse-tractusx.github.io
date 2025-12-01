@@ -1,0 +1,192 @@
+/********************************************************************************* 
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+import React, { useMemo } from 'react';
+import Link from '@docusaurus/Link';
+import CountUpNumber from '../CountUpNumber';
+import styles from './styles.module.scss';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import LanguageIcon from '@mui/icons-material/Language';
+import SchoolIcon from '@mui/icons-material/School';
+import RocketIcon from '@mui/icons-material/Rocket';
+import AddIcon from '@mui/icons-material/Add';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import LifecycleIcon from '@mui/icons-material/Recycling';
+import Button from '@mui/material/Button';
+
+const KitStatistics = ({ kitsData }) => {
+  const statistics = useMemo(() => {
+    if (!kitsData || kitsData.length === 0) {
+      return {
+        totalKits: 0,
+        totalIndustries: 0,
+        graduatedKits: 0,
+        incubatingKits: 0,
+        sandboxKits: 0
+      };
+    }
+
+    // Count total KITs (including deprecated ones)
+    const totalKits = kitsData.length;
+    
+    // Count unique industries (including from deprecated KITs)
+    const allIndustries = new Set();
+    kitsData.forEach(kit => {
+      if (kit.industries) {
+        kit.industries.forEach(industry => allIndustries.add(industry));
+      }
+    });
+    const totalIndustries = allIndustries.size;
+    
+    // Count KITs by maturity level (including deprecated ones)
+    const maturityCounts = kitsData.reduce((counts, kit) => {
+      const level = kit.maturity?.currentLevel?.toLowerCase() || 'unknown';
+      counts[level] = (counts[level] || 0) + 1;
+      return counts;
+    }, {});
+    
+    const graduatedKits = maturityCounts.graduated || 0;
+    const incubatingKits = maturityCounts.incubating || 0;
+    const sandboxKits = maturityCounts.sandbox || 0;
+    
+    return {
+      totalKits,
+      totalIndustries,
+      graduatedKits,
+      incubatingKits,
+      sandboxKits
+    };
+  }, [kitsData]);
+  const statisticsItems = [
+    {
+      id: 'total-kits',
+      value: statistics.totalKits,
+      label: 'KITs in Total',
+      description: 'All KITs available across all categories and dataspaces',
+      icon: LibraryBooksIcon,
+      duration: 800
+    },
+    {
+      id: 'industries',
+      value: statistics.totalIndustries,
+      label: 'Industries',
+      description: 'Industries contributing to our KITs',
+      icon: LanguageIcon,
+      duration: 800
+    },
+    {
+      id: 'graduated',
+      value: statistics.graduatedKits,
+      label: 'Graduated KITs',
+      description: 'Adoption-ready and verified KITs',
+      icon: SchoolIcon,
+      duration: 800
+    },
+    {
+      id: 'incubating',
+      value: statistics.incubatingKits,
+      label: 'Incubating KITs',
+      description: 'KITs in development and testing phase',
+      icon: RocketIcon,
+      duration: 800
+    }
+  ];
+
+  return (
+    <section className={styles.statisticsSection}>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h2 className={styles.title}>KIT Ecosystem at a Glance</h2>
+          <p className={styles.subtitle}>
+            Discover the scale and diversity of our growing KIT ecosystem
+          </p>
+        </div>
+        
+        <div className={styles.statisticsGrid}>
+          {statisticsItems.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <div key={item.id} className={styles.statisticCard}>
+                <div className={styles.statisticIcon}>
+                  <IconComponent />
+                </div>
+                <div className={styles.statisticContent}>
+                  <div className={styles.statisticValue}>
+                    <CountUpNumber 
+                      endValue={item.value} 
+                      duration={item.duration}
+                    />
+                  </div>
+                  <h3 className={styles.statisticLabel}>
+                    {item.label}
+                  </h3>
+                  <p className={styles.statisticDescription}>
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        
+        <div className={styles.additionalInfo}>
+          <p className={styles.infoText}>
+            Our KITs are continuously evolving, with new additions and updates 
+            happening regularly to support the growing dataspace ecosystem.
+          </p>
+        </div>
+        
+        <div className={styles.buttonsContainer}>
+          <Button
+            variant="contained"
+            startIcon={<AddIcon />}
+            className={styles.primaryButton}
+            component={Link}
+            to="/documentation/kit-getting-started"
+            size="large"
+          >
+            Contribute
+          </Button>
+          <Button
+            variant="outlined"
+            startIcon={<AnalyticsIcon />}
+            className={styles.secondaryButton}
+            component={Link}
+            to="/documentation/kit-statistics"
+            size="large"
+          >
+            View More Statistics
+          </Button>
+          <Button
+            variant="outlined"
+            startIcon={<LifecycleIcon />}
+            className={styles.secondaryButton}
+            component={Link}
+            to="/documentation/kit-lifecycle"
+            size="large"
+          >
+            KIT Lifecycle
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default KitStatistics;

@@ -1,0 +1,627 @@
+/*********************************************************************************
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+.contributePage {
+  background-color: #1a1a1a;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #1a1a1a 0%,
+    #2a2a2a 60%,
+    #1a1a1a 100%
+  );
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+.hero_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  will-change: transform;
+  opacity: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.heroContent {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 6rem 0;
+  min-height: 500px;
+}
+
+.logoSection {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 450px;
+  height: auto;
+  filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.4));
+}
+
+.textSection {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin: 0 0 1.5rem 0;
+  background: linear-gradient(135deg, #faa023 0%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #d0d0d0;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Contribution Section */
+.contributionSection {
+  padding: 6rem 0;
+  background-color: #1a1a1a;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.sectionDescription {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contributionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Contribution Cards - Based on Kit Card Design */
+.contributionCard {
+  position: relative;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 20px;
+  padding: 2rem;
+  text-decoration: none;
+  color: white;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 200px;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(135deg, #faa023 0%, #ff6b35 100%);
+    border-radius: 20px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 0 1px transparent;
+    border-color: transparent;
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    .cardIcon {
+      transform: scale(1.1);
+      color: white;
+    }
+    
+    .cardTitle {
+      color: white;
+    }
+    
+    .cardDescription {
+      color: white;
+    }
+  }
+  
+  &.primary {
+    background: linear-gradient(135deg, rgba(250, 160, 35, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+    border-color: rgba(250, 160, 35, 0.3);
+    
+    &::before {
+      opacity: 0.3;
+    }
+    
+    &:hover::before {
+      opacity: 0.8;
+    }
+    
+    &:hover {
+      .cardIcon {
+        color: white;
+      }
+      
+      .cardTitle {
+        color: white;
+      }
+      
+      .cardDescription {
+        color: white;
+      }
+    }
+    
+    .cardIcon {
+      color: #faa023;
+    }
+    
+    .cardTitle {
+      color: #faa023;
+    }
+  }
+}
+
+.cardIcon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1.5rem;
+  color: #b0b0b0;
+  transition: all 0.3s ease;
+  
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: #b0b0b0;
+  line-height: 1.5;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* Get Started Section */
+.getStartedSection {
+  padding: 6rem 0;
+  background: linear-gradient(
+    135deg,
+    #1a1a1a 0%,
+    #2a2a2a 50%,
+    #1a1a1a 100%
+  );
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #faa023 0%, #ff6b35 100%);
+    opacity: 0.05;
+  }
+}
+
+.getStartedContent {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.getStartedTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.getStartedDescription {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+.getStartedButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #faa023 0%, #ff6b35 100%);
+  color: white;
+  border: none;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(250, 160, 35, 0.4);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.secondaryButton {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(250, 160, 35, 0.3);
+  
+  &:hover {
+    background: rgba(250, 160, 35, 0.1);
+    border-color: #faa023;
+    color: #faa023;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.buttonIcon {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .logo {
+    width: 380px;
+  }
+  
+  .title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .heroContent {
+    gap: 3rem;
+  }
+  
+  .logo {
+    width: 350px;
+  }
+  
+  .title {
+    font-size: 2.6rem;
+  }
+  
+  .textSection {
+    padding-left: 1rem;
+  }
+  
+  .contributionGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContent {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 0;
+    gap: 3rem;
+  }
+  
+  .logo {
+    width: 320px;
+  }
+  
+  .textSection {
+    padding-left: 0;
+  }
+  
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+  }
+  
+  .contributionSection {
+    padding: 4rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .contributionGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .contributionCard {
+    padding: 1.5rem;
+  }
+  
+  .getStartedSection {
+    padding: 4rem 0;
+  }
+  
+  .getStartedTitle {
+    font-size: 2rem;
+  }
+  
+  .getStartedButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    width: 280px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+  
+  .getStartedTitle {
+    font-size: 1.6rem;
+  }
+  
+  .contributionCard {
+    padding: 1.25rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+  
+  .cardDescription {
+    font-size: 0.9rem;
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] {
+  .contributePage {
+    background-color: #1a1a1a;
+  }
+}
+
+/* Light theme adjustments */
+[data-theme='light'] {
+  .contributePage {
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  .hero {
+    background: linear-gradient(
+      135deg,
+      #f8f9fa 0%,
+      #e9ecef 60%,
+      #f8f9fa 100%
+    );
+    
+    &::before {
+      opacity: 0.1;
+    }
+  }
+  
+  .hero_bg {
+    filter: invert(1);
+  }
+  
+  .title {
+    color: #000000;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+  }
+  
+  .description {
+    color: rgb(43, 43, 43);
+  }
+  
+  .contributionSection {
+    background-color: #ffffff;
+  }
+  
+  .sectionTitle {
+    color: #333;
+  }
+  
+  .sectionDescription {
+    color: #666;
+  }
+  
+  .contributionCard {
+    background: white;
+    border-color: #e9ecef;
+    color: #333;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    
+    &:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  .cardTitle {
+    color: #333;
+  }
+  
+  .cardDescription {
+    color: #666;
+  }
+  
+  .cardIcon {
+    color: #666;
+  }
+  
+  .getStartedSection {
+    background: linear-gradient(
+      135deg,
+      #f8f9fa 0%,
+      #e9ecef 50%,
+      #f8f9fa 100%
+    );
+  }
+  
+  .getStartedTitle {
+    color: #333;
+  }
+  
+  .getStartedDescription {
+    color: #666;
+  }
+  
+  .secondaryButton {
+    color: #333;
+    
+    &:hover {
+      color: #faa023;
+    }
+  }
+}

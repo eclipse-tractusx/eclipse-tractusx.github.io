@@ -17,12 +17,12 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import { format, parse, startOfWeek, getDay, addMonths, subMonths, startOfMonth, endOfMonth } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { meetings } from '@site/src/data/meetings';
+import { meetings } from '@site/data/meetings';
 import { generateCalendarEvents, getCategoryStyle, formatDateInTimezone, formatTimeRange } from '@site/src/utils/meetingUtils';
 import './MeetingCalendar.css';
 
@@ -53,6 +53,16 @@ export default function MeetingCalendar({ onTimezoneChange }) {
   const [view, setView] = useState('month');
   const [selectedTimezone, setSelectedTimezone] = useState('Europe/Berlin');
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const calendarContainerRef = useRef(null);
+  const [fixedWidth, setFixedWidth] = useState(null);
+
+  // Capture initial width and lock it
+  useEffect(() => {
+    if (calendarContainerRef.current && !fixedWidth) {
+      const width = calendarContainerRef.current.offsetWidth;
+      setFixedWidth(width);
+    }
+  }, [fixedWidth]);
 
   const handleTimezoneChange = (timezone) => {
     setSelectedTimezone(timezone);
@@ -89,7 +99,7 @@ export default function MeetingCalendar({ onTimezoneChange }) {
   };
 
   return (
-    <div className="meeting-calendar-container">
+    <div className="meeting-calendar-container" ref={calendarContainerRef}>
       <div className="calendar-controls">
         <div className="timezone-selector">
           <label htmlFor="timezone-select">Timezone: </label>
@@ -123,21 +133,23 @@ export default function MeetingCalendar({ onTimezoneChange }) {
         </div>
       </div>
 
-      <Calendar
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        style={{ height: 600 }}
-        view={view}
-        onView={setView}
-        date={currentDate}
-        onNavigate={setCurrentDate}
-        eventPropGetter={eventStyleGetter}
-        onSelectEvent={handleSelectEvent}
-        popup
-        views={['month', 'week', 'day']}
-      />
+      <div style={{ width: fixedWidth ? `${fixedWidth}px` : '100%', maxWidth: '100%', overflow: 'hidden', margin: '0 auto' }}>
+        <Calendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: 600, width: '100%' }}
+          view={view}
+          onView={setView}
+          date={currentDate}
+          onNavigate={setCurrentDate}
+          eventPropGetter={eventStyleGetter}
+          onSelectEvent={handleSelectEvent}
+          popup
+          views={['month', 'week', 'day']}
+        />
+      </div>
 
       {selectedEvent && (
         <div className="event-modal-overlay" onClick={handleCloseModal}>

@@ -19,6 +19,10 @@
 
 .meeting-calendar-container {
   margin: 2rem 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .calendar-controls {
@@ -175,6 +179,40 @@
 /* Override react-big-calendar styles */
 .rbc-calendar {
   font-family: inherit;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 600px;
+  overflow: hidden;
+  position: relative;
+}
+
+.rbc-month-view {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rbc-month-view table {
+  width: 100% !important;
+  table-layout: fixed;
+}
+
+.rbc-month-row {
+  width: 100% !important;
+}
+
+.rbc-row {
+  width: 100% !important;
+}
+
+.rbc-row-segment {
+  overflow: hidden;
+}
+
+.rbc-time-view,
+.rbc-time-content {
+  width: 100% !important;
 }
 
 .rbc-event {
@@ -287,3 +325,101 @@
 [data-theme='dark'] .rbc-day-slot .rbc-time-slot {
   border-color: #444;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .meeting-calendar-container {
+    margin: 1rem 0;
+    padding: 0;
+    overflow-x: visible;
+  }
+
+  .rbc-month-view table {
+    min-width: 600px;
+  }
+
+  .calendar-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timezone-selector {
+    width: 100%;
+  }
+
+  .timezone-select {
+    flex: 1;
+    width: 100%;
+  }
+
+  .calendar-legend {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .rbc-toolbar {
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+
+  .rbc-toolbar button {
+    padding: 0.4rem 0.8rem;
+    font-size: 12px;
+  }
+
+  .rbc-toolbar-label {
+    font-size: 14px;
+  }
+
+  .rbc-event {
+    font-size: 11px;
+    padding: 1px 3px;
+  }
+
+  .rbc-header {
+    font-size: 12px;
+    padding: 5px 3px;
+  }
+
+  .rbc-date-cell {
+    font-size: 12px;
+    padding: 3px;
+  }
+
+  .event-modal {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .meeting-calendar-container {
+    margin: 0.5rem 0;
+    padding: 0;
+  }
+
+  .rbc-month-view table {
+    min-width: 500px;
+  }
+
+  .rbc-toolbar button {
+    padding: 0.3rem 0.5rem;
+    font-size: 11px;
+    margin: 0 1px;
+  }
+
+  .rbc-event {
+    font-size: 10px;
+    padding: 1px 2px;
+  }
+
+  .legend-item {
+    font-size: 12px;
+  }
+
+  .legend-color {
+    width: 16px;
+    height: 16px;
+  }
+}
+
