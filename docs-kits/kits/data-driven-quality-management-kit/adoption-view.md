@@ -243,6 +243,22 @@ Parts Analyses data is provided by the component manufacturer/supplier.
 Github Link to semantic data
 model: [Parts Analyses](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.parts_analyses)
 
+#### Warranty Claim Request
+
+The Warranty Claim Request data model encompasses all relevant warranty claim information typically transmitted from an OEM to a Supplier. This data model includes detailed data about the repair performed, the time and materials consumed and the associated monetary values for the claim.
+
+Github Link to semantic data
+model: [Warranty Claim Request](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.warranty_claim_request)
+
+Ab Zeile (dann) 258 (unter “Parts Analyses”):
+
+#### Warranty Claim Request Verification
+
+The Warranty Claim Request Verification data model is the Supplier‘s response to the OEM. This data model provides the Supplier’s verification result with regard to the plausibility of the billing and the Technical Factor.
+
+Github Link to semantic data
+model: [Warranty Claim Request Verification](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.warranty_claim_request_verification)
+
 ## Logic & Schema
 
 ### Business Logic
@@ -277,17 +293,17 @@ There are three types of notifications relating to different steps in the user j
 
 1. Early Warning: This notification is used in the context of an Early Warning project to inform the partner company about an anomaly that was detected in the exchanged data. This data anomaly may or may not originate from an actual problem and, therefore, subsequently both partners will jointly review and evaluate the situation to decide if further actions need to be taken, e.g., issuing a Quality Investigation notification (see 2. below) and/or starting an 8D process. In contrast to Quality Investigation or Quality Alert notifications, the payload of an Early Warning notification is represented as a Data Model and, therefore, can be added to the shared data pool for the Early Warning project.
 
-2. Quality Investigation: This notification is sent from the OEM / Tier n-1 to a supplier and indicates a problem or failure of parts delivered by the supplier. The problem may be detected by the OEM / Tier n-1, e.g., during incoming goods inspection or end of line test. The specification for this notification is shared with the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#quality-investigations--quality-alerts).
+2. Quality Investigation: This notification is sent from the OEM / Tier n-1 to a supplier and indicates a problem or failure of parts delivered by the supplier. The problem may be detected by the OEM / Tier n-1, e.g., during incoming goods inspection or end of line test. The specification for this notification is shared with the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/25.03/kits/traceability-kit/architecture-view#quality-investigations--quality-alerts).
 
-3. Quality Alert: This notification is sent from the supplier to an OEM / Tier n-1 and indicates a problem or failure of parts delivered by the supplier. The problem may be detected by the supplier, e.g., end of line test or via a notification from another customer. The specification for this notification is shared with the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#quality-investigations--quality-alerts).
+3. Quality Alert: This notification is sent from the supplier to an OEM / Tier n-1 and indicates a problem or failure of parts delivered by the supplier. The problem may be detected by the supplier, e.g., end of line test or via a notification from another customer. The specification for this notification is shared with the [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/25.03/kits/traceability-kit/architecture-view#quality-investigations--quality-alerts).
 
 Quality Notifications follow following concepts:
 
 - They leverage the common notification header specification ([Shared Message Header](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.shared.message_header)) and only differ in the content of the payload.
 
-- They follow the same process model from *creation* to *sending* to *acknowledgement* to *acceptance/rejection* to *closure* (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#notification-state-model) for further detail).
+- They follow the same process model from *creation* to *sending* to *acknowledgement* to *acceptance/rejection* to *closure* (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/25.03/kits/traceability-kit/architecture-view/#processes-for-sending-updating-and-resolving-quality-notifications) for further detail).
 
-- They leverage the same API for sending the notification messages (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/traceability-kit/Architecture%20View%20Traceability%20Kit#processes-for-sending-updating-and-resolving-quality-notifications) and the [Notification API Specification](https://catenax-ev.github.io/docs/standards/CX-0125-TraceabilityUseCase#41-quality-notification-api--1) for further detail).
+- They leverage the same API for sending the notification messages (see [Traceability KIT](https://eclipse-tractusx.github.io/docs-kits/25.03/kits/traceability-kit/architecture-view/#processes-for-sending-updating-and-resolving-quality-notifications) and the [Notification API Specification](https://catenax-ev.github.io/docs/standards/CX-0125-TraceabilityUseCase#41-quality-notification-api-) for further detail).
 
 The payload format for these notifications is to a large extend common between Early Warning notification and version 2.0 of the Quality Investigation/Alert notifications.
 
