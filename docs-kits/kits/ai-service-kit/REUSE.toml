@@ -1,0 +1,7 @@
+version = 1
+
+[[annotations]]
+path = ["resources/img/*.png"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2025 FUJITSU LIMITED"
+SPDX-License-Identifier = "CC-BY-4.0"

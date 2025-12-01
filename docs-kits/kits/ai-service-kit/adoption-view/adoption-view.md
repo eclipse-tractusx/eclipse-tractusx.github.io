@@ -21,7 +21,7 @@ This KIT provides a unified approach for publishing AI systems while maintaining
 
 The mission of this KIT is to make the AI system bundled with participants' *EDC* discoverable and usable within the Catena-X ecosystem.
 
-[![Topology of KIT](./resources/topology-small.png)](./resources/topology.png)
+[![Topology of KIT](../resources/img/topology-small.png)](../resources/img/topology.png)
 
 The AI service in this document is defined as a service that provides users with functionalities and/or value through the use of AI systems.
 
