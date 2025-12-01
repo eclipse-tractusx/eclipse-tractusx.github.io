@@ -250,8 +250,6 @@ The Warranty Claim Request data model encompasses all relevant warranty claim in
 Github Link to semantic data
 model: [Warranty Claim Request](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.warranty_claim_request)
 
-Ab Zeile (dann) 258 (unter “Parts Analyses”):
-
 #### Warranty Claim Request Verification
 
 The Warranty Claim Request Verification data model is the Supplier‘s response to the OEM. This data model provides the Supplier’s verification result with regard to the plausibility of the billing and the Technical Factor.
