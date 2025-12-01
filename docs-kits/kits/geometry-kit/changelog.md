@@ -30,7 +30,7 @@ https://creativecommons.org/licenses/by/4.0/legalcode.
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-## [0.1.0] - 2025-09-23
+## [1.0.0] - 2025-12-03
 
 ### Added
 
