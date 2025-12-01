@@ -9,19 +9,19 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.1.0] - CX 25.12
+## [2.1.0] - **release 25.12**
 
 ### Added
 
 #### Adoption view
 
-- New data models insert
+- New data models added
 
 ### Changed
 
 #### Adoption view
 
-- Updated versions of existing data models added
+- Versions of existing data models updated
 
 #### Software operation view
 
@@ -31,7 +31,9 @@ All notable changes to this Kit will be documented in this file.
 
 ### Removed
 
-## [2.0.0] - CX 25.03
+- ./.
+
+## [2.0.0] - **release 25.03**
 
 ### Added
 
