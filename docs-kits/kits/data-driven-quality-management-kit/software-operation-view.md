@@ -9,11 +9,18 @@ sidebar_position: 4
 
 ## Quality Data Offers at EDC
 
-When a Data Consumer calls the Catalog of a Data Provider, the Data Provider must signal in each Data Offer what exactly a Consumer could negotiate for. Data Offers in the Catalog are sorted by dcat:Datasets which are registered in the EDC- Management API as edc:Asset. Each Asset has private and public properties. The public properties are shown in the catalog and give hints to the Data Consumer what API and data they may expect. There are some properties that are mandatory for the entire Catena-X network and some that are mandatory only in specific Business Scenarios (like Quality).
+When a Data Consumer calls the Catalog of a Data Provider, the Data Provider should query for a specific data offer: This is done by querying 
+
+
+
+
+
+what exactly a Consumer could negotiate for. Data Offers in the Catalog are sorted by dcat:Datasets which are registered in the EDC- Management API as edc:Asset. Each Asset has private and public properties. The public properties are shown in the catalog and give hints to the Data Consumer what API and data they may expect. There are some properties that are mandatory for the entire Catena-X network and some that are mandatory only in specific Business Scenarios (like Quality).
 
 The dataAddress object's structure is determined by the dataplane implementation as it configures the details of the data transfer. They are not visible via the catalog.
 
-The following suggestion is a non-standardized draft how Assets (and thus by proxy, dcat:Datasets) should be registered in the Quality Use-Case.
+The following suggestion is a non-standardized draft how Assets should be registered in the Quality Use-Case.
+Important are "@id" idenifier which must use the pattern, separator are two underscores: `__`: `<catenaXQualityTaskId>__<SemanticModel>__<model_version>.parquet`
 
 ```json
 {
@@ -24,7 +31,7 @@ The following suggestion is a non-standardized draft how Assets (and thus by pro
   "dcat": "http://www.w3.org/ns/dcat#",
   "edc": "https://w3id.org/edc/v0.0.1/ns/"
  },
- "@id": "someId",
+ "@id": "430f56d3-1234-1234-1234-abc123456789__io.catenax_fleet.claim_data__3.0.0.parquet",
  "@type": "edc:Asset",
  "edc:properties": {
   "dct:type": {
