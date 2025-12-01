@@ -19,4 +19,9 @@ TODO: check the actual definitions in the specifications
 |Trust|degree to which a user or other stakeholder has confidence that a product or system will behave as intended|[ISO/IEC TR 24028:2020](https://cdn.standards.iteh.ai/samples/77608/76004329cc2f49e5803a0ba7d8104f81/ISO-IEC-TR-24028-2020.pdf)|
 |Trustworthiness|ability to meet stakeholders' expectations in a verifiable way|[ISO/IEC TR 24028:2020](https://cdn.standards.iteh.ai/samples/77608/76004329cc2f49e5803a0ba7d8104f81/ISO-IEC-TR-24028-2020.pdf)|
 
+## Notice
 
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2025 FUJITSU LIMITED

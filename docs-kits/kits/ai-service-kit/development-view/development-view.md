@@ -80,7 +80,7 @@ The parts of this procedure relevant to this KIT are as follows:
 
 By adding these property and definition, consumer will be able to find AI system it wants, and then to agree to the Provider's request that it should follow the EU AI Act, for example.
 
-[![c](concept-ai-small.png)](concept-ai.png)
+[![concept](../resources/img/concept-ai-small.png)](../resources/img/concept-ai.png)
 
 The figure shown above shows how the Provider and Consumer can use the definitions discussed in this KIT.
 
