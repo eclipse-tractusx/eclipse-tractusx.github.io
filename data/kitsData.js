@@ -700,7 +700,7 @@ export const kitsData = {
       logo: GeometryKitLogo,
       logoHeight: 100,
       logoWidth: 100,
-      route: '/docs-kits/next/kits/geometry-kit/adoption-view',
+      route: '/docs-kits/kits/geometry-kit/adoption-view',
       colors: {
         primary: '#17FFBF',
         gradient: 'linear-gradient(135deg, #aebfc4 0%, #8c9ea3 100%)'
