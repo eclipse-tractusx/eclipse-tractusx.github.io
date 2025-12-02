@@ -9,7 +9,31 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
-## [2.0.0] - unreleased
+## [2.1.0] - **release 25.12**
+
+### Added
+
+#### Adoption view
+
+- New data models added
+
+### Changed
+
+#### Adoption view
+
+- Versions of existing data models updated
+
+#### Software operation view
+
+- Link to documentation of semantic models for CX 25.12 release updated
+- Mapping from CX 24 to CX 25 release updated
+- JSON example adapted to fit to CX-0123 standard of release CX2512
+
+### Removed
+
+- ./.
+
+## [2.0.0] - **release 25.03**
 
 ### Added
 

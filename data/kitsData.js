@@ -662,8 +662,8 @@ export const kitsData = {
       description: 'Data driven quality management enables data provider and consumer to exchange and analyse existing data across company boundaries.',
       metadata: {
         created: '2023-08-18',
-        lastUpdated: '2025-04-23',
-        latestVersion: '2.0.0',
+        lastUpdated: '2025-12-01',
+        latestVersion: '2.1.0',
         new: false
       }
     },

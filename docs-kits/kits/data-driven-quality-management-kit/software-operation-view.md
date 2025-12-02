@@ -9,79 +9,96 @@ sidebar_position: 4
 
 ## Quality Data Offers at EDC
 
-When a Data Consumer calls the Catalog of a Data Provider, the Data Provider must signal in each Data Offer what exactly a Consumer could negotiate for. Data Offers in the Catalog are sorted by dcat:Datasets which are registered in the EDC- Management API as edc:Asset. Each Asset has private and public properties. The public properties are shown in the catalog and give hints to the Data Consumer what API and data they may expect. There are some properties that are mandatory for the entire Catena-X network and some that are mandatory only in specific Business Scenarios (like Quality).
+A catenaXQualityTaskId is an id that bundles all data models for one Catena-X Qualtiy Task.
+Catena-X file-based data transfer is not commonly used - therefore this example shows, how to register properly such a data offer.
 
-The dataAddress object's structure is determined by the dataplane implementation as it configures the details of the data transfer. They are not visible via the catalog.
+Most important property is catenaXQualityTaskId - all data offers that are connected to one QualityTask should reference the same catenaXQualityTaskId.
+To do so, a Data Provider should use following naming convention for his data offers: set the "@id" identifier to `<catenaXQualityTaskId>__<SemanticModel>__<model_version>.<file extension>` - separator are two underscores: `__`.
 
-The following suggestion is a non-standardized draft how Assets (and thus by proxy, dcat:Datasets) should be registered in the Quality Use-Case.
+A Data Consumer can now query the data catalog of the Data Provider by filtering for all ids starting with a specific catenaXQualityTaskId.
+
+An alternative to that, is to query for the mandatory catalog prperty "dct:isPartOf" which should also name the related catenaXQualityTaskId.
+
+See the following example of a quality data offer in the EDC catalog.
+The example uses the naming convention for the "@id" identifier and also "dct:isPartOf" -> keep in mind that this example is only an illustration. The correct catalog entry must be adapted to the EDC version in use and must also contain proper "dcat:distribution" settings to communicate over S3 transfer protocol:
 
 ```json
 {
  "@context": {
-  "cx-taxo": "https://w3id.org/catenax/taxonomy#",
-  "cx-common": "https://w3id.org/catenax/ontology/common#",
-  "dct": "https://purl.org/dc/terms/",
+  "cx-policy": "https://w3id.org/catenax/policy/",
   "dcat": "http://www.w3.org/ns/dcat#",
-  "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  "dct": "http://purl.org/dc/terms/",
+  "odrl": "http://www.w3.org/ns/odrl/2/"
  },
- "@id": "someId",
- "@type": "edc:Asset",
- "edc:properties": {
-  "dct:type": {
-   "@id": "cx-taxo:QualityAsset"
-  },
-  "cx-common:version": "1.0",
-  "dct:language": {
-   "@id": "https://w3id.org/idsa/code/EN"
-  },
-  "dcat:qualifiedRelation": {
-   "dct:isPartOf": {
-    "@id": "f7574ad6-95ee-46e2-8a45-6fa1782ba426"
+ "dcat:dataset": [
+  {
+   "@id": "430f56d3-1234-1234-1234-abc123456789__io.catenax_fleet.claim_data__3.0.0.parquet",
+   "@type": "dcat:Dataset",
+   "odrl:hasPolicy": {
+    "@id": "<your policy id>",
+    "@type": "odrl:Offer",
+    "odrl:permission": {
+     "odrl:action": {
+      "@id": "odrl:use"
+     },
+     "odrl:constraint": {
+      "odrl:and": [
+       {
+        "odrl:leftOperand": {
+         "@id": "cx-policy:FrameworkAgreement"
+        },
+        "odrl:operator": {
+         "@id": "odrl:eq"
+        },
+        "odrl:rightOperand": "DataExchangeGovernance:1.0"
+       },
+       {
+        "odrl:leftOperand": {
+         "@id": "cx-policy:UsagePurpose"
+        },
+        "odrl:operator": {
+         "@id": "odrl:eq"
+        },
+        "odrl:rightOperand": "cx.quality.base:1"
+       },
+       {
+        "odrl:leftOperand": {
+         "@id": "cx-policy:ContractReference"
+        },
+        "odrl:operator": {
+         "@id": "odrl:eq"
+        },
+        "odrl:rightOperand": "<A contract reference between your company and the cx partner company.>"
+       }
+      ]
+     }
+    }
+   },
+   "dcat:distribution": [],
+   "dct:description": "Test asset for Catena-X KIT Quality",
+   "dct:conformsTo": {
+    "@id": "urn:samm:io.catenax.fleet.claim_data:3.0.0"
+   },
+   "type": "AmazonS3",
+   "dcat:qualifiedRelation": {
+    "dct:isPartOf": {
+     "@id": "430f56d3-1234-1234-1234-abc123456789"
+    }
+   },
+   "dct:format": "application/octet-stream;type=parquet-snappy",
+   "dct:type": {
+    "@id": "https://w3id.org/catenax/taxonomy#QualityAsset"
    }
-  },
-  "dct:conformsTo": {
-   "@id": "urn:samm:io.catenax.vehicle.product_description:3.0.0#ProductDescription"
-  },
-  "dct:description": "TBD",
-  "dct:format": "application/octet-stream;type=parquet-snappy",
-  "edc:type": "AmazonS3"
- },
- "edc:dataAddress": {
-  "@type": "edc:DataAddress",
-  "edc:type": "AmazonS3",
-  "edc:region": "eu-west-1",
-  "edc:bucketName": "int-xcod-quality-aspect-models-eu-west-1",
-  "edc:keyName": "myCompany/myTag/QualityTask.parquet",
-  "edc:accessKeyId": "…",
-  "edc:secretAccessKey": "…"
- }
+  }
+ ]
 }
 ```
 
-### S3 Data Address
+### Documentation of semantic data models
 
-This section is not use-case specific but since the EDC's AmazonS3 dataplane is basically undocumented, here is an explanation:
+[Semantic data models of release 24.09](./resources/cx24-09-jupiter-qualitymanagement-semanticmodels.xlsx)
+[Semantic data models of release 25.09](./resources/cx25-09-saturn-qualitymanagement-semanticmodels.xlsx)
 
-| **Property**        | **Value**                  | **Description**                                                                                                                                                                                                                    |
-|---------------------|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Property**        | **Value**                  | **Description**                                                                                                                                                                                                                    |
-| edc:type            | "AmazonS3"                 | This shows which data source the Data Plane will query. It also determines what other content the dataAddress object must hold.                                                                                                    |
-| edc:region          | "eu-west-1"                | This property represents the AWS-region where the source bucket is located.                                                                                                                                                        |
-| edc:bucketName      | "provider-quality-bucket"  | This is the name of the source bucket that the data to-be-transferred resides in.                                                                                                                                                  |
-| edc:keyName         | "path/through/provider/s3" | This is the path of the file that shall be offered to the dataspace.                                                                                                                                                               |
-| edc:accessKeyId     | "\<keyId\>"                | Amazon S3 uses this property similarly to how oauth2 client credentials use the clientId. Note that this can also be set during deployment-time for the whole S3-dataplane. If it's set here, it will override the default config. |
-| edc:secretAccessKey | "\<secretAccessKey\>"      | This secret is used similarly to a clientSecret in oauth2 client credentials.                                                                                                                                                      |
+The above excel file shows the structure of the updated data models. The program that generates this documentation was imporved - to better identify the changes the documentation of the semantic data models from release 24.09. is also linked.
 
-### Properties
-
-| **Property**                                                                                          | **Value**                                                        | **Optional** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                               |
-|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<[https://purl.org/dc/terms/type](https://purl.org/dc/terms/type)\>                                                                      | \{"@id": "cx-taxo:QualityAsset"\}                                  |              | CX-0018 mandates the usage of the dct:type property to signal what kind of Asset a consumer can expect behind a dcat:Dataset. In the Quality Use-Case, this is identified as [https://w3id.org/catenax/taxonomy\#QualityAsset](https://w3id.org/catenax/taxonomy#QualityAsset). The expected payload this API serves is determined by the dcat:conformsTo property.                                                           |
-| \<[https://purl.org/dc/terms/language](https://purl.org/dc/terms/language)\>                                                                  | \{"@id": "\<[https://w3id.org/idsa/code/EN](https://w3id.org/idsa/code/EN)\>"\}                       | x            | This property is QM-specific. As it points to an IRI, it must be embedded in a json-object with the @id key. The use of this is unclear.                                                                                                                                                                                                                                                                                      |
-| \<[https://purl.org/dc/terms/format](https://purl.org/dc/terms/format)\>                                                                    | "application/octet-stream;type=parquet-snappy"                   |              | This property is QM-specific. dct:format usually points to the correct IANA Media Type. As currently only parquet files are used, the type application/octet-stream with the added property type=parquet-snappy must be used. The syntax is explained [here](https://www.iana.org/assignments/media-types-parameters/media-types-parameters.xhtml). If in the future csv shall be supported, the value could also be text/csv. |
-| \<[https://purl.org/dc/terms/description](https://purl.org/dc/terms/description)\>                                                               | \<whatever\>                                                     | x            | This property is QM-specific. For human-readable content, rdfs:comment is the usual property but would introduce another namespace so the dct-native property is chosen here.                                                                                                                                                                                                                                                 |
-| \<[https://purl.org/dc/terms/conformsTo](https://purl.org/dc/terms/conformsTo)\>                                                                | \{"@id":"\<urnOfTheCorrespondingAspectModel\>"\}                   |              | This property is QM-specific. It holds the exact aspect-model-URN that defines the schema of the presented dataset including its version. The version in here refers to the data model's version, while the EDC-property cx-common:version defines the version of the underlying API serving the data.                                                                                                                        |
-| [http://www.w3.org/ns/dcat\#qualifiedRelation](http://www.w3.org/ns/dcat#qualifiedRelation)           | \{"dct:isPartOf": \{"@id": "\<idOfTheCorrespondingQualityTask\>"\}\} |              | This property is QM-specific. All Asset types defined in this Kit must include this property as it links the data behind an asset with the correct QualityTask. Note that the id of the QualityTask must be used, not the id of the EDC-Asset shielding said QualityTask.                                                                                                                                                     |
-| \<[https://w3id.org/edc/v0.0.1/ns/type](https://w3id.org/edc/v0.0.1/ns/type)\>                                                                 | AmazonS3                                                         |              | This property signifies the EDC dataplane that the QM data will be transferred over. The expectation that this would be signaled via the dcat:DataSet-dcat:distribution property of the catalog currently isn't implemented in the EDC. Thus the data must be replicated here and is presented via the same property that the consumer-side transferprocesses API uses for this same signal.                                  |
-| [https://w3id.org/catenax/ontology/common\#version](https://w3id.org/catenax/ontology/common#version) | "1.0"                                                            |              | CX-0018 recommends to use cx-common:version to signal the API's version. Here, the API's version is equivalent to the version of the CX-standard for the Quality domain. Creation is currently in progress as CX-0123 v1.0.0. In this EDC-property, only major and minor increments should be added.                                                                                                                          |
-| \<[https://purl.org/dc/terms/date](https://purl.org/dc/terms/date)\>                                                                     | "JJJJ-CW-N"                                                      | \*           | This property identifies an update of an already shared catalogue asset. Day is mentioned as calender week day number, e.g. '1' means "monday"                                                                                                                                                                                                                                                                                |
+To adjust for example custom-code from backend-exporter logic, you can use this mapping file: [Mapping file 24.09 -> 25.09](./resources/cx24-cx25-mapping.xlsx).
