@@ -14,6 +14,8 @@ Development View of the Kit.
 
 ## Introduction
 
+Note: this development view is still a draft.
+
 This KIT defines a standardized method for dataspace member organizations to expose their AI systems as APIs on the dataspace.
 Users of these APIs exposed on the dataspace can discover the AI system's API using the EDC API, then access it via HTTP after completing the access procedure.
 
