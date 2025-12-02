@@ -228,11 +228,19 @@ export const kitsGallery = [
     pageRoute: "/docs-kits/kits/data-trust-and-security-kit/adoption-view",
     img: DataTrustAndSecurity,
   },
-    {
+  {
     id: 25,
     name: 'Requirement KIT',
     domain: 'Engineering',
     img: Requirement_Kit,
     pageRoute: "/docs-kits/kits/requirements-kit/adoption-view",
+  },
+  {
+    id: 26,
+    name: 'Geometry KIT',
+    domain: 'Engineering',
+    img: Requirement_Kit,
+    pageRoute: "/docs-kits/next/kits/geometry-kit/adoption-view",
   }
+
 ]
