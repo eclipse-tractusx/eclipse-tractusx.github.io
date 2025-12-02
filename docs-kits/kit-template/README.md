@@ -61,9 +61,8 @@ Add maintainers to `/.github/CODEOWNERS`:
 
 ```
 kit-template/
-├── README.md                    # Main guide - START HERE
-├── CHANGELOG.md                 # Version history template
-├── CODEOWNERS                   # Maintainer assignments template
+├── README.md                    # Main guide - START HERE (REMOVE THIS FILE BEFORE PUBLISHING)
+├── changelog.md                 # Version history template
 │
 ├── adoption-view/               # Business documentation (MANDATORY for all)
 │   ├── _category_.json
@@ -94,6 +93,7 @@ kit-template/
 │
 └── resources/                      # Images, diagrams, files
         img/
+         └── REUSE.toml              # License from each image
 ```
 
 ## Maturity Levels
