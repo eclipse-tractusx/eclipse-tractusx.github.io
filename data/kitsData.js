@@ -87,6 +87,7 @@ import AgentsKitLogo from "@site/static/img/kits/agents/agents-kit-raw-logo.svg"
 import BehaviorTwinKitLogo from "@site/static/img/kits/behavior-twin/behavior-twin-kit-raw-logo.svg";
 import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-kit-raw-logo.svg";
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
+import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg"; 
 
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
@@ -690,6 +691,32 @@ export const kitsData = {
         created: '2025-09-29',
         lastUpdated: '2025-09-29',
         latestVersion: '0.1.0',
+        new: true
+      }
+    },
+    {
+      id: 'geometry',
+      name: 'GEOMETRY KIT',
+      logo: GeometryKitLogo,
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/next/kits/geometry-kit/adoption-view',
+      colors: {
+        primary: '#17FFBF',
+        gradient: 'linear-gradient(135deg, #aebfc4 0%, #8c9ea3 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Engineering',
+      industries: ['automotive'],
+      description: 'Enable secure and sovereign exchange of engineering geometry information across the entire value chain.',
+      metadata: {
+        created: '2025-11-28',
+        lastUpdated: '2025-11-28',
+        latestVersion: '1.0.0',
         new: true
       }
     }
