@@ -1,0 +1,46 @@
+{
+    "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c32411",
+    "modelItems": [
+        {
+            "semanticTags": [
+                "DetailLevel_0"
+            ],
+            "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c32412",
+            "customTags": [
+                "Frame"
+            ]
+        }
+    ],
+    "localTransform": {
+        "matrix4x4": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    "boundingVolume": {
+        "minPoint": [
+            -0.31,
+            -0.43,
+            -0.31
+        ],
+        "maxPoint": [
+            2.04,
+            0.43,
+            0.82
+        ]
+    }
+}
