@@ -167,7 +167,7 @@ Depending on your quality case, you need different kinds of data. The semantic m
 
 Next picture shows the hierarchy of data models and how the different data can be linked together:
 
-![semantic structure chart](./resources/CX25_09_semantic_models.svg)
+![semantic structure chart](./resources/cx25-09-semantic-models.svg)
 
 #### Quality Task
 
