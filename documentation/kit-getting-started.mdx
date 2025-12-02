@@ -354,6 +354,7 @@ flowchart TD
 1. Go to [eclipse-tractusx/sig-release](https://github.com/eclipse-tractusx/sig-release)
 2. Create new issue using "Propose KIT" template
 3. Fill in your KIT description and team members
+4. Present it in the next [Open Planning Day](https://eclipse-tractusx.github.io/docs/oss/release-process#open-planning-day) for the target release.
 
 <ProcessReference 
   stepNumber={2}
@@ -418,7 +419,7 @@ The views above are organized in "folders" so that its sections are harmonized a
 </div>
 
 3. Add your KIT in this file by updating the sidebar configuration in ['/sidebarsDocsKits.js'](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/sidebarsDocsKits.js) at the root folder (a template will be provided).
-4. Update the [docusaurus.config.js](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/61607621a41acc6b8bc219799433a231cf321b0d/docusaurus.config.js#L258-L382) file to include your new KIT at the navbar, search for `navbar: { items: [{type: 'dropdown', label: 'KITs', position: 'left', to: '/Kits', items: [...] }`
+4. The navbar from the KITs will be updated automatically when building the website in the Github Action, and it will be stored in [`utils/generated/kitNavItems.js](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/utils/generated/kitNavItems.js). No action is needed here.
 5. Update the changelog with what was added
 6. Create a pull request to `eclipse-tractusx.github.io` `main` branch
 7. Request the committer assigned in the SIG-Release ticket to review, approve and merge your PR
