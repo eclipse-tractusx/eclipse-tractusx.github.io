@@ -1,3 +1,10 @@
+---
+sidebar_position: 1
+title: Reference Implementation
+description: 
+id: architecture
+---
+
 ### Terminology
 
 The shown picture illustrates only a generic view of the EDC's Domain Model and is not intended to show all aspects of
