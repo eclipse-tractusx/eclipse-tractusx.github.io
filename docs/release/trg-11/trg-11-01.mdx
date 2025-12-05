@@ -21,7 +21,7 @@ This guideline applies to all software components and projects that are part of 
 
 ### 1. Minimum Requirements
 
-1.1. **Code Coverage **
+1.1. **Code Coverage**
 
 - All Eclipse Tractus-X software projects should measure and report code coverage as a quality metric.
 - Code coverage measurement and reporting should be automated and integrated into the applicable CI/CD pipelines as part of the release process checks.
@@ -50,7 +50,7 @@ Extensive or critical deliberate exclusions from the code coverage measurement s
 - The recommended reporting tool is **SonarQube Cloud**, as provided by Elipse Tractus-X [at this link](https://sonarcloud.io/organizations/eclipse-tractusx/projects).
 - SonarQube Cloud does not calculate the code coverage itself. Projects must set up a third-party coverage analysis tool and configure SonarQube Cloud to import its analysis results.
 - SonarQube Cloud supports many programming language- and tool-specific formats as well as a generic import format.
-- See section [4. Resources and Examples](#sonarqube-implementation-guides) for reference implementation guidance.
+- See section [4. Resources and Examples](#resources-and-examples) for reference implementation guidance.
 - Each project should document which tools it uses to measure and generate coverage reports.
 
 2.2. **Regular Review**
@@ -70,15 +70,13 @@ Extensive or critical deliberate exclusions from the code coverage measurement s
 
 - If a project’s coverage level falls below its own (self-)defined target threshold for an upcoming release and this cannot be improved anymore in time for the release, this potential risk should be accepted and documented by the project's lead respectively group of committers.
 
-### 4. Resources and Examples
+### 4. Resources and Examples {#resources-and-examples}
 
-<a id="sonarqube-implementation-guides"></a>
-
-#### 4.1 **SonarQube Cloud Implementation Guides**
+#### 4.1 **SonarQube Cloud Implementation Guides** {#sonarqube-implementation-guides}
 
 See the following SonarQube Cloud documentation for importing test coverage reports, with detailed guides for several programming languages also widely used by most Eclipse Tractus-X projects as a [reference](https://docs.sonarsource.com/sonarqube-cloud/enriching/test-coverage/overview/).
 
-#### 4.2. **GitHub Workflow Integration Code Example**
+#### 4.2. **GitHub Workflow Integration Code Example** {#github-workflow-example}
 
 An example of a GitHub workflow integration using Java and Apache Maven can be found below.
 
