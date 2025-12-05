@@ -53,7 +53,7 @@ This Rulebook is intended for professionals who are responsible for gathering, m
 
 ### 1.3 Scope and Applicability
 
-The DPP Rulebook covers the interpretation and application of the agreed generic DPP data model, as mandated by ESPR. It provides general guidance, explains fundamental concepts, and sets out standardized procedures for managing product-related data. The Rulebook does not cover detailed technical implementation (e.g., IT system integration).
+The DPP Rulebook covers the interpretation and application of the agreed generic DPP data model, as mandated by Regulation (EU) 2024/1781 of the European Parliament and of the Council of 13 June 2024 establishing a framework for the setting of ecodesign requirements for sustainable products, amending Directive (EU) 2020/1828 and Regulation (EU) 2023/1542 and repealing Directive 2009/125/EC  (ESPR). It provides general guidance, explains fundamental concepts, and sets out standardized procedures for managing product-related data. The Rulebook does not cover detailed technical implementation (e.g., IT system integration).
 
 This rulebook refers to and is based on the Generic DPP Data Model, released in version 6.0.0.
 
@@ -181,7 +181,7 @@ This section sets out the main rules and guiding principles for entering, managi
 
 - As usual in Catena-X, the data provider remains the data owner and is responsible for ensuring the correctness of the data.
 - Owners are accountable for the accuracy, completeness, and timely updating of their data.
-- Changes or updates to data should be tracked and, where appropriate, accompanied by a change log to ensure traceability using the predecessor identifier field in generic DPP data model.
+- Changes or updates to data should be tracked using the predecessor identifier field in generic DPP data model to ensure traceability.
 - Data in the DPPs must be updated under any of the following conditions:
     - Changes in product characteristics (e.g. materials, design, certifications)
     - Regulatory updates (e.g. new or revised delegated/implementing acts)
@@ -204,9 +204,9 @@ This section sets out the main rules and guiding principles for entering, managi
   - ##### Model Level
     Model-level information describes the characteristics of a product or material as defined by its general specification or design. 
   - ##### Batch Level
-    Represents a specific production lot or group of items manufactured under the same conditions within a defined timeframe. Batch-level data typically includes details such as production date, process parameters, and any other variations.
+    Represents a specific production lot or group of items manufactured under the same conditions within a defined timeframe. Batch-level data typically includes details such as production date, process parameters, specific manufacturing plant and any other variations.
   - ##### Item Level
-    Denotes the individual product unit, uniquely identifiable (often via serial number or digital passport). Item-level data provides the most granular information, including traceability, repair history, and end-of-life details for that specific product.
+    Denotes the individual product unit, uniquely identifiable (often via serial number). Item-level data provides the most granular information, refering to a specific unit of the product.
 - Maintain the lowest level of data granularity (i.e., model-level information) unless higher detail is explicitly required to meet compliance obligations.
 - All data points that are reuirqed in this data model need to be provided on model level unless it is stated otherwise.
   
@@ -232,16 +232,16 @@ Metadata encompasses the fundamental details of the digital product passport.
 |---------|---------------------------|---------------------|------------------------------------------------------------|
 | 6.1.1   | Passport Identifier       | Mandatory           | Regulation (EU) 2024/1781                                  |
 | 6.1.2   | Version                   | Mandatory           | Regulation (EU) 2024/1781, Article 9                       |
-| 6.1.3   | Status                    | Optional            | Regulation (EU) 2024/1781                                  |
+| 6.1.3   | Status                    | Optional            | Regulation (EU) 2023/1542                                  |
 | 6.1.4   | Language                  | Mandatory           | Regulation (EU) 2024/1781                                  |
 | 6.1.5   | Predecessor Identifier    | Mandatory           | Regulation (EU) 2024/1781                                  | 
 | 6.1.6   | Registration Identifier   | Optional            | Regulation (EU) 2024/1781                                  |
 | 6.1.7   | Backup Reference          | Mandatory           | Regulation (EU) 2024/1781                                  | 
-| 6.1.8   | Issue Date                 | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 6.1.8   | Issue Date                 | Mandatory           |                                   |
 | 6.1.9   | Expiration Date            | Mandatory           | Regulation (EU) 2024/1781, Article 9 (2)(i) and Article 11 | 
-| 6.1.10  | Last Modification         | Optional            | Regulation (EU) 2024/1781                                  |
-| 6.1.11  | Economic Operator ID      | Mandatory           | Regulation (EU) 2024/1781, Annex III, section (k)          | 
-| 6.1.12  | Economic Operator Name    | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 6.1.10  | Last Modification         | Optional            |                                   |
+| 6.1.11  | Economic Operator Identification      | Mandatory           | Regulation (EU) 2024/1781, Annex III, section (k)          | 
+| 6.1.12  | Economic Operator Names    | Mandatory           | Regulation (EU) 2024/1781                                  |
 | 6.1.13  | Economic Operator Contact | Mandatory           | Regulation (EU) 2024/1781                                  |
 | 6.1.14  | Economic Operator Address | Mandatory           | Regulation (EU) 2024/1781                                  | 
 
@@ -284,27 +284,27 @@ Specific language in which passport content is created.
 
 The date when the product passport is initially issued.
 
-> **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
+> **Content Validation**<br>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
 
 #### 6.1.9 ExpirationDate
 
 The date until the product passport remains available.
 
-> **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html).
+> **Content Validation**<br>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html).
 
 #### 6.1.10 Last Modification
 
 *To be covered in next version*
 
-#### 6.1.11 Economic Operator ID
+#### 6.1.11 Economic Operator Identification
 
 Identification of the economic operator responsible for the passport.
 
 > **Syntax**<br> To be checked via regular expression based checks.
 
-> **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. For companies that are not in the Catena-X network, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html) could be used.
+> **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. For companies that are not in the Catena-X network, another valid identification number could be used (for example, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html, Tax Identification number, Commercial registration number or similar).
 
-#### 6.1.12 Economic Operator Name
+#### 6.1.12 Economic Operator Names
 
 *To be covered in next version*
 
@@ -322,18 +322,18 @@ The Identification section includes attributes needed for uniquely identifying t
 
 | Rule ID | Data Attribute             | Mandatory/ Optional | Regulatory Reference                                          |
 |---------|----------------------------|---------------------|---------------------------------------------------------------|
-| 6.2.1     | Serial Key                 | Optional            | Regulation (EU) 2024/1781, Annex III(b) and Article 10(1)(f)  |
-| 6.2.2     | Serial Value               | Optional            | Regulation (EU) 2024/1781, Recital (33)                       |
-| 6.2.3     | Batch Key                  | Optional            | Regulation (EU) 2024/1781, Recital (33)                       |
-| 6.2.4     | Batch Value                | Optional            | Regulation (EU) 2024/1781                                     |
-| 6.2.5     | Manufacturer Part ID       | Mandatory           | Regulation (EU) 2024/1781, Recital (33)                       |
-| 6.2.6     | Name at Manufacturer       | Mandatory           | Regulation (EU) 2024/1781                                     |
-| 6.2.7     | Code Key                   | Mandatory           | Regulation (EU) 2024/1781, Annex III(b-c)                     |
+| 6.2.1     | Serial Key                 | Optional            | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f)  |
+| 6.2.2     | Serial Value               | Optional            | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f)                      |
+| 6.2.3     | Batch Key                  | Optional            | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f)                      |
+| 6.2.4     | Batch Value                | Optional            | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f)                                     |
+| 6.2.5     | Manufacturer Part ID       | Mandatory           | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f)                      |
+| 6.2.6     | Name at Manufacturer       | Mandatory           | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f)                                     |
+| 6.2.7     | Code Key                   | Mandatory           | Regulation (EU) 2024/1781, Annex III(b-d)                     |
 | 6.2.8     | Code Value                 | Mandatory           | Regulation (EU) 2024/1781                                     |
 | 6.2.9     | Code Description           | Optional            | Regulation (EU) 2024/1781                                     |
 | 6.2.10    | Carrier Type               | Optional            | Regulation (EU) 2024/1781, Article 2(29)                      |
 | 6.2.11    | Carrier Position           | Optional            | Regulation (EU) 2024/1781, Article 8(2)(c)                    |
-| 6.2.12    | Classification Standard    | Mandatory           | Regulation (EU) 2024/1781                                     |
+| 6.2.12    | Classification Standard    | Mandatory           |                                     |
 | 6.2.13    | Classification ID          | Mandatory           | Regulation (EU) 2024/1781                                     |
 | 6.2.14    | Classification Description | Optional            | Regulation (EU) 2024/1781                                     |
 | 6.2.15    | Picture                    | *To be covered in next version* | Optional| | | |
@@ -380,7 +380,7 @@ The name of the part provided by the manufacturer.
 
 The code key for product identification.
 
-> **Syntax**<br>Must be a valid identifier code such as [Global Trade Item Number (GTIN)](https://ref.gs1.org/standards/gtin-management/), [Decentralized Identifier (DID)](https://www.w3.org/TR/did-1.0/), [International Standard Book Number (ISBN)](https://www.iso.org/standard/65483.html#:~:text=ISO%202108%3A2017%20establishes%20the%20specifications%20for%20the%20International,specific%20publisher%20that%20is%20available%20to%20the%20public.), etc.
+> **Syntax**<br>Must be a valid identifier code such as [Global Trade Item Number (GTIN)](https://ref.gs1.org/standards/gtin-management/), [Decentralized Identifier (DID)](https://www.w3.org/TR/did-1.0/), [International Standard Book Number (ISBN)](https://www.iso.org/standard/65483.html#:~:text=ISO%202108%3A2017%20establishes%20the%20specifications%20for%20the%20International,specific%20publisher%20that%20is%20available%20to%20the%20public.), Hash, TARIC, CN, HS, potential waste codes, internal company codes, etc.
 
 #### 6.2.8 Code Value 
 
@@ -408,7 +408,7 @@ The spatial arrangement or position of the data carrier on the product.
 
 Outlines classification standards for parts.
 
-> **Content Validation**<br>Must refer to known standards in classification e.g., [ECLASS 15](https://eclass.eu/aktuelles/news/eclass-release-150-ab-sofort-verfuegbar) for automotive industry. 
+> **Content Validation**<br>Must refer to known standards in classification e.g., [ECLASS 15.0](https://eclass.eu/aktuelles/news/eclass-release-150-ab-sofort-verfuegbar) for automotive industry. 
 
 #### 6.2.13 Classification ID   
 
@@ -432,21 +432,21 @@ The "Operations" category refers to a structured set of data that describes th
 
 | Rule ID | Data Attribute                                                       | Mandatory/ Optional | Regulatory Reference                             |
 |---------|----------------------------------------------------------------------|---------------------|--------------------------------------------------|
-| 6.3.1     | Facility ID                                                          | Mandatory           | Regulation (EU) 2024/1781, Annex III(i)          |
+| 6.3.1     | Facility Identification                                                          | Mandatory           | Regulation (EU) 2024/1781, Annex III(i)          |
 | 6.3.2     | Facility Address                                                     | *To be covered in next version* | | 
-| 6.3.3     | Manufacturer ID                                                      | Mandatory           | Regulation (EU) 2024/1781, Annex III(h) & (k)    |
-| 6.3.4     | Manufacturer Name                                                    | *To be covered in next version* | | 
+| 6.3.3     | Manufacturer Identification                                                      | Mandatory           | Regulation (EU) 2024/1781, Annex III(h) & (k)    |
+| 6.3.4     | Manufacturer Names                                                    | *To be covered in next version* | | 
 | 6.3.5     | Manufacturer Contact                                                 | *To be covered in next version* | | 
 | 6.3.6     | Manufacturer Address                                                 | *To be covered in next version* | | 
-| 6.3.7     | Manufacturing Date                                                   | Mandatory           | Mandatory | Regulation (EU) 2024/1781, Annex III | 
+| 6.3.7     | Manufacturing Date                                                   | Optional           | Mandatory | Regulation (EU) 2024/1781, Annex III | 
 | 6.3.8     | Applicable                                                           | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
 | 6.3.8.1   | EORI                                                                 | Mandatory           | Regulation (EU) 2024/1781, Annex III(j)          |
 | 6.3.8.2   | Importer Identification                                              | Mandatory           | Regulation (EU) 2024/1781, Annex III(j)          |
-| 6.3.8.3   | Importer Name                                                        | *To be covered in next version* | | 
+| 6.3.8.3   | Importer Names                                                        | *To be covered in next version* | | 
 | 6.3.8.4   | Importer Contact                                                     | *To be covered in next version* | | 
 | 6.3.8.5   | Importer Address                                                     | *To be covered in next version* | | 
-| 6.3.9    | Other Operator ID                                                    | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
-| 6.3.10    | Other Operator Name                                                  | *To be covered in next version* | | 
+| 6.3.9    | Other Operator Identification                                                    | Mandatory           | Regulation (EU) 2024/1781 (h)             |
+| 6.3.10    | Other Operator Names                                                  | *To be covered in next version* | | 
 | 6.3.11    | Other Operator Contact                                               | *To be covered in next version* | | 
 | 6.3.12    | Other Operator Address                                               | *To be covered in next version* | | 
 | 6.3.13    | Other Operator Role                                                  | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
@@ -455,25 +455,25 @@ The "Operations" category refers to a structured set of data that describes th
 | 6.3.16    | Collection Points of Extended Producer Responsibility Scheme ID      | *To be covered in next version* | | 
 | 6.3.17    | Collection Points of Extended Producer Responsibility Scheme Address | *To be covered in next version* | | 
 
-#### 6.3.1 Facility ID 
+#### 6.3.1 Facility Identification 
 
 The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
 
-> **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNA is provided.
+> **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNS is provided.
 
-> **Content Validation**<br>The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+> **Content Validation**<br>The BPNS is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 6.3.2 Facility Address
 
 *To be covered in next version*
 
-#### 6.3.3 Manufacturer ID
+#### 6.3.3 Manufacturer Identification
 
  Manufacturer identification (The main manufacturer, if different from the passport owner, represented by an identification number) refers to the requirement for clear and traceable information about the manufacturer or responsible economic operator of a product placed on the EU market. 
 
-> **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNA is provided.
+> **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNL is provided.
 
-> **Content Validation**<br>The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+> **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 6.3.4 Manufacturer Name
 
@@ -493,7 +493,7 @@ Represents the date of final product manufacturing (e.g. final quality check, re
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks
 
-> **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
+> **Content Validation**<br>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
 
 #### 6.3.8 Applicable
 
@@ -503,7 +503,7 @@ Represents the date of final product manufacturing (e.g. final quality check, re
 
 #### 6.3.8.1 EORI
 
-An EORI number (Economic Operators Registration and Identification number) is a unique identification number assigned by a customs authority in the European Union to businesses and individuals involved in importing or exporting goods into or out of the EU.
+An EORI number (Economic Operators Registration and Identification number) is a unique identification number assigned by a customs authority in the European Union to businesses and individuals involved in importing or exporting or transit goods into or out of the EU.
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks
 
@@ -529,7 +529,7 @@ Importer identification (The importer of the product) refers to the requirement 
 
 *To be covered in next version*
 
-#### 6.3.9 Other Operator ID  
+#### 6.3.9 Other Operator Identification  
 
 OtherImporterID is a secondary or additional identifier used to uniquely reference an importer other than the primary one listed for a product. This may be relevant when: 1- Multiple importers are involved in placing the same product model on the EU market. 2- A product is distributed through different channels or subsidiaries. 3- There is a need to track alternative or backup importers for traceability and compliance purposes. 
 
@@ -617,14 +617,13 @@ Name of the spare part as assigned by the manufacturer.
 
 ### 6.5 Characteristics
 
-The "Characteristics" category refers to a set of descriptive attributes that define the physical, functional, and environmental properties of a product. These characteristics are essential for assessing a product’s sustainability performance and are typically included in the Digital Product Passport (DPP).
+The "Characteristics" category refers to a set of descriptive attributes that define the physical and functional properties of a product. These characteristics are essential for assessing a product’s sustainability performance and are typically included in the Digital Product Passport (DPP).
  
 Key elements under this category may include:
-<br>1- Physical attributes: Size, weight, dimensions, colour, and material composition.
-<br>2- Functional properties: Intended use, performance capabilities, and compatibility.
-<br>3- Lifecycle information: Expected lifespan, maintenance needs, and end-of-life options.
+<br>1- Physical attributes: Size, weight, dimensions, and other.
+<br>2- Lifecycle information link Expected lifespan.
  
-These characteristics enable standardized documentation, comparability across products, and informed decision-making by stakeholders such as consumers, manufacturers, and regulators.
+These characteristics enable comparability across products, and informed decision-making by stakeholders.
 
 | Rule ID | Data Attribute              | Mandatory/ Optional | Regulatory Reference                 | 
 |---------|-----------------------------|---------------------|--------------------------------------|
@@ -649,7 +648,7 @@ These characteristics enable standardized documentation, comparability across pr
 | 6.5.19    | Unit (Weight)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
 | 6.5.20    |  Value (Item Quantity)      | *To be covered in next version* | | | | |
 | 6.5.21    | Unit Item Quantity          | *To be covered in next version* | | | | |
-| 6.5.22    | Physical State              | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.22    | Physical State              | Optional            |  | 
 | 6.5.23    | General Performance Class   | Optional            | Regulation (EU) 2024/1781, Article 7 | 
 | 6.5.24    | Other Characteristic Name   | *To be covered in next version* | | | | |
 | 6.5.25    | Other Characteristic Outcome| *To be covered in next version* | | | | |
