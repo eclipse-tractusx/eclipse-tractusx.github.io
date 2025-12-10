@@ -1538,4 +1538,17 @@ The durability score is a standardized indicator established under the Ecodesign
 
 
 
+### NOTICE
+This work is licensed under the CC-BY-4.0.<br>
+
+•	SPDX-License-Identifier: CC-BY-4.0<br>
+•	SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA<br>
+•	SPDX-FileCopyrightText: 2025 Schaeffler AG<br>
+•	SPDX-FileCopyrightText: 2025 SIEMENS AG<br>
+•	SPDX-FileCopyrightText: 2025 Lisa Dräxlmaier GmbH<br>
+•	SPDX-FileCopyrightText: 2025 BASF SE<br>
+•	SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG<br>
+•	SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation<br>
+• SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)<br>
+•	Source URL: https://github.com/eclipse-tractusx/digital-product-pass<br>
 
