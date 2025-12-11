@@ -123,7 +123,7 @@ export const meetings = [
       endTime: '09:30',
     },
   },
-    {
+  {
     id: 'tractus-x-sdk-weekly',
     title: 'Tractus-X SDK Weekly',
     category: MEETING_CATEGORIES.PRODUCT,
