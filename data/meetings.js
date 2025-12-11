@@ -1,5 +1,5 @@
 /*********************************************************************************
- * Copyright (c) 2023,2024 Contributors to the Eclipse Foundation
+ * Copyright (c) 2023, 2025 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -94,9 +94,11 @@ export const meetings = [
       startTime: '09:30',
       endTime: '10:00',
     },
-    additionalLinks: [{
-      title: "Kanban Board KIT Office Hour", url: "https://github.com/orgs/eclipse-tractusx/projects/92"
-    }]
+    additionalLinks: [
+      { title: "KIT Matrix Chat (Updates/Cancelations of this meeting will be announced here)", url: "https://chat.eclipse.org/#/room/%23tractusx-kits:matrix.eclipse.org"},
+      { title: "Kanban Board KIT Office Hour", url: "https://github.com/orgs/eclipse-tractusx/projects/92" },
+      { title: "KIT Getting Started", url: "https://eclipse-tractusx.github.io/documentation/kit-getting-started"}
+    ]
   },
   // Product Regular Meetings
   {
