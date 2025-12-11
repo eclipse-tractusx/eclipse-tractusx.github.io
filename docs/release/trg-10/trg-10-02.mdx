@@ -28,6 +28,51 @@ For the KIT Content this two TRGs must be followed:
 - [TRG 7.07 - Legal notice for non-code](/docs/release/trg-7/trg-7-07) - Image and media licensing requirements
 - [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08) - Documentation licensing
 
+## Copyright Notice
+
+Mandatory for every KIT, it **MUST** be included in every file (not just on the adoption view!).
+KIT documentation works under the CC-BY-4.0 license. Therefore you need to add the "notice" part to make transparent which companies worked on this KIT.
+It **MUST** always include the `- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation` copyright statement.
+
+Example:
+
+```md
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2025 <Your Company FullName>
+- SPDX-FileCopyrightText: 2023, 2025 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023, 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023, 2025 SAP SE
+- SPDX-FileCopyrightText: 2023, 2025 Volkswagen AG
+- SPDX-FileCopyrightText: 2023, 2025 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023, 2025 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023, 2025 BASF SE
+- SPDX-FileCopyrightText: 2023, 2025 Schaeffler AG
+- SPDX-FileCopyrightText: 2023, 2025 Contributors to the Eclipse Foundation
+- Source URL: [Source Code](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/)
+```
+
+In case its a new KIT the year can be referenced like that:
+
+Example:
+
+```md
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2025 <Your Company FullName>
+- SPDX-FileCopyrightText: 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- Source URL: [Source Code](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/)
+```
+
+For more information consult [TRG 7.07 - Legal notice for non-code](/docs/release/trg-7/trg-7-07) - Image and media licensing requirements
+
 ## General Requirements
 
 - A KIT must have a <code>changelog.md</code> following semantic versioning + the release date of Tractus-X - see [TRG 1.03 - CHANGELOG.md](/docs/release/trg-1/trg-1-03)
