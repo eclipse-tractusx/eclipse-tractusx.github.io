@@ -125,14 +125,15 @@ export const meetings = [
   },
   {
     id: 'tractus-x-sdk-weekly',
-    title: 'Tractus-X SDK Weekly',
+    title: 'Tractus-X SDK & TX-SDK Services (TX Test Bed) Weekly',
     category: MEETING_CATEGORIES.PRODUCT,
-    description: 'Open Meeting to align the development status of Tractus-X SDK (a library)',
+    description: 'Open Meeting to align the development status of Tractus-X SDK, a library which allows you to create dataspace ready solutions. Also in this meeting the developments at the Tractus-X SDK Services (Tractus-X Test Bed) repository will be aligned',
     contact: 'mathias.moser@catena-x.net',
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_ODU0ZDk3MjUtNjkzMS00MzQzLWFmZGYtY2Q3YWEzZmVjNmMx%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
     additionalLinks: [
       { title: 'Tractus-X SDK Matrix Chat (shared with IC-Hub)', url: 'https://matrix.to/#/#tractusx-industry-core-hub:matrix.eclipse.org' },
       { title: 'tractusx-sdk Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk' },
+      { title: 'tractusx-sdk-services (Test Bed) Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk-services' },
       { title: 'Planning Board Project (shared with IC-Hub', url: 'https://github.com/orgs/eclipse-tractusx/projects/83' }
     ],
     recurrence: {
