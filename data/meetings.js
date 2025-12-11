@@ -1,5 +1,5 @@
 /*********************************************************************************
- * Copyright (c) 2023,2024 Contributors to the Eclipse Foundation
+ * Copyright (c) 2023, 2025 Contributors to the Eclipse Foundation
  *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -94,16 +94,18 @@ export const meetings = [
       startTime: '09:30',
       endTime: '10:00',
     },
-    additionalLinks: [{
-      title: "Kanban Board KIT Office Hour", url: "https://github.com/orgs/eclipse-tractusx/projects/92"
-    }]
+    additionalLinks: [
+      { title: "KIT Matrix Chat (Updates/Cancelations of this meeting will be announced here)", url: "https://chat.eclipse.org/#/room/%23tractusx-kits:matrix.eclipse.org"},
+      { title: "Kanban Board KIT Office Hour", url: "https://github.com/orgs/eclipse-tractusx/projects/92" },
+      { title: "KIT Getting Started", url: "https://eclipse-tractusx.github.io/documentation/kit-getting-started"}
+    ]
   },
   // Product Regular Meetings
   {
     id: 'industry-core-hub-weekly',
-    title: 'Industry Core Hub & Tractus-X SDK Weekly',
+    title: 'Industry Core Hub Weekly',
     category: MEETING_CATEGORIES.PRODUCT,
-    description: 'Open Meeting to align the development status of the Industry Core Hub [IC-Hub], the data provision & consumption orchestrator & the Tractus-X SDK (a generic dataspace tool box with libraries). Additional Topic Groups (Backend, Frontend & Architecture) Weekly meetings are available in the additional links.',
+    description: 'Open Meeting to align the development status of the Industry Core Hub [IC-Hub], the data provision & consumption orchestrator. Additional Topic Groups (Backend, Frontend & Architecture) Weekly meetings are available in the additional links.',
     contact: 'mathias.moser@catena-x.net',
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_MGJlYzgzMjktNWE4OS00NjcwLWIyOGYtZDgzYmMzODRiMTgy%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
     additionalLinks: [
@@ -111,8 +113,6 @@ export const meetings = [
       { title: 'industry-core-hub Repository', url: 'https://github.com/eclipse-tractusx/industry-core-hub' },
       { title: 'tractusx-sdk Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk' },
       { title: 'Planning Board Project', url: 'https://github.com/orgs/eclipse-tractusx/projects/83' },
-      { title: 'Backend & TX-SDK Weekly - Monday 10:00 am to 10:30 am', url: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_ODU0ZDk3MjUtNjkzMS00MzQzLWFmZGYtY2Q3YWEzZmVjNmMx%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d' },
-      { title: 'Frontend Weekly - Tuesday 02:00 pm to 02:30 pm', url: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_ODUyNWQxMzAtMWE0ZC00Mjc2LTgzYzAtNTc0ZGFiZDllNmQy%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d' },
       { title: 'Architecture Weekly - Thursday 01:00 pm to 02:00 pm', url: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzYyMDUyZjMtMmFlMy00ODMyLWFlZDQtNjMwYWZhOTc3YTVh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d' },
     ],
     recurrence: {
@@ -121,6 +121,27 @@ export const meetings = [
       daysOfWeek: ['tuesday'],
       startTime: '09:00',
       endTime: '09:30',
+    },
+  },
+  {
+    id: 'tractus-x-sdk-weekly',
+    title: 'Tractus-X SDK & TX-SDK Services (TX Test Bed) Weekly',
+    category: MEETING_CATEGORIES.PRODUCT,
+    description: 'Open Meeting to align the development status of Tractus-X SDK, a library which allows you to create dataspace ready solutions. Also in this meeting the developments at the Tractus-X SDK Services (Tractus-X Test Bed) repository will be aligned',
+    contact: 'mathias.moser@catena-x.net',
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_ODU0ZDk3MjUtNjkzMS00MzQzLWFmZGYtY2Q3YWEzZmVjNmMx%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
+    additionalLinks: [
+      { title: 'Tractus-X SDK Matrix Chat (shared with IC-Hub)', url: 'https://matrix.to/#/#tractusx-industry-core-hub:matrix.eclipse.org' },
+      { title: 'tractusx-sdk Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk' },
+      { title: 'tractusx-sdk-services (Test Bed) Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk-services' },
+      { title: 'Planning Board Project (shared with IC-Hub', url: 'https://github.com/orgs/eclipse-tractusx/projects/83' }
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 1,
+      daysOfWeek: ['monday'],
+      startTime: '10:00',
+      endTime: '10:30',
     },
   },
   {
