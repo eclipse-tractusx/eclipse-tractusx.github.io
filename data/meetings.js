@@ -192,7 +192,7 @@ export const meetings = [
     ],
     recurrence: {
       frequency: 'weekly',
-      interval: 1,
+      interval: 4,
       daysOfWeek: ['tuesday'],
       startTime: '10:30',
       endTime: '11:00',
