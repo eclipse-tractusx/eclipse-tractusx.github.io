@@ -47,7 +47,6 @@ export const meetings = [
       startTime: '10:05',
       endTime: '11:00',
       validFrom: '2025-01-01',
-      validUntil: '2025-12-31',
     },
   },
   {
@@ -77,7 +76,6 @@ export const meetings = [
       startTime: '14:05',
       endTime: '15:00',
       validFrom: '2025-01-01',
-      validUntil: '2025-12-31',
     },
   },
   {
