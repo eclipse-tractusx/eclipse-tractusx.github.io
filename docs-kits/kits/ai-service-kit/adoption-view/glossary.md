@@ -4,12 +4,6 @@ title: Glossary
 description: Glossary
 ---
 
-![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-logo.svg)
-
-# Glossary
-
-TODO: check the actual definitions in the specifications
-
 | Term | Definition | Source |
 |------|------------|--------|
 |Agentic system|Agentic AI is an artificial intelligence system that can accomplish a specific goal with limited supervision.|[What is agentic AI?](https://www.ibm.com/think/topics/agentic-ai)|

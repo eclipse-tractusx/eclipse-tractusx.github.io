@@ -77,7 +77,9 @@ For the `Consumer App` to use `Provider AI` in this configuration, the `Provider
 Refer to the [Management API Overview](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/README.md) for general procedures and the functionality of individual API calls.
 
 The parts of this procedure relevant to this KIT are as follows:
+
 - `create asset` step: The `Provider App` registers clues for the `Client App` to find `Provider AI` with EDC. See the [Creating an Asset of AI system](#creating-an-asset-of-ai-system) section for details.
+
 - `create contract` step: The `Provider App` registers a contract with EDC that references AI-specific rules. For details, see [Creating a Usage Policy for AI system](#creating-a-usage-policy-for-ai-system).
 
 By adding these property and definition, consumer will be able to find AI system it wants, and then to agree to the Provider's request that it should follow the EU AI Act, for example.
@@ -198,11 +200,11 @@ When utilizing AI, aspects such as safety, transparency, ethics, and privacy pro
 
 | Region/Country | Law / Policy Name |
 |----------------|-------------------|
-| EU | [Artificial Intelligence Act (AI Act)](https://artificialintelligenceact.eu/ai-act-explorer/) |
-| US | [AI Bill of Rights (2022)](https://bidenwhitehouse.archives.gov/ostp/ai-bill-of-rights/) | 
-| CN | [Cyberspace Administration of China (CAC): Interim Measures (2023) ](https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm)|
-| JP | [Social Principles of Human-Centric AI](https://www.cas.go.jp/jp/seisaku/jinkouchinou/pdf/humancentricai.pdf) | 
-| GB | [Pro-innovation AI Regulation Framework](https://www.gov.uk/government/publications/ai-regulation-a-pro-innovation-approach) 
+| EU | [Artificial Intelligence Act (AI Act)](https://artificialintelligenceact.eu/ai-act-explorer/)|
+| US | [AI Bill of Rights (2022)](https://bidenwhitehouse.archives.gov/ostp/ai-bill-of-rights/)|
+| CN | [Cyberspace Administration of China (CAC): Interim Measures (2023)](https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm)|
+| JP | [Social Principles of Human-Centric AI](https://www.cas.go.jp/jp/seisaku/jinkouchinou/pdf/humancentricai.pdf) |
+| GB | [Pro-innovation AI Regulation Framework](https://www.gov.uk/government/publications/ai-regulation-a-pro-innovation-approach) |
 
 ### Registration in EDC
 
