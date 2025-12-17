@@ -27,7 +27,6 @@ skipReleaseChecks:
     - "docs/release.md"
     - "docs/tutorials.md"
     # Exclude the following KITs from current, and old versions
-    - "frontend/src/assets/User_Guide.md"
     - "**/behaviour-twin-kit/"
     - "**/business-partner-kit/"
     - "**/circularity-kit/"
