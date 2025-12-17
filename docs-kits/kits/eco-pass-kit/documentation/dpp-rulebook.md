@@ -45,7 +45,7 @@
 
 The DPP Rulebook aims to simplify and clarify the validation and usability of data in Digital Product Passports, ensuring that product information is accessible, accurate, and trustworthy for all stakeholders. By establishing straightforward rules, this guide enhances understanding and consistency in data usage across sectors, beginning with the automotive industry.
 
-The main goal of this rulebook is twofold: it provides non-technical individuals with an easy-to-understand overview of the data model and offers actionable rules for data validation. For technical experts, the kit complements the existing data model by supporting effective implementation and compliance. Through user-friendly instructions and examples, the Data Trust Kit empowers diverse participants, fosters industry-wide trust, and makes adopting Digital Product Passports approachable and efficient for all involved parties.
+The main goal of this rulebook is twofold: it provides non-technical individuals with an easy-to-understand overview of the data model and offers actionable rules for data validation. For technical experts, the rulebook complements the existing data model by supporting effective implementation and compliance. Through user-friendly instructions and examples, the Data Trust Kit empowers diverse participants, fosters industry-wide trust, and makes adopting Digital Product Passports approachable and efficient for all involved parties.
 
 ### 1.2 Target Audience
 
@@ -55,7 +55,7 @@ This Rulebook is intended for professionals who are responsible for gathering, m
 
 The DPP Rulebook covers the interpretation and application of the agreed generic DPP data model, as mandated by Regulation (EU) 2024/1781 of the European Parliament and of the Council of 13 June 2024 establishing a framework for the setting of ecodesign requirements for sustainable products, amending Directive (EU) 2020/1828 and Regulation (EU) 2023/1542 and repealing Directive 2009/125/EC  (ESPR). It provides general guidance, explains fundamental concepts, and sets out standardized procedures for managing product-related data. The Rulebook does not cover detailed technical implementation (e.g., IT system integration).
 
-This rulebook refers to and is based on the Generic DPP Data Model, released in version 6.0.0.
+This rulebook refers to and is based on the Generic DPP Data Model, released in version 7.0.0.
 
 ### 1.4 Structure of this Rulebook
 
@@ -67,8 +67,6 @@ The Rulebook is organized to provide:
 The following sections present clear, actionable guidance and aggregate collective experience from multiple companies to help understand the data model.
 
 *Note: Please note that the descriptions provided in this rulebook may differ from the technical descriptions in the data model; they have been adapted to make the content easier to understand for all users.*
-
-Some data points in the generic digital product passport are quite open-ended and allow for different types of information. Because of this, it’s not always possible to set strict rules for what can be entered. For these data points, you can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. While there aren’t rigid rules in these cases, it’s important to apply good judgement and ensure the information is relevant and clear. You’ll find helpful explanations and guidance for these open data points in their individual sections throughout this rulebook.
 
 Some data points are grouped and there is a choice, if these data points are applicable or not. These groups of data points are described with subgroups within each section of the data model. This means that if there is an applicable field, it determines the obligation to fill the fields for all data points that are marked in a subsection of this applicable field.
 
@@ -151,12 +149,14 @@ After thorough research of these standards and guidelines, the Data Trust team d
 
 A DPP system provides value across multiple parties throughout the supply chain. Understanding the main stakeholders and their roles can clarify responsibilities and improve collaboration:
 
-- Product Manufacturers: Responsible for creating and updating the DPP with accurate product data (e.g., material content, production methods).
+- Economic Operators: Responsible for creating and updating the DPP with accurate product data (e.g., material content, production methods).
+- Product Manufacturers: Could be responsible for creating and updating the DPP or for providing upstream data.
 - Suppliers and Sub-suppliers: Provide upstream data (e.g., component/material details) for incorporation into finished product DPPs.
 - Distributors and Retailers: Utilize DPP data for product traceability, compliance, and communication with customers.
 - Recyclers and End-of-Life Facilities: Access DPP data to inform correct treatment and optimize resource recovery.
 - Regulators and Auditors: May review DPP data for compliance with legal and sustainability requirements.
 - Consumers and Business Customers: Can access selected DPP elements to make informed purchasing, usage, or recycling decisions.
+- Digital Product Passport Service Provider: Will provide services to issue DPPs.
 
 Having clear roles and responsibilities for each stakeholder helps promote accountability and streamlines the flow of data throughout the product life cycle.
 For further details on "Roles & responsibilities please read the [DIN EN 18239:2025-09 - Draft](https://www.dinmedia.de/en/draft-standard/din-en-18239/393949301)
@@ -207,9 +207,12 @@ This section sets out the main rules and guiding principles for entering, managi
     Represents a specific production lot or group of items manufactured under the same conditions within a defined timeframe. Batch-level data typically includes details such as production date, process parameters, specific manufacturing plant and any other variations.
   - ##### Item Level
     Denotes the individual product unit, uniquely identifiable (often via serial number). Item-level data provides the most granular information, refering to a specific unit of the product.
-- Maintain the lowest level of data granularity (i.e., model-level information) unless higher detail is explicitly required to meet compliance obligations.
 - All data points that are reuirqed in this data model need to be provided on model level unless it is stated otherwise.
-  
+- Precise levels of granularity will be laid out in the delegated acts for certain product groups and will be reflected in this rulebook, once they are available.
+
+#### 5.2.2 Open Data Points 
+
+Some data points in the generic digital product passport are quite open-ended and allow for different types of information. Because of this, it’s not always possible to set strict rules for what can be entered. For these data points, you can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. While there aren’t rigid rules in these cases, it’s important to apply good judgement and ensure the information is relevant and clear. 
 
 ### 5.3 Data Format and Standardization
 - Enter all data according to the format specified in the DPP model
@@ -249,7 +252,8 @@ Metadata encompasses the fundamental details of the digital product passport.
 
 Unique identifier of the product passport.
 
-> **Content Validation**<br>Must contain an unique identifier according to [RFC 4122: A Universally Unique Identifier (UUID) URN Namespace](https://dl.acm.org/doi/book/10.17487/RFC4122)
+> **Content Validation**<br>Must contain an unique identifier according to [RFC 4122: A Universally Unique Identifier (UUID) URN Namespace](https://dl.acm.org/doi/book/10.17487/RFC4122)<br><br>
+Must fullfill the following regular expression: (^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)|(^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)
 
 #### 6.1.2 Version
 
@@ -284,14 +288,16 @@ Specific language in which passport content is created.
 
 The date when the product passport is initially issued.
 
-> **Content Validation**<br>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
+> **Content Validation**<br>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)<br><br>
+Must fullfill the following regular expression: ^\d{4}-\d{2}-\d{2}$
 
 #### 6.1.9 ExpirationDate
 
 The date until the product passport remains available.
 
-> **Content Validation**<br>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html).
-
+> **Content Validation**<br>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html).<br><br>
+Must fullfill the following regular expression: ^\d{4}-\d{2}-\d{2}$
+> 
 #### 6.1.10 Last Modification
 
 *To be covered in next version*
@@ -396,13 +402,13 @@ The identifier value related to the code key.
 
 The type of data carrier used for product identification. The format of a Product Passport is typically digital and can be implemented through various technologies to ensure accessibility and interoperability. "Data carrier" means a linear barcode symbol, a two-dimensional symbol or other automatic identification data capture medium that can be read by a device.
 
-> **Content Validation**<br>Must align with recognizable  data carrier types like QR, barcode, etc. in accordance with [Regulation (EU) 2024/1781](https://miro.com/app/board/uXjVITCCA9U=/?moveToWidget=3458764641065984843&cot=14)
+> **Content Validation**<br>Must align with recognizable  data carrier types like QR, barcode, etc. in accordance with [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746)
 
 #### 6.2.11 Carrier Position 
 
 The spatial arrangement or position of the data carrier on the product.
 
-> **Content Validation**<br>If specified, the attribute must describe the carrier's positioning in accordance with [Regulation (EU) 2024/1781](https://miro.com/app/board/uXjVITCCA9U=/?moveToWidget=3458764641065984843&cot=14)
+> **Content Validation**<br>If specified, the attribute must describe the carrier's positioning in accordance with [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746)
 
 #### 6.2.12 Classification Standard 
 
@@ -531,7 +537,7 @@ Importer identification (The importer of the product) refers to the requirement 
 
 #### 6.3.9 Other Operator Identification  
 
-OtherImporterID is a secondary or additional identifier used to uniquely reference an importer other than the primary one listed for a product. This may be relevant when: 1- Multiple importers are involved in placing the same product model on the EU market. 2- A product is distributed through different channels or subsidiaries. 3- There is a need to track alternative or backup importers for traceability and compliance purposes. 
+Other Operator Identification is a secondary or additional identifier used to uniquely reference an other operator for a product, for example: distributors/retailers/logistics/designers/smelters/recyclers/professional repairers/waste treatment facilities/remanufacturers/ etc.. 
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
