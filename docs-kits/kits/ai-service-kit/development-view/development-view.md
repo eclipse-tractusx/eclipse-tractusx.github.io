@@ -10,7 +10,7 @@ sidebar_position: 1
 Development View of the Kit.
 -->
 
-![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-logo.svg)
+![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg)
 
 ## Introduction
 

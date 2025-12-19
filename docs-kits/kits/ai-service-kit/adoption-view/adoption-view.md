@@ -5,7 +5,7 @@ description: AI Service KIT
 sidebar_position: 2
 ---
 
-![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-logo.svg)
+![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg)
 
 ## Vision & Mission
 

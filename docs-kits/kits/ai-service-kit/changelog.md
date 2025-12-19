@@ -4,16 +4,7 @@ title: Changelog
 description:  AI Service KIT
 ---
 
-<div style={{display:'block'}}>
-  <div style={{display:'inline-block', verticalAlign:'top'}}>
-
-![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-logo.svg)
-
-  </div>
-  <div style={{display:'inline-block', fontSize:17, color:'rgb(255,166,1)', marginLeft:7, verticalAlign:'top', paddingTop:6}}>
-AI Service KIT
-  </div>
-</div>
+![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg)
 
 ## [0.0.1] - 2025-12-03
 
