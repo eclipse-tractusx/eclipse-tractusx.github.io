@@ -47,7 +47,6 @@ export const meetings = [
       startTime: '10:05',
       endTime: '11:00',
       validFrom: '2025-01-01',
-      validUntil: '2025-12-31',
     },
   },
   {
@@ -77,7 +76,6 @@ export const meetings = [
       startTime: '14:05',
       endTime: '15:00',
       validFrom: '2025-01-01',
-      validUntil: '2025-12-31',
     },
   },
   {
@@ -146,17 +144,18 @@ export const meetings = [
   },
   {
     id: 'edc-weekly',
-    title: 'EDC Weekly | Extended',
+    title: 'Connector - Open Meeting',
     category: MEETING_CATEGORIES.PRODUCT,
-    description: 'Open house meeting to support with anything EDC related. You have questions about EDC, problems running/ configuring EDC in your environment or want to know what´s next in EDC and when to expect? This is the place to ask all these questions.',
+    description: 'Open house meeting to support with anything connector related. You have questions about the connector, problems running/configuring connector in your environment or want to know what´s next in connector and when to expect? This is the place to ask all these questions.',
     contact: 'lars.blaumeiser@cofinity-x.com',
-    sessionLink: 'https://eclipse.zoom.us/j/85945828202?pwd=YODkCen20BOQV9WNJEeNFM8zaOlxo9.1',
+    sessionLink: 'https://eclipse.zoom.us/j/87463482673?pwd=XwLhl6yazHg2Llaos4ojcCs2OPRaip.1',
     recurrence: {
-      frequency: 'weekly',
-      interval: 1,
+      frequency: 'bi-weekly',
+      interval: 2,
       daysOfWeek: ['tuesday'],
-      startTime: '10:30',
-      endTime: '11:00',
+      startTime: '16:00',
+      endTime: '16:30',
+      validFrom: '2026-01-06',
     },
   },
   {
