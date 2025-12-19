@@ -4,4 +4,5 @@ version = 1
 path = ["resources/img/*.png"]
 precedence = "closest"
 SPDX-FileCopyrightText = "2025 FUJITSU LIMITED"
+SPDX-FileCopyrightText = "2025 Contributors to the Eclipse Foundation"
 SPDX-License-Identifier = "CC-BY-4.0"
