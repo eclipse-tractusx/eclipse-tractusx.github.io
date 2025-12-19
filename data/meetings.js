@@ -150,7 +150,7 @@ export const meetings = [
     contact: 'lars.blaumeiser@cofinity-x.com',
     sessionLink: 'https://eclipse.zoom.us/j/87463482673?pwd=XwLhl6yazHg2Llaos4ojcCs2OPRaip.1',
     recurrence: {
-      frequency: 'bi-weekly',
+      frequency: 'weekly',
       interval: 2,
       daysOfWeek: ['tuesday'],
       startTime: '16:00',
