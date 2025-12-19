@@ -14,63 +14,63 @@
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14</guid>
             <pubDate>Fri, 14 Nov 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Community Office Hour Meeting Minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="community-office-hour-meeting-minutes">Community Office Hour Meeting Minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#community-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Community Office Hour Meeting Minutes" title="Direct link to Community Office Hour Meeting Minutes" translate="no">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-office-hour-meeting-minutes">Community Office Hour Meeting Minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#community-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Community Office Hour Meeting Minutes" title="Direct link to Community Office Hour Meeting Minutes" translate="no">​</a></h2>
 <p>Status updates discussed in meeting:</p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure-and-test-management">Infrastructure and Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#infrastructure-and-test-management" class="hash-link" aria-label="Direct link to Infrastructure and Test Management" title="Direct link to Infrastructure and Test Management" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure-and-test-management">Infrastructure and Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#infrastructure-and-test-management" class="hash-link" aria-label="Direct link to Infrastructure and Test Management" title="Direct link to Infrastructure and Test Management" translate="no">​</a></h3>
 <ul>
-<li>Test phase for Release 25.12 is ongoing. Currently blocking issue with Portal onboarding of new test companies.<!-- -->
+<li class="">Test phase for Release 25.12 is ongoing. Currently blocking issue with Portal onboarding of new test companies.<!-- -->
 <ul>
-<li>Workaround using existing ones is also limited due to issues with email notifications for new user accounts and presumed issue for creation of new technical users.</li>
+<li class="">Workaround using existing ones is also limited due to issues with email notifications for new user accounts and presumed issue for creation of new technical users.</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
 <ul>
-<li>
-<p><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35" target="_blank" rel="noopener noreferrer">Release Planning Timeline</a>:</p>
+<li class="">
+<p><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35" target="_blank" rel="noopener noreferrer" class="">Release Planning Timeline</a>:</p>
 <ul>
-<li>26.03 Eclipse Tractus-X Open Planning was conducted on November 13th.</li>
+<li class="">26.03 Eclipse Tractus-X Open Planning was conducted on November 13th.</li>
 </ul>
 </li>
-<li>
+<li class="">
 <p>Policy Hub recommendation to be archived: Decision of Data Sovereignty Expert Group that the Policy Hub is not needed anymore, as it adds no value to the ecosystem.</p>
 <ul>
-<li>See for details this issue on the <a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=139296712" target="_blank" rel="noopener noreferrer">Office Hour Board</a>.
+<li class="">See for details this issue on the <a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=139296712" target="_blank" rel="noopener noreferrer" class="">Office Hour Board</a>.
 It will remain in progress to track further information.</li>
-<li>Input from <a href="https://github.com/matbmoser" target="_blank" rel="noopener noreferrer">Mathias Moser</a> to follow the official process as outlined in <a href="https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-09/" target="_blank" rel="noopener noreferrer">TRG 7.09</a></li>
+<li class="">Input from <a href="https://github.com/matbmoser" target="_blank" rel="noopener noreferrer" class="">Mathias Moser</a> to follow the official process as outlined in <a href="https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-09/" target="_blank" rel="noopener noreferrer" class="">TRG 7.09</a></li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
 <ul>
-<li>Please check regularly if there are findings for vulnerabilities or dependency updates in the security tab of your project repository.</li>
+<li class="">Please check regularly if there are findings for vulnerabilities or dependency updates in the security tab of your project repository.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
 <ul>
-<li>Everyone is invited to join the Fifth Eclipse Tractus-X Community Days on December 4th and 5th in Stuttgart. See this <a href="https://arena2036.de/de/reader/fifth-eclipse-tractus-x-community-days" target="_blank" rel="noopener noreferrer">link for registration</a></li>
-<li>New Calendar View for open meetings, see for details the <a href="https://eclipse-tractusx.github.io/community/open-meetings" target="_blank" rel="noopener noreferrer">open meetings page</a>
+<li class="">Everyone is invited to join the Fifth Eclipse Tractus-X Community Days on December 4th and 5th in Stuttgart. See this <a href="https://arena2036.de/de/reader/fifth-eclipse-tractus-x-community-days" target="_blank" rel="noopener noreferrer" class="">link for registration</a></li>
+<li class="">New Calendar View for open meetings, see for details the <a href="https://eclipse-tractusx.github.io/community/open-meetings" target="_blank" rel="noopener noreferrer" class="">open meetings page</a>
 <ul>
-<li>Potentially type color for time and date could be set in white for better legibility.</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedback--questions--requests">Feedback / Questions / Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#feedback--questions--requests" class="hash-link" aria-label="Direct link to Feedback / Questions / Requests" title="Direct link to Feedback / Questions / Requests" translate="no">​</a></h3>
-<ul>
-<li>
-<p>Discussion of planned <a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=133107482" target="_blank" rel="noopener noreferrer">PostgreSQL updates and image provider change</a></p>
-<ul>
-<li><a href="https://github.com/mgarciaLKS" target="_blank" rel="noopener noreferrer">Mikel Garcia</a> has updated the applicable TRGs, including the change from Bitnami to Cloud Pirates images</li>
-<li>He also created a <a href="https://github.com/eclipse-tractusx/ssi-dim-wallet-stub/blob/b544ee4f4e7559ac16763a8457933c23eeeb089b/docs/admin/migration-guides/BITNAMI_TO_CLOUDPIRATES_MIGRATION_GUIDE.md" target="_blank" rel="noopener noreferrer">migration guide</a> using the SSI DIM Wallet Stub as an example.</li>
-<li>However there were issues encountered by <a href="https://github.com/lgblaumeiser" target="_blank" rel="noopener noreferrer">Lars Geyer-Blaumeiser</a> for the BDRS service with the automated Helm Upgrade failing, thus requiring a manual deletion and redeployment. See <a href="https://github.com/eclipse-tractusx/bpn-did-resolution-service/issues/284" target="_blank" rel="noopener noreferrer">this link</a> for further details.</li>
+<li class="">Potentially type color for time and date could be set in white for better legibility.</li>
 </ul>
 </li>
-<li>
-<p>Question from <a href="https://github.com/ReneSchroederLJ" target="_blank" rel="noopener noreferrer">René Schröder</a> regarding maintenance of IRS -&gt; Will contact <a href="https://github.com/rogocof" target="_blank" rel="noopener noreferrer">Robin Gottschalk</a> to follow up.</p>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback--questions--requests">Feedback / Questions / Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14#feedback--questions--requests" class="hash-link" aria-label="Direct link to Feedback / Questions / Requests" title="Direct link to Feedback / Questions / Requests" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>Discussion of planned <a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=133107482" target="_blank" rel="noopener noreferrer" class="">PostgreSQL updates and image provider change</a></p>
+<ul>
+<li class=""><a href="https://github.com/mgarciaLKS" target="_blank" rel="noopener noreferrer" class="">Mikel Garcia</a> has updated the applicable TRGs, including the change from Bitnami to Cloud Pirates images</li>
+<li class="">He also created a <a href="https://github.com/eclipse-tractusx/ssi-dim-wallet-stub/blob/b544ee4f4e7559ac16763a8457933c23eeeb089b/docs/admin/migration-guides/BITNAMI_TO_CLOUDPIRATES_MIGRATION_GUIDE.md" target="_blank" rel="noopener noreferrer" class="">migration guide</a> using the SSI DIM Wallet Stub as an example.</li>
+<li class="">However there were issues encountered by <a href="https://github.com/lgblaumeiser" target="_blank" rel="noopener noreferrer" class="">Lars Geyer-Blaumeiser</a> for the BDRS service with the automated Helm Upgrade failing, thus requiring a manual deletion and redeployment. See <a href="https://github.com/eclipse-tractusx/bpn-did-resolution-service/issues/284" target="_blank" rel="noopener noreferrer" class="">this link</a> for further details.</li>
+</ul>
 </li>
-<li>
-<p>Suggestion from <a href="https://github.com/matbmoser" target="_blank" rel="noopener noreferrer">Mathias Moser</a>: TRG for quality of new or existing repositories in GitHub, e.g. with the 3 phases sandbox, incubating, graduated. He will elaborate this further. The plan would be in a later step to display this automatically as a "maturity level" for each repository in the Eclipse Tractus-X product list overview.</p>
+<li class="">
+<p>Question from <a href="https://github.com/ReneSchroederLJ" target="_blank" rel="noopener noreferrer" class="">René Schröder</a> regarding maintenance of IRS -&gt; Will contact <a href="https://github.com/rogocof" target="_blank" rel="noopener noreferrer" class="">Robin Gottschalk</a> to follow up.</p>
 </li>
-<li>
+<li class="">
+<p>Suggestion from <a href="https://github.com/matbmoser" target="_blank" rel="noopener noreferrer" class="">Mathias Moser</a>: TRG for quality of new or existing repositories in GitHub, e.g. with the 3 phases sandbox, incubating, graduated. He will elaborate this further. The plan would be in a later step to display this automatically as a "maturity level" for each repository in the Eclipse Tractus-X product list overview.</p>
+</li>
+<li class="">
 <p>Discussion regarding a legal need to remove/replace references to EPL licenses from files in Eclipse Tractus-X. Finding a solution is ongoing.</p>
 </li>
 </ul>]]></content:encoded>
@@ -83,27 +83,27 @@ It will remain in progress to track further information.</li>
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31</guid>
             <pubDate>Fri, 31 Oct 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-infrastructuretest-management">Update Infrastructure/Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31#update-infrastructuretest-management" class="hash-link" aria-label="Direct link to Update Infrastructure/Test Management" title="Direct link to Update Infrastructure/Test Management" translate="no">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-infrastructuretest-management">Update Infrastructure/Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31#update-infrastructuretest-management" class="hash-link" aria-label="Direct link to Update Infrastructure/Test Management" title="Direct link to Update Infrastructure/Test Management" translate="no">​</a></h2>
 <ul>
-<li>Deployment phase for 25.12 is ongoing. None has deployed yet, please start.</li>
-<li>DTR has an update ongoing, but the PR is open. New version expected on next week</li>
+<li class="">Deployment phase for 25.12 is ongoing. None has deployed yet, please start.</li>
+<li class="">DTR has an update ongoing, but the PR is open. New version expected on next week</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-release-management">Update Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31#update-release-management" class="hash-link" aria-label="Direct link to Update Release Management" title="Direct link to Update Release Management" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-release-management">Update Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31#update-release-management" class="hash-link" aria-label="Direct link to Update Release Management" title="Direct link to Update Release Management" translate="no">​</a></h2>
 <ul>
-<li>Release Check issues must be created next week to confirm who joins or opts out of the test phase; reminders have been sent to previous participants.</li>
-<li>Current reminder for 26.03 open planning: <a href="https://eclipse-tractusx.github.io/community/open-meetings#Open%20Planning%20for%20R26.03" target="_blank" rel="noopener noreferrer">https://eclipse-tractusx.github.io/community/open-meetings#Open%20Planning%20for%20R26.03</a></li>
+<li class="">Release Check issues must be created next week to confirm who joins or opts out of the test phase; reminders have been sent to previous participants.</li>
+<li class="">Current reminder for 26.03 open planning: <a href="https://eclipse-tractusx.github.io/community/open-meetings#Open%20Planning%20for%20R26.03" target="_blank" rel="noopener noreferrer" class="">https://eclipse-tractusx.github.io/community/open-meetings#Open%20Planning%20for%20R26.03</a></li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-security">Update Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31#update-security" class="hash-link" aria-label="Direct link to Update Security" title="Direct link to Update Security" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-security">Update Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31#update-security" class="hash-link" aria-label="Direct link to Update Security" title="Direct link to Update Security" translate="no">​</a></h2>
 <ul>
-<li>Please patch high and critical security vulneratiblities before e2e test.</li>
+<li class="">Please patch high and critical security vulneratiblities before e2e test.</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-communityopen-planning">Update Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31#update-communityopen-planning" class="hash-link" aria-label="Direct link to Update Community/Open Planning" title="Direct link to Update Community/Open Planning" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-communityopen-planning">Update Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-31#update-communityopen-planning" class="hash-link" aria-label="Direct link to Update Community/Open Planning" title="Direct link to Update Community/Open Planning" translate="no">​</a></h2>
 <ul>
-<li>Community Days: registration open; a lot of other data spaces have been invited.</li>
-<li>Container images: <a href="https://github.com/mgarciaLKS" target="_blank" rel="noopener noreferrer">@mgarciaLKS</a>&nbsp;raised a TRG update for postgres with an example linked&nbsp;<a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1367" target="_blank" rel="noopener noreferrer">eclipse-tractusx/eclipse-tractusx.github.io#1367</a>, committers aligned on 18.x</li>
-<li>What's the last date to provide the semantic model? Should be in line with the Final KIT PR (25.12 = 2025-11-17)</li>
-<li>What needs a ticket for release and how to release a kit? If you release a KIT, you need a release ticket: <a href="https://github.com/eclipse-tractusx/sig-release/issues/1494" target="_blank" rel="noopener noreferrer">PURIS example</a> - If you release something unfinished or not released in standards, add a disclaimer.</li>
+<li class="">Community Days: registration open; a lot of other data spaces have been invited.</li>
+<li class="">Container images: <a href="https://github.com/mgarciaLKS" target="_blank" rel="noopener noreferrer" class="">@mgarciaLKS</a>&nbsp;raised a TRG update for postgres with an example linked&nbsp;<a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1367" target="_blank" rel="noopener noreferrer" class="">eclipse-tractusx/eclipse-tractusx.github.io#1367</a>, committers aligned on 18.x</li>
+<li class="">What's the last date to provide the semantic model? Should be in line with the Final KIT PR (25.12 = 2025-11-17)</li>
+<li class="">What needs a ticket for release and how to release a kit? If you release a KIT, you need a release ticket: <a href="https://github.com/eclipse-tractusx/sig-release/issues/1494" target="_blank" rel="noopener noreferrer" class="">PURIS example</a> - If you release something unfinished or not released in standards, add a disclaimer.</li>
 </ul>]]></content:encoded>
             <category>community</category>
             <category>meeting-minutes</category>
@@ -114,30 +114,30 @@ It will remain in progress to track further information.</li>
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17</guid>
             <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-infrastructuretest-management">Update Infrastructure/Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-infrastructuretest-management" class="hash-link" aria-label="Direct link to Update Infrastructure/Test Management" title="Direct link to Update Infrastructure/Test Management" translate="no">​</a></h2>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-infrastructuretest-management">Update Infrastructure/Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-infrastructuretest-management" class="hash-link" aria-label="Direct link to Update Infrastructure/Test Management" title="Direct link to Update Infrastructure/Test Management" translate="no">​</a></h2>
 <ul>
-<li>Briefing meeting for the upcoming test phase is on Monday; invitations were sent out. If anyone was missed, invitations will be forwarded upon request.</li>
-<li>Scope: overview of the test phase (deployment, who joins, and key updates).</li>
-<li>Test phase start: 20 October.</li>
+<li class="">Briefing meeting for the upcoming test phase is on Monday; invitations were sent out. If anyone was missed, invitations will be forwarded upon request.</li>
+<li class="">Scope: overview of the test phase (deployment, who joins, and key updates).</li>
+<li class="">Test phase start: 20 October.</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-release-management">Update Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-release-management" class="hash-link" aria-label="Direct link to Update Release Management" title="Direct link to Update Release Management" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-release-management">Update Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-release-management" class="hash-link" aria-label="Direct link to Update Release Management" title="Direct link to Update Release Management" translate="no">​</a></h2>
 <ul>
-<li>Release Check issues must be created next week to confirm who joins or opts out of the test phase; reminders have been sent to previous participants.</li>
-<li>Feature freeze is approaching; merge necessary PRs, especially for core products, to enable testing.</li>
+<li class="">Release Check issues must be created next week to confirm who joins or opts out of the test phase; reminders have been sent to previous participants.</li>
+<li class="">Feature freeze is approaching; merge necessary PRs, especially for core products, to enable testing.</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-security">Update Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-security" class="hash-link" aria-label="Direct link to Update Security" title="Direct link to Update Security" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-security">Update Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-security" class="hash-link" aria-label="Direct link to Update Security" title="Direct link to Update Security" translate="no">​</a></h2>
 <ul>
-<li>Vulnerability identified in Python Keycloak-related dependency (PyPI package with no fixed version) causing Trivy workflow failures.</li>
-<li>Mitigation: use .trivyignore, include a review date, and document the waiver in the release issue.</li>
+<li class="">Vulnerability identified in Python Keycloak-related dependency (PyPI package with no fixed version) causing Trivy workflow failures.</li>
+<li class="">Mitigation: use .trivyignore, include a review date, and document the waiver in the release issue.</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-communityopen-planning">Update Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-communityopen-planning" class="hash-link" aria-label="Direct link to Update Community/Open Planning" title="Direct link to Update Community/Open Planning" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-communityopen-planning">Update Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-17#update-communityopen-planning" class="hash-link" aria-label="Direct link to Update Community/Open Planning" title="Direct link to Update Community/Open Planning" translate="no">​</a></h2>
 <ul>
-<li>News: blog entry for 26.03 is online (alignment day, open planning day). Open source participants should use the open meetings page.</li>
-<li>New committers: Theresa and Andrii approved; complete Eclipse Foundation paperwork.</li>
-<li>Community Days: registration open; workshop proposals and sponsors welcome.</li>
-<li>Container images: evaluating CloudPirates Helm Charts (Keycloak, Postgres, etc.) that wrap official Docker images; Eclipse feedback indicates Docker images are acceptable if referenced transparently.</li>
-<li>KITs coordination: new Matrix room created to align multi-dataspace development and onboarding; plan a weekly KITs office hour once processes are established.</li>
+<li class="">News: blog entry for 26.03 is online (alignment day, open planning day). Open source participants should use the open meetings page.</li>
+<li class="">New committers: Theresa and Andrii approved; complete Eclipse Foundation paperwork.</li>
+<li class="">Community Days: registration open; workshop proposals and sponsors welcome.</li>
+<li class="">Container images: evaluating CloudPirates Helm Charts (Keycloak, Postgres, etc.) that wrap official Docker images; Eclipse feedback indicates Docker images are acceptable if referenced transparently.</li>
+<li class="">KITs coordination: new Matrix room created to align multi-dataspace development and onboarding; plan a weekly KITs office hour once processes are established.</li>
 </ul>]]></content:encoded>
             <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
             <category>community</category>
@@ -149,68 +149,68 @@ It will remain in progress to track further information.</li>
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10</guid>
             <pubDate>Fri, 10 Oct 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-2512--participation-and-preparation">Release 25.12 – Participation and Preparation<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#release-2512--participation-and-preparation" class="hash-link" aria-label="Direct link to Release 25.12 – Participation and Preparation" title="Direct link to Release 25.12 – Participation and Preparation" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-2512--participation-and-preparation">Release 25.12 – Participation and Preparation<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#release-2512--participation-and-preparation" class="hash-link" aria-label="Direct link to Release 25.12 – Participation and Preparation" title="Direct link to Release 25.12 – Participation and Preparation" translate="no">​</a></h3>
 <ul>
-<li>All teams must create their <strong>release check issues</strong> in <code>sig-release</code> by <strong>latest next week</strong> to prepare for the briefing meeting.</li>
-<li>Connector participation in 25.12 is undecided; decision expected after Tuesday’s discussion.</li>
-<li>Even minimal releases (e.g., only bug fixes) should still raise a check issue.</li>
-<li>Test phase briefing → <strong>next week</strong>, kickoff → <strong>two weeks after briefing</strong>.</li>
+<li class="">All teams must create their <strong>release check issues</strong> in <code>sig-release</code> by <strong>latest next week</strong> to prepare for the briefing meeting.</li>
+<li class="">Connector participation in 25.12 is undecided; decision expected after Tuesday’s discussion.</li>
+<li class="">Even minimal releases (e.g., only bug fixes) should still raise a check issue.</li>
+<li class="">Test phase briefing → <strong>next week</strong>, kickoff → <strong>two weeks after briefing</strong>.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="changelog--documentation-changes">Changelog &amp; Documentation Changes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#changelog--documentation-changes" class="hash-link" aria-label="Direct link to Changelog &amp; Documentation Changes" title="Direct link to Changelog &amp; Documentation Changes" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="changelog--documentation-changes">Changelog &amp; Documentation Changes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#changelog--documentation-changes" class="hash-link" aria-label="Direct link to Changelog &amp; Documentation Changes" title="Direct link to Changelog &amp; Documentation Changes" translate="no">​</a></h3>
 <ul>
-<li><strong>DocuSaurus updated</strong> to <strong>v3.9.1</strong>.</li>
-<li>New <strong>changelog presentation</strong>: structured by year/release using DocuSaurus blog plugin.</li>
-<li>Added <strong>contributor/committer acknowledgements</strong> (from GitHub analytics).</li>
-<li>Archived kits now provided; possible change to <strong>single current zip package</strong> instead of multi-version archives (to be discussed in committer meeting).</li>
+<li class=""><strong>DocuSaurus updated</strong> to <strong>v3.9.1</strong>.</li>
+<li class="">New <strong>changelog presentation</strong>: structured by year/release using DocuSaurus blog plugin.</li>
+<li class="">Added <strong>contributor/committer acknowledgements</strong> (from GitHub analytics).</li>
+<li class="">Archived kits now provided; possible change to <strong>single current zip package</strong> instead of multi-version archives (to be discussed in committer meeting).</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="governance--repository-changes">Governance &amp; Repository Changes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#governance--repository-changes" class="hash-link" aria-label="Direct link to Governance &amp; Repository Changes" title="Direct link to Governance &amp; Repository Changes" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="governance--repository-changes">Governance &amp; Repository Changes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#governance--repository-changes" class="hash-link" aria-label="Direct link to Governance &amp; Repository Changes" title="Direct link to Governance &amp; Repository Changes" translate="no">​</a></h3>
 <ul>
-<li><em>Digital Product Passport</em> repository <strong>deprecated and archived</strong> per TRG rules.<!-- -->
+<li class=""><em>Digital Product Passport</em> repository <strong>deprecated and archived</strong> per TRG rules.<!-- -->
 <ul>
-<li>DPP verification docs → moved to Data Trust &amp; Security Kit.</li>
-<li>Full DPP documentation now lives in Ecopass.</li>
-<li>Tutorial relocated to <strong>Tutorial Resources</strong> (still migrating images).</li>
-</ul>
-</li>
-<li>Topic on centralising tutorials for <strong>Community Days</strong> still open.</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour--moderation-planning">Office Hour &amp; Moderation Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#office-hour--moderation-planning" class="hash-link" aria-label="Direct link to Office Hour &amp; Moderation Planning" title="Direct link to Office Hour &amp; Moderation Planning" translate="no">​</a></h3>
-<ul>
-<li>New <strong>round-robin schedule</strong>; participants to confirm dates in the shared discussion link.</li>
-<li>Some moderation slots reallocated due to vacations/conflicts.</li>
-<li>Check for a new series needed with beginning of next year</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="committer-elections">Committer Elections<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#committer-elections" class="hash-link" aria-label="Direct link to Committer Elections" title="Direct link to Committer Elections" translate="no">​</a></h3>
-<ul>
-<li><strong>Theresa</strong> nominated as committer (focus: release management).</li>
-<li>Election closing next Thursday; committers asked to vote.</li>
-<li>Andrii's PMC election pending next PMC Monday meeting.</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="community-days">Community Days<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#community-days" class="hash-link" aria-label="Direct link to Community Days" title="Direct link to Community Days" translate="no">​</a></h3>
-<ul>
-<li>Agenda still forming; workshops/presentations needed.</li>
-<li>Deadline for workshop confirmation: ideally within <strong>next 1–2 weeks</strong>, but minor changes possible up to event date.</li>
-<li>Semiconductor-X project may provide up to two workshops (cross-dataspace, traceability) depending on progress.</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-reminders">Security Reminders<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#security-reminders" class="hash-link" aria-label="Direct link to Security Reminders" title="Direct link to Security Reminders" translate="no">​</a></h3>
-<ul>
-<li>Teams must check and address <strong>security tab</strong> issues to avoid deprecation.</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="postgres-17-upgrade--image-source-problem">Postgres 17 Upgrade &amp; Image Source Problem<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#postgres-17-upgrade--image-source-problem" class="hash-link" aria-label="Direct link to Postgres 17 Upgrade &amp; Image Source Problem" title="Direct link to Postgres 17 Upgrade &amp; Image Source Problem" translate="no">​</a></h3>
-<ul>
-<li>25.09 used <strong>Bitnami Legacy</strong> images (last viable for that release).</li>
-<li>For 25.12+, <strong>Bitnami Legacy is not sustainable</strong> — need an alternative.</li>
-<li><strong>Options under consideration:</strong>
-<ul>
-<li>Official Docker Hub Postgres images (license implications to check).</li>
-<li><strong>Cloud Pirates</strong> Helm charts/images (to evaluate; may wrap Docker Hub Postgres).</li>
-<li>Hosting our own images (currently no team capacity).</li>
+<li class="">DPP verification docs → moved to Data Trust &amp; Security Kit.</li>
+<li class="">Full DPP documentation now lives in Ecopass.</li>
+<li class="">Tutorial relocated to <strong>Tutorial Resources</strong> (still migrating images).</li>
 </ul>
 </li>
-<li><strong>Eclipse Foundation guidance</strong>: use Bitnami Legacy for Sept release, <em>evaluate</em> Cloud Pirates for next.</li>
-<li><strong>Action</strong>: Committers to research viable alternatives and check licensing with Eclipse Legal (possibly via Angelika).</li>
-<li>Decision deferred to <strong>Committer Round</strong>.</li>
+<li class="">Topic on centralising tutorials for <strong>Community Days</strong> still open.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour--moderation-planning">Office Hour &amp; Moderation Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#office-hour--moderation-planning" class="hash-link" aria-label="Direct link to Office Hour &amp; Moderation Planning" title="Direct link to Office Hour &amp; Moderation Planning" translate="no">​</a></h3>
+<ul>
+<li class="">New <strong>round-robin schedule</strong>; participants to confirm dates in the shared discussion link.</li>
+<li class="">Some moderation slots reallocated due to vacations/conflicts.</li>
+<li class="">Check for a new series needed with beginning of next year</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="committer-elections">Committer Elections<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#committer-elections" class="hash-link" aria-label="Direct link to Committer Elections" title="Direct link to Committer Elections" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Theresa</strong> nominated as committer (focus: release management).</li>
+<li class="">Election closing next Thursday; committers asked to vote.</li>
+<li class="">Andrii's PMC election pending next PMC Monday meeting.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-days">Community Days<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#community-days" class="hash-link" aria-label="Direct link to Community Days" title="Direct link to Community Days" translate="no">​</a></h3>
+<ul>
+<li class="">Agenda still forming; workshops/presentations needed.</li>
+<li class="">Deadline for workshop confirmation: ideally within <strong>next 1–2 weeks</strong>, but minor changes possible up to event date.</li>
+<li class="">Semiconductor-X project may provide up to two workshops (cross-dataspace, traceability) depending on progress.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-reminders">Security Reminders<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#security-reminders" class="hash-link" aria-label="Direct link to Security Reminders" title="Direct link to Security Reminders" translate="no">​</a></h3>
+<ul>
+<li class="">Teams must check and address <strong>security tab</strong> issues to avoid deprecation.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="postgres-17-upgrade--image-source-problem">Postgres 17 Upgrade &amp; Image Source Problem<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-10-10#postgres-17-upgrade--image-source-problem" class="hash-link" aria-label="Direct link to Postgres 17 Upgrade &amp; Image Source Problem" title="Direct link to Postgres 17 Upgrade &amp; Image Source Problem" translate="no">​</a></h3>
+<ul>
+<li class="">25.09 used <strong>Bitnami Legacy</strong> images (last viable for that release).</li>
+<li class="">For 25.12+, <strong>Bitnami Legacy is not sustainable</strong> — need an alternative.</li>
+<li class=""><strong>Options under consideration:</strong>
+<ul>
+<li class="">Official Docker Hub Postgres images (license implications to check).</li>
+<li class=""><strong>Cloud Pirates</strong> Helm charts/images (to evaluate; may wrap Docker Hub Postgres).</li>
+<li class="">Hosting our own images (currently no team capacity).</li>
+</ul>
+</li>
+<li class=""><strong>Eclipse Foundation guidance</strong>: use Bitnami Legacy for Sept release, <em>evaluate</em> Cloud Pirates for next.</li>
+<li class=""><strong>Action</strong>: Committers to research viable alternatives and check licensing with Eclipse Legal (possibly via Angelika).</li>
+<li class="">Decision deferred to <strong>Committer Round</strong>.</li>
 </ul>]]></content:encoded>
             <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
             <category>community</category>
@@ -222,59 +222,59 @@ It will remain in progress to track further information.</li>
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26</guid>
             <pubDate>Fri, 26 Sep 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure-test-management">Infrastructure Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#infrastructure-test-management" class="hash-link" aria-label="Direct link to Infrastructure Test Management" title="Direct link to Infrastructure Test Management" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure-test-management">Infrastructure Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#infrastructure-test-management" class="hash-link" aria-label="Direct link to Infrastructure Test Management" title="Direct link to Infrastructure Test Management" translate="no">​</a></h3>
 <ul>
-<li><strong>GNI X-Ray Test Sessions</strong>:<br>
+<li class=""><strong>GNI X-Ray Test Sessions</strong>:<br>
 <!-- -->2 sessions held; no active registrations.<br>
 <!-- -->Keep status <em>in progress</em> for potential October session.</li>
-<li><strong>External Product Test Phase</strong>:<br>
+<li class=""><strong>External Product Test Phase</strong>:<br>
 <!-- -->Release Candidate 3 published by Lars &amp; team; some issues remain.<br>
 <!-- -->Next evaluation meeting on Tuesday.<br>
 <!-- -->Confirmed: Catena-X <strong>does not</strong> provide dedicated dev environments — teams are responsible for their own.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
 <ul>
-<li>Release postponed; target Tuesday/Wednesday.</li>
-<li><strong>Preparation</strong>:<!-- -->
+<li class="">Release postponed; target Tuesday/Wednesday.</li>
+<li class=""><strong>Preparation</strong>:<!-- -->
 <ul>
-<li>Change logs ready for review (Teresa prepared initial version).</li>
-<li>Need contributions for <em>Known Issues</em> and <em>product-specific notes</em> (e.g. BPDM, Connector).</li>
+<li class="">Change logs ready for review (Teresa prepared initial version).</li>
+<li class="">Need contributions for <em>Known Issues</em> and <em>product-specific notes</em> (e.g. BPDM, Connector).</li>
 </ul>
 </li>
-<li><strong>Screenshots in Release Notes</strong>: Discuss post-release.</li>
-<li><strong>Changelog Improvement Idea</strong>: Block-format inspired by <em>Docusaurus</em> for better presentation.</li>
+<li class=""><strong>Screenshots in Release Notes</strong>: Discuss post-release.</li>
+<li class=""><strong>Changelog Improvement Idea</strong>: Block-format inspired by <em>Docusaurus</em> for better presentation.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
 <ul>
-<li>Reminder: Check the security tab regularly.</li>
-<li>Deprecation of "Digital Product as Repository of Surveillance" planned next week.</li>
-<li>Plan to migrate VP visualization to <em>Industry Core</em>.</li>
+<li class="">Reminder: Check the security tab regularly.</li>
+<li class="">Deprecation of "Digital Product as Repository of Surveillance" planned next week.</li>
+<li class="">Plan to migrate VP visualization to <em>Industry Core</em>.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="community--events">Community &amp; Events<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#community--events" class="hash-link" aria-label="Direct link to Community &amp; Events" title="Direct link to Community &amp; Events" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="community--events">Community &amp; Events<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#community--events" class="hash-link" aria-label="Direct link to Community &amp; Events" title="Direct link to Community &amp; Events" translate="no">​</a></h3>
 <ul>
-<li><strong>Catena-X Community Days</strong> (End of December): Registration open.<!-- -->
+<li class=""><strong>Catena-X Community Days</strong> (End of December): Registration open.<!-- -->
 <ul>
-<li>New field to list products you contributed to.</li>
-<li>Multiple select option fixed.</li>
-<li>Booking changes may require cancel/re-register.</li>
+<li class="">New field to list products you contributed to.</li>
+<li class="">Multiple select option fixed.</li>
+<li class="">Booking changes may require cancel/re-register.</li>
 </ul>
 </li>
-<li>Call for workshop leaders/presenters.</li>
-<li>New “Community Events” room created for event promotion and discussions.</li>
+<li class="">Call for workshop leaders/presenters.</li>
+<li class="">New “Community Events” room created for event promotion and discussions.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="committer-election">Committer Election<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#committer-election" class="hash-link" aria-label="Direct link to Committer Election" title="Direct link to Committer Election" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="committer-election">Committer Election<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#committer-election" class="hash-link" aria-label="Direct link to Committer Election" title="Direct link to Committer Election" translate="no">​</a></h3>
 <ul>
-<li><strong>Andrii</strong> proposed as new committer — key contributions on EDC component, DSP/DCP TCK, release process improvements.</li>
+<li class=""><strong>Andrii</strong> proposed as new committer — key contributions on EDC component, DSP/DCP TCK, release process improvements.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="general-reminders">General Reminders<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#general-reminders" class="hash-link" aria-label="Direct link to General Reminders" title="Direct link to General Reminders" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="general-reminders">General Reminders<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#general-reminders" class="hash-link" aria-label="Direct link to General Reminders" title="Direct link to General Reminders" translate="no">​</a></h3>
 <ul>
-<li>Moderation list update needed (René added).</li>
-<li>No office hour next week due to public holiday in Germany.</li>
+<li class="">Moderation list update needed (René added).</li>
+<li class="">No office hour next week due to public holiday in Germany.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="github-fork-access-clarification">GitHub Fork Access Clarification<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#github-fork-access-clarification" class="hash-link" aria-label="Direct link to GitHub Fork Access Clarification" title="Direct link to GitHub Fork Access Clarification" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="github-fork-access-clarification">GitHub Fork Access Clarification<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-09-26#github-fork-access-clarification" class="hash-link" aria-label="Direct link to GitHub Fork Access Clarification" title="Direct link to GitHub Fork Access Clarification" translate="no">​</a></h3>
 <ul>
-<li>Forks in <em>private accounts</em> do <strong>not</strong> inherit original repo’s write access.<br>
+<li class="">Forks in <em>private accounts</em> do <strong>not</strong> inherit original repo’s write access.<br>
 <!-- -->Owner must explicitly grant rights.<br>
 <!-- -->Public forks: read-only access by default.</li>
 </ul>]]></content:encoded>
@@ -288,94 +288,94 @@ It will remain in progress to track further information.</li>
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08</guid>
             <pubDate>Fri, 08 Aug 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="update-infrastructuretest-management">Update Infrastructure/Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#update-infrastructuretest-management" class="hash-link" aria-label="Direct link to Update Infrastructure/Test Management" title="Direct link to Update Infrastructure/Test Management" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-infrastructuretest-management">Update Infrastructure/Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#update-infrastructuretest-management" class="hash-link" aria-label="Direct link to Update Infrastructure/Test Management" title="Direct link to Update Infrastructure/Test Management" translate="no">​</a></h3>
 <ul>
-<li>
+<li class="">
 <p><strong>Bitnami Image Dependency</strong></p>
 <ul>
-<li>Bitnami container images (e.g., Keycloak, Postgres) are moving behind a paywall; legacy images will be deprecated and not maintained.</li>
-<li>Security risks for future releases if legacy images are used.</li>
-<li>Eclipse Foundation and other users are also affected; no immediate action required, but migration planning is needed.</li>
+<li class="">Bitnami container images (e.g., Keycloak, Postgres) are moving behind a paywall; legacy images will be deprecated and not maintained.</li>
+<li class="">Security risks for future releases if legacy images are used.</li>
+<li class="">Eclipse Foundation and other users are also affected; no immediate action required, but migration planning is needed.</li>
 </ul>
 </li>
-<li>
+<li class="">
 <p><strong>Repository Naming &amp; Creation Guidelines</strong></p>
 <ul>
-<li>No strict naming convention; guidelines to be documented on the website.</li>
-<li>Requirement: At least one ticket in SIG release, compliance with TRGs, and proper documentation (README, license).</li>
-<li><strong>Action:</strong> Present new repository requests in office hour; contributors to be added and approved.</li>
+<li class="">No strict naming convention; guidelines to be documented on the website.</li>
+<li class="">Requirement: At least one ticket in SIG release, compliance with TRGs, and proper documentation (README, license).</li>
+<li class=""><strong>Action:</strong> Present new repository requests in office hour; contributors to be added and approved.</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="update-release-management">Update Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#update-release-management" class="hash-link" aria-label="Direct link to Update Release Management" title="Direct link to Update Release Management" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-release-management">Update Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#update-release-management" class="hash-link" aria-label="Direct link to Update Release Management" title="Direct link to Update Release Management" translate="no">​</a></h3>
 <ul>
-<li>
+<li class="">
 <p><strong>Release &amp; Test Phase Updates</strong></p>
 <ul>
-<li>EDC 0.11 release candidate delayed by one week due to upstream issues.</li>
-<li>Products using EDC will start testing one week later; other products should stick to the initial plan.</li>
-<li>Tight timeline for release; last week reserved for bug fixes.</li>
+<li class="">EDC 0.11 release candidate delayed by one week due to upstream issues.</li>
+<li class="">Products using EDC will start testing one week later; other products should stick to the initial plan.</li>
+<li class="">Tight timeline for release; last week reserved for bug fixes.</li>
 </ul>
 </li>
-<li>
+<li class="">
 <p><strong>Feature Planning for Release 25.12</strong></p>
 <ul>
-<li>Open planning session scheduled for August 14th.</li>
-<li>Teams must refine features and inform needed teams/contributors before the session.</li>
+<li class="">Open planning session scheduled for August 14th.</li>
+<li class="">Teams must refine features and inform needed teams/contributors before the session.</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="update-security">Update Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#update-security" class="hash-link" aria-label="Direct link to Update Security" title="Direct link to Update Security" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-security">Update Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#update-security" class="hash-link" aria-label="Direct link to Update Security" title="Direct link to Update Security" translate="no">​</a></h3>
 <ul>
-<li><strong>Security Responsibilities</strong>
+<li class=""><strong>Security Responsibilities</strong>
 <ul>
-<li>Teams are responsible for addressing security vulnerabilities in their releases.</li>
-<li>Eclipse Foundation will support major issues but responsibility remains with the product teams (related committer).</li>
+<li class="">Teams are responsible for addressing security vulnerabilities in their releases.</li>
+<li class="">Eclipse Foundation will support major issues but responsibility remains with the product teams (related committer).</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="update-foss-governance">Update FOSS Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#update-foss-governance" class="hash-link" aria-label="Direct link to Update FOSS Governance" title="Direct link to Update FOSS Governance" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-foss-governance">Update FOSS Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#update-foss-governance" class="hash-link" aria-label="Direct link to Update FOSS Governance" title="Direct link to Update FOSS Governance" translate="no">​</a></h3>
 <ul>
-<li>
+<li class="">
 <p><strong>API Versioning Discussion</strong></p>
 <ul>
-<li>Debate on enforcing API versioning (e.g., v2, v3 in URLs).</li>
-<li>Previous decision: Recommend but not mandate versioning; no TRG (Technical Release Guideline) enforced.</li>
-<li>Open for further discussion in the committer round.</li>
+<li class="">Debate on enforcing API versioning (e.g., v2, v3 in URLs).</li>
+<li class="">Previous decision: Recommend but not mandate versioning; no TRG (Technical Release Guideline) enforced.</li>
+<li class="">Open for further discussion in the committer round.</li>
 </ul>
 </li>
-<li>
+<li class="">
 <p><strong>Project Description &amp; Initiative Listing</strong></p>
 <ul>
-<li>Updated project descriptions to include Manufacturing-X and clarify scope.</li>
-<li>Initiatives must contribute back to Tractus-X to be listed.</li>
+<li class="">Updated project descriptions to include Manufacturing-X and clarify scope.</li>
+<li class="">Initiatives must contribute back to Tractus-X to be listed.</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="update-communityopen-planning">Update Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#update-communityopen-planning" class="hash-link" aria-label="Direct link to Update Community/Open Planning" title="Direct link to Update Community/Open Planning" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="update-communityopen-planning">Update Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#update-communityopen-planning" class="hash-link" aria-label="Direct link to Update Community/Open Planning" title="Direct link to Update Community/Open Planning" translate="no">​</a></h3>
 <ul>
-<li>
+<li class="">
 <p><strong>Community Day Announcement</strong></p>
 <ul>
-<li>Community Day planned for December; registration opens in September.</li>
-<li>Manufacturing-X initiatives invited to host workshops and demos.</li>
+<li class="">Community Day planned for December; registration opens in September.</li>
+<li class="">Manufacturing-X initiatives invited to host workshops and demos.</li>
 </ul>
 </li>
-<li>
+<li class="">
 <p><strong>Tutorials &amp; Identity Hub</strong></p>
 <ul>
-<li>New tutorial released for Identity Hub deployment and development.</li>
-<li>Intended for demonstration and proof-of-concept, not production use.</li>
+<li class="">New tutorial released for Identity Hub deployment and development.</li>
+<li class="">Intended for demonstration and proof-of-concept, not production use.</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedback--question--request">Feedback / Question / Request<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#feedback--question--request" class="hash-link" aria-label="Direct link to Feedback / Question / Request" title="Direct link to Feedback / Question / Request" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback--question--request">Feedback / Question / Request<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-08-08#feedback--question--request" class="hash-link" aria-label="Direct link to Feedback / Question / Request" title="Direct link to Feedback / Question / Request" translate="no">​</a></h3>
 <ul>
-<li><strong>New Initiatives &amp; Collaboration</strong>
+<li class=""><strong>New Initiatives &amp; Collaboration</strong>
 <ul>
-<li>Wind-X collaboration: Plan to create a Python SDK for asset administration shell, combining existing SDKs for broader API support.</li>
-<li>Open invitation for contributors from other initiatives (e.g., FactoryX, Semi, Energy Data X).</li>
+<li class="">Wind-X collaboration: Plan to create a Python SDK for asset administration shell, combining existing SDKs for broader API support.</li>
+<li class="">Open invitation for contributors from other initiatives (e.g., FactoryX, Semi, Energy Data X).</li>
 </ul>
 </li>
 </ul>]]></content:encoded>
@@ -388,44 +388,44 @@ It will remain in progress to track further information.</li>
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11</guid>
             <pubDate>Fri, 11 Jul 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure--test-management">Infrastructure &amp; Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#infrastructure--test-management" class="hash-link" aria-label="Direct link to Infrastructure &amp; Test Management" title="Direct link to Infrastructure &amp; Test Management" translate="no">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="management--progress-updates">Management &amp; Progress Updates<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#management--progress-updates" class="hash-link" aria-label="Direct link to Management &amp; Progress Updates" title="Direct link to Management &amp; Progress Updates" translate="no">​</a></h4>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure--test-management">Infrastructure &amp; Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#infrastructure--test-management" class="hash-link" aria-label="Direct link to Infrastructure &amp; Test Management" title="Direct link to Infrastructure &amp; Test Management" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="management--progress-updates">Management &amp; Progress Updates<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#management--progress-updates" class="hash-link" aria-label="Direct link to Management &amp; Progress Updates" title="Direct link to Management &amp; Progress Updates" translate="no">​</a></h4>
 <ul>
-<li>Recent development tasks were completed, including resolving rate limit issues.</li>
-<li>Teams are reminded to create release check issues for the upcoming major release, including mapping features to test cases and noting responsible committers.</li>
+<li class="">Recent development tasks were completed, including resolving rate limit issues.</li>
+<li class="">Teams are reminded to create release check issues for the upcoming major release, including mapping features to test cases and noting responsible committers.</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="environment-reset-for-testing">Environment Reset for Testing<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#environment-reset-for-testing" class="hash-link" aria-label="Direct link to Environment Reset for Testing" title="Direct link to Environment Reset for Testing" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="environment-reset-for-testing">Environment Reset for Testing<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#environment-reset-for-testing" class="hash-link" aria-label="Direct link to Environment Reset for Testing" title="Direct link to Environment Reset for Testing" translate="no">​</a></h4>
 <ul>
-<li>Discussion on whether a reset of the test environment (25.09) is needed for a clean slate.</li>
-<li>No strong need identified; decision deferred to the next portal meeting for further input.</li>
+<li class="">Discussion on whether a reset of the test environment (25.09) is needed for a clean slate.</li>
+<li class="">No strong need identified; decision deferred to the next portal meeting for further input.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="timeline-review">Timeline Review<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#timeline-review" class="hash-link" aria-label="Direct link to Timeline Review" title="Direct link to Timeline Review" translate="no">​</a></h4>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="timeline-review">Timeline Review<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#timeline-review" class="hash-link" aria-label="Direct link to Timeline Review" title="Direct link to Timeline Review" translate="no">​</a></h4>
 <ul>
-<li>Timeline for upcoming releases (25.12 and beyond) was reviewed.</li>
-<li>Alignment and open planning days are scheduled; some concerns about holiday overlaps, but dates are fixed due to release dependencies.</li>
+<li class="">Timeline for upcoming releases (25.12 and beyond) was reviewed.</li>
+<li class="">Alignment and open planning days are scheduled; some concerns about holiday overlaps, but dates are fixed due to release dependencies.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security--governance">Security &amp; Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#security--governance" class="hash-link" aria-label="Direct link to Security &amp; Governance" title="Direct link to Security &amp; Governance" translate="no">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h4>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security--governance">Security &amp; Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#security--governance" class="hash-link" aria-label="Direct link to Security &amp; Governance" title="Direct link to Security &amp; Governance" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h4>
 <ul>
-<li>Reminder to update the security tab and deprecate outdated repositories post-release for security reasons.</li>
-<li>Ongoing process to review and close out old (not maintained) repositories.</li>
+<li class="">Reminder to update the security tab and deprecate outdated repositories post-release for security reasons.</li>
+<li class="">Ongoing process to review and close out old (not maintained) repositories.</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="foss-governance">FOSS Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#foss-governance" class="hash-link" aria-label="Direct link to FOSS Governance" title="Direct link to FOSS Governance" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss-governance">FOSS Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#foss-governance" class="hash-link" aria-label="Direct link to FOSS Governance" title="Direct link to FOSS Governance" translate="no">​</a></h4>
 <ul>
-<li>Ongoing review of the "one license file per folder" policy; to be discussed in the next committee meeting.</li>
-<li>Decision: No notice section required for blogs, news, or meeting minutes; required for other documents.</li>
-<li>Discussion on maintaining and updating changelogs for TRGs (Technical Reference Guides).</li>
-<li>Reminder to update API versions in the API hub and ensure .tractusX files are properly tagged.</li>
-<li>Emphasis on maintaining quality and consistency across KITs and APIs.</li>
+<li class="">Ongoing review of the "one license file per folder" policy; to be discussed in the next committee meeting.</li>
+<li class="">Decision: No notice section required for blogs, news, or meeting minutes; required for other documents.</li>
+<li class="">Discussion on maintaining and updating changelogs for TRGs (Technical Reference Guides).</li>
+<li class="">Reminder to update API versions in the API hub and ensure .tractusX files are properly tagged.</li>
+<li class="">Emphasis on maintaining quality and consistency across KITs and APIs.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="community--events">Community &amp; Events<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#community--events" class="hash-link" aria-label="Direct link to Community &amp; Events" title="Direct link to Community &amp; Events" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="community--events">Community &amp; Events<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-11#community--events" class="hash-link" aria-label="Direct link to Community &amp; Events" title="Direct link to Community &amp; Events" translate="no">​</a></h3>
 <ul>
-<li>Recap of successful French Catena-X Days in Paris, including workshops and presentations.</li>
-<li>Ongoing search for contributors with wallet/identity hub experience; open meetings scheduled weekly.</li>
-<li>Presentation of Tractus-X to the Eclipse Data Space Working Group (EDWG) and discussion about associating the project with ADBG for increased visibility and marketing.</li>
-<li>Farewell to Evelyn, with best wishes from the team.</li>
+<li class="">Recap of successful French Catena-X Days in Paris, including workshops and presentations.</li>
+<li class="">Ongoing search for contributors with wallet/identity hub experience; open meetings scheduled weekly.</li>
+<li class="">Presentation of Tractus-X to the Eclipse Data Space Working Group (EDWG) and discussion about associating the project with ADBG for increased visibility and marketing.</li>
+<li class="">Farewell to Evelyn, with best wishes from the team.</li>
 </ul>]]></content:encoded>
             <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
             <category>community</category>
@@ -437,72 +437,72 @@ It will remain in progress to track further information.</li>
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04</guid>
             <pubDate>Fri, 04 Jul 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure--test-management">Infrastructure &amp; Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#infrastructure--test-management" class="hash-link" aria-label="Direct link to Infrastructure &amp; Test Management" title="Direct link to Infrastructure &amp; Test Management" translate="no">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="release-roadmap">Release Roadmap<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#release-roadmap" class="hash-link" aria-label="Direct link to Release Roadmap" title="Direct link to Release Roadmap" translate="no">​</a></h4>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure--test-management">Infrastructure &amp; Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#infrastructure--test-management" class="hash-link" aria-label="Direct link to Infrastructure &amp; Test Management" title="Direct link to Infrastructure &amp; Test Management" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-roadmap">Release Roadmap<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#release-roadmap" class="hash-link" aria-label="Direct link to Release Roadmap" title="Direct link to Release Roadmap" translate="no">​</a></h4>
 <ul>
-<li>25.09 release is in testing; 25.12 is upcoming.</li>
-<li>Teams must create and fill out release check issues, including responsible contacts, app versions, and feature lists. This must be done for both, KITs and FOSS Products.</li>
-<li>Quality gate checks should be created and linked early.</li>
-<li>Products not part of the release should be communicated.</li>
+<li class="">25.09 release is in testing; 25.12 is upcoming.</li>
+<li class="">Teams must create and fill out release check issues, including responsible contacts, app versions, and feature lists. This must be done for both, KITs and FOSS Products.</li>
+<li class="">Quality gate checks should be created and linked early.</li>
+<li class="">Products not part of the release should be communicated.</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="kubernetes-update">Kubernetes Update<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#kubernetes-update" class="hash-link" aria-label="Direct link to Kubernetes Update" title="Direct link to Kubernetes Update" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="kubernetes-update">Kubernetes Update<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#kubernetes-update" class="hash-link" aria-label="Direct link to Kubernetes Update" title="Direct link to Kubernetes Update" translate="no">​</a></h4>
 <ul>
-<li>Core cluster update started; end environment update scheduled (1–5 PM).</li>
-<li>Upgrading to version 1.33.0 (from 1.28/1.29).</li>
-<li>Teams should consider the new version in their release checks.</li>
+<li class="">Core cluster update started; end environment update scheduled (1–5 PM).</li>
+<li class="">Upgrading to version 1.33.0 (from 1.28/1.29).</li>
+<li class="">Teams should consider the new version in their release checks.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="timeline-review">Timeline Review<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#timeline-review" class="hash-link" aria-label="Direct link to Timeline Review" title="Direct link to Timeline Review" translate="no">​</a></h4>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="timeline-review">Timeline Review<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#timeline-review" class="hash-link" aria-label="Direct link to Timeline Review" title="Direct link to Timeline Review" translate="no">​</a></h4>
 <ul>
-<li>R25.09: Currently in development and test case creation phase. Deadline for KIT readiness: August 18.</li>
-<li>R25.12: Briefing meeting for testing in July; each team should send at least one representative.</li>
-<li>Open source community encouraged to contribute to "KITs" (documentation/tooling packages).</li>
-<li>Discussion on deadlines for KIT PRs—suggestion to focus on merge deadlines rather than initial PRs.</li>
+<li class="">R25.09: Currently in development and test case creation phase. Deadline for KIT readiness: August 18.</li>
+<li class="">R25.12: Briefing meeting for testing in July; each team should send at least one representative.</li>
+<li class="">Open source community encouraged to contribute to "KITs" (documentation/tooling packages).</li>
+<li class="">Discussion on deadlines for KIT PRs—suggestion to focus on merge deadlines rather than initial PRs.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="kit-management">KIT Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#kit-management" class="hash-link" aria-label="Direct link to KIT Management" title="Direct link to KIT Management" translate="no">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="versioning--changelog">Versioning &amp; Changelog<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#versioning--changelog" class="hash-link" aria-label="Direct link to Versioning &amp; Changelog" title="Direct link to Versioning &amp; Changelog" translate="no">​</a></h4>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="kit-management">KIT Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#kit-management" class="hash-link" aria-label="Direct link to KIT Management" title="Direct link to KIT Management" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="versioning--changelog">Versioning &amp; Changelog<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#versioning--changelog" class="hash-link" aria-label="Direct link to Versioning &amp; Changelog" title="Direct link to Versioning &amp; Changelog" translate="no">​</a></h4>
 <ul>
-<li>Maintain changelogs in every request.</li>
-<li>Avoid last-minute KIT changes; contribute early to prevent release delays.</li>
-<li>Release check issues for KITs are still required and tracked on the release management board.</li>
+<li class="">Maintain changelogs in every request.</li>
+<li class="">Avoid last-minute KIT changes; contribute early to prevent release delays.</li>
+<li class="">Release check issues for KITs are still required and tracked on the release management board.</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="refinement-phase-for-2512">Refinement Phase for 25.12<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#refinement-phase-for-2512" class="hash-link" aria-label="Direct link to Refinement Phase for 25.12" title="Direct link to Refinement Phase for 25.12" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="refinement-phase-for-2512">Refinement Phase for 25.12<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#refinement-phase-for-2512" class="hash-link" aria-label="Direct link to Refinement Phase for 25.12" title="Direct link to Refinement Phase for 25.12" translate="no">​</a></h4>
 <ul>
-<li>Teams can already create features for the next release.</li>
-<li>Upcoming "Alignment Day" for cross-team coordination.</li>
+<li class="">Teams can already create features for the next release.</li>
+<li class="">Upcoming "Alignment Day" for cross-team coordination.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security--governance">Security &amp; Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#security--governance" class="hash-link" aria-label="Direct link to Security &amp; Governance" title="Direct link to Security &amp; Governance" translate="no">​</a></h3>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h4>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security--governance">Security &amp; Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#security--governance" class="hash-link" aria-label="Direct link to Security &amp; Governance" title="Direct link to Security &amp; Governance" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h4>
 <ul>
-<li>Reminder to use the security tab and available tools (e.g., Snyk) to address critical/high findings.</li>
-<li>Contributors should consult committers for access.</li>
+<li class="">Reminder to use the security tab and available tools (e.g., Snyk) to address critical/high findings.</li>
+<li class="">Contributors should consult committers for access.</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="foss-governance">FOSS Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#foss-governance" class="hash-link" aria-label="Direct link to FOSS Governance" title="Direct link to FOSS Governance" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss-governance">FOSS Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#foss-governance" class="hash-link" aria-label="Direct link to FOSS Governance" title="Direct link to FOSS Governance" translate="no">​</a></h4>
 <ul>
-<li>TRGs (Technical Reference Guidelines) 7.XX, 7.XX, 7.XX updated; 7.XX to be deprecated. Improved handling of license/copyright information, especially for images and non-code artifacts. Find details in the PR.</li>
-<li>Reminders<!-- -->
+<li class="">TRGs (Technical Reference Guidelines) 7.XX, 7.XX, 7.XX updated; 7.XX to be deprecated. Improved handling of license/copyright information, especially for images and non-code artifacts. Find details in the PR.</li>
+<li class="">Reminders<!-- -->
 <ul>
-<li>Markdown files must include a notice section; code files require license headers.</li>
-<li>Reviewers should enforce these requirements.</li>
-<li>Discussion on imported notice sections and license mismatches. Not recommended</li>
+<li class="">Markdown files must include a notice section; code files require license headers.</li>
+<li class="">Reviewers should enforce these requirements.</li>
+<li class="">Discussion on imported notice sections and license mismatches. Not recommended</li>
 </ul>
 </li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="community--events">Community &amp; Events<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#community--events" class="hash-link" aria-label="Direct link to Community &amp; Events" title="Direct link to Community &amp; Events" translate="no">​</a></h2>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="tractus-x-promotion-at-catena-x-tech-days-france">Tractus-X Promotion at Catena-X Tech Days (France)<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#tractus-x-promotion-at-catena-x-tech-days-france" class="hash-link" aria-label="Direct link to Tractus-X Promotion at Catena-X Tech Days (France)" title="Direct link to Tractus-X Promotion at Catena-X Tech Days (France)" translate="no">​</a></h4>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="community--events">Community &amp; Events<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#community--events" class="hash-link" aria-label="Direct link to Community &amp; Events" title="Direct link to Community &amp; Events" translate="no">​</a></h2>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="tractus-x-promotion-at-catena-x-tech-days-france">Tractus-X Promotion at Catena-X Tech Days (France)<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#tractus-x-promotion-at-catena-x-tech-days-france" class="hash-link" aria-label="Direct link to Tractus-X Promotion at Catena-X Tech Days (France)" title="Direct link to Tractus-X Promotion at Catena-X Tech Days (France)" translate="no">​</a></h4>
 <ul>
-<li>Event on July 9; open invitation to join and help build the French community.</li>
-<li>Announcement posted to the mailing list. <a href="https://lnk.pmlta-etaa-0.ovh/vfSCGvsjapuJ7rWB6s3PiRjUA/108111105114101064103097108105097046099111109/m72j31200547/versionWeb.html" target="_blank" rel="noopener noreferrer">Link to event</a>.</li>
+<li class="">Event on July 9; open invitation to join and help build the French community.</li>
+<li class="">Announcement posted to the mailing list. <a href="https://lnk.pmlta-etaa-0.ovh/vfSCGvsjapuJ7rWB6s3PiRjUA/108111105114101064103097108105097046099111109/m72j31200547/versionWeb.html" target="_blank" rel="noopener noreferrer" class="">Link to event</a>.</li>
 </ul>
-<h4 class="anchor anchorWithStickyNavbar_LWe7" id="mailing-list-etiquette">Mailing List Etiquette<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#mailing-list-etiquette" class="hash-link" aria-label="Direct link to Mailing List Etiquette" title="Direct link to Mailing List Etiquette" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="mailing-list-etiquette">Mailing List Etiquette<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#mailing-list-etiquette" class="hash-link" aria-label="Direct link to Mailing List Etiquette" title="Direct link to Mailing List Etiquette" translate="no">​</a></h4>
 <ul>
-<li>Replies and reactions to mailing list messages notify all members; use with consideration.</li>
+<li class="">Replies and reactions to mailing list messages notify all members; use with consideration.</li>
 </ul>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-discussion--qa">Open Discussion &amp; Q&amp;A<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#open-discussion--qa" class="hash-link" aria-label="Direct link to Open Discussion &amp; Q&amp;A" title="Direct link to Open Discussion &amp; Q&amp;A" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-discussion--qa">Open Discussion &amp; Q&amp;A<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-07-04#open-discussion--qa" class="hash-link" aria-label="Direct link to Open Discussion &amp; Q&amp;A" title="Direct link to Open Discussion &amp; Q&amp;A" translate="no">​</a></h2>
 <ul>
-<li>Issuer service deprecated; functionality moved to Identity Hub.</li>
-<li>Call for developers with Identity Hub experience.</li>
+<li class="">Issuer service deprecated; functionality moved to Identity Hub.</li>
+<li class="">Call for developers with Identity Hub experience.</li>
 </ul>]]></content:encoded>
             <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
             <category>community</category>
@@ -514,41 +514,41 @@ It will remain in progress to track further information.</li>
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16</guid>
             <pubDate>Fri, 16 May 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
 <ul>
-<li>no topics</li>
+<li class="">no topics</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
 <p>Topics discussed:</p>
 <ul>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=90829785" target="_blank" rel="noopener noreferrer">Release Timelines</a></li>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=108826043" target="_blank" rel="noopener noreferrer">Recap Open Planning Day</a></li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=90829785" target="_blank" rel="noopener noreferrer" class="">Release Timelines</a></li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=108826043" target="_blank" rel="noopener noreferrer" class="">Recap Open Planning Day</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
 <p>Topics discussed:</p>
 <ul>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=94135509" target="_blank" rel="noopener noreferrer">Regular Reminder Committers: Please check the security tab!</a></li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=94135509" target="_blank" rel="noopener noreferrer" class="">Regular Reminder Committers: Please check the security tab!</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
 <p>Topics discussed:</p>
 <ul>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=108825769" target="_blank" rel="noopener noreferrer">automate dash + review</a></li>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=110989602" target="_blank" rel="noopener noreferrer">github.io 3rd party check only on chnage "package.json"</a></li>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=110989919" target="_blank" rel="noopener noreferrer">api-hub "needs an update"</a></li>
-<li><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues/1270" target="_blank" rel="noopener noreferrer">One license file per folder</a></li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=108825769" target="_blank" rel="noopener noreferrer" class="">automate dash + review</a></li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=110989602" target="_blank" rel="noopener noreferrer" class="">github.io 3rd party check only on chnage "package.json"</a></li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=110989919" target="_blank" rel="noopener noreferrer" class="">api-hub "needs an update"</a></li>
+<li class=""><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues/1270" target="_blank" rel="noopener noreferrer" class="">One license file per folder</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
 <p>Topics discussed:</p>
 <ul>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=89996915" target="_blank" rel="noopener noreferrer">NEXT COMM DAYS IN MAY!!!! 22.05-23.05!!!</a></li>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=110990432" target="_blank" rel="noopener noreferrer">New Committer Gonçalo</a></li>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=110990368" target="_blank" rel="noopener noreferrer">Committer Election Borja</a></li>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=108833628" target="_blank" rel="noopener noreferrer">EDC is not the connector, is Eclipse Dataspace Components</a></li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=89996915" target="_blank" rel="noopener noreferrer" class="">NEXT COMM DAYS IN MAY!!!! 22.05-23.05!!!</a></li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=110990432" target="_blank" rel="noopener noreferrer" class="">New Committer Gonçalo</a></li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=110990368" target="_blank" rel="noopener noreferrer" class="">Committer Election Borja</a></li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=108833628" target="_blank" rel="noopener noreferrer" class="">EDC is not the connector, is Eclipse Dataspace Components</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedbackquestionsrequests">Feedback/Questions/Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#feedbackquestionsrequests" class="hash-link" aria-label="Direct link to Feedback/Questions/Requests" title="Direct link to Feedback/Questions/Requests" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedbackquestionsrequests">Feedback/Questions/Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-05-16#feedbackquestionsrequests" class="hash-link" aria-label="Direct link to Feedback/Questions/Requests" title="Direct link to Feedback/Questions/Requests" translate="no">​</a></h3>
 <ul>
-<li>No specific topics to discuss, except moderation round robin and hint on how to state questions</li>
+<li class="">No specific topics to discuss, except moderation round robin and hint on how to state questions</li>
 </ul>]]></content:encoded>
             <category>community</category>
             <category>meeting-minutes</category>
@@ -559,29 +559,29 @@ It will remain in progress to track further information.</li>
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25</guid>
             <pubDate>Fri, 25 Apr 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
 <ul>
-<li>All products included in the release should create their release check issue.</li>
+<li class="">All products included in the release should create their release check issue.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
 <ul>
-<li>A reminder was sent out regarding the alignment meeting scheduled for Wednesday, May 7th.</li>
-<li>A briefing on the testing phase will take place on Monday, April 28th.</li>
+<li class="">A reminder was sent out regarding the alignment meeting scheduled for Wednesday, May 7th.</li>
+<li class="">A briefing on the testing phase will take place on Monday, April 28th.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
 <ul>
-<li>The Docusaurus migration to version 3.7, including necessary library updates, has been completed. This upgrade included significant cleanup. A detailed description of what changed can be found <a href="https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025" target="_blank" rel="noopener noreferrer">here</a>.</li>
+<li class="">The Docusaurus migration to version 3.7, including necessary library updates, has been completed. This upgrade included significant cleanup. A detailed description of what changed can be found <a href="https://eclipse-tractusx.github.io/blog/docusaurus-upgrade-04-2025" target="_blank" rel="noopener noreferrer" class="">here</a>.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
 <ul>
-<li>Everyone is encouraged to participate in the Community Days in May 2025.</li>
-<li>Once the Docusaurus migration is merged, a pull request will be submitted to add a calendar view to the Eclipse Tractus-X website.</li>
+<li class="">Everyone is encouraged to participate in the Community Days in May 2025.</li>
+<li class="">Once the Docusaurus migration is merged, a pull request will be submitted to add a calendar view to the Eclipse Tractus-X website.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedbackquestionsrequests">Feedback/Questions/Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#feedbackquestionsrequests" class="hash-link" aria-label="Direct link to Feedback/Questions/Requests" title="Direct link to Feedback/Questions/Requests" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedbackquestionsrequests">Feedback/Questions/Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-25#feedbackquestionsrequests" class="hash-link" aria-label="Direct link to Feedback/Questions/Requests" title="Direct link to Feedback/Questions/Requests" translate="no">​</a></h3>
 <ul>
-<li>No specific topics to discuss</li>
-<li>The release timelines for TX, CX, and the broader ecosystem are now aligned and available <a href="https://catenax-ev.github.io/timelines" target="_blank" rel="noopener noreferrer">here</a>.</li>
+<li class="">No specific topics to discuss</li>
+<li class="">The release timelines for TX, CX, and the broader ecosystem are now aligned and available <a href="https://catenax-ev.github.io/timelines" target="_blank" rel="noopener noreferrer" class="">here</a>.</li>
 </ul>]]></content:encoded>
             <category>community</category>
             <category>meeting-minutes</category>
@@ -592,51 +592,51 @@ It will remain in progress to track further information.</li>
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11</guid>
             <pubDate>Fri, 11 Apr 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Community Office Hour Meeting Minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="community-office-hour-meeting-minutes">Community Office Hour Meeting Minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#community-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Community Office Hour Meeting Minutes" title="Direct link to Community Office Hour Meeting Minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure-and-test-management">Infrastructure and Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#infrastructure-and-test-management" class="hash-link" aria-label="Direct link to Infrastructure and Test Management" title="Direct link to Infrastructure and Test Management" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-office-hour-meeting-minutes">Community Office Hour Meeting Minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#community-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Community Office Hour Meeting Minutes" title="Direct link to Community Office Hour Meeting Minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure-and-test-management">Infrastructure and Test Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#infrastructure-and-test-management" class="hash-link" aria-label="Direct link to Infrastructure and Test Management" title="Direct link to Infrastructure and Test Management" translate="no">​</a></h3>
 <ul>
-<li>Friendly reminder to please create the release check issue for the upcoming test phase of release 25.06. for your product.
-<a href="https://github.com/eclipse-tractusx/sig-release/issues/new/choose" target="_blank" rel="noopener noreferrer">Link</a>: Create a new issue of type "Product Release Checks" and start filling out the information.</li>
+<li class="">Friendly reminder to please create the release check issue for the upcoming test phase of release 25.06. for your product.
+<a href="https://github.com/eclipse-tractusx/sig-release/issues/new/choose" target="_blank" rel="noopener noreferrer" class="">Link</a>: Create a new issue of type "Product Release Checks" and start filling out the information.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
 <ul>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35" target="_blank" rel="noopener noreferrer">Release Planning Timeline</a>:<!-- -->
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35" target="_blank" rel="noopener noreferrer" class="">Release Planning Timeline</a>:<!-- -->
 <ul>
-<li>25.06: E2E test phase coming up next month. Briefing meeting on April 28th, please get in touch if you still need an invitation (contact Monika Jacobsen, Harald Zimmer)</li>
-<li>25.09: Draft feature freeze coming up Thursday April 17th next week. Refinement day Wednesday April 30th.</li>
+<li class="">25.06: E2E test phase coming up next month. Briefing meeting on April 28th, please get in touch if you still need an invitation (contact Monika Jacobsen, Harald Zimmer)</li>
+<li class="">25.09: Draft feature freeze coming up Thursday April 17th next week. Refinement day Wednesday April 30th.</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
 <ul>
-<li>Check regularly if there are findings for vulnerabilities or dependency updates in the security tab of your project repository.
+<li class="">Check regularly if there are findings for vulnerabilities or dependency updates in the security tab of your project repository.
 Friendly reminder from Mathias Moser that this is a high priority for the community and the leads, and if repositories are not maintained they unfortunately would have to be deprecated.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss-governance">FOSS Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#foss-governance" class="hash-link" aria-label="Direct link to FOSS Governance" title="Direct link to FOSS Governance" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss-governance">FOSS Governance<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#foss-governance" class="hash-link" aria-label="Direct link to FOSS Governance" title="Direct link to FOSS Governance" translate="no">​</a></h3>
 <ul>
-<li>Security check scans in GitHub are disabled by default after 60 days of no changes in repository. TRG update to inform about this has been suggested, issue will be kept on board until it can be merged.</li>
-<li>Issue regarding cleaning of archived repositories: No update, issue will be kept on board.</li>
-<li><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=106022500" target="_blank" rel="noopener noreferrer">Status of Docusaurus update to version 3.x</a>:<!-- -->
+<li class="">Security check scans in GitHub are disabled by default after 60 days of no changes in repository. TRG update to inform about this has been suggested, issue will be kept on board until it can be merged.</li>
+<li class="">Issue regarding cleaning of archived repositories: No update, issue will be kept on board.</li>
+<li class=""><a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=106022500" target="_blank" rel="noopener noreferrer" class="">Status of Docusaurus update to version 3.x</a>:<!-- -->
 <ul>
-<li>Update from Stephan Bauer that already a lot of KITs have been migrated. Thanks to Philipp, Arno, Manojava who provided much of the work there.</li>
-<li>Review and IP clearance is pending</li>
-<li>Plan is to finalize the upgrade with the remaining KITS hopefully in the next week. KITs listed in the ticket linked above can still be tackled if someone has the time</li>
+<li class="">Update from Stephan Bauer that already a lot of KITs have been migrated. Thanks to Philipp, Arno, Manojava who provided much of the work there.</li>
+<li class="">Review and IP clearance is pending</li>
+<li class="">Plan is to finalize the upgrade with the remaining KITS hopefully in the next week. KITs listed in the ticket linked above can still be tackled if someone has the time</li>
 </ul>
 </li>
-<li>A Project Lead Workshop was held yesterday (10.04.2025). Stephan Bauer shared the agenda in the <a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=106028022" target="_blank" rel="noopener noreferrer">ticket</a>
+<li class="">A Project Lead Workshop was held yesterday (10.04.2025). Stephan Bauer shared the agenda in the <a href="https://github.com/orgs/eclipse-tractusx/projects/61/views/1?pane=issue&amp;itemId=106028022" target="_blank" rel="noopener noreferrer" class="">ticket</a>
 <ul>
-<li>It was a good session, for example discussing the roles of Tractus-X vs. Catena-X in the ecosystem. Information about the workshop results will be shared in an upcoming Office Hour.</li>
+<li class="">It was a good session, for example discussing the roles of Tractus-X vs. Catena-X in the ecosystem. Information about the workshop results will be shared in an upcoming Office Hour.</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
 <ul>
-<li>Everyone is invited to join the Fourth Eclipse Tractus-X Community Days on May 22nd and 23rd 2025 in Stuttgart. See this <a href="https://arena2036.de/de/reader/fourth-eclipse-tractus-x-community-days" target="_blank" rel="noopener noreferrer">link for registration</a></li>
+<li class="">Everyone is invited to join the Fourth Eclipse Tractus-X Community Days on May 22nd and 23rd 2025 in Stuttgart. See this <a href="https://arena2036.de/de/reader/fourth-eclipse-tractus-x-community-days" target="_blank" rel="noopener noreferrer" class="">link for registration</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedback--questions--requests">Feedback / Questions / Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#feedback--questions--requests" class="hash-link" aria-label="Direct link to Feedback / Questions / Requests" title="Direct link to Feedback / Questions / Requests" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback--questions--requests">Feedback / Questions / Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-04-11#feedback--questions--requests" class="hash-link" aria-label="Direct link to Feedback / Questions / Requests" title="Direct link to Feedback / Questions / Requests" translate="no">​</a></h3>
 <ul>
-<li>No specific topics to discuss</li>
-<li>Please note that next Friday 18.04.2025 there will be no Office Hour due to a public holiday in Germany</li>
+<li class="">No specific topics to discuss</li>
+<li class="">Please note that next Friday 18.04.2025 there will be no Office Hour due to a public holiday in Germany</li>
 </ul>]]></content:encoded>
             <category>community</category>
             <category>meeting-minutes</category>
@@ -647,25 +647,25 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21</guid>
             <pubDate>Fri, 21 Mar 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
 <ul>
-<li>The first activities for the next release are coming up as <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35" target="_blank" rel="noopener noreferrer">per the timeline</a>.</li>
-<li>docusaurus of the website will finally be updated to 3.x 😍 Everyone who is responsible for a kit should join the kick-off as announced per the <a href="https://eclipse-tractusx.github.io/community/open-meetings/" target="_blank" rel="noopener noreferrer">open meetings page</a>.</li>
+<li class="">The first activities for the next release are coming up as <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/35" target="_blank" rel="noopener noreferrer" class="">per the timeline</a>.</li>
+<li class="">docusaurus of the website will finally be updated to 3.x 😍 Everyone who is responsible for a kit should join the kick-off as announced per the <a href="https://eclipse-tractusx.github.io/community/open-meetings/" target="_blank" rel="noopener noreferrer" class="">open meetings page</a>.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
 <ul>
-<li>There's a couple of PRs open and especially the suggestion to add a new TRG should be reviewed thoroughly <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1187" target="_blank" rel="noopener noreferrer">https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1187</a></li>
+<li class="">There's a couple of PRs open and especially the suggestion to add a new TRG should be reviewed thoroughly <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1187" target="_blank" rel="noopener noreferrer" class="">https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1187</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
 <ul>
-<li>Everyone is invited to join the community days in May 2025.</li>
+<li class="">Everyone is invited to join the community days in May 2025.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedbackquestionsrequests">Feedback/Questions/Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#feedbackquestionsrequests" class="hash-link" aria-label="Direct link to Feedback/Questions/Requests" title="Direct link to Feedback/Questions/Requests" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedbackquestionsrequests">Feedback/Questions/Requests<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-03-21#feedbackquestionsrequests" class="hash-link" aria-label="Direct link to Feedback/Questions/Requests" title="Direct link to Feedback/Questions/Requests" translate="no">​</a></h3>
 <ul>
-<li>There's a new <a href="https://github.com/eclipse-tractusx/sig-architecture/tree/main/docs/white-papers/multiple-wallet-providers-and-bring-your-own-wallet" target="_blank" rel="noopener noreferrer">architecture whitepaper</a> on integrating the identity hub with other TX components in the concept of a BYO-wallet concept.</li>
-<li>The release timeline of TX, CX and the ecosystem are aligned <a href="https://catenax-ev.github.io/timelines" target="_blank" rel="noopener noreferrer">here</a>.</li>
+<li class="">There's a new <a href="https://github.com/eclipse-tractusx/sig-architecture/tree/main/docs/white-papers/multiple-wallet-providers-and-bring-your-own-wallet" target="_blank" rel="noopener noreferrer" class="">architecture whitepaper</a> on integrating the identity hub with other TX components in the concept of a BYO-wallet concept.</li>
+<li class="">The release timeline of TX, CX and the ecosystem are aligned <a href="https://catenax-ev.github.io/timelines" target="_blank" rel="noopener noreferrer" class="">here</a>.</li>
 </ul>]]></content:encoded>
             <category>community</category>
             <category>meeting-minutes</category>
@@ -676,51 +676,51 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08</guid>
             <pubDate>Fri, 08 Nov 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
 <ul>
-<li>Test Environments:<!-- -->
+<li class="">Test Environments:<!-- -->
 <ul>
-<li>STABLE environment24.12 installations in early december</li>
-<li>Test Management: Reference Quality Gate Checks and walkthrough them in "Test Management"</li>
-<li>Resolved Issue with SAP DIV -&gt; Onboarding should work now</li>
+<li class="">STABLE environment24.12 installations in early december</li>
+<li class="">Test Management: Reference Quality Gate Checks and walkthrough them in "Test Management"</li>
+<li class="">Resolved Issue with SAP DIV -&gt; Onboarding should work now</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
 <ul>
-<li>Reminders<!-- -->
+<li class="">Reminders<!-- -->
 <ul>
-<li>use TX EDC 0.8.0 RC5 -&gt; RC6 is on its way -&gt; Rediscuss in testmanagement daily during next week<!-- -->
+<li class="">use TX EDC 0.8.0 RC5 -&gt; RC6 is on its way -&gt; Rediscuss in testmanagement daily during next week<!-- -->
 <ul>
-<li>we should improve test automation -&gt; the umbrella helm chart targets to support that</li>
+<li class="">we should improve test automation -&gt; the umbrella helm chart targets to support that</li>
 </ul>
 </li>
-<li>reminder for open planning</li>
+<li class="">reminder for open planning</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
 <ul>
-<li>GitGuardian will be removed soon.</li>
+<li class="">GitGuardian will be removed soon.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
 <ul>
-<li><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1045" target="_blank" rel="noopener noreferrer">TRG 7.09</a></li>
-<li>discuss how to document releases between ecosystem releases and deployment experiences -&gt; ongoing / announcement</li>
-<li>TRG about testing will come up</li>
-<li>Mano's election ended. Reminders<!-- -->
+<li class=""><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/1045" target="_blank" rel="noopener noreferrer" class="">TRG 7.09</a></li>
+<li class="">discuss how to document releases between ecosystem releases and deployment experiences -&gt; ongoing / announcement</li>
+<li class="">TRG about testing will come up</li>
+<li class="">Mano's election ended. Reminders<!-- -->
 <ul>
-<li>small amount of participations</li>
-<li>points that would have been great: participation in community &amp; handling of TRGs etc.</li>
+<li class="">small amount of participations</li>
+<li class="">points that would have been great: participation in community &amp; handling of TRGs etc.</li>
 </ul>
 </li>
-<li>ClearlyDefined is down: revisit on next week and then ask via IP matrix check</li>
-<li>MDX files in KITs: only if needed, is CC-BY-4.0</li>
+<li class="">ClearlyDefined is down: revisit on next week and then ask via IP matrix check</li>
+<li class="">MDX files in KITs: only if needed, is CC-BY-4.0</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-11-08#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
 <ul>
-<li>remove the .cal file and just state the time (in an international time format)</li>
+<li class="">remove the .cal file and just state the time (in an international time format)</li>
 </ul>]]></content:encoded>
             <category>community</category>
             <category>meeting-minutes</category>
@@ -731,45 +731,45 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18</guid>
             <pubDate>Fri, 18 Oct 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
 <ul>
-<li>Test Environments:<!-- -->
+<li class="">Test Environments:<!-- -->
 <ul>
-<li>Currently a blocking issue is with SAP. They want to do a change in the DIF deployment and we are blocked by that. Target for the change is early next week. This involves both STABLE and INT environment.</li>
-<li>It is important that we can start with the deployment for the e2e test of 24/12 on INT, there are school holidays in southern Germany between Oct., 28th and Nov., 1st, so deployment is constrained in time.</li>
-<li>The INT environment has to be wiped to start from scratch with the deployment for 24/12.</li>
-<li>Doubleslash will provide information on how to proceed next week.</li>
+<li class="">Currently a blocking issue is with SAP. They want to do a change in the DIF deployment and we are blocked by that. Target for the change is early next week. This involves both STABLE and INT environment.</li>
+<li class="">It is important that we can start with the deployment for the e2e test of 24/12 on INT, there are school holidays in southern Germany between Oct., 28th and Nov., 1st, so deployment is constrained in time.</li>
+<li class="">The INT environment has to be wiped to start from scratch with the deployment for 24/12.</li>
+<li class="">Doubleslash will provide information on how to proceed next week.</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
 <ul>
-<li>EDC 0.8.0 to be used during e2e testing. There will be a RC5 early next week, that should be used as a start for e2e testing</li>
-<li>Release check issues are due on Oct. 18th for release 24/12</li>
+<li class="">EDC 0.8.0 to be used during e2e testing. There will be a RC5 early next week, that should be used as a start for e2e testing</li>
+<li class="">Release check issues are due on Oct. 18th for release 24/12</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
 <ul>
-<li>Sources of pictures: Do we need to regulate the availability of sources for binary pictures, as there are pictures in the website repo without editable sources.<!-- -->
+<li class="">Sources of pictures: Do we need to regulate the availability of sources for binary pictures, as there are pictures in the website repo without editable sources.<!-- -->
 <ul>
-<li>There is already a TRG that specifies the handling of pictures. It should be controlled better by committers.</li>
-</ul>
-</li>
-<li>Concerning intermediate releases, especially bugfix releases that need to be done in Tractus-X during a operating cycle. There is a task to make a proposal on how to handle the situation from Eclipse Tractus-X perspective.</li>
-<li>Deprecation of Repos. The regulation in TRG 7.09 is currently reworked to be more precise.</li>
-<li>Discussion on a TRG about testing.<!-- -->
-<ul>
-<li>Doubleslash prepares a TRG concerning automated testing</li>
-<li>Some repositories use SonarCloud and code coverage measurements there</li>
-<li>General openness towards a new trial on some specs concering testing</li>
+<li class="">There is already a TRG that specifies the handling of pictures. It should be controlled better by committers.</li>
 </ul>
 </li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
+<li class="">Concerning intermediate releases, especially bugfix releases that need to be done in Tractus-X during a operating cycle. There is a task to make a proposal on how to handle the situation from Eclipse Tractus-X perspective.</li>
+<li class="">Deprecation of Repos. The regulation in TRG 7.09 is currently reworked to be more precise.</li>
+<li class="">Discussion on a TRG about testing.<!-- -->
 <ul>
-<li>Files like presentations done during Open Planning are currently not provided in Open Source. The proposal is to store such files in the already existing large files repository attached to the webpage repo.</li>
-<li>Open Meetings page has been enhanced, there are now relevant links like to the task board that is relevant and related release timelines</li>
-<li>Regular New Joiner meeting was canceled. If a session is needed, it needs to be requested</li>
+<li class="">Doubleslash prepares a TRG concerning automated testing</li>
+<li class="">Some repositories use SonarCloud and code coverage measurements there</li>
+<li class="">General openness towards a new trial on some specs concering testing</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="communityopen-planning">Community/Open Planning<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-18#communityopen-planning" class="hash-link" aria-label="Direct link to Community/Open Planning" title="Direct link to Community/Open Planning" translate="no">​</a></h3>
+<ul>
+<li class="">Files like presentations done during Open Planning are currently not provided in Open Source. The proposal is to store such files in the already existing large files repository attached to the webpage repo.</li>
+<li class="">Open Meetings page has been enhanced, there are now relevant links like to the task board that is relevant and related release timelines</li>
+<li class="">Regular New Joiner meeting was canceled. If a session is needed, it needs to be requested</li>
 </ul>]]></content:encoded>
             <category>community</category>
             <category>meeting-minutes</category>
@@ -780,76 +780,76 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11</guid>
             <pubDate>Fri, 11 Oct 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
 <ul>
-<li><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io" target="_blank" rel="noopener noreferrer">eclipse-tractusx/eclipse-tractusx.github.io</a> requires just One Committer Review now<!-- -->
+<li class=""><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io" target="_blank" rel="noopener noreferrer" class="">eclipse-tractusx/eclipse-tractusx.github.io</a> requires just One Committer Review now<!-- -->
 <ul>
-<li>Committers that approve: Please double-check the content, remember you have also responsibility when approving non TRG compliant content</li>
-<li>Expectation for KITs: It should be less stressful to find a committer</li>
+<li class="">Committers that approve: Please double-check the content, remember you have also responsibility when approving non TRG compliant content</li>
+<li class="">Expectation for KITs: It should be less stressful to find a committer</li>
 </ul>
 </li>
-<li>Setup Catena-X STABLE Environment<!-- -->
+<li class="">Setup Catena-X STABLE Environment<!-- -->
 <ul>
-<li>Organizational issue that’s why the stable is not there right now but they are working on it</li>
-<li>Questions: Will the STABLE environment stick to the released version or will it evolve with the development of the components?</li>
+<li class="">Organizational issue that’s why the stable is not there right now but they are working on it</li>
+<li class="">Questions: Will the STABLE environment stick to the released version or will it evolve with the development of the components?</li>
 </ul>
 </li>
-<li>Planned general infrastructure maintenance INT environment 2024-09-29<!-- -->
+<li class="">Planned general infrastructure maintenance INT environment 2024-09-29<!-- -->
 <ul>
-<li>24.12 e2e test phase on INT environment still planned to start 25.10. as communicated in adapted timeline</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
-<ul>
-<li>EDC 0.8.0 to be used during e2e testing.<!-- -->
-<ul>
-<li>The upcoming Eclipse Tractus-X 24.12 release will include EDC version 0.8.0.</li>
-<li>If your component relies on the Eclipse DataspaceConnector (EDC), we highly encourage you to align your development and testing efforts with this version to ensure compatibility.</li>
-</ul>
-</li>
-<li>Reminder for Refinement Day 1: 16.10<!-- -->
-<ul>
-<li>Each group will focus on the first steps of skeleton-building for their features, based on the feature template, mapping them to the related roadmap items<!-- -->
-<ul>
-<li>For more information please read the <a href="https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03" target="_blank" rel="noopener noreferrer">news blog</a></li>
+<li class="">24.12 e2e test phase on INT environment still planned to start 25.10. as communicated in adapted timeline</li>
 </ul>
 </li>
 </ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<ul>
+<li class="">EDC 0.8.0 to be used during e2e testing.<!-- -->
+<ul>
+<li class="">The upcoming Eclipse Tractus-X 24.12 release will include EDC version 0.8.0.</li>
+<li class="">If your component relies on the Eclipse DataspaceConnector (EDC), we highly encourage you to align your development and testing efforts with this version to ensure compatibility.</li>
+</ul>
 </li>
-<li>Reminder for Refinement Day 2: 06.11<!-- -->
+<li class="">Reminder for Refinement Day 1: 16.10<!-- -->
 <ul>
-<li>Build on the work from Refinement Day 1 and focus primarily on the identified dependencies<!-- -->
+<li class="">Each group will focus on the first steps of skeleton-building for their features, based on the feature template, mapping them to the related roadmap items<!-- -->
 <ul>
-<li>For more information, please read the <a href="https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03" target="_blank" rel="noopener noreferrer">news blog</a></li>
+<li class="">For more information please read the <a href="https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03" target="_blank" rel="noopener noreferrer" class="">news blog</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
+<li class="">Reminder for Refinement Day 2: 06.11<!-- -->
 <ul>
-<li>[Trufflehog Update] Deprecation of GitGuardian and mandatory update to Trufflehog<!-- -->
+<li class="">Build on the work from Refinement Day 1 and focus primarily on the identified dependencies<!-- -->
 <ul>
-<li>Please update your repositories</li>
-<li>There are still many issues opened and waiting to be resolved by their responsible committer<!-- -->
-<ul>
-<li><a href="https://github.com/eclipse-tractusx/sig-security/issues/86" target="_blank" rel="noopener noreferrer">Parent Issue</a></li>
-</ul>
-</li>
-<li>The Trufflehog Workflow is a active <a href="https://eclipse-tractusx.github.io/docs/release/trg-8/trg-8-03">TRG</a> since March 26,2024</li>
+<li class="">For more information, please read the <a href="https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03" target="_blank" rel="noopener noreferrer" class="">news blog</a></li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
-<ul>
-<li>TRG proposal for product deprecation including a process and criteria to close <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues/1037" target="_blank" rel="noopener noreferrer">Issue #1037</a></li>
-<li>Please review and  provide some input</li>
+</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="feedback--question--request">Feedback / Question / Request<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#feedback--question--request" class="hash-link" aria-label="Direct link to Feedback / Question / Request" title="Direct link to Feedback / Question / Request" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
 <ul>
-<li>Add Testmanagement timeline into timeline of the overall release</li>
+<li class="">[Trufflehog Update] Deprecation of GitGuardian and mandatory update to Trufflehog<!-- -->
+<ul>
+<li class="">Please update your repositories</li>
+<li class="">There are still many issues opened and waiting to be resolved by their responsible committer<!-- -->
+<ul>
+<li class=""><a href="https://github.com/eclipse-tractusx/sig-security/issues/86" target="_blank" rel="noopener noreferrer" class="">Parent Issue</a></li>
+</ul>
+</li>
+<li class="">The Trufflehog Workflow is a active <a class="" href="https://eclipse-tractusx.github.io/docs/release/trg-8/trg-8-03">TRG</a> since March 26,2024</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
+<ul>
+<li class="">TRG proposal for product deprecation including a process and criteria to close <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues/1037" target="_blank" rel="noopener noreferrer" class="">Issue #1037</a></li>
+<li class="">Please review and  provide some input</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback--question--request">Feedback / Question / Request<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-10-11#feedback--question--request" class="hash-link" aria-label="Direct link to Feedback / Question / Request" title="Direct link to Feedback / Question / Request" translate="no">​</a></h3>
+<ul>
+<li class="">Add Testmanagement timeline into timeline of the overall release</li>
 </ul>]]></content:encoded>
             <author>theresa.hilger@catena-x.net (Theresa Hilger)</author>
             <category>community</category>
@@ -861,23 +861,23 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30</guid>
             <pubDate>Fri, 30 Aug 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
 <ul>
-<li>@ds-hzimmer will continue to report from the monthly infrastructure updates that are to happen every month's last sunday.<!-- -->
+<li class="">@ds-hzimmer will continue to report from the monthly infrastructure updates that are to happen every month's last sunday.<!-- -->
 <ul>
-<li>product teams will have to check their deployments after that</li>
+<li class="">product teams will have to check their deployments after that</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team" translate="no">​</a></h3>
 <ul>
-<li>Trufflehog has now officially replaced GitGuardian as secret-scanning tool for Eclipse Tractus-X. <a href="https://eclipse-tractusx.github.io/docs/release/trg-8/trg-8-03">This is encoded by TRG8.03</a></li>
-<li>@ds-hzimmer reports about the sporadic use of the current sonarcloud instance for Eclipse Tractus-X. There's no TRG for it. It's unclear what additional benefit it will bring to those tools that are backed up with TRGs (Trufflehog, trivy, codeql).</li>
+<li class="">Trufflehog has now officially replaced GitGuardian as secret-scanning tool for Eclipse Tractus-X. <a class="" href="https://eclipse-tractusx.github.io/docs/release/trg-8/trg-8-03">This is encoded by TRG8.03</a></li>
+<li class="">@ds-hzimmer reports about the sporadic use of the current sonarcloud instance for Eclipse Tractus-X. There's no TRG for it. It's unclear what additional benefit it will bring to those tools that are backed up with TRGs (Trufflehog, trivy, codeql).</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="qa">Q&amp;A<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30#qa" class="hash-link" aria-label="Direct link to Q&amp;A" title="Direct link to Q&amp;A" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="qa">Q&amp;A<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-30#qa" class="hash-link" aria-label="Direct link to Q&amp;A" title="Direct link to Q&amp;A" translate="no">​</a></h3>
 <ul>
-<li>@tom-rm-meyer-ISST reports issues with the tls provider which will be checked with the infrastructure team.</li>
+<li class="">@tom-rm-meyer-ISST reports issues with the tls provider which will be checked with the infrastructure team.</li>
 </ul>]]></content:encoded>
             <category>community</category>
             <category>meeting-minutes</category>
@@ -888,33 +888,33 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02</guid>
             <pubDate>Fri, 02 Aug 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
 <ul>
-<li>Discussion on catenax-ng<!-- -->
+<li class="">Discussion on catenax-ng<!-- -->
 <ul>
-<li>@matbmoser: please cross-check your own repository, if you reference it!</li>
-<li>@lgblaumeiser: we noticed that the R24.03 MIW needs catenax-ng resources. It temporarily stays up. (see <a href="https://github.com/eclipse-tractusx/managed-identity-wallet/issues/342" target="_blank" rel="noopener noreferrer">issue</a>)</li>
+<li class="">@matbmoser: please cross-check your own repository, if you reference it!</li>
+<li class="">@lgblaumeiser: we noticed that the R24.03 MIW needs catenax-ng resources. It temporarily stays up. (see <a href="https://github.com/eclipse-tractusx/managed-identity-wallet/issues/342" target="_blank" rel="noopener noreferrer" class="">issue</a>)</li>
 </ul>
 </li>
-<li>Consortia teams are gone. Thanks, it was a pleasure!</li>
+<li class="">Consortia teams are gone. Thanks, it was a pleasure!</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team" translate="no">​</a></h3>
 <ul>
-<li>@matbmoser: Please do check for your security issues on the tab. High and critical issues need to be fixed. We should check this on high level / project level regularly in this meeting</li>
-<li>@tom-rm-meyer-ISST: For Truffle Hog, make sure that the workflow runs before merging. (see <a href="https://github.com/eclipse-tractusx/puris/pull/531" target="_blank" rel="noopener noreferrer">e.g.</a>)</li>
+<li class="">@matbmoser: Please do check for your security issues on the tab. High and critical issues need to be fixed. We should check this on high level / project level regularly in this meeting</li>
+<li class="">@tom-rm-meyer-ISST: For Truffle Hog, make sure that the workflow runs before merging. (see <a href="https://github.com/eclipse-tractusx/puris/pull/531" target="_blank" rel="noopener noreferrer" class="">e.g.</a>)</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
 <ul>
-<li>@AngelikaWittek is gone. Thanks for your work!</li>
+<li class="">@AngelikaWittek is gone. Thanks for your work!</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02#open-planning--community" class="hash-link" aria-label="Direct link to Open planning / community" title="Direct link to Open planning / community" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-planning--community">Open planning / community<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-08-02#open-planning--community" class="hash-link" aria-label="Direct link to Open planning / community" title="Direct link to Open planning / community" translate="no">​</a></h3>
 <ul>
-<li>@stephanbcbauer:<!-- -->
+<li class="">@stephanbcbauer:<!-- -->
 <ul>
-<li>Refinement Phase went well overall. Committers please join the planning meetings.</li>
-<li>Some QGates are still open, please check.</li>
-<li>Review together the <a href="https://github.com/eclipse-tractusx/tractus-x-release/pull/34" target="_blank" rel="noopener noreferrer">release preparation</a></li>
+<li class="">Refinement Phase went well overall. Committers please join the planning meetings.</li>
+<li class="">Some QGates are still open, please check.</li>
+<li class="">Review together the <a href="https://github.com/eclipse-tractusx/tractus-x-release/pull/34" target="_blank" rel="noopener noreferrer" class="">release preparation</a></li>
 </ul>
 </li>
 </ul>]]></content:encoded>
@@ -927,51 +927,51 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26</guid>
             <pubDate>Fri, 26 Jul 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
 <ul>
-<li>@SebastianBezold -&gt; Wednesday (31.07.2024) the Catena-NG will be deleted! No more access to the consortia environment will be allowed!<!-- -->
+<li class="">@SebastianBezold -&gt; Wednesday (31.07.2024) the Catena-NG will be deleted! No more access to the consortia environment will be allowed!<!-- -->
 <ul>
-<li>Friendly reminder from @matbmoser: copy the configuration from the consortia environment argo, so you dont loose it, for the association env;)</li>
+<li class="">Friendly reminder from @matbmoser: copy the configuration from the consortia environment argo, so you dont loose it, for the association env;)</li>
 </ul>
 </li>
-<li>@hzierer -&gt; Most of E2E Tests are already passed! Great job everyone!</li>
-<li>@matbmoser -&gt; Don't forget to document the Quality Gate tickets!</li>
-<li>System team is leaving in wednesday! The participants that will not act as committers please or remove yourself from the list, or contact a project lead. Thank you for you wonderful hard work!</li>
+<li class="">@hzierer -&gt; Most of E2E Tests are already passed! Great job everyone!</li>
+<li class="">@matbmoser -&gt; Don't forget to document the Quality Gate tickets!</li>
+<li class="">System team is leaving in wednesday! The participants that will not act as committers please or remove yourself from the list, or contact a project lead. Thank you for you wonderful hard work!</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team" translate="no">​</a></h3>
 <ul>
-<li>
-<p>@RoKrish14 -&gt; TRG for truffelhog is in review <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/950" target="_blank" rel="noopener noreferrer">https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/950</a>!</p>
+<li class="">
+<p>@RoKrish14 -&gt; TRG for truffelhog is in review <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/950" target="_blank" rel="noopener noreferrer" class="">https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/950</a>!</p>
 <ul>
-<li>Example Workflow: <a href="https://github.com/RoKrish14/puris/blob/test/.github/workflows/trufflehog.yml" target="_blank" rel="noopener noreferrer">https://github.com/RoKrish14/puris/blob/test/.github/workflows/trufflehog.yml</a></li>
+<li class="">Example Workflow: <a href="https://github.com/RoKrish14/puris/blob/test/.github/workflows/trufflehog.yml" target="_blank" rel="noopener noreferrer" class="">https://github.com/RoKrish14/puris/blob/test/.github/workflows/trufflehog.yml</a></li>
 </ul>
 </li>
-<li>
+<li class="">
 <p>@RoKrish14 announce that he is leaving wednesday the project! Thank you for you wonderful hard work too!</p>
 </li>
-<li>
+<li class="">
 <p>@matbmoser -&gt; We need to start a discussion and an action plan to solve the vulnerabilities in the eclipse-tractusx.github.io webpage repository. (Transfered to Committer Meeting)</p>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
 <ul>
-<li>
-<p>Open Project Lead election for Mathias Brunkow Moser, if you are a committer please vote: <a href="https://projects.eclipse.org/projects/automotive.tractusx/elections/election-mathias-brunkow-moser-eclipse-tractus-x-0" target="_blank" rel="noopener noreferrer">https://projects.eclipse.org/projects/automotive.tractusx/elections/election-mathias-brunkow-moser-eclipse-tractus-x-0</a></p>
+<li class="">
+<p>Open Project Lead election for Mathias Brunkow Moser, if you are a committer please vote: <a href="https://projects.eclipse.org/projects/automotive.tractusx/elections/election-mathias-brunkow-moser-eclipse-tractus-x-0" target="_blank" rel="noopener noreferrer" class="">https://projects.eclipse.org/projects/automotive.tractusx/elections/election-mathias-brunkow-moser-eclipse-tractus-x-0</a></p>
 </li>
-<li>
-<p>@matbmoser -&gt; New TRG 9 for UI/UX Styleguideline compliance: <a href="https://eclipse-tractusx.github.io/docs/release/trg-9/trg-9-01" target="_blank" rel="noopener noreferrer">https://eclipse-tractusx.github.io/docs/release/trg-9/trg-9-01</a>!</p>
+<li class="">
+<p>@matbmoser -&gt; New TRG 9 for UI/UX Styleguideline compliance: <a href="https://eclipse-tractusx.github.io/docs/release/trg-9/trg-9-01" target="_blank" rel="noopener noreferrer" class="">https://eclipse-tractusx.github.io/docs/release/trg-9/trg-9-01</a>!</p>
 <ul>
-<li>If you don't agree with something or want an improvement please open a PR with the changes! The Tractus-X community will support you :)</li>
+<li class="">If you don't agree with something or want an improvement please open a PR with the changes! The Tractus-X community will support you :)</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26#open-planning--community" class="hash-link" aria-label="Direct link to Open planning / community" title="Direct link to Open planning / community" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-planning--community">Open planning / community<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-26#open-planning--community" class="hash-link" aria-label="Direct link to Open planning / community" title="Direct link to Open planning / community" translate="no">​</a></h3>
 <ul>
-<li>Quality Gates and E2E phase is finishing today (26.07.2024). Make sure to keep your QG tickets updated and</li>
-<li>@agg3fe -&gt; The TRG checklist is outdated<!-- -->
+<li class="">Quality Gates and E2E phase is finishing today (26.07.2024). Make sure to keep your QG tickets updated and</li>
+<li class="">@agg3fe -&gt; The TRG checklist is outdated<!-- -->
 <ul>
-<li>@matbmoser -&gt; I have created a PR to update the list: <a href="https://github.com/eclipse-tractusx/.github/pull/27" target="_blank" rel="noopener noreferrer">https://github.com/eclipse-tractusx/.github/pull/27</a></li>
+<li class="">@matbmoser -&gt; I have created a PR to update the list: <a href="https://github.com/eclipse-tractusx/.github/pull/27" target="_blank" rel="noopener noreferrer" class="">https://github.com/eclipse-tractusx/.github/pull/27</a></li>
 </ul>
 </li>
 </ul>]]></content:encoded>
@@ -984,37 +984,37 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05</guid>
             <pubDate>Fri, 05 Jul 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
 <ul>
-<li>Info from Test / Infrastructure Management CX Association by <a href="https://github.com/ds-hzimmer" target="_blank" rel="noopener noreferrer">Harald</a>:<!-- -->
+<li class="">Info from Test / Infrastructure Management CX Association by <a href="https://github.com/ds-hzimmer" target="_blank" rel="noopener noreferrer" class="">Harald</a>:<!-- -->
 <ul>
-<li>SAP DIM follow up meeting with on 8.7.2024 together with Christian Lahmer (SAP) and Evelyn Gurschler and DoubleSlash Net-Business GmbH</li>
-<li>Work-in-progress with SDE team and importing of test cases</li>
-<li>Access is currently limited –&gt; would be great to make it accessible and available within Tractus-X</li>
+<li class="">SAP DIM follow up meeting with on 8.7.2024 together with Christian Lahmer (SAP) and Evelyn Gurschler and DoubleSlash Net-Business GmbH</li>
+<li class="">Work-in-progress with SDE team and importing of test cases</li>
+<li class="">Access is currently limited –&gt; would be great to make it accessible and available within Tractus-X</li>
 </ul>
 </li>
-<li><a href="https://github.com/tomaszbarwicki" target="_blank" rel="noopener noreferrer">Tomasz</a> -	Presented about how do you need to publish your API using .tractusx metafile and publish via GitHub pages - <a href="https://github.com/eclipse-tractusx/api-hub" target="_blank" rel="noopener noreferrer">API Hub</a>.</li>
+<li class=""><a href="https://github.com/tomaszbarwicki" target="_blank" rel="noopener noreferrer" class="">Tomasz</a> -	Presented about how do you need to publish your API using .tractusx metafile and publish via GitHub pages - <a href="https://github.com/eclipse-tractusx/api-hub" target="_blank" rel="noopener noreferrer" class="">API Hub</a>.</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team" translate="no">​</a></h3>
 <ul>
-<li>Info from security team by <a href="https://github.com/RoKrish14" target="_blank" rel="noopener noreferrer">Rohan</a>:<!-- -->
+<li class="">Info from security team by <a href="https://github.com/RoKrish14" target="_blank" rel="noopener noreferrer" class="">Rohan</a>:<!-- -->
 <ul>
-<li>Reminder about replacement of GitGuardian with TruffleHog, see according pull request to update TX release guideline: <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/950" target="_blank" rel="noopener noreferrer">#950</a></li>
-<li>Reminder about updates to Trivy workflow , see according pull request to update TX release guideline: <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/949" target="_blank" rel="noopener noreferrer">#949</a></li>
-<li>Reminder about about absence of security team members from August 2024</li>
-<li>Security tools walkthrough in the Committers Meeting of July 5, 2024 (about 20 minutes) - <a href="https://github.com/RoKrish14" target="_blank" rel="noopener noreferrer">Rohan</a> will announce the walkthrough next week on the TX mailing list while sending out a reminder for the meeting</li>
+<li class="">Reminder about replacement of GitGuardian with TruffleHog, see according pull request to update TX release guideline: <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/950" target="_blank" rel="noopener noreferrer" class="">#950</a></li>
+<li class="">Reminder about updates to Trivy workflow , see according pull request to update TX release guideline: <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/949" target="_blank" rel="noopener noreferrer" class="">#949</a></li>
+<li class="">Reminder about about absence of security team members from August 2024</li>
+<li class="">Security tools walkthrough in the Committers Meeting of July 5, 2024 (about 20 minutes) - <a href="https://github.com/RoKrish14" target="_blank" rel="noopener noreferrer" class="">Rohan</a> will announce the walkthrough next week on the TX mailing list while sending out a reminder for the meeting</li>
 </ul>
 </li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
 <ul>
-<li>Don't forget to update the legal docs!! Close the tickets in your repositories if its done: <a href="https://github.com/eclipse-tractusx/sig-infra/issues/477" target="_blank" rel="noopener noreferrer">eclipse-tractusx/sig-infra#477</a></li>
+<li class="">Don't forget to update the legal docs!! Close the tickets in your repositories if its done: <a href="https://github.com/eclipse-tractusx/sig-infra/issues/477" target="_blank" rel="noopener noreferrer" class="">eclipse-tractusx/sig-infra#477</a></li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-planning--community">Open planning / community<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05#open-planning--community" class="hash-link" aria-label="Direct link to Open planning / community" title="Direct link to Open planning / community" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-planning--community">Open planning / community<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2024-07-05#open-planning--community" class="hash-link" aria-label="Direct link to Open planning / community" title="Direct link to Open planning / community" translate="no">​</a></h3>
 <ul>
-<li>Info by community manager <a href="https://github.com/stephanbcbauer" target="_blank" rel="noopener noreferrer">Stephan</a> about the Tractus-X/Catena-X working model and the refinement phase for the 24.12 release</li>
-<li><a href="https://eveeno.com/126949167" target="_blank" rel="noopener noreferrer">Registration</a> is open for the Third Eclipse Tractus-X Community Days on December 05 and 06, 2024, ARENA2036 in Stuttgart!</li>
+<li class="">Info by community manager <a href="https://github.com/stephanbcbauer" target="_blank" rel="noopener noreferrer" class="">Stephan</a> about the Tractus-X/Catena-X working model and the refinement phase for the 24.12 release</li>
+<li class=""><a href="https://eveeno.com/126949167" target="_blank" rel="noopener noreferrer" class="">Registration</a> is open for the Third Eclipse Tractus-X Community Days on December 05 and 06, 2024, ARENA2036 in Stuttgart!</li>
 </ul>]]></content:encoded>
             <category>community</category>
             <category>meeting-minutes</category>
@@ -1025,12 +1025,12 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
             <guid>https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-07-04</guid>
             <pubDate>Thu, 04 Jul 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Security Office Hour meeting minutes]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="security-office-hour-meeting-minutes">Security Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-07-04#security-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Security Office Hour meeting minutes" title="Direct link to Security Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="announcements">Announcements<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-07-04#announcements" class="hash-link" aria-label="Direct link to Announcements" title="Direct link to Announcements" translate="no">​</a></h3>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-office-hour-meeting-minutes">Security Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-07-04#security-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Security Office Hour meeting minutes" title="Direct link to Security Office Hour meeting minutes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="announcements">Announcements<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-07-04#announcements" class="hash-link" aria-label="Direct link to Announcements" title="Direct link to Announcements" translate="no">​</a></h3>
 <ul>
-<li>Gitguardian tool for secret scanning will be replaced by TruffleHog. This will be used in parallel with Github's native secret scanning tool.</li>
-<li>Trivy workflow has been updated to address the failure of workflows</li>
-<li>Announcement of Security handover during the committer round</li>
+<li class="">Gitguardian tool for secret scanning will be replaced by TruffleHog. This will be used in parallel with Github's native secret scanning tool.</li>
+<li class="">Trivy workflow has been updated to address the failure of workflows</li>
+<li class="">Announcement of Security handover during the committer round</li>
 </ul>]]></content:encoded>
             <category>meeting-minutes</category>
             <category>security</category>
