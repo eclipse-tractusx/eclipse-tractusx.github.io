@@ -1,21 +1,21 @@
-/********************************************************************************* 
+/*********************************************************************************
  * Eclipse Tractus-X - eclipse-tractusx.github.io
- * 
+ *
  * Copyright (c) 2025 Contributors to the Eclipse Foundation
- * 
+ *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
- * 
+ *
  * This program and the accompanying materials are made available under the
  * terms of the Apache License, Version 2.0 which is available at
  * https://www.apache.org/licenses/LICENSE-2.0.
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations
  * under the License.
- * 
+ *
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
@@ -87,7 +87,7 @@ import AgentsKitLogo from "@site/static/img/kits/agents/agents-kit-raw-logo.svg"
 import BehaviorTwinKitLogo from "@site/static/img/kits/behavior-twin/behavior-twin-kit-raw-logo.svg";
 import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-kit-raw-logo.svg";
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
-import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg"; 
+import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
 
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
@@ -403,8 +403,8 @@ export const kitsData = {
       description: 'Product-specific CO2 footprint.',
       metadata: {
         created: '2023-08-23',
-        lastUpdated: '2025-09-29',
-        latestVersion: '1.3.0',
+        lastUpdated: '2025-12-19',
+        latestVersion: '1.3.1',
         new: false
       }
     },
@@ -949,7 +949,7 @@ export const getUsedCategories = () => {
 // Get all kits from all sections
 export const getAllKits = () => {
   const industrySpecificKits = [];
-  
+
   // Collect all industry-specific KITs
   if (kitsData.industryKits) {
     Object.values(kitsData.industryKits).forEach(kitsArray => {
@@ -958,7 +958,7 @@ export const getAllKits = () => {
       }
     });
   }
-  
+
   return [
     ...kitsData.dataspaceFoundation,
     ...kitsData.industryCoreFoundation,
@@ -992,7 +992,7 @@ export const getRecentlyUpdatedKits = (daysBack = 30) => {
   const allKits = getAllKits();
   const cutoffDate = new Date();
   cutoffDate.setDate(cutoffDate.getDate() - daysBack);
-  
+
   return allKits.filter(kit => {
     if (!kit.metadata?.lastUpdated) return false;
     return new Date(kit.metadata.lastUpdated) >= cutoffDate;
@@ -1007,7 +1007,7 @@ export const getKitMetadata = (kitId) => {
 // Get KITs associated with a specific dataspace
 export const getKitsByDataspace = (dataspaceName) => {
   const allKits = getAllKits();
-  
+
   // Find the dataspace across all industries
   let dataspaceKitIds = [];
   industries.forEach(industry => {
@@ -1018,7 +1018,7 @@ export const getKitsByDataspace = (dataspaceName) => {
       }
     }
   });
-  
+
   // Return full kit objects for the IDs in the dataspace
   if (dataspaceKitIds.length === 0) return [];
   return allKits.filter(kit => dataspaceKitIds.includes(kit.id));
@@ -1027,7 +1027,7 @@ export const getKitsByDataspace = (dataspaceName) => {
 // Get all dataspaces with their associated KIT counts
 export const getDataspaceStats = () => {
   const stats = [];
-  
+
   industries.forEach(industry => {
     if (industry.dataspaces) {
       industry.dataspaces.forEach(dataspace => {
@@ -1040,6 +1040,6 @@ export const getDataspaceStats = () => {
       });
     }
   });
-  
+
   return stats;
 };
