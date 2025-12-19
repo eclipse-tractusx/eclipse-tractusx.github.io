@@ -2,18 +2,21 @@
 id: faq
 title: Catena-X PCF – Frequently Asked Questions
 description: Questions and Answers
+sidebar_position: 5
 ---
 
 ![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
 
 Welcome to the Catena-X Product Carbon Footprint (PCF) Q&A. This section provides answers to frequently asked questions about accessibility, methodology, PCF data exchange, and business value within Catena-X.
 
+:::tip
 To quickly find a specific topic or question, you can use the search function in your browser or editor:
 
 - **Windows:** Press `Ctrl + F`
 - **Mac:** Press `Cmd + F`
 
 Simply type keywords related to your question, and you will be taken directly to the relevant entry.
+:::
 
 ## Accessibility
 
