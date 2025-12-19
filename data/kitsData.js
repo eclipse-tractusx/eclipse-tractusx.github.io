@@ -404,7 +404,7 @@ export const kitsData = {
       metadata: {
         created: '2023-08-23',
         lastUpdated: '2025-12-19',
-        latestVersion: '1.3.1',
+        latestVersion: '1.4.0',
         new: false
       }
     },
