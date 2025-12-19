@@ -11,9 +11,15 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.4.0] - 2025-12-19
+
+### Added
+
+- Add new FAQ page to the KIT documentation
+
 ## [1.3.1] - 2025-11-03
 
-### changed
+### Changed
 
 - replaced data model version 8.0.0 with 9.0.0
 
