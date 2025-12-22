@@ -11,6 +11,22 @@ sidebar_position: 1
 
 All notable changes to this KIT will be documented in this file.
 
+## [11.0.0] - 2025-12-03
+
+Compatible for **release 25.12**.
+
+### Added
+
+- Added api hub hyperlink for all services in development view of business partner kit with latest BPDM Application version 7.2.0.
+
+### Changed
+
+- ./.
+
+### Removed
+
+- ./.
+
 ## [10.0.0] - 2025-09-08
 
 Compatible for **release 25.09**.
