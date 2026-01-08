@@ -37,11 +37,11 @@ For the KIT Content this two TRGs must be followed:
 - Each KIT view (business, development, ..) must include a license notice and adhere to the CY BB 4.0 license - see [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08)
 - Images must be neutral without any branding, and displayed on a. Images need to follow a the legal notice TRG - see [Legal notice for non-code](/docs/release/trg-7/trg-7-07)
 - A KIT must have a defined code owner for each industry extension - see [Industry Extensions](#industry-extensions)
+- A KIT must have defined code owners for kit maintenance - see [KIT Maintainers & Code Owners](#kit-maintainers--code-owners)
 
 ## KIT Logo
 
-- A KIT must have defined code owners for kit maintenance - see [KIT Maintainers & Code Owners](#kit-maintainers--code-owners)
-- A KIT must have a SVG icon as described the [TRG 10.01](trg-10-01.mdx) and be stored in the `/static/img/kits/<kit-id>/<kit-id>-raw.svg` folder and be correctly licenses following the [TRG 7.07](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-07).
+- A KIT must have a SVG icon as described the [TRG 10.01](trg-10-01.mdx) and be stored in the `/static/img/kits/<kit-id>/<kit-id>-raw.svg` folder in SVG format **without background, in white color, without claim** and be correctly licenses following the [TRG 7.07](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-07).
 - A KIT logo must be included in every file in the following way (under the page title):
 
 ```markdown
@@ -103,11 +103,11 @@ The following folder structure represents a complete KIT template with all requi
 ```plaintext
 docs-kits/kits/
   <kit-name>/
-    ├── README.md                          # Main KIT overview and quick start guide
-    ├── CHANGELOG.md                       # Version history following semantic versioning
+    ├── changelog.md                       # Version history following semantic versioning
     ├── adoption-view/
     │   ├── _category_.json
-    │   └── adoption-view.md               # Business value, use cases, policies, standards
+    │   ├── adoption-view.md               # Business value, use cases, policies, standards
+    │   ├── glossary.md                    # You can include here more files if necessaary 
     ├── development-view/
     │   ├── _category_.json
     │   └── development-view.md            # Architecture, API specs, semantic models, tutorials
@@ -127,12 +127,14 @@ docs-kits/kits/
     │   └── my-app.md                      # Template for implementation success stories
     ├── documentation/
     │   ├── _category_.json
-    │   ├── github-repository.md           # Link to GitHub repository
-    │   ├── api-documentation.md           # Link to API documentation
-    │   ├── community-support.md           # Link to community support channels
-    │   └── related-standards.md           # Links to related standards
+    │   ├── attachments.md                 # Here you can include more files if necessary
+    │   ├── github-repository              # NOT A FILE (OPTIONAL): External Link to GitHub
+    │   ├── api-documentation              # NOT A FILE (OPTIONAL): Link to API documentation
+    │   ├── community-support              # NOT A FILE (OPTIONAL): Link to community channels
+    │   └── related-standards              # NOT A FILE (OPTIONAL): Links to related standards
     └── resources/
         └── img/                           # KIT-specific images and diagrams
+           └── REUSE.toml                  # Declare the license from your images (See TRG 7.07)
         └── ...
 ```
 
@@ -155,7 +157,7 @@ This template includes detailed guidelines and examples for each section.
   />
 </div>
 
-#### Only per view
+#### Only one file per view
 
 In case a VIEW has only one file it shall be described in this way as a `md` or `mdx` file insice of its respective folder (using the same name of the view):
 
@@ -173,6 +175,9 @@ In case a VIEW has multiple files it shall be described in this way as a folder 
 ```plaintext
 /docs-kits/kits/
   <kit-name>/
+    adoption-view/
+        adoption-view.md
+        glossary.md
     development-view/
         architecture.md
         deployment-view.mdx
@@ -181,6 +186,12 @@ In case a VIEW has multiple files it shall be described in this way as a folder 
         monitoring.md
     ...
 ```
+
+:: tip MDX Files are allowed only for advanced cases
+
+Use `mdx` formats only if it is necessary.
+
+::
 
 ## KIT Maintainers & Code Owners
 
@@ -283,4 +294,4 @@ To ensure the quality and consistency of KITs, the following alignment mechanism
 | SIG-Release | Official KIT Release Tracking | [eclipse-tractusx/sig-release](https://github.com/eclipse-tractusx/sig-release) |
 | KIT Discussions | Offical KIT Proposal and Discussion Location | [KIT Discussions](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/discussions/categories/kits) |
 
-In case a change to a existing KIT is planned, it is recommended to use the KIT Discussions or GitHub Issues to discuss the change with the community before starting the implementation. This will help to gather feedback and ensure alignment with other KIT developers.
+In case a change to an existing KIT is planned, it is recommended to use the KIT Discussions or GitHub Issues to discuss the change with the community before starting the implementation. This will help to gather feedback and ensure alignment with other KIT developers.

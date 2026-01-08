@@ -156,6 +156,12 @@ const kitsByCategory = {
       "name": "REQUIREMENTS KIT",
       "route": "/docs-kits/kits/requirements-kit/adoption-view",
       "deprecated": false
+    },
+    {
+      "id": "geometry",
+      "name": "GEOMETRY KIT",
+      "route": "/docs-kits/kits/geometry-kit/adoption-view",
+      "deprecated": false
     }
   ],
   "industryKits": {

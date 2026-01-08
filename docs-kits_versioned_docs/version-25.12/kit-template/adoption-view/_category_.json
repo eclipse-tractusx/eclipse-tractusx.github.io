@@ -1,0 +1,8 @@
+{
+  "label": "Adoption View",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "The Adoption View provides business-focused documentation to help stakeholders understand the value, use cases, and implementation approach for this KIT."
+  }
+}
