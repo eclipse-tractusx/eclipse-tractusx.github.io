@@ -1,21 +1,21 @@
-/********************************************************************************* 
+/*********************************************************************************
  * Eclipse Tractus-X - eclipse-tractusx.github.io
- * 
+ *
  * Copyright (c) 2025 Contributors to the Eclipse Foundation
- * 
+ *
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
- * 
+ *
  * This program and the accompanying materials are made available under the
  * terms of the Apache License, Version 2.0 which is available at
  * https://www.apache.org/licenses/LICENSE-2.0.
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations
  * under the License.
- * 
+ *
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
@@ -87,6 +87,7 @@ import AgentsKitLogo from "@site/static/img/kits/agents/agents-kit-raw-logo.svg"
 import BehaviorTwinKitLogo from "@site/static/img/kits/behavior-twin/behavior-twin-kit-raw-logo.svg";
 import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-kit-raw-logo.svg";
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
+import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
 
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
@@ -402,8 +403,8 @@ export const kitsData = {
       description: 'Product-specific CO2 footprint.',
       metadata: {
         created: '2023-08-23',
-        lastUpdated: '2025-09-29',
-        latestVersion: '1.3.0',
+        lastUpdated: '2025-12-19',
+        latestVersion: '1.4.0',
         new: false
       }
     },
@@ -564,6 +565,84 @@ export const kitsData = {
       }
     },
     {
+      id: 'puris',
+      name: 'PURIS KIT',
+      logo: PurisKitLogo,
+      logoHeight: 80,
+      logoWidth: 80,
+      route: '/docs-kits/kits/puris-kit/adoption-view',
+      colors: {
+        primary: '#A159FF',
+        gradient: 'linear-gradient(135deg, #E5CCFF 0%, #A159FF 100%)'
+      },
+      maturity: {
+        currentLevel: 'Graduated',
+        graduatedAt: '2025-08-16'
+      },
+      deprecated: false,
+      domain: 'Supply Chain',
+      industries: ['automotive'],
+      description: 'Predictive Unit Realtime Information Service',
+      metadata: {
+        created: '2023-11-29',
+        lastUpdated: '2025-08-16',
+        latestVersion: '0.4.0',
+        new: false
+      }
+    },
+    {
+      id: 'model-based-production',
+      name: 'MODEL BASED PRODUCTION KIT',
+      logo: ModelBasedProductionLogo,
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
+      colors: {
+        primary: '#FEBC02',
+        gradient: 'linear-gradient(135deg, #FFC357 0%, #FEBC02 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Engineering',
+      industries: ['automotive'],
+      description: 'Federated simulation and data processing.',
+      metadata: {
+        created: '2023-12-08',
+        lastUpdated: '2024-05-27',
+        latestVersion: '1.0.0',
+        new: false
+      }
+    },
+    {
+      id: 'behavior-twin',
+      name: 'BEHAVIOUR TWIN KIT',
+      logo: BehaviorTwinKitLogo,
+      logoHeight: 80,
+      logoWidth: 80,
+      route: '/docs-kits/kits/behaviour-twin-kit/overview',
+      colors: {
+        primary: '#FFA601',
+        gradient: 'linear-gradient(135deg, #FFC357 0%, #FFA601 100%)'
+      },
+      maturity: {
+        currentLevel: 'Incubating',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: "Simulations",
+      industries: ['automotive'],
+      description: 'Maximize the potential of usage data through calculation services and simulations.',
+      metadata: {
+        created: '2024-05-16',
+        lastUpdated: '2024-05-21',
+        latestVersion: '1.0.0',
+        new: false
+      }
+    },
+    {
       id: 'data-driven-quality',
       name: 'DATA DRIVEN QUALITY KIT',
       logo: DataDrivenQualityLogo,
@@ -584,8 +663,8 @@ export const kitsData = {
       description: 'Data driven quality management enables data provider and consumer to exchange and analyse existing data across company boundaries.',
       metadata: {
         created: '2023-08-18',
-        lastUpdated: '2025-04-23',
-        latestVersion: '2.0.0',
+        lastUpdated: '2025-12-01',
+        latestVersion: '2.1.0',
         new: false
       }
     },
@@ -612,6 +691,32 @@ export const kitsData = {
         created: '2025-09-29',
         lastUpdated: '2025-09-29',
         latestVersion: '0.1.0',
+        new: true
+      }
+    },
+    {
+      id: 'geometry',
+      name: 'GEOMETRY KIT',
+      logo: GeometryKitLogo,
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/kits/geometry-kit/adoption-view',
+      colors: {
+        primary: '#17FFBF',
+        gradient: 'linear-gradient(135deg, #aebfc4 0%, #8c9ea3 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Engineering',
+      industries: ['automotive'],
+      description: 'Enable secure and sovereign exchange of engineering geometry information across the entire value chain.',
+      metadata: {
+        created: '2025-11-28',
+        lastUpdated: '2025-11-28',
+        latestVersion: '1.0.0',
         new: true
       }
     }
@@ -674,86 +779,7 @@ export const kitsData = {
     ],
     "semiconductor": [],
     "construction": [],
-    "automotive": [
-      {
-        id: 'puris',
-        name: 'PURIS KIT',
-        logo: PurisKitLogo,
-        logoHeight: 80,
-        logoWidth: 80,
-        route: '/docs-kits/kits/puris-kit/adoption-view',
-        colors: {
-          primary: '#A159FF',
-          gradient: 'linear-gradient(135deg, #E5CCFF 0%, #A159FF 100%)'
-        },
-        maturity: {
-          currentLevel: 'Graduated',
-          graduatedAt: '2025-08-16'
-        },
-        deprecated: false,
-        domain: 'Supply Chain',
-        industries: ['automotive'],
-        description: 'Predictive Unit Realtime Information Service',
-        metadata: {
-          created: '2023-11-29',
-          lastUpdated: '2025-08-16',
-          latestVersion: '0.4.0',
-          new: false
-        }
-      },
-      {
-        id: 'model-based-production',
-        name: 'MODEL BASED PRODUCTION KIT',
-        logo: ModelBasedProductionLogo,
-        logoHeight: 100,
-        logoWidth: 100,
-        route: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
-        colors: {
-          primary: '#FEBC02',
-          gradient: 'linear-gradient(135deg, #FFC357 0%, #FEBC02 100%)'
-        },
-        maturity: {
-          currentLevel: 'Sandbox',
-          graduationStatus: 'draft'
-        },
-        deprecated: false,
-        domain: 'Engineering',
-        industries: ['automotive'],
-        description: 'Federated simulation and data processing.',
-        metadata: {
-          created: '2023-12-08',
-          lastUpdated: '2024-05-27',
-          latestVersion: '1.0.0',
-          new: false
-        }
-      },
-      {
-        id: 'behavior-twin',
-        name: 'BEHAVIOUR TWIN KIT',
-        logo: BehaviorTwinKitLogo,
-        logoHeight: 80,
-        logoWidth: 80,
-        route: '/docs-kits/kits/behaviour-twin-kit/overview',
-        colors: {
-          primary: '#FFA601',
-          gradient: 'linear-gradient(135deg, #FFC357 0%, #FFA601 100%)'
-        },
-        maturity: {
-          currentLevel: 'Incubating',
-          graduationStatus: 'draft'
-        },
-        deprecated: false,
-        domain: "Simulations",
-        industries: ['automotive'],
-        description: 'Maximize the potential of usage data through calculation services and simulations.',
-        metadata: {
-          created: '2024-05-16',
-          lastUpdated: '2024-05-21',
-          latestVersion: '1.0.0',
-          new: false
-        }
-      }
-    ],
+    "automotive": [],
     "chemical": []
   }
 };
@@ -923,7 +949,7 @@ export const getUsedCategories = () => {
 // Get all kits from all sections
 export const getAllKits = () => {
   const industrySpecificKits = [];
-  
+
   // Collect all industry-specific KITs
   if (kitsData.industryKits) {
     Object.values(kitsData.industryKits).forEach(kitsArray => {
@@ -932,7 +958,7 @@ export const getAllKits = () => {
       }
     });
   }
-  
+
   return [
     ...kitsData.dataspaceFoundation,
     ...kitsData.industryCoreFoundation,
@@ -966,7 +992,7 @@ export const getRecentlyUpdatedKits = (daysBack = 30) => {
   const allKits = getAllKits();
   const cutoffDate = new Date();
   cutoffDate.setDate(cutoffDate.getDate() - daysBack);
-  
+
   return allKits.filter(kit => {
     if (!kit.metadata?.lastUpdated) return false;
     return new Date(kit.metadata.lastUpdated) >= cutoffDate;
@@ -981,7 +1007,7 @@ export const getKitMetadata = (kitId) => {
 // Get KITs associated with a specific dataspace
 export const getKitsByDataspace = (dataspaceName) => {
   const allKits = getAllKits();
-  
+
   // Find the dataspace across all industries
   let dataspaceKitIds = [];
   industries.forEach(industry => {
@@ -992,7 +1018,7 @@ export const getKitsByDataspace = (dataspaceName) => {
       }
     }
   });
-  
+
   // Return full kit objects for the IDs in the dataspace
   if (dataspaceKitIds.length === 0) return [];
   return allKits.filter(kit => dataspaceKitIds.includes(kit.id));
@@ -1001,7 +1027,7 @@ export const getKitsByDataspace = (dataspaceName) => {
 // Get all dataspaces with their associated KIT counts
 export const getDataspaceStats = () => {
   const stats = [];
-  
+
   industries.forEach(industry => {
     if (industry.dataspaces) {
       industry.dataspaces.forEach(dataspace => {
@@ -1014,6 +1040,6 @@ export const getDataspaceStats = () => {
       });
     }
   });
-  
+
   return stats;
 };
