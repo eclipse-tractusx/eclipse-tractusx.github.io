@@ -90,7 +90,7 @@ export const meetings = [
       interval: 1,
       daysOfWeek: ['thursday'],
       startTime: '09:30',
-      endTime: '10:00',
+      endTime: '10:30',
     },
     additionalLinks: [
       { title: "KIT Matrix Chat (Updates/Cancelations of this meeting will be announced here)", url: "https://chat.eclipse.org/#/room/%23tractusx-kits:matrix.eclipse.org"},
@@ -150,7 +150,7 @@ export const meetings = [
     contact: 'lars.blaumeiser@cofinity-x.com',
     sessionLink: 'https://eclipse.zoom.us/j/87463482673?pwd=XwLhl6yazHg2Llaos4ojcCs2OPRaip.1',
     recurrence: {
-      frequency: 'bi-weekly',
+      frequency: 'weekly',
       interval: 2,
       daysOfWeek: ['tuesday'],
       startTime: '16:00',
