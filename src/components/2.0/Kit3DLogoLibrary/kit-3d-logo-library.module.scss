@@ -18,9 +18,15 @@
  ********************************************************************************/
 
 .container {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 40px 20px;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  @media (max-width: 480px) {
+    padding: 20px 10px;
+  }
 }
 
 .header {
@@ -51,6 +57,11 @@
   margin-bottom: 60px;
   flex-wrap: wrap;
 
+  @media (max-width: 480px) {
+    margin-bottom: 30px;
+    gap: 8px;
+  }
+
   button {
     padding: 10px 20px;
     border: 2px solid var(--ifm-color-emphasis-300);
@@ -61,6 +72,11 @@
     font-size: 0.95rem;
     font-weight: 500;
     transition: all 0.3s ease;
+
+    @media (max-width: 480px) {
+      padding: 8px 12px;
+      font-size: 0.8rem;
+    }
 
     &:hover {
       border-color: var(--ifm-color-primary);
@@ -75,14 +91,8 @@
   }
 }
 
-// Gallery Grid
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 60px 40px;
-  margin-bottom: 80px;
-  justify-items: center;
-}
+// Gallery Grid - now using MUI Grid2
+// Styles moved to inline sx props and kitCard
 
 .kitCard {
   display: flex;
@@ -90,6 +100,8 @@
   align-items: center;
   text-align: center;
   transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 400px;
 
   &:hover {
     transform: translateY(-5px);
@@ -99,7 +111,14 @@
 .kitInfo {
   margin-top: 20px;
   width: 100%;
-  max-width: 300px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  @media (max-width: 480px) {
+    margin-top: 15px;
+  }
 }
 
 .kitName {
@@ -611,12 +630,63 @@
 
 // Extra small screens
 @media (max-width: 480px) {
-  .header h1 {
-    font-size: 1.5rem;
+  .header {
+    margin-bottom: 30px;
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
   }
 
-  .info h2 {
-    font-size: 1.2rem;
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .info {
+    padding: 15px 10px;
+    
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    p, ul {
+      font-size: 0.85rem;
+    }
+  }
+
+  .kitCard {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .kitName {
+    font-size: 1rem;
+    word-break: break-word;
+  }
+
+  .kitCategory {
+    font-size: 0.75rem;
+  }
+
+  .kitDomain {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .kitMaturity {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+
+  .colorInfo,
+  .gradientInfo {
+    font-size: 0.75rem;
+    gap: 8px;
   }
 
   .gradientColorItem {
@@ -631,7 +701,49 @@
     }
   }
 
-  .gallery {
-    gap: 40px 15px;
+  .licenseInfo {
+    padding: 8px;
+    margin-top: 12px;
+  }
+
+  .licenseHeader {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .logoLicenseHeader {
+    font-size: 0.75rem;
+    margin-top: 12px;
+    
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .licenseButton {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .authorInput {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+    min-height: 24px;
+  }
+
+  .codeBlock {
+    font-size: 0.75rem;
+    padding: 15px;
   }
 }

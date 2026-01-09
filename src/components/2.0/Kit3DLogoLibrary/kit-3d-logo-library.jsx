@@ -19,6 +19,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
+import Grid from '@mui/material/Unstable_Grid2';
 import { kitsData, licenses } from '@site/data/kitsData';
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 import KitLogoLicense from '@site/src/components/2.0/KitLogoLicense';
@@ -104,11 +105,12 @@ export default function Kit3DLogoLibrary() {
         </div>
 
         {/* Gallery Grid */}
-        <div className={styles.gallery}>
+        <Grid container spacing={{ xs: 3, sm: 4, md: 4 }} sx={{ mb: 10 }}>
           {filteredKits.map((kit) => (
-            <div key={kit.id} className={styles.kitCard}>
-              <Kit3DLogo kitId={kit.id} showDownload={true} />
-              <div className={styles.kitInfo}>
+            <Grid key={kit.id} xs={12} sm={6} md={6} lg={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <div className={styles.kitCard}>
+                <Kit3DLogo kitId={kit.id} showDownload={true} />
+                <div className={styles.kitInfo}>
                 <h3 className={styles.kitName}>{kit.name}</h3>
                 <p className={styles.kitCategory}>{kit.category}</p>
                 <div className={styles.kitMeta}>
@@ -231,10 +233,11 @@ export default function Kit3DLogoLibrary() {
                   </>
                 )}
                 <KitLogoLicense logoLicencse={kit.logoLicencse} licenses={licenses} />
+                </div>
               </div>
-            </div>
+            </Grid>
           ))}
-        </div>
+        </Grid>
 
         {/* Info Section */}
         <div className={styles.info}>

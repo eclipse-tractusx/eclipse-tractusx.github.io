@@ -32,9 +32,8 @@
   right: -10px;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
-  background: var(--ifm-color-primary);
-  border: 2px solid var(--ifm-background-color);
+  border-radius: 10px;
+  border: none;
   color: white;
   cursor: pointer;
   display: flex;
@@ -44,9 +43,27 @@
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
+  @media (max-width: 480px) {
+    top: auto;
+    bottom: -10px;
+    right: 50%;
+    transform: translateX(50%);
+    
+    // Disable hover effects on touch devices
+    &:hover {
+      background: var(--ifm-color-primary);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
   &:hover {
-    background: var(--ifm-color-primary-dark);
-    transform: scale(1.1);
+    background: white;
+    color: black;
+    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 
