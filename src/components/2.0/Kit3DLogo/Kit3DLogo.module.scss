@@ -1,0 +1,159 @@
+/*********************************************************************************
+ * Eclipse Tractus-X - eclipse-tractusx.github.io
+ *
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+/* Wrapper for the 3D logo and download button */
+.logo3dWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Download button in top right corner */
+.downloadButton {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-background-color);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    background: var(--ifm-color-primary-dark);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+/* 3D Logo Stack Container */
+.logo3dContainer {
+  position: relative;
+  width: 300px;
+  height: 320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* Individual Layer */
+.logo3dLayer {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  left: 50%;
+  top: 50%;
+  margin-left: -90px;
+  margin-top: -90px;
+
+  // Ensure SVG logos are properly sized and centered
+  svg {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+/* Layer 5 - Bottom border only */
+.layer5 {
+  transform: rotateX(55deg) rotateZ(45deg) translateZ(-14.5px);
+  z-index: 0;
+  background: transparent;
+  border: 2px solid;
+  opacity: 0.4;
+}
+
+/* Layer 4 - Bottom (darkest) */
+.layer4 {
+  transform: rotateX(55deg) rotateZ(45deg) translateZ(0px);
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* Border Layer 4b */
+.layer4b {
+  transform: rotateX(55deg) rotateZ(45deg) translateZ(14.5px);
+  z-index: 2;
+  background: transparent;
+  border: 2px solid;
+  opacity: 0.4;
+}
+
+/* Layer 3 */
+.layer3 {
+  transform: rotateX(55deg) rotateZ(45deg) translateZ(29px);
+  z-index: 3;
+  opacity: 0.6;
+}
+
+/* Border Layer 3b */
+.layer3b {
+  transform: rotateX(55deg) rotateZ(45deg) translateZ(43.5px);
+  z-index: 4;
+  background: transparent;
+  border: 2px solid;
+  opacity: 0.6;
+}
+
+/* Layer 2 */
+.layer2 {
+  transform: rotateX(55deg) rotateZ(45deg) translateZ(58px);
+  z-index: 5;
+  opacity: 0.8;
+}
+
+/* Border Layer 2b */
+.layer2b {
+  transform: rotateX(55deg) rotateZ(45deg) translateZ(72.5px);
+  z-index: 6;
+  background: transparent;
+  border: 2px solid;
+  opacity: 0.8;
+}
+
+/* Layer 1 - Top (brightest) */
+.layer1 {
+  transform: rotateX(55deg) rotateZ(45deg) translateZ(87px);
+  z-index: 7;
+  opacity: 1;
+}

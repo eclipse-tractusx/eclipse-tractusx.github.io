@@ -1,0 +1,637 @@
+/********************************************************************************
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #2316E3, #EA3650);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 0;
+}
+
+// Filter Buttons
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+
+  button {
+    padding: 10px 20px;
+    border: 2px solid var(--ifm-color-emphasis-300);
+    background: var(--ifm-background-color);
+    color: var(--ifm-font-color-base);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: var(--ifm-color-primary);
+      background: var(--ifm-color-primary-lightest);
+    }
+
+    &.active {
+      background: var(--ifm-color-primary);
+      color: white;
+      border-color: var(--ifm-color-primary);
+    }
+  }
+}
+
+// Gallery Grid
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 60px 40px;
+  margin-bottom: 80px;
+  justify-items: center;
+}
+
+.kitCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.kitInfo {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.kitName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ifm-font-color-base);
+}
+
+.kitCategory {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 12px;
+}
+
+.kitMeta {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.kitDomain {
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.kitMaturity {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &.graduated {
+    background: #4caf50;
+    color: white;
+  }
+
+  &.incubating {
+    background: #ff9800;
+    color: white;
+  }
+
+  &.sandbox {
+    background: #2196f3;
+    color: white;
+  }
+}
+
+.colorInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.8rem;
+}
+
+.copyButton {
+  padding: 4px;
+  background: transparent;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: var(--ifm-color-emphasis-600);
+
+  &:hover {
+    background: var(--ifm-color-primary-lightest);
+    border-color: var(--ifm-color-primary);
+    color: black;
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+.gradientInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.gradientDisplay {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.gradientColorItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gradientBar {
+  position: relative;
+  flex: 1;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gradientAngle {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--ifm-font-color-base);
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.gradientColorValue {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: var(--ifm-color-emphasis-700);
+  white-space: nowrap;
+}
+
+.gradientColors {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gradientAngle {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: white;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.gradientColorItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.colorLabel {
+  color: var(--ifm-color-emphasis-600);
+}
+
+.colorSwatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.gradientSwatch {
+  flex: 1;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  max-width: 200px;
+}
+
+.colorValue {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+// License Information
+.licenseInfo {
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  border-left: 3px solid var(--ifm-color-primary);
+  font-size: 0.8rem;
+}
+
+.licenseHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-800);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  
+  svg {
+    color: var(--ifm-color-primary);
+  }
+}
+
+.logoLicenseHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-top: 16px;
+  margin-bottom: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  
+  svg {
+    color: var(--ifm-color-primary);
+    opacity: 0.8;
+  }
+}
+
+.licenseText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.licenseAuthors {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.authorLine {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.licenseLabel {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-600);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  text-align: left;
+}
+
+.licenseTypeLink {
+  display: block;
+  text-decoration: none;
+}
+
+.licenseType {
+  font-family: monospace;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  background: var(--ifm-background-color);
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    text-decoration: underline;
+    background:white;
+    color: black;
+  }
+}
+
+.licenseInput,
+.authorInput {
+  font-family: monospace;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-800);
+  width: 100%;
+  cursor: text;
+  resize: none;
+  min-height: 28px;
+  line-height: 1.5;
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  
+  &:focus {
+    outline: 2px solid var(--ifm-color-primary);
+    outline-offset: 1px;
+  }
+}
+
+.licenseInput {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.authorsText {
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.75rem;
+}
+
+.licenseButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.licenseButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background:white;
+    transform: translateY(-1px);
+    color: black;
+    text-decoration: none;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+// Info Section
+.info {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background: var(--ifm-background-surface-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    line-height: 1.8;
+    color: var(--ifm-color-emphasis-800);
+  }
+
+  ul {
+    line-height: 1.8;
+    color: var(--ifm-color-emphasis-800);
+    margin-left: 20px;
+
+    li {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.specItem {
+  padding: 12px;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  font-size: 0.9rem;
+
+  strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--ifm-color-primary);
+  }
+}
+
+.codeBlock {
+  background: var(--ifm-code-background);
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 50px 20px;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  .info {
+    padding: 20px;
+  }
+
+  .specs {
+    grid-template-columns: 1fr;
+  }
+
+  .gradientInfo {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .gradientDisplay {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .gradientBar {
+    width: 100%;
+    min-height: 50px;
+    order: 1;
+  }
+
+  .gradientAngle {
+    position: static;
+    margin: 0 auto;
+    order: 0;
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .gradientColorItem {
+    min-width: unset;
+    width: 100%;
+
+    .colorBox {
+      width: 35px;
+      height: 35px;
+    }
+
+    .colorValue {
+      font-size: 12px;
+    }
+
+    .copyButton {
+      padding: 6px;
+      min-width: 35px;
+    }
+  }
+
+  .colorInfo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .primaryColorItem {
+    width: 100%;
+  }
+
+  .licenseInfo {
+    font-size: 0.75rem;
+  }
+
+  .licenseText,
+  .authorLine {
+    gap: 4px;
+  }
+
+  .licenseButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// Extra small screens
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .info h2 {
+    font-size: 1.2rem;
+  }
+
+  .gradientColorItem {
+    .colorValue {
+      font-size: 11px;
+    }
+
+    .copyButton {
+      padding: 5px;
+      min-width: 32px;
+      font-size: 11px;
+    }
+  }
+
+  .gallery {
+    gap: 40px 15px;
+  }
+}
