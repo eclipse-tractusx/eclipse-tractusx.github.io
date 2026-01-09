@@ -279,7 +279,7 @@ export const kitsData = {
       logo: IndustryCoreKitLogo,
       logoLicencse: {
         type: 'CC-BY-4.0',
-        authors: '2024 Eclipse Tractus-X Contributors; 2024,2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)',
+        authors: '2026 Eclipse Tractus-X Contributors',
         licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/industry-core/industry-core-kit-raw-logo.svg.license',
         sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/industry-core/industry-core-kit-raw-logo.svg'
       },
@@ -313,7 +313,6 @@ export const kitsData = {
         authors: '2026 Eclipse Tractus-X Contributors',
         licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-chain/data-chain-kit-raw-logo.svg.license',
         sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-chain/data-chain-kit-raw-logo.svg',
-        originalSourceUrl: 'https://www.svgrepo.com/svg/533825/bakery-breakfast-dessert'
       },
       logoHeight: 90,
       logoWidth: 90,
