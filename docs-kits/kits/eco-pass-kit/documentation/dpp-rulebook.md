@@ -634,36 +634,40 @@ These characteristics enable comparability across products, and informed decisio
 | Rule ID | Data Attribute              | Mandatory/ Optional | Regulatory Reference                 | 
 |---------|-----------------------------|---------------------|--------------------------------------|
 | 6.5.1     | Life Type                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   |
-| 6.5.2     | Life Value                  | Mandatory           | Regulation (EU) 2024/1781, Annex I   | 
-| 6.5.3     | Life Unit                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   | 
-| 6.5.4     | Value (Width)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.5     | Unit (Width)                | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.6     |  Value (Length)             | Optional            | Regulation (EU) 2024/1781, Article 7 |
-| 6.5.7     | Unit (Length)               | Optional            | Regulation (EU) 2024/1781, Article 7 |
-| 6.5.8     |  Value (Diameter)           | Optional            | Regulation (EU) 2024/1781, Article 7 |
-| 6.5.9     | Unit (Diameter)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.10    |  Value (Height)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.11    | Unit (Height)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.12    |  Value (Gross Weight)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.13    | Unit (Gross Weight)         |Mandatory            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.14    |  Value (Volume)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.15    | Unit (Volume)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.16    |  Value (Gross Volume)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.17    | Unit (Gross Volume)         | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
-| 6.5.18    |  Value (Weight)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.19    | Unit (Weight)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.20    |  Value (Item Quantity)      | *To be covered in next version* | | | | |
-| 6.5.21    | Unit Item Quantity          | *To be covered in next version* | | | | |
-| 6.5.22    | Physical State              | Optional            |  | 
-| 6.5.23    | General Performance Class   | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.24    | Other Characteristic Name   | *To be covered in next version* | | | | |
-| 6.5.25    | Other Characteristic Outcome| *To be covered in next version* | | | | |
+| 6.5.2     | Life Description            | Optional            | Regulation (EU) 2024/1781, Annex I   |
+| 6.5.3     | Life Value                  | Mandatory           | Regulation (EU) 2024/1781, Annex I   | 
+| 6.5.4     | Life Unit                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   |
+| 6.5.5     | Value (Width)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.6     | Unit (Width)                | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.7     |  Value (Length)             | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.8     | Unit (Length)               | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.9     |  Value (Diameter)           | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.10     | Unit (Diameter)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.11    |  Value (Height)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.12    | Unit (Height)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.13    |  Value (Gross Weight)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.14    | Unit (Gross Weight)         |Mandatory            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.15    |  Value (Volume)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.16    | Unit (Volume)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.17    |  Value (Gross Volume)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.18    | Unit (Gross Volume)         | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.19    |  Value (Weight)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.20    | Unit (Weight)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.21    |  Value (Item Quantity)      | *To be covered in next version* | | | | |
+| 6.5.22    | Unit Item Quantity          | *To be covered in next version* | | | | |
+| 6.5.23    | Physical State              | Optional            |  | 
+| 6.5.24    | General Performance Class   | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.25    | Other Characteristic Name   | *To be covered in next version* | | | | |
+| 6.5.26    | Other Characteristic Outcome| *To be covered in next version* | | | | |
 
 #### 6.5.1 Life Type
 
 "Lifetime" under the Ecodesign for Sustainable Products Regulation (ESPR) refers to the period during which a product or its components are expected to remain functional, safe, and fit for use, under normal or intended conditions, without excessive performance degradation. It is a key indicator of durability and reliability, and may be expressed through: <br>1- Guaranteed lifetime (e.g., warranty or legal durability claim) <br>2- Technical lifetime (based on product design and performance testing) <br>3- Mean Time Between Failures (MTBF)
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.2 Life Description
+*To be covered in next version*
 
 #### 6.5.2 Life Value
 
