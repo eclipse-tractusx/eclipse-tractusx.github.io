@@ -653,8 +653,8 @@ These characteristics enable comparability across products, and informed decisio
 | 6.5.18    | Unit (Gross Volume)         | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.19    |  Value (Weight)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
 | 6.5.20    | Unit (Weight)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.21    |  Value (Item Quantity)      | *To be covered in next version* | | | | |
-| 6.5.22    | Unit Item Quantity          | *To be covered in next version* | | | | |
+| 6.5.21    | Item quantity in package value  | *To be covered in next version* | | | | |
+| 6.5.22    | Item quantity in package unit        | *To be covered in next version* | | | | |
 | 6.5.23    | Physical State              | Optional            |  | 
 | 6.5.24    | General Performance Class   | Optional            | Regulation (EU) 2024/1781, Article 7 | 
 | 6.5.25    | Other Characteristic Name   | *To be covered in next version* | | | | |
@@ -669,144 +669,144 @@ These characteristics enable comparability across products, and informed decisio
 #### 6.5.2 Life Description
 *To be covered in next version*
 
-#### 6.5.2 Life Value
+#### 6.5.3 Life Value
 
 The numeric value describing the product’s lifespan in terms of the specified type.
 
 > **Syntax**<br>Must be a valid integer for lifespan value and must be > 0. 
 
-#### 6.5.3 Life Unit
+#### 6.5.4 Life Unit
 
 The unit corresponding to the respective lifespan, specified using one of the following standardized units: day, month, cycle, year, or running/operating hour.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-#### 6.5.4 Value (Width)
+#### 6.5.5 Value (Width)
 
 Represents the width of the item.
 
 > **Syntax**<br>Must be a valid float representing width and must be > 0. 
 
-#### 6.5.5 Unit (Width)
+#### 6.5.6 Unit (Width)
 
 Specifies unit of measure for widths.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 
-#### 6.5.6 Value (Length)
+#### 6.5.7 Value (Length)
 
 The length of the item.
 
 > **Syntax**<br>Valid float for length value required and must be > 0. 
 
-#### 6.5.7 Unit (Length)
+#### 6.5.8 Unit (Length)
 
 Defines unit used for measuring length.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 
-#### 6.5.8 Value (Diameter)
+#### 6.5.9 Value (Diameter)
 
 Specifies diameter of the item.
 
 > **Syntax**<br>Must be float for diameter and must be > 0. 
 
-#### 6.5.9 Unit (Diameter)
+#### 6.5.10 Unit (Diameter)
 
 Indicates unit for diameter measurements.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 
-#### 6.5.10 Value (Height)
+#### 6.5.11 Value (Height)
 
 Measures height of the item.
 
 > **Syntax**<br>Requires a float value corresponding to height and must be > 0. 
 
-#### 6.5.11 Unit (Height)
+#### 6.5.12 Unit (Height)
 
 Defines unit of height measure.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-#### 6.5.12 Value (Gross Weight)
+#### 6.5.13 Value (Gross Weight)
 
 Specifies total weight of the item including packaging.
 
 > **Syntax**<br>Must be valid float to reflect gross weight and must be > 0. 
 
-#### 6.5.13 Unit (Gross Weight)
+#### 6.5.14 Unit (Gross Weight)
 
 Defines measurement unit for gross weight.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 
-#### 6.5.14 Value (Volume)
+#### 6.5.15 Value (Volume)
 
 Measures product’s volume.
 
 > **Syntax**<br>Valid float required for volume and must be > 0. 
 
-#### 6.5.15 Unit (Volume)
+#### 6.5.16 Unit (Volume)
 
 Defines the unit to express volume measurements.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 
-#### 6.5.16 Value (Gross Volume)
+#### 6.5.17 Value (Gross Volume)
 
 Represents gross volume of the product including packaging.
 
 > **Syntax**<br>Must be valid float for gross volume and must be > 0. 
 
-#### 6.5.17 Unit (Gross Volume)
+#### 6.5.18 Unit (Gross Volume)
 
 Specifies measurement unit for gross volume.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-#### 6.5.18 Value (Weight)
+#### 6.5.19 Value (Weight)
 
 Details the weight of the product.
 
 > **Syntax**<br>Must be valid float representing weight and must be > 0. 
 
-#### 6.5.19 Unit (Weight)
+#### 6.5.20 Unit (Weight)
 
 Defines unit of weight measures.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-#### 6.5.20 Value (Item Quantity)
+#### 6.5.21 Item quantity in package value 
 
 *To be covered in next version* 
 
-#### 6.5.21 Unit Item Quantity
+#### 6.5.22 Item quantity in package unit
 
 *To be covered in next version* 
 
-#### 6.5.22 Physical State
+#### 6.5.23 Physical State
 
 The physical state of a product refers to the form in which raw materials, intermediates, or finished goods exist during production, handling, and distribution. It determines how the product is processed, stored, and transported, and typically falls into one of the following categories: Solid, liquid, gas, powder/granular
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-#### 6.5.23 General Performance Class
+#### 6.5.24 General Performance Class
 
 Characterizes product performance in a graded class system, promoting consumer decision-making based on efficiency.
 
 > **Content Validation**<br>Performance class must be defined in compliance to [ESPR, Article 7](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746) when made available by EU. Performance classes have been established for certain sectors, such as automotive batteries; however, they have not yet been defined for sectors like chemical. Therefore, it is recommended to assess the relevance of performance classes in the context of your specific sector and use case.
 
-#### 6.5.24 Other Characteristic Name
+#### 6.5.25 Other Characteristic Name
 
 *To be covered in next version*
 
-#### 6.5.25 Other Characteristic Outcome
+#### 6.5.26 Other Characteristic Outcome
 
 *To be covered in next version*
 
