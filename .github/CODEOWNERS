@@ -14,3 +14,6 @@
 
 # Example of KIT Code Owner eg. Data Trust & Security KIT
 /docs-kits/kits/data-trust-and-security-kit/ @matbmoser
+
+# Connector KIT
+/docs-kits/kits/connector-kit/ @lgblaumeiser
