@@ -5,11 +5,15 @@ sidebar_position: 42
 
 ## 1. Prerequisites
 
-- This is a tutorial on how to create and structure Test Cases, Test Sets and Test Plans in the Tractus-X Jira Xray.
-- Similar to permissions in GitHub, viewing access to the [Tractus-X Testmanagement Jira](https://catena-x.atlassian.net/browse/CXTPM/) is possible without creating and account.
+- This is a tutorial on how to create and structure test cases, test sets and test plans in the central [Eclipse Tractus-X Test Management Jira](https://catena-x.atlassian.net/browse/CXTPM/) system.
+- This test management system is mainly intended to manage and execute tests at the end-to-end integration testing level, but can be used by the Tractus-X projects for tests at any test level.
+- This test management system is an Atlassian Jira installation (Cloud version), with Xray - Test Management for Jira installed as an application in it.
+- The license for the project was originally purchased by Catena-X e.V., thus all links below currently still have the name Catena-X in the URL, as this could not be changed without causing further issues. But the system can now be used with a free license for open source projects that in 2025 was granted by Atlassian Pty Ltd to the Eclipse Foundation respectively the Eclipse Tractus-X project.
+- Similar to permissions in GitHub, the system is set up so that viewing access to the [Eclipse Tractus-X Test Management Jira project space](https://catena-x.atlassian.net/browse/CXTPM/) is possible without creating an account.
 - However in order to add, edit or delete test assets in the repository you will need a Jira account and the applicable permissions assigned: Project access granted and project role "Contributor" to edit your own or "Committer" to also edit assets of other team members.
 - To work with Xray test management in Jira, [create a Jira account](https://id.atlassian.com/signup?application=jira&continue=https%3A%2F%2Fcatena-x.atlassian.net) or log in and contact Tractus-X / Catena-X e.V. Test Manager [Monika Jacobsen](mailto:monika.jacobsen@catena-x.net) to get added as a Jira project member.
-- Understanding of your test requirements and objectives.
+
+Please see the sections below for a tutorial on how you can use this system to achieve the testing requirements and objectives for your Tractus-X project.
 <br/>
 
 ---
@@ -440,7 +444,7 @@ The purpose of an Xray Test Plan is to organize and manage the execution of a se
 This work and all embedded screenshot images are licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2025-2026 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2025, 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/)
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray)
 - Images: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/images](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/images)
