@@ -6,7 +6,7 @@ sidebar_position: 42
 ## 1. Prerequisites
 
 - This is a tutorial on how to create and structure Test Cases, Test Sets and Test Plans in the Tractus-X Jira Xray.
-- Similar to permissions in GitHub, viewing access to the [Tractus-X Testmanagment Jira](https://catena-x.atlassian.net/browse/CXTPM/) is possible without creating and account.
+- Similar to permissions in GitHub, viewing access to the [Tractus-X Testmanagement Jira](https://catena-x.atlassian.net/browse/CXTPM/) is possible without creating and account.
 - However in order to add, edit or delete test assets in the repository you will need a Jira account and the applicable permissions assigned: Project access granted and project role "Contributor" to edit your own or "Committer" to also edit assets of other team members.
 - To work with Xray test management in Jira, [create a Jira account](https://id.atlassian.com/signup?application=jira&continue=https%3A%2F%2Fcatena-x.atlassian.net) or log in and contact Tractus-X / Catena-X e.V. Test Manager [Monika Jacobsen](mailto:monika.jacobsen@catena-x.net) to get added as a Jira project member.
 - Understanding of your test requirements and objectives.
@@ -22,7 +22,7 @@ sidebar_position: 42
    - Use the global "Create" button at the top of the page, or
    - The context-specific "Create" button on the right side within the Testing Board.
 
-![2025-06-25_10_40_56-create_button.png](../images/howto-xray-create_button.png)
+![howto-xray-create_button.png](../images/howto-xray-create_button.png)
 *Screenshot: The "Create" buttons are highlighted in the Jira Xray interface for easy access to create new test artifacts.*
 
 <br/>
@@ -39,11 +39,17 @@ For all kinds of test types, you need to fill out these basic information.
 
 1. Click the **Create** button.
 2. In the creation dialog, select **Test** as the Work type.
-3. Fill in fields, marked with an asterisk are mandatory:
+3. Fill in all relevant fields. Fields marked with an asterisk are mandatory, e.g. a Summary (= title of the test)
+
+![howto-xray-create-test-case-1.png](../images/howto-xray-create-test-case-1.png)
+
+*Screenshot: Top of the "Create" dialogue box with Test selected as the "Work type" and the "Summary" field highlighted*
+
+<br/>
 
 #### Summary*: Brief description of the test
 
-A good JIRA test case summary should clearly indicate the system and use case it belongs to. This should be done by including the system in square brackets followed by a short, descriptive title of what the test does.
+A good JIRA Xray test case summary should clearly indicate the system and use case it belongs to. This should be done by including the system in square brackets followed by a short, descriptive title of what the test does.
 
 Examples:
 
@@ -125,17 +131,17 @@ Examples:
 Examples:
 
 - Testmanagement
-- SLDT
+- Portal
 - PURIS
+
+![howto-xray-create-test-case-2.png](../images/howto-xray-create-test-case-2.png)
+*Screenshot: Bottom part of the first "Create" dialogue screen with the "Team" selection dropdown menu.*
 
 <br/>
 
-![howto-xray-create-test-case-1.png](../images/howto-xray-create-test-case-1.png)
-![howto-xray-create-test-case-2.png](../images/howto-xray-create-test-case-2.png)
-
 On the second screen, please add the test type:
 
-- **Test Type*:** Manual, Cucumber, or Generic.
+- **Test Type: Manual, Cucumber, or Generic.**
 
 Depending on your choice, Jira will change the layout and offer you different options to describe your test case.
 
@@ -361,16 +367,16 @@ The Xray Test Set is used to group related tests for better organization and reu
 
 1. Click the **Create** button.
 2. In the creation dialog, open the **Work type** dropdown and select **Test Set**.
-  ![2025-06-25_10_44_46-testsetcreatedialog.png](../images/howto-xray-testset-create-dialog.png)
+  ![howto-xray-testset-create-dialog.png](../images/howto-xray-testset-create-dialog.png)
   *Screenshot: The "Work type" dropdown is highlighted, showing "Test Set" selected in the creation dialog.*
-3. Fill in the fields, marked with an asterisk are mandatory:
+3. Fill in the fields, those marked with an asterisk are mandatory:
    - **Summary:*** Name of the Test Set.
    - **Description:*** Brief description of the Test Set.
-   - **Labels, Fix Versions, Component, Team:** For categorization and traceability.
+   - **Labels, Fix Versions, Component, Team, Priority:** For categorization and traceability.
      For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
 4. Click **Create** to finalize the Test Set.
-   ![2025-06-25_10_44_46-testsetdialogdetails.png](../images/howto-xray-testset-dialog-details.png)
-   *Screenshot: The "Fix version", "Component" and "Team" dropdowns are highlighted in the "Create" dialogue box.*
+   ![howto-xray-testset-dialog-details.png](../images/howto-xray-testset-dialog-details.png)
+   *Screenshot: The "Fix version", "Priority", "Team" and "Labels" dropdowns are highlighted in the "Create" dialogue box.*
 
 <br/>
 
@@ -415,8 +421,8 @@ The purpose of an Xray Test Plan is to organize and manage the execution of a se
 
 1. Click the **Create** button.
 2. In the creation dialog, open the **Work type** dropdown and select **Test Plan**.
-   ![2025-06-25_10_44_46-testplancreatedialog.png](../images/howto-xray-testplan-create-dialog.png)
-   *Screenshot: The "Work type" dropdown is highlighted, showing both "Test Set" and "Test Plan" as selectable options.*
+   ![howto-xray-testplan-create-dialog.png](../images/howto-xray-testplan-create-dialog.png)
+   *Screenshot: In the "Create" menu the "Work type" dropdown with "Test Plan" as the selected option is highlighted.*
 3. Fill in the fields, marked with an asterisk are mandatory:
    - **Summary:*** Name of the Test Plan.
    - **Description:*** Brief description of the Test Plan.
