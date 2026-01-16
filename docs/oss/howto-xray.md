@@ -21,7 +21,6 @@ sidebar_position: 42
 3. **Locate the "Create" button**:
    - Use the global "Create" button at the top of the page, or
    - The context-specific "Create" button on the right side within the Testing Board.
-
 ![howto-xray-create_button.png](../images/howto-xray-create_button.png)
 *Screenshot: The "Create" buttons are highlighted in the Jira Xray interface for easy access to create new test artifacts.*
 
@@ -40,9 +39,7 @@ For all kinds of test types, you need to fill out these basic information.
 1. Click the **Create** button.
 2. In the creation dialog, select **Test** as the Work type.
 3. Fill in all relevant fields. Fields marked with an asterisk are mandatory, e.g. a Summary (= title of the test)
-
 ![howto-xray-create-test-case-1.png](../images/howto-xray-create-test-case-1.png)
-
 *Screenshot: Top of the "Create" dialogue box with Test selected as the "Work type" and the "Summary" field highlighted*
 
 <br/>
@@ -447,7 +444,6 @@ This work and all embedded screenshot images are licensed under the [CC-BY-4.0](
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/)
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray)
 - Images: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/images](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/images)
-
 
 ## AUTHORS
 
