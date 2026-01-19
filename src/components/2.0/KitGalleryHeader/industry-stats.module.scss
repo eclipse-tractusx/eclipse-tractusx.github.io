@@ -369,12 +369,21 @@
   }
   
   .industry_stats_container {
-    gap: 20px;
+    gap: 16px;
+  }
+  
+  .icon_section {
+    padding-right: 1rem;
+  }
+  
+  .logo_section {
+    padding-right: 1rem;
   }
   
   .stat_card {
-    padding: 14px 20px;
-    min-width: 120px;
+    padding: 16px 22px;
+    min-width: 130px;
+    min-height: 110px;
   }
   
   .stat_number {
@@ -382,89 +391,434 @@
   }
   
   .total_card {
-    padding: 18px 22px;
-    min-width: 120px;
+    padding: 18px 24px;
+    min-width: 130px;
+  }
+  
+  .total_number {
+    font-size: 2.5rem;
+  }
+}
+
+/* Tablet landscape - adjust layout but keep side by side */
+@media (max-width: 1024px) {
+  .category_title_section h1 {
+    font-size: 2rem;
+  }
+  
+  .category_description_section p {
+    font-size: 0.95rem;
+  }
+  
+  .industry_stats_container {
+    gap: 12px;
+  }
+  
+  .icon_section {
+    img {
+      max-width: 70px;
+    }
+  }
+  
+  .logo_section {
+    img {
+      max-height: 50px;
+    }
+  }
+  
+  .stat_card,
+  .total_card {
+    padding: 14px 20px;
+    min-width: 110px;
+    min-height: 100px;
+  }
+  
+  .stat_number {
+    font-size: 1.85rem;
   }
   
   .total_number {
     font-size: 2.25rem;
   }
+  
+  .section_label {
+    font-size: 0.65rem;
+  }
 }
 
+/* Tablet portrait - start stacking */
 @media (max-width: 968px) {
-  .category_hero {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .category_content_wide {
-    max-width: 100%;
-    padding-right: 0;
-  }
-  
   .industry_stats_container {
     flex-direction: column;
     width: 100%;
-    gap: 24px;
-    margin: 2rem auto 0;
-    max-width: 500px;
+    align-items: center;
+    gap: 20px;
+    margin-top: 2rem;
   }
   
-  .domain_cards,
+  .icon_section,
+  .logo_section {
+    align-self: center;
+    padding-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .icon_section {
+    img {
+      max-width: 80px;
+    }
+  }
+  
+  .logo_section {
+    img {
+      max-height: 60px;
+    }
+  }
+  
+  .left_column,
+  .right_column {
+    width: 100%;
+    max-width: 600px;
+    align-items: center;
+  }
+  
+  .category_title_section,
+  .category_description_section {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .category_title_section h1 {
+    font-size: 2.25rem;
+  }
+  
+  /* Domain section - keep horizontal but centered */
+  .domain_section {
+    width: 100%;
+    align-items: center;
+  }
+  
+  .domain_cards {
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    .section_header {
+      width: 100%;
+      border-left: none;
+      border-bottom: 3px solid rgba(159, 122, 234, 0.7);
+      padding: 0 0 6px 0;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+  }
+  
+  /* Lifecycle section - switch to horizontal layout on tablet */
+  .lifecycle_section {
+    width: 100%;
+    align-items: center;
+    
+    .section_header {
+      width: 100%;
+      border-right: none;
+      border-left: none;
+      border-bottom: 3px solid rgba(159, 122, 234, 0.7);
+      padding: 0 0 6px 0;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+  }
+  
   .lifecycle_cards {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
-    
-    .stat_card {
-      flex: 1 1 auto;
-      min-width: 130px;
-      max-width: 160px;
+    width: 100%;
+  }
+  
+  .lifecycle_section .stat_card {
+    /* Reset border animations for horizontal layout */
+    .stat_border {
+      top: 0;
+      bottom: auto;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 3px;
+      transform: scaleX(0);
+      transform-origin: left;
     }
     
-    .total_card {
-      flex: 0 1 auto;
-      min-width: 130px;
-      max-width: 160px;
+    &:hover .stat_border {
+      transform: scaleX(1);
     }
+  }
+  
+  .stat_card {
+    flex: 0 1 auto;
+    min-width: 130px;
+    max-width: 160px;
+  }
+  
+  .total_card {
+    margin-top: 0;
+    max-width: 200px;
   }
 }
 
+/* Mobile landscape / small tablet */
 @media (max-width: 768px) {
   .industry_stats_container {
-    max-width: 100%;
     padding: 0 1rem;
-    gap: 20px;
+    gap: 16px;
+  }
+  
+  .icon_section {
+    img {
+      max-width: 70px;
+    }
+  }
+  
+  .logo_section {
+    img {
+      max-height: 50px;
+    }
+  }
+  
+  .category_title_section h1 {
+    font-size: 1.85rem;
+  }
+  
+  .category_description_section p {
+    font-size: 0.9rem;
   }
   
   .section_header {
-    padding: 4px 0 4px 12px;
+    width: 100%;
+    padding: 0 0 6px 0;
     margin-bottom: 12px;
+    border-left: none;
+    border-bottom: 3px solid rgba(159, 122, 234, 0.7);
+    text-align: center;
   }
   
   .section_label {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
+    letter-spacing: 1.8px;
+    font-weight: 700;
+    opacity: 1;
   }
   
   .domain_cards,
   .lifecycle_cards {
     gap: 10px;
-    
-    .stat_card,
-    .total_card {
-      min-width: 110px;
-      max-width: 140px;
-      padding: 14px 18px;
-    }
+  }
+  
+  .stat_card,
+  .total_card {
+    min-width: 110px;
+    max-width: 145px;
+    padding: 14px 18px;
+    min-height: 95px;
   }
   
   .stat_number {
     font-size: 1.75rem;
   }
   
+  .stat_label {
+    font-size: 0.65rem;
+  }
+  
   .total_number {
     font-size: 2rem;
+  }
+  
+  .total_label {
+    font-size: 0.7rem;
+  }
+}
+
+/* Specific fix for ~600-650px width (like the screenshot) */
+@media (max-width: 650px) {
+  .industry_stats_container {
+    gap: 14px;
+    padding: 0 1.25rem;
+  }
+  
+  .left_column,
+  .right_column {
+    max-width: 550px;
+  }
+  
+  .category_title_section {
+    margin-bottom: 0.75rem;
+  }
+  
+  .category_description_section {
+    margin-bottom: 1rem;
+  }
+  
+  .section_header {
+    width: 100%;
+    padding: 0 0 8px 0;
+    border-left: none;
+    border-bottom: 3px solid rgba(159, 122, 234, 0.7);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  
+  .section_label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    opacity: 1;
+    
+    :global([data-theme='light']) & {
+      opacity: 0.95;
+    }
+  }
+  
+  .domain_cards,
+  .lifecycle_cards {
+    gap: 12px;
+  }
+  
+  .stat_card {
+    min-width: 120px;
+    max-width: 155px;
+    padding: 16px 20px;
+    min-height: 100px;
+  }
+  
+  .total_card {
+    min-width: 140px;
+    max-width: 180px;
+    padding: 18px 24px;
+  }
+  
+  .stat_number {
+    font-size: 1.85rem;
+    margin-bottom: 6px;
+  }
+  
+  .total_number {
+    font-size: 2.1rem;
+    margin-bottom: 8px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .industry_stats_container {
+    padding: 0 0.5rem;
+    gap: 16px;
+  }
+  
+  .icon_section {
+    img {
+      max-width: 60px;
+    }
+  }
+  
+  .logo_section {
+    img {
+      max-height: 45px;
+    }
+  }
+  
+  .category_title_section h1 {
+    font-size: 1.5rem;
+  }
+  
+  .category_description_section p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .section_header {
+    width: 100%;
+    padding: 0 0 6px 0;
+    margin-bottom: 10px;
+    border-left: none;
+    border-bottom: 2px solid rgba(159, 122, 234, 0.7);
+    text-align: center;
+  }
+  
+  .section_label {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+  }
+  
+  /* Stack cards vertically on very small screens */
+  .domain_cards,
+  .lifecycle_cards {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .stat_card,
+  .total_card {
+    min-width: 100%;
+    max-width: 280px;
+    padding: 16px 20px;
+    min-height: 85px;
+  }
+  
+  .stat_number {
+    font-size: 1.65rem;
+  }
+  
+  .stat_label {
+    font-size: 0.6rem;
+  }
+  
+  .total_card {
+    max-width: 280px;
+  }
+  
+  .total_number {
+    font-size: 1.85rem;
+  }
+  
+  .total_label {
+    font-size: 0.65rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .icon_section {
+    img {
+      max-width: 50px;
+    }
+  }
+  
+  .logo_section {
+    img {
+      max-height: 40px;
+    }
+  }
+  
+  .category_title_section h1 {
+    font-size: 1.35rem;
+  }
+  
+  .category_description_section p {
+    font-size: 0.8rem;
+  }
+  
+  .stat_card,
+  .total_card {
+    padding: 14px 18px;
+    min-height: 80px;
+  }
+  
+  .stat_number {
+    font-size: 1.5rem;
+  }
+  
+  .total_number {
+    font-size: 1.75rem;
   }
 }
