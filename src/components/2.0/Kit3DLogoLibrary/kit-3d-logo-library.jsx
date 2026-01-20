@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
  * 
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -271,7 +271,7 @@ export default function Kit3DLogoLibrary() {
           </div>
 
           <h3>Usage Example</h3>
-          <CodeBlock language="jsx" title="JavaScript/JSX">
+          <CodeBlock language="jsx" title="Markdown (.md) or Markdown with JSX (.mdx)">
 {`import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 <Kit3DLogo kitId="requirements" />`}
