@@ -89,28 +89,15 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
       return { colors: null, logoSizePercent: 45 };
     }
 
-    // Helper function to darken a color
-    const darkenColor = (hex, factor) => {
-      const num = parseInt(hex.slice(1), 16);
-      const r = Math.floor(((num >> 16) & 0xFF) * factor);
-      const g = Math.floor(((num >> 8) & 0xFF) * factor);
-      const b = Math.floor((num & 0xFF) * factor);
-      return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
-    };
-
-    // Create layer gradient with darkening factor
-    const createLayerGradient = (c1, c2, factor) => {
-      const darkC1 = darkenColor(c1, factor);
-      const darkC2 = darkenColor(c2, factor);
-      return `linear-gradient(45deg, ${darkC1} 0%, ${darkC2} 100%)`;
-    };
-
-    // Generate gradient variations (100%, 75%, 55%, 40%)
+    // Use the same gradient for all layers - opacity will handle the darkening effect
+    const baseGradient = `linear-gradient(45deg, ${color1} 0%, ${color2} 100%)`;
+    
+    // All layers use the same gradient
     const gradients = [
-      `linear-gradient(45deg, ${color1} 0%, ${color2} 100%)`,
-      createLayerGradient(color1, color2, 0.75),
-      createLayerGradient(color1, color2, 0.55),
-      createLayerGradient(color1, color2, 0.40)
+      baseGradient, // Layer 1 - Top (100% opacity in SCSS)
+      baseGradient, // Layer 2 (90% opacity in SCSS)
+      baseGradient, // Layer 3 (80% opacity in SCSS)
+      baseGradient  // Layer 4 - Bottom (70% opacity in SCSS)
     ];
 
     // Calculate logo size percentage based on logoWidth/logoHeight

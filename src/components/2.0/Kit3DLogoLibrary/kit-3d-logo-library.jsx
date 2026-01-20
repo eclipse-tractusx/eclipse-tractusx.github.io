@@ -23,6 +23,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { kitsData, licenses } from '@site/data/kitsData';
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 import KitLogoLicense from '@site/src/components/2.0/KitLogoLicense';
+import CodeBlock from '@theme/CodeBlock';
 import styles from './kit-3d-logo-library.module.scss';
 
 export default function Kit3DLogoLibrary() {
@@ -270,13 +271,12 @@ export default function Kit3DLogoLibrary() {
           </div>
 
           <h3>Usage Example</h3>
-          <pre className={styles.codeBlock}>
-{`import Kit3DLogo from '@site/src/components/Kit3DLogo';
+          <CodeBlock language="jsx" title="JavaScript/JSX">
+{`import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
-function MyComponent() {
-  return <Kit3DLogo kitId="connector" />;
-}`}
-          </pre>
+<Kit3DLogo kitId="requirements" />`}
+          </CodeBlock>
+          <p>It can be used in <code>.mdx</code> and <code>.md</code> files. The <code>kitId</code> represents the unique identifier indicated in the <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/data/kitsData.js" target="_blank" rel="noopener noreferrer">KIT Master Data File</a>.</p>
         </div>
       </div>
   );
