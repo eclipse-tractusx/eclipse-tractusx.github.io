@@ -171,60 +171,62 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
         </button>
       )}
       <div ref={containerRef} className={styles.logo3dContainer}>
-      {/* Layer 5 - Bottom border only */}
-      <div 
-        className={`${styles.logo3dLayer} ${styles.layer5}`}
-        style={{ borderColor: colors.primary }}
-      />
+        <div className={styles.logo3dInner}>
+          {/* Layer 5 - Bottom border only */}
+          <div 
+            className={`${styles.logo3dLayer} ${styles.layer5}`}
+            style={{ borderColor: colors.primary }}
+          />
 
-      {/* Layer 4 - Bottom (darkest) */}
-      <div 
-        className={`${styles.logo3dLayer} ${styles.layer4}`}
-        style={{ background: colors.gradients[3] }}
-      />
+          {/* Layer 4 - Bottom (darkest) */}
+          <div 
+            className={`${styles.logo3dLayer} ${styles.layer4}`}
+            style={{ background: colors.gradients[3] }}
+          />
 
-      {/* Border Layer 4b */}
-      <div 
-        className={`${styles.logo3dLayer} ${styles.layer4b}`}
-        style={{ borderColor: colors.primary }}
-      />
+          {/* Border Layer 4b */}
+          <div 
+            className={`${styles.logo3dLayer} ${styles.layer4b}`}
+            style={{ borderColor: colors.primary }}
+          />
 
-      {/* Layer 3 */}
-      <div 
-        className={`${styles.logo3dLayer} ${styles.layer3}`}
-        style={{ background: colors.gradients[2] }}
-      />
+          {/* Layer 3 */}
+          <div 
+            className={`${styles.logo3dLayer} ${styles.layer3}`}
+            style={{ background: colors.gradients[2] }}
+          />
 
-      {/* Border Layer 3b */}
-      <div 
-        className={`${styles.logo3dLayer} ${styles.layer3b}`}
-        style={{ borderColor: colors.primary }}
-      />
+          {/* Border Layer 3b */}
+          <div 
+            className={`${styles.logo3dLayer} ${styles.layer3b}`}
+            style={{ borderColor: colors.primary }}
+          />
 
-      {/* Layer 2 */}
-      <div 
-        className={`${styles.logo3dLayer} ${styles.layer2}`}
-        style={{ background: colors.gradients[1] }}
-      />
+          {/* Layer 2 */}
+          <div 
+            className={`${styles.logo3dLayer} ${styles.layer2}`}
+            style={{ background: colors.gradients[1] }}
+          />
 
-      {/* Border Layer 2b */}
-      <div 
-        className={`${styles.logo3dLayer} ${styles.layer2b}`}
-        style={{ borderColor: colors.primary }}
-      />
+          {/* Border Layer 2b */}
+          <div 
+            className={`${styles.logo3dLayer} ${styles.layer2b}`}
+            style={{ borderColor: colors.primary }}
+          />
 
-      {/* Layer 1 - Top (brightest) with logo */}
-      <div 
-        className={`${styles.logo3dLayer} ${styles.layer1}`}
-        style={{ background: colors.gradients[0] }}
-      >
-        <Logo 
-          style={{ 
-            width: `${logoSizePercent}%`, 
-            height: `${logoSizePercent}%` 
-          }} 
-        />
-      </div>
+          {/* Layer 1 - Top (brightest) with logo */}
+          <div 
+            className={`${styles.logo3dLayer} ${styles.layer1}`}
+            style={{ background: colors.gradients[0] }}
+          >
+            <Logo 
+              style={{ 
+                width: `${logoSizePercent}%`, 
+                height: `${logoSizePercent}%` 
+              }} 
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

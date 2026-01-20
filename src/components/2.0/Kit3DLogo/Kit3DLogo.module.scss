@@ -80,29 +80,37 @@
 .logo3dContainer {
   position: relative;
   width: 300px;
-  height: 320px;
+  height: 280px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   transform-style: preserve-3d;
+}
+
+/* Inner wrapper for 3D layers - this creates the contained space */
+.logo3dInner {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  transform-style: preserve-3d;
+  transform: translateY(30px);
 }
 
 /* Individual Layer */
 .logo3dLayer {
   position: absolute;
-  width: 180px;
-  height: 180px;
+  width: 100%;
+  height: 100%;
   border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   transform-style: preserve-3d;
-  left: 50%;
-  top: 50%;
-  margin-left: -90px;
-  margin-top: -90px;
+  left: 0;
+  top: 0;
 
   // Ensure SVG logos are properly sized and centered
   svg {
