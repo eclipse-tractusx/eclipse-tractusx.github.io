@@ -125,7 +125,7 @@ export const artifactRequirementsData = [
     incubatingInProgress: 3,
     incubatingInReview: 4,
     graduated: 1,
-    additionalInfo: "Described the Data Models and Data Structures handled by applications based on this KIT"
+    additionalInfo: "Describes the Data Models and Data Structures handled by applications based on this KIT"
   },
   {
     artifact: "Access & Usage Policies",
