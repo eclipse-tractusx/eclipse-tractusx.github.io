@@ -105,9 +105,9 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
     // All layers use the same gradient
     const gradients = [
       baseGradient, // Layer 1 - Top (100% opacity in SCSS)
-      baseGradient, // Layer 2 (90% opacity in SCSS)
-      baseGradient, // Layer 3 (80% opacity in SCSS)
-      baseGradient  // Layer 4 - Bottom (70% opacity in SCSS)
+      baseGradient, // Layer 2 (80% opacity in SCSS)
+      baseGradient, // Layer 3 (60% opacity in SCSS)
+      baseGradient  // Layer 4 - Bottom (40% opacity in SCSS)
     ];
 
     // Calculate logo size percentage based on logoWidth/logoHeight
