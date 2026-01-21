@@ -254,9 +254,12 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
       document.body.removeChild(link);
       
       setTimeout(() => {
-        URL.revokeObjectURL(url);
-        setIsDownloading(false);
-        setDownloadingFrom(null);
+        
+        setTimeout(() => {
+          URL.revokeObjectURL(url);
+          setIsDownloading(false);
+          setDownloadingFrom(null);
+        }, 500);
       }, 500);
     } catch (error) {
       console.error('Error downloading PNG:', error);
