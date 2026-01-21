@@ -226,7 +226,7 @@ export const artifactRequirementsData = [
     incubatingInProgress: 3,
     incubatingInReview: 4,
     graduated: 1,
-    additionalInfo: "Described test cases how to validate the functionality of this KIT"
+    additionalInfo: "Describes test cases how to validate the functionality of this KIT"
   },
   // ==================== OPERATION VIEW ====================
   {
