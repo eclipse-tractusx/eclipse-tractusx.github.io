@@ -28,7 +28,7 @@
  * Status codes:
  * - 0: Empty (no requirement)
  * - 1: Mandatory (green check)
- * - 2: Optional/Recommended (gray check with *)
+ * - 2: Optional/Recommended (gray check with *) (first version / if applicable)
  * - 3: In Development (orange edit icon)
  * - 4: Expert Review Needed (purple review icon)
  * 
@@ -108,11 +108,31 @@ export const artifactRequirementsData = [
     additionalInfo: "Explains the Use Case (What is its context) and how it works"
   },
   {
+    artifact: "Logic / Schema",
+    view: "Adoption View",
+    sandbox: 2,
+    incubatingDraft: 3,
+    incubatingInProgress: 3,
+    incubatingInReview: 4,
+    graduated: 1,
+    additionalInfo: "Required for documenting the context, diagrams which specify the system that can be built with the KIT"
+  },
+  {
+    artifact: "Semantic Models / Data Structures",
+    view: "Adoption View",
+    sandbox: 2,
+    incubatingDraft: 3,
+    incubatingInProgress: 3,
+    incubatingInReview: 4,
+    graduated: 1,
+    additionalInfo: "Described the Data Models and Data Structures handled by applications based on this KIT"
+  },
+  {
     artifact: "Access & Usage Policies",
     view: "Adoption View",
     sandbox: 0,
     incubatingDraft: 3,
-    incubatingInProgress: 1,
+    incubatingInProgress: 3,
     incubatingInReview: 4,
     graduated: 1,
     additionalInfo: "In case DSP (Connector) is used, the specific policies needed for this use case need to be referenced. In case policies from other foundation KITs are use it can be avoided"
@@ -122,7 +142,7 @@ export const artifactRequirementsData = [
     view: "Adoption View",
     sandbox: 0,
     incubatingDraft: 3,
-    incubatingInProgress: 1,
+    incubatingInProgress: 3,
     incubatingInReview: 4,
     graduated: 1,
     additionalInfo: "May not be relevant for Network Services"
@@ -147,24 +167,43 @@ export const artifactRequirementsData = [
     graduated: 2,
     additionalInfo: "Research and analysis document"
   },
-
   // ==================== DEVELOPMENT VIEW ====================
   {
     artifact: "Architecture Overview",
     view: "Development View",
-    sandbox: 3,
-    incubatingDraft: 2,
+    sandbox: 2,
+    incubatingDraft: 1,
     incubatingInProgress: 1,
     incubatingInReview: 1,
     graduated: 1,
     additionalInfo: "System design and architecture diagrams that describe the system and its contexts. "
   },
   {
+    artifact: "API-Specification / Protocols",
+    view: "Development View",
+    sandbox: 2,
+    incubatingDraft: 3,
+    incubatingInProgress: 3,
+    incubatingInReview: 4,
+    graduated: 1,
+    additionalInfo: "Technical interface definitions, required for developing microservices"
+  },
+  {
+    artifact: "Protocols",
+    view: "Development View",
+    sandbox: 2,
+    incubatingDraft: 3,
+    incubatingInProgress: 3,
+    incubatingInReview: 4,
+    graduated: 1,
+    additionalInfo: "Communication/Semantic protocols used by the KIT components to interact with each other"
+  },
+  {
     artifact: "Component/Sequence Diagrams",
     view: "Development View",
     sandbox: 0,
     incubatingDraft: 3,
-    incubatingInProgress: 2,
+    incubatingInProgress: 3,
     incubatingInReview: 4,
     graduated: 1,
     additionalInfo: "Implementation details on the components and services from a KIT and how they interact with each other"
@@ -174,47 +213,17 @@ export const artifactRequirementsData = [
     view: "Development View",
     sandbox: 0,
     incubatingDraft: 3,
-    incubatingInProgress: 2,
+    incubatingInProgress: 3,
     incubatingInReview: 4,
     graduated: 1,
     additionalInfo: "Industry standards compliance, if industry specific like (Catena-X e.V. standards) shall be referenced in the Industry Extension under the industry branch"
-  },
-  {
-    artifact: "API-Specification / Protocols",
-    view: "Development View",
-    sandbox: 0,
-    incubatingDraft: 3,
-    incubatingInProgress: 2,
-    incubatingInReview: 4,
-    graduated: 1,
-    additionalInfo: "Technical interface definitions, required for developing microservices"
-  },
-  {
-    artifact: "Logic / Schema",
-    view: "Development View",
-    sandbox: 0,
-    incubatingDraft: 3,
-    incubatingInProgress: 2,
-    incubatingInReview: 4,
-    graduated: 1,
-    additionalInfo: "Required for documenting the context, diagrams which specify the system that can be built with the KIT"
-  },
-  {
-    artifact: "Semantic Models / Data Structures",
-    view: "Development View",
-    sandbox: 0,
-    incubatingDraft: 3,
-    incubatingInProgress: 1,
-    incubatingInReview: 4,
-    graduated: 1,
-    additionalInfo: "Described the Data Models and Data Structures handled by applications based on this KIT"
   },
   {
     artifact: "Test Cases",
     view: "Development View",
     sandbox: 0,
     incubatingDraft: 3,
-    incubatingInProgress: 2,
+    incubatingInProgress: 3,
     incubatingInReview: 4,
     graduated: 1,
     additionalInfo: "Described test cases how to validate the functionality of this KIT"
@@ -225,7 +234,7 @@ export const artifactRequirementsData = [
     view: "Operation View",
     sandbox: 0,
     incubatingDraft: 3,
-    incubatingInProgress: 1,
+    incubatingInProgress: 3,
     incubatingInReview: 4,
     graduated: 1,
     additionalInfo: "How to set the system and bring it up and running"

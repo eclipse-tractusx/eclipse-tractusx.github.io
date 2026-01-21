@@ -119,10 +119,10 @@ const ArtifactRequirementsTable = ({ data }) => {
             <CheckCircleIcon sx={{ fontSize: 14, color: '#10b981', verticalAlign: 'middle' }} /> Mandatory
           </li>
           <li>
-            <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280', verticalAlign: 'middle' }} />* Optional/Recommended
+            <CheckCircleIcon sx={{ fontSize: 14, color: '#6b7280', verticalAlign: 'middle' }} />* Initial Draft Version (If Applicable)
           </li>
           <li>
-            <EditIcon sx={{ fontSize: 14, color: '#f59e0b', verticalAlign: 'middle' }} /> In Development
+            <EditIcon sx={{ fontSize: 14, color: '#f59e0b', verticalAlign: 'middle' }} /> In Development / Extension of Specification
           </li>
           <li>
             <RateReviewIcon sx={{ fontSize: 14, color: '#8b5cf6', verticalAlign: 'middle' }} /> Expert Review Needed
