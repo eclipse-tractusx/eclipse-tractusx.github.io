@@ -59,6 +59,7 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
     ];
     
     return allKits.find(kit => kit.id === kitId);
+    return allKits.find(kit => kit.id === kitId);
   }, [kitId]);
 
   // Extract gradient colors and compute layer gradients
@@ -222,6 +223,8 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
   // Handle PNG download functionality with custom settings
   const handleDownloadPNGCustom = async () => {
     if (!containerRef.current) return;
+    setIsDownloading(true);
+    setDownloadingFrom('dropdown');
 
     try {
       const html2canvas = (await import('html2canvas')).default;
@@ -232,18 +235,32 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
         logging: false,
       });
 
-      canvas.toBlob((blob) => {
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.download = `${kitId}-3d-logo-${downloadSettings.size}-${downloadSettings.scale}x.png`;
-        link.href = url;
-        link.click();
+      const blob = await new Promise((resolve, reject) => {
+        canvas.toBlob((blob) => {
+          if (blob) {
+            resolve(blob);
+          } else {
+            reject(new Error('Failed to create blob from canvas'));
+          }
+        }, 'image/png', 1.0);
+      });
+
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.download = `${kitId}-3d-logo-${downloadSettings.size}-${downloadSettings.scale}x.png`;
+      link.href = url;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      setTimeout(() => {
         URL.revokeObjectURL(url);
         setIsDownloading(false);
         setDownloadingFrom(null);
-      });
+      }, 500);
     } catch (error) {
       console.error('Error downloading PNG:', error);
+      alert('Failed to download PNG: ' + error.message);
       setIsDownloading(false);
       setDownloadingFrom(null);
     }

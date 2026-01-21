@@ -23,7 +23,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { kitsData, licenses } from '@site/data/kitsData';
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 import KitLogoLicense from '@site/src/components/2.0/KitLogoLicense';
-import CodeBlock from '@theme/CodeBlock';
+import CodeBlock from '@theme-original/CodeBlock';
 import styles from './kit-3d-logo-library.module.scss';
 
 export default function Kit3DLogoLibrary() {
