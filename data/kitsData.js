@@ -33,6 +33,13 @@ For each KIT the information model is the following:
       id: '<unique-kit-id>',
       name: '<KIT NAME IN UPPERCASE>',
       logo: <kit logo class>,
+      logoLicencse: {
+        type: '<license-type>',  // e.g., 'CC-BY-4.0', 'Apache-2.0', 'CC0 1.0 Universal', 'MIT'
+        authors: '<semicolon-separated-list-of-authors>',  // e.g., '2026 Eclipse Tractus-X Contributors; 2024,2025 Company Name'
+        licenseUrl: '<url-to-license-file>',  // GitHub URL to .license file
+        sourceUrl: '<url-to-source-file>',  // GitHub URL to logo source file
+        originalSourceUrl: '<url-to-original-source>'  // Optional: URL to original source if logo is derived
+      },
       logoHeight: <logo_height>,
       logoWidth: <logo_width>,
       route: '<route-to-the-kit-adoption-view>',
@@ -99,6 +106,13 @@ import Science from '@mui/icons-material/Science';
 
 // Categories with their corresponding CSS class names and colors
 
+export const licenses = {
+  'CC-BY-4.0': "https://creativecommons.org/licenses/by/4.0/",
+  "Apache-2.0": "https://www.apache.org/licenses/LICENSE-2.0",
+  "CC0 1.0 Universal": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "MIT": "https://opensource.org/licenses/MIT"
+}
+
 // Kit data with their respective logos, routes, industries, and descriptions
 export const kitsData = {
   dataspaceFoundation: [
@@ -106,6 +120,12 @@ export const kitsData = {
       id: 'connector',
       name: 'CONNECTOR KIT',
       logo: ConnectorKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors', // Komma separated list of authors
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/connector/connector-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/connector/connector-kit-raw-logo.svg'
+      },
       logoHeight: 80,
       logoWidth: 80,
       route: '/docs-kits/kits/connector-kit/adoption-view',
@@ -131,6 +151,12 @@ export const kitsData = {
       id: 'data-governance',
       name: 'DATA GOVERNANCE KIT',
       logo: DataGovernanceLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-governance/data-governance-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-governance/data-governance-kit-raw-logo.svg'
+      },
       logoHeight: 90,
       logoWidth: 90,
       route: '/docs-kits/kits/data-governance-kit/adoption-view',
@@ -157,6 +183,12 @@ export const kitsData = {
       id: 'data-trust-security',
       name: 'DATA TRUST & SECURITY KIT',
       logo: DataTrustSecurityLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-trust-and-security/data-trust-and-security-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-trust-and-security/data-trust-and-security-kit-raw-logo.svg'
+      },
       logoHeight: 120,
       logoWidth: 120,
       route: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
@@ -182,6 +214,12 @@ export const kitsData = {
       id: 'business-partner',
       name: 'BUSINESS PARTNER KIT',
       logo: BusinessPartnerLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/business-partner/business-partner-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/business-partner/business-partner-raw-logo.svg'
+      },
       logoHeight: 100,
       logoWidth: 100,
       route: '/docs-kits/kits/business-partner-kit/adoption-view',
@@ -209,6 +247,12 @@ export const kitsData = {
       id: 'digital-twin',
       name: 'DIGITAL TWIN KIT',
       logo: DigitalTwinKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/digital-twin/digital-twin-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/digital-twin/digital-twin-kit-raw-logo.svg'
+      },
       logoHeight: 80,
       logoWidth: 80,
       route: '/docs-kits/kits/digital-twin-kit/adoption-view',
@@ -234,6 +278,12 @@ export const kitsData = {
       id: 'industry-core',
       name: 'INDUSTRY CORE KIT',
       logo: IndustryCoreKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/industry-core/industry-core-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/industry-core/industry-core-kit-raw-logo.svg'
+      },
       logoHeight: 120,
       logoWidth: 120,
       route: '/docs-kits/kits/industry-core-kit/adoption-view',
@@ -259,6 +309,12 @@ export const kitsData = {
       id: 'data-chain',
       name: 'DATA CHAIN KIT',
       logo: DataChainKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-chain/data-chain-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-chain/data-chain-kit-raw-logo.svg',
+      },
       logoHeight: 90,
       logoWidth: 90,
       route: '/docs-kits/kits/data-chain-kit/adoption-view',
@@ -284,6 +340,12 @@ export const kitsData = {
       id: 'traceability',
       name: 'TRACEABILITY KIT',
       logo: TraceabilityKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/traceability/traceability-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/traceability/traceability-kit-raw-logo.svg'
+      },
       logoHeight: 100,
       logoWidth: 100,
       route: '/docs-kits/kits/traceability-kit/adoption-view',
@@ -309,6 +371,12 @@ export const kitsData = {
       id: 'supply-chain-disruption',
       name: 'SUPPLY CHAIN DISRUPTION NOTIFICATION KIT',
       logo: SupplyChainDisruptionLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-raw-logo.svg'
+      },
       logoHeight: 100,
       logoWidth: 100,
       route: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
@@ -334,6 +402,12 @@ export const kitsData = {
       id: 'agents',
       name: 'KNOWLEDGE AGENTS KIT',
       logo: AgentsKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/agents/agents-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/agents/agents-kit-raw-logo.svg'
+      },
       logoHeight: 80,
       logoWidth: 80,
       route: '/docs-kits/kits/knowledge-agents-kit/adoption-view/intro',
@@ -386,6 +460,12 @@ export const kitsData = {
       id: 'ess',
       name: 'ESS KIT',
       logo: ESSKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/ess/ess-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/ess/ess-kit-raw-logo.svg'
+      },
       logoHeight: 90,
       logoWidth: 90,
       route: '/docs-kits/kits/environmental-and-social-standards-kit/adoption-view',
@@ -412,6 +492,12 @@ export const kitsData = {
       id: 'pcf',
       name: 'PRODUCT CARBON FOOTPRINT KIT',
       logo: PCFKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcf/pcf-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcf/pcf-kit-raw-logo.svg'
+      },
       logoHeight: 120,
       logoWidth: 120,
       route: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
@@ -425,7 +511,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: 'Sustainability',
-      industries: ['automotive', 'shop-floor', 'construction', 'semiconductor'],
+      industries: ['automotive', 'manufacturing', 'construction', 'semiconductor'],
       description: 'Product-specific CO2 footprint.',
       metadata: {
         created: '2023-08-23',
@@ -438,6 +524,12 @@ export const kitsData = {
       id: 'eco-pass',
       name: 'ECO PASS KIT',
       logo: EcoPassKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/eco-pass/eco-pass-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/eco-pass/eco-pass-kit-raw-logo.svg'
+      },
       logoHeight: 100,
       logoWidth: 100,
       route: '/docs-kits/kits/eco-pass-kit/adoption-view',
@@ -451,7 +543,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: 'Sustainability',
-      industries: ['automotive', 'shop-floor', 'construction'],
+      industries: ['automotive', 'manufacturing', 'construction'],
       description: 'Leverage the transparency of digital product passports to strengthen sustainability & compliance.',
       metadata: {
         created: '2023-08-11',
@@ -464,6 +556,12 @@ export const kitsData = {
       id: 'circularity',
       name: 'CIRCULARITY KIT',
       logo: CircularityKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/circularity/circularity-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/circularity/circularity-kit-raw-logo.svg'
+      },
       logoHeight: 100,
       logoWidth: 100,
       route: '/docs-kits/kits/circularity-kit/adoption-view',
@@ -477,7 +575,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: 'Sustainability',
-      industries: ['automotive', 'shop-floor'],
+      industries: ['automotive', 'manufacturing'],
       description: 'Enable circular economy business models with data exchange across company boundaries.',
       metadata: {
         created: '2023-12-08',
@@ -490,6 +588,12 @@ export const kitsData = {
       id: 'dcm',
       name: 'DEMAND & CAPACITY MANAGEMENT KIT',
       logo: DCMKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-raw-logo.svg'
+      },
       logoHeight: 80,
       logoWidth: 80,
       route: '/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
@@ -516,6 +620,12 @@ export const kitsData = {
       id: 'logistics',
       name: 'LOGISTICS KIT',
       logo: LogisticsKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/logistics/logistics-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/logistics/logistics-kit-raw-logo.svg'
+      },
       logoHeight: 100,
       logoWidth: 100,
       route: '/docs-kits/kits/logistics-kit/adoption-view',
@@ -542,6 +652,12 @@ export const kitsData = {
       id: 'customs',
       name: 'CUSTOMS KIT',
       logo: CustomsKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/customs/customs-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/customs/customs-kit-raw-logo.svg'
+      },
       logoHeight: 100,
       logoWidth: 100,
       route: '/docs-kits/kits/customs-kit/adoption-view',
@@ -568,6 +684,12 @@ export const kitsData = {
       id: 'osim',
       name: 'ONLINE SIMULATION KIT',
       logo: OSIMKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/osim/osim-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/osim/osim-kit-raw-logo.svg'
+      },
       logoHeight: 100,
       logoWidth: 100,
       route: '/docs-kits/kits/online-simulation-kit/adoption-view',
@@ -594,6 +716,12 @@ export const kitsData = {
       id: 'puris',
       name: 'PURIS KIT',
       logo: PurisKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/puris/puris-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/puris/puris-kit-raw-logo.svg'
+      },
       logoHeight: 80,
       logoWidth: 80,
       route: '/docs-kits/kits/puris-kit/adoption-view',
@@ -620,6 +748,12 @@ export const kitsData = {
       id: 'model-based-production',
       name: 'MODEL BASED PRODUCTION KIT',
       logo: ModelBasedProductionLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/model-based-production/model-based-production-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/model-based-production/model-based-production-kit-raw-logo.svg'
+      },
       logoHeight: 100,
       logoWidth: 100,
       route: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
@@ -646,6 +780,12 @@ export const kitsData = {
       id: 'behavior-twin',
       name: 'BEHAVIOUR TWIN KIT',
       logo: BehaviorTwinKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/behavior-twin/behavior-twin-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/behavior-twin/behavior-twin-kit-raw-logo.svg'
+      },
       logoHeight: 80,
       logoWidth: 80,
       route: '/docs-kits/kits/behaviour-twin-kit/overview',
@@ -672,6 +812,12 @@ export const kitsData = {
       id: 'data-driven-quality',
       name: 'DATA DRIVEN QUALITY KIT',
       logo: DataDrivenQualityLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-driven-quality-management/data-driven-quality-management-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-driven-quality-management/data-driven-quality-management-kit-raw-logo.svg'
+      },
       logoHeight: 120,
       logoWidth: 120,
       route: '/docs-kits/kits/data-driven-quality-management-kit/adoption-view',
@@ -698,8 +844,14 @@ export const kitsData = {
       id: 'requirements',
       name: 'REQUIREMENTS KIT',
       logo: RequirementsKitLogo,
-      logoHeight: 120,
-      logoWidth: 120,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/requirements/requirements-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/requirements/requirements-kit-raw-logo.svg'
+      },
+      logoHeight: 100,
+      logoWidth: 100,
       route: '/docs-kits/kits/requirements-kit/adoption-view',
       colors: {
         primary: '#e4a4de',
@@ -724,11 +876,17 @@ export const kitsData = {
       id: 'geometry',
       name: 'GEOMETRY KIT',
       logo: GeometryKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/geometry/geometry-kit-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/geometry/geometry-kit-logo.svg'
+      },
       logoHeight: 100,
       logoWidth: 100,
       route: '/docs-kits/kits/geometry-kit/adoption-view',
       colors: {
-        primary: '#17FFBF',
+        primary: '#8c9ea3',
         gradient: 'linear-gradient(135deg, #aebfc4 0%, #8c9ea3 100%)'
       },
       maturity: {
@@ -754,6 +912,12 @@ export const kitsData = {
         id: 'maas',
         name: 'MANUFACTURING AS A SERVICE KIT',
         logo: MaaSKitLogo,
+        logoLicencse: {
+          type: 'CC-BY-4.0',
+          authors: '2026 Eclipse Tractus-X Contributors',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/manufacturing-as-a-service/manufacturing-as-a-service-kit-raw-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/manufacturing-as-a-service/manufacturing-as-a-service-kit-raw-logo.svg'
+        },
         logoHeight: 100,
         logoWidth: 100,
         route: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
@@ -767,7 +931,7 @@ export const kitsData = {
         },
         deprecated: false,
         domain: 'Production',
-        industries: ['automotive', 'shop-floor'],
+        industries: ['automotive', 'manufacturing'],
         description: 'Create a federated network of networks to connect manufacturing supply and demand.',
         metadata: {
           created: '2024-03-29',
@@ -780,6 +944,12 @@ export const kitsData = {
         id: 'modular-production',
         name: 'MODULAR PRODUCTION KIT',
         logo: ModularProductionLogo,
+        logoLicencse: {
+          type: 'CC-BY-4.0',
+          authors: '2026 Eclipse Tractus-X Contributors',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/modular-production/modular-production-kit-raw-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/modular-production/modular-production-kit-raw-logo.svg'
+        },
         logoHeight: 100,
         logoWidth: 100,
         route: '/docs-kits/kits/modular-production-kit/adoption-view',
@@ -793,7 +963,7 @@ export const kitsData = {
         },
         deprecated: false,
         domain: 'Production',
-        industries: ['shop-floor'],
+        industries: ['manufacturing'],
         description: 'Enable customized production (batch size 1) without significant increase of costs.',
         metadata: {
           created: '2023-11-20',
@@ -838,14 +1008,14 @@ export const industries = [
         },
         subtitle: 'Your Automotive Network',
         description: 'The first open and collaborative data ecosystem for the automotive industry. Catena-X enables secure and standardized data exchange across the entire automotive value chain to drive innovation, sustainability, and transparency.',
-        kits: ['connector', 'data-governance', 'business-partner', 'agents', 'digital-twin', 'industry-core', 'data-chain', 'data-driven-quality', 'traceability', 'behavior-twin', 'ess', 'pcf', 'eco-pass', 'circularity', 'puris', 'dcm', 'logistics', 'supply-chain-disruption', 'customs', 'osim', 'model-based-production', 'requirements', 'maas']
+        kits: ['connector', 'data-governance', 'data-trust-security', 'business-partner', 'agents', 'digital-twin', 'industry-core', 'data-chain', 'data-driven-quality', 'traceability', 'behavior-twin', 'ess', 'pcf', 'eco-pass', 'circularity', 'puris', 'dcm', 'logistics', 'supply-chain-disruption', 'customs', 'osim', 'model-based-production', 'requirements', 'maas', 'modular-production', 'geometry' ]
       }
     ]
   },
   {
-    id: 'shop-floor',
-    name: 'Shop Floor',
-    subtitle: 'Shop Floor Industry Use Cases',
+    id: 'manufacturing',
+    name: 'Manufacturing',
+    subtitle: 'Manufacturing Industry Use Cases',
     description: 'Industry Specific KITs for manufacturing and production environments, focusing on shop floor operations, industrial equipment integration, and production optimization. Enable smart manufacturing, flexible production networks, and real-time operational data exchange.',
     icon: PrecisionManufacturing,
     gradient: 'linear-gradient(135deg, #1D71B8, #5ba9de, #c1d100)',

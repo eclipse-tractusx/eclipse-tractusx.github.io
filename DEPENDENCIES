@@ -36,6 +36,7 @@ npm/npmjs/-/babel-plugin-polyfill-corejs3/0.13.0, MIT, approved, clearlydefined
 npm/npmjs/-/babel-plugin-polyfill-regenerator/0.6.5, MIT, approved, clearlydefined
 npm/npmjs/-/bail/2.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/balanced-match/1.0.2, MIT, approved, #24802
+npm/npmjs/-/base64-arraybuffer/1.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/baseline-browser-mapping/2.9.6, Apache-2.0, approved, #25275
 npm/npmjs/-/batch/0.6.1, MIT, approved, clearlydefined
 npm/npmjs/-/big.js/5.2.2, MIT, approved, clearlydefined
@@ -130,6 +131,7 @@ npm/npmjs/-/crypto-random-string/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/css-blank-pseudo/7.0.1, MIT-0, approved, clearlydefined
 npm/npmjs/-/css-declaration-sorter/7.3.0, ISC, approved, #23919
 npm/npmjs/-/css-has-pseudo/7.0.3, MIT-0, approved, #18988
+npm/npmjs/-/css-line-break/2.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/css-loader/6.11.0, MIT AND Apache-2.0, approved, #14221
 npm/npmjs/-/css-minimizer-webpack-plugin/5.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/css-prefers-color-scheme/10.0.0, MIT-0, approved, #18973
@@ -358,6 +360,7 @@ npm/npmjs/-/html-minifier-terser/7.2.0, MIT AND BSD-2-Clause AND BSD-3-Clause AN
 npm/npmjs/-/html-tags/3.3.1, MIT, approved, clearlydefined
 npm/npmjs/-/html-void-elements/3.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/html-webpack-plugin/5.6.4, MIT, approved, #12378
+npm/npmjs/-/html2canvas/1.4.1, MIT AND (0BSD AND MIT) AND 0BSD, approved, #3481
 npm/npmjs/-/htmlparser2/6.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/htmlparser2/8.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/http-cache-semantics/4.2.0, BSD-2-Clause, approved, clearlydefined
@@ -888,6 +891,7 @@ npm/npmjs/-/swr/2.3.7, MIT, approved, #22837
 npm/npmjs/-/tapable/2.3.0, MIT, approved, clearlydefined
 npm/npmjs/-/terser-webpack-plugin/5.3.14, MIT AND (Apache-2.0 AND MIT) AND Apache-2.0, approved, #7461
 npm/npmjs/-/terser/5.44.0, BSD-2-Clause AND (BSD-2-Clause AND BSD-3-Clause), approved, #23270
+npm/npmjs/-/text-segmentation/1.0.3, MIT, approved, clearlydefined
 npm/npmjs/-/thingies/2.5.0, MIT, approved, clearlydefined
 npm/npmjs/-/throttleit/2.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/thunky/1.1.0, MIT, approved, clearlydefined
@@ -936,6 +940,7 @@ npm/npmjs/-/util-deprecate/1.0.2, MIT, approved, #5885
 npm/npmjs/-/utila/0.4.0, MIT, approved, clearlydefined
 npm/npmjs/-/utility-types/3.11.0, MIT, approved, clearlydefined
 npm/npmjs/-/utils-merge/1.0.1, MIT, approved, clearlydefined
+npm/npmjs/-/utrie/1.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/uuid/11.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/uuid/8.3.2, MIT AND (BSD-3-Clause AND MIT), approved, #15399
 npm/npmjs/-/value-equal/1.0.1, MIT, approved, clearlydefined
