@@ -284,7 +284,7 @@ npm/npmjs/-/eventemitter3/4.0.7, MIT, approved, clearlydefined
 npm/npmjs/-/events/3.3.0, MIT, approved, clearlydefined
 npm/npmjs/-/eventsource-parser/3.0.6, MIT, approved, #22310
 npm/npmjs/-/execa/5.1.1, MIT, approved, clearlydefined
-npm/npmjs/-/express/4.21.2, MIT, approved, clearlydefined
+npm/npmjs/-/express/4.22.1, MIT, approved, clearlydefined
 npm/npmjs/-/exsolve/1.0.7, MIT, approved, #20369
 npm/npmjs/-/extend-shallow/2.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/extend/3.0.2, MIT, approved, clearlydefined
@@ -736,6 +736,7 @@ npm/npmjs/-/proxy-addr/2.0.7, MIT, approved, clearlydefined
 npm/npmjs/-/punycode/2.3.1, MIT, approved, #6373
 npm/npmjs/-/pupa/3.3.0, MIT, approved, clearlydefined
 npm/npmjs/-/qs/6.13.0, BSD-3-Clause, approved, #17735
+npm/npmjs/-/qs/6.14.1, BSD-3-Clause, approved, #18871
 npm/npmjs/-/quansync/0.2.11, MIT, approved, #20370
 npm/npmjs/-/queue-microtask/1.2.3, MIT, approved, clearlydefined
 npm/npmjs/-/quick-lru/5.1.1, MIT, approved, clearlydefined
