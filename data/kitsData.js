@@ -435,7 +435,14 @@ export const kitsData = {
       logo: AiServiceKitLogo,
       logoHeight: 80,
       logoWidth: 80,
-      route: '/docs-kits/kits/ai-service-kit/adoption-view',
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/ai-service/ai-service-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/ai-service/ai-service-kit-raw-logo.svg',
+        originalSourceUrl: 'https://www.svgrepo.com/svg/235253/chip-ai',
+      },
+      route: '/docs-kits/next/kits/ai-service-kit/adoption-view',
       colors: {
         primary: '#071de2',
         gradient: 'linear-gradient(135deg, #6170f5 0%, #071de2 100%)'
@@ -907,7 +914,7 @@ export const kitsData = {
   ],
   // List here the industry-specific KITs (will not be shown in the cross-industry use cases gallery)
   industryKits: {
-    "shop-floor": [
+    "manufacturing": [
       {
         id: 'maas',
         name: 'MANUFACTURING AS A SERVICE KIT',

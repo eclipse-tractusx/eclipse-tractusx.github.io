@@ -244,7 +244,7 @@ Here's an example
               {
                 "leftOperand": "UsagePurpose",
                 "operator": "isAnyOf",
-                "rightOperand": "cx.ai.base:1"
+                "rightOperand": "cx.euaiact.base:1"
                 
               },
               {
@@ -263,9 +263,9 @@ Here's an example
 }
 ```
 
-The expression rightOperand: "cx.ai.base:1" indicates that data usage is permitted only when it aligns with the purpose defined as "cx.ai.base:1". This purpose requires the data consumer to comply with the obligations of ["deployer"](https://artificialintelligenceact.eu/article/3/) as stipulated in the AI Act.
+The expression rightOperand: "cx.euaiact.base:1" indicates that data usage is permitted only when it aligns with the purpose defined as "cx.euaiact.base:1". This purpose requires the data consumer to comply with the obligations of ["deployer"](https://artificialintelligenceact.eu/article/3/) as stipulated in the AI Act.
 
-Note: the "cx.ai.base:1" mentioned in the example and the description above is under discussion and not defined yet. Please be reminded that you may not use this value at the moment.
+Note: the "cx.euaiact.base:1" mentioned in the example and the description above is under discussion and not defined yet. Please be reminded that you may not use this value at the moment.
 
 ## Notice
 

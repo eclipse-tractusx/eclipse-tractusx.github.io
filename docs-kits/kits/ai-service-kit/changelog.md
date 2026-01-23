@@ -4,7 +4,9 @@ title: Changelog
 description:  AI Service KIT
 ---
 
-![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="ai-service" />
 
 ## [0.0.1] - 2025-12-03
 

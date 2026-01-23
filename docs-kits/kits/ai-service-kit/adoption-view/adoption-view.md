@@ -2,11 +2,13 @@
 id: adoption-view
 title: Adoption View
 description: AI Service KIT
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+import KitMetadataBadges from '@site/src/components/2.0/KitMetadataBadges';
 
+<KitMetadataBadges kitId="ai-service" />
 <Kit3DLogo kitId="ai-service" />
 
 ## Vision & Mission
