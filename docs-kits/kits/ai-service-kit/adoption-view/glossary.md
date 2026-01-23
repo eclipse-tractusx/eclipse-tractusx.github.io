@@ -4,6 +4,10 @@ title: Glossary
 description: Glossary
 ---
 
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="ai-service" />
+
 | Term | Definition | Source |
 |------|------------|--------|
 |Agentic system|Agentic AI is an artificial intelligence system that can accomplish a specific goal with limited supervision.|[What is agentic AI?](https://www.ibm.com/think/topics/agentic-ai)|
@@ -18,5 +22,5 @@ description: Glossary
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2025 FUJITSU LIMITED
-- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 FUJITSU LIMITED
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation

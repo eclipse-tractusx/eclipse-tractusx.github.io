@@ -1,25 +1,26 @@
 ---
-id: software-development-view
+id: development-view
 title: Developing with the AI Service KIT
 description: AI Service KIT - Software Development View
 sidebar_position: 1
 ---
 
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="ai-service" />
 
 <!--
 Development View of the Kit.
 -->
-
-![AI Service Kit Pictotogram](@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg)
 
 ## Introduction
 
 Note: this development view is still a draft.
 
 This KIT defines a standardized method for dataspace member organizations to expose their AI systems as APIs on the dataspace.
-Users of these APIs exposed on the dataspace can discover the AI system's API using the EDC API, then access it via HTTP after completing the access procedure.
+Users of these APIs exposed on the dataspace can discover the AI system's API using the EDC Connector API, then access it via HTTP after completing the access procedure.
 
-While the existing EDC could expose APIs accessible via HTTP, two challenges existed:
+While the existing EDC Connector could expose APIs accessible via HTTP, two challenges existed:
 
 - There was no standardized format for the information that helps consumers find the desired AI system, making it difficult for applications to search automatically.
 
@@ -66,23 +67,23 @@ The roles of each element in this diagram are as follows:
 
 |||
 |---|---|
-|Provider App|Registers information to EDC to expose the AI system. This may be integrated with the Provider AI.|
+|Provider App|Registers information to EDC Connector to expose the AI system. This may be integrated with the Provider AI.|
 |Provider AI|Provides the AI system's functionality via an API|
-|Provider EDC|The EDC of the organization publishing the AI system|
+|Provider EDC|The EDC Connector of the organization publishing the AI system|
 |Consumer App|An application from another organization, which wants to use the exposed AI system|
 |Consumer Client|The client connecting to the Provider AI. This may be integrated with the Consumer App|
-|Consumer EDC|The EDC of the organization, which wants to use the AI system|
+|Consumer EDC|The EDC Connector of the organization, which wants to use the AI system|
 
 For the `Consumer App` to use `Provider AI` in this configuration, the `Provider App` needs to publish `Provider AI` to the dataspace, and the `Consumer App` needs to follow the steps to discover and gain access to it.
 Refer to the [Management API Overview](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/README.md) for general procedures and the functionality of individual API calls.
 
 The parts of this procedure relevant to this KIT are as follows:
 
-- `create asset` step: The `Provider App` registers clues for the `Client App` to find `Provider AI` with EDC. See the [Creating an Asset of AI system](#creating-an-asset-of-ai-system) section for details.
+- `create asset` step: The `Provider App` registers clues for the `Client App` to find `Provider AI` with EDC. See the [Creating an Asset of AI System](#creating-an-asset-of-ai-system) section for details.
 
-- `create contract` step: The `Provider App` registers a contract with EDC that references AI-specific rules. For details, see [Creating a Usage Policy for AI system](#creating-a-usage-policy-for-ai-system).
+- `create contract` step: The `Provider App` registers a contract with EDC that references AI-specific rules. For details, see [Creating a Usage Policy for AI System](#creating-a-usage-policy-for-ai-system).
 
-By adding these property and definition, consumer will be able to find AI system it wants, and then to agree to the Provider's request that it should follow the EU AI Act, for example.
+By adding these properties and definition, consumer will be able to find AI system it wants, and then to agree to the Provider's request that it should follow the [EU AI Act](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689), for example.
 
 [![concept](../resources/img/concept-ai-small.png)](../resources/img/concept-ai.png)
 
@@ -94,7 +95,7 @@ Note: data plane in the figure goes through http proxy, but this is not a requir
 
 ### Creating an Asset of AI System
 
-To register an AI ssytem to EDC, `Provider App` needs to `POST` a JSON object to `/v3/assets`. The JSON object needs the following property added to `properties` section:
+To register an AI system to EDC Connector, `Provider App` needs to `POST` a JSON object to `/v3/assets`. The JSON object needs the following property added to `properties` section:
 
 ```json
     "serviceOffering":{
@@ -109,7 +110,7 @@ To register an AI ssytem to EDC, `Provider App` needs to `POST` a JSON object to
 
 Example of making a `POST` request to `/v3/assets`.
 
-The [management-api-walkthrough](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/01_assets.md#http-data-plane) page shows an example of registering an HTTP dataplane.Add the `serviceOffering` shown above to this properties section:
+The [management-api-walkthrough](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/01_assets.md#http-data-plane) page shows an example of registering an HTTP dataplane. Add the `serviceOffering` shown above to this properties section:
 
 ```json
 {
@@ -151,7 +152,7 @@ The [management-api-walkthrough](https://github.com/eclipse-tractusx/tractusx-ed
 }
 ```
 
-When a Consumer App [requests a catalog](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/04_catalog.md), it receives a catalog containing AI assets. The asset include the following information, which can be used by the application to find the AI application:
+When a Consumer App [requests a catalog](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/04_catalog.md), it receives a catalog containing AI assets. The asset includes the following information, which can be used by the application to find the AI application:
 
 ```json
     "serviceOffering": {
@@ -190,7 +191,7 @@ The `subType` property can have one of the following values:
 |`MCP`|[Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro)|
 |`A2A`|[Agent2Agent (A2A) Protocol](https://a2a-protocol.org/latest/)|
 
-`details` property may have an object containing any kinds of propererties.
+`details` property may have an object containing any kinds of properties.
 
 ## Creating a Usage Policy for AI System
 
@@ -206,9 +207,9 @@ When utilizing AI, aspects such as safety, transparency, ethics, and privacy pro
 | JP | [Social Principles of Human-Centric AI](https://www.cas.go.jp/jp/seisaku/jinkouchinou/pdf/humancentricai.pdf) |
 | GB | [Pro-innovation AI Regulation Framework](https://www.gov.uk/government/publications/ai-regulation-a-pro-innovation-approach) |
 
-### Registration in EDC
+### Registration in EDC Connector
 
-When offering AI-related services through EDC, it is necessary to define and register the application of AI regulations from various countries within the Usage Policies section of the EDC contract. Below is an example of how such Usage Policies can be defined.
+When offering AI-related services through EDC Connector, it is necessary to define and register the application of AI regulations from various countries within the Usage Policies section of the EDC Connector contract. Below is an example of how such Usage Policies can be defined.
 
 ### Usage Policies
 
@@ -234,10 +235,24 @@ Here's an example
         "action": "use",
         "constraint": [
           {
-            "@type": "LogicalConstraint",
-            "leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
-            "operator": "eq",
-            "rightOperand": "cx.ai.base:1"
+            "and": [
+              {
+                "leftOperand": "Membership",
+                "operator": "eq",
+                "rightOperand": "active"
+              },
+              {
+                "leftOperand": "UsagePurpose",
+                "operator": "isAnyOf",
+                "rightOperand": "cx.ai.base:1"
+                
+              },
+              {
+                "leftOperand": "FrameworkAgreement",
+                "operator": "eq",
+                "rightOperand": "DataExchangeGovernance:1.0"
+              }
+            ]
           }
         ]
       }
@@ -250,12 +265,12 @@ Here's an example
 
 The expression rightOperand: "cx.ai.base:1" indicates that data usage is permitted only when it aligns with the purpose defined as "cx.ai.base:1". This purpose requires the data consumer to comply with the obligations of ["deployer"](https://artificialintelligenceact.eu/article/3/) as stipulated in the AI Act.
 
-Note: the "cx.ai.base:1" mentioned in the example and the description above is under discussionnot and not defined yet. Please be reminded that you may not use this value at the moment.
+Note: the "cx.ai.base:1" mentioned in the example and the description above is under discussion and not defined yet. Please be reminded that you may not use this value at the moment.
 
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2025 FUJITSU LIMITED
-- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 FUJITSU LIMITED
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
