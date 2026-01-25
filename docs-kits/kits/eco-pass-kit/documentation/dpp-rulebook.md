@@ -814,7 +814,7 @@ Characterizes product performance in a graded class system, promoting consumer d
 
 | Rule ID | Data Attribute      | Mandatory/ Optional | Regulatory Reference     |
 |---------|---------------------|---------------------|--------------------------|
-| 6.6.1     | Placed On Market    | Mandatory           |                          |
+| 6.6.1     | Placed On Market    | Optional         |                          |
 | 6.6.2     | Purpose             | Mandatory           |                          |
 | 6.6.3     | Purchase Order      | Optional            |                          |
 | 6.6.4     | Recall Information  | Mandatory           | Regulation (EU) 2023/988 |
@@ -843,46 +843,45 @@ A unique identifier assigned to the order of the product for tracking purposes b
 Recall information refers to the data and documentation associated with the process of removing a product from the market due to safety, quality, or compliance concerns.
 
 > **Content Validation**<br>Information on dangerous products should, in general, be made available to the public via the [EU Safety Gate Portal](https://ec.europa.eu/safety-gate/#/screen/home)
-### 6.7 Materials
+### 6.7 Composition
 
-"Materials" category refers to: The classification and specification of the substances and material types used in a product, with a focus on their environmental performance, circularity potential, and criticality.
+"Composition" category refers to: The classification and specification of the substances and material types and components used in a product, with a focus on their environmental performance, circularity potential, and criticality.
 
 | Rule ID | Data Attribute                                   | Mandatory/ Optional | Regulatory Reference                  |
 |---------|--------------------------------------------------|---------------------|---------------------------------------|
 | 6.7.1     | Applicable (Substances of Concern)               | Mandatory           | Regulation (EU) 2024/1781             |
-| 6.7.1.1   | Chemical ID (Substances of Concern)              | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 6.7.1.2   | List Type ID (Substances of Concern)             | Mandatory           | Regulation (EU) 2024/1781, Article 7   | 
-| 6.7.1.3   | Chemical Name (Substances of Concern)            | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 6.7.1.4   | Material Unit (Substances of Concern)            | Mandatory           | Regulation (EU) 2024/1781             | 
-| 6.7.1.5   | Concentration (Substances of Concern)            | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 6.7.1.6   | Min Concentration (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
-| 6.7.1.7   | Max Concentration (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
-| 6.7.1.8   | Location of Substances (Substances of Concern)   | Mandatory           | Regulation (EU) 2024/1781             | 
-| 6.7.1.9   | Exemption for Substances (Substances of Concern) | Mandatory           | Regulation (EU) 2024/1781             | 
-| 6.7.1.10  | Hazard Category (Substances of Concern)          | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 6.7.1.11  | Hazard Class (Substances of Concern)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 6.7.1.12  | Hazard Statement (Substances of Concern)         | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
-| 6.7.1.13  | Documentation                                    | *To be covered in next version* | | | | |
-| 6.7.2     | Applicable (Material Composition)                | Mandatory           | Regulation (EU) 2024/1781             |
+| 6.7.1.1   | Locations of Substances (Substances of Concern)   | Mandatory           | Regulation (EU) 2024/1781             | 
+| 6.7.1.2   | Exemption for Substances (Substances of Concern) | Mandatory           | Regulation (EU) 2024/1781 Article 7 (5) (c)  | 
+| 6.7.1.3  | Hazard Category (Substances of Concern)          | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.1.4  | Hazard Class (Substances of Concern)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.1.5  | Hazard Statement (Substances of Concern)         | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.1.6  | Documentation                                    | *To be covered in next version* | | | | |
+| 6.7.1.7   | Min Concentration Value (Substances of Concern)        | Optional           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.1.8   | Min Concentration Unit (Substances of Concern)        | Optional           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.1.9   | Max Concentration Value (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.1.10   | Max Concentration Unit (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.2     | Applicable (component Information)                | Mandatory           | Regulation (EU) 2024/1781             |
 | 6.7.2.1   | Component Name                                   | *To be covered in next version* | | | | |
 | 6.7.2.2   | Component Code                                   | *To be covered in next version* | | | | |
 | 6.7.2.3   | Component Description                            | *To be covered in next version* | | | | |
-| 6.7.2.4   | Component Location                               | *To be covered in next version* | | | | |
+| 6.7.2.4   | Component Locations                               | *To be covered in next version* | | | | |
 | 6.7.2.5   | Sorting Information                              | *To be covered in next version* | | | | |
 | 6.7.2.6   | Component Passport Identifier                    | *To be covered in next version* | | | | |
-| 6.7.2.7   | Chemical ID (Material Composition)               | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 6.7.2.8   | List Type ID (Material Composition)              | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
-| 6.7.2.9   | Chemical Name (Material Composition)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.2.7   | Material ID (Material Composition)               | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.2.8   | Material List Type ID (Material Composition)              | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.2.9   | Material Name (Material Composition)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
 | 6.7.2.10  | Material Type                                    | *To be covered in next version* | | | | |
 | 6.7.2.11  | Material Origin                                  | *To be covered in next version* | | | | |
 | 6.7.2.12  | Material Passport Identifier                     | *To be covered in next version* | | | | |
-| 6.7.2.13  | Material Unit                                    | *To be covered in next version* | | | | |
-| 6.7.2.14  | Concentration                                    | *To be covered in next version* | | | | |
-| 6.7.2.15  | Min Concentration                                | *To be covered in next version* | | | | |
-| 6.7.2.16  | Max Concentration                                | *To be covered in next version* | | | | |
-| 6.7.2.17  | Location                                         | *To be covered in next version* | | | | |
-| 6.7.2.18  | Recycled                                         | *To be covered in next version* | | | | |
-| 6.7.2.19  | Documentation                                    | *To be covered in next version* | | | | |
+| 6.7.2.13  | Concentration Unit (Material)           | *To be covered in next version* | | | | |
+| 6.7.2.14  | Concentration Value (Material)                                     | *To be covered in next version* | | | | |
+| 6.7.2.15  | Min Concentration (Material)                                | *To be covered in next version* | | | | |
+| 6.7.1.16   | Min Concentration Unit (Material)        | *To be covered in next version* | | | | |
+| 6.7.2.17  | Max Concentration (Material)                               | *To be covered in next version* | | | | |
+| 6.7.1.18  | Min Concentration Unit (Material)        | *To be covered in next version* | | | | |
+| 6.7.2.19  | Locations                                         | *To be covered in next version* | | | | |
+| 6.7.2.20  | Recycled                                         | *To be covered in next version* | | | | |
+| 6.7.2.21  | Documentation                                    | *To be covered in next version* | | | | |
 | 6.7.3     | List Name (Declarable Ingredient List)           | *To be covered in next version* | | | | |
 | 6.7.4     | Document ID (Declarable Ingredient List)         | *To be covered in next version* | | | | |
 | 6.7.5     | Documentation (Declarable Ingredient List)       | *To be covered in next version* | | | | |
@@ -893,83 +892,66 @@ Recall information refers to the data and documentation associated with the proc
 
 > **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
-#### 6.7.1.1 Chemical ID (Substances of Concern)
-
-A Chemical ID is a unique identifier assigned to a chemical substance to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Chemical ID facilitates accurate identification, classification, and communication of chemical information, including composition, hazards, and regulatory status
-
-> **Content Validation**<br>The chemical material ID and its identification  (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable. 
-
-#### 6.7.1.2 List Type ID (Substances of Concern)
-
-This field specifies the classification system or standard employed for the identification of chemical substances. Acceptable standards may include, but are not limited to, the Chemical Abstracts Service (CAS) Registry Number, the International Union of Pure and Applied Chemistry (IUPAC) nomenclature, or the European Community (EC) number
-
-> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
-
-#### 6.7.1.3 Chemical Name (Substances of Concern)
-
-The name of the material which is present in the product.
-
-> **Content Validation**<br>The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
-
-#### 6.7.1.4 Material Unit (Substances of Concern)
-
-This field defines the unit of concentration, selected from a predefined enumeration. Permissible units include mass percent, volume percent, parts per thousand (ppt), parts per million (ppm), parts per billion (ppb), and parts per trillion (ppt)
-
-> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
-
-#### 6.7.1.5 Concentration (Substances of Concern)
-
-Concentration of the material at the level of the product
-
-> **Syntax**<br>The value must be > = 0 
-
-#### 6.7.1.6 Min Concentration (Substances of Concern)
-
-The minimum concentration of the substance of concern at the level of the product
-
-> **Syntax**<br>The value must be > = 0 
-
-#### 6.7.1.7 Max Concentration (Substances of Concern)
-
-The maximum concentration of the substance of concern at the level of the product
-
-> **Syntax**<br>The value must be > = 0 
-
-#### 6.7.1.8 Location of Substances (Substances of Concern)
+#### 6.7.1.1 Locations of Substances (Substances of Concern)
 
 The location of the substances of concern within the product <br> Further description: <br>This requires specifying the exact location of the substance of concern within the product—for example, whether it is contained in the packaging or integrated into the product itself
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 6.7.1.9 Exemption for Substances (Substances of Concern)
+#### 6.7.1.2 Exemption for Substances (Substances of Concern)
 
 Exemptions to the substance of concern: An exemption to the substance of concern refers to a formally recognized exception that permits the use or presence of a regulated or restricted chemical substance within a product or component, under specific conditions. The exemption must be documented and justified in accordance with applicable legal frameworks (e.g., REACH, RoHS), and may be subject to review, expiration, or renewal.
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 6.7.1.10 Hazard Category (Substances of Concern)
+#### 6.7.1.3 Hazard Category (Substances of Concern)
 
 A hazard category is a classification level within a hazard class that indicates the severity or degree of risk associated with a chemical substance or mixture. It refers to the division of criteria within each hazard class, specifying hazard severity. Lower category numbers typically represent higher hazard severity (e.g., Category 1 is more hazardous than Category 2)
 
-> **Content Validation**<br>Valid hazard category statement required. Hazard category defined in compliance with the EU standard as outlined in [Article 2 of Regulation (EC) No 1272/2008](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+> **Content Validation**<br>Valid hazard category statement required. Hazard category defined in compliance with the EU standard as outlined in [Regulation (EC) No 1272/2008](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
 
-#### 6.7.1.11 Hazard Class (Substances of Concern)
+#### 6.7.1.4 Hazard Class (Substances of Concern)
 
 Hazard class means the nature of the physical, health or environmental hazard.
 
 > **Content Validation**<br>Hazard category defined in accordance to:[<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
 
-#### 6.7.1.12 Hazard Statement (Substances of Concern)
+#### 6.7.1.5 Hazard Statement (Substances of Concern)
 
-A hazard statement is a standardized phrase assigned to a chemical substance or mixture that describes the nature and, where appropriate, the degree of hazard associated with it. Each hazard statement is associated with a unique code (e.g., H315, H301) to ensure consistency and clarity in hazard communication
+"Hazard statement" means a phrase assigned to a hazard class and category that describes the nature of the hazards of a hazardous substance or mixture, including, where appropriate, the degree of hazard.
 
-> **Content Validation**<br>Hazard category defined in accordance to:[<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+> **Content Validation**<br>Hazard category defined in accordance to:[Regulation (EC) No 1272/2008 of the European Parliament and of the Council of 16 December 2008 on classification, labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC, and amending Regulation (EC) No 1907/2006](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02008R1272-20231201)
 
-#### 6.7.1.13 Documentation
+#### 6.7.1.6 Documentation
 
  *To be covered in next version*
 
-#### 6.7.2 Applicable (Material Composition)
+
+#### 6.7.1.7 Minimum Concentration Value (Substances of Concern)
+
+The minimum concentration of the substance of concern at the level of the product
+
+> **Syntax**<br>The value must be > = 0
+
+#### 6.7.1.8 Minimum Concentration Value (Substances of Concern)
+
+This field defines the unit of minimum concentration, selected from a predefined enumeration. Permissible units include mass percent, volume percent, parts per thousand (ppt), parts per million (ppm), parts per billion (ppb), and parts per trillion (ppt)
+
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.7.1.9 Max Concentration Value (Substances of Concern)
+
+The maximum concentration of the substance of concern at the level of the product
+
+> **Syntax**<br>The value must be > = 0
+
+#### 6.7.1.10 Max Concentration Value (Substances of Concern)
+
+This field defines the unit of maximum concentration, selected from a predefined enumeration. Permissible units include mass percent, volume percent, parts per thousand (ppt), parts per million (ppm), parts per billion (ppb), and parts per trillion (ppt)
+
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.7.2 Applicable (Component Information)
 
 Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled
 
@@ -987,7 +969,7 @@ Check whether the connected attributes are applicable to the product. If it is n
 
  *To be covered in next version*
  
-#### 6.7.2.4 Component Location 
+#### 6.7.2.4 Component Locations 
 
  *To be covered in next version*
  
@@ -999,19 +981,19 @@ Check whether the connected attributes are applicable to the product. If it is n
 
  *To be covered in next version*
  
-#### 6.7.2.7 Chemical ID (Material Composition)
+#### 6.7.2.7 Material ID (Material Composition)
 
-A Chemical ID is a unique identifier assigned to a chemical substance to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Chemical ID facilitates accurate identification, classification, and communication of chemical information, including composition, hazards, and regulatory status
+A Material ID  is a unique identifier assigned to a material to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Material ID facilitates accurate identification, classification, and communication of information, including composition, hazards, and regulatory status.
 
 > **Content Validation**<br>The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
 
-#### 6.7.2.8 List Type ID (Material Composition)
+#### 6.7.2.8 Material List Type ID (Material Composition)
 
-This field specifies the classification system or standard employed for the identification of chemical substances. Acceptable standards may include, but are not limited to, the Chemical Abstracts Service (CAS) Registry Number, the International Union of Pure and Applied Chemistry (IUPAC) nomenclature, or the European Community (EC) number
+This field specifies the classification system or standard employed for the identification of material composition. Acceptable standards may include, but are not limited to, the Chemical Abstracts Service (CAS) Registry Number, the International Union of Pure and Applied Chemistry (IUPAC) nomenclature, or the European Community (EC) number
 
-> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options  ("IUPAC" "CAS" "EC" "InChI" "INCI" "SMILES")
 
-#### 6.7.2.9 Chemical Name (Material Composition)
+#### 6.7.2.9 Material Name (Material Composition)
 
 The name of the material which is present in the product.
 
@@ -1029,31 +1011,37 @@ The name of the material which is present in the product.
 
  *To be covered in next version*
       
-#### 6.7.2.13 Material Unit
+#### 6.7.2.13 Concentration Unit (Material)
 
  *To be covered in next version*
              
-#### 6.7.2.14 Concentration 
+#### 6.7.2.14 Concentration Value (Material)
 
  *To be covered in next version*
           
-#### 6.7.2.15 Min Concentration 
+#### 6.7.2.15 Min Concentration Value
 
  *To be covered in next version*
+ 
+ #### 6.7.2.16 Min Concentration Unit
+  *To be covered in next version*
         
-#### 6.7.2.16 Max Concentration 
+#### 6.7.2.17 Max Concentration Value
 
  *To be covered in next version*
+ 
+ #### 6.7.2.18 Max Concentration Unit
+  *To be covered in next version*
            
-#### 6.7.2.17 Location        
+#### 6.7.2.19 Locations        
 
  *To be covered in next version*
       
-#### 6.7.2.18 Recycled        
+#### 6.7.2.20 Recycled        
 
  *To be covered in next version*
       
-#### 6.7.2.19 Documentation   
+#### 6.7.2.21 Documentation   
 
  *To be covered in next version*
       
@@ -1075,8 +1063,8 @@ The name of the material which is present in the product.
 
 | Rule ID | Data Attribute                                      | Mandatory/ Optional | Regulatory Reference                                        |
 |---------|-----------------------------------------------------|---------------------|-------------------------------------------------------------|
-| 6.8.1     | State                                               | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
-| 6.8.2     | value (product carbon footprint)                    | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
+| 6.8.1     | Product Status                                               | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
+| 6.8.2     | footprintvalue (product carbon footprint)                    | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
 | 6.8.3     | footprintUnit(product carbon footprint)             | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
 | 6.8.4     | footprintType(product carbon footprint)             | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
 | 6.8.5     | footprintLifecycle(product carbon footprint)        | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
@@ -1085,7 +1073,7 @@ The name of the material which is present in the product.
 | 6.8.8     | Facility Address                                    | *To be covered in next version* | | | | |
 | 6.8.9     | Rulebook                                            | *To be covered in next version* | | | | |
 | 6.8.10    | Declaration                                         | *To be covered in next version* | | | | |
-| 6.8.11    | value (product environmental footprint)             | Optional            |  ESPR proposal from March 30th, 2022 Annex I                |
+| 6.8.11    | footprintvalue (product environmental footprint)             | Optional            |  ESPR proposal from March 30th, 2022 Annex I                |
 | 6.8.12    | footprintUnit (product environmental footprint)     | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
 | 6.8.13    | footprintType (product environmental footprint)     | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
 | 6.8.14    | footprintLifecycle (product environmental footprint)| Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
@@ -1094,7 +1082,7 @@ The name of the material which is present in the product.
 | 6.8.17    | Facility Address                                    | *To be covered in next version* | | | | |
 | 6.8.18    | Rulebook                                            | *To be covered in next version* | | | | |
 | 6.8.19    | Declaration                                         | *To be covered in next version* | | | | |
-| 6.8.20    | value (product material footprint)                  | Optional            | ESPR proposal from March 30th, 2022 Annex I                 |
+| 6.8.20    | footprintvalue (product material footprint)                  | Optional            | ESPR proposal from March 30th, 2022 Annex I                 |
 | 6.8.21    | footprintUnit (product material footprint)          | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
 | 6.8.22    | footprintType (product material footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
 | 6.8.23    | footprintLifecycle (product material footprint)     | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
@@ -1118,13 +1106,13 @@ The name of the material which is present in the product.
 | 6.8.41    | Recyclability Performance Grade                     | *To be covered in next version* | | | | |
 
 
-#### 6.8.1 State
+#### 6.8.1 Product Status
 
 The current condition or lifecycle phase of a product, as recorded in the Digital Product Passport, indicating whether the product is new, used, repaired, refurbished, remanufactured, or at end-of-life, in order to support traceability, circularity, and sustainability objectives.
 
-> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options.
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options ("original" "repurposed" "re-used" "remanufactured" "waste").
 
-#### 6.8.2 value (product carbon footprint)
+#### 6.8.2 footprintvalue (product carbon footprint)
 
 The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
 
@@ -1175,7 +1163,7 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 *To be covered in next version*
 
-#### 6.8.11 value (product environmental footprint)
+#### 6.8.11 footprintvalue (product environmental footprint)
 
 The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
 
@@ -1224,7 +1212,7 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 *To be covered in next version*
 
-#### 6.8.20 value (product material footprint)
+#### 6.8.20 footprintvalue (product material footprint)
 
 The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
 
@@ -1452,43 +1440,43 @@ The durability score is a standardized indicator established under the Ecodesign
 | 6.2  | Commercial |  Purpose    |     automotive     |
 | 6.3  | Commercial |  Purchase Order    |    XXX      |
 | 6.4  | Commercial |  Recall Information    |   Product safety recall       |
-| 7.1 | Materials |  	Applicable (Substances of Concern)    |   true       |
-| 7.1.1  |Materials  |  	Chemical ID (Substances of Concern)    |   201-004-7       |
-| 7.1.2  | Materials | 	List Type ID (Substances of Concern)     |     CAS     |
-| 7.1.3  | Materials |  	Chemical Name (Substances of Concern)    |    phenolphthalein      |
-| 7.1.4  | Materials | Material Unit (Substances of Concern)    |   unit:percent       |
-| 7.1.5  | Materials |  	Concentration (Substances of Concern)    |    2.6      |
-| 7.1.6  | Materials | Min Concentration (Substances of Concern)     |     2.1     |
-| 7.1.7  | Materials |  Max Concentration (Substances of Concern)    |    5.3      |
-| 7.1.8  | Materials | Location of Substances (Substances of Concern)     |     Housing     |
-| 7.1.9  | Materials |  Exemption for Substances (Substances of Concern)    | shall not apply to product x containing not more than 1,5 ml of liquid          |
-| 7.1.10  |Materials  | 	Hazard Category (Substances of Concern)     |   category 1A       |
-| 7.1.11  |Materials |  Hazard Class (Substances of Concern)    |     Skin corrosion     |
-| 7.1.12  | Materials | 	Hazard Statement (Substances of Concern)    |    Causes severe skin burns and eye damage.      |
-| 7.1.13  | Materials |  Documentation    |      https://dummy.link , URL, Example Document XYZ       |
-| 7.2  | Materials | Applicable (Material Composition)    |     true     |
-| 7.2.1  | Materials | Component Name     | Top lid         |
-| 7.2.2  |Materials  | Component Code     |   ABC123       |
-| 7.2.3  | Materials |  Component Description    |   Yellow bin        |
-| 7.2.4  |Materials  |  Component Location    |  The screw cap is located at the top of the container.        |
-| 7.2.5  | Materials | Sorting Information     |   Yellow waste bin is appropriate for discard this component. Group component by diameter for efficient storage. Rinse and remove food residues to ensure cleanliness.       |
-| 7.2.6  | Materials | Component Passport Identifier     |   urn:uuid:550e8400-e29b-41d4-a716-446655440000       |
-| 7.2.7  | Materials |	Chemical ID (Material Composition)      |    201-004-7      |
-| 7.2.8  | Materials |  List Type ID (Material Composition)    |       CAS       |
-| 7.2.9  | Materials | Chemical Name (Material Composition)     |     phenolphthalein      |
-| 7.2.10  | Materials |  Material Type    |    impurity      |
-| 7.2.11  | Materials |  Material Origin    |     CN     |
-| 7.2.12 | Materials | Material Passport Identifier     |    urn:uuid:550e8400-e29b-41d4-a716-446655440000      |
-| 7.2.13  | Materials |  Material Unit    |  kg        |
-| 7.2.14  | Materials | Concentration     |       2.6      |
-| 7.2.15  | Materials |  Min Concentration    |     2.1         |
-| 7.2.16  |  Materials|  Max Concentration   |       5.3       |
-| 7.2.17  |  Materials|   Location   |   handle       |
-| 7.2.18  |  Materials|   Recycled   |      12.5    |
-| 7.2.19  |  Materials|  Documentation    |     https://dummy.link , URL, Example Document XYZ        |
-| 7.3.1 | Materials | 	List Name (Declarable Ingredient List)     |      Critical Raw Materials    |
-| 7.3.2 | Materials |   Document ID (Declarable Ingredient List)   |     XXX     |
-| 7.3.3  | Materials |  Documentation (Declarable Ingredient List)    |     https://dummy.link , URL, Example Document XYZ    |
+| 7.1 | Composition |  	Applicable (Substances of Concern)    |   true       |
+| 7.1.1  | Composition  |  	Chemical ID (Substances of Concern)    |   201-004-7       |
+| 7.1.2  |  Composition | 	List Type ID (Substances of Concern)     |     CAS     |
+| 7.1.3  |  Composition |  	Chemical Name (Substances of Concern)    |    phenolphthalein      |
+| 7.1.4  |  Composition | Material Unit (Substances of Concern)    |   unit:percent       |
+| 7.1.5  |  Composition |  	Concentration (Substances of Concern)    |    2.6      |
+| 7.1.6  |  Composition | Min Concentration (Substances of Concern)     |     2.1     |
+| 7.1.7  |  Composition |  Max Concentration (Substances of Concern)    |    5.3      |
+| 7.1.8  |  Composition | Location of Substances (Substances of Concern)     |     Housing     |
+| 7.1.9  |  Composition |  Exemption for Substances (Substances of Concern)    | shall not apply to product x containing not more than 1,5 ml of liquid          |
+| 7.1.10  | Composition  | 	Hazard Category (Substances of Concern)     |   category 1A       |
+| 7.1.11  | Composition |  Hazard Class (Substances of Concern)    |     Skin corrosion     |
+| 7.1.12  |  Composition | 	Hazard Statement (Substances of Concern)    |    Causes severe skin burns and eye damage.      |
+| 7.1.13  |  Composition |  Documentation    |      https://dummy.link , URL, Example Document XYZ       |
+| 7.2  |  Composition | Applicable (Material Composition)    |     true     |
+| 7.2.1  |  Composition | Component Name     | Top lid         |
+| 7.2.2  | Composition  | Component Code     |   ABC123       |
+| 7.2.3  |  Composition |  Component Description    |   Yellow bin        |
+| 7.2.4  | Composition  |  Component Location    |  The screw cap is located at the top of the container.        |
+| 7.2.5  |  Composition | Sorting Information     |   Yellow waste bin is appropriate for discard this component. Group component by diameter for efficient storage. Rinse and remove food residues to ensure cleanliness.       |
+| 7.2.6  |  Composition | Component Passport Identifier     |   urn:uuid:550e8400-e29b-41d4-a716-446655440000       |
+| 7.2.7  |  Composition |	Chemical ID (Material Composition)      |    201-004-7      |
+| 7.2.8  |  Composition |  List Type ID (Material Composition)    |       CAS       |
+| 7.2.9  |  Composition | Chemical Name (Material Composition)     |     phenolphthalein      |
+| 7.2.10  |  Composition |  Material Type    |    impurity      |
+| 7.2.11  |  Composition |  Material Origin    |     CN     |
+| 7.2.12 |  Composition | Material Passport Identifier     |    urn:uuid:550e8400-e29b-41d4-a716-446655440000      |
+| 7.2.13  |  Composition |  Material Unit    |  kg        |
+| 7.2.14  |  Composition | Concentration     |       2.6      |
+| 7.2.15  |  Composition |  Min Concentration    |     2.1         |
+| 7.2.16  |   Composition|  Max Concentration   |       5.3       |
+| 7.2.17  |   Composition|   Location   |   handle       |
+| 7.2.18  |   Composition|   Recycled   |      12.5    |
+| 7.2.19  |   Composition|  Documentation    |     https://dummy.link , URL, Example Document XYZ        |
+| 7.3.1 |  Composition | 	List Name (Declarable Ingredient List)     |      Critical Raw Materials    |
+| 7.3.2 |  Composition |   Document ID (Declarable Ingredient List)   |     XXX     |
+| 7.3.3  |  Composition |  Documentation (Declarable Ingredient List)    |     https://dummy.link , URL, Example Document XYZ    |
 | 8.1  |Sustainability  | State	     |   Original       |
 | 8.2  |Sustainability  |value (product carbon footprint)      |      12.678    |
 | 8.3  |Sustainability  | 	footprintUnit(product carbon footprint)     |   kg CO2 / kWh       |
