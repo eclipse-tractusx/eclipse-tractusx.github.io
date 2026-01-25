@@ -800,7 +800,7 @@ The physical state of a product refers to the form in which raw materials, inter
 
 Characterizes product performance in a graded class system, promoting consumer decision-making based on efficiency.
 
-> **Content Validation**<br>Performance class must be defined in compliance to [ESPR, Article 7](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746) when made available by EU. Performance classes have been established for certain sectors, such as automotive batteries; however, they have not yet been defined for sectors like chemical. Therefore, it is recommended to assess the relevance of performance classes in the context of your specific sector and use case.
+> **Content Validation**<br>Performance class must be defined in compliance to [ESPR, Article 7](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746) when made available by EU. Performance classes in context of bateries are for carbon footprint values, not batteries as a product itself. The Commission may base the classes of performance on single parameters or on aggregated scores. Such classes of performance may be expressed in absolute terms or in any other form that enables potential customers to choose the best performing products. No specific validation rule can be applied here as it is very sector specifc. For PCF provided under battery passport please refer to regulation.
 
 #### 6.5.25 Other Characteristic Name
 
