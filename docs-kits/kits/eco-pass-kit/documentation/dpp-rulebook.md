@@ -1063,36 +1063,36 @@ The name of the material which is present in the product.
 
 | Rule ID | Data Attribute                                      | Mandatory/ Optional | Regulatory Reference                                        |
 |---------|-----------------------------------------------------|---------------------|-------------------------------------------------------------|
-| 6.8.1     | Product Status                                               | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
-| 6.8.2     | footprintvalue (product carbon footprint)                    | Mandatory           | ESPR proposal from March 30th, 2022 Annex I.                |
+| 6.8.1     | Product Status                                               | Mandatory           | Regulation (EU) 2024/1781                |
+| 6.8.2     | footprintvalue (product carbon footprint)                    | Mandatory           | Regulation (EU) 2024/1781                |
 | 6.8.3     | footprintUnit(product carbon footprint)             | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
 | 6.8.4     | footprintType(product carbon footprint)             | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
 | 6.8.5     | footprintLifecycle(product carbon footprint)        | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 6.8.6     | performanceClass(product carbon footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
-| 6.8.7     | facility(product carbon footprint)                  | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
+| 6.8.6     | performanceClass(product carbon footprint)          | Optional           | Battery Regulation  |
+| 6.8.7     | facilityIdentification(product carbon footprint)                  | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
 | 6.8.8     | Facility Address                                    | *To be covered in next version* | | | | |
 | 6.8.9     | Rulebook                                            | *To be covered in next version* | | | | |
 | 6.8.10    | Declaration                                         | *To be covered in next version* | | | | |
 | 6.8.11    | footprintvalue (product environmental footprint)             | Optional            |  ESPR proposal from March 30th, 2022 Annex I                |
-| 6.8.12    | footprintUnit (product environmental footprint)     | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 6.8.13    | footprintType (product environmental footprint)     | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
-| 6.8.14    | footprintLifecycle (product environmental footprint)| Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 6.8.15    | performanceClass (product environmental footprint)  | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
-| 6.8.16    | facility (product environmental footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
+| 6.8.12    | footprintUnit (product environmental footprint)     | Optional            | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 6.8.13    | footprintType (product environmental footprint)     | Optional            | ESPR provisional agreement from January 9th 2024 Article 7  |
+| 6.8.14    | footprintLifecycle (product environmental footprint)| Optional           | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 6.8.15    | performanceClass (product environmental footprint)  | Optional           | Battery Regulation  |
+| 6.8.16    | facilityIdentification (product environmental footprint)          | Optional            | ESPR provisional agreement from January 9th 2024 Annex III  |
 | 6.8.17    | Facility Address                                    | *To be covered in next version* | | | | |
 | 6.8.18    | Rulebook                                            | *To be covered in next version* | | | | |
 | 6.8.19    | Declaration                                         | *To be covered in next version* | | | | |
 | 6.8.20    | footprintvalue (product material footprint)                  | Optional            | ESPR proposal from March 30th, 2022 Annex I                 |
-| 6.8.21    | footprintUnit (product material footprint)          | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 6.8.22    | footprintType (product material footprint)          | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 7  |
-| 6.8.23    | footprintLifecycle (product material footprint)     | Mandatory           | ESPR provisional agreement from January 9th, 2024 Annex I   |
-| 6.8.24    | performanceClass (product material footprint)       | Mandatory           | ESPR provisional agreement from January 9th 2024 Article 2  |
-| 6.8.25    | facility (product material footprint)               | Mandatory           | ESPR provisional agreement from January 9th 2024 Annex III  |
+| 6.8.21    | footprintUnit (product material footprint)          | Optional            | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 6.8.22    | footprintType (product material footprint)          | Optional           | ESPR provisional agreement from January 9th 2024 Article 7  |
+| 6.8.23    | footprintLifecycle (product material footprint)     | Optional            | ESPR provisional agreement from January 9th, 2024 Annex I   |
+| 6.8.24    | performanceClass (product material footprint)       | Otional           | Battery Regulation  |
+| 6.8.25    | facilityIdentification (product material footprint)               | Optional            | ESPR provisional agreement from January 9th 2024 Annex III  |
 | 6.8.26    | Facility Address                                    | *To be covered in next version* | | | | |
 | 6.8.27    | Rulebook                                            | *To be covered in next version* | | | | |
 | 6.8.28    | Declaration                                         | *To be covered in next version* | | | | |
-| 6.8.29    | Reparability Score                                  | Mandatory           | ESPR provisional agreement from January 9th, 2024 Article 7 |
-| 6.8.30    | Durability Score                                    | Mandatory           | ESPR provisional agreement from January 9th, 2024 Article 7 |
+| 6.8.29    | Reparability Score                                  | Optional           | Regulation (EU) 2024/1781 Article 7 |
+| 6.8.30    | Durability Score                                    | Optional           | Regulation (EU) 2024/1781 Article 7 |
 | 6.8.31    | Reuse Info                                          | *To be covered in next version* | | | | |
 | 6.8.32    | Reuse System Identification                         | *To be covered in next version* | | | | |
 | 6.8.33    | Rotation Calculation Key                            | *To be covered in next version* | | | | |
@@ -1114,7 +1114,7 @@ The current condition or lifecycle phase of a product, as recorded in the Digita
 
 #### 6.8.2 footprintvalue (product carbon footprint)
 
-The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
+"Carbon footprint" means the sum of greenhouse gas emissions and greenhouse gas removals in a product system, expressed as CO2 equivalents and based on a life cycle assessment using the single impact category of climate change;
 
 > **Content Validation**<br>In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
 
@@ -1130,20 +1130,21 @@ Specifies type of environmental footprint measured, aiding in detailed sustainab
 
 > **Content Validation**<br>In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
 
+Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biogenic Removals and Emissions" "Climate Change Land Use and Land Use Change" "Ozone Depletion" "Acidification" "Eutrophication Aquatic Freshwater" "Eutrophication Fresh Marine" "Eutrophication Terrestrial" "Photochemical Ozone Formation" "Abiotic Depletion- Minerals and Metals" "Fossil Fuels" "Water Use" "Particulate Matter Emissions" "Ionizing Radiation, Human Health" "Eco-Toxicity" "Human Toxicity, Cancer Effects" "Human Toxicity, Non-Cancer Effects" "Land Use Related Impacts/Soil Quality").
 
 #### 6.8.5 footprintLifecycle(product carbon footprint)
 
-The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'
+The specific phase within a product's life cycle to which the associated carbon footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'
 
 > **Content Validation**<br>In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
 
 
 #### 6.8.6 performanceClass(product carbon footprint)
 
-Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
+Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. Classification into a carbon footprint performance class will be calculated in accordance with the methodology set out in the delegated acts adopted by the Commission.
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 6.8.7 facility(product carbon footprint)
+#### 6.8.7 facilityIdentification(product carbon footprint)
 
 The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
 
@@ -1165,7 +1166,7 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 #### 6.8.11 footprintvalue (product environmental footprint)
 
-The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
+"Environmental footprint" means a quantification of the environmental impacts resulting from a product throughout its life cycle, whether in relation to a single environmental impact category or an aggregated set of impact categories based on the Product Environmental Footprint method established by Recommendation (EU) 2021/2279 or other scientific methods developed by international organisations, widely tested in collaboration with different industry sectors and adopted or implemented by the Commission in other Union law.
 
 > **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
 
@@ -1181,18 +1182,20 @@ Categorizes type of environmental impact for depth in sustainability analysis.
 
 > **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
 
-#### 6.8.14 footprintLifecycle (product environmental footprint)
+Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biogenic Removals and Emissions" "Climate Change Land Use and Land Use Change" "Ozone Depletion" "Acidification" "Eutrophication Aquatic Freshwater" "Eutrophication Fresh Marine" "Eutrophication Terrestrial" "Photochemical Ozone Formation" "Abiotic Depletion- Minerals and Metals" "Fossil Fuels" "Water Use" "Particulate Matter Emissions" "Ionizing Radiation, Human Health" "Eco-Toxicity" "Human Toxicity, Cancer Effects" "Human Toxicity, Non-Cancer Effects" "Land Use Related Impacts/Soil Quality")
 
+#### 6.8.14 footprintLifecycle (product environmental footprint)
 
 The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'.
 
 > **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
+
 #### 6.8.15 performanceClass (product environmental footprint)
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 6.8.16 facility (product environmental footprint)
+#### 6.8.16 facilityIdentification (product environmental footprint)
 
 The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
 
@@ -1214,7 +1217,7 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 #### 6.8.20 footprintvalue (product material footprint)
 
-The value of the footprint of the product. The footprint may fall into one of the following three categories: 1- The environmental footprint of the product, expressed as a quantification, in accordance with the applicable delegated act, of a product’s life cycle environmental impacts, whether in relation to one or more environmental impact categories or an aggregated set of impact categories; 2- The carbon footprint of the product; 3- The material footprint of the product;
+"Material footprint" refers to the total amount of raw materials extracted to meet final consumption demands.
 
 > **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
 
@@ -1230,6 +1233,8 @@ Impact categorization clarifies footprint implications within material contexts.
 
 > **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
 
+Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biogenic Removals and Emissions" "Climate Change Land Use and Land Use Change" "Ozone Depletion" "Acidification" "Eutrophication Aquatic Freshwater" "Eutrophication Fresh Marine" "Eutrophication Terrestrial" "Photochemical Ozone Formation" "Abiotic Depletion- Minerals and Metals" "Fossil Fuels" "Water Use" "Particulate Matter Emissions" "Ionizing Radiation, Human Health" "Eco-Toxicity" "Human Toxicity, Cancer Effects" "Human Toxicity, Non-Cancer Effects" "Land Use Related Impacts/Soil Quality")
+
 #### 6.8.23 footprintLifecycle (product material footprint)
 
 The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'
@@ -1242,7 +1247,7 @@ Performance classification of a footprint refers to the categorization of a prod
 
 > **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
 
-#### 6.8.25 facility (product material footprint)
+#### 6.8.25 facilityIdentification (product material footprint)
 
 The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
 
@@ -1271,7 +1276,7 @@ In the context of the ESPR, the reparability score is a quantified indicator tha
 
 #### 6.8.30 Durability Score
 
-The durability score is a standardized indicator established under the Ecodesign for Sustainable Products Regulation (ESPR) that measures a product’s ability to maintain its intended performance and functionality over time under normal usage conditions. It reflects the product’s resistance to wear, aging, and failure, and is based on criteria such as tested lifespan, failure rates, warranty coverage, and availability of maintenance support. The score is designed to promote longer-lasting products, reduce premature obsolescence, and support sustainable consumption and production patterns.
+The durability score is an indicator established under the Ecodesign for Sustainable Products Regulation (ESPR) that measures a product’s ability to maintain its intended performance and functionality over time under normal usage conditions. It reflects the product’s resistance to aging, and failure, and is based on criteria such as tested lifespan, failure rates, warranty coverage, and availability of maintenance support. The score is designed to promote longer-lasting products, reduce premature obsolescence, and support sustainable consumption and production patterns.
 
 > **Content Validation**<br>Durability score in accordance to Annex I of [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng)
 
