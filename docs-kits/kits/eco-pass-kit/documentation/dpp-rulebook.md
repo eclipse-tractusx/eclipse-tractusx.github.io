@@ -794,7 +794,7 @@ Defines unit of weight measures.
 
 The physical state of a product refers to the form in which raw materials, intermediates, or finished goods exist during production, handling, and distribution. It determines how the product is processed, stored, and transported, and typically falls into one of the following categories: Solid, liquid, gas, powder/granular
 
-> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options"Enum ("solid" "liquid" "gas" "plasma" "aerosol")"
 
 #### 6.5.24 General Performance Class
 
