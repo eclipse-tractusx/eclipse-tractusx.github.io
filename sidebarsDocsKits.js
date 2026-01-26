@@ -219,6 +219,16 @@ const sidebars = {
       },
       {
         type: 'category',
+        label: 'CBAM KIT',
+        link: { type: 'generated-index' },
+        collapsed: true,
+        items: [
+          'kits/cbam-kit/adoption-view/adoption-view',
+          'kits/cbam-kit/changelog',
+        ]
+      },
+      {
+        type: 'category',
         label: 'Circularity KIT',
         link: {
             type: 'doc',
