@@ -94,7 +94,8 @@ import AgentsKitLogo from "@site/static/img/kits/agents/agents-kit-raw-logo.svg"
 import BehaviorTwinKitLogo from "@site/static/img/kits/behavior-twin/behavior-twin-kit-raw-logo.svg";
 import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-kit-raw-logo.svg";
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
-import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
+import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg"; 
+import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
 
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
@@ -426,6 +427,38 @@ export const kitsData = {
         lastUpdated: '2024-12-09',
         latestVersion: '1.3.0',
         new: false
+      }
+    },
+    {
+      id: 'ai-service',
+      name: 'AI SERVICE KIT',
+      logo: AiServiceKitLogo,
+      logoHeight: 80,
+      logoWidth: 80,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/ai-service/ai-service-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/ai-service/ai-service-kit-raw-logo.svg',
+        originalSourceUrl: 'https://www.svgrepo.com/svg/235253/chip-ai',
+      },
+      route: '/docs-kits/next/kits/ai-service-kit/adoption-view',
+      colors: {
+        primary: '#071de2',
+        gradient: 'linear-gradient(135deg, #6170f5 0%, #071de2 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Artificial Intelligence (AI)',
+      description: 'Defines standard ways to expose and use AI Services.',
+      metadata: {
+        created: '2025-12-19',
+        lastUpdated: '2025-12-19',
+        latestVersion: '0.0.1',
+        new: true
       }
     },
   ],
@@ -881,7 +914,7 @@ export const kitsData = {
   ],
   // List here the industry-specific KITs (will not be shown in the cross-industry use cases gallery)
   industryKits: {
-    "shop-floor": [
+    "manufacturing": [
       {
         id: 'maas',
         name: 'MANUFACTURING AS A SERVICE KIT',
