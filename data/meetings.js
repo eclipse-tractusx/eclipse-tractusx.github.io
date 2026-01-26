@@ -317,7 +317,7 @@ export const meetings = [
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'Address open questions and unresolved dependencies for features planned for Release 26.06. This session focuses on alignment and clarifying blockers before open planning.',
     contact: 'stephan.bauer@catena-x.net',
-    sessionLink: null, // Add Teams link when available
+    sessionLink: 'https://teams.microsoft.com/meet/32237268178214?p=89tbu5bGzNdCVPpfhn', // Add Teams link when available
     additionalLinks: [
       { title: 'Release Planning Board - Open Question', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/43?filterQuery=-label%3Ametadata+label%3APrep-R26.06+label%3A%22open+question%22' },
       { title: 'Timeline', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A26.06' },
@@ -326,9 +326,9 @@ export const meetings = [
     ],
     recurrence: {
       frequency: 'once',
-      startDate: '2026-03-25',
+      startDate: '2026-02-12',
       startTime: '09:05',
-      endTime: '10:45',
+      endTime: '10:00',
     },
   },
   {
@@ -337,7 +337,7 @@ export const meetings = [
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'Finalize roadmap, prioritize features and align participants on deliverables for Release 26.06.',
     contact: 'stephan.bauer@catena-x.net',
-    sessionLink: null, // Add Teams link when available
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTliYzcyM2YtODMwNC00NzdiLThlNTEtNGI2MzNhYzAyMDRi%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d', // Add Teams link when available
     additionalLinks: [
       { title: 'Release Planning Board - Topic/Product', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3A%22Prep-R26.06%22+status%3ABacklog' },
       { title: 'Timeline', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A26.06' },
@@ -347,7 +347,7 @@ export const meetings = [
     ],
     recurrence: {
       frequency: 'once',
-      startDate: '2026-04-08',
+      startDate: '2026-02-26',
       startTime: '09:05',
       endTime: '12:15',
     },

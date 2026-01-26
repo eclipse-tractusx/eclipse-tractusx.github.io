@@ -2,7 +2,7 @@
 title: Release Planning for Release 26.06
 description: Eclipse Tractus-X Community Update - Release Planning for Release 26.06
 slug: release-planning-R26.06
-date: 2026-03-10T09:00
+date: 2026-01-26T11:30
 hide_table_of_contents: false
 authors:
   - stephan_bauer
@@ -24,6 +24,7 @@ Key Information:
 - Dates and Times: Listed for each session below.
 - Resources: Visit our [open meetings page](/community/open-meetings#one-time-meetings) for all session links and additional documentation.
 - Preparation Materials: Ensure readiness by reviewing the provided templates, guidelines, and your own features.
+- Overall process description: [Release Planning Process](/docs/oss/release-process)
 
 We look forward to seeing you there and working together to make **R26.06** a success!
 
@@ -39,19 +40,19 @@ Even if you don't have questions, it could be interesting anyway.
 
 :::
 
-- Date: 25.03.2026
-- Time: 09:05 - 10:45
+- Date: 12.02.2026
+- Time: 09:05 - 10:00
 - Main Teams Link: See the Open Meetings page (One-time meetings) for the join link and local-time conversion: [Open Meetings](/community/open-meetings#one-time-meetings)
 
-### Agenda {#agenda-1}
+### Agenda
 
 :::info
 The agenda itself is dependent on the labeled features.
 :::
 
-- 09:05 - 09:20: Welcome and overview of Open Discussion features
-- 09:20 - 10:30: Group discussions and breakout sessions as needed
-- 10:30 - 10:45: (Optional) closing and documentation of decisions
+- 09:05 - 09:15: Welcome and overview of Open Discussion features
+- 09:15 - 09:55: Group discussions and breakout sessions as needed
+- 09:55 - 10:00: (Optional) closing and documentation of decisions
 
 ### Key Focus Areas
 
@@ -65,14 +66,14 @@ The agenda itself is dependent on the labeled features.
 
 The Open Planning session finalizes the roadmap for **R26.06**, prioritizing features and aligning all participants on deliverables for the release.
 
-- Date: 08.04.2026
-- Time: 09:05 - 12:15
+- Date: 26.02.2026
+- Time: 09:05 - 12:15 (end time can vary based on discussion and features)
 - Teams Link: See the Open Meetings page (One-time meetings) for the join link and local-time conversion: [Open Meetings](/community/open-meetings#one-time-meetings)
 
 Who Should Attend:
 
 - Contributors and Committers from the open-source community
-- Expert Group and Committee members
+- Experts
 - Feature requesters and stakeholders
 
 :::note
@@ -94,12 +95,12 @@ The planning sessions will be driven by our Release Planning Board and filtered 
 :::
 
 |          Time | Topics                                | Features |
-|--------------:|---------------------------------------|----------:|
-| 09:05 – 09:20 | Open Planning - Vision & Introduction |           |
-| 09:20 – 10:00 | Product & Platform Topics             |           |
-| 10:00 – 10:30 | Sustainability & Use Cases            |           |
-| 10:30 – 11:15 | Engineering                           |           |
-| 11:15 – 12:00 | Test Management / Misc               |           |
+|--------------:|---------------------------------------|---------:|
+| 09:05 – 09:20 | Open Planning - Vision & Introduction |          |
+| 09:20 – 10:00 | Product & Platform Topics             |          |
+| 10:00 – 10:30 | Sustainability & Use Cases            |          |
+| 10:30 – 11:15 | Engineering                           |          |
+| 11:15 – 12:00 | Test Management / Misc                |          |
 
 ### Prerequisites for features to be considered in Open Planning
 
