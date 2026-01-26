@@ -1,9 +1,9 @@
-
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -13,11 +13,14 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownImages: 'throw',
+    },
   },
 
   // GitHub pages deployment config.
@@ -31,6 +34,28 @@ const config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+  },
+
+  future: {
+    // introduce breaking changes since 3.8 incrementally so that we need to fix them directly and don't
+    // run again into "the big bang we can't upgrade" issue
+    v4: {
+      // see https://docusaurus.io/blog/releases/3.8#postbuild-change
+      // required for expermiental_faster.ssgWorkerThreads
+      removeLegacyPostBuildHeadAttribute: true,
+      // see https://docusaurus.io/blog/releases/3.8#css-cascade-layers
+      useCssCascadeLayers: true
+    },
+    experimental_faster: {
+      lightningCssMinimizer: true,
+      mdxCrossCompilerCache: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      swcHtmlMinimizer: true,
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      ssgWorkerThreads: true,
+    }
   },
 
   presets: [
@@ -66,7 +91,23 @@ const config = {
   ],
 
   plugins: [
-    ['docusaurus-plugin-sass',{}],
+    ['docusaurus-plugin-sass', {}],
+    [
+      function disableExpensiveBundlerOptimizationPlugin() {
+        return {
+          name: 'disable-expensive-bundler-optimizations',
+          configureWebpack(config, isServer) {
+            return {
+              optimization: {
+                // See https://github.com/facebook/docusaurus/discussions/11199
+                concatenateModules: false,
+              },
+            };
+          },
+        };
+      },
+      {},
+    ],
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
@@ -96,12 +137,26 @@ const config = {
         path: 'blog-meeting-minutes',
         blogTitle: 'Open meeting minutes',
         blogDescription: 'This blog hosts meeting minutes that summarize our open meetings',
-        blogSidebarCount: 10,
         blogSidebarTitle: "Recent meetings",
         routeBasePath: 'community/meeting-minutes',
         showReadingTime: false,
         authorsMapPath: 'authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        blogSidebarCount: 'ALL',
         onUntruncatedBlogPosts: 'ignore',
+      },
+    ],
+    // -- Changelog --
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'blog-changelog',
+        path: 'blog-changelog',
+        routeBasePath: 'blog-changelog',
+        blogTitle: 'Release Changelog',
+        blogDescription: 'This blog hosts Tractus-X release changelogs.',
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: 'Release Changelogs',
+        onUntruncatedBlogPosts: 'ignore', 
       },
     ],
     [
@@ -120,6 +175,10 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          {
+            to: '/blog-changelog',
+            from: '/CHANGELOG',
+          },
           {
             to: '/community/intro',
             from: '/community',
@@ -181,7 +240,7 @@ const config = {
   themes: ["@docusaurus/theme-mermaid"],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
         defaultMode: 'dark',
@@ -192,6 +251,10 @@ const config = {
         apiKey: 'a97c5de3a563a32884153d3a84568be1',
         indexName: 'eclipse-tractusxio',
         appId: '5EEK7E23IM',
+      },
+      announcementBar: {
+        id: `announcementBar-v25.09`,
+        content: `🎉️ New <b><a href="/Kits">KITs 2.0 (Multi-Industry & Multi-Dataspace)</a></b> Webpage & <b><a href="/documentation/kit-getting-started">Documentation</a></b> 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',
@@ -214,104 +277,36 @@ const config = {
             items: [
               {
                 to: 'Kits',
-                label: 'Kits General',
+                label: 'KITs HOMEPAGE',
+                className: 'kit-category-header kit-home-icon'
               },
               {
-                to: '/docs-kits/kits/behaviour-twin-kit/overview',
-                label: 'Behaviour Twin',
+                to: '/documentation/kit-getting-started',
+                label: 'KIT Getting Started',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/business-partner-kit/adoption-view',
-                label: 'Business Partner',
+                to: '/documentation/kit-lifecycle',
+                label: 'KIT Lifecycle',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/circularity-kit/adoption-view',
-                label: 'Circularity',
+                to: '/documentation/kit-framework',
+                label: 'KIT Framework',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/connector-kit/adoption-view',
-                label: 'Connector',
+                to: '/documentation/kit-statistics',
+                label: 'KIT Statistics',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/customs-kit/adoption-view',
-                label: 'Customs',
+                to: '/documentation/kit-master-data-overview',
+                label: 'KIT Master Data',
+                className: 'kit-nav-item'
               },
-              {
-                to: '/docs-kits/next/kits/data-trust-and-security-kit/adoption-view',
-                label: 'Data Trust & Security',
-              },
-              {
-                to: '/docs-kits/kits/data-chain-kit/adoption-view',
-                label: 'Data Chain',
-              },
-              {
-                to: '/docs-kits/kits/data-driven-quality-management-kit/adoption-view',
-                label: 'Data Driven Quality Management',
-              },
-              {
-                to: '/docs-kits/kits/data-governance-kit/adoption-view',
-                label: 'Data Governance',
-              },
-              {
-                to: '/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
-                label: 'Demand and Capacity Management',
-              },
-              {
-                to: '/docs-kits/kits/digital-twin-kit/adoption-view',
-                label: 'Digital Twin',
-              },
-              {
-                to: '/docs-kits/kits/eco-pass-kit/adoption-view',
-                label: 'Eco Pass',
-              },
-              {
-                to: '/docs-kits/kits/environmental-and-social-standards-kit/adoption-view',
-                label: 'Environmental and Social Standards',
-              },
-              {
-                to: '/docs-kits/kits/industry-core-kit/adoption-view',
-                label: 'Industry Core',
-              },
-              {
-                to: '/docs-kits/kits/knowledge-agents-kit/adoption-view/intro',
-                label: 'Knowledge Agents',
-              },
-              {
-                to: '/docs-kits/kits/logistics-kit/adoption-view',
-                label: 'Logistics',
-              },
-              {
-                to: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
-                label: 'Manufacturing as a Service',
-              },
-              {
-                to: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
-                label: 'Model Based Development and Data Processing',
-              },
-              {
-                to: '/docs-kits/kits/modular-production-kit/adoption-view',
-                label: 'Modular Production',
-              },
-              {
-                to: '/docs-kits/kits/online-simulation-kit/adoption-view',
-                label: 'Online Simulation',
-              },
-              {
-                to: '/docs-kits/kits/puris-kit/adoption-view',
-                label: 'Predictive Unit Real-Time Information Service',
-              },
-              {
-                to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
-                label: 'Product Carbon Footprint Exchange',
-              },
-              {
-                to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
-                label: 'Supply Chain Disruption Notification',
-              },
-              {
-                to: '/docs-kits/kits/traceability-kit/adoption-view',
-                label: 'Traceability',
-              },
+              // Dynamically generated from kitsData
+              ...generateKitNavItems(),
             ],
           },
           {
@@ -332,24 +327,29 @@ const config = {
             position: 'left',
           },
           {
-            type: 'dropdown',
-            label: 'Versions',
+            to: '/blog-changelog',
+            label: 'Changelog',
             position: 'left',
-            items: [
-              {
-                to: '/release-information',
-                label: 'Release Information',
-              },
-              {
-                to: '/CHANGELOG',
-                label: 'Change Log',
-              },
-            ],
           },
           {
             type: 'docsVersionDropdown',
             docsPluginId: 'docs-kits',
-            position: 'right'
+            position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                className: 'dropdown-archived-versions',
+                value: '<b>Archived</b>',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-24.12/kits',
+                label: '24.12',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-24.08/kits',
+                label: '24.08',
+              },
+            ],
           },
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',

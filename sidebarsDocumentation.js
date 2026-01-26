@@ -35,16 +35,34 @@
 const sidebars = {
     documentation: [
         {
+            type: 'link',
+            label: '← Back to KIT Overview',
+            href: '/Kits'
+        },
+        {
             type: 'category',
-            label: 'documentation',
+            label: 'KIT Documentation',
             link: {
                 type: 'doc',
-                id: 'kit-artifacts'
+                id: 'kit-framework'
             },
             items: [
-                'kit-artifacts',
                 'kit-getting-started',
-                'kit-maturity-levels'
+                'kit-lifecycle',
+                'kit-framework',
+                'kit-statistics',
+                'kit-master-data-overview',
+            ]
+        },
+        {
+            type: 'category',
+            label: 'KIT Assets',
+            link: {
+                type: 'doc',
+                id: 'kit-3d-logo-library'
+            },
+            items: [
+                'kit-3d-logo-library'
             ]
         },
     ],

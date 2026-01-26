@@ -1,0 +1,1141 @@
+/*******************************************************************
+ * Eclipse Tractus-X - eclipse-tractusx.github.io
+ *
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the
+ * License for the specific language govern in permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+********************************************************************************/
+
+@use '../../../scss/config/variables' as *;
+@use '../../../scss/config/mixins';
+
+
+.architecture_section {
+  padding: 4rem 0;
+  background-color: var(--ifm-background-color);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  
+  // Top divider line
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--ifm-color-primary) 50%, transparent 100%);
+  }
+  
+  // Force consistent font rendering to prevent flickering
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  // Prevent font weight changes during animations
+  * {
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    font-weight: inherit !important;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.interactive_hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  padding: 0.25rem 0.75rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+  color: #ffc107;
+  font-weight: 400;
+  opacity: 0.8;
+  animation: hint-glow 2s infinite ease-in-out;
+
+  .hint_icon {
+    color: #ffc107;
+    flex-shrink: 0;
+    animation: lightning-pulse 2s infinite ease-in-out;
+  }
+
+  span {
+    white-space: nowrap;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-shadow: 0 0 8px rgba(255, 193, 7, 0.3);
+  }
+}
+
+.diagram {
+  position: relative;
+  border: 2px dashed var(--ifm-color-emphasis-300);
+  padding: 2.5rem 2rem 2rem;
+  border-radius: 8px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.disclaimer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  margin-right: 0;
+  font-size: 10px;
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
+  line-height: 1.2;
+  max-width: 1100px;
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 0;
+}
+
+.hexagon_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hexagon {
+  width: 150px;
+  height: 170px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  will-change: transform, filter;
+  
+  // Upper hexagon (larger, theme-responsive background: white in light mode, black in dark mode)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 170px;
+    height: 160px;
+    background-color: var(--ifm-background-color);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    z-index: 1;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  // Inner hexagon (smaller, theme-responsive background: white in light mode, black in dark mode)
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 160px;
+    height: 150px;
+    background-color: var(--ifm-background-color);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    z-index: 2;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  // Hover effect
+  &:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(90deg) scale(1.01);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg) scale(1.01);
+    }
+  }
+
+  // Active (click) effect
+  &:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: transform 0.1s ease;
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(90deg) scale(0.98);
+      transition: transform 0.1s ease;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg) scale(0.98);
+      transition: transform 0.1s ease;
+    }
+  }
+}
+
+// Dynamic hexagon gradients using CSS custom properties
+.hexagon_industry {
+  &::before {
+    background: var(--hexagon-gradient, linear-gradient(135deg, #6366f1, #ff00ff));
+  }
+  
+  &:hover {
+    &::after {
+      background: var(--hexagon-gradient, linear-gradient(135deg, #6366f1, #ff00ff));
+    }
+  }
+}
+
+// Other KITs hexagon with modern purple gradient border
+.hexagon_other {
+  &::before {
+    background: linear-gradient(135deg, #6366f1, #ff00ff);
+  }
+  
+  &:hover {
+    &::after {
+      background: linear-gradient(135deg, #6366f1, #ff00ff);
+    }
+  }
+}
+
+.hexagon_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  padding: 0 10px;
+  width: 90%;
+  color: var(--ifm-font-color-base);
+  transition: color 0.3s ease, transform 0.3s ease;
+  
+  // Logo styles
+  svg, img {
+    width: 100px;
+    height: 50px;
+    transition: transform 0.3s ease;
+    
+    // For PNG images
+    &[alt] {
+      object-fit: contain;
+    }
+  }
+  
+  svg {
+    // Default logo colors (will be overridden by individual hexagon hover states)
+    path, circle, rect, polygon {
+      transition: fill 0.3s ease, stroke 0.3s ease;
+    }
+  }
+}
+
+// Icon sizing for industry hexagons
+.hexagon_industry .hexagon_content svg {
+  font-size: 70px;
+  
+  // Black icons in light mode
+  [data-theme='light'] & {
+    color: #000000;
+  }
+  
+  // White icons in dark mode
+  [data-theme='dark'] & {
+    color: #ffffff;
+  }
+}
+
+.hexagon_title {
+  font-size: 25px;
+  font-weight: 800 !important;
+  line-height: 1.2;
+}
+
+.hexagon_subtitle {
+  font-size: 13px;
+  font-weight: 500 !important;
+  line-height: 1.3;
+  color: var(--ifm-font-color-base);
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+// Dynamic title colors using CSS custom properties
+.hexagon_industry .hexagon_title {
+  background: var(--hexagon-gradient, linear-gradient(45deg, #6366f1, #ff00ff));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: -webkit-text-fill-color 0.3s ease, color 0.3s ease;
+}
+
+.other_title {
+  background: linear-gradient(45deg, #6366f1, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: -webkit-text-fill-color 0.3s ease, color 0.3s ease;
+}
+
+// Hover states for all titles to turn white
+.hexagon_industry:hover .hexagon_title,
+.hexagon_other:hover .other_title {
+  -webkit-text-fill-color: white;
+  color: white;
+}
+
+// Also make subtitles white on hover
+.hexagon:hover .hexagon_subtitle {
+  color: white !important;
+  font-weight: 400 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+// Keep icons white on hover (both light and dark mode)
+.hexagon_industry:hover svg {
+  color: white !important;
+}
+
+.rectangle_column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rectangle {
+  height: 60px;
+  border: 2px solid var(--ifm-font-color-base);
+  background: var(--ifm-background-color-secondary);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  will-change: transform, filter, background, border-color;
+  
+  span {
+    font-size: 18px;
+    font-weight: 600 !important;
+    color: var(--ifm-font-color-base);
+    text-align: center;
+    transition: color 0.3s ease;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  // Base hover effect (no background change)
+  &:hover {
+    transform: translateY(-2px) scale(1.01);
+    filter: drop-shadow(0 3px 6px var(--ifm-color-emphasis-200));
+
+    span {
+      color: white;
+      font-weight: 600 !important;
+    }
+  }
+
+  // Active (click) effect
+  &:active {
+    transform: translateY(0) scale(0.98);
+    transition: transform 0.1s ease;
+
+    span {
+      transition: transform 0.1s ease;
+    }
+  }
+}
+
+// Button container for proper centering
+.button_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+// Professional CTA Button styling
+.explore_button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+  border: none;
+  border-radius: 3rem;
+  color: white;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    0 1px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  // Animated glow effect
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 25px rgba(0, 0, 0, 0.15),
+      0 3px 12px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+    &::before {
+      left: 100%;
+    }
+
+    .button_icon {
+      transform: translateX(4px);
+    }
+
+    .button_glow {
+      opacity: 1;
+      animation: glow-pulse 2s infinite;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
+  }
+
+  // Focus state for accessibility
+  &:focus-visible {
+    outline: 2px solid var(--ifm-color-primary-light);
+    outline-offset: 2px;
+  }
+}
+
+.button_text {
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.button_icon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.button_glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--ifm-color-primary-light), var(--ifm-color-primary));
+  border-radius: 3rem;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(var(--ifm-color-primary-rgb), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(var(--ifm-color-primary-rgb), 0.5);
+  }
+}
+
+@keyframes lightning-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.8));
+  }
+}
+
+@keyframes hint-glow {
+  0%, 100% {
+    opacity: 0.8;
+    text-shadow: 0 0 8px rgba(255, 193, 7, 0.2);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(255, 193, 7, 0.4), 
+                 0 0 20px rgba(255, 193, 7, 0.2);
+  }
+}
+
+// Individual rectangle hover gradients (configurable)
+.rectangle_cross_industry {
+  border-color: #10b981;
+  &:hover {
+    background: linear-gradient(135deg, #10b981, #047857);
+  }
+}
+
+.rectangle_industry_core {
+  border-color: #0070C0;
+  &:hover {
+    background: linear-gradient(135deg, #0070C0, #002060);
+  }
+}
+
+.rectangle_industry {
+  border-color: #595959;
+  &:hover {
+    background: linear-gradient(135deg, #595959, #404040);
+  }
+}
+
+// Rectangle link styles
+.rectangle_link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .rectangle {
+    position: relative;
+    overflow: hidden;
+    
+    span {
+      transition: transform 0.3s ease;
+    }
+  }
+  
+  &:hover .rectangle span {
+    transform: translateX(-8px);
+  }
+}
+
+// Hover indicator
+.rectangle_hover_indicator {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) translateX(20px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: white;
+  z-index: 2;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2.5px;
+  }
+}
+
+.rectangle_link:hover .rectangle_hover_indicator {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+}
+
+// Enhanced hover effects for better UX
+.rectangle_link:hover .rectangle {
+  span {
+    color: white !important;
+  }
+}
+
+// Responsive design
+@media screen and (max-width: 1400px) {
+  .container {
+    max-width: 1000px;
+    padding: 0 1.5rem;
+  }
+  
+  .diagram {
+    max-width: 1000px;
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .container {
+    max-width: 900px;
+    padding: 0 1.5rem;
+  }
+  
+  .diagram {
+    max-width: 850px;
+    padding: 2rem 1.5rem;
+  }
+  
+  .hexagon_row {
+    gap: 1rem;
+  }
+  
+  .hexagon {
+    width: 110px;
+    height: 130px;
+    
+    &::before {
+      width: 130px;
+      height: 120px;
+    }
+    
+    &::after {
+      width: 120px;
+      height: 110px;
+    }
+  }
+  
+  .hexagon_title {
+    font-size: 14px;
+  }
+  
+  .hexagon_subtitle {
+    font-size: 11px;
+  }
+  
+  .hexagon_content svg, .hexagon_content img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  // Icon sizing for industry hexagons in tablet mode
+  .hexagon_industry .hexagon_content svg {
+    font-size: 50px !important;
+  }
+  
+  .hexagon_catena_x .hexagon_content img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  // Responsive styles for new elements
+  .interactive_hint {
+    font-size: 12px;
+    gap: 0.4rem;
+    padding: 0.2rem 0.6rem;
+    
+    .hint_icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+  
+  .explore_button {
+    padding: 0.875rem 1.75rem;
+    font-size: 15px;
+    gap: 0.6rem;
+    
+    .button_icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .title {
+    font-size: 32px;
+    margin-bottom: 2rem;
+  }
+  
+  .diagram {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+  }
+  
+  .disclaimer {
+    font-size: 9px;
+    margin-top: 0.3rem;
+    padding-right: 1rem;
+  }
+  
+  .hexagon_row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hexagon {
+    width: 110px;
+    height: 130px;
+    
+    &::before {
+      width: 130px;
+      height: 120px;
+    }
+    
+    &::after {
+      width: 120px;
+      height: 110px;
+    }
+  }
+  
+  .hexagon_title {
+    font-size: 14px;
+  }
+  
+  .hexagon_subtitle {
+    font-size: 11px;
+  }
+  
+  .hexagon_content svg, .hexagon_content img {
+    width: 45px;
+    height: 45px;
+  }
+  
+  // Icon sizing for industry hexagons in mobile/small tablet mode
+  .hexagon_industry .hexagon_content svg {
+    font-size: 45px !important;
+  }
+  
+  .hexagon_catena_x .hexagon_content img {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  
+  .rectangle {
+    height: 50px;
+    
+    span {
+      font-size: 16px;
+    }
+  }
+  
+  // Responsive styles for new elements
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 1.25rem;
+  }
+  
+  .interactive_hint {
+    font-size: 11px;
+    margin-bottom: 2rem;
+    
+    span {
+      text-align: center;
+    }
+  }
+  
+  .explore_button {
+    padding: 0.8rem 1.5rem;
+    font-size: 14px;
+    margin-top: 2.5rem;
+    
+    .button_text {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .architecture_section {
+    padding: 3rem 0;
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+  
+  .hexagon_row {
+    gap: 0.8rem;
+  }
+  
+  .hexagon {
+    width: 100px;
+    height: 120px;
+    
+    &::before {
+      width: 120px;
+      height: 110px;
+    }
+    
+    &::after {
+      width: 110px;
+      height: 100px;
+    }
+  }
+  
+  .hexagon_title {
+    font-size: 13px;
+  }
+  
+  .hexagon_subtitle {
+    font-size: 10px;
+  }
+  
+  .hexagon_content svg, .hexagon_content img {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .hexagon_catena_x .hexagon_content img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .rectangle {
+    height: 45px;
+    
+    span {
+      font-size: 15px;
+    }
+  }
+  
+  // Responsive styles for new elements
+  .subtitle {
+    font-size: 15px;
+    margin-bottom: 1rem;
+  }
+  
+  .interactive_hint {
+    font-size: 13px;
+    margin-bottom: 1.5rem;
+    padding: 0.4rem 0.8rem;
+    
+    .hint_icon {
+      width: 14px;
+      height: 14px;
+    }
+    
+    span {
+      white-space: normal;
+      text-align: center;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+  }
+  
+  .explore_button {
+    padding: 0.9rem 1.5rem;
+    font-size: 14px;
+    margin: 2rem auto 0;
+    width: 90%;
+    max-width: 320px;
+    
+    .button_text {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .button_icon {
+      width: 17px;
+      height: 17px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .architecture_section {
+    padding: 2.5rem 0;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .diagram {
+    padding: 1rem 0.5rem;
+  }
+  
+  .hexagon_row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hexagon {
+    width: 120px;
+    height: 140px;
+    
+    // Create zigzag effect - odd hexagons (1st, 3rd, 5th) go left, even hexagons (2nd, 4th, 6th) go right
+    &:nth-child(odd) {
+      transform: translateX(-25px); /* Move odd hexagons left */
+    }
+    
+    &:nth-child(even) {
+      transform: translateX(25px); /* Move even hexagons right */
+    }
+    
+    // Maintain hover effects with the offset
+    &:hover {
+      &:nth-child(odd) {
+        transform: translateX(-25px) translateY(-3px) scale(1.02);
+      }
+      
+      &:nth-child(even) {
+        transform: translateX(25px) translateY(-3px) scale(1.02);
+      }
+    }
+    
+    // Active effects with the offset
+    &:active {
+      &:nth-child(odd) {
+        transform: translateX(-25px) translateY(-1px) scale(0.98);
+      }
+      
+      &:nth-child(even) {
+        transform: translateX(25px) translateY(-1px) scale(0.98);
+      }
+    }
+    
+    &::before {
+      width: 140px;
+      height: 130px;
+    }
+    
+    &::after {
+      width: 130px;
+      height: 120px;
+    }
+  }
+  
+  .hexagon_title {
+    font-size: 15px;
+  }
+  
+  .hexagon_subtitle {
+    font-size: 11px;
+  }
+  
+  .hexagon_content svg, .hexagon_content img {
+    width: 50px; /* Better size for mobile */
+    height: 50px;
+  }
+  
+  .hexagon_catena_x .hexagon_content img {
+    width: 56px !important; /* Better proportional size */
+    height: 56px !important;
+  }
+  
+  .rectangle {
+    height: 50px;
+    margin: 0 1rem;
+    
+    span {
+      font-size: 14px;
+    }
+  }
+  
+  .rectangle_column {
+    gap: 0.8rem;
+  }
+  
+  // Responsive styles for new elements - Mobile Portrait
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 0.75rem;
+    padding: 0 0.5rem;
+  }
+  
+  .interactive_hint {
+    font-size: 12px;
+    margin-bottom: 1.25rem;
+    flex-direction: row;
+    gap: 0.5rem;
+    text-align: center;
+    padding: 0.35rem 0.7rem;
+    
+    .hint_icon {
+      width: 13px;
+      height: 13px;
+    }
+    
+    span {
+      white-space: normal;
+      text-align: center;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+  }
+  
+  .explore_button {
+    padding: 1rem 1.5rem;
+    font-size: 15px;
+    margin: 2rem 0.5rem 0;
+    flex-direction: row;
+    gap: 0.75rem;
+    width: calc(100% - 1rem);
+    justify-content: center;
+    
+    .button_text {
+      font-size: 15px;
+      text-align: center;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+    
+    .button_icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .title {
+    font-size: 22px;
+  }
+  
+  .hexagon {
+    width: 100px;
+    height: 120px;
+    
+    &::before {
+      width: 120px;
+      height: 110px;
+    }
+    
+    &::after {
+      width: 110px;
+      height: 100px;
+    }
+  }
+  
+  .hexagon_title {
+    font-size: 13px;
+  }
+  
+  .hexagon_subtitle {
+    font-size: 10px;
+  }
+  
+  .hexagon_content svg, .hexagon_content img {
+    width: 45px; /* Reasonable size for very small screens */
+    height: 45px;
+  }
+  
+  .hexagon_catena_x .hexagon_content img {
+    width: 45px !important; /* Better proportional size */
+    height: 45px !important;
+  }
+  
+  .rectangle {
+    height: 45px;
+    margin: 0 0.5rem;
+    
+    span {
+      font-size: 13px;
+    }
+  }
+  
+  // Responsive styles for new elements - Extra Small Mobile
+  .subtitle {
+    font-size: 13px;
+    margin-bottom: 0.5rem;
+    padding: 0 0.25rem;
+    line-height: 1.4;
+  }
+  
+  .interactive_hint {
+    font-size: 11px;
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.6rem;
+    
+    .hint_icon {
+      width: 12px;
+      height: 12px;
+    }
+    
+    span {
+      line-height: 1.5;
+      font-size: 11px;
+      font-weight: 500;
+    }
+  }
+  
+  .explore_button {
+    padding: 0.9rem 1.2rem;
+    font-size: 14px;
+    margin: 1.5rem 0.25rem 0;
+    width: calc(100% - 0.5rem);
+    justify-content: center;
+    
+    .button_text {
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 600;
+    }
+    
+    .button_icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

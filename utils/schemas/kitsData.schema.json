@@ -1,0 +1,417 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Eclipse Tractus-X KITs Data Schema",
+  "description": "JSON Schema for validating KITs, Industries, and Dataspaces data structure",
+  "definitions": {
+    "kitBase": {
+      "type": "object",
+      "description": "Base properties shared by all KITs",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Unique identifier for the KIT (lowercase, alphanumeric with hyphens)"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Display name of the KIT (typically uppercase)"
+        },
+        "logo": {
+          "description": "Logo component reference (validated at runtime)"
+        },
+        "logoLicencse": {
+          "type": "object",
+          "description": "License information for the KIT logo",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["CC-BY-4.0", "Apache-2.0", "CC0 1.0 Universal", "MIT"],
+              "description": "License type for the logo"
+            },
+            "authors": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Semicolon-separated list of copyright holders (e.g., '2026 Eclipse Tractus-X Contributors; 2024,2025 Company Name')"
+            },
+            "licenseUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL to the license declaration file (e.g., GitHub .license file)"
+            },
+            "sourceUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL to the logo source file"
+            },
+            "originalSourceUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "Optional URL to the original source if logo is derived from external source"
+            }
+          },
+          "required": ["type", "authors", "licenseUrl", "sourceUrl"],
+          "additionalProperties": false
+        },
+        "logoHeight": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Height of the logo in pixels"
+        },
+        "logoWidth": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Width of the logo in pixels"
+        },
+        "route": {
+          "type": "string",
+          "pattern": "^/docs-kits/",
+          "description": "Documentation route for the KIT"
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary": {
+              "type": "string",
+              "pattern": "^#[0-9A-Fa-f]{6}$",
+              "description": "Primary color in hexadecimal format"
+            },
+            "gradient": {
+              "type": "string",
+              "pattern": "^linear-gradient\\(",
+              "description": "CSS gradient for visual styling"
+            }
+          },
+          "required": ["primary", "gradient"],
+          "additionalProperties": false
+        },
+        "maturity": {
+          "type": "object",
+          "properties": {
+            "currentLevel": {
+              "type": "string",
+              "enum": ["Sandbox", "Incubating", "Graduated"],
+              "description": "Current maturity level of the KIT"
+            },
+            "graduationStatus": {
+              "type": "string",
+              "enum": ["draft", "in progress", "in review", "no further development"],
+              "description": "Status of graduation process"
+            },
+            "graduatedAt": {
+              "type": "string",
+              "format": "date",
+              "description": "Date when KIT reached Graduated status (YYYY-MM-DD)"
+            },
+            "deprecatedAt": {
+              "type": "string",
+              "format": "date",
+              "description": "Date when KIT was deprecated (YYYY-MM-DD)"
+            }
+          },
+          "required": ["currentLevel"],
+          "additionalProperties": false
+        },
+        "deprecated": {
+          "type": "boolean",
+          "description": "Whether the KIT is deprecated"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 500,
+          "description": "Brief description of the KIT"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "created": {
+              "type": "string",
+              "format": "date",
+              "description": "Creation date (YYYY-MM-DD)"
+            },
+            "lastUpdated": {
+              "type": "string",
+              "format": "date",
+              "description": "Last update date (YYYY-MM-DD)"
+            },
+            "latestVersion": {
+              "type": "string",
+              "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+              "description": "Latest version in semver format"
+            },
+            "new": {
+              "type": "boolean",
+              "description": "Whether to display as a new KIT"
+            }
+          },
+          "required": ["created", "lastUpdated", "latestVersion", "new"],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "logo",
+        "logoLicencse",
+        "route",
+        "colors",
+        "maturity",
+        "deprecated",
+        "description",
+        "metadata"
+      ]
+    },
+    "foundationKit": {
+      "allOf": [
+        { "$ref": "#/definitions/kitBase" }
+      ],
+      "type": "object",
+      "description": "Foundation KITs (dataspace and industry core) - industries field optional",
+      "properties": {
+        "industries": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "Industries where this KIT is applicable (optional for foundation KITs)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "useCaseKit": {
+      "allOf": [
+        { "$ref": "#/definitions/kitBase" }
+      ],
+      "type": "object",
+      "description": "Use case KITs - domain field required",
+      "properties": {
+        "domain": {
+          "type": "string",
+          "enum": ["Sustainability", "Engineering", "Supply Chain", "Quality", "Production"],
+          "description": "Domain category for use case KITs (e.g., Sustainability, Engineering, Supply Chain)"
+        },
+        "industries": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "Industries where this KIT is applicable (optional for use case KITs)"
+        }
+      },
+      "required": ["domain"],
+      "additionalProperties": false
+    },
+    "dataspace": {
+      "type": "object",
+      "description": "A dataspace represents a data ecosystem for a specific industry",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Name of the dataspace"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Website URL of the dataspace"
+        },
+        "gradient": {
+          "type": "string",
+          "pattern": "^linear-gradient\\(",
+          "description": "CSS gradient for visual styling"
+        },
+        "logo": {
+          "type": "object",
+          "properties": {
+            "src": {
+              "type": "string",
+              "format": "uri",
+              "description": "Logo image URL"
+            },
+            "alt": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Alt text for the logo"
+            },
+            "width": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Logo width in pixels"
+            },
+            "height": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Logo height in pixels"
+            }
+          },
+          "required": ["src", "alt", "width", "height"],
+          "additionalProperties": false
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "layer1": {
+              "type": "string",
+              "description": "Color layer 1 (CSS color value)"
+            },
+            "layer2": {
+              "type": "string",
+              "description": "Color layer 2 (CSS color value)"
+            },
+            "layer3": {
+              "type": "string",
+              "description": "Color layer 3 (CSS color value)"
+            },
+            "layer4": {
+              "type": "string",
+              "description": "Color layer 4 (CSS color value)"
+            }
+          },
+          "required": ["layer1", "layer2", "layer3", "layer4"],
+          "additionalProperties": false,
+          "description": "Color layers for visual styling of dataspace blocks"
+        },
+        "subtitle": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Short tagline for the dataspace"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Detailed description of the dataspace"
+        },
+        "kits": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "KIT ID reference"
+          },
+          "uniqueItems": true,
+          "description": "Array of KIT IDs associated with this dataspace"
+        }
+      },
+      "required": ["name", "url", "gradient", "logo", "colors", "subtitle", "description"],
+      "additionalProperties": false
+    },
+    "industry": {
+      "type": "object",
+      "description": "An industry sector using Eclipse Tractus-X",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Unique identifier for the industry"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Display name of the industry"
+        },
+        "subtitle": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Short description of industry KITs"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Detailed description of the industry ecosystem"
+        },
+        "icon": {
+          "description": "Material-UI icon component (validated at runtime)"
+        },
+        "gradient": {
+          "type": "string",
+          "pattern": "^linear-gradient\\(",
+          "description": "CSS gradient for visual styling"
+        },
+        "dataspaces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dataspace"
+          },
+          "description": "Associated dataspaces for this industry"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "subtitle",
+        "description",
+        "icon",
+        "gradient",
+        "dataspaces"
+      ],
+      "additionalProperties": false
+    },
+    "kitsData": {
+      "type": "object",
+      "description": "Root object containing all KITs organized by category",
+      "properties": {
+        "dataspaceFoundation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/foundationKit"
+          },
+          "description": "Core dataspace infrastructure KITs"
+        },
+        "industryCoreFoundation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/foundationKit"
+          },
+          "description": "Industry core foundation KITs"
+        },
+        "useCases": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/useCaseKit"
+          },
+          "description": "Cross-industry use case KITs (industries field required)"
+        },
+        "industryKits": {
+          "type": "object",
+          "description": "Industry-specific KITs organized by industry ID",
+          "patternProperties": {
+            "^[a-z0-9-]+$": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/useCaseKit"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "dataspaceFoundation",
+        "industryCoreFoundation",
+        "useCases",
+        "industryKits"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "kitsData": {
+      "$ref": "#/definitions/kitsData"
+    },
+    "industries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/industry"
+      },
+      "description": "Array of all industries"
+    }
+  }
+}

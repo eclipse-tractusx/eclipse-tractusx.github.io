@@ -1,0 +1,288 @@
+/********************************************************************************
+ * Eclipse Tractus-X - eclipse-tractusx.github.io
+ *
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the
+ * License for the specific language govern in permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+********************************************************************************/
+
+@use '../../../scss/config/variables' as *;
+@use '../../../scss/config/mixins';
+
+.about_us {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0 6rem;
+  overflow: hidden;
+  background-color: var(--ifm-background-color);
+}
+
+.content_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.image_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.svg {
+  width: 200px;
+  height: auto;
+}
+
+.top_title {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+}
+
+.title_s {
+  font-size: 26px;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 56px;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+// Legacy styles for compatibility
+.container {
+  width: auto;
+  @include mixins.center-flex;
+  gap: $spacing-xl;
+  margin: auto;
+}
+
+.img_container {
+  width: auto;
+  @include mixins.center-flex;
+}
+
+.img {
+  border-radius: 10px;
+  @include mixins.responsive-image(auto, 250px);
+}
+
+.information_container {
+  width: 25%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.descriptionhighlight {
+  color: $text-white;
+}
+
+.description {
+  @include mixins.body-text(21px, $text-gray);
+  letter-spacing: 0.052799999713897705px;
+  text-align: left;
+}
+
+.outlinedbutton {
+  border-width: 1px;
+  border-color: var(--ifm-color-primary);
+  padding: 5px 25px;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 13px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/* Tablet styles */
+@media screen and (max-width: 996px) {
+  .about_us {
+    padding: 4rem 0;
+  }
+
+  .content_wrapper {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .svg {
+    width: 150px;
+  }
+
+  .maincontainer {
+    align-items: center;
+  }
+
+  .container {
+    width: 40vw;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .information_container {
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .img {
+    height: auto;
+  }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 600px) {
+  .about_us {
+    padding: 2rem 0;
+  }
+
+  .content_wrapper {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .maincontainer {
+    order: 1;
+  }
+
+  .image_container {
+    order: 2;
+  }
+
+  .svg {
+    width: 100px;
+  }
+
+  .top_title {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 36px;
+    margin-bottom: 8px;
+  }
+
+  .title_s {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 22px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .container {
+    width: 70vw;
+    height: fit-content;
+    margin-bottom: 20px;
+  }
+
+  .img {
+    height: auto;
+  }
+
+  .information_container {
+    height: fit-content;
+  }
+
+  .outlinedbutton {
+    margin-bottom: 20px;
+  }
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 480px) {
+  .content_wrapper {
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+
+  .svg {
+    width: 80px;
+  }
+
+  .top_title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .title_s {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+// Large screens
+@media screen and (min-width: 2200px) {
+  .about_us {
+    width: 60vw;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  .about_us {
+    width: 40vw;
+    margin: auto;
+  }
+}

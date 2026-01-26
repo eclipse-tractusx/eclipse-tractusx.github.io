@@ -1,59 +1,90 @@
 /********************************************************************************
- * Copyright (c) 2024 Contributors to the Eclipse Foundation
- *
- * See the NOTICE file(s) distributed with this work for additional
- * information regarding copyright ownership.
- *
- * This program and the accompanying materials are made available under the
- * terms of the Eclipse Public License 2.0 which is available at
- * http://www.eclipse.org/legal/epl-2.0
- *
- * SPDX-License-Identifier: EPL-2.0
+* Copyright (c) 2025 BMW Group AG
+* Copyright (c) 2025 Mercedes Benz AG  
+* Copyright (c) 2025 Contributors to the Eclipse Foundation
+* 
+* See the NOTICE file(s) distributed with this work for additional
+* information regarding copyright ownership.
+* 
+* This program and the accompanying materials are made available under the
+* terms of the Apache License, Version 2.0 which is available at
+* https://www.apache.org/licenses/LICENSE-2.0.
+* 
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+* License for the specific language governing permissions and limitations
+* under the License.
+* 
+* SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React from "react";
+import { useLocation } from '@docusaurus/router';
+
+import KitHeader from "../../components/2.0/KitsHeader";
+import KitsTitle from "../../components/2.0/KitsTitle";
+import KitStatistics from "../../components/2.0/KitStatistics";
+import KitsArchitecture from "../../components/2.0/KitsArchitecture";
+import KitsGallery from "../../components/2.0/KitsGallery";
+import KitsExtensions from "../../components/2.0/KitsExtensions";
+import KitsFooter from "../../components/2.0/KitsFooter";
+import DataspaceComponent from "@site/src/components/2.0/DataspaceComponent";
+import { kitsData, getAllKits, industries } from "@site/data/kitsData";
+import React, { useEffect } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
-import DeepdiveHeader from "../../components/DeepdiveHeader";
-import AboutUsCard from "../../components/AboutUsCard";
-import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters";
-import { kitsGallery } from "@site/utils/kitsGallery";
-import CarouselSuccessStories from "../../components/CarouselSuccessStories";
-import RoleBasedEnrtyComponent from "../../components/RoleBasedEnrtyComponent";
-import {carouselKitdeepdive} from "../../../utils/carouselKitdeepdive"
-
-export default function KitsPage() {
+export default function Kits2Page() {
+  const location = useLocation();
   const { siteConfig } = useDocusaurusContext();
-  const aboutInput = {
-    highlightText: "Tractus-X KITS",
-    title: "KIT stands for Keep It Together",
-    descriptionHighlight: "KITs aim to accelerate",
-    description: " the adoption, development, and operations of the next generation Business Applications and Services. Tractus-X wants to support developers in order to accelerate the development of services and applications to contribute significantly to the rapid scaling of the Catena-X ecosystem.",
-    buttonText: "KIT Deepdive",
-    link: "/Kit-Deepdive"
-  }
-  const headerInput = {
-    title: "KIT",
-    description: "Introduction to the Tractus-X KITS.",
-    showImage: true
-  }
+  
+  const allKits = getAllKits();
+
+  // Handle scrolling to section based on URL parameters or fragment
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const scrollTo = urlParams.get('scrollTo');
+    
+    if (scrollTo) {
+      const element = document.getElementById(scrollTo);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else if (location.hash) {
+      const elementId = location.hash.substring(1);
+      const element = document.getElementById(elementId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location.search, location.hash]);
+  
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`KITs | ${siteConfig.title}`}
+      description="This is the home of the Eclipse Tractus-X KITs (Keep It Together) - your comprehensive documentation, for boosting adoption and building interoperable solutions across industries."
     >
-      <DeepdiveHeader {...headerInput} />
-      <main>
-        <RoleBasedEnrtyComponent data={carouselKitdeepdive} />
-        <AboutUsCard {...aboutInput} />
-        <KitsGalleryWithFilters
-          itemsArray={kitsGallery}
-          title={"Our KITs"}
-          description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
-        />
-        <CarouselSuccessStories />
-      </main>
+      <KitHeader />
+      <KitsTitle />
+      <section id="architecture">
+        <KitsArchitecture industries={industries}/>
+      </section>
+      <KitStatistics kitsData={allKits} />
+      <KitsGallery
+        title={"Our Gallery"}
+        description={"Unlock the full power of the KITs. Browse all the available specifications, blueprints, and reference implementations."}
+        dataspaceFoundation={kitsData.dataspaceFoundation}
+        industryCoreFoundation={kitsData.industryCoreFoundation}
+        useCases={kitsData.useCases}
+      />
+      <section id="dataspaces">
+        <DataspaceComponent />
+      </section>
+      <KitsFooter disclaimer={`* All dataspace logos and trademarks are property of their affiliated companies and organizations.`} />
     </Layout>
   );
 }

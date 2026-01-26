@@ -155,7 +155,7 @@ Within this section we briefly describe how to install the required tools on an 
 
 #### Install docker
 
-Ensure that you are up to date with your release (for Ubuntu we use atp, which needs to run with root privileges):
+Ensure that you are up to date with your release (for Ubuntu we use apt, which needs to run with root privileges):
 
 ```bash
 sudo apt update && sudo apt upgrade
@@ -362,6 +362,16 @@ sudo apt-get update
 sudo apt-get install insomnia
 ```
 
+:::note
+
+If you using recent Ubuntu and got the following error: Unable to locate package insomnia, you can install with snap: (other tool like Bruno is also recommended)
+
+```bash
+sudo snap install insomnia
+```
+
+:::
+
 ### Setup a user environment for running the tutorial with a minimum set of privileges
 
 You do not need full system access to proceed with the following steps of tutorial (even not for the deployment). Further you may allow several users to deploy their environment at the same time on the same system. But there are a few critical aspects, you need to consider. But first we begin with setting up the appropriate permissions for a user.
@@ -379,7 +389,7 @@ The user tx01 needs the following permissions to be able to successfully complet
 So we run the following commands, assuming the user already exists:
 
 ```bash
-sudo addusr tx01 docker               # adds the user to the group docker
+sudo adduser tx01 docker              # adds the user to the group docker
 sudo chgrp docker /etc/hosts          # change the group permission from root to docker
 sudo chmod 664 /etc/hosts             # This allow now our user tx01 to edit /etc/hosts
 ```

@@ -224,7 +224,22 @@ export const kitsGallery = [
     id: 24,
     name: 'Data Trust and Security KIT',
     domain: 'Network Services',
-    pageRoute: "/docs-kits/next/kits/data-trust-and-security-kit/adoption-view",
+    pageRoute: "/docs-kits/kits/data-trust-and-security-kit/adoption-view",
     img: DataTrustAndSecurity,
+  },
+  {
+    id: 25,
+    name: 'Requirement KIT',
+    domain: 'Engineering',
+    img: Customs_Kit,
+    pageRoute: "/docs-kits/kits/requirements-kit/adoption-view",
+  },
+  {
+    id: 26,
+    name: 'Geometry KIT',
+    domain: 'Engineering',
+    img: Customs_Kit,
+    pageRoute: "/docs-kits/next/kits/geometry-kit/adoption-view",
   }
+
 ]
