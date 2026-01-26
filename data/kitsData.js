@@ -80,6 +80,7 @@ import TraceabilityKitLogo from "@site/static/img/kits/traceability/traceability
 import DataChainKitLogo from "@site/static/img/kits/data-chain/data-chain-kit-raw-logo.svg";
 import EcoPassKitLogo from "@site/static/img/kits/eco-pass/eco-pass-kit-raw-logo.svg";
 import PCFKitLogo from "@site/static/img/kits/pcf/pcf-kit-raw-logo.svg";
+import CBAMKitLogo from "@site/static/img/kits/cbam/cbam-kit-raw-logo.svg";
 import PurisKitLogo from "@site/static/img/kits/puris/puris-kit-raw-logo.svg";
 import DCMKitLogo from "@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-raw-logo.svg";
 import ESSKitLogo from "@site/static/img/kits/ess/ess-kit-raw-logo.svg";
@@ -492,6 +493,38 @@ export const kitsData = {
         lastUpdated: '2025-12-19',
         latestVersion: '1.4.0',
         new: false
+      }
+    },
+    {
+      id: 'cbam',
+      name: 'CBAM KIT',
+      logo: CBAMKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/cbam/cbam-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/cbam/cbam-kit-raw-logo.svg'
+      },
+      logoHeight: 120,
+      logoWidth: 120,
+      route: '/docs-kits/next/kits/cbam-kit/adoption-view',
+      colors: {
+        primary: '#3a7c96',
+        gradient: 'linear-gradient(135deg, #66C791 0%, #003399 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Sustainability',
+      industries: ['automotive'],
+      description: 'Carbon Border Adjustment Mechanism (CBAM) compliance and reporting for cross-border emissions data.',
+      metadata: {
+        created: '2025-11-18',
+        lastUpdated: '2026-01-26',
+        latestVersion: '0.1.0',
+        new: true
       }
     },
     {
