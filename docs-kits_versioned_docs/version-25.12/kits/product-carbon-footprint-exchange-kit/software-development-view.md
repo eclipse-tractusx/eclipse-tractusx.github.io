@@ -34,7 +34,7 @@ The following chapter illustrates the process from searching for an EDC point, t
 
 In order to receive the EDC endpoints for a requested partner, the EDC Discovery Service is used, following the [CX-0001](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI) EDC Discovery API standard. Therefore, at least the BPNL (Business Partner Number Legal) entity needs to be known. For more details please refer to the Catena-X standard above.
 
-![EDCDiscoveryAndDTRAccess](./resources/development-view/EDCDiscoveryanddDTRAccess.png)
+![EDCDiscoveryAndDTRAccess](resources/development-view/edc-discovery-and-ddtr-access_v9.0.0.png)
 
 ### PCF Request
 
@@ -44,7 +44,7 @@ For **synchronous data exchange (data pull)** please find sequence diagram in PC
 
 After successfully locating the corresponding material twin containing a PCF submodel, the EDC asset containing the PCF request endpoint can be extracted (example payload can be found [here](#payload-for-edc-data-asset-pcf)) and the query for a PCF dataset can be initiated, as illustrated in the attached sequence diagram.
 
-![PCF Request](./resources/development-view/PCFRequestthroughAAS.png)
+![PCF Request](resources/development-view/pcf-request-through-aas-v9.0.0.png)
 
 In case no matching material twin or PCF submodel exists, the flow falls back to a direct lookup of an EDC asset containing the PCF request endpoint provided within the offers of any EDC registered for the data provider's BPNL.
 
@@ -102,7 +102,7 @@ The PCF submodel must be registered with the ``idshort: PCFExchangeEndpoint``.
        "keys": [
           {
              "type": "GlobalReference",
-             "value": "urn:samm:io.catenax.pcf:8.0.0#Pcf"
+             "value": "urn:samm:io.catenax.pcf:9.0.0#Pcf"
            }
        ]
     },
@@ -151,7 +151,7 @@ The following JSON shows the EDC Asset for a PCF defined in the EDC using the as
         "rdfs:label": "PCF Data",
         "rdfs:comment": "Endpoint for PCF data",
         "cx-common:version": "1.1",
-        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:8.0.0#Pcf"},
+        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:9.0.0#Pcf"},
         "edc:contentType": "application/json",
         "dct:type": {"@id":"cx-taxo:PcfExchange"}
     },
