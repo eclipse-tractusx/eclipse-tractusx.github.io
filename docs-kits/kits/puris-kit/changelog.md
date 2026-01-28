@@ -10,6 +10,16 @@ sidebar_position: 1
 
 All notable changes to this KIT will be documented in this file.
 
+## [0.4.1] - 2026-03-18
+
+### Added
+
+- none
+
+### Changed
+
+- updated video in adoption view to a new version
+
 ## [0.4.0] - 2025-08-16
 
 ### Added

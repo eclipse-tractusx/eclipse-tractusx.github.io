@@ -20,9 +20,11 @@ This KIT covers various aspects, starting from how to utilize the available API 
 
 ## Building Block View
 
-The following figures are showing the current high level architecture of the PCF Exchange use case for synchronous and asynchronous data exchange.
+The following figure shows the current high level architecture of the PCF Exchange use case. It provides a synchronous and an asynchronous data exchange.
 
-![Building Block View](resources/development-view/architecture-synchronous-vs-asynchronous-data-exchange.png)
+![Architecture_Synchronous_vs.AsynchronousDataExchange](./resources/development-view/Architecture_Synchronous_vs.AsynchronousDataExchange.png)
+
+With the major CX-Saturn Release 25.09 the CX-0136 standard was expand to offer synchronous data exchange according to the Industry Core, supporting both interfaces PCF 1.1 and AAS-Submodel 3.0 (CX-0125 & CX-0126).
 
 ## Sequence View
 
@@ -32,15 +34,17 @@ The following chapter illustrates the process from searching for an EDC point, t
 
 In order to receive the EDC endpoints for a requested partner, the EDC Discovery Service is used, following the [CX-0001](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI) EDC Discovery API standard. Therefore, at least the BPNL (Business Partner Number Legal) entity needs to be known. For more details please refer to the Catena-X standard above.
 
-![EDCDiscoveryAndDTRAccess](./resources/development-view/EDCDiscoveryanddDTRAccess.png)
+![EDCDiscoveryAndDTRAccess](resources/development-view/edc-discovery-and-ddtr-access_v9.0.0.png)
 
 ### PCF Request
 
 In order to request PCF values via the PCF API endpoint first of all the EDC PCF asset needs to be identified. Therefore, the decentralized Digital Twin Registry (dDTR) is used. Data providers must register their dDTR(s) as EDC assets following the [CX-0002](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX) Digital Twins in Catena-X standard. After identifying the dDTR, the digital twin with the related PCF submodel can be looked up (see [API calls [0003 +0004]](#api-calls)). An example is documented [here](#payload-for-requesting-pcf-sub-model).
 
+For **synchronous data exchange (data pull)** please find sequence diagram in PCF Standard CX-0136, chapter 5.2.
+
 After successfully locating the corresponding material twin containing a PCF submodel, the EDC asset containing the PCF request endpoint can be extracted (example payload can be found [here](#payload-for-edc-data-asset-pcf)) and the query for a PCF dataset can be initiated, as illustrated in the attached sequence diagram.
 
-![PCF Request](./resources/development-view/PCFRequestthroughAAS.png)
+![PCF Request](resources/development-view/pcf-request-through-aas-v9.0.0.png)
 
 In case no matching material twin or PCF submodel exists, the flow falls back to a direct lookup of an EDC asset containing the PCF request endpoint provided within the offers of any EDC registered for the data provider's BPNL.
 
@@ -98,7 +102,7 @@ The PCF submodel must be registered with the ``idshort: PCFExchangeEndpoint``.
        "keys": [
           {
              "type": "GlobalReference",
-             "value": "urn:samm:io.catenax.pcf:8.0.0#Pcf"
+             "value": "urn:samm:io.catenax.pcf:9.0.0#Pcf"
            }
        ]
     },
@@ -147,7 +151,7 @@ The following JSON shows the EDC Asset for a PCF defined in the EDC using the as
         "rdfs:label": "PCF Data",
         "rdfs:comment": "Endpoint for PCF data",
         "cx-common:version": "1.1",
-        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:8.0.0#Pcf"},
+        "aas-semantics:semanticId": {"@id":"urn:samm:io.catenax.pcf:9.0.0#Pcf"},
         "edc:contentType": "application/json",
         "dct:type": {"@id":"cx-taxo:PcfExchange"}
     },

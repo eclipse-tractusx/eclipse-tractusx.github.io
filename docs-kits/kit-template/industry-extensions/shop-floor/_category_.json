@@ -1,0 +1,8 @@
+{
+  "label": "Shop Floor",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "industry-extensions/shop-floor/overview"
+  }
+}

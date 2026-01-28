@@ -155,7 +155,7 @@ Within this section we briefly describe how to install the required tools on an 
 
 #### Install docker
 
-Ensure that you are up to date with your release (for Ubuntu we use atp, which needs to run with root privileges):
+Ensure that you are up to date with your release (for Ubuntu we use apt, which needs to run with root privileges):
 
 ```bash
 sudo apt update && sudo apt upgrade
