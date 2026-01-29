@@ -240,9 +240,7 @@ export const kitsData = {
         latestVersion: '10.0.0',
         new: false
       }
-    }
-  ],
-  industryCoreFoundation: [
+    },
     {
       id: 'digital-twin',
       name: 'DIGITAL TWIN KIT',
@@ -273,7 +271,9 @@ export const kitsData = {
         latestVersion: '2.0.1',
         new: false
       }
-    },
+    }
+  ],
+  industryCoreFoundation: [
     {
       id: 'industry-core',
       name: 'INDUSTRY CORE KIT',
