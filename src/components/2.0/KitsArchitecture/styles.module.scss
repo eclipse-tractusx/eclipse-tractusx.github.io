@@ -217,11 +217,7 @@
 }
 
 // Dynamic hexagon gradients using CSS custom properties
-.hexagon_automotive,
-.hexagon_shop_floor, 
-.hexagon_semiconductor,
-.hexagon_construction,
-.hexagon_chemical {
+.hexagon_industry {
   &::before {
     background: var(--hexagon-gradient, linear-gradient(135deg, #6366f1, #ff00ff));
   }
@@ -279,11 +275,7 @@
 }
 
 // Icon sizing for industry hexagons
-.hexagon_automotive .hexagon_content svg,
-.hexagon_shop_floor .hexagon_content svg,
-.hexagon_semiconductor .hexagon_content svg,
-.hexagon_construction .hexagon_content svg,
-.hexagon_chemical .hexagon_content svg {
+.hexagon_industry .hexagon_content svg {
   font-size: 70px;
   
   // Black icons in light mode
@@ -315,10 +307,7 @@
 }
 
 // Dynamic title colors using CSS custom properties
-.hexagon_automotive .hexagon_title,
-.hexagon_shop_floor .hexagon_title, 
-.hexagon_semiconductor .hexagon_title,
-.hexagon_construction .hexagon_title {
+.hexagon_industry .hexagon_title {
   background: var(--hexagon-gradient, linear-gradient(45deg, #6366f1, #ff00ff));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -335,10 +324,7 @@
 }
 
 // Hover states for all titles to turn white
-.hexagon_automotive:hover .hexagon_title,
-.hexagon_shop_floor:hover .hexagon_title,
-.hexagon_semiconductor:hover .hexagon_title,
-.hexagon_construction:hover .hexagon_title,
+.hexagon_industry:hover .hexagon_title,
 .hexagon_other:hover .other_title {
   -webkit-text-fill-color: white;
   color: white;
@@ -353,11 +339,7 @@
 }
 
 // Keep icons white on hover (both light and dark mode)
-.hexagon_automotive:hover svg,
-.hexagon_shop_floor:hover svg,
-.hexagon_semiconductor:hover svg,
-.hexagon_construction:hover svg,
-.hexagon_chemical:hover svg {
+.hexagon_industry:hover svg {
   color: white !important;
 }
 
@@ -681,11 +663,7 @@
   }
   
   // Icon sizing for industry hexagons in tablet mode
-  .hexagon_automotive .hexagon_content svg,
-  .hexagon_shop_floor .hexagon_content svg,
-  .hexagon_semiconductor .hexagon_content svg,
-  .hexagon_construction .hexagon_content svg,
-  .hexagon_chemical .hexagon_content svg {
+  .hexagon_industry .hexagon_content svg {
     font-size: 50px !important;
   }
   
@@ -776,11 +754,7 @@
   }
   
   // Icon sizing for industry hexagons in mobile/small tablet mode
-  .hexagon_automotive .hexagon_content svg,
-  .hexagon_shop_floor .hexagon_content svg,
-  .hexagon_semiconductor .hexagon_content svg,
-  .hexagon_construction .hexagon_content svg,
-  .hexagon_chemical .hexagon_content svg {
+  .hexagon_industry .hexagon_content svg {
     font-size: 45px !important;
   }
   

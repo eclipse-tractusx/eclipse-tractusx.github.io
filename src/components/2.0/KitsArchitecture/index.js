@@ -45,7 +45,7 @@
                  <Link 
                    key={industry.id}
                    to={`/Kits/industry?id=${industry.id}&ref=architecture`}
-                   className={`${styles.hexagon} ${styles[`hexagon_${industry.id.replace('-', '_')}`]}`}
+                   className={`${styles.hexagon} ${styles.hexagon_industry}`}
                    style={{
                      '--hexagon-gradient': industry.gradient,
                      '--hexagon-title-gradient': industry.gradient.replace('135deg', '45deg'),
@@ -57,7 +57,6 @@
                          <IconComponent 
                            sx={{ 
                              fontSize: 60,
-                             color: '#ffffff'
                            }} 
                          />
                        )}

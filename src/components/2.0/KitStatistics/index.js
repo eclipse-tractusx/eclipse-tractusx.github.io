@@ -20,6 +20,7 @@
 import React, { useMemo } from 'react';
 import Link from '@docusaurus/Link';
 import CountUpNumber from '../CountUpNumber';
+import { kitsData } from '@site/data/kitsData';
 import styles from './styles.module.scss';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -30,9 +31,9 @@ import AnalyticsIcon from '@mui/icons-material/Analytics';
 import LifecycleIcon from '@mui/icons-material/Recycling';
 import Button from '@mui/material/Button';
 
-const KitStatistics = ({ kitsData }) => {
+const KitStatistics = ({ kitsData: allKits }) => {
   const statistics = useMemo(() => {
-    if (!kitsData || kitsData.length === 0) {
+    if (!allKits || allKits.length === 0) {
       return {
         totalKits: 0,
         totalIndustries: 0,
@@ -43,19 +44,13 @@ const KitStatistics = ({ kitsData }) => {
     }
 
     // Count total KITs (including deprecated ones)
-    const totalKits = kitsData.length;
+    const totalKits = allKits.length;
     
-    // Count unique industries (including from deprecated KITs)
-    const allIndustries = new Set();
-    kitsData.forEach(kit => {
-      if (kit.industries) {
-        kit.industries.forEach(industry => allIndustries.add(industry));
-      }
-    });
-    const totalIndustries = allIndustries.size;
+    // Count industry categories from industryKits object
+    const totalIndustries = kitsData.industryKits ? Object.keys(kitsData.industryKits).length : 0;
     
     // Count KITs by maturity level (including deprecated ones)
-    const maturityCounts = kitsData.reduce((counts, kit) => {
+    const maturityCounts = allKits.reduce((counts, kit) => {
       const level = kit.maturity?.currentLevel?.toLowerCase() || 'unknown';
       counts[level] = (counts[level] || 0) + 1;
       return counts;
@@ -72,7 +67,7 @@ const KitStatistics = ({ kitsData }) => {
       incubatingKits,
       sandboxKits
     };
-  }, [kitsData]);
+  }, [allKits]);
   const statisticsItems = [
     {
       id: 'total-kits',

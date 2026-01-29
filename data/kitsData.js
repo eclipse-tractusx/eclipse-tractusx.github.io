@@ -485,7 +485,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: 'Sustainability',
-      industries: ['automotive', 'shop-floor', 'construction', 'semiconductor'],
+      industries: ['automotive', 'manufacturing', 'construction', 'semiconductor'],
       description: 'Product-specific CO2 footprint.',
       metadata: {
         created: '2023-08-23',
@@ -517,7 +517,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: 'Sustainability',
-      industries: ['automotive', 'shop-floor', 'construction'],
+      industries: ['automotive', 'manufacturing', 'construction'],
       description: 'Leverage the transparency of digital product passports to strengthen sustainability & compliance.',
       metadata: {
         created: '2023-08-11',
@@ -549,7 +549,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: 'Sustainability',
-      industries: ['automotive', 'shop-floor'],
+      industries: ['automotive', 'manufacturing'],
       description: 'Enable circular economy business models with data exchange across company boundaries.',
       metadata: {
         created: '2023-12-08',
@@ -905,7 +905,7 @@ export const kitsData = {
         },
         deprecated: false,
         domain: 'Production',
-        industries: ['automotive', 'shop-floor'],
+        industries: ['automotive', 'manufacturing'],
         description: 'Create a federated network of networks to connect manufacturing supply and demand.',
         metadata: {
           created: '2024-03-29',
@@ -937,7 +937,7 @@ export const kitsData = {
         },
         deprecated: false,
         domain: 'Production',
-        industries: ['shop-floor'],
+        industries: ['manufacturing'],
         description: 'Enable customized production (batch size 1) without significant increase of costs.',
         metadata: {
           created: '2023-11-20',
@@ -982,14 +982,14 @@ export const industries = [
         },
         subtitle: 'Your Automotive Network',
         description: 'The first open and collaborative data ecosystem for the automotive industry. Catena-X enables secure and standardized data exchange across the entire automotive value chain to drive innovation, sustainability, and transparency.',
-        kits: ['connector', 'data-governance', 'business-partner', 'agents', 'digital-twin', 'industry-core', 'data-chain', 'data-driven-quality', 'traceability', 'behavior-twin', 'ess', 'pcf', 'eco-pass', 'circularity', 'puris', 'dcm', 'logistics', 'supply-chain-disruption', 'customs', 'osim', 'model-based-production', 'requirements', 'maas']
+        kits: ['connector', 'data-governance', 'data-trust-security', 'business-partner', 'agents', 'digital-twin', 'industry-core', 'data-chain', 'data-driven-quality', 'traceability', 'behavior-twin', 'ess', 'pcf', 'eco-pass', 'circularity', 'puris', 'dcm', 'logistics', 'supply-chain-disruption', 'customs', 'osim', 'model-based-production', 'requirements', 'maas', 'modular-production', 'geometry' ]
       }
     ]
   },
   {
-    id: 'shop-floor',
-    name: 'Shop Floor',
-    subtitle: 'Shop Floor Industry Use Cases',
+    id: 'manufacturing',
+    name: 'Manufacturing',
+    subtitle: 'Manufacturing Industry Use Cases',
     description: 'Industry Specific KITs for manufacturing and production environments, focusing on shop floor operations, industrial equipment integration, and production optimization. Enable smart manufacturing, flexible production networks, and real-time operational data exchange.',
     icon: PrecisionManufacturing,
     gradient: 'linear-gradient(135deg, #1D71B8, #5ba9de, #c1d100)',

@@ -57,7 +57,7 @@ export default function GenericIndustryPage() {
       // Get all kits and filter for this industry (include deprecated)
       const allKits = getAllKits();
       let kitsForIndustry = allKits.filter(kit => 
-        kit.industries && kit.industries.includes(matchingIndustry.name)
+        kit.industries && kit.industries.includes(matchingIndustry.id)
       );
       
       // Also include industry-specific KITs if they exist
@@ -66,6 +66,16 @@ export default function GenericIndustryPage() {
         const industrySpecificKits = kitsData.industryKits[matchingIndustry.id];
         kitsForIndustry = [...kitsForIndustry, ...industrySpecificKits];
       }
+      
+      // Deduplicate kits by ID (in case a kit appears in both filtered results and industry-specific)
+      const uniqueKitIds = new Set();
+      kitsForIndustry = kitsForIndustry.filter(kit => {
+        if (uniqueKitIds.has(kit.id)) {
+          return false;
+        }
+        uniqueKitIds.add(kit.id);
+        return true;
+      });
       
       // Add category information to each kit based on its position in kitsData
       kitsForIndustry = kitsForIndustry.map(kit => {
@@ -147,8 +157,16 @@ export default function GenericIndustryPage() {
     );
   }
 
+  // Calculate statistics - ensure total matches sum of industrySpecific + crossIndustry
+  const industrySpecificKits = filteredKits.filter(kit => kit.categoryType && kit.categoryType.endsWith(' Specific'));
+  const crossIndustryKits = filteredKits.filter(kit => 
+    kit.categoryType && ['Dataspace Foundation', 'Industry Core Foundation', 'Cross-Industry Use Cases'].includes(kit.categoryType)
+  );
+  
   const kitStats = {
-    total: filteredKits.length,
+    industrySpecific: industrySpecificKits.length,
+    crossIndustry: crossIndustryKits.length,
+    total: industrySpecificKits.length + crossIndustryKits.length, // Sum of both categories
     sandbox: filteredKits.filter(kit => kit.maturity?.currentLevel === 'Sandbox').length,
     incubating: filteredKits.filter(kit => kit.maturity?.currentLevel === 'Incubating').length,
     graduated: filteredKits.filter(kit => kit.maturity?.currentLevel === 'Graduated').length,
@@ -183,6 +201,7 @@ export default function GenericIndustryPage() {
         statistics={kitStats}
         dataspaces={industry.dataspaces}
         backButtonLink={ref ? `/Kits?scrollTo=${ref}` : `/Kits`}
+        industryLayout={true}
       />
 
 
@@ -192,6 +211,7 @@ export default function GenericIndustryPage() {
         showIndustryFilter={false}
         showCategoryFilter={false}
         showDomainFilter={true}
+        showScopeFilter={true}
         showHeader={false}
         title={`${industry.name} KITs Collection`}
         description={`All KITs available for the ${industry.name} industry ecosystem`}

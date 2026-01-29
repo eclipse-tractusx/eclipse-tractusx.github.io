@@ -93,7 +93,7 @@ export default function KitArchitectureDiagram() {
                     tabIndex={0}
                     onKeyPress={(e) => e.key === 'Enter' && scrollToSection('industry-specific-use-cases')}
                   >
-                    SHOP FLOOR
+                    MANUFACTURING
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={6}>

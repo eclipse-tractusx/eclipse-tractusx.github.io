@@ -25,30 +25,39 @@
   display: inline-block;
 }
 
-/* Download button in top right corner */
-.downloadButton {
+/* Container for download buttons */
+.downloadButtons {
   position: absolute;
   top: -10px;
   right: -10px;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  cursor: pointer;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 0;
   z-index: 100;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
   @media (max-width: 480px) {
     top: auto;
     bottom: -10px;
     right: 50%;
     transform: translateX(50%);
-    
+  }
+}
+
+/* Download button in top right corner */
+.downloadButton {
+  height: 36px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+
+  @media (max-width: 480px) {
     // Disable hover effects on touch devices
     &:hover {
       background: var(--ifm-color-primary);
@@ -63,8 +72,11 @@
   &:hover {
     background: white;
     color: black;
-    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    
+    .downloadLabel {
+      opacity: 1;
+    }
   }
 
   &:active {
@@ -74,35 +86,226 @@
   svg {
     display: block;
   }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* Main download button (left side of split button) */
+.downloadButtonMain {
+  width: 36px;
+  border-radius: 10px 0 0 10px;
+}
+
+/* Dropdown arrow button (right side of split button) */
+.downloadButtonDropdown {
+  width: 24px;
+  border-radius: 0 10px 10px 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Spinner animation */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+.spinnerInline {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Label for download format */
+.downloadLabel {
+  font-size: 8px;
+  font-weight: 600;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+/* Download options panel */
+.downloadOptions {
+  position: absolute;
+  top: 40px;
+  right: -10px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 280px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 101;
+
+  @media (max-width: 480px) {
+    top: auto;
+    bottom: 40px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+.optionsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+
+  h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ifm-font-color-base);
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ifm-color-emphasis-600);
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--ifm-color-emphasis-200);
+    color: var(--ifm-font-color-base);
+  }
+}
+
+.optionGroup {
+  margin-bottom: 16px;
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--ifm-color-emphasis-700);
+  }
+
+  select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 6px;
+    background: var(--ifm-background-color);
+    color: var(--ifm-font-color-base);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--ifm-color-primary);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--ifm-color-primary);
+      box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest);
+    }
+  }
+}
+
+.downloadActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.downloadActionButton {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--ifm-color-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--ifm-color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: var(--ifm-color-emphasis-300);
+    
+    &:hover {
+      background: var(--ifm-color-emphasis-300);
+      transform: none;
+      box-shadow: none;
+    }
+  }
 }
 
 /* 3D Logo Stack Container */
 .logo3dContainer {
   position: relative;
   width: 300px;
-  height: 320px;
+  height: 280px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   transform-style: preserve-3d;
+}
+
+/* Inner wrapper for 3D layers - this creates the contained space */
+.logo3dInner {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  transform-style: preserve-3d;
+  transform: translateY(30px);
 }
 
 /* Individual Layer */
 .logo3dLayer {
   position: absolute;
-  width: 180px;
-  height: 180px;
+  width: 100%;
+  height: 100%;
   border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   transform-style: preserve-3d;
-  left: 50%;
-  top: 50%;
-  margin-left: -90px;
-  margin-top: -90px;
+  left: 0;
+  top: 0;
 
   // Ensure SVG logos are properly sized and centered
   svg {
