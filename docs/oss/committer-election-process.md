@@ -71,10 +71,7 @@ Because of his proactive commitment and constant efforts on bring quality code c
 In case, you need further contributions for evaluation, please let me know. I restricted them on purpose.
 ```
 
-The committer then needs:
-
-- to file a committer election via [eclipse foundation's project page](https://projects.eclipse.org/projects/automotive.tractusx/nominate/CM) ("Nominate a Committer")
-- send a mail via the [dev mailing list](./how-to-contribute.md#dev-mailinglist)
+The committer files a committer election via [eclipse foundation's project page](https://projects.eclipse.org/projects/automotive.tractusx/nominate/CM) ("Nominate a Committer"). A mail to the [dev mailing list](./how-to-contribute.md#dev-mailinglist) will be sent automatically after nomination.
 
 Example elections (prior to the template):
 
