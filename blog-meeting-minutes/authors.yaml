@@ -39,9 +39,12 @@ rohan_krishnamurthy:
 stephan_bauer:
   name: Stephan Bauer
   title: Eclipse Tractus-X Project Lead
-  url: https://github.com/stephanbcbauer
-  email: stephan.bauer@catena-x.net
+  url: https://catena-x.net/
   image_url: https://github.com/stephanbcbauer.png
+  socials:
+    github: stephanbcbauer
+    email: stephan.bauer@catena-x.net
+    linkedin: stephan-bauer-7a3a22117
 
 matbmoser:
   name: Mathias Brunkow Moser
