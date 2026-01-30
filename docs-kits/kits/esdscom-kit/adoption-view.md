@@ -5,7 +5,7 @@ description: Data Model of the eSDScom KIT
 sidebar_position: 2
 ---
 
-Welcome to the [esdscom] KIT Adoption View. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
+Welcome to the [esdscom] KIT Adoption View.
 The following page offers a high level business view on the eSDScom KIT with its vision, mission, benefits, and business value.
 
 ## Mission
