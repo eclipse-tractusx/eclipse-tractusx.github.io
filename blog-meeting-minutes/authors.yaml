@@ -39,16 +39,22 @@ rohan_krishnamurthy:
 stephan_bauer:
   name: Stephan Bauer
   title: Eclipse Tractus-X Project Lead
-  url: https://github.com/stephanbcbauer
-  email: stephan.bauer@catena-x.net
+  url: https://catena-x.net/
   image_url: https://github.com/stephanbcbauer.png
+  socials:
+    github: stephanbcbauer
+    email: stephan.bauer@catena-x.net
+    linkedin: stephan-bauer-7a3a22117
 
 matbmoser:
   name: Mathias Brunkow Moser
   title: Eclipse Tractus-X Project Lead
   url: https://github.com/matbmoser
   image_url: https://github.com/matbmoser.png
-
+  socials:
+    github: matbmoser
+    email: mathias.moser@catena-x.net
+    linkedin: mathias-brunkow-moser
 evelyn_gurschler:
   name: Evelyn Gurschler
   title: Tractus-X Project Lead
@@ -135,3 +141,13 @@ carlos_rodriguez:
   title: Dataspace Architect, Eclipse Committer
   url: https://github.com/CDiezRodriguez
   image_url: https://github.com/CDiezRodriguez.png
+
+bjoern_roy:
+  name: Björn Roy
+  url: https://github.com/giterrific
+  image_url: https://github.com/giterrific.png
+
+mikel_garcia:
+  name: Mikel Garcia
+  url: https://github.com/mgarciaLKS
+  image_url: https://github.com/mgarciaLKS.png
