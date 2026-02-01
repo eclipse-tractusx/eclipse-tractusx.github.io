@@ -51,7 +51,10 @@ matbmoser:
   title: Eclipse Tractus-X Project Lead
   url: https://github.com/matbmoser
   image_url: https://github.com/matbmoser.png
-
+  socials:
+    github: matbmoser
+    email: mathias.moser@catena-x.net
+    linkedin: mathias-brunkow-moser
 evelyn_gurschler:
   name: Evelyn Gurschler
   title: Tractus-X Project Lead
