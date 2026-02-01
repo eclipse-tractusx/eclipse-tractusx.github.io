@@ -139,7 +139,6 @@ It will remain in progress to track further information.</li>
 <li class="">Container images: evaluating CloudPirates Helm Charts (Keycloak, Postgres, etc.) that wrap official Docker images; Eclipse feedback indicates Docker images are acceptable if referenced transparently.</li>
 <li class="">KITs coordination: new Matrix room created to align multi-dataspace development and onboarding; plan a weekly KITs office hour once processes are established.</li>
 </ul>]]></content:encoded>
-            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
             <category>community</category>
             <category>meeting-minutes</category>
         </item>
@@ -212,7 +211,6 @@ It will remain in progress to track further information.</li>
 <li class=""><strong>Action</strong>: Committers to research viable alternatives and check licensing with Eclipse Legal (possibly via Angelika).</li>
 <li class="">Decision deferred to <strong>Committer Round</strong>.</li>
 </ul>]]></content:encoded>
-            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
             <category>community</category>
             <category>meeting-minutes</category>
         </item>
@@ -278,7 +276,6 @@ It will remain in progress to track further information.</li>
 <!-- -->Owner must explicitly grant rights.<br>
 <!-- -->Public forks: read-only access by default.</li>
 </ul>]]></content:encoded>
-            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
             <category>community</category>
             <category>meeting-minutes</category>
         </item>
@@ -427,7 +424,6 @@ It will remain in progress to track further information.</li>
 <li class="">Presentation of Tractus-X to the Eclipse Data Space Working Group (EDWG) and discussion about associating the project with ADBG for increased visibility and marketing.</li>
 <li class="">Farewell to Evelyn, with best wishes from the team.</li>
 </ul>]]></content:encoded>
-            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
             <category>community</category>
             <category>meeting-minutes</category>
         </item>
@@ -504,7 +500,6 @@ It will remain in progress to track further information.</li>
 <li class="">Issuer service deprecated; functionality moved to Identity Hub.</li>
 <li class="">Call for developers with Identity Hub experience.</li>
 </ul>]]></content:encoded>
-            <author>stephan.bauer@catena-x.net (Stephan Bauer)</author>
             <category>community</category>
             <category>meeting-minutes</category>
         </item>
