@@ -13,6 +13,8 @@ authors:
 
 # First International Eclipse Tractus-X Hackathon 🌍🚀
 
+![img](IMG_4856.jpeg)
+
 Hi Everyone 👋,
 
 Let's have the **first international Open Source Hackathon of Eclipse Tractus-X ever!** 🌍🚀 And in Spain! 🇪🇸
