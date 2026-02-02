@@ -21,9 +21,9 @@ The following steps summarize the handbook on the committer election process:
 
 ## Starting a Committer Election
 
-This is the most crucial part about the committer election. The committer election is commonly prepared by the contributor and the commiter - we only promote persons who want to be promoted. Together they decide on how much contribution ([Eclipse Foundation Handbook](https://www.eclipse.org/projects/handbook/#elections-contribution)) is enough following the [eclipse tractus-x expectations of the committer role](./contributor-committer.md#committer).
+This is the most crucial part about the committer election. The committer election is commonly prepared by the contributor and the committer - we only promote persons who want to be promoted. Together they decide on how much contributions ([Eclipse Foundation Handbook](https://www.eclipse.org/projects/handbook/#elections-contribution)) are enough following the [eclipse tractus-x expectations of the committer role](./contributor-committer.md#committer).
 
-To provide a useful heuristic for a nomination, we **RECOMMEND** the following template. Remember that the evaluation (with checking the linked information) MUST NOT take a committer more than 15 minutes. While the template provides up to 13 links to issues and pull requests, we **RECOMMEND** 7 links at maximum. Thus, pick examples of good work.
+To provide a useful heuristic for a nomination, we **RECOMMEND** the following template. Remember that the evaluation (with checking the linked information) **MUST NOT** take a committer more than 15 minutes. While the template provides up to 13 links to issues and pull requests, we **RECOMMEND** 7 links at maximum. Thus, pick examples of good work.
 
 :::tip
 There is neither styling nor hypertext allowed. The election text relies on bare text formatting (none). Thus links are not embedded.
