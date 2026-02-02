@@ -47,6 +47,8 @@ Tasks:
 
 On [GitHub](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization) repositories committer have the write role.
 
+Refer to the [election process](./committer-election-process.md) to understand how the final process steps to become a committer look like.
+
 ## Project Lead
 
 [Eclipse Tractus-X Project Leads](https://projects.eclipse.org/projects/automotive.tractusx/who)
