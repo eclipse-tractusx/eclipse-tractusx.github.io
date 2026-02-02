@@ -282,13 +282,13 @@ export const meetings = [
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'The goal of the meeting is to prepare for the test phase and clarify the process of the release test phase. We also want to review the Release Check Issues and discuss the deployment process.',
     contact: 'monika.jacobsen@catena-x.net',
-    sessionLink: 'https://teams.microsoft.com/meetingOptions/?organizerId=e461a1fa-5342-44e3-b2e8-32b399a9e867&tenantId=1ad22c6d-2f08-4f05-a0ba-e17f6ce88380&threadId=19_meeting_MDNhZWUyMmYtNDkxNS00MWZkLThlOWQtYjgwYTY3N2NlNTZh@thread.v2&messageId=0&language=en-US',
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDNhZWUyMmYtNDkxNS00MWZkLThlOWQtYjgwYTY3N2NlNTZh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22e461a1fa-5342-44e3-b2e8-32b399a9e867%22%7d',
     additionalLinks: [
       { title: 'Test Management Matrix Chat', url: 'https://matrix.to/#/#tractusx-test-management:matrix.eclipse.org' },
     ],
     recurrence: {
       frequency: 'once',
-      startDate: '2026-02-02',
+      startDate: '2026-02-03',
       startTime: '08:30',
       endTime: '09:30',
     },
