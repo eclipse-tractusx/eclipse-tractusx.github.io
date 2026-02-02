@@ -9,7 +9,7 @@ Applying the meritocracy principle to open source development, the more a person
 - How to promote a contributor? (committer perspective)
 
 :::warning[Reminder to committers starting elections: It's about the task fit and trust!]
-Committers are not to be voted because of popularity or what they might do in future. They need to proof they've fulfilled the tasks, we see in a committer's duties, in the past. Further they must be transparent, open and trusted. If we don't think someone will in future always remain that way, we **MUST NOT** promote them.
+Committers are not to be voted because of popularity or what they might do in future. They need to prove they've fulfilled the tasks, we see in a committer's duties, in the past. Further they must be transparent, open and trusted. If we don't think someone will in future always remain that way, we **MUST NOT** promote them.
 :::
 
 The following steps summarize the handbook on the committer election process:
@@ -29,7 +29,7 @@ To provide a useful heuristic for a nomination, we **RECOMMEND** the following t
 There is neither styling nor hypertext allowed. The election text relies on bare text formatting (none). Thus links are not embedded.
 :::
 
-```markdown
+```text
 [NAME] has been an integral part of the Eclipse Tractus-X project since [FIRST CONTRIBUTION YEAR-MONTH]. His contributions have been impactful, as he actively participates in discussions and consistently enhances core projects through optimizations and improved code quality.
 
 [ADD Personalized Description of Contributor]
