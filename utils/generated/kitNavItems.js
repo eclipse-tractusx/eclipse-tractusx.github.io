@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: e63b19e2a3bd85db76dc1d4f2ccea92f4a66f7cb88b622a9b848e18b5958478f
+ * Content hash: 8a67266878bc6328fd68fb12b3e980dda710fb877f28f2d6b9c2260e3c04e1e3
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -107,6 +107,12 @@ const kitsByCategory = {
       "id": "pcf",
       "name": "PRODUCT CARBON FOOTPRINT KIT",
       "route": "/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "cbam",
+      "name": "CBAM KIT",
+      "route": "/docs-kits/next/kits/cbam-kit/adoption-view",
       "deprecated": false
     },
     {
