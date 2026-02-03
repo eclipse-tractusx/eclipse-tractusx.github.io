@@ -11,8 +11,6 @@ authors:
   - stephan_bauer
 ---
 
-# First International Eclipse Tractus-X Hackathon 🌍🚀
-
 ![img](IMG_4856.jpeg)
 
 Hi Everyone 👋,
@@ -26,8 +24,7 @@ Let's have the **first international Open Source Hackathon of Eclipse Tractus-X 
 - **💸 Cost:** FREE 🆓
 - **📅 Date:** 17th of February 2026
 - **📍 Location:** Bilbao/Zamudio (near the airport) - Spain
-  Parque Tecnológico de Euskadi, Campus Zamudio/Derio
-  *(Final address will be available in the Agenda & Newsletter)*
+  *[Hotel Seminario Aeropuerto Bilbao](https://maps.app.goo.gl/Mq8neBWmYzSy8Qsg8)*
 - **⏰ Duration:** Full Day Event
 
 ## 🔗 Registration
@@ -62,11 +59,13 @@ We will be offering challenges to support our community goals for the next Tract
 Further develop the Tractus-X Identity Hub Wallet and integrate it into the TX Umbrella.
 
 **This will allow us to:**
+
 - ✅ Eliminate the need for a mocked wallet in the umbrella (by having a real open-source wallet)
 - 🔄 Offer an end-to-end exchange scenario for developing better applications
 - 🌐 Enhance decentralization within the Tractus-X open-source dataspace technologies
 
 **🔗 Repositories:**
+
 - [Identity Hub](https://github.com/eclipse-tractusx/tractusx-identityhub)
 - [Umbrella](https://github.com/eclipse-tractusx/tractus-x-umbrella)
 
@@ -78,10 +77,12 @@ Integrate the PCF use case (or another add-on) into the Industry Core Hub.
 
 **🎯 Goal:**
 Enable another add-on in the Industry Core Hub and learn:
+
 - How the IC-Hub can serve as a base for multiple use cases
 - How to develop your own add-on module
 
 **🔗 Repository:**
+
 - [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub)
 
 ## 🏨 Hotel Suggestions
@@ -89,13 +90,17 @@ Enable another add-on in the Industry Core Hub and learn:
 The location is next to the airport, near Bilbao at a "Technological Center". Depending on whether you want to visit Bilbao or not, you can choose from different accommodations.
 
 ### Next to the Event Area (near the airport)
+
+- [Hotel Seminario Aeropuerto Bilbao](https://maps.app.goo.gl/Mq8neBWmYzSy8Qsg8) -> The event will be there
 - [Hotel Aretxarte](https://maps.app.goo.gl/bWenpcMTfDZQNAfD9)
 
 ### In Bilbao
+
 - **Recommended:** [NH Collection Villa de Bilbao](https://maps.app.goo.gl/w4tiZVnzGZCfSCoj9)
   *(Some of us will be accommodated there and we could organize to go together from there to the event area)*
 
 **Other good hotels in Bilbao** (depending on your budget):
+
 - Hotel Meliá Bilbao
 - Hotel Catalonia Gran Via de Bilbao
 - Hotel ILUNION Bilbao
