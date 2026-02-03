@@ -55,6 +55,7 @@ matbmoser:
     github: matbmoser
     email: mathias.moser@catena-x.net
     linkedin: mathias-brunkow-moser
+    
 evelyn_gurschler:
   name: Evelyn Gurschler
   title: Tractus-X Project Lead
@@ -125,7 +126,6 @@ maximilian_ong:
 
 daniel_miehle:
   name: Daniel Miehle
-  title: Tractus-X Project Lead
   url: https://github.com/danielmiehle
   image_url: https://github.com/danielmiehle.png
   email: daniel.miehle@bmw.de
@@ -149,5 +149,10 @@ bjoern_roy:
 
 mikel_garcia:
   name: Mikel Garcia
+  title: Eclipse Tractus-X Project Lead
   url: https://github.com/mgarciaLKS
   image_url: https://github.com/mgarciaLKS.png
+  socials:
+    github: mgarciaLKS
+    email: mgarcia@lksnext.com
+    linkedin: mikel-garcia-bartolome-a3891b308
