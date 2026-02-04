@@ -149,10 +149,10 @@ Because of the way that communication within CX-0128 is defined companies are no
 
 |Content|Standard|Version|Section|Description|
 |-|-|-|-|-|
-|DCM Business Logic|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.1.0|5|Focuses on a common understanding of the DCM processes among participants.|
-|DCM Aspect Models|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.1.0|3|Aligns the structure of the shared information and enables the adoption of the core business logic without misinterpretation.|
-|DCM APIs|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.1.0|4|Ensures that data is provided and consumed properly as well as identically interpreted across companies.|
-|Notification Process, Aspect Model and API|[CX-0146 Supply Chain Disruption Notifications][StandardLibrary]|1.0.0|*|Optional capability referenced in Section 5.10 of CX-0128. Focuses on quickly informing business partners of impactful events, where the impact cannot be precisely quantified yet.|
+|DCM Business Logic|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.2.1|5|Focuses on a common understanding of the DCM processes among participants.|
+|DCM Aspect Models|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.2.1|3|Aligns the structure of the shared information and enables the adoption of the core business logic without misinterpretation.|
+|DCM APIs|[CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary]|2.2.1|4|Ensures that data is provided and consumed properly as well as identically interpreted across companies.|
+|Notification Process, Aspect Model and API|[CX-0146 Supply Chain Disruption Notifications][StandardLibrary]|2.0.1|*|Optional capability referenced in Section 5.10 of CX-0128. Focuses on quickly informing business partners of impactful events, where the impact cannot be precisely quantified yet.|
 
 ## Frequently asked Questions
 
