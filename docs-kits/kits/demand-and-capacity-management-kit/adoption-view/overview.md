@@ -137,12 +137,14 @@ Because of the way that communication within CX-0128 is defined companies are no
 
  Conforming to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] the following policies have to be applied.
 
-| Category | Policy Name | Description |Usage recommendation|
-|:---------|:------------|:------------|:-------------------|
-| **Access Policy** | BPN-restricted Data Usage | Limit access to the data offered to a list of specified BPNs (to the connectors with the BPN attribute listed in the policy) |Limit access to assets to all your known business partners.|
-| **Access Policy** | Membership Credential | Limit access to data offered to Catena-X participants |Use as is.|
-| **Usage Policy** | DCM Framework Agreement Credential | Limit access to data offered to participants who have signed the DCM Framework Agreement |Use as is.|
-
+| Policy Type      | Constraint               | leftOperand ("@context": ["https://w3id.org/catenax/2025/9/policy/context.jsonld"])  | operator | right Operand              | Usage Requirement |
+| --               | --                       | --                                                        | --       | --                         | --                |
+| Access Policy    | BPNL                     | BusinessPartnerNumber | isAnyOf, isNoneOf      | `{{ PARTNER_BPNLs }}`         | optional          |
+| Access Policy    | BPNL-Group               | BusinessPartnerGroup  | isAnyOf, isNoneOf | `{{ PARTNER_GROUPs }}`        | optional          |
+| Access Policy    | Membership               | Membership                | eq       | active                     | optional          |
+| **Usage Policy** | Data Exchange Governance | FrameworkAgreement        | eq       | DataExchangeGovernance:1.0 | mandatory         |
+| **Usage Policy** | Usage Purpose            | UsagePurpose              | isAnyOf       | cx.dcm.base:1              | mandatory         |
+| Usage Policy     | Contract Reference       | ContractReference         | isAllOf       | `{{ Contract References }}`   | optional          |
 ### Standards
 
 |Content|Standard|Version|Section|Description|
