@@ -640,6 +640,7 @@ A capacity group dataset comprises the following basic components:
 |-|-|-|
 | Supplier | Yes |The Business Partner Number Legal (BPNL) of the party providing materials to a customer|
 | Customer | Yes |The Business Partner Number Legal (BPNL) of the party requesting material from a supplier|
+| Customer Location| Yes |The Business Partner Number Site (BPNS) that identifies the location, where a supplier has to deliver the material(s) to. It refers to the BPNS provided by the customer within the WeekBasedMaterialDemand and can by any BPNS (i.e. no matter what BPNL it belongs to). The suppler should assume that the materials requested will be delivered to the named BPNS based on an existing contract between the two BPNLs (i.e. the one that generates the demand and the one  that receives the material).|
 | Capacity Group ID | Yes |The capacity group ID uniquely identifies the capacity group within the business relationship between a supplier and its customer|
 | Changed At | Yes |Point in time when the content (any property according to the data model) of the capacity group was changed, at the supplier, either by a human user or an automated process|
 | Capacity Group Name | Yes |Name of the capacity group|
