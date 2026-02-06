@@ -889,7 +889,7 @@ block-beta
 
 Figure: *A small supply network built by seven capacity groups*
 
-### Specific cross-company scenerios
+### Specific cross-company scenarios
 This section gives an overview of some potential cases in cross-company scenarios and how to handle them. 
 
 - **Directed buy**: in this case a company (e.g. an OEM) asks its supplier A to buy parts from supplier B, whereas  
@@ -902,7 +902,7 @@ This section gives an overview of some potential cases in cross-company scenario
 - **Contract manufacturing / cooperation plants**: in case of manufacturing plants co-owned by multiple companies or producing on behalf of other companies, a possible solution is to create the plant as BPNS for all manufacturers involved. For example, if a plant is co-owned by OEMs A and B, two BPNS can be created (one each for the BPNL of OEM A and B). That way, each OEM can send out his respective demand using his own BPNL and BPNS, avoiding confusion. 
 - **Joint ventures**: joint ventures are often separate legal entities and are operated independently, therefore they would need to be onboarded to Catena-X as a separate BPNL with separate BPNS. 
 
-**Note**: in all cases, the demands need to be send out by the company who orders the parts (i.e. is the purchasing party in the contract and pays for the parts).  
+**Note**: in all cases, the demands need to be sent out by the company who orders the parts (i.e. is the purchasing party in the contract and pays for the parts).  
 
  
 
