@@ -58,7 +58,7 @@ A MVP approach can be followed when developing software, implementing CX-0128, b
 
 ### APIs as data assets
 
-The data consumer registers one data-asset per API with its own EDC. Those data-assets need a `dataAddress` with a `baseURL` pointing to the URI of the API endpoint. The same `dataAddress` needs to be setup to use the consumers EDC as a proxy, utilizing the different proxy related properties within the `dataAddress` object.
+The data consumer registers one data-asset per API with its own EDC. Those data-assets need a `dataAddress` with a `baseURL` pointing to the URL of the API endpoint. The same `dataAddress` needs to be setup to use the consumers EDC as a proxy, utilizing the different proxy related properties within the `dataAddress` object.
 
 #### Asset example
 

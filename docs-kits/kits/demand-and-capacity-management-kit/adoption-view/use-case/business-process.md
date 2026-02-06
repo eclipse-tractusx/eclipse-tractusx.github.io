@@ -238,6 +238,36 @@ Figure: *Material demand structure*
 
 Figure: *Visualizing demand quantities as bars*
 
+### WeekBasedMaterialDemand Properties
+
+A material demand dataset comprises the following basic components:
+
+| Main Parameters | Required? | Description |
+|-|-|-|
+| Supplier | Yes |The Business Partner Number Legal (BPNL) of the party providing materials to a customer|
+| Customer | Yes |The Business Partner Number Legal (BPNL) of the party requesting material from a supplier|
+| Material Demand ID | Yes |The material demand ID uniquely identifies the material demand within the business relationship between a customers and its supplier|
+| Changed At | Yes |Point in time when the content (any property according to the data model) of the material demand was changed, at the customer, either by a human user or an automated process|
+| Material Description Customer | Yes |Description of the material, which a demand refers to|
+| Customer Material Number | Yes |Material identifier as assigned by the customer. This material number identifies the material (as planned) in customer's database. It must be unique for each Material Demands in the customer-supplier relationship|
+| Supplier Material Number | No |Material identifier as assigned by the supplier. This material number identifies the material (as planned) in supplier's database|
+| Material Demand is Inactive | Yes |Indicates that this material demand is currently not in use/maintained by the customer|
+| Unit of Measure | No |Unit of Measurement (UoM) for demand quantities|
+| Demand Series | Yes |The demands for a dedicated material in a given time period of a given demand rate, distinguished by their demand location and demand category|
+| Unit of Measure is Omitted | Yes |Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
+| Material Global Asset ID | No |Identifier used uniquely to identify part type twin (Digital Twin)|
+
+Further properties are added at lower level below the “Demand Series” property. Demand Series contain the following components.
+
+| Main Parameters | Required? | Description |
+|-|-|-|
+| Customer Location | Yes |The Business Partner Number Site (BPNS) of the site at which the customer needs the specified material for this demand series. It refers to the BPNS provided by the customer within the WeekBasedMaterialDemand and can be any BPNS (i.e. no matter what BPNL it belongs to). The supplier should assume that the materials requested will be delivered to the named BPNS based on an existing contract between the Business Partner that generates the demand and the Business Partner that receives the material|
+| Expected Supplier Location | No |The Business Partner Nomber Site (BPNS) of the site from where the cusomer expects the supplier to fulfill the demands of the demand series. The value is used for i nformational purposes only and is therefore not binding for the supplier|
+| Demand | Yes |Quantity of materials required for the specified point in time. This demand should be as close as possible to the demand that is derived from the actual production program|
+| Point in Time | Yes |ISO calendar week in which the given demand is needed. It must be given as a date of the Monday in the week.|
+| Demand Category Code | Yes |The code identifying a demand category as described in the standard under Demand Category Types|
+
+
 ## Capacity Group
 
 ```mermaid
@@ -396,7 +426,7 @@ Embedded into the WeekBasedCapacityGroup are
 
 - **Actual Capacity** as the planned available capacity of a supplier
 - **Maximum Capacity** as the maximum releasable capacity of a supplier
-- **Agreed Capacity** as the understanding between Customer and supplier, regardless of contractual obligations. It is optional.
+- **Agreed Capacity** as the understanding between Customer and supplier. It is optional.
 
 In addition the difference between actual capacity and maximum capacity is commonly understood as flexible capacity.
 
@@ -643,11 +673,11 @@ A capacity group dataset comprises the following basic components:
 | Capacity Group ID | Yes |The capacity group ID uniquely identifies the capacity group within the business relationship between a supplier and its customer|
 | Changed At | Yes |Point in time when the content (any property according to the data model) of the capacity group was changed, at the supplier, either by a human user or an automated process|
 | Capacity Group Name | Yes |Name of the capacity group|
-| Capacity Group is Inactive | Yes |Indicates that this capacity Group is currently not in use/maintained by the Supplier|
+| Capacity Group is Inactive | Yes |Indicates that this capacity group is currently not in use/maintained by the supplier|
 | Unit of Measure | No |Unit of Measurement (UoM) for capacity quantities|
 | Linked Demand Series | No |Set of demand series assigned to this capacity group|
 | Capacities | No |A time series with week-based granularity along a given time period containing the capacity values|
-| Unit of Measure is Omitted | Yes |Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the demand values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
+| Unit of Measure is Omitted | Yes |Explicit indicator of whether the unit of measure is left out of the payload intentionally. If “true” it means the sending application sends the capacity values without unit of measure intentionally and the unit of measure must not be contained in the payload. If “false” a unit of measure must be supplied|
 
 Further properties are added at lower level below the “Capacities” property. A capacity time series contains the following components.
 
@@ -858,6 +888,23 @@ block-beta
 ```
 
 Figure: *A small supply network built by seven capacity groups*
+
+### Specific cross-company scenarios
+This section gives an overview of some potential cases in cross-company scenarios and how to handle them. 
+
+- **Directed buy**: in this case a company (e.g. an OEM) asks its supplier A to buy parts from supplier B, whereas  
+  - The purchasing contracts are in place between supplier A and B. The OEM has only a contract with supplier A.  
+  - Following the Catena-X DCM process, supplier A creates demands and sends them to supplier B who replies with the according capacity information.  
+  - The OEM is not involved since the OEM is not part of the contract and therefore does not receive any data related to demand and/or capacity exchange between supplier A and B. 
+- **Customer supplied material**: in this case, the customer (e.g. an OEM) orders part 1 at supplier A (Tier-2) and provides them to supplier B (Tier-1) to produce part 2 that is delivered to the OEM.  
+  - If the part 1 is delivered by supplier A to the OEM and then transported to the supplier B, for the Catena-X DCM process the OEM creates the demands and sends them to the supplier A.  
+  - In case the part 1 is ordered by the OEM from supplier A but delivered directly to supplier B, for the Catena-X DCM process the OEM creates demands and sends it to supplier A, indicating a delivery location BPNS belonging to supplier B. 
+- **Contract manufacturing / cooperation plants**: in case of manufacturing plants co-owned by multiple companies or producing on behalf of other companies, a possible solution is to create the plant as BPNS for all manufacturers involved. For example, if a plant is co-owned by OEMs A and B, two BPNS can be created (one each for the BPNL of OEM A and B). That way, each OEM can send out his respective demand using his own BPNL and BPNS, avoiding confusion. 
+- **Joint ventures**: joint ventures are often separate legal entities and are operated independently, therefore they would need to be onboarded to Catena-X as a separate BPNL with separate BPNS. 
+
+**Note**: in all cases, the demands need to be sent out by the company who orders the parts (i.e. is the purchasing party in the contract and pays for the parts).  
+
+ 
 
 ## Match and Comparison of Demand and Capacity
 
