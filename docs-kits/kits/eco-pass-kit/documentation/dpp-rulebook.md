@@ -539,7 +539,7 @@ Importer identification (The importer of the product) refers to the requirement 
 
 Other Operator Identification is a secondary or additional identifier used to uniquely reference an other operator for a product, for example: distributors/retailers/logistics/designers/smelters/recyclers/professional repairers/waste treatment facilities/remanufacturers/ etc.. 
 
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
+> **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.3.10 Other Operator Name 
 
@@ -557,7 +557,7 @@ Other Operator Identification is a secondary or additional identifier used to un
 
 This field is used to specify the "Role" of the other operator (e.g., Distributor). 
 
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
+> **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.3.14 Symbol of Extended Producer Responsibility Scheme   
 
@@ -613,13 +613,13 @@ Identifies sources of spare parts for the product via unique identifiers of prod
 
 Part ID as assigned by the manufacturer of the part. The Part ID identifies the part in the manufacturer`s dataspace. The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available.
 
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
+> **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.4.1.5 Name at Manufacturer  
 
 Name of the spare part as assigned by the manufacturer.
 
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
+> **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 ### 6.5 Characteristics
 
@@ -830,13 +830,13 @@ The timestamp in the format (yyyy-mm-dd) with or without time zone when the prod
 
 Specify one or more target industries for the product described in the Digital Product Passport. If exchanged via Catena-X, 'automotive ' is a must choice included in the list.
 
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
+> **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.6.3 Purchase Order 
 
 A unique identifier assigned to the order of the product for tracking purposes between the supplier and customer.
 
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook) 
+> **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.6.4 Recall Information
 
@@ -896,13 +896,13 @@ Recall information refers to the data and documentation associated with the proc
 
 The location of the substances of concern within the product <br> Further description: <br>This requires specifying the exact location of the substance of concern within the product—for example, whether it is contained in the packaging or integrated into the product itself
 
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
+> **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.7.1.2 Exemption for Substances (Substances of Concern)
 
 Exemptions to the substance of concern: An exemption to the substance of concern refers to a formally recognized exception that permits the use or presence of a regulated or restricted chemical substance within a product or component, under specific conditions. The exemption must be documented and justified in accordance with applicable legal frameworks (e.g., REACH, RoHS), and may be subject to review, expiration, or renewal.
 
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)
+> **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.7.1.3 Hazard Category (Substances of Concern)
 
@@ -1143,7 +1143,7 @@ The specific phase within a product's life cycle to which the associated carbon 
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. Classification into a carbon footprint performance class will be calculated in accordance with the methodology set out in the delegated acts adopted by the Commission.
 
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook). At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
+> **Content Validation**<br> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
 
 #### 6.8.7 facilityIdentification(product carbon footprint)
 
@@ -1194,7 +1194,7 @@ The specific phase within a product's life cycle to which the associated environ
 #### 6.8.15 performanceClass (product environmental footprint)
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook). At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
+> **Content Validation**<br> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
 
 
 #### 6.8.16 facilityIdentification (product environmental footprint)
@@ -1247,7 +1247,7 @@ The specific phase within a product's life cycle to which the associated environ
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
 
-> **Exemption**<br>Please provide clear information as stated in 1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook). At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
+> **Content Validation**<br> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
 
 #### 6.8.25 facilityIdentification (product material footprint)
 
@@ -1556,4 +1556,3 @@ This work is licensed under the CC-BY-4.0.<br>
 •	SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation<br>
 • SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)<br>
 •	Source URL: https://github.com/eclipse-tractusx/digital-product-pass<br>
-
