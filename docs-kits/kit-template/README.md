@@ -283,16 +283,16 @@ For detailed artifact requirements, see [TRG 10.03 - KIT Lifecycle](/docs/releas
 
 Your KIT **MUST** comply with these Tractus-X Release Guidelines (TRGs):
 
-| TRG | Title | Requirement |
-|-----|-------|-------------|
-| [TRG 10.01](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-01) | KIT Architecture | KIT category classification and registration in master data |
-| [TRG 10.02](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-02) | KIT Content Structure | Required content sections and structure |
-| [TRG 10.03](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-03) | KIT Lifecycle | Maturity levels and artifact requirements |
-| [TRG 10.04](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-04) | KIT Graduation Process | Requirements and process for graduation |
-| [TRG 10.05](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-05) | KIT Deprecation Process | Deprecation criteria and procedures |
-| [TRG 7.07](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-07) | Legal Notice for Non-Code | Image and media licensing (CC-BY-4.0) |
-| [TRG 7.08](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-08) | Legal Notice for Documentation | Documentation licensing (CC-BY-4.0) |
-| [TRG 1.03](https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-03) | CHANGELOG.md | Semantic versioning and changelog format |
+| TRG                                                                           | Title                          | Requirement                                                 |
+|-------------------------------------------------------------------------------|--------------------------------|-------------------------------------------------------------|
+| [TRG 10.01](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-01) | KIT Architecture               | KIT category classification and registration in master data |
+| [TRG 10.02](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-02) | KIT Content Structure          | Required content sections and structure                     |
+| [TRG 10.03](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-03) | KIT Lifecycle                  | Maturity levels and artifact requirements                   |
+| [TRG 10.04](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-04) | KIT Graduation Process         | Requirements and process for graduation                     |
+| [TRG 10.05](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-05) | KIT Deprecation Process        | Deprecation criteria and procedures                         |
+| [TRG 7.07](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-07)    | Legal Notice for Non-Code      | Image and media licensing (CC-BY-4.0)                       |
+| [TRG 7.08](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-08)    | Legal Notice for Documentation | Documentation licensing (CC-BY-4.0)                         |
+| [TRG 1.03](https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-03)    | CHANGELOG.md                   | Semantic versioning and changelog format                    |
 
 ## Additional Resources
 
@@ -327,12 +327,12 @@ Browse existing KITs for reference:
 
 ### Alignment Mechanisms
 
-| Channel | Purpose | Frequency | Link |
-|---------|---------|-----------|------|
-| Alignment Day | Quarterly refinement sessions | Quarterly | [Release Process](https://eclipse-tractusx.github.io/docs/oss/release-process#alignment-day) |
-| Open Planning Day | Open planning sessions | Quarterly | [Release Process](https://eclipse-tractusx.github.io/docs/oss/release-process#open-planning-day) |
-| KIT Office Hours | Community alignment | Weekly | [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings) |
-| Matrix Chat | Daily support | Ongoing | [Join Chat](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) |
+| Channel           | Purpose                       | Frequency | Link                                                                                             |
+|-------------------|-------------------------------|-----------|--------------------------------------------------------------------------------------------------|
+| Alignment Day     | Quarterly refinement sessions | Quarterly | [Release Process](https://eclipse-tractusx.github.io/docs/oss/release-process#alignment-day)     |
+| Open Planning Day | Open planning sessions        | Quarterly | [Release Process](https://eclipse-tractusx.github.io/docs/oss/release-process#open-planning-day) |
+| KIT Office Hours  | Community alignment           | Weekly    | [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings)                       |
+| Matrix Chat       | Daily support                 | Ongoing   | [Join Chat](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org)                   |
 
 ### Contributing
 

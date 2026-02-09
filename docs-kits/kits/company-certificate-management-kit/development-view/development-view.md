@@ -3,6 +3,8 @@ title: Development View
 sidebar_position: 1
 ---
 
+## Development View
+
 ![Company Certificate Management KIT Icon](@site/static/img/kits/company-certificate-management/ccm-kit-logo.svg)
 
 Technical documentation for developers, architects, and implementers.
@@ -323,21 +325,21 @@ Content-Type: application/json
 git clone https://github.com/eclipse-tractusx/[repository-name].git
 ```
 
-2. Configure `application.properties`:
+1. Configure `application.properties`:
 
 ```properties
 server.port=8080
 api.base-url=https://api.example.com
 ```
 
-3. Build and run:
+1. Build and run:
 
 ```bash
 mvn clean install
 mvn spring-boot:run
 ```
 
-4. Verify:
+1. Verify:
 
 ```bash
 curl http://localhost:8080/health
@@ -380,8 +382,6 @@ resource = client.resources.get("resource-id")
 
 ### Reference Implementations
 
-- [Implementation 1]: [Link]
-- [Implementation 2]: [Link]
 
 ### SDKs and Libraries
 
@@ -396,7 +396,6 @@ resource = client.resources.get("resource-id")
 - [OpenAPI Generator](https://openapi-generator.tech/)
 
 ---
-
 
 ## NOTICE
 

@@ -149,7 +149,6 @@ sequenceDiagram
 
 **Process Description**: [Brief description of key steps]
 
-
 ### Access & Usage Policies
 
 :::warning Industry-Specific Policies
