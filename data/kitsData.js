@@ -95,6 +95,7 @@ import BehaviorTwinKitLogo from "@site/static/img/kits/behavior-twin/behavior-tw
 import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-kit-raw-logo.svg";
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
 import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
+import CCMKitLogo from "@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg";
 
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
@@ -875,6 +876,38 @@ export const kitsData = {
         created: '2025-11-28',
         lastUpdated: '2025-11-28',
         latestVersion: '1.0.0',
+        new: true
+      }
+    },
+    {
+      id: 'ccm',
+      name: 'COMPANY CERTIFICATE MANAGEMENT KIT',
+      logo: CCMKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg'
+      },
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/next/kits/company-certificate-management-kit/adoption-view',
+      colors: {
+        primary: '#4A90A4',
+        gradient: 'linear-gradient(135deg, #6BC4D6 0%, #4A90A4 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Quality',
+      industries: ['automotive', 'manufacturing'],
+      description: 'Manage and exchange company certificates across the supply chain to ensure compliance and quality standards.',
+      metadata: {
+        created: '2026-02-09',
+        lastUpdated: '2026-02-09',
+        latestVersion: '0.1.0',
         new: true
       }
     }

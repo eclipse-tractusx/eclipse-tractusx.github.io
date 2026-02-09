@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
+  <!-- Company Certificate Management KIT Logo Placeholder -->
+  <!-- Certificate Icon with Checkmark -->
+  <rect x="15" y="10" width="70" height="80" rx="5" fill="none" stroke="currentColor" stroke-width="3"/>
+  <rect x="25" y="20" width="50" height="40" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+  <line x1="30" y1="30" x2="60" y2="30" stroke="currentColor" stroke-width="2"/>
+  <line x1="30" y1="40" x2="55" y2="40" stroke="currentColor" stroke-width="2"/>
+  <line x1="30" y1="50" x2="50" y2="50" stroke="currentColor" stroke-width="2"/>
+  <!-- Checkmark in circle (certificate seal) -->
+  <circle cx="65" cy="70" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M55 70 L62 77 L75 63" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
