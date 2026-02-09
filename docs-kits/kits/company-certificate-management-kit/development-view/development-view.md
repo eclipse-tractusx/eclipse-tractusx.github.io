@@ -91,7 +91,7 @@ sequenceDiagram
 
 ### Base URL
 
-```
+```json
 https://api.example.com/v1
 ```
 
@@ -382,6 +382,7 @@ resource = client.resources.get("resource-id")
 
 ### Reference Implementations
 
+- TBD
 
 ### SDKs and Libraries
 

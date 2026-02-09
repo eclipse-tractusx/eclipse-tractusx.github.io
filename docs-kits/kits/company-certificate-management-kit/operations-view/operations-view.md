@@ -175,13 +175,13 @@ Use TLS 1.2+ for all external communications. Configure certificates via Kuberne
 
 ### Common Issues
 
-**Application Won't Start**
+**Application Won't Start:**
 
 - Check database connectivity
 - Verify environment variables
 - Check logs: `docker-compose logs` or `kubectl logs`
 
-**High Memory Usage**
+**High Memory Usage:**
 
 - Monitor: `kubectl top pods`
 - Increase memory limits in deployment config
