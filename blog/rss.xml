@@ -4,15 +4,63 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/blog</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Tue, 17 Feb 2026 09:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Feb 2026 11:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
+            <title><![CDATA[Eclipse Tractus-X Partners with Eclipse Dataspace Working Group]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/edwg-partnership</link>
+            <guid>https://eclipse-tractusx.github.io/blog/edwg-partnership</guid>
+            <pubDate>Tue, 10 Feb 2026 11:00:00 GMT</pubDate>
+            <description><![CDATA[Eclipse Tractus-X joins the Eclipse Dataspace Working Group, strengthening commitment to dataspace standards and collaboration]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Eclipse Tractus-X Logo" src="https://eclipse-tractusx.github.io/assets/images/tx-edwg-partnership-c6b1f964b88c5875aabe2903beb2f031.png" width="1200" height="720" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="eclipse-tractus-x-partners-with-the-eclipse-dataspace-working-group">Eclipse Tractus-X Partners with the Eclipse Dataspace Working Group<a href="https://eclipse-tractusx.github.io/blog/edwg-partnership#eclipse-tractus-x-partners-with-the-eclipse-dataspace-working-group" class="hash-link" aria-label="Direct link to Eclipse Tractus-X Partners with the Eclipse Dataspace Working Group" title="Direct link to Eclipse Tractus-X Partners with the Eclipse Dataspace Working Group" translate="no">​</a></h2>
+<p><strong>Madrid, Spain | Dataspace Symposium 2026</strong> – We are thrilled to announce a significant milestone for Eclipse Tractus-X at the <strong>Dataspace Symposium 2026</strong> (February 10-11, 2026, in Madrid, Spain): <strong>our project has officially partnered with the Eclipse Dataspace Working Group (EDWG)</strong>!</p>
+<p>Following a successful vote among the committee and project leads, Eclipse Tractus-X has been included under the purview of the Eclipse Dataspace Working Group. This partnership marks a pivotal moment in our journey and sends a clear signal: <strong>Eclipse Tractus-X is more ready than ever to drive the adoption of future dataspace solutions and accelerate dataspace development</strong>.</p>
+<p>Making this announcement at the Dataspace Symposium—bringing together industry leaders, innovators, and standardization experts from around the world—underscores the international significance of this partnership and our shared commitment to advancing the dataspace ecosystem.</p>
+<p><img decoding="async" loading="lazy" alt="Photo from Dataspace Symposium 2026 in Madrid" src="https://eclipse-tractusx.github.io/assets/images/IMG_5203-17efca300493bfaed2eaff9183aba2c3.jpeg" width="4032" height="3024" class="img_ev3q"></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-does-this-collaboration-mean">What Does This Collaboration Mean?<a href="https://eclipse-tractusx.github.io/blog/edwg-partnership#what-does-this-collaboration-mean" class="hash-link" aria-label="Direct link to What Does This Collaboration Mean?" title="Direct link to What Does This Collaboration Mean?" translate="no">​</a></h2>
+<p>Think of this partnership like a marriage—a strategic alliance where both the Eclipse Dataspace Working Group and Eclipse Tractus-X commit to pushing each other forward. Together, we're strengthening the foundation for interoperable, standardized dataspaces that will transform industries worldwide.</p>
+<p>Through this collaboration, Eclipse Tractus-X pledges to:</p>
+<ul>
+<li class=""><strong>Continue adopting and implementing</strong> the most important dataspace standards (DSP &amp; DCP) and specifications developed by the EDWG</li>
+<li class=""><strong>Drive real-world adoption</strong> of these standards through our open-source implementations</li>
+<li class=""><strong>Provide feedback and insights</strong> from production deployments to inform future specifications</li>
+<li class=""><strong>Accelerate innovation &amp; adoption</strong> in dataspace technologies through shared expertise and resources</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="our-commitment-to-open-source-dataspace-standards">Our Commitment to Open Source Dataspace Standards<a href="https://eclipse-tractusx.github.io/blog/edwg-partnership#our-commitment-to-open-source-dataspace-standards" class="hash-link" aria-label="Direct link to Our Commitment to Open Source Dataspace Standards" title="Direct link to Our Commitment to Open Source Dataspace Standards" translate="no">​</a></h2>
+<p>It's no secret that Eclipse Tractus-X has been at the forefront of implementing key open source dataspace protocols written by the Eclipse Dataspace Working Group:</p>
+<ul>
+<li class=""><strong>The Dataspace Protocol (DSP)</strong> - already deeply integrated into our technology stack</li>
+<li class=""><strong>The Decentralized Claims Protocol (DCP)</strong> - actively adopted and utilized across our implementations</li>
+</ul>
+<p>The announcement at this prestigious event underscores the importance of this partnership and our shared commitment to advancing the dataspace ecosystem on an international scale. And as a project under the governance of the Eclipse Foundation, we are committed to continue to push the adoption of open standards developed at our foundation.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-is-not-happening-now">What is not happening now<a href="https://eclipse-tractusx.github.io/blog/edwg-partnership#what-is-not-happening-now" class="hash-link" aria-label="Direct link to What is not happening now" title="Direct link to What is not happening now" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Eclipse Tractus-X remains sovereign</strong> as a project under the Eclipse Foundation Governance as always and has the total freedom to choose its roadmap, features, which additional protocols to adopt and scope.</li>
+<li class=""><strong>The EDWG has no "governance" over Eclipse Tractus-X</strong> - The collaboration is a mutual agreement between Eclipse Tractus-X and the Eclipse Dataspace Working Group (EDWG), which can be finalized at any time, however by having this partnership both parties can benefit from this agreement. The "governance" over Eclipse Tractus-X continues to be the rules from the Eclipse Foundation and the TRGs (Tractus-X Release Guidelines) which are the rules of the Eclipse Tractus-X project.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="looking-ahead">Looking Ahead<a href="https://eclipse-tractusx.github.io/blog/edwg-partnership#looking-ahead" class="hash-link" aria-label="Direct link to Looking Ahead" title="Direct link to Looking Ahead" translate="no">​</a></h2>
+<p>This partnership represents more than just organizational alignment—it's a commitment to the future of dataspaces. By combining the EDWG's expertise in standardization with Eclipse Tractus-X's proven track record in implementation and pushing adoption, we're creating a powerful feedback loop that benefits the entire dataspace ecosystem.</p>
+<p>We're excited to deepen our collaboration with the Eclipse Dataspace Working Group and invite the broader community to join us on this journey. Together, we're building the foundation for secure, sovereign, and interoperable data exchange that will power the digital economy of tomorrow.</p>
+<p>Stay tuned for more updates as this partnership unfolds!</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="join-us-at-the-symposium">Join Us at the Symposium<a href="https://eclipse-tractusx.github.io/blog/edwg-partnership#join-us-at-the-symposium" class="hash-link" aria-label="Direct link to Join Us at the Symposium" title="Direct link to Join Us at the Symposium" translate="no">​</a></h2>
+<p>We're proud to be present at the <strong>Eclipse Dataspace Working Group booth</strong> throughout the Dataspace Symposium 2026, representing Eclipse Tractus-X and engaging with the community. Stop by to meet our project leads Mikel Garcia (LKS Next) and Mathias Moser (Catena-X), discuss the partnership, and explore how we're working together with multiple industry players to shape the future of dataspaces. We look forward to connecting with you!</p>
+<p>🌐 Eclipse Tractus-X - Where we build dataspaces! 🚀</p>
+<hr>
+<p><em>Want to learn more about Eclipse Tractus-X or get involved? Visit our <a class="" href="https://eclipse-tractusx.github.io/community/intro">community page</a> or join our <a class="" href="https://eclipse-tractusx.github.io/community/open-meetings">open meetings</a>.</em></p>]]></content:encoded>
+            <category>partnership</category>
+            <category>edwg</category>
+            <category>dataspace</category>
+            <category>standards</category>
+            <category>collaboration</category>
+        </item>
+        <item>
             <title><![CDATA[First International Eclipse Tractus-X Hackathon in Spain 🇪🇸]]></title>
             <link>https://eclipse-tractusx.github.io/blog/first-international-hackathon</link>
             <guid>https://eclipse-tractusx.github.io/blog/first-international-hackathon</guid>
-            <pubDate>Tue, 17 Feb 2026 09:00:00 GMT</pubDate>
+            <pubDate>Fri, 30 Jan 2026 09:00:00 GMT</pubDate>
             <description><![CDATA[Join us for the first international open source hackathon of Eclipse Tractus-X in Bilbao, Spain!]]></description>
             <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="img" src="https://eclipse-tractusx.github.io/assets/images/IMG_4856-a2d11173a8ef51b464764e53620862e5.jpeg" width="2162" height="2266" class="img_ev3q"></p>
 <p>Hi Everyone 👋,</p>
@@ -1416,95 +1464,6 @@ It might be the case for some experts to jump into different other groups to res
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="next-steps--release-planning-days">Next Steps &amp; Release Planning Days<a href="https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03#next-steps--release-planning-days" class="hash-link" aria-label="Direct link to Next Steps &amp; Release Planning Days" title="Direct link to Next Steps &amp; Release Planning Days" translate="no">​</a></h2>
 <p>By the end of the session, we expect to have features ready refined. It might be the case, not all are fully refined but will be in good shape for further refinement and proactive work until we will meet again for the
 <a href="https://eclipse-tractusx.github.io/community/open-meetings#Release%20Planning%20Days%20-%20Release%2025.03" target="_blank" rel="noopener noreferrer" class="">Release Planning Days</a></p>
-<p>We look forward to a productive Refinement Day - Happy Refining! 🚀</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Refinement Day 1 for Release 25.03]]></title>
-            <link>https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03</link>
-            <guid>https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03</guid>
-            <pubDate>Wed, 09 Oct 2024 09:00:00 GMT</pubDate>
-            <description><![CDATA[Tractus-X Community Update - Refinement Day 1 for Release 25.03]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/Tractus-X_openplanning-c022e22e9b50e26a8db4e32806e85d1f.png" width="1880" height="940" class="img_ev3q"></p>
-<p>Hello, Eclipse Tractus-X Community!</p>
-<p>We’re excited to announce <strong>Refinement Day 1</strong>, taking place on <strong>October 16th, from 09:05 to 12:00</strong>. This event is focused on refining features for the
-upcoming <strong>Release 25.03</strong>. Unlike previous meetings, this won't just be a feature presentation day — we’ll be diving into hands-on work, helping each other
-refine features and identify dependencies.</p>
-<p>The blocker and overall teams session link can be found on our <a href="https://eclipse-tractusx.github.io/community/open-meetings#Refinement%20Day%201%20-%20Release%2025.03" target="_blank" rel="noopener noreferrer" class="">open-meetings</a> page. We look forward to seeing you all there!</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="agenda-for-refinement-day-1">Agenda for Refinement Day 1<a href="https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03#agenda-for-refinement-day-1" class="hash-link" aria-label="Direct link to Agenda for Refinement Day 1" title="Direct link to Agenda for Refinement Day 1" translate="no">​</a></h2>
-<p>Here’s the plan for the day:</p>
-<ul>
-<li class=""><strong>09:05 - 09:30</strong>: Welcome, Introduction, and Expectations</li>
-<li class=""><strong>09:30 - 11:15</strong>: Refinement in dedicated groups, grouped by expert groups</li>
-<li class=""><strong>11:15 - 11:45</strong>: Presenting the results, grouped by expert groups</li>
-<li class=""><strong>11:45 - 12:00</strong>: Closing and Next Steps</li>
-</ul>
-<p>During the refinement sessions, each group will focus on the first steps of skeleton-building for their features (based on the <a href="https://github.com/eclipse-tractusx/sig-release/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=1_feature_template.md" target="_blank" rel="noopener noreferrer" class="">feature template</a>,
-mapping them to the related roadmap items. Don’t worry about completing every section of the feature template just yet — this is a time for brainstorming and forming initial ideas.</p>
-<p>It's essential, however, to use the <strong>feature template</strong> and identify <strong>dependencies</strong> with other components or groups, which will help us add the correct labels to the features.
-You’re encouraged to collaborate across groups as needed, and we’ll provide <strong>Teams sessions</strong> for each group to work in.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="group-work--presenting-results">Group Work &amp; Presenting Results<a href="https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03#group-work--presenting-results" class="hash-link" aria-label="Direct link to Group Work &amp; Presenting Results" title="Direct link to Group Work &amp; Presenting Results" translate="no">​</a></h2>
-<p>The goal of the refinement is to <strong>identify the first ideas and dependencies</strong> within your group. The <strong>General Teams session</strong> will be available for any questions that come up during this collaborative work.</p>
-<p>Important for the session:</p>
-<ul>
-<li class="">Use the <a href="https://github.com/eclipse-tractusx/sig-release/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=1_feature_template.md" target="_blank" rel="noopener noreferrer" class="">feature template</a> to structure your work</li>
-<li class="">Identify dependencies with other components or groups and add the correct labels to the features</li>
-<li class="">Use the supported-by field to map the feature with your expert group</li>
-</ul>
-<p>At the end of the refinement session, we’ll regroup and present the progress made. Each expert group will present their refined features, focusing on what’s been developed so far and the key insights.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="committeeexpert-groups-and-teams-sessions">Committee/Expert Groups and Teams Sessions:<a href="https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03#committeeexpert-groups-and-teams-sessions" class="hash-link" aria-label="Direct link to Committee/Expert Groups and Teams Sessions:" title="Direct link to Committee/Expert Groups and Teams Sessions:" translate="no">​</a></h3>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>The sessions for the committees can be used to sync within the underlying expert groups. Feel free to switch between groups if necessary!</p></div></div>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDM1MjE2NmQtMDU5NC00MjM2LTlkOGEtZWI1YTM0MzBjMTkw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Network Service Committee</a>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YThmNzMzODAtM2M0NS00MGVjLWJiNjMtODA5Njk3OWY4ODFi%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Business Partner Data Management</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MGY3YzE1OTAtMDgxMS00YTVhLWE2ODYtMzM4MDMxZTk5MWJh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Self-Sovereign Identity</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTJmYzdmOGMtOGE3Mi00YjkzLThlZTEtMTliNzJiZDljMTZl%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Dataspace Connectivity</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDkyMWZmNDMtYmYzYi00MGM4LTg5NmUtNDIzZGJiZjFmZTIz%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Digital Twins</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDVhNGMzYjAtNTk1MC00NTZlLWI1NzgtYjE0MjQ2NDgxOTJj%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Company Certificate Management</a></li>
-</ul>
-</li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_Y2Y1YTY3ZGQtMzEzOC00MGJmLTk1ZjEtOTBhZjgxMWVkZjBi%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Sustainability Committee</a>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTQxMWY0YzgtYmM5MS00ZTA4LWE2YTUtMzk5Y2Y2NmZmNjJl%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Digital Product Pass</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDMxOGM2YTItZGVhOC00N2EzLTlmMGEtYWJmYjYwOWFmMjk4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Circularity</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDIwMmQ3MGQtZWQ1Mi00YzQ5LTg3MjMtMmM3MWY1OGRlYmM2%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Product Carbon Footprint - Methodology &amp; Verification</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjFlZWYzNWYtNTViMy00NmExLTljOGYtYWE0N2U5MmQ3MzI3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Product Carbon Footprint - Architecture &amp; Interoperability</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NWI1MzJmMzQtODliOC00ZDM0LTk0ZDgtMDdmYTljMGUxZjE3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Product Carbon Footprint - on Electronics</a></li>
-</ul>
-</li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YmFhNDllOWItMWFiYi00MzBhLTkwZDMtM2FiOGZjOTAwY2E4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Product Lifecycle, Quality and Resiliency Committee</a>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTRmZjI5Y2EtZmZjYy00ZDcxLWIyMTItMzc0YzYwMzMwZGI3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Traceability</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MzhhMDMwZDQtMWM5Ny00YjNlLWEyZDYtNjg1MTRlZTM0ZGI5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Demand &amp; Capacity</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjUyMzRiYTItMDNhNC00YzJhLWE0MmItOGZjZGU2MDEzNWE1%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Online Simulation</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OWZhODUxZGMtMGExNS00Y2NiLThlM2YtM2ExMjYyM2IzZTkw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">PURIS</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDNjYTg5NjEtMGU1Mi00MWQ4LWI2ZTctZmQ5NDQwNmYzOGM1%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Data-driven Quality</a></li>
-</ul>
-</li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NzUxYzNlZjYtNzdkMi00NTExLWEzMWItMDc0NTM1YjM4ZGM5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Industry Core Committee</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjI5YjNiNjItYTY4Ny00YTY0LTllNDAtZGRkMmMwYjA4OGRl%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Architecture Management Committee</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_Mzk3N2ExMWMtNTk4ZS00ZjI0LWEzZjgtZDliOTM1MjE0ZmY0%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Data Space Operations Committee</a>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NWIwOGFiOGYtMjQ3Ni00YjA0LTg1N2MtNDJmMTQ0OGQ0ZTBm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Data Sovereignty</a></li>
-</ul>
-</li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjdmMTk2ZGEtMjFiMy00ZWIxLTllZDYtNTVlNTMwZDE5MjQ5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Working Groups</a>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OTk4NTYxZDctYmQzMy00ZTRmLTg0YzctZjBiZGExODUxM2Uw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Data Integration Pattern</a></li>
-</ul>
-</li>
-</ul>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Feel free to switch between groups if necessary!</p></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="special-note-for-kits">Special Note for KITs<a href="https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03#special-note-for-kits" class="hash-link" aria-label="Direct link to Special Note for KITs" title="Direct link to Special Note for KITs" translate="no">​</a></h3>
-<p>For KITs, we understand that not all sections of the template are necessary right now. The most important things to include at this stage are:</p>
-<ul>
-<li class="">The <strong>Feature Team</strong> responsible for the work</li>
-<li class="">A brief <strong>explanation of the feature</strong> (just 2 sentences)</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="next-steps--refinement-day-2">Next Steps &amp; Refinement Day 2<a href="https://eclipse-tractusx.github.io/blog/refinement-day-1-R25.03#next-steps--refinement-day-2" class="hash-link" aria-label="Direct link to Next Steps &amp; Refinement Day 2" title="Direct link to Next Steps &amp; Refinement Day 2" translate="no">​</a></h2>
-<p>By the end of the session, we expect to have features that may not be fully refined but will be in good shape for further refinement or proactive work on dependencies. You’ll have the opportunity
-to connect with other groups and components that you’re dependent on.</p>
-<p>As we look ahead to <strong><a href="https://eclipse-tractusx.github.io/community/open-meetings#Refinement%20Day%202%20-%20Release%2025.03" target="_blank" rel="noopener noreferrer" class="">Refinement Day 2</a></strong>, our focus will shift towards <strong>dependency components</strong>. It will be crucial to have those dependencies properly tagged with labels on the features.</p>
 <p>We look forward to a productive Refinement Day - Happy Refining! 🚀</p>]]></content:encoded>
         </item>
     </channel>
