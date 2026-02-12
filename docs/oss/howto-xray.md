@@ -28,7 +28,6 @@ Please see the sections below for a tutorial on how you can use this system to a
    - The context-specific "Create" button on the right side within the Testing Board.
 
 ![howto-xray-create_button.png](../images/howto-xray-create_button.png)
-
 *Screenshot: The "Create" buttons are highlighted in the Jira Xray interface for easy access to create new test artifacts.*
 
 <br/>
@@ -48,7 +47,6 @@ For all kinds of test types, you need to fill out these basic information.
 3. Fill in all relevant fields. Fields marked with an asterisk are mandatory, e.g. a Summary (= title of the test)
 
 ![howto-xray-create-test-case-1.png](../images/howto-xray-create-test-case-1.png)
-
 *Screenshot: Top of the "Create" dialogue box with Test selected as the "Work type" and the "Summary" field highlighted*
 
 <br/>
@@ -95,7 +93,6 @@ The **Labels** field in a Jira test case should be used to support filtering, gr
 - stable-environment
 
 ![howto-xray-labels.png](../images/howto-xray-labels.png)
-
 *Screenshot: Setting the right labels helps to find, group, and associate this issue to Policy Store API of the IRS on the Integration Environment.*
 
 <br/>
@@ -140,7 +137,6 @@ The **Team** field should indicate the team responsible for creating, maintainin
 - PURIS
 
 ![howto-xray-create-test-case-2.png](../images/howto-xray-create-test-case-2.png)
-
 *Screenshot: Bottom part of the first "Create" dialogue screen with the "Team" selection dropdown menu.*
 
 <br/>
@@ -204,7 +200,6 @@ For manual test cases, please open [CXTPM-672](https://catena-x.atlassian.net/br
 three-dots-menu, choose *Clone* and adapt the fields accordingly.
 
 ![howto-xray-clone-from-template.png](../images/howto-xray-clone-from-template.png)
-
 *Screenshot: Clone from the template for a manual test case*
 
 <br/>
@@ -298,7 +293,6 @@ For manual test cases please open [CXTPM-673](https://catena-x.atlassian.net/bro
 three-dots-menu, choose *Clone* and adapt the fields accordingly.
 
 ![howto-xray-clone-from-template-cucumber.png](../images/howto-xray-clone-from-template-cucumber.png)
-
 *Screenshot: Clone from the template for a Cucumber test case*
 
 <br/>
@@ -369,7 +363,6 @@ The Xray Test Set is used to group related tests for better organization and reu
 2. In the creation dialog, open the **Work type** dropdown and select **Test Set**.
 
 ![howto-xray-testset-create-dialog.png](../images/howto-xray-testset-create-dialog.png)
-
 *Screenshot: The "Work type" dropdown is highlighted, showing "Test Set" selected in the creation dialog.*
 
 3. Fill in the fields, those marked with an asterisk are mandatory:
@@ -380,7 +373,6 @@ The Xray Test Set is used to group related tests for better organization and reu
 4. Click **Create** to finalize the Test Set.
 
 ![howto-xray-testset-dialog-details.png](../images/howto-xray-testset-dialog-details.png)
-
 *Screenshot: The "Fix version", "Priority", "Team" and "Labels" dropdowns are highlighted in the "Create" dialogue box.*
 
 <br/>
@@ -392,11 +384,11 @@ The Xray Test Set is used to group related tests for better organization and reu
 3. Assign priorities and link the Test Set to requirements or defects for traceability.
 
 ![howto-xray-testset-add-test.png](../images/howto-xray-testset-add-test.png)
-
 *Screenshot: Add new or existing tests to a test set*
 
-![howto-xray-testset-add-test.png](../images/howto-xray-testset-add-test_2.png)
+<br/>
 
+![howto-xray-testset-add-test.png](../images/howto-xray-testset-add-test_2.png)
 *Screenshot: Add existing test from the list or use the more sophisticated search*
 
 <br/>
@@ -406,8 +398,6 @@ The Xray Test Set is used to group related tests for better organization and reu
 ## 5. Test Plans
 
 The purpose of an Xray Test Plan is to organize and manage the execution of a set of tests for a specific goal, like a release, sprint, or feature validation.
-
-<br/>
 
 ### 5.1 Purpose of Test Plans
 
@@ -425,7 +415,6 @@ The purpose of an Xray Test Plan is to organize and manage the execution of a se
 2. In the creation dialog, open the **Work type** dropdown and select **Test Plan**.
 
 ![howto-xray-testplan-create-dialog.png](../images/howto-xray-testplan-create-dialog.png)
-
 *Screenshot: In the "Create" menu the "Work type" dropdown with "Test Plan" as the selected option is highlighted.*
 
 3. Fill in the fields, marked with an asterisk are mandatory:
