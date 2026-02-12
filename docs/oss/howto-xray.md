@@ -361,16 +361,19 @@ The Xray Test Set is used to group related tests for better organization and reu
 
 1. Click the **Create** button.
 2. In the creation dialog, open the **Work type** dropdown and select **Test Set**.
-
- ![howto-xray-testset-create-dialog.png](../images/howto-xray-testset-create-dialog.png)
- *Screenshot: The "Work type" dropdown is highlighted, showing "Test Set" selected in the creation dialog.*
-
 3. Fill in the fields, those marked with an asterisk are mandatory:
    - **Summary:** Name of the Test Set.
    - **Description:** Brief description of the Test Set.
    - **Labels, Fix Versions, Component, Team, Priority:** For categorization and traceability.
    - For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
 4. Click **Create** to finalize the Test Set.
+
+<br/>
+
+![howto-xray-testset-create-dialog.png](../images/howto-xray-testset-create-dialog.png)
+*Screenshot: The "Work type" dropdown is highlighted, showing "Test Set" selected in the creation dialog.*
+
+<br/>
 
 ![howto-xray-testset-dialog-details.png](../images/howto-xray-testset-dialog-details.png)
 *Screenshot: The "Fix version", "Priority", "Team" and "Labels" dropdowns are highlighted in the "Create" dialogue box.*
@@ -413,16 +416,17 @@ The purpose of an Xray Test Plan is to organize and manage the execution of a se
 
 1. Click the **Create** button.
 2. In the creation dialog, open the **Work type** dropdown and select **Test Plan**.
-
- ![howto-xray-testplan-create-dialog.png](../images/howto-xray-testplan-create-dialog.png)
- *Screenshot: In the "Create" menu the "Work type" dropdown with "Test Plan" as the selected option is highlighted.*
- 
 3. Fill in the fields, marked with an asterisk are mandatory:
    - **Summary:** Name of the Test Plan.
    - **Description:** Brief description of the Test Plan.
    - **Labels, Fix Versions, Component, Team:** For categorization and traceability.
    - For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
 4. Click **Create** to finalize the Test Plan.
+
+<br/>
+
+![howto-xray-testplan-create-dialog.png](../images/howto-xray-testplan-create-dialog.png)
+*Screenshot: In the "Create" menu the "Work type" dropdown with "Test Plan" as the selected option is highlighted.*
 
 <br/>
 
