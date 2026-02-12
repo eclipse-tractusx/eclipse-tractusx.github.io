@@ -57,7 +57,7 @@ For all kinds of test types, you need to fill out these basic information.
 
 A good Jira Xray test case summary should clearly indicate the system and use case it belongs to. This should be done by including the system in square brackets followed by a short, descriptive title of what the test does.
 
-Examples:
+**Examples:**
 
 - [Portal Frontend] User can reset password via email
 - [BPDM] Validate mandatory field error handling
@@ -82,7 +82,7 @@ A good Jira test case description should briefly explain the purpose and context
 
 #### Labels: For categorization
 
-The labels field in a Jira test case should be used to support filtering, grouping, and reporting by product, use case, or environment. Labels should be:
+The **Labels** field in a Jira test case should be used to support filtering, grouping, and reporting by product, use case, or environment. Labels should be:
 
 - Consistent and lowercase
 - Focused on system/module, test type, or team/responsibility
@@ -102,7 +102,7 @@ The labels field in a Jira test case should be used to support filtering, groupi
 
 #### Fix Versions: Specify relevant releases
 
-The Fix Versions field should be used to indicate the release or version for which the test case was created or is valid. This helps in:
+The **Fix Versions** field should be used to indicate the release or version for which the test case was created or is valid. This helps in:
 
 - Tracking test coverage per release
 - Filtering test cases relevant to a specific version
@@ -114,26 +114,26 @@ You can find all available fix versions in the [Release versions overview](https
 
 #### Component, Team: (see Section 10 for details)
 
-**The Component field** should indicate the technical module or system the test case belongs to. It helps with:
+The **Component** field should indicate the technical module or system the test case belongs to. It helps with:
 
 - Grouping tests by functionality or architecture
 - Assigning ownership (component leads)
 - Filtering and reporting by system areas
 
-Examples:
+**Examples:**
 
 - Portal Frontend
 - BPDM
 
 <br/>
 
-**The Team field** should indicate the team responsible for creating, maintaining, or executing the test case. It ensures:
+The **Team** field should indicate the team responsible for creating, maintaining, or executing the test case. It ensures:
 
 - Clear ownership
 - Easier assignment and collaboration
 - Efficient filtering, reporting, and test planning per team
 
-Examples:
+**Examples:**
 
 - Testmanagement
 - Portal
