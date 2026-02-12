@@ -362,8 +362,8 @@ The Xray Test Set is used to group related tests for better organization and reu
 1. Click the **Create** button.
 2. In the creation dialog, open the **Work type** dropdown and select **Test Set**.
 
-![howto-xray-testset-create-dialog.png](../images/howto-xray-testset-create-dialog.png)
-*Screenshot: The "Work type" dropdown is highlighted, showing "Test Set" selected in the creation dialog.*
+ ![howto-xray-testset-create-dialog.png](../images/howto-xray-testset-create-dialog.png)
+ *Screenshot: The "Work type" dropdown is highlighted, showing "Test Set" selected in the creation dialog.*
 
 3. Fill in the fields, those marked with an asterisk are mandatory:
    - **Summary:** Name of the Test Set.
@@ -414,9 +414,9 @@ The purpose of an Xray Test Plan is to organize and manage the execution of a se
 1. Click the **Create** button.
 2. In the creation dialog, open the **Work type** dropdown and select **Test Plan**.
 
-![howto-xray-testplan-create-dialog.png](../images/howto-xray-testplan-create-dialog.png)
-*Screenshot: In the "Create" menu the "Work type" dropdown with "Test Plan" as the selected option is highlighted.*
-
+ ![howto-xray-testplan-create-dialog.png](../images/howto-xray-testplan-create-dialog.png)
+ *Screenshot: In the "Create" menu the "Work type" dropdown with "Test Plan" as the selected option is highlighted.*
+ 
 3. Fill in the fields, marked with an asterisk are mandatory:
    - **Summary:** Name of the Test Plan.
    - **Description:** Brief description of the Test Plan.
