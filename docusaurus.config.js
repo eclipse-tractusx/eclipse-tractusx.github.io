@@ -156,7 +156,7 @@ const config = {
         blogDescription: 'This blog hosts Tractus-X release changelogs.',
         blogSidebarCount: 'ALL',
         blogSidebarTitle: 'Release Changelogs',
-        onUntruncatedBlogPosts: 'ignore', 
+        onUntruncatedBlogPosts: 'ignore',
       },
     ],
     [
@@ -322,7 +322,7 @@ const config = {
             label: 'Tutorials',
           },
           {
-            to: '/community/intro',
+            to: '/community/open-meetings',
             label: 'Community',
             position: 'left',
           },
@@ -352,9 +352,26 @@ const config = {
             ],
           },
           {
-            href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
-            label: 'GitHub',
+            type: 'html',
             position: 'right',
+            value: `
+              <a class="navbar-icon-link" href="/community/open-meetings" aria-label="Open meetings">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1.5A2.5 2.5 0 0 1 22 6.5v13A2.5 2.5 0 0 1 19.5 22h-15A2.5 2.5 0 0 1 2 19.5v-13A2.5 2.5 0 0 1 4.5 4H6V3a1 1 0 0 1 1-1zm12 8H5v9.5a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5V10zM6 6H4.5a.5.5 0 0 0-.5.5V8h16V6.5a.5.5 0 0 0-.5-.5H18v1a1 1 0 1 1-2 0V6H8v1a1 1 0 1 1-2 0V6z" />
+                </svg>
+              </a>
+            `,
+          },
+          {
+            type: 'html',
+            position: 'right',
+            value: `
+              <a class="navbar-icon-link" href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="currentColor" d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.11 3.29 9.44 7.86 10.97.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.18a10.9 10.9 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.57.24 2.73.12 3.02.74.81 1.18 1.84 1.18 3.1 0 4.43-2.68 5.4-5.24 5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56 4.56-1.53 7.85-5.86 7.85-10.97C23.5 5.74 18.27.5 12 .5z" />
+                </svg>
+              </a>
+            `,
           },
         ],
       },

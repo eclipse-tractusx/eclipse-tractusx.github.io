@@ -217,6 +217,24 @@
   font-weight: bold;
 }
 
+.navbar-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  color: var(--ifm-navbar-link-color);
+}
+
+.navbar-icon-link svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.navbar-icon-link:hover {
+  color: var(--ifm-color-primary);
+}
+
 .dropdown.dropdown--right {
   background-color: var(--ifm-color-primary-darkest);
   border-radius: 5px;
@@ -256,15 +274,15 @@
   .navbar__items {
     margin: 0 8px;
   }
-  
+
   .navbar__brand {
     margin-right: 16px;
   }
-  
+
   .navbar__title {
     font-size: 14px;
   }
-  
+
   .navbar__link {
     margin: 0 10px;
     font-size: 12px;
