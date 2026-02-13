@@ -15,7 +15,7 @@ tags: [community, meeting-minutes]
 
 ### Security team
 
-- Trufflehog has now officially replaced GitGuardian as secret-scanning tool for Eclipse Tractus-X. [This is encoded by TRG8.03](https://eclipse-tractusx.github.io/docs/release/trg-8/trg-8-03)
+- Trufflehog has now officially replaced GitGuardian as secret-scanning tool for Eclipse Tractus-X. [This is encoded by TRG8.03](/docs/release/trg-8/trg-8-03)
 - @ds-hzimmer reports about the sporadic use of the current sonarcloud instance for Eclipse Tractus-X. There's no TRG for it. It's unclear what additional benefit it will bring to those tools that are backed up with TRGs (Trufflehog, trivy, codeql).
 
 ### Q&A

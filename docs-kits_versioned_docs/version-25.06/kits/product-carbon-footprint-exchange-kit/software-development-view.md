@@ -263,7 +263,8 @@ Inside the contract definition, an access policy and a usage policy must be refe
 The content of the access policy depends on the criterias used within the usage policy. The configuration MUST ensure that only one offer (per version) for a PCF Exchange asset is visible to a client when querying the catalog.
 
 The following paragraphs give options how to achieve this. These options can always be replaced by corresponding (or even more restictive) policies, as long as the requirement of delivering only one offer per PCF Exchange asset version is met:
-If *no bilateral contract* reference criteria are used *in any usage policy* attached to the PCF Exchange asset, an empty access policy can be used:<p></p>
+If *no bilateral contract* reference criteria are used *in any usage policy* attached to the PCF Exchange asset, an empty access policy can be used:
+
 ![Tier1Supplier without bilateral contracts](./resources/development-view/Tier1AOpenUP.png)
 
 <details>
@@ -291,7 +292,8 @@ If *no bilateral contract* reference criteria are used *in any usage policy* att
 
 </details>
 
-If a *bilateral contract* reference criteria is used *in a usage policy*, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference:<p></p>
+If a *bilateral contract* reference criteria is used *in a usage policy*, an access policy restricting access to the contract partners BPNL *MUST* be used for every usage policy holding a contract reference:
+
 ![Tier1Supplier using bilateral contracts and an open policy](./resources/development-view/Tier1ABCOnlyUP.png)
 
 <details>
@@ -328,9 +330,11 @@ If a *bilateral contract* reference criteria is used *in a usage policy*, an acc
 
 </details>
 
-If *bilateral contract reference* criterias are used *in usage policies* and *in addition* a usage policy *without bilateral contract references* should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.<p></p>
+If *bilateral contract reference* criterias are used *in usage policies* and *in addition* a usage policy *without bilateral contract references* should be provided, an access policy restricting access to all partners without a bilateral contract reference *MUST* be used for the usage policy holding no contract references.
+
 ![Tier1Supplier using bilateral contracts and an open policy](./resources/development-view/Tier1ABCUP.png)
- <p> The following example uses BusinessPartnerGroups to achieve this:</p>
+
+The following example uses BusinessPartnerGroups to achieve this:
 
 <details>
     <summary>BPN restricted Access Policy to be used with the "global" Usage Policy containing NO contract references (JSON)</summary>

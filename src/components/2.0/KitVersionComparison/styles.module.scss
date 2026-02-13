@@ -1,0 +1,225 @@
+/********************************************************************************* 
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+.comparisonContainer {
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+.versionCard {
+  background: linear-gradient(135deg, rgba(0, 108, 255, 0.05) 0%, rgba(0, 108, 255, 0.02) 100%);
+  border: 1px solid rgba(0, 108, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 108, 255, 0.15);
+  }
+
+  &.current {
+    background: linear-gradient(135deg, rgba(0, 184, 217, 0.08) 0%, rgba(0, 184, 217, 0.03) 100%);
+    border: 2px solid var(--ifm-color-primary);
+
+    &:hover {
+      box-shadow: 0 12px 32px rgba(0, 184, 217, 0.25);
+    }
+  }
+}
+
+.versionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.versionTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+}
+
+.versionBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(128, 128, 128, 0.15);
+  color: rgba(128, 128, 128, 0.8);
+  border: 1px solid rgba(128, 128, 128, 0.3);
+
+  &.currentBadge {
+    background: linear-gradient(135deg, var(--ifm-color-primary) 0%, rgba(0, 184, 217, 0.8) 100%);
+    color: white;
+    border: none;
+  }
+}
+
+.versionDescription {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.featureIcon {
+  font-size: 1.25rem;
+  color: rgba(0, 108, 255, 0.6);
+  flex-shrink: 0;
+
+  &.currentIcon {
+    color: var(--ifm-color-primary);
+  }
+}
+
+.arrowColumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.evolutionArrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.arrowIcon {
+  font-size: 3rem;
+  color: var(--ifm-color-primary);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.arrowText {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+  letter-spacing: 0.05em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+// Responsive Design
+@media (max-width: 968px) {
+  .arrowColumn {
+    order: 2;
+    margin: 1rem 0;
+  }
+
+  .evolutionArrow {
+    flex-direction: row;
+  }
+  
+  .arrowText {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+  }
+
+  .arrowIcon {
+    font-size: 2.5rem;
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .versionCard {
+    padding: 1rem;
+  }
+
+  .versionTitle {
+    font-size: 1.25rem;
+  }
+
+  .versionBadge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .feature {
+    font-size: 0.85rem;
+  }
+
+  .evolutionArrow {
+    padding: 0.5rem 0;
+  }
+
+  .arrowIcon {
+    font-size: 2rem;
+  }
+}
+
+// Light Theme Support
+[data-theme='light'] {
+  .versionCard {
+    background: linear-gradient(135deg, rgba(0, 108, 255, 0.03) 0%, rgba(0, 108, 255, 0.01) 100%);
+
+    &.current {
+      background: linear-gradient(135deg, rgba(0, 184, 217, 0.05) 0%, rgba(0, 184, 217, 0.02) 100%);
+    }
+
+    &:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .versionDescription {
+    color: var(--ifm-color-emphasis-800);
+  }
+
+  .feature {
+    color: var(--ifm-color-emphasis-900);
+  }
+}

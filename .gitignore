@@ -24,3 +24,9 @@ yarn-error.log*
 
 # VS Code
 .vscode/
+
+# husky
+.husky/
+
+# Draw.IO
+*.bkp
