@@ -354,14 +354,12 @@ const config = {
           {
             to: '/community/open-meetings',
             position: 'right',
-            label: '',
             'aria-label': 'Open meetings',
             className: 'navbar-icon-link header-open-meetings',
           },
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
             position: 'right',
-            label: '',
             'aria-label': 'GitHub',
             className: 'navbar-icon-link header-github-link',
           },
