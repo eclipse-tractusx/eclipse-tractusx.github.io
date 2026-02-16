@@ -111,6 +111,15 @@ The target vision aims to enable an end-to-end (E2E) data exchange of special ch
 - **Exchanging Specification Data:** The exchange of specification data for special characteristics should be possible at the part type level.
 - **Consuming Measured Data:** The customer should be able to consume the measured data `SpecialCharacteristicMeasurement` provided by the manufacturer.
 
+### Aspect Model ZeroKmFailure
+
+Quality issues not only appears while vehicles are on the road. During the assembling phase at the OEM components can show unexpected performances or abnormalities which needs to be analysed. Until the root cause isn't clear, and the problem is not solved, these components need to be blocked.
+In this case it is crucial that the supplier is informed immediately. The information which is provided with the aspect model "zeroKmFailure" supports a fast start of processing, anaysing and identification of all affected components as well as solving the problem.
+
+#### Processual Approach
+
+Best practise of getting these data as a supplier is a data pull via digital twin (DT) qualityTask which is created by the OEM. The DT qualityTask (link) reflects the quality issue itself and provides the digital mirror of the affected fleet at the same time. Alternative the information ca be provided via DT of the affected car. 
+
 ### Digital Twin qualityTask
 
 The DT (digital twin) qualityTask provides the overarching bracket in case of a concrete quality issue or in case of abnormalities which needs to be clarified (or wants to be studied), especially if the range of the affected parts is not clear and the root cause is unknown. 
@@ -120,7 +129,7 @@ Having this holistic overview of data and therefore the impact of affected goods
  
 Furthermore the DT qualityTask provides the bridge to the data driven quality use case. Aspect models can be provided via DT from the OEM and pulled by the Tier1. To inform about a DT qualityTask, the unique ID push mechanism can be used. 
 The specific asset IDs of the DT qualityTask provides the opportunity to list the identification numbers from the affected partners, like the problemID or a case number of an existing application which is used.
-This DT can be used as well as a fleet DT by an OEM. All vehicles in field which are showing the same abnormality or wants to be observed, can be linked to it (like a BoM), marked by that as affected and analysed deeper.
+This DT can be used as well as a fleet DT by an OEM. All vehicles in field or in an earlier stage which are showing the same abnormality or wants to be observed, can be linked to it (like a BoM), marked by that as affected and analysed deeper.
 
 ![steps_of_usingDTqualityTask](assets/steps_of_usingDTqualityTask.png)
 
