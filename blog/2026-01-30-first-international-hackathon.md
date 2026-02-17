@@ -108,6 +108,12 @@ The location is next to the airport, near Bilbao at a "Technological Center". De
 - Hotel Catalonia Gran Via de Bilbao
 - Hotel ILUNION Bilbao
 
+## 📥 Event Resources
+
+Download resources from the hackathon event:
+
+**[Hackathon Resources](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/tree/main/events/hackathons/2026/feb-17)** 📂
+
 ## 🤝 Hosting & Support
 
 Our new Project Lead **Mikel Garcia** (from LKS Next) has volunteered to host the event at their offices in the Bilbao area 🏢.
