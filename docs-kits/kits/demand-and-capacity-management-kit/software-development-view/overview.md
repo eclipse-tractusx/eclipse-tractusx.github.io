@@ -45,7 +45,7 @@ A MVP approach can be followed when developing software, implementing CX-0128, b
 |-|-|
 |Customer| - Modify WeekBasedMaterialDemand <br/> - Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup <br/> - Utilize comments <br/> - Utilize supply chain disruption notification|
 |Supplier| - Modify WeekBasedCapacityGroup <br/> - Compare WeekBasedMaterialDemand to WeekBasedCapacityGroup <br/> - Link WeekBasedMaterialDemand to WeekBasedCapacityGroup <br/> - Utilize comments <br/> - Utilize supply chain disruption notification|
-|Admin| - Configure Request for update|
+|Admin| - Configure Request for update within its own company|
 
 ## Aspect models utilized by a DCM application
 
