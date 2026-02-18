@@ -60,7 +60,7 @@ Before going into details, some basic terms need to be described as they are use
 The data exchange in dataspaces based on the technologies of this KIT follows a set of values and derived principles
 that drive the interaction patterns. In detail, they are:
 
-- Decentralization: The data transfer from a data provider to a consumer is a peer-to-peer activity which does not
+- Decentralization: The data transfer from a data provider to a data consumer is a peer-to-peer activity which does not
   require the involvement of third parties like a central authority. This comes with two major goals:
   - The data transfer cannot be observed outside of the two acting companies, especially the data is directly
     transfered between the two parties.
@@ -68,11 +68,11 @@ that drive the interaction patterns. In detail, they are:
 - Scalability: Efforts from an individual dataspace participant to maintain connections to relevant participants as
   well as the overall effort to support a dataspace with a virtually unlimited number of participants are both within
   reasonable limits.
-- Data Sovereignty: Data providers have full control over who has access to the offered data and under which conditions
+- Data Sovereignty: Data providers have full control over who may use provided data and under which conditions
   the data may be used. Data consumers have full knowledge over the conditions, resp. policies under which data is
   available before committing to use an offer. The data transfer is preceded by a formal acceptance of the conditions
   of the transfer by both parties.
-- Interoperability: The data transfer is standardized in a way, that allows a data consumer to identify
+- Interoperability: The data transfer is standardized in a way, that allows to identify
   - which type of data is offered and what to expect semantically as content of the data,
   - how the data is transfered, i.e., which protocols resp. which APIs to use for accessing it,
   - under which conditions the data can be used.
@@ -91,6 +91,20 @@ In detail, the relevant assets are:
   of this KIT, the protocol is used with its HTTP binding, i.e., the requests and responses defined in the DSP are
   translated to REST API endpoints.
 
+  **Note:** The DSP protocol defines the roles *provider* and *consumer* which do not exactly match the above defined
+  roles of a *data provider* and a *data consumer*. *Provider* and *consumer* are technical roles representing certain
+  activities in the interactions of the DSP protocol, whereas the roles *data provider* and *data consumer* describe
+  the data flow from the *data provider* to the *data consumer*. In many cases, both roles are executed by the same
+  dataspace participants, but there are transfer use cases, where the roles are reversed. This can be the case, e.g.,
+  when a *provider* offers a push api which allows to push data. In this case, the *data consumer* provides an offering
+  in the DSP sense and, therefore, acts as *provider* offering the access to a service, whereas the *data provider*
+  acts as *consumer* by negotiating for the offer. The legal relevant data flow in this case still is from the
+  *data provider* to the *data consumer*, although the technical roles are reversed.
+
+  > **Catena-X:** In Catena-X this is relevant, as the standard CX-0018 which defines the general usage of DSP introduces
+  the inherited technical roles *provider* and *consumer*, whereas the legal framework regulates the data flow an
+  therefore specifies the legal relevant roles of *data provider* and *data consumer*.
+
 - Identity: The DSP requires trustworthy identities for dataspace participants. For the interaction between
   participants, the connector uses [*Decentralized Identifiers*][did-url] (DID). A DID is a globally unique identifier
   that is associated with a participant. As a paticipant can have more than one DID a dedicated DID is required for
@@ -108,12 +122,12 @@ In detail, the relevant assets are:
 
 - Verifiable Credentials: Verifiable Credentials (VCs) are the digital equivalent to physical, printed and signed
   certificates. They proof in a tamper-resistant way a set of claims to be valid for the holder as attested by the
-  issuer of the VC. In a dataspace, VCs are used to provide proof aspects like membership in a dataspace or more
-  general, an authority approved identity of a participant.
+  issuer of the VC. In a dataspace, VCs are used to to build trust in data transfer partners by provide proofs for
+  aspects like membership in a dataspace, resp. for an authority approved identity of a participant.
 
   > **Catena-X:** In Catena-X three different VCs are created for each participant: one attesting the membership
   in the Catena-X dataspace, one for the identity of a dataspace participant by providing a claim that associates the
-  BPNL to the holder of the VC, and attesting the acceptance of the framework agreement stating general terms and
+  BPNL to the holder of the VC, and one attesting the acceptance of the framework agreement stating general terms and
   conditions for data transfers.
 
 - [Self-Sovereign Identity (SSI)][self-sovereign-identity-url]: SSI is an approach to digital identity that gives
@@ -150,8 +164,8 @@ sequenceDiagram
   relevant verifiable credentials. This is needed to authenticate the consumer, i.e., to enable the provider to
   identify the consumer and to check prerequisites necessary to grant access to the offered data.
 
-- Policies: A data offering by a data provider always comes with a contract proposal, i.e., a set of conditions under
-  which the data can be accessed. These conditions are expressed in the form of
+- Policies: An data offering always is always associated with a contract proposal, i.e., a set of conditions under
+  which the access is granted by a provider. These conditions are expressed in the form of
   [*Open Digital Rights Language* (ODRL)][odrl-url] policies. See the extra page on [policies][policy-url] for a deeper
   insight into how policies are used within a dataspace
 
@@ -166,7 +180,7 @@ sequenceDiagram
   mechanism uses the DID document to provide information on connector endpoints in a decentral manner.
 
 The described technologies are complete to initiate and conduct data transfers. The only prerequisite is knowledge of
-the data provider's identifier. A dataspace has to define additional means to find these identities based, e.g., on
+the provider's identifier. A dataspace has to define additional means to find these identities based, e.g., on
 the name of a targeted company.
 
 > **Catena-X:** In Catena-X, in addition to the DID, typically also the BPNL is required. In the service map defined
@@ -188,7 +202,7 @@ described above. So let's look at how the dataspace technology supports favorabl
 
 With the knowledge of the transfer partner's identity, the whole process does only involve peer-to-peer interactions.
 This is achieved mainly with the usage of the DID mechanism which allows to publish information on technical systems
-involved in the data transfer on the data provider side. Based on this, there is a completely decentral, automatable
+involved in the data transfer on the provider side. Based on this, there is a completely decentral, automatable
 mechanism established, that allows data offer discovery, transparent display of data consumption conditions and a
 straight forward way of authentication and authorization based on the Self-Sovereign Identity mechanism.
 
@@ -204,8 +218,8 @@ with every other partner bilaterally information like available service endpoint
 major effort.
 
 Using the Self-Sovereign Identity mechanism, these efforts are reduced to an one time issuance of the required
-*Verifiable Credentials*. Data transfer activities then do not require any authentication information exchange in
-advance.
+*Verifiable Credentials* from a trusted issuer. Data transfer activities then do not require any authentication
+information exchange in advance.
 
 The dataspace technology handles peer-to-peer transactions throughout the whole data transfer. This includes
 identification of data offerings, semantics of the data transfer and content, authentication and authorization to
@@ -228,7 +242,7 @@ A second important mechanism is the usage of verifiable credentials. They provid
 consumer as approved by a trusted authority.
 
 Policies support a wide range of terms and conditions. In a simple case, they can express the check of a set of
-verifiable credentials to prove the identity of the data consumer. A slightly more complex case is well suited for
+verifiable credentials to prove the identity of the consumer. A slightly more complex case is well suited for
 supply chains. In such situations, the data transfer is driven by a pre-existing contract about the delivery of real
 world goods from a supplier to a customer. This contract typically regulates the data transfer needs, so that the
 policy used for the data offers in the connector can simply refer to that contract. More complex cases allow to
@@ -270,10 +284,10 @@ in order to facilitate the data exchange scenarios of the use case.
 The dataspace protocol suggests a *Connector*, which implements the state machines and interactions patterns
 specified in the protocol. The dataspace protocol specification separates the dataspace functionality into two
 distinguished concepts the *Control Plane*, which is a static component implementation of the specified protocol
-interactions, and a *Data Plane*, which is more a virtual concept and describes the concrete data transfer using
+interactions, and a *Data Plane*, which is a virtual concept and describes the concrete data transfer using
 a suitable protocol for the type of data involved. Typical transfer types are standard HTTP Rest API access,
 transferring binary large objects, or continuous data streaming. Each of those is represented by a service
-implementation that has to fulfil technical requirements to be usable as a Data Plane in a dataspace. More details
+implementation that has to fulfill technical requirements to be usable as a Data Plane in a dataspace. More details
 on this are described in the [architecture description][dev-view-url] within the software-development view.
 
 The Dataspace Protocol defines three levels of interaction within the Control Plane to fulfil the above described
@@ -422,7 +436,7 @@ standards. Relevant standards are:
 
 - [CX-0018 Eclipse Data Space Connector (EDC)][cx-standards-url]
 - [CX-0049 DID Document Schema][cx-standards-url]
-- [CX-0050 Catenea-X Specific Credential][cx-standards-url]
+- [CX-0050 Catena-X Specific Credential][cx-standards-url]
 - [CX-0152 Policy Constraints For Data Exchange][cx-standards-url]
 
 ## Notice
@@ -450,8 +464,6 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 [dsp-url]: https://github.com/eclipse-dataspace-protocol-base/DataspaceProtocol
 
 [did-url]: https://www.w3.org/TR/did-1.0
-
-[did-web-url]: https://w3c-ccg.github.io/did-method-web
 
 [edc-url]: https://eclipse-edc.github.io
 

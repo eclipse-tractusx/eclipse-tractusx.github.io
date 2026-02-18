@@ -8,7 +8,7 @@ id: architecture
 ## Overview
 
 The dataspace protocol suggests a *Connector*, which implements the state machines and interactions patterns
-specified in the protocol. The protocol suggests the separation into two distinguished concepts the *Control Plane*,
+specified in the protocol. The protocol introduces the separation into two distinguished concepts, the *Control Plane*,
 which implements the protocol interactions, basically implementing the connector, and a *Data Plane*, which is a
 virtual concept that realizes the data transfer with a specific transfer protocol. The control plane as such is a
 static concept which can be implemented and used in multiple transfer scenarios. The data plane is a general name
@@ -16,13 +16,12 @@ for any technology used to execute the transfer of data. It is provided in multi
 different data transfer types, like standard http rest api access, transferring binary large objects, or
 continuous data streaming.
 
-Note: There is a specific concept called *Dataplane Signalling* [][] which is a basic api that defines the necessary
-interactions between the control and the data plane. Each data plane following this concept has to implement this api
-in order to have a standardized information exchange. Currently, Dataplane Signalling is a specification derived in the
-[Eclipse Dataspace Components project][edc-url], but it is a candidate for further specification in the
-[Eclipse Dataspace Working Group][edwg-url].
+The [*Dataplane Signalling API*][dps-api] describes an api used for the interactions between the control and the data plane.
+Each data plane following this concept has to implement this api in order to have a standardized information exchange.
+Currently, Dataplane Signalling is a specification developed in the context of the [Eclipse Dataspace Working Group][edwg-url]. An earlier internal version is used for the interaction within the existing reference implementation.
 
-The following sequence diagram shows the general interaction patterns of the control plane and data plane, explained afterwards in more detail.
+The following sequence diagram shows the general interaction patterns of the control plane and data plane, explained
+afterwards in more detail.
 
 ```mermaid
 sequenceDiagram
@@ -32,7 +31,6 @@ participant cba as Consumer Business App
     participant cds as Consumer Data Store
     participant pcp as Provider Control Plane
     participant pdp as Provider Data Plane
-    participant pds as Provider Data Store
 
     cba->>+ccp: Initiate Catalog Request
     ccp->>+pcp: Catalog Request Message
@@ -69,10 +67,8 @@ participant cba as Consumer Business App
       cba->>+ccp: Get EDR for Transfer
       ccp-->>-cba: EDR
 
-      cba->>+pdp: Pull Request for Data (with auth info from EDR)
-      pdp->>+pds: Forward Pull Request
-      pds-->>-pdp: Pull Request Result
-      pdp-->>-cba: Forward Pull Request Result
+      cba->>+pdp: Pull Data Request (with auth info from EDR)
+      pdp-->>-cba: Forward Request Result
     else Push Scenario
       cba->>+ccp: Initiate Transfer (with push target auth info)
       ccp->>pcp: Transfer Request Message (with push target auth info)
@@ -82,7 +78,7 @@ participant cba as Consumer Business App
         pcp->>ccp: Transfer Start Message
         pcp->>pdp: Initiate Push Request (with push target auth info)
         pdp->>cds: Send Push Request Data
-        pdp->>pcp: Finish Transfer
+        pdp->>pcp: Complete Transfer
         pcp->>ccp: Transfer Completion Message
       and
         loop until status = COMPLETED
@@ -96,9 +92,9 @@ participant cba as Consumer Business App
 The general interaction pattern is driven by the Dataspace Protocol which defines three levels of interaction:
 
 1. Catalog Request:
-   The catalog request provides to the consumer a list of available data offerings. The catalog thereby is a
+   The catalog request provides to the consumer a list of available resource offerings. The catalog thereby is a
    [DCAT catalog][dcat-url] that provides a list of *Datasets* which again provides at least one *Distribution* object
-   representing a specific transfer technology usable to retrieve the data.
+   representing a specific transfer technology.
 
    The catalog request is synchronous and returns with the catalog in the response.
 
@@ -109,7 +105,7 @@ The general interaction pattern is driven by the Dataspace Protocol which define
    The request is processed by the data provider connector and later by the data consumer connector. The process
    terminates when both connectors reach the state *Verified* which shows a successful negotiation process or reach
    the state *Terminated* which indicates issues and the contract negotiation failed. After the contract has reached
-   state *Verified*, the contract is established and *Transfer Processes can be initiated.
+   state *Verified*, the contract is established and *Transfer Processes* can be initiated.
 
    The necessary information needed to start a negotiation is provided in a dataset. This includes the endpoint to
    call for initiating the negotiation and the usage policy that is the contract proposal for the data consumer to
@@ -129,12 +125,6 @@ The general interaction pattern is driven by the Dataspace Protocol which define
    A transfer process can be suspended or completed which is represented by a corresponding state. In case of an error
    the state is transitioned to state *Terminated*. A suspended transfer process can be resumed, during suspension, no
    access to the data is possible.
-
-   Push transfers are by default a one time transfer, i.e., a transfer process is initiated, the provider pushes
-   the contracted data to the sink and completes the transfer process. An additional transfer mechanism available
-   in the latest release is a non-finite push, i.e., the transfer process is not terminated and the provider sends
-   new data elements as soon as they are created until the process is stopped manually or by expiry of the access
-   information.
 
 After the transfer process is started, the data plane is responsible for the data transfer, i.e., it mediates between
 the consuming service and the providing service to get the data transfered. The data plane is a transfer technology
@@ -178,10 +168,9 @@ the basis for interactions in the dataspace.
 
 Based on the identifiers, the data transfer can be negotiated. This is done with the following steps:
 
-- N1: The *Consumer Business Application* executes a request as defined in the Dataspace Protocol to be executed by the
-  *Control Plane* of the consumer connector.
+- N1: The *Consumer Business Application* initiates at the consumer *Control Plane* the execution of a request as defined in the Dataspace Protocol.
 
-- N2: The *Control Plane* resolves the provider's DID to access the corresponding DID document. Since Catena-X uses
+- N2: The consumer *Control Plane* uses the provider's DID to access the corresponding DID document. Since Catena-X uses
   the [DID:WEB][did-web-url] method, the control plane uses the URL in the DID to identify the endpoint at which the
   DID document is hosted.
 
@@ -192,23 +181,25 @@ Based on the identifiers, the data transfer can be negotiated. This is done with
 
 - N3: To initiate a DSP request, the consumer *Control Plane* has to provide an access token, that allows the
   providers *Control Plane* to retrieve verifiable credentials in order to check whether the request is valid and all
-  prerequisites are met. This token is provided by the consumer's *Wallet*.
+  prerequisites are met. This token is provided an *Secure Token Service* which is typically hosted by the consumer's
+  *Wallet*.
 
 - N4: The consumer *Control Plane* executes the intended DSP request by calling the corresponding DSP endpoint at the
   provider *Control Plane*. With the request, the consumer sends the token retrieved in step N3.
 
   Depending on connector implementations involved, there might be the need to identify the DSP protocol version to be
   used by the interaction. For that, the consumer typically has to identify the version supported by the provider
-  connector and then to use the latest version supported on both sides.
+  connector and then to use the latest version supported on both sides. To provide information on supported versions
+  any connector offers a */.well-known/dspace-version* endpoint as subendpoint of the connectors base path.
 
 - N5: The provider *Control Plane* retrieves the verifiable presentation (containing the relevant verifiable
   credentials) necessary to validate the legitimacy of the request by calling the consumer's *Wallet* of the consumer
   using the token created in step N3. The control plane gets access to the credentials and checks their validity. In
-  addition, the control plane checks whether all other conditions like further policy constraints are met and if
-  successful executes the request and provides an appropriate response to the consumer control plane.
+  addition, the control plane checks whether all other conditions like further policy constraints are met, and, if
+  successful, executes the request and provides an appropriate response to the consumer control plane.
 
 The steps N1 to N5 are bascially the same for every DSP call, be it to request the catalog, to initiate a contract
-negotiation or to start of a transfer request. The *Consumer Business Application* executes the required DSP requests
+negotiation or to start a transfer request. The *Consumer Business Application* executes the required DSP requests
 in the appropriate order basing the next request on data received in the previous request. In the day-to-day business
 situations, the dominating action on DSP level is the management of transfer requests, as the catalog retrieval and
 the contract negotiation are only necessary, if access to a new data offering is required. If the concept is applied
@@ -257,17 +248,48 @@ entry has this structure:
 }
 ```
 
-The referenced endpoint is actually pointing to a specific version metadata endpoint in a connector that provides
-information on supported DSP versions. As for backward compatibility, a connector must be capable to communicate with
-multiple version of the DSP. Accessing this version metadata endpoint allows the consumer connector to determine the
-supported DSP versions as mentioned in step N4 above. Based on this information the connector can decide on the version
-to be used for the interaction with the provider connector.
+The referenced endpoint is actually pointing to a specific version metadata endpoint to be found as seen in the
+`serviceEndpoint` field in the above DID document example. The endpoint is provided at the subpath
+`/.well-known/dspace-version` attached to the connector base path. It contains a data structure like this:
 
-An implicaton that comes with this version management is that a connector has to provide a certain DSP protocol version
-as separate subtree of its REST API endpoint tree.
+```json
+{
+  "protocolVersions": [
+    {
+      "version": "2025-1",
+      "path": "/2025-1",
+      "binding": "HTTPS"
+    },
+    {
+      "version": "0.8",
+      "path": "",
+      "binding": "HTTPS"
+    }
+  ]
+}
+```
 
-With the information retrieved from the version metadata endpoint, the consumer can build the final endpoint address
-to execute a DSP request, e.g., a catalog request.
+The structure implies, that different DSP versions are offered in separate subtrees of a connector. The `path` property
+contains the subpath added to the connector base path that builds the root of the DSP endpoint subtree of the corresponding
+version.
+
+Typically, it is expected to support always the latest agreed upon DSP version in a connector, but for backward
+compatibility reasons, some connectors must be capable to communicate with multiple version of the DSP. Accessing this
+version metadata endpoint allows the consumer connector to determine the supported DSP versions as mentioned in step N4
+above. Based on this information the connector can decide on the version to be used for the interaction with the provider
+connector.
+
+#### Service entries in the DID document
+
+The DID document is typically something managed by the wallet. As it is basically a JSON structure with a clear semantics,
+e.g. the SAP DIV wallet provides concrete endpoints to manipulate the content of the different sections of the DID document.
+An operation infrastructure for connectors has to implement a mechanism to register new connector offerings and to
+deregister a connector when it is decommisioned.
+
+E.g. in the latest version 0.12.0 of the Eclipse Tractus-X connector reference implementation, there is a mechanism that
+ensures during startup the existence of the entry in the DID document referenced by the participant id. It is also possible
+to configure the removal of the entry on shutdown, which has to be used with care, as not always when a connector shuts down,
+the removal of the entry makes sense.
 
 ## Notice
 
@@ -275,6 +297,14 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation
-- SPDX-FileCopyrightText: 2025 Cofinity-X GmbH
+- SPDX-FileCopyrightText: 2026 Cofinity-X GmbH
 - Source
   URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
+
+[dcat-url]: https://www.w3.org/TR/vocab-dcat-3
+
+[did-web-url]: https://w3c-ccg.github.io/did-method-web
+
+[dps-api]: https://github.com/eclipse-dataplane-signaling
+
+[edwg-url]: https://dataspace.eclipse.org
