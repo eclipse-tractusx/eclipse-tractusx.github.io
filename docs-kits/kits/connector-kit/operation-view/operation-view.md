@@ -7,46 +7,43 @@ id: operation-view
 
 ![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
 
+## General operation aspects
+
+As already mentioned in the [adoption view][adoption-view-url], the connector divides into a control plane, which is
+typically an own service implementation and data planes, which could come in various forms. As mentioned, there is a
+*Dataplane Signalling API* which standardizes interactions between control and data plane. It is recommended to
+follow these instructions in order to provide a pluggable combination of control and data plane.
+
+> **Catena-X:** For Catena-X, the operation of a BPN-DID resolution service is required to provide the necessary
+  mapping information between BPNLs and DIDs of participants.
+
 ## Reference Implementation
 
-The reference implementation for the Connector kit is the  [Eclipse Dataspace Connector](https://github.com/eclipse-edc/Connector).
-Furthermore, it assumes the usage of a deployable EDC as provided by [Tractus-X EDC](https://github.com/eclipse-tractusx/tractusx-edc).
+As all Eclipse Tractus-X products, the connector implementation comes with a helm chart that allows to easily deploy
+a setup in a kubernetes cluster. In fact, there are two different helm chart flavors, one supporting the deployment
+of a full-fledged setup with a control plane, a data plane and the required Postgres database, resp. Hashicorp vault.
+A second helm chart flavor allows to deploy the in-memory solution for testing purposes. The charts are published
+according to Eclipse Tractus-X rules defined in the [TRGs][trg-url].
 
-## Configuration Parameters
+The BPN-DID resolution service is packaged in the same manner and also is provided in an in-memory and a database
+flavor.
 
-The EDC requires a few parameters for configuration.
-They are detailed [here](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/charts/tractusx-connector#configure-the-chart).
+### Configuration Parameters
 
-## Architecture
-
-For a summary of the architecture surrounding a Controller, take a look at the Development View's [architecture page](../software-development-view/architecture.md).
-
-## Deployment Resources
-
-### TractusX Helm Charts
-
-The [Helm charts](https://helm.sh/docs/) provided by TractusX form the basis for a deployable EDC.
-The default configuration can be found [here](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/charts/README.md).
-This configuration assumes a database for persistence and Hashicorp Vault for secret storage.
-Other configurations are available in the same repository.
-
-### Minimum Viable Dataspace
-
-A minimal setup using [Terraform](https://developer.hashicorp.com/terraform) is available in the form of the
-[Minimum Viable Dataspace](https://github.com/eclipse-edc/MinimumViableDataspace).
-
-Documentation on it can be found [here](https://eclipse-edc.github.io/docs/#/submodule/MinimumViableDataspace/).
-
-### Deployment Guide
-
-Specific configuration details are described more closely in the
-[Deployment Guide](https://eclipse-tractusx.github.io/docs/tutorials/e2e/connect/deployComponents/).
+The connector requires a set of configuration parameters which are basically configured using the charts values
+file. Details are found in the [Readme files][helm-chart-readme-url] of the helm charts.
 
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Cofinity-X GmbH
 - Source
-  URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
+  URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/connector-kit/operation-view/operation-view.md](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/connector-kit/operation-view/operation-view.md)
+
+[adoption-view-url]: ../adoption-view/adoption-view.md
+
+[helm-chart-readme-url]: https://github.com/eclipse-tractusx/tractusx-edc/blob/main/charts/tractusx-connector/README.md
+
+[trg-url]: https://eclipse-tractusx.github.io/docs/release

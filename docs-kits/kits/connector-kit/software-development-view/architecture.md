@@ -5,7 +5,15 @@ description: Architecture
 id: architecture
 ---
 
+![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
+
 ## Overview
+
+This document is intended to give a detailed description of the interactions within the dataspace on several levels.
+This involves interactions on the protocol level as well as the interactions of all the components involved during a
+data transfer.
+
+## DSP Interactions
 
 The dataspace protocol suggests a *Connector*, which implements the state machines and interactions patterns
 specified in the protocol. The protocol introduces the separation into two distinguished concepts, the *Control Plane*,
@@ -16,9 +24,12 @@ for any technology used to execute the transfer of data. It is provided in multi
 different data transfer types, like standard http rest api access, transferring binary large objects, or
 continuous data streaming.
 
-The [*Dataplane Signalling API*][dps-api] describes an api used for the interactions between the control and the data plane.
-Each data plane following this concept has to implement this api in order to have a standardized information exchange.
-Currently, Dataplane Signalling is a specification developed in the context of the [Eclipse Dataspace Working Group][edwg-url]. An earlier internal version is used for the interaction within the existing reference implementation.
+The [*Dataplane Signalling API*][dps-api] describes an api offered to be used for the interactions between the control
+and the data plane. Each data plane following this proposal has to implement this api in order to have a standardized
+information exchange. Currently, Dataplane Signalling is a specification developed in the context of the
+[Eclipse Dataspace Working Group][edwg-url]. An earlier internal version is used for the interaction within the existing
+reference implementation. The api as such is a proposal for the interaction, but it is no necessity for
+an implementation to solve the interaction between the control plane and a specific data plane.
 
 The following sequence diagram shows the general interaction patterns of the control plane and data plane, explained
 afterwards in more detail.
@@ -92,28 +103,33 @@ participant cba as Consumer Business App
 The general interaction pattern is driven by the Dataspace Protocol which defines three levels of interaction:
 
 1. Catalog Request:
-   The catalog request provides to the consumer a list of available resource offerings. The catalog thereby is a
+   The catalog request provides to the consumer a list of available service offerings. The catalog thereby is a
    [DCAT catalog][dcat-url] that provides a list of *Datasets* which again provides at least one *Distribution* object
-   representing a specific transfer technology.
+   representing a specific transfer technology. A *Dataset* describes a concrete data offer
+   with relevant metadata, like the type of data, transfer technology, api type and the *Usage Policy* also known as
+   *Contract Policy* under which the data is offered for usage. The dataset provides a starting point to initiate
+   the contract negotiation.
+
+   The catalog only contains service offers which are accessible by the requesting consumer. When defining service
+   offers, the provider in addition to the usage policy has to define an *Access Policy*, which is basically a
+   filter applied by the provider connector during the creation of the catalog. The access policy typically limits
+   access to a defined dataset, so that only legitimate consumers can see the offer in the provided catalog.
 
    The catalog request is synchronous and returns with the catalog in the response.
 
 2. Contract Negotiation:
-   Access to a data offer is provided via a contract, which is basically an agreed upon usage policy.
+   Access to a service offer is provided via a contract, which is basically an agreed upon usage policy.
 
-   A contract negotiation is an asynchronous process, initiated by a data consumer using a *Contract Request* message.
-   The request is processed by the data provider connector and later by the data consumer connector. The process
+   A contract negotiation is an asynchronous process, initiated by a consumer using a *Contract Request* message.
+   The request is processed by the provider connector and later by the consumer connector. The process
    terminates when both connectors reach the state *Verified* which shows a successful negotiation process or reach
    the state *Terminated* which indicates issues and the contract negotiation failed. After the contract has reached
    state *Verified*, the contract is established and *Transfer Processes* can be initiated.
 
    The necessary information needed to start a negotiation is provided in a dataset. This includes the endpoint to
-   call for initiating the negotiation and the usage policy that is the contract proposal for the data consumer to
+   call for initiating the negotiation and the usage policy that is the contract proposal for the consumer to
    gain access. Based on this information, a consumer starts the contract negotiation process by calling the
    corresponding endpoint.
-
-   >> **Catena-X**: In Catena-X, the usage policy in a dataset has to be used literally when initiating a contract
-   negotiation.
 
 3. Transfer Process:
    To initiate a transfer, a *Transfer Process* needs to be created. Again, this is an asynchronous process that is
@@ -121,6 +137,18 @@ The general interaction pattern is driven by the Dataspace Protocol which define
    *Transfer Start* message, which synchronizes the transfer process state so that both connectors see the process
    in status *Started*. Depending on the transfer direction, one of the exchanged message is used to transfer the
    access information, so that the active part can transfer the data to the correct sink.
+
+   - In a pull transfer, the consumer is the active part and initiates a request to the contracted service. The
+     typical example for this is using a REST API. In this case, initiating a transfer process results
+     in the return of a data structure called *Endpoint Data Reference (EDR)*. It contains all necessary information
+     to access the intended resource server, i.e., the endpoint url and the necessary access token. In the Tractus-X
+     connector, the EDR contains refresh information, i.e., the endpoint url and the refresh token to renew the
+     access token if expired.
+
+   - In a push transfer, initiating the transfer ends with the provider to be actively pushing data to a consumer
+     owned data sink. This can be a cloud storage service to which data is send. To enable the provider to send the
+     data, the access information, i.e., the endpoint url of the sink and the access credentials have to be provided
+     by the consumer in the transfer process request.
 
    A transfer process can be suspended or completed which is represented by a corresponding state. In case of an error
    the state is transitioned to state *Terminated*. A suspended transfer process can be resumed, during suspension, no
@@ -131,7 +159,27 @@ the consuming service and the providing service to get the data transfered. The 
 specific implementation that connects an existing technology to the concepts of the dataspace concept. The technology
 specific information on data endpoints used and access information needed are part of the transfer process creation.
 
-### Interaction Overview
+### The contract data model
+
+The following diagram shows the depdendencies between the data objects created for and during a data transfer:
+
+![DSP Domain Model](./assets/domain-model.png)
+
+It summarizes the description above into objects and dependencies. At the core is a *Contract Definition* created by a
+provider in its connector. It references an *Access Policy* and a *Contract Policy* of type *Policy* and an
+*Asset* which defines the service offering referring furtheron to the *Data Address* which is the concrete resource
+description that provides the offer.
+
+During a catalog request, the *Contract Definition* id transfered into a concrete *Contract Offer* that is added in
+the form of a *Dataset* in the provided catalog. A consumer starts a *Contract Negotiation*, referring to one of
+the provided *Contract Offers* and eventually, both connector agree on the contract which leads to a *Contract
+Agreement* that is an immutable representation of all relevant details concerning the contract.
+
+Afterwards, *Transfer Processes* refering to such a *Contract Agreement* can be initiated. The *Transfer Process* refers
+to a *Data Request* which summarizes the transfer metadata including a reference to the *Data Address* to connect to
+the concrete offering and *Resource* objects necessary for the transfer.
+
+## Interaction Overview
 
 The following figure shows the involved services and the basic interaction between the services in this case in a Pull
 scenario.
@@ -296,10 +344,13 @@ the removal of the entry makes sense.
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation
 - SPDX-FileCopyrightText: 2026 Cofinity-X GmbH
 - Source
-  URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
+  URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/connector-kit/software-development-view/architecture.md](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/connector-kit/software-development-view/architecture.md)
+- Image: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/connector_interactions.drawio.png](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/connector_interactions.drawio.png)
+
+- SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation
+- Image: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/domain_model.png](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/domain_model.png)
 
 [dcat-url]: https://www.w3.org/TR/vocab-dcat-3
 

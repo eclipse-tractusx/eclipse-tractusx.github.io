@@ -1,76 +1,68 @@
 ---
 sidebar_position: 1
 title: Reference Implementation
-description: 
+description:
 id: architecture
 ---
 
-### Terminology
+![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
 
-The shown picture illustrates only a generic view of the EDC's Domain Model and is not intended to show all aspects of
-the implementation. Most of the Domain-Model-Elements are represented by separate APIs. Please check
-the [Management API Walkthrough](https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs)
-in the tractusx-edc repository for more a reference on usage of the API.
+## Reference Implementation Details
 
-![domain_model](@site/static/img/domain_model.drawio.svg)
+The reference implementation of a connector is provided by Eclipse Tractus-X from the repository
+[tractusx-edc][tractusx-edc-url].
 
-#### Extensions
+The connector is a derived product from the [Eclipse Dataspace Components Connector][edc-connector-url] implementation.
+In Eclipse Tractus-X the base connector is used and extended for use in a dataspace as defined in this KIT. In
+addition the repository defines runtimes that provide a ready-to-deploy product provided as docker images on
+docker hub. This includes a full-fledged control and data plane setup using a database and a vault for storage
+of relevant data as well as a test setup with in-memory storage facilities.
 
-There are different extenions for the Connector, e.g. for the Data Plane. This enables various transfer modes like
-httpData or via blob-storage.
+All components from upstream and Tractus-X are available in maven central as packages to be used in own runtimes,
+if needed.
 
-#### Data Plane
+### Resources
 
-The Data Plane handles several forms of actual data exchange by utilizing various extensions.
+- [Eclipse Dataspace Components][edc-url] Website
+  - The website hosts relevant documentation on the project.
+- Tractus-X Connector [Releases][release-url] showing all available releases with release notes and links to test reports
+- Tractus-X Connector [Readme][readme-url]
+- Tractus-X Connector [Management API Walkthrough][mgmt-api-url], which describes how to interact with a connector from
+  an app perpective controlling the interactions with the connector on provider and consumer side.
+- Tractus-X Connector [Migration Guides][migation-guide-url] which describes for each version update the things to adapt
+  to meet the requirements of the new version.
+- Tractus-X Connector [OpenApi-Hub][tx-connector-openapi-url]
+- Tractus-X Connector [Developer Documentation][dev-docu-url] containing some concept documentation and decision records
+- Tractus-X BPN-DID resolution service [main repository][bdrs-repo-url]
+- Tractux-X BDRS [OpenApi-Hub][tx-bdrs-openapi-url]
 
-#### Control Plane
+## Notice
 
-The Control Plane handles meta data exchange with other components and Connectors, as well as transfer of access tokens
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-#### Data Assets
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2026 Cofinity-X GmbH
+- Source
+  URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/connector-kit/software-development-view/reference-impl.md](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/connector-kit/software-development-view/reference-impl.md)
 
-Data Sources (databases, files, cache information, etc.) are connected to the Connector and are represented by Data
-Assets. For each asset, a [`DataAddress`](#data-address) needs to be resolvable.
+[bdrs-repo-url]: https://github.com/eclipse-tractusx/bpn-did-resolution-service
 
-#### Data address
+[dev-docu-url]: https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs/development
 
-A data address is a pointer into the physical storage location where an asset will be stored.
+[edc-connector-url]: https://github.com/eclipse-edc/Connector
 
-#### Policy Definition
+[edc-url]: https://eclipse-edc.github.io
 
-A standardized set of policies can be used to define actions regarding access to and usage of assets. These actions can
-be limited further by constraints (temporal or spatial) and duties ("e.g. deletion of the data after 30 days").
+[mgmt-api-url]: https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs/usage/management-api-walkthrough
 
-#### Contract Definition
+[migation-guide-url]: https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs/migration
 
-By combining [`Assets`](#data-assets) and Policies, Contracts for data offerings are defined. These Contracts need to be
-accepted by consuming participants (Connectors) for the data exchange to take place.
+[readme-url]: https://github.com/eclipse-tractusx/tractusx-edc/blob/main/README.md
 
-#### Contract offer
+[release-url]: https://github.com/eclipse-tractusx/tractusx-edc/releases
 
-The contract offer is a representation of the [`ContractDefinition`](#contract-definition) for a specific consumer and
-serves as protocol for a data transfer object (DTO) for a particular contract negotiation. If a data consumer wants to
-conclude a binding data exchange contract based on the terms of a Data Offer, the data consumer can communicate such
-desire to the data provider by referencing to a specific Data Offer. This constitutes a binding offer by the data
-consumer. For now, the data consumer only has the option to accept all terms of a Data Offer (or not). The Data Exchange
-Process does not yet provide for the data consumer to make an offer that deviates from the terms of a Data Offer as set
-by the data provider.
+[tx-bdrs-openapi-url]: https://eclipse-tractusx.github.io/api-hub/bpn-did-resolution-service/
 
-#### Contract negotiation
+[tx-connector-openapi-url]: https://eclipse-tractusx.github.io/api-hub/tractusx-edc
 
-A `ContractNegotiation` captures the current state of the negotiation of a contract (`ContractOffer` ->
-`ContractAgreement`) between two parties. This process is inherently asynchronous.
-
-#### Contract agreement
-
-A contract agreement represents the agreed-upon terms of access and usage of an asset's data between two data space
-participants, including a start and an end date and further relevant information.
-
-#### Transfer process
-
-After a successful contract negotiation, `DataRequests` can be sent from the consumer connector to the provider
-connector to initiate the data transfer. It references the requested [`Asset`](#data-assets)
-and [`ContractAgreement`](#contract-agreement) as well as information about the [data destination](#data-address).
-
-Similar to the `ContractNegotiation`, this object captures the current state of a data transfer. This process is
-inherently asynchronous, so the `TransferProcess` objects are stored in a backing data store (`TransferProcessStore`).
+[tractusx-edc-url]: https://github.com/eclipse-tractusx/tractusx-edc
