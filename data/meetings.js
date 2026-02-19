@@ -352,4 +352,25 @@ export const meetings = [
       endTime: '12:15',
     },
   },
+  {
+    id: 'first-international-hackathon',
+    title: 'First International Eclipse Tractus-X Hackathon 🇪🇸',
+    category: MEETING_CATEGORIES.ONE_TIME,
+    description: 'Join us for the first international open source hackathon of Eclipse Tractus-X in Bilbao, Spain! This is a hands-on technical event focused on developing the Tractus-X Identity Hub Wallet and Industry Core Hub Add-Ons. Bring your laptop and motivation to code!',
+    contact: 'mgarcia@lksnext.com',
+    sessionLink: 'https://forms.office.com/e/LkYbasfXJA',
+    additionalLinks: [
+      { title: 'News Blog', url: '/blog/first-international-hackathon' },
+      { title: 'Identity Hub Repository', url: 'https://github.com/eclipse-tractusx/tractusx-identityhub' },
+      { title: 'Umbrella Repository', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella' },
+      { title: 'Industry Core Hub Repository', url: 'https://github.com/eclipse-tractusx/industry-core-hub' },
+      { title: 'Tractus-X Mailing List', url: 'https://accounts.eclipse.org/mailing-list/tractusx-dev' },
+    ],
+    recurrence: {
+      frequency: 'once',
+      startDate: '2026-02-17',
+      startTime: '09:00',
+      endTime: '17:00',
+    },
+  },
 ];
