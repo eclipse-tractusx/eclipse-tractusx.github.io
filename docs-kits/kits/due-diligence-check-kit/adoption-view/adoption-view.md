@@ -31,7 +31,7 @@ sidebar_position: 1
 Welcome to the **Due Diligence Check (SME) KIT Adoption View**. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
 
 :::info Target Audience
-Business Managers, Product Owners, Solution Architects, Industry Experts, and Decision Makers.
+Supply Chain Managers, Risk & Compliance Manager, Procurement Managers, Customer Relationship Managers, Technical Solution Providers, Audit Service Providers, SAQ Service Providers, COC Providers, Industry Experts, and Political Decision Makers.
 :::
 
 ---
