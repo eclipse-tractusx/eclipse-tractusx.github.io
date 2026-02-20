@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: Architecture
-description: Architecture
+description: Architecture overview of the dataspace protocol and a connector
 id: architecture
 ---
 

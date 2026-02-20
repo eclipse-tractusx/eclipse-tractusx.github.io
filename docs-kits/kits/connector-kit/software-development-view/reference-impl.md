@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Reference Implementation
-description:
-id: architecture
+description: A reference page to reflect the reference implementation
+id: sdv-reference-implementation
 ---
 
 ![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
