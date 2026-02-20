@@ -204,28 +204,9 @@ Instead of replacing existing instruments, the KIT creates an interoperability l
 
 The KIT is explicitly built on Catena-X principles that de-risk adoption and enable scalable offerings: technology openness and neutrality, interoperability, data sovereignty, openness and transparency (including rulebook publication), scalability and modularity (including adaptability beyond automotive), validity checkpoints, and voluntariness and competition compliance. In addition, the initiative foresees an advisory board that supports regulatory interpretation in an advisory (non-decision-making) role, strengthening credibility and implementation quality. 
 
-## Use Cases
-
-### Primary Use Case: [Use Case Name]
-
-**Description**: [Use case description]
-
-**Actors**: [Actor 1], [Actor 2], [Actor 3]
-
-**Process Flow**:
-
-1. [Step 1 description]
-2. [Step 2 description]
-3. [Step 3 description]
-
-**Business Outcomes**: [Key outcomes]
-
-**Success Metrics**: [Key metrics]
-
 ## KIT Content Vision
 
 The development of the KIT will take place throughout this year, with a strong focus on further expanding and refining its substantive content. In 2027, a first pilot implementation is planned to test and validate the approach in practice. We warmly welcome feedback and suggestions, as your input will help us prioritize topics, improve the content, and ensure practical relevance for all stakeholders. Please submit your feedback via the designated feedback form [LINK]. 
-
  
 ### Regulatory Framework and Due Diligence Principles 
 
