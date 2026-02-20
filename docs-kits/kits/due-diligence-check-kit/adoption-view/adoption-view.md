@@ -121,15 +121,62 @@ The industry therefore requires:
 
 ### Vision
 
-> [Insert your KIT's vision statement]
+To establish a standardized, risk-based and interoperable Due Diligence Check within the Catena-X ecosystem that enables legally compliant, efficient and SME-sensitive implementation of CSDDD requirements across the automotive value chain, while fully preserving data sovereignty and competition compliance. 
 
-[Brief explanation of the vision and strategic objectives]
+The vision is a harmonized industry framework in which: 
 
+- All participants rely on a shared country and sector-specific risk register. 
+
+- Risk-based decision trees determine when and how deeper analysis is required. 
+
+- Existing Due Diligence instruments (Code of Conduct, SAQ, audits) are comparable and interoperable. 
+
+- SMEs can perform a Due Diligence Check once and share it securely within the network. 
+
+- Regulatory expectations and practical feasibility are aligned through transparent governance. 
+
+ 
 ### Mission
 
-> [Insert your KIT's mission statement]
+The Catena-X Expert Group “Due Diligence Check (SME)” aims to develop a Catena-X standard Due Diligence Check tailored to the needs of SMEs and aligned with CSDDD requirements. 
 
-[Brief explanation of the problem being solved]
+The mission includes: 
+
+#### Standardization of Abstract Risk Analysis 
+Development and open publication of a country and sector risk register to provide a uniform basis for risk identification. 
+
+#### Implementation of a Structured Risk-Based Approach 
+Creation of a risk-based decision tree defining when concrete analysis (e.g., SAQs or audits) is required, ensuring proportionality and prioritization. 
+
+#### Integration and Interoperability of Due Diligence Instruments 
+Harmonized evaluation and integration of Codes of Conduct, self-assessment questionnaires and audits, enabling flexibility and comparability within instrument categories. 
+
+#### Development of a Catena-X compliant documentation  
+Definition of processes, data models and technical integration in line with Catena-X principles such as interoperability, modularity and data sovereignty, ensuring compatibility with the broader Catena-X ecosystem. 
+
+#### SME Protection and Proportionality 
+Ensuring that Due Diligence requirements are appropriate to company size, role and risk exposure, thereby creating a “protective shield” through standardization. 
+
+#### Governance and Regulatory Alignment 
+Establishment of a consultative Advisory Board to provide independent expertise on regulatory interpretation and implementation, without operational decision-making authority. 
+
+The initiative follows key principles: 
+
+- Technology openness and neutrality 
+
+- Interoperability and open interfaces 
+
+- Data sovereignty and security 
+
+- Transparency and public documentation 
+
+- Scalability and modularity 
+
+- Voluntariness and strict competition law compliance 
+
+Through this approach, Catena-X aims to transform Due Diligence from a fragmented, duplicative compliance exercise into a structured, collaborative and scalable industry framework that enhances regulatory effectiveness while strengthening responsible value chain management. 
+
+The initial Tier 1 focus provides a pragmatic entry point for implementation while establishing the foundational framework for future scaling. The standardized architecture is designed to enable extension towards deeper supply chain tiers and alignment with other X-initiatives as well as potential cross-industry interoperability in the field of Due Diligence. 
 
 ---
 
