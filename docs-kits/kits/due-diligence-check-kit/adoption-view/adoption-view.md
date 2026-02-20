@@ -210,33 +210,33 @@ The development of the KIT will take place throughout this year, with a strong f
  
 ### Regulatory Framework and Due Diligence Principles 
 
-#### Regulatory and Business Drivers 
+- Regulatory and Business Drivers 
 
-#### Due Diligence as an Ongoing, Risk-Based Responsibility  
+- Due Diligence as an Ongoing, Risk-Based Responsibility  
 
-#### Chain of Activities and Core Elements of Due Diligence under CSDDD 
+- Chain of Activities and Core Elements of Due Diligence under CSDDD 
 
-#### Relationship to Existing Frameworks and Standards 
+- Relationship to Existing Frameworks and Standards 
 
 ### Scope, application and system boundaries covered by this KIT 
 
-#### Regulations considered 
+- Regulations considered 
 
-#### Scope of application 
+- Scope of application 
 
-#### Topics out of scope 
+- Topics out of scope 
 
 ### User Journey 
 
-#### Master Data Collection 
+- Master Data Collection 
 
-#### Abstract Risk Analysis based on sector/country  
+- Abstract Risk Analysis based on sector/country  
 
-#### Risk Based Approach  
+- Risk Based Approach  
 
-#### Concrete Risk Analysis at the Business Partner Level and Definition of Appropriate Measures 
+- Concrete Risk Analysis at the Business Partner Level and Definition of Appropriate Measures 
 
-#### Process description in BPMN 
+- Process description in BPMN 
 
 ### Evidence and data requirements – business view 
 
@@ -244,33 +244,33 @@ The development of the KIT will take place throughout this year, with a strong f
 
 ### Use Case Adoption 
 
-#### SMART Objectives & KPIs 
+- SMART Objectives & KPIs 
 
-#### Business Impact Analysis (Business Capabilities) 
+- Business Impact Analysis (Business Capabilities) 
 
 ### DDC Solution 
 
-#### Functional Architecture 
+- Functional Architecture 
 
-#### Data Flows 
+- Data Flows 
 
-#### API 
+- API 
 
-#### UI 
+- UI 
 
-#### Non-Functional-Requirements 
+- Non-Functional-Requirements 
 
 ### Limitations & Call for Action 
 
-#### Annex 
+- Annex 
 
-#### Glossary 
+- Glossary 
 
-#### References  
+- References  
 
-#### Link to related Catena-X KITS and Rulebooks 
+- Link to related Catena-X KITS and Rulebooks 
 
-### CHANGE LOG
+## CHANGE LOG
 CX Release 26.03:  Initial MVP KIT 
 
 ## NOTICE
