@@ -40,23 +40,79 @@ Supply Chain Managers, Risk & Compliance Manager, Procurement Managers, Customer
 
 ### Industry Challenge
 
-[Describe current industry problems and pain points]
+The automotive industry is one of the most complex and globally interconnected value chains. It spans multiple tiers, industries and regions, involving thousands of suppliers and sub-suppliers. In particular, small and medium-sized enterprises (SMEs) play a crucial role within this supplier landscape, as they form a significant share of the automotive value chain and are often deeply embedded across multiple tiers. In the European Union alone, SMEs account for a significant share of the automotive supply chain. 
 
-**Current Challenges:**
+With the adoption of the Corporate Sustainability Due Diligence Directive (CSDDD), a new regulatory paradigm is emerging. Companies are required to identify, assess, prevent, mitigate and remediate adverse human rights and environmental impacts across their value chains. This significantly increases the need for structured, risk-based and documented Due Diligence processes. 
 
-- **Challenge 1**: [Problem description and impact]
-- **Challenge 2**: [Problem description and impact]
-- **Challenge 3**: [Problem description and impact]
+The automotive industry is particularly affected due to: 
+
+- highly fragmented multi-tier supply chains 
+
+- global sourcing across varying country and sector risk levels 
+
+- increasing regulatory scrutiny at product and company level 
+
+- growing expectations from stakeholders (e.g. investors, customers, public authorities) 
+
+While large companies bear the primary legal responsibility under CSDDD, effective implementation requires close cooperation across the value chain. Due Diligence expectations therefore extend to suppliers at different tiers, who are requested to contribute relevant information and risk assessments within their sphere of influence. SMEs, although often not directly within the regulatory scope, are increasingly asked to respond to diverse and sometimes inconsistent requirements from multiple business partners. 
+
+This creates a structural imbalance: high regulatory expectations meet limited resources and capacities on the SME side. 
+
+A harmonized, interoperable and risk-based industry approach is therefore essential to ensure both regulatory compliance and economic viability across the automotive ecosystem. 
+
+In line with the proportionality principles reflected in the CSDDD and the evolving SME Shield provisions, Due Diligence measures must be risk-based and rely primarily on information reasonably available to companies. The CX Due Diligence Check is therefore designed to operationalize these principles by minimizing unnecessary data requests and avoiding disproportionate burdens on SMEs. 
 
 ### The Solution
 
-[Explain how this KIT addresses the challenges]
+Today, Due Diligence implementation in the automotive supply chain is characterized by fragmentation and duplication. 
 
-**Solution Components:**
+Without standardization: 
 
-1. **[Component 1]**: [Description]
-2. **[Component 2]**: [Description]
-3. **[Component 3]**: [Description]
+- Each company conducts its own abstract risk analysis. 
+
+- Sustainability questionnaires and audits are applied via different tool providers and often without a harmonized risk-based methodology. 
+
+- Different codes of conduct, self-assessment questionnaires (SAQs) and audit standards coexist without interoperability. 
+
+- SMEs must respond to multiple overlapping requests from different customers. 
+
+- The proportionality of Due Diligence requirements in relation to company size and risk exposure is often not sufficiently considered. 
+
+This leads to significant inefficiencies. In a network of large companies and SME suppliers, non-standardized approaches can result in hundreds of thousands of duplicated Due Diligence checks. Standardization can reduce this effort by more than a factor of 100 by enabling a single, shareable Due Diligence Check. 
+
+Ein Bild, das Text, Screenshot, Design enthält.
+
+
+
+Beyond inefficiency, further structural challenges exist: 
+
+- Lack of a uniform country and sector risk basis 
+
+- Diverging interpretations of CSDDD requirements 
+
+- Limited comparability of Due Diligence instruments 
+
+- Missing integration of existing Due Diligence standards (Code of Conduct, SAQs, audits) towards a holistic Due Diligence Check 
+
+- Insufficient mechanisms for continuous reevaluation and incident management 
+
+- Legal and competition law sensitivities requiring strict governance 
+
+In addition, SMEs face organizational and financial constraints. They often serve customers from multiple industry sectors, each imposing different Due Diligence expectations. Without a harmonized framework, this complexity risks overburdening SMEs and undermining the effectiveness of regulatory objectives. 
+
+The industry therefore requires: 
+
+- A standardized abstract risk analysis 
+
+- A structured risk-based decision logic 
+
+- Interoperable integration of existing Due Diligence instruments 
+
+- SME-tailored proportionality mechanisms 
+
+- A governance structure ensuring regulatory alignment and competition compliance 
+
+ 
 
 ---
 
@@ -118,6 +174,75 @@ The KIT is explicitly built on Catena-X principles that de-risk adoption and ena
 
 **Success Metrics**: [Key metrics]
 
+## KIT Content Vision
+
+The development of the KIT will take place throughout this year, with a strong focus on further expanding and refining its substantive content. In 2027, a first pilot implementation is planned to test and validate the approach in practice. We warmly welcome feedback and suggestions, as your input will help us prioritize topics, improve the content, and ensure practical relevance for all stakeholders. Please submit your feedback via the designated feedback form [LINK]. 
+
+ 
+### Regulatory Framework and Due Diligence Principles 
+
+#### Regulatory and Business Drivers 
+
+#### Due Diligence as an Ongoing, Risk-Based Responsibility  
+
+#### Chain of Activities and Core Elements of Due Diligence under CSDDD 
+
+#### Relationship to Existing Frameworks and Standards 
+
+### Scope, application and system boundaries covered by this KIT 
+
+#### Regulations considered 
+
+#### Scope of application 
+
+#### Topics out of scope 
+
+### User Journey 
+
+#### Master Data Collection 
+
+#### Abstract Risk Analysis based on sector/country  
+
+#### Risk Based Approach  
+
+#### Concrete Risk Analysis at the Business Partner Level and Definition of Appropriate Measures 
+
+#### Process description in BPMN 
+
+### Evidence and data requirements – business view 
+
+### How existing Catena-X KITS support Due Diligence 
+
+### Use Case Adoption 
+
+#### SMART Objectives & KPIs 
+
+#### Business Impact Analysis (Business Capabilities) 
+
+### DDC Solution 
+
+#### Functional Architecture 
+
+#### Data Flows 
+
+#### API 
+
+#### UI 
+
+#### Non-Functional-Requirements 
+
+### Limitations & Call for Action 
+
+#### Annex 
+
+#### Glossary 
+
+#### References  
+
+#### Link to related Catena-X KITS and Rulebooks 
+
+### CHANGE LOG
+CX Release 26.03:  Initial MVP KIT 
 
 ## NOTICE
 
