@@ -81,7 +81,7 @@ Without standardization:
 This leads to significant inefficiencies. In a network of large companies and SME suppliers, non-standardized approaches can result in hundreds of thousands of duplicated Due Diligence checks. Standardization can reduce this effort by more than a factor of 100 by enabling a single, shareable Due Diligence Check. 
 
 
-![Decreased DDCs](../resource-img/Reduction_DDCs.png)
+![Decreased DDCs](../resources-img/Reduction_DDCs.png)
 
 
 
