@@ -262,7 +262,7 @@ Further properties are added at lower level below the “Demand Series” proper
 | Main Parameters | Required? | Description |
 |-|-|-|
 | Customer Location | Yes |The Business Partner Number Site (BPNS) of the site at which the customer needs the specified material for this demand series. It refers to the BPNS provided by the customer within the WeekBasedMaterialDemand and can be any BPNS (i.e. no matter what BPNL it belongs to). The supplier should assume that the materials requested will be delivered to the named BPNS based on an existing contract between the Business Partner that generates the demand and the Business Partner that receives the material|
-| Expected Supplier Location | No |The Business Partner Nomber Site (BPNS) of the site from where the cusomer expects the supplier to fulfill the demands of the demand series. The value is used for i nformational purposes only and is therefore not binding for the supplier|
+| Expected Supplier Location | No |The Business Partner Number Site (BPNS) of the site from where the customer expects the supplier to fulfill the demands of the demand series. The value is used for informational purposes only and is therefore not binding for the supplier|
 | Demand | Yes |Quantity of materials required for the specified point in time. This demand should be as close as possible to the demand that is derived from the actual production program|
 | Point in Time | Yes |ISO calendar week in which the given demand is needed. It must be given as a date of the Monday in the week.|
 | Demand Category Code | Yes |The code identifying a demand category as described in the standard under Demand Category Types|
