@@ -78,42 +78,27 @@ Business Managers, Product Owners, Solution Architects, Industry Experts, and De
 
 ## Business Value
 
-### Value Proposition #1: [Title]
+From a business perspective, the CX Due Diligence Check (SME) KIT enables application and service providers to build interoperable solutions for legally required Due Diligence with the EU CSDDD in the automotive supply chain. SMEs represent a significant share of the supplier landscape and face limited resources while being confronted with heterogeneous customer requirements. The CX DDC initiative therefore aims at standardization and interoperability of Due Diligence elements and at enabling SMEs to perform a Due Diligence Check once and share it within the Catena-X network. 
 
-**Benefit**: [Primary benefit description]
+### One standardized Due Diligence Check (“do once, share many”) 
 
-**Target Stakeholders**: [OEMs | SMEs | Solution Providers | etc.]
+A harmonized CX Due Diligence Check reduces duplicated assessments across customers and tool landscapes. In a typical network constellation, standardization can reduce the number of Due Diligence Checks significantly by enabling a single, shareable check. For service providers, this means fewer customer-specific variants and a scalable, repeatable product offering. 
 
-**Measurable Outcomes**: [Key metrics]
+### Standardized risk intelligence via shared country & sector risk registers 
 
-### Value Proposition #2: [Title]
+The KIT establishes a uniform foundation for abstract risk analysis by providing a standardized country and sector risk register, including open publication and availability in the Catena-X context. Service providers can integrate this shared risk baseline into screening, onboarding, and monitoring solutions. Supply chain participants (e.g. OEMs and suppliers) can apply it directly within their Due Diligence processes, reducing the need for each company to conduct its own abstract risk analysis. 
 
-**Benefit**: [Second benefit description]
+### Risk-based decision logic to trigger SAQs/audits only where needed  
 
-**Target Stakeholders**: [Target audience]
+The KIT defines a standardized, risk-based approach that determines when sustainability questionnaires (SAQs) or audits should be applied, improving prioritization and proactivity. A decision tree and prioritization logic are explicit components of the concept. This enables service providers to implement modular, risk-triggered workflows (rather than blanket questionnaires), and it supports SME-sensitive proportionality by considering company size and risk exposure. 
 
-**Measurable Outcomes**: [Key metrics]
+### Interoperability of existing Due Diligence instruments (CoC, SAQs, audits) 
 
-### Value Proposition #3: [Title]
+Instead of replacing existing instruments, the KIT creates an interoperability layer: multiple standardized questionnaires and audit standards can coexist with consistent coverage and comparability, enabling interoperability of SAQs and audits. The concrete risk analysis approach ensures consistent, risk-based evaluation through SAQs and audits, including comparability within instrument categories and implementation in the Catena-X landscape. Based on this evaluation, appropriate preventive and corrective measures can be defined and derived, including the application or adaptation of Codes of Conduct. This lowers integration effort for solution providers and helps avoid vendor lock-in. 
 
-**Benefit**: [Third benefit description]
+### Trusted, Catena-X-compliant foundation for scalable marketplace solutions 
 
-**Target Stakeholders**: [Target audience]
-
-**Measurable Outcomes**: [Key metrics]
-
----
-
-### Summary of Business Benefits
-
-| Stakeholder Type | Key Benefits | Time to Value |
-|------------------|--------------|---------------|
-| **OEMs** | [List 2-3 benefits for large enterprises] | [e.g., "6 months"] |
-| **SMEs** | [List 2-3 benefits for small-medium enterprises] | [e.g., "3 months"] |
-| **Solution Providers** | [List 2-3 benefits for tech vendors] | [e.g., "90 days"] |
-| **Data Providers** | [List 2-3 benefits for data providers] | [e.g., "4 weeks"] |
-
----
+The KIT is explicitly built on Catena-X principles that de-risk adoption and enable scalable offerings: technology openness and neutrality, interoperability, data sovereignty, openness and transparency (including rulebook publication), scalability and modularity (including adaptability beyond automotive), validity checkpoints, and voluntariness and competition compliance. In addition, the initiative foresees an advisory board that supports regulatory interpretation in an advisory (non-decision-making) role, strengthening credibility and implementation quality. 
 
 ## Use Cases
 
