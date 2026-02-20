@@ -206,7 +206,7 @@ The KIT is explicitly built on Catena-X principles that de-risk adoption and ena
 
 ## KIT Content Vision
 
-The development of the KIT will take place throughout this year, with a strong focus on further expanding and refining its substantive content. In 2027, a first pilot implementation is planned to test and validate the approach in practice. We warmly welcome feedback and suggestions, as your input will help us prioritize topics, improve the content, and ensure practical relevance for all stakeholders. Please submit your feedback via the designated feedback form [LINK]. 
+The development of the KIT will take place throughout this year, with a strong focus on further expanding and refining its substantive content. In 2027, a first pilot implementation is planned to test and validate the approach in practice. We warmly welcome feedback and suggestions, as your input will help us prioritize topics, improve the content, and ensure practical relevance for all stakeholders. Please submit your feedback via the designated feedback form [DDC KIT Feedback Form](https://forms.office.com/Pages/ResponsePage.aspx?id=bSzSGggvBU-guuF_bOiDgJKhZVObB0BBlH3UfbND6YFUNU8xUUc1T09PUDdKVkJVMzYwMzdKR1pNMS4u). 
  
 ### Regulatory Framework and Due Diligence Principles 
 
