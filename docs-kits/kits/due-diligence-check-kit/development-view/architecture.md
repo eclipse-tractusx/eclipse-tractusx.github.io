@@ -41,7 +41,7 @@ The automotive industry faces the challenge of scrutinizing complex, global supp
 
 ![User Journey](../resources-img/260219_KIT_User_Journey DDC SME.png)
 
-![User Journey](../resources-img/260219_KIT_User_Journey DDC SME.png)
+![User Journey](../resources-img/260219_KIT_User_Journey_DDC_SME.png)
 
 ##### Master Data Management: The Foundation for Data Exchange 
 
