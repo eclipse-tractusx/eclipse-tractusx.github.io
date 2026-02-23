@@ -41,6 +41,9 @@ The automotive industry faces the challenge of scrutinizing complex, global supp
 
 ![User Journey](../resources-img/260219_KIT_User_Journey DDC SME.png)
 
+
+![User Journey](../260219_KIT_User_Journey DDC SME.png)
+
 ##### Master Data Management: The Foundation for Data Exchange 
 
 The first step in the Due Diligence Check is to establish a reliable data foundation within the Catena-X ecosystem. This begins with CX-Onboarding, initiated by the SME. Here, the company registers itself in the Catena-X network and establishes the technical prerequisites for secure data exchange. Subsequently, the Operating Company creates a Business Partner Number (BPNL) for the SME. On the one hand, the SME is responsible for reviewing the BPN data to ensure the accuracy and completeness of its master data. On the other hand, this validation process is supported by the Golden Record Service. It is planned to extend the BPN attributes beyond the current address and country information of the respective contracting organization and related plant location. Future enhancements will include additional attributes such as company size (e.g., number of employees of the contracting organization to support SME identification) as well as information about the products manufactured or services offered. This will enable more precise sector classification (e.g., electronics, metal production, consulting services, logistics, etc.). After successful verification, the BPN data serves as a validated foundation for all subsequent process steps. This standardized master data management approach prevents fragmentation and duplication of company information, which currently represent significant sources of inefficiency. 
