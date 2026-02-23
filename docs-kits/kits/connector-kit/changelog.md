@@ -6,7 +6,7 @@
 
 All notable changes to this KIT will be documented in this file.
 
-## [4.0.0] - 2026-02-20
+## [4.0.0] - 2026-03-18
 
 - Complete rewrite of the Connector KIT
 
