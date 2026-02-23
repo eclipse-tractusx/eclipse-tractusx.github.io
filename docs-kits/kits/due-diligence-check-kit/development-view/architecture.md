@@ -39,10 +39,8 @@ The User Journey provides a high level overview of the due diligence process in 
 
 The automotive industry faces the challenge of scrutinizing complex, global supply chains for human rights and environmental risks in accordance with the Corporate Sustainability Due Diligence Directive (CSDDD). This necessitates structured, risk-based, and documented due diligence processes. The Catena-X Due Diligence Check offers a standardized, interoperable, and efficient solution that specifically reduces the burden for small and medium-sized enterprises (SMEs) and preserves data sovereignty. The process is divided into five main phases: Master Data Management, Risk Assessment and Classification, Code of Conduct (CoC) Signing, Self-Assessment Questionnaire (SAQ), and, if necessary, an Audit. 
 
-![User Journey](../resources-img/260219_KIT_User_Journey DDC SME.png)
+![UserJourney] (../resources-img/260219_KIT_User_Journey DDC SME.png)
 
-
-![User Journey](../260219_KIT_User_Journey DDC SME.png)
 
 ##### Master Data Management: The Foundation for Data Exchange 
 
