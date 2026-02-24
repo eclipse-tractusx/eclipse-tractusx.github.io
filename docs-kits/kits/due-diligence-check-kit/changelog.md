@@ -18,4 +18,3 @@ All notable changes to this KIT will be documented in this file.
 - Initial KIT Structure
 
 ### Changed
-
