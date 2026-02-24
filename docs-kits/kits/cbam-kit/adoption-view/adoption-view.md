@@ -6,7 +6,7 @@ sidebar_position: 2
 ---
 
 <Kit3DLogo kitId="cbam" />
-![CbamCatena](../resources/cbam-kit-raw-logo.svg)
+![CbamCatena](../resources/cbam-kit-raw-logo.draeio.svg)
 
 
 ## Introduction
