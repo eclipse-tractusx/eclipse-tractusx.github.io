@@ -5,8 +5,9 @@ description: CBAM KIT
 sidebar_position: 2
 ---
 
-import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 ![CbamCatena](../resources/cbam-kit-raw-logo.svg)
+>>>>>>> 76adde2ab72d5e70dae9a980d8d918f21e3d37ed
 <Kit3DLogo kitId="cbam" />
 
 ## Introduction
