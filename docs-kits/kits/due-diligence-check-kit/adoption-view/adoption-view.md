@@ -242,7 +242,7 @@ The Catena-X Due Diligence Check transforms the fragmented and inefficient Due D
 It should also be noted that risk assessments, CoCs, SAQs and audits are subject to a validity period and must be requalified after this period expires. 
 
 
-- ### Process description in BPMN
+### Process description in BPMN
 (WIP - Will be published at a later date. Planned: CX Release 2026.06)
 
 ## KIT Content Vision
