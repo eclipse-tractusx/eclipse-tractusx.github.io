@@ -148,7 +148,7 @@ Without standardization:
 
 This leads to significant inefficiencies. In a network of large companies and SME suppliers, non-standardized approaches can result in hundreds of thousands of duplicated Due Diligence checks. Standardization can reduce this effort by more than a factor of 100 by enabling a single, shareable Due Diligence Check.
 
-![Decreased DDCs](../resources/Reduction_DDCs.png)
+![Decreased DDCs](../resources/CX_DDC_Visualisierung_Vision.svg)
 
 Beyond inefficiency, further structural challenges exist:
 
@@ -212,7 +212,7 @@ The KIT is explicitly built on Catena-X principles that de-risk adoption and ena
 
 The automotive industry faces the challenge of scrutinizing complex, global supply chains for human rights and environmental risks in accordance with the Corporate Sustainability Due Diligence Directive (CSDDD). This necessitates structured, risk-based, and documented Due Diligence processes. The Catena-X Due Diligence Check offers a standardized, interoperable, and efficient solution that specifically reduces the burden for small and medium-sized enterprises (SMEs) and preserves data sovereignty. The process is divided into five main phases: Master Data Management, Risk Assessment and Classification, Code of Conduct (CoC) Signing, Self-Assessment Questionnaire (SAQ), and, if necessary, an Audit. 
 
-![User Journey](../resources/260219_KIT_User_Journey_DDC_SME.png)
+![User Journey](../resources/DDC_KIT_User_Journey.svg)
 
 ### 1. Master Data Management: The Foundation for Data Exchange 
 
