@@ -27,7 +27,7 @@ A transparent, interoperable, and sustainable industrial data ecosystem that emp
 
 ### Mission
 
-Catena-X provides a reliable, standardized data infrastructure that enables industrial stakeholders to seamlessly exchange specific embedded emission data across global value chains. In the context of the EU Carbon Border Adjustment Mechanism (CBAM), this Eclipse Tractus-X CBAM KIT empowers companies to:
+Catena-X provides a reliable, standardized data infrastructure that enables industrial stakeholders to seamlessly exchange specific embedded emission data across global value chains. In the context of the EU CBAM, this Eclipse Tractus-X CBAM KIT empowers companies to:
 
 - Collect and validate emissions data at the material and component level using harmonized methodologies.
 - Automate CBAM data request workflows, reducing administrative burden and ensuring compliance with EU regulations.
@@ -38,84 +38,352 @@ Catena-X provides a reliable, standardized data infrastructure that enables indu
 
 [Carbon Border Adjustment Mechanism](https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en)
 
+[CBAM Guidance and Legislation - Taxation and Customs Union](<https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-guidance-and-legislation_en>)
+
 ## Business Process
 
 ### Initiation of the CBAM Process
 
-The CBAM (Carbon Border Adjustment Mechanism) process begins when a product is imported into the EU under a customs code that is subject to CBAM reporting and originates from specified countries.  Importers below the defined single mass-based threshold of annual imports are not required to follow the CBAM rules. The importer initiates the process via Catena-X.  (see figure 1)
+The CBAM (Carbon Border Adjustment Mechanism) process begins when a product is imported into the EU under a CN Code that is subject to CBAM reporting and originates from specified countries. Only importers with annual imports above the defined mass-based threshold are subject to CBAM declarations to the official CBAM declarations portal. 
+CBAM relevant data must be reliably collected and submitted via the EU CBAM portal, which currently supports XML uploads or manual entry (no futher information available at this time). The CBAM declaration requires detailed information, including:
+
+- Production date and installation
+- Energy sources used
+- Verified CO₂ emissions
+
+To enable the collection of supplier specific data the importer initiates the request for CBAM relevant data via Catena-X (see Figure 1). The supplier responds with tailored emission reports and descriptions of the relevant installations.
 
 ![CbamCatena](../resources/cbam-process.svg)
 
 Figure 1: The CBAM Data Exchange mechanism with Catena-X
 
-Catena is used for identifying the importer and the supplier’s contact information and installation site.
 
-- Identification of the importer
-- Product Identifier
-- Supplier master data
-- Installation site
-- Contact information of the installation’s operator
 
-The importer contacts the supplier, who is responsible to obtain precise production site information. These details are essential for calculating the initial CO₂ levy using standardized emission values.
 
-### Quarterly Forecasting and Certificate Purchase
 
-Throughout the year, the importer is required to generate quarterly forecasts of expected import volumes. Based on these forecasts, the importer must purchase a corresponding number of CO₂ certificates in advance specified in the regulation. These certificates are initially based on default emission values or on the emissions known from previous requests,  actual data will only be available in the year following the import. These steps will be outside of the data model; in case of actual data, the data may result from Catena data.
+### CBAM Data Exchange Flow 
 
-### Ongoing Data Collection During the Year of import
+This diagram shows the high-level flow of a CBAM data exchange between an **importer** (i.e. customer, typically EU-based) and a **supplier** (i.e. non-EU producer or distributer) using the Catena-X **notification Standard** (see development view). Each exchange entails records for one or multiple CBAM goods tied to specific business transactions. This results in a tailored emissions response scoped exactly to the specified transactions, making each exchanged response unique. Both business partners require a CBAM app to generate and receive Catena-X notifications. The specification of the two current data models (request and response) is partly based on assumptions due to insufficiently specified regulation texts (data models are subject to change once official EU CBAM regulation is updated).
 
-For each import, the importer collects shipment-specific data (composite data), including:
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Importer as Importer (EU Customer)
+    actor Supplier as Supplier (Non-EU Producer)
 
-- Delivery details (Product Number, CN Code, netto mass, date)
+    Importer->>Supplier: Catena-X notification — REQUEST<br/>─────────────────────────<br/>• Identify both parties (BPNL/companyIds)<br/>• Reference the business transaction(s)<br/>  (e.g. CN code, invoice, date, net mass)<br/>• Specify what data is needed in response<br/>  (requestedElements)
+
+    Note over Supplier: Supplier maps request to<br/>real production data per<br/>transaction & good:<br/>• Production method & mass<br/>• Direct & indirect embedded emissions<br/>• Attestation of conformance (CBAM verification statement)<br/>• Carbon price paid
+
+    Supplier->>Importer: Catena-X notification — RESPONSE<br/>─────────────────────────<br/>• Identify/Confirm both parties (BPNL/companyIds)<br/>• Record per<br/> → each good<br/> → each operator<br/>  → each installation<br/>  → each production method:<br/>    · Embedded emissions (tCO₂e/t)<br/>    · Net mass (t)<br/>     · Carbon price paid<br/>    · Verification statement
+
+    Note over Importer: Importer aggregates data<br/>for CBAM declaration
+```
+
+## Principles of CBAM exchange
+
+| Principle | Explanation |
+|---|---|
+| **Transaction-scoped** | Every request per CBAM good is typically tied to a specific reference document (e.g. invoice), reference period and requested net mass. The response is tailored to that transaction, optionally pointing to a specific item on the reference document, and is scaled to the requested net mass. |
+| **Multiple operators, installations and production methods** | One supplier may source from multiple operators. Each operator may account for multiple installations. One installation may use multiple production methods. Each method gets its own emission record and mass split, which in total sum up to the requested net mass value. |
+| **Tailored scope** | The importer specifies via `requestedElements` which data blocks are needed — the supplier fills those sections as requested. The request can be sent with prefilled data fields to simplify the supplier response. The independent CBAM apps being used by the business partners are required to manage the contained information in the notifications according the specified Catena-X datamodels. |
+| **Verifiable** | Each emission record can carry a description of an attestation of conformance (third-party verification statement) and a link to the document. |
+
+## CBAM Data models: Request & Response
+
+<details> 
+  <summary>CBAM REQUEST Data model - Property Overview | click to expand</summary>
+  
+  ### CBAM Request Data Model
+
+This table gives a business-level overview of all properties in the CBAM request data model. **M** = mandatory, **O** = optional. Object groups are separated by blank rows; `·` dots indicate nesting depth. For full technical details see the corresponding datamodel file.
+
+| Property | M/O | Description | Example |
+|---|---|---|---|
+| **requestedElements** | O | List of element identifiers that define the scope of objects and/or data attributes requested for inclusion in the supplier response. The identifiers refer to sections and attributes defined in the corresponding request type schemes, and indicate which parts of the data model are expected to be provided in the response (subject to the rules of the respective response schema, e.g., mandatory fields and conditional dependencies). | associatedReferenceDocument, operatorIdentification, operatorActivityData |
+| | | | |
+| **companyIds** | O | Object with attributes describing the identifiers of the two business exchanging this dataset, namely the requesting and the responding company | n.a. |
+| | | | |
+| _**requestingCompanyIds**_ | O | Object containing one or multiple pairs of identifier type and value of the requesting company. | n.a. |
+| `··` type | M | Name of the identifier type. | Company-ID |
+| `··` value | M | Value of the stated identifier type. | Customer-Corp-12-EU |
+| | | | |
+| _**· respondingCompanyIds**_ | O | Object containing one or multiple identifiers of the responding company. | n.a. |
+| `··` type | M | Name of the identifier type. | Supplier-ID |
+| `··` value | M | Value of the stated identifier type. | Steel-Corp-12-IN |
+| | | | |
+| **good** | M | Array of good records to be reported. Each good record represents one declared good instance identified by CN Code and business transaction details and contains the CBAM-related information for that declared good.  | n.a. |
+| | | | |
+| `·` cnCode | M | This is the 8-digit CN code (combined nomenclature) of the reported good, refering to official CBAM value list to ensure updated content.  | 72011000 |
+| | | | |
+| _**· productIds**_ | O | Set of product identifiers to identify the product from the business transaction. | n.a. |
+| `··` type | M | Name of the identifier type. | GTIN |
+| `··` value | M | Value of the stated identifier type. | 4712345060507 |
+| | | | |
+| `·` productDescription | O | Free text describing the product and any characteristics that help identify the right business transaction per request. | Hot-rolled steel coil, grade S235JR |
+| | | | |
+| _**· businessTransactionDetails**_ | O | Object describing the specific business transaction between the customer (e.g. importer) and the supplier, so the request can be mapped to a real transaction. | n.a. |
+| _**·· transactionReferenceDocuments**_ | O | List of reference documents used to identify the transaction (e.g., invoice, purchase order, customs declaration, shipment); each entry provides a document type and identifier value. | n.a. |
+| `···` type | M | Reference document type/category (e.g., invoice, purchaseOrder, customsDeclaration). | invoice |
+| `···` id | M | Identifier of the document for the given type (e.g., invoice number). | INV-2024-12345 |
+| `··` requestReferencePeriodStart | M | Start timestamp of the requested reference period; start and end must be within the same calendar year. | 2024-01-01T00:00:00Z |
+| `··` requestReferencePeriodEnd | M | End timestamp of the requested reference period; start and end must be within the same calendar year. | 2024-12-31T23:59:59Z |
+| `··` requestedNetMass | O | Net mass (tonnes) of CBAM-relevant good the request relates to (e.g., from customs). Note, value shall match the sum across all corresponding production method net mass values in the response. | 60 |
+| | | | |
+| _**· operator**_ | O | One or multiple objects containing attributes that describe an operator each that legally owns the installations producing the CBAM good that is subject of this request. Operator can be different to supplier. One supplier (business partner of this transaction) can source the good defined in the business transaction from other suppliers. This can result in multiple operators (mutliple operator objects) involved in the depicted supply chain.  | n.a. |
+| _**·· transactionReferenceDocumentLink**_ | O | Pointer to a reference document previously provided in businessTransactionDetails, optionally refined to a specific part/item of that document, to indicate which document (and which part of it) the operator-related response data corresponds to. | n.a. |
+| `···` refDocType | M | Type of the referenced document; must match a reference document type from the business transaction details object in the request. | invoice |
+| `···` refDocId | M | Identifier of the referenced document; must match the corresponding reference document value from the request. | INV-2024-12345 |
+| | | | |
+| _**··· refDocElement**_ | O | Additional locator/metadata to identify a specific element within the referenced document (e.g., line item, position number, material code, annex section). Used when the document covers multiple goods/operators and you need to specify which part applies. | n.a. |
+| `····` type | M | Kind of element locator provided (e.g., invoiceLineItem, customsItemNumber, purchaseOrderLine, shipmentPosition). | batchNumber |
+| `····` value | M | Value of the locator (e.g., line “10”, item “3”, position “0002”). | 02 |
+| | | | |
+| _**·· operatorIdentification**_ | O | Object containing attributes to identify the operator. | n.a. |
+| `···` operatorIsSupplier | O | Boolean property indicating whether the supplier (i.e., the business transaction partner) is also the installation operator.  | TRUE |
+| | | | |
+| _**··· operatorIds**_ | O | Unique set of identifiers for the operator. BPNL and Operator CBAM ID are listed as separate attributes. | n.a. |
+| `····` operatorBpnl | O | BPNL (business partner number legal) of operator, if company is registered at Catena-X. | BPNL000000000OPR |
+| `····` operatorCbamId | O | Unique identifier for the operator in the official EU O3CI portal (operator of third country installation).  | O3CI-OPR-123456 |
+| | | | |
+| _**···· otherIds**_ | O | Other identifiers for the operator excluding BPNL and Operator CBAM ID. | n.a. |
+| `·····` type | M | Name of the identifier type | Operator-Tracking-ID |
+| `·····` value | M | Value of the stated identifier type | OP.DE-Steel_north_AG1 |
+| `···` operatorName | O | Name of the operator | Steel Example Corp. |
+| `···` operatorContactEmailAddress | O | The email address of the person that is assigned in the contact details of the operator | contact@steelexample.com |
+| | | | |
+| _**··· address**_ | O | Object containing attributes that document the address of the operator. | n.a. |
+| `····` country | O | Country code where the operator is established, refering to official CBAM value list to ensure updated content. | DE |
+| `····` city | O | The city where the operator is located | Duisburg |
+| `····` street | O | The street where the operator is located | Werkstraße 1 |
+| | | | |
+| _**·· operatorActivityData**_ | O | Object describing mass flow attributed to the operator. | n.a. |
+| `···` netMass | M | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, summed over all installations belonging to the operator described in this object. | 60.0 |
+| | | | |
+| _**·· installation**_ | O | One or more objects describing each installation producing the CBAM good that is the subject of this request. A single operator may own multiple installations supplying the CBAM good in this request; in that case, multiple installation objects are provided. Each installation may include multiple production methods. | n.a. |
+| _**··· installationIdentification**_ | O | Object containing attributes to identify the installation. | n.a. |
+| _**···· installationIds**_ | O | Unique set of identifiers of the installation. | n.a. |
+| `·····` installationCbamId | O | Unique identifier for the installation in the official EU O3CI portal (operator of third country installation).  | O3CI-INST-654321 |
+| | | | |
+| _**····· otherIds**_ | O | Other identifiers of the installation, excluding the official CBAM installation ID.  | n.a. |
+| `······` type | M | Name of the identifier type. | Installation-ID |
+| `······` value | M | Value of the stated identifier type. | INST-987654 |
+| `····` installationName | O | Name of the installation. | Steel Manufacturing Facility - Delhi Plant |
+| | | | |
+| _**···· address**_ | O | Object containing attributes that document the address of the installation. | n.a. |
+| `·····` countryCode | M | Country code where the installation is established and the good is produced, refering to official CBAM value list to ensure updated content. | IN |
+| `·····` city | M | The city where the installation is located. | Delhi |
+| `·····` longitude | O | The longitude where the installation is located. | 77.2197 |
+| `·····` latitude | O | The latitude where the installation is located. | 28.6139 |
+| `·····` typeOfCoordinates | O | The type of coordinates: 01 GPS, 02 GNSS | 01 |
+| `·····` plotOrParcelNumber | O | The plot or parcel number of the location. | PLOT-456-INDUSTRIAL-ZONE-A |
+| `·····` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at https://unece.org/trade/uncefact/unlocode | INDEL |
+| | | | |
+| _**··· installationActivityData**_ | O | Object describing temporal reference and mass flow attributed to the installation. | n.a. |
+| `····` netMass | M | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, produced in the stated installation, calculated as the sum across all applicable production methods within that installation. | 60.0 |
+| | | | |
+| _**··· emissionsRecords**_ | O | One or more objects detailing the specific production method(s) that the emission objects refer to; each installation may include multiple production methods. | n.a. |
+| _**···· productionMethod**_ | O |  |  |
+| `·····` methodId | M | Specific identifier of the production method according the official value list provided by the CBAM declarant portal. | P24 |
+| `·····` specificSteelMillId | O | Specific identifier of the steel mill used for the production of the good, if applicable.  | MILL-001 |
+| `·····` additionalInformation | O | Any additional information that the supplier wants to provide with regard to the production method.  | Uses recycled scrap as input |
+| | | | |
+| _**···· productionMethodActivityData**_ | O | An object describing the temporal reference and the mass flow attributable to the specified production method within an installation. | n.a. |
+| `·····` referencePeriodStart | O | Start date of the period in which relevant data was collected at the installation for the specified production method, serving as the reference period for emissions calculation; both start and end date must be in the same calendar year. | 2024-01-01T00:00:00Z |
+| `·····` referencePeriodEnd | O | End date of the period in which relevant data was collected at the installation for the specified production method, serving as the reference period for emissions calculation; both start and end date must be in the same calendar year. | 2024-12-31T23:59:59Z |
+| `·····` netMass | M | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request produced in the stated installation by the stated production method only. | 60.0 |
+
+
+
+</details>
+
+<details> 
+  <summary>CBAM RESPONSE Data model - Property Overview | click to expand</summary>
+
+  ### CBAM Response Data Model
+
+This table gives a business-level overview of all properties in the CBAM response data model. **M** = mandatory, **O** = optional. Object groups are separated by blank rows; `·` dots indicate nesting depth. For full technical details see the corresponding datamodel file.
+
+| Property | M/O | Description | Example |
+|---|---|---|---|
+| **companyIds** | O | Object with attributes describing the identifiers of the two business exchanging this dataset, namely the requesting and the responding company | n.a. |
+| | | | |
+| _**· requestingCompanyIds**_ | O | Object containing one or multiple pairs of identifier type and value of the requesting company. | n.a. |
+| `··` type | M | Name of the identifier type. | Company-ID |
+| `··` value | M | Value of the stated identifier type. | Customer-Corp-12-EU |
+| | | | |
+| _**· respondingCompanyIds**_ | O | Object containing one or multiple identifiers of the responding company. | n.a. |
+| `··` type | M | Name of the identifier type. | Supplier-ID |
+| `··` value | M | Value of the stated identifier type. | Steel-Corp-12-IN |
+| | | | |
+| **good** | M | Array of good records to be reported. Each good record represents one declared good instance identified by CN Code and business transaction details and contains the CBAM-related information for that declared good.  | n.a. |
+| | | | |
+| `·` cnCode | M | This is the 8-digit CN code (combined nomenclature) of the reported good, refering to official CBAM value list to ensure updated content.  | 72011000 |
+| | | | |
+| _**· productIds**_ | O | Set of product identifiers to identify the product from the business transaction. | n.a. |
+| `··` type | M | Name of the identifier type. | GTIN |
+| `··` value | M | Value of the stated identifier type. | 4712345060507 |
+| | | | |
+| `·` productDescription | O | Free text describing the product and any characteristics that help identify the right business transaction per request. | Hot-rolled steel coil, grade S235JR |
+| | | | |
+| _**· businessTransactionDetails**_ | O | Object describing the specific business transaction between the customer (e.g. importer) and the supplier, so the request can be mapped to a real transaction. | n.a. |
+| _**·· transactionReferenceDocuments**_ | O | List of reference documents used to identify the transaction (e.g., invoice, purchase order, customs declaration, shipment); each entry provides a document type and identifier value. | n.a. |
+| `···` type | M | Reference document type/category (e.g., invoice, purchaseOrder, customsDeclaration). | invoice |
+| `···` id | M | Identifier of the document for the given type (e.g., invoice number). | INV-2024-12345 |
+| `··` requestReferencePeriodStart | O | Start timestamp of the requested reference period; start and end must be within the same calendar year. | 2024-01-01T00:00:00Z |
+| `··` requestReferencePeriodEnd | O | End timestamp of the requested reference period; start and end must be within the same calendar year. | 2024-12-31T23:59:59Z |
+| `··` requestedNetMass | O | Net mass (tonnes) of CBAM-relevant good the request relates to (e.g., from customs). Note, value shall match the sum across all corresponding production method net mass values in the response. | 60 |
+| | | | |
+| _**· operator**_ | O | One or multiple objects containing attributes that describe an operator each that legally owns the installations producing the CBAM good that is subject of this request. Operator can be different to supplier. One supplier (business partner of this transaction) can source the good defined in the business transaction from other suppliers. This can result in multiple operators (mutliple operator objects) involved in the depicted supply chain.  | n.a. |
+| _**·· transactionReferenceDocumentLink**_ | O | Pointer to a reference document previously provided in businessTransactionDetails, optionally refined to a specific part/item of that document, to indicate which document (and which part of it) the operator-related response data corresponds to. | n.a. |
+| `···` refDocType | M | Type of the referenced document; must match a reference document type from the business transaction details object in the request. | invoice |
+| `···` refDocId | M | Identifier of the referenced document; must match the corresponding reference document value from the request. | INV-2024-12345 |
+| | | | |
+| _**··· refDocElement**_ | O | Additional locator/metadata to identify a specific element within the referenced document (e.g., line item, position number, material code, annex section). Used when the document covers multiple goods/operators and you need to specify which part applies. | n.a. |
+| `····` type | M | Kind of element locator provided (e.g., invoiceLineItem, customsItemNumber, purchaseOrderLine, shipmentPosition). | batchNumber |
+| `····` value | M | Value of the locator (e.g., line “10”, item “3”, position “0002”). | 02 |
+| | | | |
+| _**·· operatorIdentification**_ | O | Object containing attributes to identify the operator. | n.a. |
+| `···` operatorIsSupplier | O | Boolean property indicating whether the supplier (i.e., the business transaction partner) is also the installation operator.  | TRUE |
+| | | | |
+| _**··· operatorIds**_ | O | Unique set of identifiers for the operator. BPNL and Operator CBAM ID are listed as separate attributes. | n.a. |
+| `····` operatorBpnl | O | BPNL (business partner number legal) of operator, if company is registered at Catena-X. | BPNL000000000OPR |
+| `····` operatorCbamId | O | Unique identifier for the operator in the official EU O3CI portal (operator of third country installation).  | O3CI-OPR-123456 |
+| | | | |
+| _**···· otherIds**_ | O | Other identifiers for the operator excluding BPNL and Operator CBAM ID. | n.a. |
+| `·····` type | M | Name of the identifier type | Operator-Tracking-ID |
+| `·····` value | M | Value of the stated identifier type | OP.DE-Steel_north_AG1 |
+| `···` operatorName | O | Name of the operator | Steel Example Corp. |
+| `···` operatorContactEmailAddress | O | The email address of the person that is assigned in the contact details of the operator | contact@steelexample.com |
+| | | | |
+| _**··· address**_ | O | Object containing attributes that document the address of the operator. | n.a. |
+| `····` country | O | Country code where the operator is established, refering to official CBAM value list to ensure updated content. | DE |
+| `····` city | O | The city where the operator is located | Duisburg |
+| `····` street | O | The street where the operator is located | Werkstraße 1 |
+| | | | |
+| _**·· operatorActivityData**_ | O | Object describing mass flow attributed to the operator. | n.a. |
+| `···` netMass | M | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, summed over all installations belonging to the operator described in this object. | 60.0 |
+| | | | |
+| _**·· installation**_ | O | One or more objects describing each installation producing the CBAM good that is the subject of this request. A single operator may own multiple installations supplying the CBAM good in this request; in that case, multiple installation objects are provided. Each installation may include multiple production methods. | n.a. |
+| _**··· installationIdentification**_ | O | Object containing attributes to identify the installation. | n.a. |
+| _**···· installationIds**_ | O | Unique set of identifiers of the installation. | n.a. |
+| `·····` installationCbamId | O | Unique identifier for the installation in the official EU O3CI portal (operator of third country installation).  | O3CI-INST-654321 |
+| | | | |
+| _**····· otherIds**_ | O | Other identifiers of the installation, excluding the official CBAM installation ID.  | n.a. |
+| `······` type | M | Name of the identifier type. | Installation-ID |
+| `······` value | M | Value of the stated identifier type. | INST-987654 |
+| `····` installationName | O | Name of the installation. | Steel Manufacturing Facility - Delhi Plant |
+| | | | |
+| _**···· address**_ | O | Object containing attributes that document the address of the installation. | n.a. |
+| `·····` countryCode | M | Country code where the installation is established and the good is produced, refering to official CBAM value list to ensure updated content. | IN |
+| `·····` city | M | The city where the installation is located. | Delhi |
+| `·····` longitude | O | The longitude where the installation is located. | 77.2197 |
+| `·····` latitude | O | The latitude where the installation is located. | 28.6139 |
+| `·····` typeOfCoordinates | O | The type of coordinates: 01 GPS, 02 GNSS | 01 |
+| `·····` plotOrParcelNumber | O | The plot or parcel number of the location. | PLOT-456-INDUSTRIAL-ZONE-A |
+| `·····` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at https://unece.org/trade/uncefact/unlocode | INDEL |
+| | | | |
+| _**··· installationActivityData**_ | O | Object describing temporal reference and mass flow attributed to the installation. | n.a. |
+| `····` netMass | M | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, produced in the stated installation, calculated as the sum across all applicable production methods within that installation. | 60.0 |
+| | | | |
+| _**··· emissionsRecords**_ | O | One or more objects detailing the specific production method(s) that the emission objects refer to; each installation may include multiple production methods. | n.a. |
+| _**···· productionMethod**_ | M |  |  |
+| `·····` methodId | M | Specific identifier of the production method according the official value list provided by the CBAM declarant portal. | P24 |
+| `·····` specificSteelMillId | O | Specific identifier of the steel mill used for the production of the good, if applicable.  | MILL-001 |
+| `·····` additionalInformation | O | Any additional information that the supplier wants to provide with regard to the production method.  | Uses recycled scrap as input |
+| | | | |
+| _**···· productionMethodActivityData**_ | O | An object describing the temporal reference and the mass flow attributable to the specified production method within an installation. | n.a. |
+| `·····` referencePeriodStart | M | Start date of the period in which relevant data was collected at the installation for the specified production method, serving as the reference period for emissions calculation; both start and end date must be in the same calendar year. | 2024-01-01T00:00:00Z |
+| `·····` referencePeriodEnd | M | End date of the period in which relevant data was collected at the installation for the specified production method, serving as the reference period for emissions calculation; both start and end date must be in the same calendar year. | 2024-12-31T23:59:59Z |
+| `·····` netMass | M | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request produced in the stated installation by the stated production method only. | 60.0 |
+| | | | |
+| _**···· directEmissions**_ | O | Object detailing the direct embedded emissions referenced to the specific production method and installation. | n.a. |
+| `·····` additionalInformation | O | Any additional information that the supplier wants to provide with regard to direct embedded emissions.  | Calculated using official CBAM excel template |
+| `·····` specificEmbeddedEmissionsDirect | M | Value of the direct embedded emissions, expressed in tonnes of CO₂ equivalents per tonne of product, calculated with reference to the specific production method and installation.  | 1.85 |
+| | | | |
+| _**···· indirectEmissions**_ | O | Object deailing the indirect embedded emissions referenced to the specific production method and installation. | n.a. |
+| `·····` sourceOfEmissionFactor | M | Declaration of applied literature or published information by the statistics office, according to following allowed values: 01 Other, 02 Commission based on IEA data. | 02 |
+| `·····` emissionFactorTonnesCo2PerMwh | M | This element declares the applied emission factor for electricity, expressed as tonnes CO2 per MWh. | 0.45 |
+| `·····` sourceOfEmissionFactorValue | M | Any additional information detailing the source of the emissions value. | IEA 2022 Electricity Report |
+| `·····` specificEmbeddedEmissionsIndirect | M | Value of the indirect embedded emissions, expressed in tonnes of CO₂ equivalents per tonne of product, calculated with reference to the specific production method and installation. | 0.25 |
+| `·····` electricityConsumedMwhPerTonnesGood | M | Value of the consumed electricity, expressed as MWh per tonne of good. | 0.6 |
+| `·····` sourceOfElectricity | M | Describes the source of the electricity according to the official value list: SOE01 Direct technical link to electricity generator, SOE02 (Bilateral) power purchase agreement, SOE03 Received from the grid | SOE03 |
+| `····` freeAllocationFactor | O | The free allocation factor, expressed as tonnes of CO2​ equivalents per tonne of product, based on the specific material and energy inputs used to produce the product. | 0.6 |
+| | | | |
+| _**···· attestationOfConformance**_ | O | An object describing the attestation of conformance for the reported installation-level emission values (e.g., an annual verification statement issued by an accredited verification body in accordance with CBAM verification rules). | n.a. |
+| `·····` attestationType | O | The type of attestation that indicates the assurance approach and level of trust provided by the attestation of conformance (e.g., CBAM third‑party verification). | CBAM third party verification |
+| `·····` attestationStandard | O | The specific standard, methodology, or regulation applied by the installation operator to calculate and report the underlying results (e.g., emissions data) that are covered by the attestation of conformance. | Regulation (EU) 2025/2083 |
+| `·····` standardName | O | The specific standard, rules, or regulation that defines how the provider of the attestation of conformance performs the attestation activities (e.g., evaluation approach, evidence requirements, level of assurance) to determine whether the reported results conform to the applicable calculation/reporting standard. |  |
+| `·····` providerName | O | The legal name of the organization that issues the attestation of conformance, e.g. verifier name. | TÜV X |
+| `·····` providerID | O | A unique identifier of the provider of the attestation of conformance as issued by the accreditation institute, i.e. accreditation number. | 5493001KJTIIGC8Y1R12 |
+| `·····` accreditationBodyName | O | The name of the organization that grants and maintains the formal accreditation under which the provider of the attestation of conformance is authorized to perform the attestation. | National Accreditation Institute ABX |
+| `·····` attestationOfConformanceId | O | A unique identifier assigned by the provider of the attestation of conformance to the attestation document (e.g., verification statement) for tracking and reference. | 123e4567-e89b-12d3-a456-426614174000 |
+| `·····` attestationOfConformanceLink | O | A URL to the attestation of conformance document (e.g. verification statement), enabling manual verification of its validity and authenticity. | https://exampleverifier.com/cbam/statement/123e4567 |
+| `·····` completedAt | O | Time stamp for when the attestation of conformance was issued. | 2024-03-15T10:00:00Z |
+| | | | |
+| _**···· carbonPricePaid**_ | O | One or multiple objects describing the carbon price due in a third country per emission object on installation level.  | n.a. |
+| `·····` typeOfInstrument | O | Attribute describing the form of carbon price, also referred to as type of instrument. The values are defined as: 01 Carbon tax, 02 Carbon levy, 03 Carbon fee, 04 National Emissions Trading System, 05 Regional Emissions Trading System, 06 Other | 01 |
+| | | | |
+| _**····· independentPersonId**_ | M | Identifier of the independent person issuing a payment statement about the carbon price paid by the direct supplier or any other tier-n supplier in the value chain. | n.a. |
+| `······` type | M | Name of the identifier type | National CBAM Verifier Registry |
+| `······` value | M | Value of the stated identifier type | CBAM_VER_ZGG0612 |
+| `·····` descriptionAndIndicationOfLegalAct | O | Reference the description of the underlying legal act according to which the carbon price was paid | Country ABC National Carbon Tax Act 2022 |
+| `·····` amountOfCarbonPricePaid | O | Monetary value of the paid carbon price | 12000.00 |
+| `·····` currency | O | The currency used for the declared amount to be paid, refering to official CBAM value list to ensure updated content. | CNY |
+| `·····` countryCode | O | Country code where the carbon price is paid, refering to official CBAM value list to ensure updated content. | CN |
+
+
+
+</details>
+
+### Use Cases covered with this CBAM KIT
+
+Different needs for CBAM relevant data require flexibility in the use of both data models (request/respnse). Accordingly, the implementing CBAM apps should preferrably be able to support following use cases.
+
+#### Ongoing Data Collection During the Year of import, Quarterly Forecasting and Certificate Purchase
+
+For each import, the importer collects shipment-specific data (composite data) used to specify the request to the supplier, maintain traceability and prepare for the final emissions reporting, including:
+
+- Delivery details (Product Number, CN Code, net mass, date)
 - Country of customs origin
 - Associated installation
-This data is used to specify the outbound request to supplier, maintain traceability and prepare for the final emissions reporting.
 
-### Year-End Emissions Data Collection
+Throughout the year, the importer is required to generate forecasts of expected import volumes. Based on these forecasts, the importer is supposed to purchase a corresponding number of CO₂ certificates already during the year, as specified in the regulation. These certificates are initially based on default emission values or on the emission values known from previous requests. Actual data as provided by the supplier will be available in the year following the import. These steps of purchasing CO₂ certificates and declaring emission values to the official EU CBAM portal will be outside of this use case (i.e. data model). 
 
-At the end of the reporting year, the importer requests actual CO₂ emission data from all suppliers. These values must be:
+This Catena-X use case serves to exchange data about the involved installations and expected mass flows only (e.g. to prepare forecasting). The request can be tailored accordingly by defining the required response objects in the property **requestedElements**. The response can be linked to the request and can be reduced to non-emission-related datafields.
 
-- Verified by an EU-accredited verifier
-- Based on the actual production process and installation
-- Expressed standardized data elements
-The supplier, in turn, may need to obtain this data from the operator (the actual producer), especially if they are not directly involved in manufacturing.
+#### Year-End Emissions Data Collection
 
-The last three sections
+In the year following the reporting year, the importer requests actual CO₂ emission data from all suppliers. These values shall be:
 
-- Initiation of the CBAM Process
-- Ongoing Data Collection During the Year of import
-- Year-End Emissions Data Collection
+- Verified by an accredited verifier
+- Based on the actual production method and installation
+- Expressed as standardized data elements
+The supplier, in turn, may need to obtain this data from the operator(s) (the actual producer), especially if the direct supplier is not directly involved in production.
 
-Are describing the different operation/communication modes for the CBAM interface. This also results into different APIs as well as variants in the data model
+### CBAM Activities Outside of this KIT | Outlook
 
-### Submission of the Annual CBAM Report
+#### Submission of the Annual CBAM Report
 
-Using the verified emission data, the importer in the year following the import submits an annual CBAM report to the EU. This report states the actual emissions imported during the import year as well as any local CO2 taxes paid by the operators and allow a calculation of the certificates due:
+Using the verified emission data obtained from the supplier, the importer submits an annual CBAM report to the EU. This report states the actual emissions imported during the import year as well as any local CO2 taxes paid by the operators. This allows for the calculation of the final amount of CO2 certificates to be purchased. The following principles apply (outside of ths KIT):
 
 - If the importer has purchased too few certificates, additional ones must be acquired.
 - If too many certificates were purchased, the excess may not always be refunded
 The preparation and submission of this report are not part of the KIT’s data model.
 
-### Transition to Actual Emission Values
+#### Transition to Actual Emission Values
 
-From the following year onward, the importer uses the actual emission values for the same installation / CN code combinations (instead of default values) for calculating CO₂ levies on future imports. This transition improves accuracy and reflects the true environmental impact of the imported goods.
-However, collecting actual data is only worthwhile for suppliers with significant shipment volumes. For small or one-off deliveries, the administrative effort may outweigh the benefits. In these cases it may be more efficient to rely on the default data  published by the EU-Commission.
-The preparation and submission of this report are not part of the KIT’s data model.
+From the following year onward, the importer uses the actual emission values for the same installation / CN code combinations (instead of official default values) for calculating CO₂ levies on future imports. This transition improves accuracy in terms of environmental impact of the imported goods as well as to be expected CO2 certificate purchases.
+However, collecting actual data is only worthwhile for suppliers with significant shipment volumes. For small or one-off deliveries, the administrative effort may outweigh the benefits. In these cases it may be more efficient to rely on the default data published by the EU-Commission.
 
-### Challenges and Regulatory Requirements
+#### Challenges and Regulatory Requirements
 
-A major challenge is that EU importers typically do not always have direct contracts with the operator. Instead, they must rely on their suppliers to provide the necessary data from upstream partners. To ensure the availability of the data, it is recommended to contractually oblige the suppliers to provide the data.  This complexity increases with longer supply chains.
+A major challenge is that EU importers sometimes do not have direct contracts with the operator (e.g. in case of distributors as suppliers). Instead, importers must rely on their suppliers to provide the necessary data from upstream partners. To ensure the availability of the data, it is recommended to contractually oblige the suppliers to provide the data. This complexity increases with longer supply chains.
 
-The EU requires detailed information, including:
-
-- Production date and installation
-- Energy sources used
-- Verified CO₂ emissions
-These must be reliably collected and submitted via the EU portal, which currently supports Excel uploads or manual entry.
 
 ## Architecture
 
-Figure 2 gives an overview about the Archtechture of the CBAM service.
+Figure 2 gives an overview about the Architecture of the CBAM service.
 
 ![CbamCatena](../resources/Architecture_simply.drawio.svg)
 
@@ -123,1482 +391,20 @@ Figure 2: Architecture of CX-CBAM Service
 
 ### CBAM Personas
 
-Here is a tabular overview of the key roles in the CBAM (Carbon Border Adjustment Mechanism) process, along with a brief description of each:
+Here is a tabular overview of the key roles in the CBAM process:
 
 | Role | Description |
 | --- | --- |
-|Importer/Declarant| Is responsible for to request CBAM relevant reporting data, purchasing CO₂ certificates, and submitting reports to the E U.|
+|Importer/Declarant| Is responsible for requesting CBAM relevant reporting data, purchasing CO₂ certificates, and submitting reports to the EU|
 |Supplier| Business (contractual) partner of the customer/Importer responsible to provide initial product and site information from the operator to the customer.|
-|Operator| Is a company who operates one or multiple installations (production sites). Responsible for providing verified CO₂ emission data, certified by an EU-accredited verifier.|
-|EU| The European Commission, specifically the Directorate-General for Taxation and Customs Union (DG TAXUD), is responsible for the design, development, and maintenance of the CBAM Portal and its associated systems. The CBAM Registry, hich is the central platform for managing declarant authorizations, submitting emissions reports (planned) and for acilitating communication between importers, national authorities, and the Commission.|
+|Operator| Is a company who operates one or multiple installations (production sites). Responsible for providing verified CO₂ emission data.|
+|EU| The European Commission, specifically the Directorate-General for Taxation and Customs Union (DG TAXUD), is responsible for the design, development, and maintenance of the CBAM Portal and its associated systems. The CBAM Registry, which is the central platform for managing declarant authorizations, submitting emissions reports (planned) and for facilitating communication between importers, national authorities, and the Commission.|
 |Submitter| An authorized CBAM declarant may delegate the submission of CBAM declarations to a person acting on behalf and in the name of that authorized CBAM declarant. (§7a). This is not in scope of the KIT V1 as the submitter can use the ID of the Importer to access Catena.|
 
 ### Semantic Models
 
 Depending on the use case and related KIT, Catena-X provides different semantic models that help to structure and make use of data via semantic information. These models help to provide a basic meaning to the data and their relationship, thereby enabling interoperability between data sets. Catena-X data models rely on principles as understandability, standardization, accuracy, differentiation, audibility, comprehensiveness, and provision of insights to drive improvement actions.
 
-### Example Payload
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "partnerMapping": {
-      "type": "object",
-      "description": "Object with attributes to identify the direct business partners that exchangedthis dataset",
-      "properties": {
-        "requestId": {
-          "type": "string",
-          "description": "Unique request ID issued for each request by a customer to the supplier. Supplier uses this ID for reference to which request the response belongs",
-          "example": "REQ-2024-001"
-        },
-        "requestedElements": {
-          "type": "enum",
-          "description": "Definition of the scope of the requested objects or data attributes to be delivered in a supplier response, as documented separately in respective request type schemes.",
-          "enum": [
-            "partnerMapping",
-            "cnCode",
-            "productIds",
-            "productDescription",
-            "businessTransactionDetails",
-            "associatedReferenceDocument",
-            "operatorIdentification",
-            "operatorActivityData",
-            "installationIdentification",
-            "installationActivityData",
-            "productionMethod",
-            "directEmissions",
-            "indirectEmissions",
-            "attestationOfConformance",
-            "carbonPrice"
-          ],
-          "example": "associatedReferenceDocument, operatorIdentification, operatorActivityData"
-        },
-        "companyIds": {
-          "type": "object",
-          "description": "Object with attributes describing the identifiers of the two business exchanging this dataset, namely the requesting and the responding company",
-          "properties": {
-            "requestingCompany": {
-              "type": "object",
-              "description": "Object containing one or multiple pairs of identifier type and value of the requesting company, e.g. BPNL of the customer generating the request for emission data",
-              "properties": {
-                "bpnl": {
-                  "type": "string",
-                  "description": "BPNL (Business Partner Number Legal) of the customer generating the request for emission data",
-                  "example": "BPNL000000000DWF"
-                },
-                "otherIds": {
-                  "type": "array",
-                  "description": "Object containing one or multiple pairs of identifier type and value of the requesting company, excluding BPNL.",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "description": "Name of the identifier type",
-                        "example": "Company-ID"
-                      },
-                      "value": {
-                        "type": "string",
-                        "description": "Value of the stated identifier type",
-                        "example": "Customer-Corp-12-EU"
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "value"
-                    ]
-                  }
-                }
-              },
-              "required": []
-            },
-            "respondingCompany": {
-              "type": "object",
-              "description": "Object containing one or multiple identifiers of the responding company",
-              "properties": {
-                "bpnl": {
-                  "type": "string",
-                  "description": "BPNL of the supplier receiving the initial request and pushing the emission data.",
-                  "example": "BPNL000000000XYZ"
-                },
-                "otherIds": {
-                  "type": "array",
-                  "description": "Object containing one or multiple pairs of identifier type and value of the responding company, excluding BPNL.",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "description": "Name of the identifier type",
-                        "example": "Supplier-ID"
-                      },
-                      "value": {
-                        "type": "string",
-                        "description": "Value of the stated identifier type",
-                        "example": "Steel-Corp-12-IN"
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "value"
-                    ]
-                  }
-                }
-              },
-              "required": []
-            }
-          },
-          "required": []
-        }
-      },
-      "required": [
-        "requestId",
-        "requestedElements"
-      ]
-    },
-    "good": {
-      "type": "array",
-      "description": "One or multiple objects documenting the good's CBAM information to allow for multiplie batches or instances of the same CN Code per business transaction, i.e. in case of multiple operators to be listed. Each object allows for only one operator. Multiple objects are possible while the CN code remains identical. ",
-      "items": {
-        "type": "object",
-        "properties": {
-          "cnCode": {
-            "type": "string",
-            "description": "This is the 8-digit CN code (combined nomenclature) of the reported good, refering to official CBAM value list to ensure updated content. ",
-            "maxLength": 8,
-            "example": 72011000
-          },
-          "productIds": {
-            "type": "array",
-            "description": "Set of product identifiers to identify the product from the business transaction",
-            "items": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "description": "Name of the identifier type",
-                  "example": "GTIN"
-                },
-                "value": {
-                  "type": "string",
-                  "description": "Value of the stated identifier type",
-                  "example": 4712345060507
-                }
-              },
-              "required": [
-                "type",
-                "value"
-              ]
-            }
-          },
-          "productDescription": {
-            "type": "string",
-            "description": "Free text describing the product and any characteristics that help identify the right business transaction per request.",
-            "example": "Hot-rolled steel coil, grade S235JR"
-          },
-          "businessTransactionDetails": {
-            "type": "object",
-            "description": "Object containing attributes that document a specific business transaction between the customer (e.g. importer) and the supplier to enable a mapping of the request to am actual business transaction.",
-            "properties": {
-              "referenceDocument": {
-                "type": "array",
-                "description": "List of documents needed to identify the business transaction, such as invoice, customs declaration, shipping number",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "description": "Name of the identifier type, e.g. invoice, purchase order.",
-                      "example": "invoice"
-                    },
-                    "value": {
-                      "type": "string",
-                      "description": "Value of the stated identifier type",
-                      "example": "INV-2024-12345"
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "value"
-                  ]
-                }
-              },
-              "requestReferencePeriodStart": {
-                "type": "string",
-                "description": "Time stamp for when the reference period of the request starts, which shall be covered by the reference year of the the actual emission values. ",
-                "format": "date-time",
-                "example": "2024-01-01T00:00:00Z"
-              },
-              "requestReferencePeriodEnd": {
-                "type": "string",
-                "description": "Time stamp for when the reference period of the request ends, which shall be covered by the reference year of the the actual emission values. ",
-                "format": "date-time",
-                "example": "2024-12-31T23:59:59Z"
-              },
-              "requestedNetMass": {
-                "type": "number",
-                "description": "Net mass of the CBAM relevant good in tonnes that the request relates to, e.g. according to customs declaration. For completion, the requested net mass needs to match the net mass summed up over all operator objects. Applies to all CBAM relevant goods except for electricity.",
-                "example": 60
-              },
-              "requestedNetElectricity": {
-                "type": "number",
-                "description": "Net Electricity amount in MWh traded as CBAM good. Applies to Electricity only. ",
-                "example": 100
-              }
-            },
-            "required": [
-              "requestReferencePeriodStart",
-              "requestReferencePeriodEnd"
-            ]
-          },
-          "operator": {
-            "type": "array",
-            "description": "One or multiple objects containing attributes that describe an operator each that legally owns the installations producing the CBAM good that is subject of this request. Operator can be different to supplier. One supplier (business partner of this transaction) can source the good defined in the business transaction from other suppliers. This can result in multiple operators (mutliple operator objects) involved in the depicted supply chain. ",
-            "items": {
-              "type": "object",
-              "properties": {
-                "associatedReferenceDocument": {
-                  "type": "object",
-                  "description": "Object containing additional specifications to the reference document that the operator is associated to, such as addtional elements or line items within the invoice that are exclusive to the stated operator. ",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "description": "Repetition of the type of the associated reference document object that this additional meta data  refers to.",
-                      "example": "invoice"
-                    },
-                    "value": {
-                      "type": "string",
-                      "description": "Repetition of the value of the associated reference document object that this additional meta data specification refers to.",
-                      "example": "INV-2024-12345"
-                    },
-                    "elementDetail": {
-                      "type": "object",
-                      "description": "Contains additional element details, metadata or specifications related to the reference document; allows custom attributes to be added.",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "description": "Categorizes what kind of additional information is being provided",
-                          "example": "batchNumber"
-                        },
-                        "value": {
-                          "type": "string",
-                          "description": "Value of the additional information.",
-                          "example": "02"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "value",
-                    "elementDetail"
-                  ]
-                },
-                "operatorIdentification": {
-                  "type": "object",
-                  "description": "Object containing attributes to identify the operator.",
-                  "properties": {
-                    "operatorIsSupplier": {
-                      "type": "boolean",
-                      "description": "Attribute describing whether the supplier (i.e. the business transaction partner) is also the operator. For example, if TRUE, then the customer (e.g. the importer) could individually reach out to the supplier via supplier BPNL to arrange access to the CBAM operator portal information (O3CI), whereas the response does not need to provide this detail in the response itself. ",
-                      "example": "TRUE"
-                    },
-                    "operatorIds": {
-                      "type": "object",
-                      "description": "Unique set of identifiers for the operator. BPNL and Operator CBAM ID are listed as separate attributes.",
-                      "properties": {
-                        "operatorBpnl": {
-                          "type": "string",
-                          "description": "BPNL (business partner number legal) of operator, if company is registered at Catena-X.",
-                          "example": "BPNL000000000OPR"
-                        },
-                        "operatorCbamId": {
-                          "type": "string",
-                          "description": "Unique identifier for the operator in the official EU O3CI portal (operator of third country installation). ",
-                          "example": "O3CI-OPR-123456"
-                        },
-                        "otherIds": {
-                          "type": "array",
-                          "description": "Other identifiers for the operator excluding BPNL and Operator CBAM ID.",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "value": {
-                                "type": "string",
-                                "description": "Value of the stated identifier type",
-                                "example": "OP.DE-Steel_north_AG1"
-                              }
-                            },
-                            "required": [
-                              "value"
-                            ]
-                          }
-                        },
-                        "type": {
-                          "type": "string",
-                          "description": "Name of the identifier type",
-                          "example": "Operator-Tracking-ID"
-                        }
-                      },
-                      "required": [
-                        "type"
-                      ]
-                    },
-                    "operatorName": {
-                      "type": "string",
-                      "description": "Name of the operator",
-                      "maxLength": 70,
-                      "example": "Steel Example Corp."
-                    },
-                    "operatorContactEmailAddress": {
-                      "type": "string",
-                      "description": "The email adress of the person that is assigned in the contact details of the operator",
-                      "format": "email",
-                      "maxLength": 256,
-                      "example": "contact@steelexample.com"
-                    },
-                    "adress": {
-                      "type": "object",
-                      "description": "Object containing attributes that document the adress of the operator.",
-                      "properties": {
-                        "country": {
-                          "type": "string",
-                          "description": "Country code where the operator is established, refering to official CBAM value list to ensure updated content.",
-                          "maxLength": 2,
-                          "example": "DE"
-                        },
-                        "city": {
-                          "type": "string",
-                          "description": "The city where the operator is located",
-                          "maxLength": 35,
-                          "example": "Duisburg"
-                        },
-                        "street": {
-                          "type": "string",
-                          "description": "The street where the operator is located",
-                          "maxLength": 70,
-                          "example": "Werkstraße 1"
-                        }
-                      },
-                      "required": []
-                    }
-                  },
-                  "required": [
-                    "operatorName",
-                    "operatorContactEmailAddress"
-                  ]
-                },
-                "operatorActivityData": {
-                  "type": "object",
-                  "description": "Object describing mass flow attributed to the operator.",
-                  "properties": {
-                    "netMass": {
-                      "type": "number",
-                      "description": "Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, summed over all installations belonging to the operator described in this object. Applies to all CBAM relevant goods except for electricity.",
-                      "example": "60.0"
-                    },
-                    "netElectricity": {
-                      "type": "number",
-                      "description": "Net Electricity amount in MWh traded as CBAM good. Applies to Electricity only. ",
-                      "example": 100
-                    }
-                  },
-                  "required": [
-                    "netMass"
-                  ]
-                },
-                "installation": {
-                  "type": "array",
-                  "description": "One or multiple objects containing attributes that describe each installation producing the CBAM good that is subject of this request. One operator can own multiple installations that provide the CBAM good in this request which results in multiple possible installation objects. Only one production method is allowed per installation. ",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "installationIdentification": {
-                        "type": "object",
-                        "description": "Object containing attributes to identify the installation.",
-                        "properties": {
-                          "installationIds": {
-                            "type": "object",
-                            "description": "Unique set of identifiers of the installation ",
-                            "properties": {
-                              "installationCbamId": {
-                                "type": "string",
-                                "description": "Unique identifier for the installation in the official EU O3CI portal (operator of third country installation). ",
-                                "example": "O3CI-INST-654321"
-                              },
-                              "otherIds": {
-                                "type": "array",
-                                "description": "Other identifiers of the installation, excluding the official CBAM installation ID, which is stated as separate attribute. ",
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "string",
-                                      "description": "Name of the identifier type",
-                                      "example": "Installation-ID"
-                                    },
-                                    "value": {
-                                      "type": "string",
-                                      "description": "Value of the stated identifier type",
-                                      "example": "INST-987654"
-                                    }
-                                  },
-                                  "required": [
-                                    "type",
-                                    "value"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": []
-                          },
-                          "installationName": {
-                            "type": "string",
-                            "description": "Name of the installation",
-                            "maxLength": 256,
-                            "example": "Steel Manufacturing Facility - Delhi Plant"
-                          },
-                          "adress": {
-                            "type": "object",
-                            "description": "Object containing attributes that document the adress of the installation.",
-                            "properties": {
-                              "countryCode": {
-                                "type": "string",
-                                "description": "Country code where the installation is established and the good is produced, refering to official CBAM value list to ensure updated content.",
-                                "maxLength": 2,
-                                "example": "IN"
-                              },
-                              "city": {
-                                "type": "string",
-                                "description": "The city where the installation is located",
-                                "maxLength": 35,
-                                "example": "Delhi"
-                              },
-                              "longitude": {
-                                "type": "string",
-                                "description": "The longitude where the installation is located",
-                                "maxLength": 17,
-                                "example": "77.2197"
-                              },
-                              "latitude": {
-                                "type": "string",
-                                "description": "The latitude where the installation is located",
-                                "maxLength": 17,
-                                "example": "28.6139"
-                              },
-                              "typeOfCoordinates": {
-                                "type": "string",
-                                "description": "The type of coordinates: 01 GPS, 02 GNSS",
-                                "maxLength": 5,
-                                "enum": [
-                                  "01",
-                                  "02"
-                                ],
-                                "example": "01"
-                              },
-                              "plotOrParcelNumber": {
-                                "type": "string",
-                                "description": "The plot or parcel number of the location",
-                                "maxLength": 15,
-                                "example": "PLOT-456-INDUSTRIAL-ZONE-A"
-                              },
-                              "unlocode": {
-                                "type": "string",
-                                "description": "The UNLOCODE as defined by UNECE list which can be downloaded at https://unece.org/trade/uncefact/unlocode",
-                                "maxLength": 17,
-                                "example": "INDEL"
-                              }
-                            },
-                            "required": [
-                              "countryCode",
-                              "city"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "installationName",
-                          "adress"
-                        ]
-                      },
-                      "installationActivityData": {
-                        "type": "object",
-                        "description": "Object describing temporal reference and mass flow attributed to the installation.",
-                        "properties": {
-                          "referencePeriodStart": {
-                            "type": "string",
-                            "description": "Start date of the period in which relevant data was collected at the installation, serving as the reference period for emissions calculation.",
-                            "format": "date-time",
-                            "example": "2024-01-01T00:00:00Z"
-                          },
-                          "referencePeriodEnd": {
-                            "type": "string",
-                            "description": "End date of the period in which relevant data was collected at the installation, serving as the reference period for emissions calculation.",
-                            "format": "date-time",
-                            "example": "2024-12-31T23:59:59Z"
-                          },
-                          "netMass": {
-                            "type": "number",
-                            "description": "Net mass (in tonnes) of the CBAM-relevant good attributable to the specific installation with rerefence to the requested net mass. Applies to all CBAM relevant goods except for electricity.",
-                            "example": "60.0"
-                          },
-                          "netElectricity": {
-                            "type": "number",
-                            "description": "Net Electricity amount in MWh traded as CBAM good. Applies to Electricity only. ",
-                            "example": 100
-                          }
-                        },
-                        "required": [
-                          "referencePeriodStart",
-                          "referencePeriodEnd"
-                        ]
-                      },
-                      "productionMethod": {
-                        "type": "object",
-                        "description": "Object detailing the specific production method that the emission object refers to.",
-                        "properties": {
-                          "methodId": {
-                            "type": "string",
-                            "description": "Specific identifier of the production method according the official value list provided by the CBAM declarant portal: P01 Calcined clay, P02 Cement clinker, P03 Cement, P04 Aluminuous cement, P05 Sintered ore, P08 Electricity, P09 Steam reforming, P10 Partial oxidation, P11 Other fuel-based hydrogen production, P12 Electrolysis of water, P13 Electrolysis of water (other energy sources), P14 Chlor-Alkali electrolysis, P15 Production of chlorates, P16 Other production routes, P17 Nitric acid, P19 Haber-Bosch process with steam reforming of natural gas or biogas, P20 Haber-Bosch process with gasification of coal or other fuels, P21 Other production routes, P22 Mixed fertilisers, P23 Urea, P24 Blast furnace route, P25 Smelting reduction, P26 Other production routes, P27 Nickel Pig Iron production, P28 Nickel Pig Iron production, P29 Ferro-nickel (FeNi), P30 Ferro-chromium (FeCr), P31 Ferro-manganese (FeMn), P32 Production of Direct reduced Iron (using hydrogen), P33 DRI (Direct reduced iron), P34 Iron or steel products, P35 Basic oxigen steel making, P36 Basic oxigen steel making (incl. Blast furnace), P37 Basic oxigen steel making (incl. Melting reduction), P38 Electric arc furnace, P39 Electric arc furnace (alloy steels)), P40 Electric arc furnace (carbon steel, from direct reduced iron), P41 Electric arc furnace (general), P42 Primary (electrolytic) smelting, P43 Secondary melting (recycling), P44 Mix of primary and secondary production, P45 Aluminium products, P46 Integrated production with primary smelting, P47 Integrated production with secondary melting, P48 Integrated with mixed primary and secondary production",
-                            "maxLength": 5,
-                            "enum": [
-                              "P01",
-                              "P02",
-                              "P03",
-                              "P04",
-                              "P05",
-                              "P08",
-                              "P09",
-                              "P10",
-                              "P11",
-                              "P12",
-                              "P13",
-                              "P14",
-                              "P15",
-                              "P16",
-                              "P17",
-                              "P19",
-                              "P20",
-                              "P21",
-                              "P22",
-                              "P23",
-                              "P24",
-                              "P25",
-                              "P26",
-                              "P27",
-                              "P28",
-                              "P29",
-                              "P30",
-                              "P31",
-                              "P32",
-                              "P33",
-                              "P34",
-                              "P35",
-                              "P36",
-                              "P37",
-                              "P38",
-                              "P39",
-                              "P40",
-                              "P41",
-                              "P42",
-                              "P43",
-                              "P44",
-                              "P45",
-                              "P46",
-                              "P47",
-                              "P48"
-                            ],
-                            "example": "P24"
-                          },
-                          "specificSteelMillId": {
-                            "type": "string",
-                            "description": "Specific identifier of the steel mill used for the production of the good, if applicable. ",
-                            "maxLength": 256,
-                            "example": "MILL-001"
-                          },
-                          "additionalInformation": {
-                            "type": "string",
-                            "description": "Any additional information that the supplier wants to provide with regard to this object. ",
-                            "maxLength": 512,
-                            "example": "Uses recycled scrap as input"
-                          }
-                        },
-                        "required": [
-                          "methodId"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "installationIdentification",
-                      "installationActivityData"
-                    ]
-                  }
-                }
-              },
-              "required": [
-                "associatedReferenceDocument",
-                "operatorIdentification",
-                "operatorActivityData",
-                "installation"
-              ]
-            }
-          }
-        },
-        "required": [
-          "cnCode",
-          "productIds",
-          "businessTransactionDetails",
-          "operator"
-        ]
-      }
-    }
-  },
-  "required": [
-    "partnerMapping",
-    "good"
-  ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "CBAM Request Datamodel 20251117"
-}
-```
-
-CBAM Request Data Model
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "partnerMapping": {
-      "type": "object",
-      "description": "Object with attributes to identify the direct business partners that exchangedthis dataset",
-      "properties": {
-        "requestId": {
-          "type": "string",
-          "description": "Unique request ID issued for each request by a customer to the supplier. Supplier uses this ID for reference to which request the response belongs",
-          "example": "REQ-2024-001"
-        },
-        "responseId": {
-          "type": "string",
-          "description": "Unique response ID issued for each response by a supplier to the customer. Supplier can create multiple responses with unique Ids with reference to the same request ID, in case of iterative repsonse steps",
-          "example": "RESP-2024-001"
-        },
-        "requestedElements": {
-          "type": "enum",
-          "description": "Definition of the scope of the requested objects or data attributes to be delivered in a supplier response, as documented separately in respective request type schemes.",
-          "enum": [
-            "partnerMapping",
-            "cnCode",
-            "productIds",
-            "productDescription",
-            "businessTransactionDetails",
-            "associatedReferenceDocument",
-            "operatorIdentification",
-            "operatorActivityData",
-            "installationIdentification",
-            "installationActivityData",
-            "productionMethod",
-            "directEmissions",
-            "indirectEmissions",
-            "attestationOfConformance",
-            "carbonPrice"
-          ],
-          "example": "associatedReferenceDocument, operatorIdentification, operatorActivityData"
-        },
-        "companyIds": {
-          "type": "object",
-          "description": "Object with attributes describing the identifiers of the two business exchanging this dataset, namely the requesting and the responding company",
-          "properties": {
-            "requestingCompany": {
-              "type": "object",
-              "description": "Object containing one or multiple pairs of identifier type and value of the requesting company, e.g. BPNL of the customer generating the request for emission data",
-              "properties": {
-                "bpnl": {
-                  "type": "string",
-                  "description": "BPNL (Business Partner Number Legal) of the customer generating the request for emission data",
-                  "example": "BPNL000000000DWF"
-                },
-                "otherIds": {
-                  "type": "array",
-                  "description": "Object containing one or multiple pairs of identifier type and value of the requesting company, excluding BPNL.",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "description": "Name of the identifier type",
-                        "example": "Company-ID"
-                      },
-                      "value": {
-                        "type": "string",
-                        "description": "Value of the stated identifier type",
-                        "example": "Customer-Corp-12-EU"
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "value"
-                    ]
-                  }
-                }
-              },
-              "required": []
-            },
-            "respondingCompany": {
-              "type": "object",
-              "description": "Object containing one or multiple identifiers of the responding company",
-              "properties": {
-                "bpnl": {
-                  "type": "string",
-                  "description": "BPNL of the supplier receiving the initial request and pushing the emission data.",
-                  "example": "BPNL000000000XYZ"
-                },
-                "otherIds": {
-                  "type": "array",
-                  "description": "Object containing one or multiple pairs of identifier type and value of the responding company, excluding BPNL.",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "description": "Name of the identifier type",
-                        "example": "Supplier-ID"
-                      },
-                      "value": {
-                        "type": "string",
-                        "description": "Value of the stated identifier type",
-                        "example": "Steel-Corp-12-IN"
-                      }
-                    },
-                    "required": [
-                      "type",
-                      "value"
-                    ]
-                  }
-                }
-              },
-              "required": []
-            }
-          },
-          "required": []
-        }
-      },
-      "required": [
-        "requestId",
-        "responseId",
-        "requestedElements"
-      ]
-    },
-    "good": {
-      "type": "array",
-      "description": "One or multiple objects documenting the good's CBAM information to allow for multiplie batches or instances of the same CN Code per business transaction, i.e. in case of multiple operators to be listed. Each object allows for only one operator. Multiple objects are possible while the CN code remains identical. ",
-      "items": {
-        "type": "object",
-        "properties": {
-          "cnCode": {
-            "type": "string",
-            "description": "This is the 8-digit CN code (combined nomenclature) of the reported good, refering to official CBAM value list to ensure updated content. ",
-            "maxLength": 8,
-            "example": 72011000
-          },
-          "productIds": {
-            "type": "array",
-            "description": "Set of product identifiers to identify the product from the business transaction",
-            "items": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "description": "Name of the identifier type",
-                  "example": "GTIN"
-                },
-                "value": {
-                  "type": "string",
-                  "description": "Value of the stated identifier type",
-                  "example": 4712345060507
-                }
-              },
-              "required": [
-                "type",
-                "value"
-              ]
-            }
-          },
-          "productDescription": {
-            "type": "string",
-            "description": "Free text describing the product and any characteristics that help identify the right business transaction per request.",
-            "example": "Hot-rolled steel coil, grade S235JR"
-          },
-          "businessTransactionDetails": {
-            "type": "object",
-            "description": "Object containing attributes that document a specific business transaction between the customer (e.g. importer) and the supplier to enable a mapping of the request to am actual business transaction.",
-            "properties": {
-              "referenceDocument": {
-                "type": "array",
-                "description": "List of documents needed to identify the business transaction, such as invoice, customs declaration, shipping number",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "description": "Name of the identifier type, e.g. invoice, purchase order.",
-                      "example": "invoice"
-                    },
-                    "value": {
-                      "type": "string",
-                      "description": "Value of the stated identifier type",
-                      "example": "INV-2024-12345"
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "value"
-                  ]
-                }
-              },
-              "requestReferencePeriodStart": {
-                "type": "string",
-                "description": "Time stamp for when the reference period of the request starts, which shall be covered by the reference year of the the actual emission values. ",
-                "format": "date-time",
-                "example": "2024-01-01T00:00:00Z"
-              },
-              "requestReferencePeriodEnd": {
-                "type": "string",
-                "description": "Time stamp for when the reference period of the request ends, which shall be covered by the reference year of the the actual emission values. ",
-                "format": "date-time",
-                "example": "2024-12-31T23:59:59Z"
-              },
-              "requestedNetMass": {
-                "type": "number",
-                "description": "Net mass of the CBAM relevant good in tonnes that the request relates to, e.g. according to customs declaration. For completion, the requested net mass needs to match the net mass summed up over all operator objects. Applies to all CBAM relevant goods except for electricity.",
-                "example": 60
-              },
-              "requestedNetElectricity": {
-                "type": "number",
-                "description": "Net Electricity amount in MWh traded as CBAM good. Applies to Electricity only. ",
-                "example": 100
-              }
-            },
-            "required": [
-              "requestReferencePeriodStart",
-              "requestReferencePeriodEnd"
-            ]
-          },
-          "operator": {
-            "type": "array",
-            "description": "One or multiple objects containing attributes that describe an operator each that legally owns the installations producing the CBAM good that is subject of this request. Operator can be different to supplier. One supplier (business partner of this transaction) can source the good defined in the business transaction from other suppliers. This can result in multiple operators (mutliple operator objects) involved in the depicted supply chain. ",
-            "items": {
-              "type": "object",
-              "properties": {
-                "associatedReferenceDocument": {
-                  "type": "object",
-                  "description": "Object containing additional specifications to the reference document that the operator is associated to, such as addtional elements or line items within the invoice that are exclusive to the stated operator. ",
-                  "properties": {
-                    "type": {
-                      "type": "string",
-                      "description": "Repetition of the type of the associated reference document object that this additional meta data  refers to.",
-                      "example": "invoice"
-                    },
-                    "value": {
-                      "type": "string",
-                      "description": "Repetition of the value of the associated reference document object that this additional meta data specification refers to.",
-                      "example": "INV-2024-12345"
-                    },
-                    "elementDetail": {
-                      "type": "object",
-                      "description": "Contains additional element details, metadata or specifications related to the reference document; allows custom attributes to be added.",
-                      "properties": {
-                        "type": {
-                          "type": "string",
-                          "description": "Categorizes what kind of additional information is being provided",
-                          "example": "batchNumber"
-                        },
-                        "value": {
-                          "type": "string",
-                          "description": "Value of the additional information.",
-                          "example": "02"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "value",
-                    "elementDetail"
-                  ]
-                },
-                "operatorIdentification": {
-                  "type": "object",
-                  "description": "Object containing attributes to identify the operator.",
-                  "properties": {
-                    "operatorIsSupplier": {
-                      "type": "boolean",
-                      "description": "Attribute describing whether the supplier (i.e. the business transaction partner) is also the operator. For example, if TRUE, then the customer (e.g. the importer) could individually reach out to the supplier via supplier BPNL to arrange access to the CBAM operator portal information (O3CI), whereas the response does not need to provide this detail in the response itself. ",
-                      "example": "TRUE"
-                    },
-                    "operatorIds": {
-                      "type": "object",
-                      "description": "Unique set of identifiers for the operator. BPNL and Operator CBAM ID are listed as separate attributes.",
-                      "properties": {
-                        "operatorBpnl": {
-                          "type": "string",
-                          "description": "BPNL (business partner number legal) of operator, if company is registered at Catena-X.",
-                          "example": "BPNL000000000OPR"
-                        },
-                        "operatorCbamId": {
-                          "type": "string",
-                          "description": "Unique identifier for the operator in the official EU O3CI portal (operator of third country installation). ",
-                          "example": "O3CI-OPR-123456"
-                        },
-                        "otherIds": {
-                          "type": "array",
-                          "description": "Other identifiers for the operator excluding BPNL and Operator CBAM ID.",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "value": {
-                                "type": "string",
-                                "description": "Value of the stated identifier type",
-                                "example": "OP.DE-Steel_north_AG1"
-                              }
-                            },
-                            "required": [
-                              "value"
-                            ]
-                          }
-                        },
-                        "type": {
-                          "type": "string",
-                          "description": "Name of the identifier type",
-                          "example": "Operator-Tracking-ID"
-                        }
-                      },
-                      "required": [
-                        "type"
-                      ]
-                    },
-                    "operatorName": {
-                      "type": "string",
-                      "description": "Name of the operator",
-                      "maxLength": 70,
-                      "example": "Steel Example Corp."
-                    },
-                    "operatorContactEmailAddress": {
-                      "type": "string",
-                      "description": "The email adress of the person that is assigned in the contact details of the operator",
-                      "format": "email",
-                      "maxLength": 256,
-                      "example": "contact@steelexample.com"
-                    },
-                    "adress": {
-                      "type": "object",
-                      "description": "Object containing attributes that document the adress of the operator.",
-                      "properties": {
-                        "country": {
-                          "type": "string",
-                          "description": "Country code where the operator is established, refering to official CBAM value list to ensure updated content.",
-                          "maxLength": 2,
-                          "example": "DE"
-                        },
-                        "city": {
-                          "type": "string",
-                          "description": "The city where the operator is located",
-                          "maxLength": 35,
-                          "example": "Duisburg"
-                        },
-                        "street": {
-                          "type": "string",
-                          "description": "The street where the operator is located",
-                          "maxLength": 70,
-                          "example": "Werkstraße 1"
-                        }
-                      },
-                      "required": []
-                    }
-                  },
-                  "required": [
-                    "operatorName",
-                    "operatorContactEmailAddress"
-                  ]
-                },
-                "operatorActivityData": {
-                  "type": "object",
-                  "description": "Object describing mass flow attributed to the operator.",
-                  "properties": {
-                    "netMass": {
-                      "type": "number",
-                      "description": "Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, summed over all installations belonging to the operator described in this object. Applies to all CBAM relevant goods except for electricity.",
-                      "example": "60.0"
-                    },
-                    "netElectricity": {
-                      "type": "number",
-                      "description": "Net Electricity amount in MWh traded as CBAM good. Applies to Electricity only. ",
-                      "example": 100
-                    }
-                  },
-                  "required": [
-                    "netMass"
-                  ]
-                },
-                "installation": {
-                  "type": "array",
-                  "description": "One or multiple objects containing attributes that describe each installation producing the CBAM good that is subject of this request. One operator can own multiple installations that provide the CBAM good in this request which results in multiple possible installation objects. Only one production method is allowed per installation. ",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "installationIdentification": {
-                        "type": "object",
-                        "description": "Object containing attributes to identify the installation.",
-                        "properties": {
-                          "installationIds": {
-                            "type": "object",
-                            "description": "Unique set of identifiers of the installation ",
-                            "properties": {
-                              "installationCbamId": {
-                                "type": "string",
-                                "description": "Unique identifier for the installation in the official EU O3CI portal (operator of third country installation). ",
-                                "example": "O3CI-INST-654321"
-                              },
-                              "otherIds": {
-                                "type": "array",
-                                "description": "Other identifiers of the installation, excluding the official CBAM installation ID, which is stated as separate attribute. ",
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "type": {
-                                      "type": "string",
-                                      "description": "Name of the identifier type",
-                                      "example": "Installation-ID"
-                                    },
-                                    "value": {
-                                      "type": "string",
-                                      "description": "Value of the stated identifier type",
-                                      "example": "INST-987654"
-                                    }
-                                  },
-                                  "required": [
-                                    "type",
-                                    "value"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": []
-                          },
-                          "installationName": {
-                            "type": "string",
-                            "description": "Name of the installation",
-                            "maxLength": 256,
-                            "example": "Steel Manufacturing Facility - Delhi Plant"
-                          },
-                          "adress": {
-                            "type": "object",
-                            "description": "Object containing attributes that document the adress of the installation.",
-                            "properties": {
-                              "countryCode": {
-                                "type": "string",
-                                "description": "Country code where the installation is established and the good is produced, refering to official CBAM value list to ensure updated content.",
-                                "maxLength": 2,
-                                "example": "IN"
-                              },
-                              "city": {
-                                "type": "string",
-                                "description": "The city where the installation is located",
-                                "maxLength": 35,
-                                "example": "Delhi"
-                              },
-                              "longitude": {
-                                "type": "string",
-                                "description": "The longitude where the installation is located",
-                                "maxLength": 17,
-                                "example": "77.2197"
-                              },
-                              "latitude": {
-                                "type": "string",
-                                "description": "The latitude where the installation is located",
-                                "maxLength": 17,
-                                "example": "28.6139"
-                              },
-                              "typeOfCoordinates": {
-                                "type": "string",
-                                "description": "The type of coordinates: 01 GPS, 02 GNSS",
-                                "maxLength": 5,
-                                "enum": [
-                                  "01",
-                                  "02"
-                                ],
-                                "example": "01"
-                              },
-                              "plotOrParcelNumber": {
-                                "type": "string",
-                                "description": "The plot or parcel number of the location",
-                                "maxLength": 15,
-                                "example": "PLOT-456-INDUSTRIAL-ZONE-A"
-                              },
-                              "unlocode": {
-                                "type": "string",
-                                "description": "The UNLOCODE as defined by UNECE list which can be downloaded at https://unece.org/trade/uncefact/unlocode",
-                                "maxLength": 17,
-                                "example": "INDEL"
-                              }
-                            },
-                            "required": [
-                              "countryCode",
-                              "city"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "installationName",
-                          "adress"
-                        ]
-                      },
-                      "installationActivityData": {
-                        "type": "object",
-                        "description": "Object describing temporal reference and mass flow attributed to the installation.",
-                        "properties": {
-                          "referencePeriodStart": {
-                            "type": "string",
-                            "description": "Start date of the period in which relevant data was collected at the installation, serving as the reference period for emissions calculation.",
-                            "format": "date-time",
-                            "example": "2024-01-01T00:00:00Z"
-                          },
-                          "referencePeriodEnd": {
-                            "type": "string",
-                            "description": "End date of the period in which relevant data was collected at the installation, serving as the reference period for emissions calculation.",
-                            "format": "date-time",
-                            "example": "2024-12-31T23:59:59Z"
-                          },
-                          "netMass": {
-                            "type": "number",
-                            "description": "Net mass (in tonnes) of the CBAM-relevant good attributable to the specific installation with rerefence to the requested net mass. Applies to all CBAM relevant goods except for electricity.",
-                            "example": "60.0"
-                          },
-                          "netElectricity": {
-                            "type": "number",
-                            "description": "Net Electricity amount in MWh traded as CBAM good. Applies to Electricity only. ",
-                            "example": 100
-                          }
-                        },
-                        "required": [
-                          "referencePeriodStart",
-                          "referencePeriodEnd"
-                        ]
-                      },
-                      "productionMethod": {
-                        "type": "object",
-                        "description": "Object detailing the specific production method that the emission object refers to.",
-                        "properties": {
-                          "methodId": {
-                            "type": "string",
-                            "description": "Specific identifier of the production method according the official value list provided by the CBAM declarant portal: P01 Calcined clay, P02 Cement clinker, P03 Cement, P04 Aluminuous cement, P05 Sintered ore, P08 Electricity, P09 Steam reforming, P10 Partial oxidation, P11 Other fuel-based hydrogen production, P12 Electrolysis of water, P13 Electrolysis of water (other energy sources), P14 Chlor-Alkali electrolysis, P15 Production of chlorates, P16 Other production routes, P17 Nitric acid, P19 Haber-Bosch process with steam reforming of natural gas or biogas, P20 Haber-Bosch process with gasification of coal or other fuels, P21 Other production routes, P22 Mixed fertilisers, P23 Urea, P24 Blast furnace route, P25 Smelting reduction, P26 Other production routes, P27 Nickel Pig Iron production, P28 Nickel Pig Iron production, P29 Ferro-nickel (FeNi), P30 Ferro-chromium (FeCr), P31 Ferro-manganese (FeMn), P32 Production of Direct reduced Iron (using hydrogen), P33 DRI (Direct reduced iron), P34 Iron or steel products, P35 Basic oxigen steel making, P36 Basic oxigen steel making (incl. Blast furnace), P37 Basic oxigen steel making (incl. Melting reduction), P38 Electric arc furnace, P39 Electric arc furnace (alloy steels)), P40 Electric arc furnace (carbon steel, from direct reduced iron), P41 Electric arc furnace (general), P42 Primary (electrolytic) smelting, P43 Secondary melting (recycling), P44 Mix of primary and secondary production, P45 Aluminium products, P46 Integrated production with primary smelting, P47 Integrated production with secondary melting, P48 Integrated with mixed primary and secondary production",
-                            "maxLength": 5,
-                            "enum": [
-                              "P01",
-                              "P02",
-                              "P03",
-                              "P04",
-                              "P05",
-                              "P08",
-                              "P09",
-                              "P10",
-                              "P11",
-                              "P12",
-                              "P13",
-                              "P14",
-                              "P15",
-                              "P16",
-                              "P17",
-                              "P19",
-                              "P20",
-                              "P21",
-                              "P22",
-                              "P23",
-                              "P24",
-                              "P25",
-                              "P26",
-                              "P27",
-                              "P28",
-                              "P29",
-                              "P30",
-                              "P31",
-                              "P32",
-                              "P33",
-                              "P34",
-                              "P35",
-                              "P36",
-                              "P37",
-                              "P38",
-                              "P39",
-                              "P40",
-                              "P41",
-                              "P42",
-                              "P43",
-                              "P44",
-                              "P45",
-                              "P46",
-                              "P47",
-                              "P48"
-                            ],
-                            "example": "P24"
-                          },
-                          "specificSteelMillId": {
-                            "type": "string",
-                            "description": "Specific identifier of the steel mill used for the production of the good, if applicable. ",
-                            "maxLength": 256,
-                            "example": "MILL-001"
-                          },
-                          "additionalInformation": {
-                            "type": "string",
-                            "description": "Any additional information that the supplier wants to provide with regard to this object. ",
-                            "maxLength": 512,
-                            "example": "Uses recycled scrap as input"
-                          }
-                        },
-                        "required": [
-                          "methodId"
-                        ]
-                      },
-                      "directEmissions": {
-                        "type": "object",
-                        "description": "Object deailing the direct embedded emissions referenced to the specific production method and installation",
-                        "properties": {
-                          "additionalInformation": {
-                            "type": "string",
-                            "description": "Any additional information that the supplier wants to provide with regard to this object. ",
-                            "maxLength": 9999,
-                            "example": "Calculated using official CBAM excel template"
-                          },
-                          "specificEmbeddedEmissionsDirect": {
-                            "type": "number",
-                            "description": "Value of the direct embedded emissions, expressed in tonnes of CO₂ equivalents per tonne of product, calculated with reference to the specific production method and installation, applies to all CBAM relevant goods except for electricity. ",
-                            "example": "1.85"
-                          },
-                          "emissionFactorElectricityAsGood": {
-                            "type": "number",
-                            "description": "This value is defined as emission factor of electricity in tonnes CO2 eq. per MWh and is mandatory only, if electricity is the traded good and its CN code is provided in the good object. ",
-                            "example": "0.8"
-                          },
-                          "sourceOfEmissionFactorValueElectricityAsGood": {
-                            "type": "string",
-                            "description": "This applies only if electricity is the traded CN good and it serves to declare any relevant information regarding the source of the emission factor for the actual emissions. ",
-                            "example": "Direct measurements of coal fired electricity plant at installation. "
-                          }
-                        },
-                        "required": [
-                          "specificEmbeddedEmissionsDirect"
-                        ]
-                      },
-                      "indirectEmissions": {
-                        "type": "object",
-                        "description": "Object deailing the indirect embedded emissions referenced to the specific production method and installation",
-                        "properties": {
-                          "sourceOfEmissionFactor": {
-                            "type": "string",
-                            "description": "Declaration of applied literature or published information by the statistics office, according to following allowed values: 01 Other, 02 Commission based on IEA data",
-                            "maxLength": 5,
-                            "enum": [
-                              "1.02"
-                            ],
-                            "example": "02"
-                          },
-                          "emissionFactorTonnesCo2PerMwh": {
-                            "type": "number",
-                            "description": "This element declares the applied emission factor for electricity, expressed as tonnes CO2 per MWh",
-                            "example": "0.45"
-                          },
-                          "sourceOfEmissionFactorValue": {
-                            "type": "string",
-                            "description": "Any additional information detailing the source of the emissions value",
-                            "maxLength": 512,
-                            "example": "IEA 2022 Electricity Report"
-                          },
-                          "specificEmbeddedEmissionsIndirect": {
-                            "type": "number",
-                            "description": "Value of the indirect embedded emissions, expressed in tonnes of CO₂ equivalents per tonne of product, calculated with reference to the specific production method and installation.",
-                            "example": "0.25"
-                          },
-                          "electricityConsumedMwhPerTonnesGood": {
-                            "type": "number",
-                            "description": "Value of the consumed electricity, expressed as MWh per tonne of good.",
-                            "example": "0.6"
-                          },
-                          "sourceOfElectricity": {
-                            "type": "string",
-                            "description": "Describes the source of the electricity according to the official value list: SOE01 Direct technical link to electricity generator, SOE02 (Bilateral) power purchase agreement, SOE03 Received from the grid",
-                            "maxLength": 5,
-                            "enum": [
-                              "SOE01",
-                              "SOE02",
-                              "SOE03"
-                            ],
-                            "example": "SOE03"
-                          }
-                        },
-                        "required": [
-                          "sourceOfEmissionFactor",
-                          "emissionFactorTonnesCo2PerMwh",
-                          "sourceOfEmissionFactorValue",
-                          "specificEmbeddedEmissionsIndirect",
-                          "electricityConsumedMwhPerTonnesGood",
-                          "sourceOfElectricity"
-                        ]
-                      },
-                      "attestationOfConformance": {
-                        "type": "object",
-                        "description": "Object describing the attestation of conformance of the presented emission values on installation level, such as the annual verification statement by an accredited verification body according to the CBAM verification rules. ",
-                        "properties": {
-                          "attestationOfConformanceId": {
-                            "type": "string",
-                            "description": "Unique number of the verification statement used for tracking and referencing, e.g. UUID v4 if ID is newly generated.",
-                            "example": "123e4567-e89b-12d3-a456-426614174000"
-                          },
-                          "attestationOfConformanceLink": {
-                            "type": "string",
-                            "description": "A link leading to the declaration of conformance, allowing for a manual option to verify the validity and authenticity of the declaration.",
-                            "example": "https://exampleverifier.com/cbam/statement/123e4567"
-                          },
-                          "providerName": {
-                            "type": "string",
-                            "description": "Name of the issuing verifier’s legal entity",
-                            "example": "TÜV X"
-                          },
-                          "providerID": {
-                            "type": "string",
-                            "description": "A unique identifier for the entity attesting the conformance issued by the accreditation institute, i.e. accreditation number.",
-                            "example": "5493001KJTIIGC8Y1R12"
-                          },
-                          "accreditationBodyName": {
-                            "type": "string",
-                            "description": "Name of the accreditation body.",
-                            "example": "National Accreditation Institute ABX"
-                          },
-                          "completedAt": {
-                            "type": "string",
-                            "description": "Time stamp for when the attestation of conformity was issued",
-                            "example": "2024-03-15T10:00:00Z"
-                          }
-                        },
-                        "required": []
-                      },
-                      "carbonPrice": {
-                        "type": "array",
-                        "description": "One or multiple objects describing the carbon price due in a third country per emission object on installation level. ",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "typeOfInstrument": {
-                              "type": "string",
-                              "description": "Attribute describing the form of carbon price, also referred to as type of instrument. The values are defined as: 01 Carbon tax, 02 Carbon levy, 03 Carbon fee, 04 National Emissions Trading System, 05 Regional Emissions Trading System, 06 Other",
-                              "maxLength": 5,
-                              "enum": [
-                                "01",
-                                "02",
-                                "03",
-                                "04",
-                                "05",
-                                "06"
-                              ],
-                              "example": "01"
-                            },
-                            "identifierOfIndependentPerson": {
-                              "type": "object",
-                              "description": "Identifier of the independent person issuing a payment statement about the carbon price paid by the direct supplier or any other tier-n supplier in the value chain.",
-                              "properties": {
-                                "type": {
-                                  "type": "string",
-                                  "description": "Name of the identifier type",
-                                  "example": "BPNL"
-                                },
-                                "value": {
-                                  "type": "string",
-                                  "description": "Value of the stated identifier type",
-                                  "example": "BPNL000000000IND"
-                                }
-                              },
-                              "required": [
-                                "type",
-                                "value"
-                              ]
-                            },
-                            "descriptionAndIndicationOfLegalAct": {
-                              "type": "string",
-                              "description": "Reference the description of the underlying legal act according to which the carbon price was paid",
-                              "maxLength": 512,
-                              "example": "Country ABC National Carbon Tax Act 2022"
-                            },
-                            "amountOfCarbonPricePaid": {
-                              "type": "number",
-                              "description": "Monetary value of the paid carbon price",
-                              "example": "12000.00"
-                            },
-                            "currency": {
-                              "type": "string",
-                              "description": "The currency used for the declared amount to be paid, refering to official CBAM value list to ensure updated content.",
-                              "maxLength": 3,
-                              "example": "CNY"
-                            },
-                            "countryCode": {
-                              "type": "string",
-                              "description": "Country code where the carbon price is paid, refering to official CBAM value list to ensure updated content.",
-                              "maxLength": 2,
-                              "example": "CN"
-                            }
-                          },
-                          "required": [
-                            "typeOfInstrument",
-                            "descriptionAndIndicationOfLegalAct",
-                            "amountOfCarbonPricePaid",
-                            "currency",
-                            "countryCode"
-                          ]
-                        }
-                      }
-                    },
-                    "required": [
-                      "installationIdentification",
-                      "installationActivityData",
-                      "directEmissions",
-                      "indirectEmissions"
-                    ]
-                  }
-                }
-              },
-              "required": [
-                "associatedReferenceDocument",
-                "operatorIdentification",
-                "operatorActivityData",
-                "installation"
-              ]
-            }
-          }
-        },
-        "required": [
-          "cnCode",
-          "productIds",
-          "businessTransactionDetails",
-          "operator"
-        ]
-      }
-    }
-  },
-  "required": [
-    "partnerMapping",
-    "good"
-  ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "CBAM Response Datamodel 20251117"
-}
-```
-
-CBAM Response Data Model
 
 ## Possible Use Cases
 
@@ -1636,10 +442,6 @@ The importer sends an emissions data request using the *EmissionsDataRequest*-AP
 Actual CO₂ emissions per installation, per material/product produced there The location of the installation for each batch/material/product delivered using the *EmissionDataReply*-API call.
 If discrepancies are found—such as unknown locations, incorrect location names, or inconsistent emission values—clarification is requested. Once all data has been verified, the system aggregates it to calculate the annual emissions footprint per supplier and material.
 
-## Standards
-
-- Legal base: [CBAM Guidance and Legislation - Taxation and Customs Union](<https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-guidance-and-legislation_en>)
-- No standards available
 
 ## NOTICE
 
