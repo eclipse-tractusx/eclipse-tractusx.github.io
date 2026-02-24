@@ -117,7 +117,7 @@ These must be reliably collected and submitted via the EU portal, which currentl
 
 Figure 2 gives an overview about the Archtechture of the CBAM service.
 
-![CbamCatena](../resources/cbam-architecture-alternative.drawio.svg)
+![CbamCatena](../resources/Architecture_simply.drawio.svg)
 
 Figure 2: Architecture of CX-CBAM Service
 
