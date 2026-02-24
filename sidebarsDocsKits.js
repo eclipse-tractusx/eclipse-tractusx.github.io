@@ -560,6 +560,38 @@ const sidebars = {
             },
 
       ],
+    },      
+    {
+      type: 'category',
+      label: 'Due Diligence Check KIT',
+      link: {
+        type: 'doc',
+        id: 'kits/due-diligence-check-kit/adoption-view/adoption-view'
+      },
+      collapsed: true,
+      items: [
+        'kits/due-diligence-check-kit/changelog',
+        {
+          type: 'category',
+          label: 'Adoption View',
+          link: {
+            type: 'doc',
+            id: 'kits/due-diligence-check-kit/adoption-view/adoption-view'
+          },
+          items: [
+            'kits/due-diligence-check-kit/adoption-view/adoption-view',
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Development View',
+          link: {
+            type: 'doc',
+            id: 'kits/due-diligence-check-kit/development-view/architecture'
+          },
+          items: ['kits/due-diligence-check-kit/development-view/architecture']
+        }
+      ]
     },
     {
       type: 'category',

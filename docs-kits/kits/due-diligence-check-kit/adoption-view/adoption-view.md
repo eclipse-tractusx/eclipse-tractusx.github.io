@@ -4,9 +4,9 @@ sidebar_position: 1
 ---
 
 <!--
- *********************************************************************************
- * Copyright (c) 2025 Contributors to the Eclipse Foundation
- *
+ ********************************************************************************* 
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ * 
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
  *
@@ -26,7 +26,9 @@ sidebar_position: 1
 
 ## Adoption View
 
-![KIT NAME Icon](@site/static/img/kits-2.0/tx-black-kit.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="due-diligence" />
 
 Welcome to the **Due Diligence Check (SME) KIT Adoption View**. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
 
@@ -80,7 +82,7 @@ Without standardization:
 
 This leads to significant inefficiencies. In a network of large companies and SME suppliers, non-standardized approaches can result in hundreds of thousands of duplicated Due Diligence checks. Standardization can reduce this effort by more than a factor of 100 by enabling a single, shareable Due Diligence Check.
 
-![Decreased DDCs](../resources-img/Reduction_DDCs.png)
+![Decreased DDCs](../resources/Reduction_DDCs.png)
 
 Beyond inefficiency, further structural challenges exist:
 
@@ -108,7 +110,11 @@ The industry therefore requires:
 
 - SME-tailored proportionality mechanisms
 
-- A governance structure ensuring regulatory alignment and competition compliance
+- Interoperable integration of existing Due Diligence instruments 
+
+- SME-tailored proportionality mechanisms 
+
+- A governance structure ensuring regulatory alignment and competition compliance 
 
 ---
 
@@ -292,16 +298,22 @@ The development of the KIT will take place throughout this year, with a strong f
 
 - References
 
+- Non-Functional-Requirements
+
+### Limitations & Call for Action
+
+- Annex
+
+- Glossary
+
+- References  
+
 - Link to related Catena-X KITS and Rulebooks
-
-## CHANGE LOG
-
-CX Release 26.03:  Initial MVP KIT
 
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
