@@ -38,11 +38,9 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 ---
 
-### More Guides
+### Architecture Overview
 
-[LINK TO THE OTHER FILES IN THIS VIEW IN CASE THERE ARE MORE]
-
-- [Architecture Overview](../resources/Architecture_simply.drawio.svg)
+![Architecture Overview](../resources/Architecture_simply.drawio.svg)
 
 ### Core Components
 
