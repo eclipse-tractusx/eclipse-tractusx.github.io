@@ -347,13 +347,16 @@
     display: none;
   }
 
-  /* Ensure both icon links stay visible and don't get covered by the search button */
+  /* Ensure both icon links stay visible on mobile */
   .navbar-icon-link {
     display: inline-flex !important;
-    position: relative;
-    z-index: 10;
     flex-shrink: 0;
     padding: 0 4px;
+  }
+
+  /* Push icon links left of the absolutely-positioned search button */
+  .navbar__items--right {
+    padding-right: 48px;
   }
 }
 
