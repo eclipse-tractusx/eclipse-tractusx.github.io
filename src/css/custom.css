@@ -341,6 +341,20 @@
     padding: 0.5rem 1rem;
     font-size: 1.8vw;
   }
+
+  /* Mobile Navbar: hide title text to free space for icons */
+  .navbar__title {
+    display: none;
+  }
+
+  /* Ensure both icon links stay visible and don't get covered by the search button */
+  .navbar-icon-link {
+    display: inline-flex !important;
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+    padding: 0 4px;
+  }
 }
 
 @media screen and (max-width: 600px) {
