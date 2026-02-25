@@ -42,6 +42,8 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 ![Architecture Overview](../resources/Architecture_simply.drawio.svg)
 
+ADD HERE SOME TEXT
+
 ### Core Components
 
 #### Component 1: [Component Name]
