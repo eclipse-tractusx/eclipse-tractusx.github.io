@@ -223,8 +223,9 @@ const sidebars = {
         link: { type: 'generated-index' },
         collapsed: true,
         items: [
-          'kits/cbam-kit/adoption-view/adoption-view',
           'kits/cbam-kit/changelog',
+          'kits/cbam-kit/adoption-view/adoption-view',
+          'kits/cbam-kit/development-view/development-view',
         ]
       },
       {
@@ -237,7 +238,6 @@ const sidebars = {
         items: [
             'kits/circularity-kit/changelog',
             'kits/circularity-kit/adoption-view',
-            'kits/circularity-kit/glossary',
         ]
       },
       {

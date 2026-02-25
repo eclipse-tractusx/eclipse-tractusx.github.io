@@ -26,7 +26,9 @@ sidebar_position: 1
 
 ## Development View
 
-![KIT NAME Icon](@site/static/img/kits-2.0/tx-black-kit.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="cbam" />
 
 Technical documentation for developers, architects, and implementers.
 
@@ -40,7 +42,7 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 [LINK TO THE OTHER FILES IN THIS VIEW IN CASE THERE ARE MORE]
 
-- [Architecture Overview](architecture.md)
+- [Architecture Overview](../resources/Architecture_simply.drawio.svg)
 
 ### Core Components
 

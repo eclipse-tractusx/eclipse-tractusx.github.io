@@ -6,8 +6,8 @@ sidebar_position: 2
 ---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
-<Kit3DLogo kitId="cbam" />
 
+<Kit3DLogo kitId="cbam" />
 
 ## Introduction
 
