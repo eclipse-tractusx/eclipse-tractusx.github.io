@@ -11,6 +11,14 @@ sidebar_position: 1
 
 All notable changes to this KIT will be documented in this file.
 
+## [10.1.0] - 2026-03-02
+
+Compatible for **release 26.03**.
+
+### Changed
+
+- Updated links to API documentation for BPDM version 7.3.0
+
 ## [10.0.0] - 2025-09-08
 
 Compatible for **release 25.09**.
