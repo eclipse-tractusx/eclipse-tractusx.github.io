@@ -20,7 +20,11 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
+<<<<<<< HEAD
  * Content hash: 8a67266878bc6328fd68fb12b3e980dda710fb877f28f2d6b9c2260e3c04e1e3
+=======
+ * Content hash: c1f7242fb17efc0b37dec4dcf1d8a9aeb7c7f13307b180bca2a92552150a3895
+>>>>>>> origin
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -56,15 +60,15 @@ const kitsByCategory = {
       "name": "BUSINESS PARTNER KIT",
       "route": "/docs-kits/kits/business-partner-kit/adoption-view",
       "deprecated": false
-    }
-  ],
-  "industryCoreFoundation": [
+    },
     {
       "id": "digital-twin",
       "name": "DIGITAL TWIN KIT",
       "route": "/docs-kits/kits/digital-twin-kit/adoption-view",
       "deprecated": false
-    },
+    }
+  ],
+  "industryCoreFoundation": [
     {
       "id": "industry-core",
       "name": "INDUSTRY CORE KIT",
@@ -93,6 +97,12 @@ const kitsByCategory = {
       "id": "agents",
       "name": "KNOWLEDGE AGENTS KIT",
       "route": "/docs-kits/kits/knowledge-agents-kit/adoption-view/intro",
+      "deprecated": false
+    },
+    {
+      "id": "ai-service",
+      "name": "AI SERVICE KIT",
+      "route": "/docs-kits/next/kits/ai-service-kit/adoption-view",
       "deprecated": false
     }
   ],
@@ -189,7 +199,7 @@ const kitsByCategory = {
     }
   ],
   "industryKits": {
-    "shop-floor": [
+    "manufacturing": [
       {
         "id": "maas",
         "name": "MANUFACTURING AS A SERVICE KIT",

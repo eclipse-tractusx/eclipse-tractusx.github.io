@@ -1,5 +1,5 @@
 ---
-title: Intro
+title: Community Guide
 ---
 
 ## Tractus-X Community

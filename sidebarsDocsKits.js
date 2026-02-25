@@ -35,6 +35,39 @@
 const sidebars = {
     kits: [
         {
+          type: 'category',
+          label: 'AI Service KIT',
+          link: {
+            type: 'doc',
+            id: 'kits/ai-service-kit/adoption-view/adoption-view'
+          },
+          collapsed: true,
+          items: [
+            'kits/ai-service-kit/changelog',
+            {
+              type: 'category',
+              label: 'Adoption View',
+              link: {
+                type: 'doc',
+                id: 'kits/ai-service-kit/adoption-view/adoption-view'
+              },
+              items: [
+                'kits/ai-service-kit/adoption-view/adoption-view',
+                'kits/ai-service-kit/adoption-view/glossary'
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Development View',
+              link: {
+                type: 'doc',
+                id: 'kits/ai-service-kit/development-view/development-view'
+              },
+              items: ['kits/ai-service-kit/development-view/development-view']
+            }
+          ]
+        },
+        {
             type: 'category',
             label: 'Behaviour Twin KIT',
             link: {
