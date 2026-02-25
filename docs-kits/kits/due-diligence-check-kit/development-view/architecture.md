@@ -36,7 +36,7 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 ![DueDiligenceArchitecture](../resources/DueDiligenceArchitecture.drawio.svg)
 
-The Business Partner KIT at the Operating Company manages Due Diligence Information on the Catena-X participants
+The Business Partner KIT at the Operating Company manages Due Diligence Information on the Catena-X participants.
 This information is provided by the Data Providers via the Due Diligence KIT app used by the company that has due diligence information to share with other Catena-X participents, especially OEMs and Tier 1 suppliers.
 Data Consumer are normally the OEMs and Tier1 suppliers, that want to do a due diligence check on the suppliers in their global supply chain. They have access to limited due diligence information via the BPDM/Golden Record of a Catena-X participant. More due diligence relevant information can be consumed directly from the supplier (Data Providers) that are connected to the Catena-X data space.
 The Data Provider (supplier) determines which Date Consumer (OEM and Tier1) are allowed to see which due diligence information managed by their instance of the Due Diligence KIT application.

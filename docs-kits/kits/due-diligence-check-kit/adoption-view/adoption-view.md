@@ -54,7 +54,7 @@ The vision is a harmonized industry framework in which:
 
 ### Mission
 
-The Catena-X Expert Group “Due Diligence Check (SME)” aims to develop a Catena-X standard Due Diligence Check tailored to the needs of SMEs and aligned with CSDDD requirements.
+The Catena-X Expert Group „Due Diligence Check (SME)“ aims to develop a standardized Due Diligence framework within Catena-X that is tailored to the needs of SMEs and fully aligned with CSDDD requirements
 
 The mission includes:
 
@@ -99,7 +99,7 @@ The initial Tier 1 focus provides a pragmatic entry point for implementation whi
 
 ### Industry Challenge
 
-The automotive industry is one of the most complex and globally interconnected value chains. It spans multiple tiers, industries and regions, involving thousands of suppliers and sub-suppliers. In particular, small and medium-sized enterprises (SMEs) play a crucial role within this supplier landscape, as they form a significant share of the automotive value chain and are often deeply embedded across multiple tiers. In the European Union alone, SMEs account for a significant share of the automotive supply chain.
+The automotive industry is one of the most complex and globally interconnected value chains. It spans multiple tiers, industries and regions, involving thousands of suppliers and sub-suppliers. In particular, small and medium-sized enterprises (SMEs) play a crucial role within this supplier landscape, as they form a significant share of the automotive value chain and are often deeply embedded across multiple tiers.
 
 With the adoption of the Corporate Sustainability Due Diligence Directive (CSDDD), a new regulatory paradigm is emerging. Companies are required to identify, assess, prevent, mitigate and remediate adverse human rights and environmental impacts across their value chains. This significantly increases the need for structured, risk-based and documented Due Diligence processes.
 
