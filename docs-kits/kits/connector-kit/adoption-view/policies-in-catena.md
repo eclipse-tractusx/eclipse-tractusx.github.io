@@ -117,9 +117,9 @@ Constraints that are supposed to be checked with a logical *OR* should be publis
 
 ## Example
 
-This specific catalog contains one single `dcat:Dataset`, called "json-1-paper". It is the only entry in the top-level
-`dcat:dataset` property. To access this Dataset, the Consumer can choose between two contract offers (see the
-`odrl:hasPolicy` property):
+This specific catalog contains one single `Dataset`, called "json-1-paper". It is the only entry in the top-level
+`dataset` property. To access this Dataset, the Consumer can choose between two contract offers (see the
+`hasPolicy` property):
 
 - `"Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMg==:anNvbi0xLXBhcGVy:ZDA4ZDM5OTgtOGY5ZS00MzBmLThjZDEtZmYwOWQxMmQxYzk5"`
 - `"Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMQ==:anNvbi0xLXBhcGVy:ODFkMDI2MWYtNDNlNi00ZTIxLWJkMWYtZmFmZTI3MWQwYzhj"`
