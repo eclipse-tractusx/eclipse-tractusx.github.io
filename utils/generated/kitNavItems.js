@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 7c601b52ed8f25904e94d89c312d93c29adceb64320594fc84011ec6df0726a7
+ * Content hash: c1f7242fb17efc0b37dec4dcf1d8a9aeb7c7f13307b180bca2a92552150a3895
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -56,15 +56,15 @@ const kitsByCategory = {
       "name": "BUSINESS PARTNER KIT",
       "route": "/docs-kits/kits/business-partner-kit/adoption-view",
       "deprecated": false
-    }
-  ],
-  "industryCoreFoundation": [
+    },
     {
       "id": "digital-twin",
       "name": "DIGITAL TWIN KIT",
       "route": "/docs-kits/kits/digital-twin-kit/adoption-view",
       "deprecated": false
-    },
+    }
+  ],
+  "industryCoreFoundation": [
     {
       "id": "industry-core",
       "name": "INDUSTRY CORE KIT",
