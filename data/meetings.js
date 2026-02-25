@@ -349,7 +349,7 @@ export const meetings = [
       frequency: 'once',
       startDate: '2026-02-26',
       startTime: '09:05',
-      endTime: '12:15',
+      endTime: '10:15',
     },
   },
   {
