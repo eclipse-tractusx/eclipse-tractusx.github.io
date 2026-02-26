@@ -7,7 +7,7 @@ sidebar_position: 1
 
 <!--
  ********************************************************************************* 
- * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
  * 
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -139,7 +139,7 @@ Modular Engineering complies to/defines several semantic models. Suggestions/exa
 
 - **Bill of Engineering Processes (BoE)** – The BoE data model defines a set of mandatory properties to provide information about the engineering process and enables the common understanding required for engineering task orchestration.
 - **Engineering Satus Tracking** – Get status information about engineering tasks to enable tracking of progress & task management.
-- **Bill of Requirements** – Represets the functional and non-funtional requirements towars the product and its engineering process.
+- **Bill of Requirements** – Represents the functional and non-functional requirements towards the product and its engineering process.
 
 Deliverables: Jointly refined model specifications and GitHub repository links.
 
@@ -152,7 +152,7 @@ Modular Engineering acts as a **collaboration orchestration KIT** within the Tra
 ### 1. Connection with Product Portfolio Management (PPM)
 
 - **Modular Engineering** builds and orchestrates concrete engineering procedures (HOW) based on the elements (processes & products) provided by **PPM** (WHAT).
-- More percise: A modular development is composed of a set of engineering activities (processes/tasks) and corresponding objects (products/sub-systems) that are instantiated under a PPM-managed lifecycle. In Modular Engineering, they are selected, combined and orchestrated in a way so they meet concrete **requirements**.
+- More precise: A modular development is composed of a set of engineering activities (processes/tasks) and corresponding objects (products/sub-systems) that are instantiated under a PPM-managed lifecycle. In Modular Engineering, they are selected, combined and orchestrated in a way so they meet concrete **requirements**.
 - Feedback on progress, design maturity, and engineering performance is continuously reported back to PPM.
 
 ### 2. Connection with Engineering as a Service (EaaS)

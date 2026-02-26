@@ -36,7 +36,7 @@ const sidebars = {
     kits: [
         {
           type: 'category',
-          label: 'Modular Engineering',
+          label: 'Modular Engineering KIT',
           link: {
             type: 'doc',
             id: 'kits/modular-engineering-kit/adoption-view/adoption-view'
@@ -59,7 +59,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Engineering as a Service',
+          label: 'Engineering as a Service KIT',
           link: {
             type: 'doc',
             id: 'kits/engineering-as-a-service-kit/adoption-view/adoption-view'

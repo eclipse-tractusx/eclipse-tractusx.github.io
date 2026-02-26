@@ -7,7 +7,7 @@ sidebar_position: 1
 
 <!--
  ********************************************************************************* 
- * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
  * 
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -56,7 +56,7 @@ EaaS provides standardized semantics, interfaces, and processes for:
 - Matching demand with relevant providers.
 - Managing quotation, contracting, and access policy enforcement.
 
-By decoupling marketplace interaction from technical engineering execution, EaaS enables a **scalable, interoperable, and sovereign collaboration layer** that can prospecively support multiple domains and use cases beyond engineering.
+By decoupling marketplace interaction from technical engineering execution, EaaS enables a **scalable, interoperable, and sovereign collaboration layer** that can prospectively support multiple domains and use cases beyond engineering.
 
 ---
 
@@ -66,7 +66,7 @@ Engineering as a Service brings substantial strategic and operational value to t
 
 1. **Open Engineering Marketplace**  – Provides a federated marketplace for connecting engineering demand with specialized providers, expanding opportunities for SMEs.
 2. **Flexibility & Scalability** – Organizations can dynamically offer and/or access the engineering expertise they need, when they need it, avoiding underutilized resources and reducing time-to-market.
-3. **Interoperability and Efficiency** – Establishes standardized interfaces and semantics for capability descriptions, quotations, and contracting. When automatomated, this reduces administrative overhead and accelerates engineering value creation.
+3. **Interoperability and Efficiency** – Establishes standardized interfaces and semantics for capability descriptions, quotations, and contracting. When automated, this reduces administrative overhead and accelerates engineering value creation.
 4. **Specialization & Innovation** – SMEs and niche providers can expose unique competencies, increasing visibility and enabling targeted collaboration with OEMs and large enterprises.
 5. **Operational Transparency** – Facilitates auditable and policy-compliant contracting while maintaining confidentiality of shared data.
 
