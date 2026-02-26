@@ -1,4 +1,8 @@
-# Changelog
+---
+id: changelog  
+title: Changelog  
+description: Engineering as a Service KIT  
+---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
