@@ -125,7 +125,7 @@ This enables the orchestration of **federated development ecosystems**, where ea
 
 ## Business Processes
 
-1. **Requirements Definition** – A development (with demand for modular engineering acitivities) is initialized by a set of requirements.
+1. **Requirements Definition** – A development (with demand for modular engineering activities) is initialized by a set of requirements.
 1. **System Decomposition** – A complex system (subject of development that meets the requirements) is divided into a modular set of objects (subsystems) for collaborative engineering.
 1. **Project modeling** – Each object is linked to corresponding engineering activities and phases.
 1. **Interface Specification** – Define clear data, model, and process interfaces between modules.
@@ -138,7 +138,7 @@ This enables the orchestration of **federated development ecosystems**, where ea
 Modular Engineering complies to/defines several semantic models. Suggestions/examples are:
 
 - **Bill of Engineering Processes (BoE)** – The BoE data model defines a set of mandatory properties to provide information about the engineering process and enables the common understanding required for engineering task orchestration.
-- **Engineering Satus Tracking** – Get status information about engineering tasks to enable tracking of progress & task management.
+- **Engineering Status Tracking** – Get status information about engineering tasks to enable tracking of progress & task management.
 - **Bill of Requirements** – Represents the functional and non-functional requirements towards the product and its engineering process.
 
 Deliverables: Jointly refined model specifications and GitHub repository links.
