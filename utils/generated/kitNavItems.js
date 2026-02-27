@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: c1f7242fb17efc0b37dec4dcf1d8a9aeb7c7f13307b180bca2a92552150a3895
+ * Content hash: d7d821fbf2df5c7767f393e6e73c94cb896a5323299b1583ebf49a32b36696d1
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -200,6 +200,20 @@ const kitsByCategory = {
         "id": "modular-production",
         "name": "MODULAR PRODUCTION KIT",
         "route": "/docs-kits/kits/modular-production-kit/adoption-view",
+        "deprecated": false
+      }
+    ],
+    "engineering": [
+      {
+        "id": "modular-engineering",
+        "name": "MODULAR ENGINEERING KIT",
+        "route": "/docs-kits/next/kits/modular-engineering-kit/adoption-view",
+        "deprecated": false
+      },
+      {
+        "id": "engineering-as-a-service",
+        "name": "ENGINEERING AS A SERVICE KIT",
+        "route": "/docs-kits/next/kits/engineering-as-a-service-kit/adoption-view",
         "deprecated": false
       }
     ]
