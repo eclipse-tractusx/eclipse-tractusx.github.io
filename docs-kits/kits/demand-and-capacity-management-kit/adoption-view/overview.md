@@ -137,7 +137,7 @@ Because of the way that communication within CX-0128 is defined companies are no
 
  Conforming to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary] the following policies have to be applied.
 
-| Policy Type      | Constraint               | leftOperand ("@context": ["https://w3id.org/catenax/2025/9/policy/context.jsonld"])  | operator | right Operand              | Usage Requirement |
+| Policy Type      | Constraint               | leftOperand ("@context": ["https://w3id.org/catenax/2025/9/policy/context.jsonld"])  | operator | rightOperand              | Usage Requirement |
 | --               | --                       | --                                                        | --       | --                         | --                |
 | Access Policy    | BPNL                     | BusinessPartnerNumber | isAnyOf, isNoneOf      | `{{ PARTNER_BPNLs }}`         | optional          |
 | Access Policy    | BPNL-Group               | BusinessPartnerGroup  | isAnyOf, isNoneOf | `{{ PARTNER_GROUPs }}`        | optional          |
