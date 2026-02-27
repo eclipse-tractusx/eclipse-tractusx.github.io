@@ -145,6 +145,7 @@ Because of the way that communication within CX-0128 is defined companies are no
 | **Usage Policy** | Data Exchange Governance | FrameworkAgreement        | eq       | DataExchangeGovernance:1.0 | mandatory         |
 | **Usage Policy** | Usage Purpose            | UsagePurpose              | isAnyOf       | cx.dcm.base:1              | mandatory         |
 | Usage Policy     | Contract Reference       | ContractReference         | isAllOf       | `{{ Contract References }}`   | optional          |
+
 ### Standards
 
 |Content|Standard|Version|Section|Description|
