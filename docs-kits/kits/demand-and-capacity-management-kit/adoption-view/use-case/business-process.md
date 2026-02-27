@@ -892,9 +892,9 @@ Figure: *A small supply network built by seven capacity groups*
 
 This section gives an overview of some potential cases in cross-company scenarios and how to handle them.
 
-- **Directed buy**: in this case a company (e.g. an OEM) asks its supplier A to buy parts from supplier B, whereas
+- **Directed buy**: in this case a company (e.g. an OEM) asks its supplier A to buy parts from supplier B, whereas:
   - The purchasing contracts are in place between supplier A and B. The OEM has only a contract with supplier A.
-  - Following the Catena-X DCM process, supplier A creates demands and sends them to supplier B who replies with the according capacity information.
+  - Following the Catena-X DCM process, supplier A creates demands and sends them to supplier B who replies with the corresponding capacity information.
   - The OEM is not involved since the OEM is not part of the contract and therefore does not receive any data related to demand and/or capacity exchange between supplier A and B.
 - **Customer supplied material**: in this case, the customer (e.g. an OEM) orders part 1 at supplier A (Tier-2) and provides them to supplier B (Tier-1) to produce part 2 that is delivered to the OEM.
   - If the part 1 is delivered by supplier A to the OEM and then transported to the supplier B, for the Catena-X DCM process the OEM creates the demands and sends them to the supplier A.
