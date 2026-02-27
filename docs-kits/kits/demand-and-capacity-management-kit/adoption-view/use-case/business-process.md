@@ -684,7 +684,7 @@ Further properties are added at lower level below the “Capacities” property.
 |-|-|-|
 | Actual Capacity | Yes | The actual capacity is the realistically planned output per calendar week and material for a specific customer in a specific unit of measure, considering all positive or negative impacts on this capacity |
 | Agreed Capacity | No | The agreed capacity of a supplier for a specific customer material(s) within a capacity group. The agreed capacity must not constitute a legal obligation to deliver. |
-| Maximum Capacity | Yes | The supplier's maximum capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The maximum capacity thereby restricts the flexible capacity, as the flexible capacity is obtained from the difference of a suppliers maximum capacity minus actual capacity |
+| Maximum Capacity | Yes | The supplier's maximum capacity is the maximal available output per calendar week and material for a specific customer in a specific unit of measure. The maximum capacity thereby restricts the flexible capacity, as the flexible capacity is obtained from the difference of a supplier's maximum capacity minus actual capacity |
 | Point in Time | Yes | ISO calendar week of the given time series entry. It must be given as a date of the Monday in the week. |
 
 ### Linking Capacity Groups to Material Demands
