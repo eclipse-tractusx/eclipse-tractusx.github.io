@@ -571,17 +571,7 @@ const sidebars = {
       collapsed: true,
       items: [
         'kits/engineering-as-a-service-kit/changelog',
-        {
-          type: 'category',
-          label: 'Adoption View',
-          link: {
-            type: 'doc',
-            id: 'kits/engineering-as-a-service-kit/adoption-view/adoption-view'
-          },
-          items: [
-            'kits/engineering-as-a-service-kit/adoption-view/adoption-view',
-          ]
-        }
+        'kits/engineering-as-a-service-kit/adoption-view/adoption-view',
       ]
     },
     {
@@ -781,22 +771,12 @@ const sidebars = {
       label: 'Modular Engineering KIT',
       link: {
         type: 'doc',
-        id: 'kits/modular-engineering-kit/adoption-view/adoption-view'
+        id: 'kits/modular-engineering-kit/adoption-view/adoption-view',
       },
       collapsed: true,
       items: [
         'kits/modular-engineering-kit/changelog',
-        {
-          type: 'category',
-          label: 'Adoption View',
-          link: {
-            type: 'doc',
-            id: 'kits/modular-engineering-kit/adoption-view/adoption-view'
-          },
-          items: [
-            'kits/modular-engineering-kit/adoption-view/adoption-view',
-          ]
-        }
+        'kits/modular-engineering-kit/adoption-view/adoption-view',
       ]
     },
     {
