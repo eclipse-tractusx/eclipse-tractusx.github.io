@@ -193,7 +193,7 @@ be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-ex
         "keys": [
           {
             "type": "GlobalReference",
-            "value": "urn:bamm:io.catenax.material_for_recycling:1.1.0#MaterialForRecycling"
+            "value": "urn:samm:io.catenax.pcf:9.0.0#Pcf"
           }
         ]
       },
@@ -236,7 +236,7 @@ be [added to the existing shell-descriptor](#registering-a-new-submodel-at-an-ex
     "keys": [
       {
         "type": "GlobalReference",
-        "value": "urn:bamm:io.catenax.material_for_recycling:1.1.0#MaterialForRecycling"
+        "value": "urn:samm:io.catenax.pcf:9.0.0#PCF"
       }
     ]
   },
@@ -418,7 +418,7 @@ the meaning of the Submodel's payload.
     },
     "cx-common:version": "3.0",
     "aas-semantics:semanticId": {
-      "@id": "urn:bamm:io.catenax.asset_tracker_links:1.0.0#AssetTrackerLinks"
+      "@id": "urn:samm:io.catenax.asset_tracker_links:2.0.0#AssetTrackerLinks"
     }
   },
   "privateProperties": {

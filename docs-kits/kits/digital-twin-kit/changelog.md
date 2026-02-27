@@ -11,6 +11,12 @@ sidebar_position: 1
 
 All notable changes to this KIT will be documented in this file.
 
+## [2.0.2] - 2026-02-28
+
+### Changed
+
+- updated example semantic identifiers from bamm to samm
+
 ## [2.0.1] - 2024-08-01
 
 ### Changed
