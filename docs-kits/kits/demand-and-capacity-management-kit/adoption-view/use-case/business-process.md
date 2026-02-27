@@ -246,10 +246,10 @@ A material demand dataset comprises the following basic components:
 |-|-|-|
 | Supplier | Yes | The Business Partner Number Legal (BPNL) of the party providing materials to a customer |
 | Customer | Yes | The Business Partner Number Legal (BPNL) of the party requesting material from a supplier |
-| Material Demand ID | Yes | The material demand ID uniquely identifies the material demand within the business relationship between a customers and its supplier |
+| Material Demand ID | Yes | The material demand ID uniquely identifies the material demand within the business relationship between a customer and its supplier |
 | Changed At | Yes | Point in time when the content (any property according to the data model) of the material demand was changed, at the customer, either by a human user or an automated process |
 | Material Description Customer | Yes | Description of the material, which a demand refers to |
-| Customer Material Number | Yes | Material identifier as assigned by the customer. This material number identifies the material (as planned) in customer's database. It must be unique for each Material Demands in the customer-supplier relationship. |
+| Customer Material Number | Yes | Material identifier as assigned by the customer. This material number identifies the material (as planned) in customer's database. It must be unique for each material demand in the customer-supplier relationship. |
 | Supplier Material Number | No | Material identifier as assigned by the supplier. This material number identifies the material (as planned) in supplier's database |
 | Material Demand is Inactive | Yes | Indicates that this material demand is currently not in use/maintained by the customer |
 | Unit of Measure | No | Unit of Measurement (UoM) for demand quantities |
