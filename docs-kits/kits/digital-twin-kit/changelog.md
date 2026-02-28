@@ -16,6 +16,7 @@ All notable changes to this KIT will be documented in this file.
 ### Changed
 
 - updated example semantic identifiers from bamm to samm
+- fix broken links
 
 ## [2.0.1] - 2024-08-01
 
