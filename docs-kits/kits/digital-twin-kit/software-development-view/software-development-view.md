@@ -21,7 +21,7 @@ the [Operation View](../software-operation-view.md).
 
 ## API Specifications
 
-All openAPI-specifications for the Digital Twin Kit services are stored in the [openApi section](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/openApi/dt) of this repo.
+All openAPI-specifications for the Digital Twin Kit services are accessible in the [openAPI Hub](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/).
 Please note that these are non-normative replicas from the original standards and their normative references.
 
 ### Asset Administration Shell
@@ -590,7 +590,7 @@ Data Providers will usually follow one of two patterns:
 2. Delegation: Wrapping an existing API with the AAS-Submodel API yields as a facade that is compliant to CX-0002.
    The wrapper delegates the incoming requests to the respective backend system. This is feasible in the
    Catena-X dataspace since offering data to the network requires mappings that are naturally dependent on the data's
-   source format. More on data integration can be found in the corresponding [CX e.V. guide](https://catena-x.net/fileadmin/user_upload/04_Einfuehren_und_umsetzen/Onboarding/DataIntegrationPatterns_Guide_Final_V1.pdf). Equipping each
+   source format. More on data integration can be found in the corresponding Catena-X standard [CX-0055](https://catenax-ev.github.io/docs/standards/CX-0055-DataProcessingPatternsforITSystemIntegration). Equipping each
    Business Application with a Submodel-API-Wrapper will lead to a landscape of multiple Submodel-APIs that are
    linked by the DTR and visible in the Dataspace via a DSP-Connector.
 
