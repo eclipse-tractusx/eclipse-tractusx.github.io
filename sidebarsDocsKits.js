@@ -301,6 +301,7 @@ const sidebars = {
                 ]
             },
             'kits/connector-kit/operation-view/operation-view',
+            'kits/connector-kit/operation-view/deployment',
 
         ],
       },
