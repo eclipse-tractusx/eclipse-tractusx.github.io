@@ -11,7 +11,7 @@ import KitMetadataBadges from '@site/src/components/2.0/KitMetadataBadges';
 <KitMetadataBadges kitId="engineering-as-a-service" />
 <Kit3DLogo kitId="engineering-as-a-service" />
 
-Welcome to the **Engineering as a Service KIT Adoption View**. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
+Welcome to the **Engineering as a Service (EaaS) KIT Adoption View**. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
 
 ---
 
@@ -20,12 +20,12 @@ Welcome to the **Engineering as a Service KIT Adoption View**. This view provide
 ### Vision
 
 A federated and interoperable engineering ecosystem where expertise, capabilities, and tools are accessible on-demand.
-Engineering as a Service (EaaS) revolutionizes the way engineering collaboration happens—by connecting distributed engineering competencies across organizations, enabling faster, more flexible, and trustworthy innovation.
+Engineering as a Service (EaaS) revolutionizes the way engineering collaboration happens - by connecting distributed engineering competencies across organizations, enabling faster, more flexible, and trustworthy innovation.
 
 ### Mission
 
-The mission of the **EaaS KIT** is to serve as the **ecosystem-facing brokerage and contracting layer** for engineering collaboration.
-EaaS connects engineering demand from the **Modular Engineering (ME)** layer with qualified providers in the Catena-X network — ensuring transparent, compliant, and efficient matchmaking.
+The mission of the EaaS KIT is to serve as the ecosystem-facing brokerage and contracting layer for engineering collaboration.
+EaaS connects engineering demand from the [Modular Engineering (ME)](/docs-kits/kits/modular-engineering-kit/adoption-view) layer with qualified service providers in the Data Space (e. g. Catena-X) network - ensuring transparent, compliant, and efficient matchmaking.
 
 EaaS provides standardized semantics, interfaces, and processes for:
 
@@ -33,7 +33,7 @@ EaaS provides standardized semantics, interfaces, and processes for:
 - Matching demand with relevant providers.
 - Managing quotation, contracting, and access policy enforcement.
 
-By decoupling marketplace interaction from technical engineering execution, EaaS enables a **scalable, interoperable, and sovereign collaboration layer** that can prospectively support multiple domains and use cases beyond engineering.
+By decoupling marketplace interaction from technical engineering execution, EaaS enables a scalable, interoperable, and sovereign collaboration layer that can prospectively support multiple domains and use cases beyond engineering.
 
 ---
 
@@ -41,23 +41,23 @@ By decoupling marketplace interaction from technical engineering execution, EaaS
 
 Engineering as a Service brings substantial strategic and operational value to the Catena-X ecosystem and its participants through:
 
-1. **Open Engineering Marketplace**  – Provides a federated marketplace for connecting engineering demand with specialized providers, expanding opportunities for SMEs.
+1. **Open Engineering Marketplace** – Provides a federated marketplace for connecting engineering demand with specialized service providers, expanding opportunities especially for for SMEs.
 2. **Flexibility & Scalability** – Organizations can dynamically offer and/or access the engineering expertise they need, when they need it, avoiding underutilized resources and reducing time-to-market.
 3. **Interoperability and Efficiency** – Establishes standardized interfaces and semantics for capability descriptions, quotations, and contracting. When automated, this reduces administrative overhead and accelerates engineering value creation.
-4. **Specialization & Innovation** – SMEs and niche providers can expose unique competencies, increasing visibility and enabling targeted collaboration with OEMs and large enterprises.
+4. **Specialization & Innovation** – Niche providers can expose unique competencies, increasing visibility and enabling targeted collaboration with OEMs and large enterprises.
 5. **Operational Transparency** – Facilitates auditable and policy-compliant contracting while maintaining confidentiality of shared data.
 
 ---
 
 ### Summary of Business Benefits
 
-**For Engineering Consumers:**
+**For Engineering Service Consumers:**
 
 - On-demand access to a global network of engineering providers.
 - Transparent, comparable, and verified engineering capabilities.
 - Reduced effort for supplier scouting, quotation and contract handling.
 
-**For Engineering Providers (SMEs, Specialized Teams):**
+**For Engineering Service Providers:**
 
 - Broader visibility and access to cross-domain projects.
 - Opportunities to demonstrate verified skills and successful deliveries.
@@ -81,15 +81,15 @@ Engineering collaboration across organizations is often hampered by slow, manual
 ### The Solution
 
 EaaS addresses these challenges by establishing a **federated engineering marketplace**. Companies can describe and publish their capabilities, discover qualified partners, and engage in trustworthy, data-sovereign collaborations.
-This creates a foundation for **engineering ecosystems** where value is co-created dynamically and efficiently.
+This creates a foundation for engineering ecosystems where value is co-created dynamically and efficiently.
 
 ---
 
 ## Use Cases
 
-Defines the **minimum viable logic** for federated engineering service brokerage:
+Defines the minimum viable logic for federated engineering service brokerage:
 
-- Task publication and metadata ingestion from ME.
+- Task publication and metadata ingestion from [Modular Engineering](/docs-kits/kits/modular-engineering-kit/adoption-view).
 - Capability discovery and matchmaking algorithms.
 - Quotation exchange and contract finalization.
 - Policy enforcement and logging for data sovereignty compliance.
@@ -107,7 +107,7 @@ Deliverables: Process schema diagrams and workflow descriptions (under developme
 1. **Contract Negotiation & Agreement** – Selected providers finalize contracts; metadata is returned to Modular Engineering for task execution.
 1. **Feedback Integration** – Provider ratings, performance data, and contractual outcomes are shared with ME and PPM for traceability and improvement.
 
-## Semantic Models
+## Semantic Models (outlook)
 
 EaaS defines and utilizes semantic models to ensure interoperability and data sovereignty within engineering collaborations. Examples/suggestions are:
 
@@ -122,23 +122,26 @@ Deliverables: Semantic model documentation and links to the Tractus-X GitHub rep
 
 ## Functional Role and Ecosystem Integration
 
-EaaS acts as the **ecosystem interface layer** between Catena-X participants — facilitating trust-based engineering collaboration without handling the execution itself.
+EaaS acts as the ecosystem interface layer between Catena-X participants - facilitating trust-based engineering collaboration without handling the execution itself. Its functionalities are designed to connect and synergize with other Tractus-X KITs and overarching data space conecpts, creating an integrated engineering value chain:
 
 ### 1. Relationship with Product Portfolio Management (PPM)
 
-- PPM defines the overarching **product and process context**, which informs the scope of engineering tasks that may require external support.
+- PPM defines the overarching product and process context, which informs the scope of engineering tasks that may require external support.
 - EaaS uses PPM context metadata to ensure traceable linkage between marketplace activities and lifecycle governance. It obtains products and services (engineering processes) from the PPM-backbone and exposes them on the engineering marketplace.
+
+> [!NOTE]
+> The Product Portfolio Management KIT (Sandbox State) is currently under development for release 26.06. For an overview on the current content please refer to the release planning issue [Product Portfolio Management (PPM) Use Case Information](https://github.com/eclipse-tractusx/sig-release/issues/1568).
 
 ### 2. Relationship with Modular Engineering (ME)
 
-- ME defines and manages **modular tasks** and orchestrates engineering execution.
+- [Modular Engineering](/docs-kits/kits/modular-engineering-kit/adoption-view) defines and manages modular tasks and orchestrates engineering execution.
 - When additional capacity or expertise is needed, ME publishes these tasks to EaaS.
-- EaaS facilitates **discovery, negotiation, and contracting** — returning the selected provider and contract terms to ME for controlled task execution.
+- EaaS facilitates discovery, negotiation, and contracting - returning the selected provider and contract terms to ME for controlled task execution.
 
 ### 3. Relationship with overall Data Sovereignty and Governance
 
-- EaaS relies on Catena-X’s **sovereign governance framework** and **usage policy enforcement mechanisms** to secure data transactions and ensure compliance.
-- Integrates with standardized **contract templates**, **usage policies**, and **audit logging** capabilities.
+- EaaS relies on Catena-X’s sovereign governance framework and usage policy enforcement mechanisms to secure data transactions and ensure compliance.
+- Integrates with standardized contract templates, usage policies, and audit logging capabilities.
 
 ### 4. Relationship with Other Domain KITs
 
@@ -150,10 +153,7 @@ EaaS acts as the **ecosystem interface layer** between Catena-X participants —
 
 ### Supported Standards
 
-EaaS aligns with and contributes to Catena-X and IDSA standards for interoperability and data sovereignty.  The interconnection with existing standards and the scoping of additional standards are yet to be completed. Examples/suggestions are:
-
-- **CX-ZYX:** Semantic Capability & Task Description (development not started).
-- **CX-XYZ:** Federated Contracting & Policy Enforcement (development not started).
+EaaS aligns with and contributes to Catena-X and IDSA standards for interoperability and data sovereignty.  The interconnection with existing standards and the scoping of additional standards are yet to be completed.
 
 ---
 
@@ -168,7 +168,7 @@ Tutorials will guide users through the process of:
 
 Deliverables: Step-by-step documentation and video tutorial showcasing the EaaS onboarding and collaboration process.
 
-### Whitepaper
+### Whitepaper (outlook)
 
 A dedicated whitepaper could elaborate on:
 
@@ -180,6 +180,16 @@ A dedicated whitepaper could elaborate on:
 As of now, no whitepaper on the topic of Engineering as a Service is planned.
 
 ## NOTICE
+
+> [!IMPORTANT]  Sandbox Maturity Notice – Tractus-X KIT Preview
+>
+> This Tractus-X KIT is currently released in a [Sandbox state](https://eclipse-tractusx.github.io/documentation/kit-lifecycle) within the Tractus-X ecosystem. What this means:
+>
+> - The KIT represents an early maturity level and is provided as a first preview.
+> - APIs, data models, interfaces, and documentation may evolve.
+> - Stability, performance, and feature completeness are not yet guaranteed.
+>
+> Call for Contributors – Open Source Development: This preview marks the starting point of an open and collaborative development journey. If you are interested in shaping this KIT and contributing to its evolution, we warmly invite you to [join the development effort](https://eclipse-tractusx.github.io/docs/getting-started).
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 

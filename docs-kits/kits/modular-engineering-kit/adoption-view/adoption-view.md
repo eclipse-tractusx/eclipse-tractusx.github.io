@@ -11,7 +11,7 @@ import KitMetadataBadges from '@site/src/components/2.0/KitMetadataBadges';
 <KitMetadataBadges kitId="modular-engineering" />
 <Kit3DLogo kitId="modular-engineering" />
 
-Welcome to the **Modular Engineering KIT Adoption View**. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
+Welcome to the **Modular Engineering (ME) KIT Adoption View**. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
 
 ---
 
@@ -23,9 +23,9 @@ To enable a **modular and federated engineering ecosystem** where complex system
 
 ### Mission
 
-The **Modular Engineering KIT** establishes a common framework for modularized, data-sovereign product/system development.
+The Modular Engineering KIT establishes a common framework for modularized, data-sovereign product/system development.
 
-It provides standardized semantics and interface definitions that allow engineering activities (projects) to be modeled, distributed (utilizing [EaaS](https://github.com/eclipse-tractusx/sig-release/issues/1552)), and coordinated/executed across organizational boundaries. By structuring and interlinking engineering activities Modular Engineering ensures that every design, task, and decision is traceable and harmonized.
+It provides standardized semantics and interface definitions that allow engineering activities (projects) to be modeled, distributed (utilizing [EaaS](/docs-kits/kits/engineering-as-a-service-kit/adoption-view)), and coordinated/executed across organizational boundaries. By structuring and interlinking engineering activities Modular Engineering ensures that every design, task, and decision is traceable and harmonized.
 
 By doing so, ME becomes the operational runtime for engineering — the layer where conceptual designs, processes, and collaboration converge into tangible, traceable engineering results.
 
@@ -35,23 +35,12 @@ By doing so, ME becomes the operational runtime for engineering — the layer wh
 
 Modular Engineering brings substantial strategic and operational value to the Catena-X ecosystem and its participants through:
 
-1. **Federated Engineering Collaboration**
-   Complex development programs are structured into standardized $^1$, interoperable modules that can be orchestrated among the ecosystem participants. This takes into account scalability, alignment, and traceability across the entire engineering lifecycle.
-
-2. **Requirement Alignment & Traceability**
-   Engineering objects and activities are (and consistently remain) connected to explicit requirements, enabling transparent validation, verification, and compliance tracking.
-
-3. **Process Efficiency & Modularity**
-   Standardized process patterns and reusable engineering modules reduce redundant work, shorten development cycles, and improve overall quality.
-
-4. **Ecosystem Scalability & Resilience**
-   Modular Engineering supports a scalable collaboration model that allows quick partner onboarding, dynamic resource allocation, and flexible reconfiguration of engineering networks in response to market demands.
-
-5. **Data Sovereignty & Intellectual Property Protection**
-   Through Catena-X dataspace principles, partners retain full control over their engineering data and models while enabling the selective, trusted exchange of information.
-
-6. **Outlook: Foundation for AI-Enhanced Engineering**
-   Standardized structures and data interoperability form the foundation for advanced analytics and AI-assisted decision-making in engineering workflows.
+1. **Federated Engineering Collaboration** – Complex development programs are structured into standardized $^1$, interoperable modules that can be orchestrated among the ecosystem participants. This takes into account scalability, alignment, and traceability across the entire engineering lifecycle.
+1. **Requirement Alignment & Traceability** – Engineering objects and activities are (and consistently remain) connected to explicit requirements, enabling transparent validation, verification, and compliance tracking.
+1. **Process Efficiency & Modularity** – Standardized process patterns and reusable engineering modules reduce redundant work, shorten development cycles, and improve overall quality.
+1. **Ecosystem Scalability & Resilience** – Modular Engineering supports a scalable collaboration model that allows quick partner onboarding, dynamic resource allocation, and flexible reconfiguration of engineering networks in response to market demands.
+1. **Data Sovereignty & Intellectual Property Protection** – Through dataspace principles, partners retain full control over their engineering data and models while enabling the selective, trusted exchange of information.
+1. **Outlook: Foundation for AI-Enhanced Engineering** – Standardized structures and data interoperability form the foundation for advanced analytics and AI-assisted decision-making in engineering workflows.
 
 $^1$ *as much as necessary, as little as possible*
 
@@ -90,13 +79,13 @@ Without a standardized foundation for project breakdown, interface definition, a
 
 ### The Solution
 
-Modular Engineering establishes a **unified method for structuring, managing, and integrating engineering activities** across company boundaries. It provides:
+Modular Engineering establishes a unified method for structuring, managing, and integrating engineering activities across company boundaries. It provides:
 
-- A **common semantic foundation** for project scoping and orchestration for all engineering stakeholders.
-- A **modular project architecture** that enables the decomposition of complexity into manageable, interoperable elements.
-- A **trusted collaboration space** that respects data sovereignty and intellectual property.
+- A common semantic foundation for project scoping and orchestration for all engineering stakeholders.
+- A modular project architecture that enables the decomposition of complexity into manageable, interoperable elements.
+- A trusted collaboration space that respects data sovereignty and intellectual property.
 
-This enables the orchestration of **federated development ecosystems**, where each participant contributes specialized expertise while maintaining full control
+This enables the orchestration of federated development ecosystems, where each participant contributes specialized expertise while maintaining full control
 
 ---
 
@@ -110,11 +99,11 @@ This enables the orchestration of **federated development ecosystems**, where ea
 1. **Integration & Validation** – Merge subsystem results and validate against defined interfaces and requirements.
 1. **Version Control & Feedback** – Manage iterative updates and improvements through traceable versioning.
 
-## Semantic Models
+## Semantic Models (outlook)
 
-Modular Engineering complies to/defines several semantic models. Suggestions/examples are:
+Modular Engineering complies to/defines several semantic models. Examplary suggestions are:
 
-- **Bill of Engineering Processes (BoE)** – The BoE data model defines a set of mandatory properties to provide information about the engineering process and enables the common understanding required for engineering task orchestration.
+- **Bill of Engineering Processes (BoE)** – A BoE data model defines a set of mandatory properties to provide information about the engineering process and enables the common understanding required for engineering task orchestration.
 - **Engineering Status Tracking** – Get status information about engineering tasks to enable tracking of progress & task management.
 - **Bill of Requirements** – Represents the functional and non-functional requirements towards the product and its engineering process.
 
@@ -124,26 +113,29 @@ Deliverables: Jointly refined model specifications and GitHub repository links.
 
 ## Functional Role and Ecosystem Integration
 
-Modular Engineering acts as a **collaboration orchestration KIT** within the Tractus-X engineering ecosystem, providing the framework for federated, collaborative development. Its functionalities are designed to connect and synergize with other Tractus-X KITs, creating an integrated engineering value chain:
+Modular Engineering acts as a collaboration-orchestration KIT within the Tractus-X engineering ecosystem, providing the framework for federated, collaborative development. Its functionalities are designed to connect and synergize with other Tractus-X KITs and overarching data space conecpts, creating an integrated engineering value chain:
 
 ### 1. Connection with Product Portfolio Management (PPM)
 
-- **Modular Engineering** builds and orchestrates concrete engineering procedures (HOW) based on the elements (processes & products) provided by **PPM** (WHAT).
-- More precise: A modular development is composed of a set of engineering activities (processes/tasks) and corresponding objects (products/sub-systems) that are instantiated under a PPM-managed lifecycle. In Modular Engineering, they are selected, combined and orchestrated in a way so they meet concrete **requirements**.
+- Modular Engineering builds and orchestrates concrete engineering procedures (HOW) based on the elements (processes & products) provided by PPM (WHAT).
+- More precise: A modular development is composed of a set of engineering activities (processes/tasks) and corresponding objects (products/sub-systems) that are instantiated under a PPM-managed lifecycle. In Modular Engineering, they are selected, combined and orchestrated in a way so they meet concrete requirements.
 - Feedback on progress, design maturity, and engineering performance is continuously reported back to PPM.
+
+> [!NOTE]
+> The Product Portfolio Management KIT (Sandbox State) is currently under development for release 26.06. For an overview on the current content please refer to the release planning issue [Product Portfolio Management (PPM) Use Case Information](https://github.com/eclipse-tractusx/sig-release/issues/1568).
 
 ### 2. Connection with Engineering as a Service (EaaS)
 
-- **Modular Engineering** defines *what* is to be done (tasks, interfaces, modular objects), while **EaaS** defines *who* performs it.  
-- The EaaS KIT leverages Modular Engineering’s task definitions to identify, match, and contract suitable partners/service providers. The results are fed back into ME’s execution environment and utilized within the project context.
+- Modular Engineering defines *what* is to be done (tasks, interfaces, modular objects), while [Engineering as a Service (EaaS)](/docs-kits/kits/engineering-as-a-service-kit/adoption-view) defines *who* performs it.  
+- The EaaS KIT leverages the task definitions from Modular Engineering to identify, match, and contract suitable partners/service providers. The results are fed back into ME’s execution environment and utilized within the project context.
 
 ### 3. Relationship with overall Data Sovereignty and Governance
 
-- Modular Engineering builds on the Catena-X principles of **data sovereignty** and **usage policy enforcement**, ensuring that engineering data shared between partners adheres to defined access rights and contractual terms.
+- Modular Engineering builds on the Catena-X principles of data sovereignty and usage policy enforcement, ensuring that engineering data shared between partners adheres to defined access rights and contractual terms.
 
 ### 4. Alignment with Digital Twin and Product Lifecycle KITs
 
-- Modular Engineering utilizes **Digital Twin frameworks** to represent structured engineering information (requirements, process & product data etc.) - of course.
+- Modular Engineering utilizes Digital Twin frameworks to represent structured engineering information (requirements, process & product data etc.) - of course.
 - The KIT complements lifecycle management by linking design data with manufacturing and operational twins, ensuring traceability across the product’s lifecycle.
 
 ---
@@ -167,9 +159,9 @@ Tutorials can demonstrate:
 
 Currently, the creation of tutorial content is not planned.
 
-### Whitepaper
+### Whitepaper (outlook)
 
-A **Modular Engineering Whitepaper** could elaborate on:
+A Modular Engineering Whitepaper could elaborate on:
 
 - The conceptual foundations of modularized engineering within Catena-X.
 - The architecture and lifecycle of Virtual Development Objects.
@@ -179,6 +171,16 @@ A **Modular Engineering Whitepaper** could elaborate on:
 Currently, the creation of a whitepaper is not planned.
 
 ## NOTICE
+
+> [!IMPORTANT]  Sandbox Maturity Notice – Tractus-X KIT Preview
+>
+> This Tractus-X KIT is currently released in a [Sandbox state](https://eclipse-tractusx.github.io/documentation/kit-lifecycle) within the Tractus-X ecosystem. What this means:
+>
+> - The KIT represents an early maturity level and is provided as a first preview.
+> - APIs, data models, interfaces, and documentation may evolve.
+> - Stability, performance, and feature completeness are not yet guaranteed.
+>
+> Call for Contributors – Open Source Development: This preview marks the starting point of an open and collaborative development journey. If you are interested in shaping this KIT and contributing to its evolution, we warmly invite you to [join the development effort](https://eclipse-tractusx.github.io/docs/getting-started).
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
