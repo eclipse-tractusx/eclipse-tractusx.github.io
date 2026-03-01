@@ -39,7 +39,7 @@ By decoupling marketplace interaction from technical engineering execution, EaaS
 
 ## Business Value
 
-Engineering as a Service brings substantial strategic and operational value to the Catena-X ecosystem and its participants through:
+Engineering as a Service cann add substantial strategic and operational value to the Catena-X ecosystem and its participants through:
 
 1. **Open Engineering Marketplace** – Provides a federated marketplace for connecting engineering demand with specialized service providers, expanding opportunities especially for for SMEs.
 2. **Flexibility & Scalability** – Organizations can dynamically offer and/or access the engineering expertise they need, when they need it, avoiding underutilized resources and reducing time-to-market.

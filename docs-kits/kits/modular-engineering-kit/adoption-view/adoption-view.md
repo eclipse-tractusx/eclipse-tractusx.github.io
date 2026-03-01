@@ -33,7 +33,7 @@ By doing so, ME becomes the operational runtime for engineering — the layer wh
 
 ## Business Value
 
-Modular Engineering brings substantial strategic and operational value to the Catena-X ecosystem and its participants through:
+Modular Engineering can add substantial strategic and operational value to the Catena-X ecosystem and its participants through:
 
 1. **Federated Engineering Collaboration** – Complex development programs are structured into standardized $^1$, interoperable modules that can be orchestrated among the ecosystem participants. This takes into account scalability, alignment, and traceability across the entire engineering lifecycle.
 1. **Requirement Alignment & Traceability** – Engineering objects and activities are (and consistently remain) connected to explicit requirements, enabling transparent validation, verification, and compliance tracking.
