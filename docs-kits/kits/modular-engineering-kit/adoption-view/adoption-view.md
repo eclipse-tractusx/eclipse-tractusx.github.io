@@ -25,7 +25,7 @@ To enable a **modular and federated engineering ecosystem** where complex system
 
 The Modular Engineering KIT establishes a common framework for modularized, data-sovereign product/system development.
 
-It provides standardized semantics and interface definitions that allow engineering activities (projects) to be modeled, distributed (utilizing [EaaS](/docs-kits/kits/engineering-as-a-service-kit/adoption-view)), and coordinated/executed across organizational boundaries. By structuring and interlinking engineering activities Modular Engineering ensures that every design, task, and decision is traceable and harmonized.
+It provides standardized semantics and interface definitions that allow engineering activities (projects) to be modeled, distributed (utilizing [EaaS](/docs-kits/kits/engineering-as-a-service-kit/adoption-view/adoption-view.md)), and coordinated/executed across organizational boundaries. By structuring and interlinking engineering activities Modular Engineering ensures that every design, task, and decision is traceable and harmonized.
 
 By doing so, ME becomes the operational runtime for engineering — the layer where conceptual designs, processes, and collaboration converge into tangible, traceable engineering results.
 
@@ -126,7 +126,7 @@ Modular Engineering acts as a collaboration-orchestration KIT within the Tractus
 
 ### 2. Connection with Engineering as a Service (EaaS)
 
-- Modular Engineering defines *what* is to be done (tasks, interfaces, modular objects), while [Engineering as a Service (EaaS)](/docs-kits/kits/engineering-as-a-service-kit/adoption-view) defines *who* performs it.  
+- Modular Engineering defines *what* is to be done (tasks, interfaces, modular objects), while [Engineering as a Service (EaaS)](/docs-kits/kits/engineering-as-a-service-kit/adoption-view/adoption-view.md) defines *who* performs it.
 - The EaaS KIT leverages the task definitions from Modular Engineering to identify, match, and contract suitable partners/service providers. The results are fed back into ME’s execution environment and utilized within the project context.
 
 ### 3. Relationship with overall Data Sovereignty and Governance

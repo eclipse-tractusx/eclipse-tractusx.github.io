@@ -25,7 +25,7 @@ Engineering as a Service (EaaS) revolutionizes the way engineering collaboration
 ### Mission
 
 The mission of the EaaS KIT is to serve as the ecosystem-facing brokerage and contracting layer for engineering collaboration.
-EaaS connects engineering demand from the [Modular Engineering (ME)](/docs-kits/kits/modular-engineering-kit/adoption-view) layer with qualified service providers in the Data Space (e. g. Catena-X) network - ensuring transparent, compliant, and efficient matchmaking.
+EaaS connects engineering demand from the [Modular Engineering (ME)](/docs-kits/kits/modular-engineering-kit/adoption-view/adoption-view.md) layer with qualified service providers in the Data Space (e. g. Catena-X) network - ensuring transparent, compliant, and efficient matchmaking.
 
 EaaS provides standardized semantics, interfaces, and processes for:
 
@@ -89,7 +89,7 @@ This creates a foundation for engineering ecosystems where value is co-created d
 
 Defines the minimum viable logic for federated engineering service brokerage:
 
-- Task publication and metadata ingestion from [Modular Engineering](/docs-kits/kits/modular-engineering-kit/adoption-view).
+- Task publication and metadata ingestion from [Modular Engineering](/docs-kits/kits/modular-engineering-kit/adoption-view/adoption-view.md).
 - Capability discovery and matchmaking algorithms.
 - Quotation exchange and contract finalization.
 - Policy enforcement and logging for data sovereignty compliance.
@@ -134,7 +134,7 @@ EaaS acts as the ecosystem interface layer between Catena-X participants - facil
 
 ### 2. Relationship with Modular Engineering (ME)
 
-- [Modular Engineering](/docs-kits/kits/modular-engineering-kit/adoption-view) defines and manages modular tasks and orchestrates engineering execution.
+- [Modular Engineering](/docs-kits/kits/modular-engineering-kit/adoption-view/adoption-view.md) defines and manages modular tasks and orchestrates engineering execution.
 - When additional capacity or expertise is needed, ME publishes these tasks to EaaS.
 - EaaS facilitates discovery, negotiation, and contracting - returning the selected provider and contract terms to ME for controlled task execution.
 
