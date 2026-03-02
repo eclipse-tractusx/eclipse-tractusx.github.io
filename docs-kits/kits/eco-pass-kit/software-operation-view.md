@@ -23,9 +23,6 @@ Based on the information provided in this kit, it is possible to run and program
 
 In order to get the Digital Product Pass working, an EDC needs to be configured and assets need to be created so that the application is able to perform the communications.
 
-> **NOTE:**
-*This documentation is based on the Digital Product Pass Admin Guide. For the complete information check the CX-0096-TriangleForDigitalProductPass Standard or the [Admin Guide](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/docs/admin%20guide/Admin_Guide.md)*
-
 ## EDC Provider Configuration
 
 When configuring your EDC Provider you need to take into consideration the following guidelines and formats:
@@ -253,7 +250,7 @@ Once you finish the configuration, to make the endpoint public configure your di
 | DigitalTwinSubmodelId | Sub Model Id registered in the Digital Twin Registry                                                                                                     | 699f1245-f57e-4d6b-acdb-ab763665554a                       |
 | PartInstanceId        | Battery passport DMC code or the part instance Id                                                                                                        | X123456789012X12345678901234566                            |
 | manufacturerPartId    | The Part Id given by the manufacturer, it idenfies the type of the product                                                                               | XYZ78901                                                   |
-| EDCProviderUrl        | URL to the endpoint which contains the EDC Provider                                                                                                      | [https://edc.control.plane/](https://edc.control.plane/)   |
+| EDCProviderUrl        | URL to the endpoint which contains the EDC Provider                                                                                                      | ``https://edc.control.plane/``   |
 | BPN                   | OPTIONAL: The endpoint address can include a BPN number, which shall lead to the EDC Provider, and return the contracts when called from an EDC Consumer | BPNL000000000000                                           |
 | SubmodelIdShort       | EXACT STRING REQUIRED: The submodel id of the battery passports needs to be exactly the string: "batteryPass"                                            | **batteryPass**                                            |
 | BammModelVersionId    | The semantic version of the asset passport model, currently the  version v4.0.0 is used                                                                  | urn:samm:io.catenax.battery.battery_pass:4.0.0#BatteryPass |
@@ -406,7 +403,7 @@ When configuring the digital twin registry behind the EDC Provider you should fo
 
 | Name         | Description                                 | Example Value                             |
 | ------------ | ------------------------------------------- | ----------------------------------------- |
-| registryUrl  | The base url from the digital twin registry | [https://dpp-base.url/semantics/registry](https://dpp-base.url/semantics/registry) |
+| registryUrl  | The base url from the digital twin registry | ``https://dpp-base.url/semantics/registry`` |
 | registryAssetId | The name from the asset for the registry    | digital-twin-registry                     |
 
 #### Digital Twin Registry Format and Fields
