@@ -4,6 +4,17 @@ title: Changelog
 
 ![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.svg)
 
+## [1.6.0] - 2026-03-02
+
+### 26.03 Added
+
+- DPP Rulebook first version
+
+### 26.03 Updated
+
+
+- fixed broken Links
+
 ## [1.5.0] - 2024-07-25
 
 ### 24.08 Added

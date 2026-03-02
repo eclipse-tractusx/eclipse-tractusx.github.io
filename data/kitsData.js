@@ -554,8 +554,8 @@ export const kitsData = {
       description: 'Leverage the transparency of digital product passports to strengthen sustainability & compliance.',
       metadata: {
         created: '2023-08-11',
-        lastUpdated: '2024-07-25',
-        latestVersion: '1.5.0',
+        lastUpdated: '2026-03-02',
+        latestVersion: '1.6.0',
         new: false
       }
     },
