@@ -267,8 +267,8 @@ export const kitsData = {
       description: 'Digital Twins enable data-level interoperability - even between parties previously unknown to each other.',
       metadata: {
         created: '2023-07-12',
-        lastUpdated: '2024-08-01',
-        latestVersion: '2.0.1',
+        lastUpdated: '2026-02-28',
+        latestVersion: '2.0.2',
         new: false
       }
     }

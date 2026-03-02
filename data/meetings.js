@@ -221,8 +221,8 @@ export const meetings = [
     title: 'BPDM - Open Meeting',
     category: MEETING_CATEGORIES.PRODUCT,
     description: 'Coordination of feature refinement and development for bpdm product.',
-    contact: 'sujit.karne@mercedes-benz.com',
-    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_OGYxZjQ4NzItNjc1OC00YjEyLWI2NjYtNThjNDBmMGI0MTk4%40thread.v2/0?context=%7b%22Tid%22%3a%229652d7c2-1ccf-4940-8151-4a92bd474ed0%22%2c%22Oid%22%3a%221cad1acb-7d7b-4e88-bc6b-875078a66bdf%22%7d',
+    contact: 'julian.stoll@mercedes-benz.com',
+    sessionLink: 'https://teams.microsoft.com/meet/39668829824816?p=V98MwqIBHMrXfu6GSd',
     additionalLinks: [
       { title: 'BPDM Matrix Chat', url: 'https://chat.eclipse.org/#/room/#tractusx-bpdm:matrix.eclipse.org' },
     ],
@@ -230,8 +230,8 @@ export const meetings = [
       frequency: 'weekly',
       interval: 1,
       daysOfWeek: ['wednesday'],
-      startTime: '10:00',
-      endTime: '10:30',
+      startTime: '09:00',
+      endTime: '09:30',
     },
   },
   {
@@ -349,7 +349,7 @@ export const meetings = [
       frequency: 'once',
       startDate: '2026-02-26',
       startTime: '09:05',
-      endTime: '12:15',
+      endTime: '10:15',
     },
   },
   {

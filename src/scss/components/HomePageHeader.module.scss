@@ -117,8 +117,12 @@
     }
 
     .btn_container {
+        flex-wrap: wrap;
+        padding: 0 10px;
         .btn {
-            margin: 15px 5px;
+            margin: 5px;
+            flex: 1 1 140px;
+            justify-content: center;
             }
     }
 
