@@ -1114,8 +1114,8 @@ npm/npmjs/@babel/runtime/7.28.4, MIT, approved, clearlydefined
 npm/npmjs/@babel/template/7.27.2, MIT, approved, clearlydefined
 npm/npmjs/@babel/traverse/7.28.5, MIT, approved, clearlydefined
 npm/npmjs/@babel/types/7.28.5, MIT, approved, #22490
-npm/npmjs/@braintree/sanitize-url/7.1.1, MIT, approved, clearlydefined
-npm/npmjs/@chevrotain/cst-dts-gen/11.1.2, , restricted, clearlydefined
+npm/npmjs/@braintree/sanitize-url/7.1.1, MIT, approved, #26360
+npm/npmjs/@chevrotain/cst-dts-gen/11.1.2, Apache-2.0, approved, #26358
 npm/npmjs/@chevrotain/gast/11.1.2, Apache-2.0, approved, #26342
 npm/npmjs/@chevrotain/regexp-to-ast/11.1.2, Apache-2.0, approved, #26298
 npm/npmjs/@chevrotain/types/11.1.2, Apache-2.0, approved, #26308
@@ -1320,7 +1320,7 @@ npm/npmjs/@svgr/webpack/8.1.0, MIT, approved, clearlydefined
 npm/npmjs/@swc/core-darwin-arm64/1.15.3, Apache-2.0, approved, #26349
 npm/npmjs/@swc/core-darwin-x64/1.15.3, Apache-2.0, approved, #26291
 npm/npmjs/@swc/core-linux-arm-gnueabihf/1.15.3, Apache-2.0, approved, #26293
-npm/npmjs/@swc/core-linux-arm64-gnu/1.15.3, Apache-2.0 AND MIT, approved, clearlydefined
+npm/npmjs/@swc/core-linux-arm64-gnu/1.15.3, Apache-2.0, approved, #26366
 npm/npmjs/@swc/core-linux-arm64-musl/1.15.3, Apache-2.0, approved, #26335
 npm/npmjs/@swc/core-linux-x64-gnu/1.15.3, Apache-2.0, approved, #26318
 npm/npmjs/@swc/core-linux-x64-musl/1.15.3, Apache-2.0, approved, #26334
