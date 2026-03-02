@@ -1022,8 +1022,8 @@ export const kitsData = {
         name: 'ENGINEERING AS A SERVICE KIT',
         logo: EngineeringAsAServiceKITLogo,
         logoLicencse: {
-          type: 'CC-BY-4.0',
-          authors: '2026 Eclipse Tractus-X Contributors',
+          type: 'CC-BY',
+          authors: '2026 wishforge.games',
           licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/engineering-as-a-service/engineering-as-a-service-kit-logo.svg.license',
           sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/engineering-as-a-service/engineering-as-a-service-kit-raw-logo.svg',
           originalSourceUrl: 'https://www.svgrepo.com/svg/385262/engineering-protection-hold-hand-cog-technology',
