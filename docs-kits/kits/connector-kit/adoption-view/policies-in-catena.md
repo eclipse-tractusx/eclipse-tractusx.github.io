@@ -122,116 +122,106 @@ This specific catalog contains one single `Dataset`, called "json-1-paper". It i
 `dataset` property. To access this Dataset, the Consumer can choose between two contract offers (see the
 `hasPolicy` property):
 
-- `"Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMg==:anNvbi0xLXBhcGVy:ZDA4ZDM5OTgtOGY5ZS00MzBmLThjZDEtZmYwOWQxMmQxYzk5"`
-- `"Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMQ==:anNvbi0xLXBhcGVy:ODFkMDI2MWYtNDNlNi00ZTIxLWJkMWYtZmFmZTI3MWQwYzhj"`
-
-> **Note:** The following example is outdated and still has to be replaced
+- `"MDE5Y2FlNTgtZGJjNy03ZjI2LTk4ZTUtMGIwZDNhMTUxNWRh:anNvbi0xLXBhcGVy:N2FmZGYyYTgtNWU4Zi00NTkyLThhZDQtZjg2NjAzZDBmZDRl"`
+- `"MDE5Y2FlNTgtZGJjNy03NDYxLTliNGYtNjU2MjJhZTA2ZjBh:anNvbi0xLXBhcGVy:YzEzOGMwMzctNTY5Mi00ZjUyLTk1YjItMWMyMzBhYjMzYzEx"`
 
 ```json
 {
-  "@context": {
-    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
-    "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "dct": "https://purl.org/dc/terms/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
-  },
-  "@id": "693e9b66-04f2-4bfb-b3cd-daf5857b47c9",
-  "@type": "dcat:Catalog",
-  "dcat:dataset": [
+  "@id": "ebc35d09-47fe-4c86-b522-8b49fa2ec7f4",
+  "@type": "Catalog",
+  "dataset": [
     {
       "@id": "json-1-paper",
-      "@type": "dcat:Dataset",
-      "odrl:hasPolicy": [
+      "@type": "Dataset",
+      "hasPolicy": [
         {
-          "@id": "Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMg==:anNvbi0xLXBhcGVy:ZDA4ZDM5OTgtOGY5ZS00MzBmLThjZDEtZmYwOWQxMmQxYzk5",
-          "@type": "odrl:Set",
-          "odrl:permission": {
-            "odrl:action": {
-              "@id": "http://www.w3.org/ns/odrl/2/use"
-            },
-            "odrl:constraint": {
-              "odrl:and": [
+          "@id": "MDE5Y2FlNTgtZGJjNy03ZjI2LTk4ZTUtMGIwZDNhMTUxNWRh:anNvbi0xLXBhcGVy:N2FmZGYyYTgtNWU4Zi00NTkyLThhZDQtZjg2NjAzZDBmZDRl",
+          "@type": "Offer",
+          "permission": [
+            {
+              "action": "use",
+              "constraint": [
                 {
-                  "odrl:leftOperand": "https://w3id.org/catenax/policy/FrameworkAgreement",
-                  "odrl:operator": {
-                    "@id": "odrl:eq"
-                  },
-                  "odrl:rightOperand": "DataExchangeGovernance:1.0"
-                },
-                {
-                  "odrl:leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
-                  "odrl:operator": {
-                    "@id": "odrl:eq"
-                  },
-                  "odrl:rightOperand": "cx.core.industrycore:1"
+                  "and": [
+                    {
+                      "leftOperand": "FrameworkAgreement",
+                      "operator": "eq",
+                      "rightOperand": "DataExchangeGovernance:1.0"
+                    },
+                    {
+                      "leftOperand": "UsagePurpose",
+                      "operator": "eq",
+                      "rightOperand": "cx.core.industrycore:1"
+                    }
+                  ]
                 }
               ]
             }
-          },
-          "odrl:prohibition": [],
-          "odrl:obligation": []
+          ]
         },
         {
-          "@id": "Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMQ==:anNvbi0xLXBhcGVy:ODFkMDI2MWYtNDNlNi00ZTIxLWJkMWYtZmFmZTI3MWQwYzhj",
-          "@type": "odrl:Set",
-          "odrl:permission": {
-            "odrl:action": {
-              "@id": "http://www.w3.org/ns/odrl/2/use"
-            },
-            "odrl:constraint": [
-              {
-                "odrl:leftOperand": "https://w3id.org/catenax/policy/FrameworkAgreement",
-                "odrl:operator": {
-                  "@id": "odrl:eq"
-                },
-                "odrl:rightOperand": "DataExchangeGovernance:1.0"
-              },
-              {
-                "odrl:leftOperand": "https://w3id.org/catenax/policy/ContractReference",
-                "odrl:operator": {
-                  "@id": "odrl:eq"
-                },
-                "odrl:rightOperand": "contract-123456789"
-              },
-              {
-                "odrl:leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
-                "odrl:operator": {
-                  "@id": "odrl:eq"
-                },
-                "odrl:rightOperand": "cx.core.industrycore:1"
-              }
-            ]
-          },
-          "odrl:prohibition": [],
-          "odrl:obligation": []
+          "@id": "MDE5Y2FlNTgtZGJjNy03NDYxLTliNGYtNjU2MjJhZTA2ZjBh:anNvbi0xLXBhcGVy:YzEzOGMwMzctNTY5Mi00ZjUyLTk1YjItMWMyMzBhYjMzYzEx",
+          "@type": "Offer",
+          "permission": [
+            {
+              "action": "use",
+              "constraint": [
+                {
+                  "and": [
+                    {
+                      "leftOperand": "FrameworkAgreement",
+                      "operator": "eq",
+                      "rightOperand": "DataExchangeGovernance:1.0"
+                    },
+                    {
+                      "leftOperand": "ContractReference",
+                      "operator": "eq",
+                      "rightOperand": "contract-123456789"
+                    },
+                    {
+                      "leftOperand": "UsagePurpose",
+                      "operator": "eq",
+                      "rightOperand": "cx.core.industrycore:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
-      "dcat:distribution": [
+      "distribution": [
         {
-          "@type": "dcat:Distribution",
-          "dct:format": {
-            "@id": "HttpData-PULL"
-          },
-          "dcat:accessService": "911f5da0-c9ee-4259-9a95-39428d08f777"
+          "@type": "Distribution",
+          "format": "HttpData-PULL",
+          "accessService": {
+            "@id": "be23856b-4eaf-4e85-a873-65692e5d7f2c",
+            "@type": "DataService",
+            "endpointDescription": "dspace:connector",
+            "endpointURL": "https://connector.example.org/api/v1/dsp/2025-1"
+          }
         }
       ],
-      "version": 1.0,
-      "content-type": "application/json",
-      "name": "json-1-paper",
-      "description": "Asset json-1-paper for test purposes",
+      "dct:type": "Connector KIT Demo Asset",
       "id": "json-1-paper"
     }
   ],
-  "dcat:service": {
-    "@id": "911f5da0-c9ee-4259-9a95-39428d08f777",
-    "@type": "dcat:DataService",
-    "dct:terms": "connector",
-    "dct:endpointUrl": "https://provider-dsp-end.point/api/v1/dsp"
-  },
-  "participantId": "PROVIDER-BPNL"
+  "service": [
+    {
+      "@id": "be23856b-4eaf-4e85-a873-65692e5d7f2c",
+      "@type": "DataService",
+      "endpointDescription": "dspace:connector",
+      "endpointURL": "https://connector.example.org/api/v1/dsp/2025-1"
+    }
+  ],
+  "participantId": "did:web:wallet.example.org:api:did:example-did",
+  "@context": [
+    "https://w3id.org/tractusx/auth/v1.0.0",
+    "https://w3id.org/catenax/2025/9/policy/context.jsonld",
+    "https://w3id.org/catenax/2025/9/policy/odrl.jsonld",
+    "https://w3id.org/dspace/2025/1/context.jsonld",
+    "https://w3id.org/edc/dspace/v0.0.1"
+  ]
 }
 ```
 
