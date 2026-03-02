@@ -167,7 +167,7 @@ For more information on how the Authentication & Authorization is done consult t
 
 > [!NOTE]
 > The reference application has been deprecated.
-> You can find the old source at <https://github.com/eclipse-tractusx/digital-product-pass>.
+> You can find the old source at [eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass).
 > Similar development is happening for the [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub).
 
 ## NOTICE
