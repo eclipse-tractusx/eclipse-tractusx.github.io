@@ -56,7 +56,7 @@ The Rulebook is organized to provide:
 - Definitions and clarifications of key terms and concepts,
 - General principles for handling and entering DPP data,
 - Guidance and reference to standards to help with Data Validation
-  
+
 The following sections present clear, actionable guidance and aggregate collective experience from multiple companies to help understand the data model.
 
 *Note: Please note that the descriptions provided in this rulebook may differ from the technical descriptions in the data model; they have been adapted to make the content easier to understand for all users.*
@@ -135,7 +135,7 @@ Based on the definition provided above, a simplified interpretation would be: "D
 In simpler terms, this can be understood as evaluating whether the data appears logical and internally consistent in terms of its content.<br><br>
 This interpretation is consistent with the definitions found on Wikipedia and also closely reflects our own understanding of the terms "verification" and "validation."
 >
->#### 3.2.5.3 Definition for Validation & Verification in Standards & Regulations  
+>#### 3.2.5.3 Definition for Validation & Verification in Standards & Regulations
 >
 > The terms verification and validation are used in many standards and regulations, but their meanings can vary depending on the context. In general, verification is about checking whether something was done correctly, while validation is about making sure it meets the intended purpose or requirements. Below are selected definitions from key standards and regulations that illustrate how these terms are interpreted and applied in different domains.
 >
@@ -282,7 +282,7 @@ Specific language in which passport content is created.
 
 > To be covered in next version
 
-#### 6.1.6 Registration Identifier  
+#### 6.1.6 Registration Identifier
 
 > To be covered in next version
 
@@ -541,7 +541,7 @@ Importer identification (The importer of the product) refers to the requirement 
 
 > To be covered in next version
 
-#### 6.3.9 Other Operator Identification  
+#### 6.3.9 Other Operator Identification
 
 Other Operator Identification is a secondary or additional identifier used to uniquely reference an other operator for a product, for example: distributors/retailers/logistics/designers/smelters/recyclers/professional repairers/waste treatment facilities/remanufacturers/ etc.
 
@@ -573,7 +573,7 @@ This field is used to specify the "Role" of the other operator (e.g., Distributo
 
 > To be covered in next version
 
-#### 6.3.16 Collection Points of Extended Producer Responsibility Scheme ID  
+#### 6.3.16 Collection Points of Extended Producer Responsibility Scheme ID
 
 > To be covered in next version
 
@@ -622,7 +622,7 @@ Part ID as assigned by the manufacturer of the part. The Part ID identifies the 
 
 > **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
-#### 6.4.1.5 Name at Manufacturer  
+#### 6.4.1.5 Name at Manufacturer
 
 Name of the spare part as assigned by the manufacturer.
 
@@ -654,7 +654,7 @@ These characteristics enable comparability across products, and informed decisio
 | 6.5.11    |  Value (Height)             | Optional            | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.12    | Unit (Height)               | Optional            | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.13    |  Value (Gross Weight)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
-| 6.5.14    | Unit (Gross Weight)         |Mandatory            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.14    | Unit (Gross Weight)         |Mandatory            | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.15    |  Value (Volume)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.16    | Unit (Volume)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.17    |  Value (Gross Volume)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
@@ -673,7 +673,7 @@ These characteristics enable comparability across products, and informed decisio
 "Lifetime" under the Ecodesign for Sustainable Products Regulation (ESPR) refers to the period during which a product or its components are expected to remain functional, safe, and fit for use, under normal or intended conditions, without excessive performance degradation. It is a key indicator of durability and reliability, and may be expressed through: <br>1- Guaranteed lifetime (e.g., warranty or legal durability claim) <br>2- Technical lifetime (based on product design and performance testing) <br>3- Mean Time Between Failures (MTBF)
 
 > **Syntax**
-> 
+>
 > For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 #### 6.5.2 Life Description
@@ -829,7 +829,7 @@ A general performance class refers to a standardized categorization of products 
 
 The timestamp in the format (yyyy-mm-dd) with or without time zone when the product was put in the market.
 
-> **Syntax**<br>Its validity can be verified using regular expression-based checks  
+> **Syntax**<br>Its validity can be verified using regular expression-based checks
 > **Content Validation**<br>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
 
 #### 6.6.2 Purpose
@@ -875,7 +875,7 @@ Recall information refers to the data and documentation associated with the proc
 | 6.7.2.5   | Sorting Information                              | *To be covered in next version* | | | | |
 | 6.7.2.6   | Component Passport Identifier                    | *To be covered in next version* | | | | |
 | 6.7.2.7   | Material ID (Material Composition)               | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 6.7.2.8   | Material List Type ID (Material Composition)              | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.2.8   | Material List Type ID (Material Composition)              | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
 | 6.7.2.9   | Material Name (Material Composition)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
 | 6.7.2.10  | Material Type                                    | *To be covered in next version* | | | | |
 | 6.7.2.11  | Material Origin                                  | *To be covered in next version* | | | | |
@@ -989,7 +989,7 @@ Check whether the connected attributes are applicable to the product. If it is n
 
 > To be covered in next version
 
-#### 6.7.2.2 Component Code  
+#### 6.7.2.2 Component Code
 
 > To be covered in next version
 
@@ -1001,7 +1001,7 @@ Check whether the connected attributes are applicable to the product. If it is n
 
 > To be covered in next version
 
-#### 6.7.2.5 Sorting Information  
+#### 6.7.2.5 Sorting Information
 
 > To be covered in next version
 
@@ -1042,7 +1042,7 @@ The name of the material which is present in the product.
 
 > To be covered in next version
 
-#### 6.7.2.12 Material Passport Identifier  
+#### 6.7.2.12 Material Passport Identifier
 
 > To be covered in next version
 
@@ -1328,7 +1328,7 @@ The identifier used for a location. Unique facility identifier means a unique st
 >
 > The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
-#### 6.8.26 Facility Address 
+#### 6.8.26 Facility Address
 
 > To be covered in next version
 
@@ -1356,7 +1356,7 @@ The durability score is an indicator established under the Ecodesign for Sustain
 >
 > Durability score in accordance to Annex I of [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng)
 
-#### 6.8.31 Reuse Info 
+#### 6.8.31 Reuse Info
 
 > To be covered in next version
 
@@ -1364,7 +1364,7 @@ The durability score is an indicator established under the Ecodesign for Sustain
 
 > To be covered in next version
 
-#### 6.8.33 Rotation Calculation Key 
+#### 6.8.33 Rotation Calculation Key
 
 > To be covered in next version
 
@@ -1388,241 +1388,241 @@ The durability score is an indicator established under the Ecodesign for Sustain
 
 > To be covered in next version
 
-#### 6.8.39 Collection Points Reusable Product ID 
+#### 6.8.39 Collection Points Reusable Product ID
 
 > To be covered in next version
 
-#### 6.8.40 Collection Points Reusable Product Address 
+#### 6.8.40 Collection Points Reusable Product Address
 
 > To be covered in next version
 
-#### 6.8.41 Recyclability Performance Grade 
+#### 6.8.41 Recyclability Performance Grade
 
 > To be covered in next version
 
 ### 6.9 Compliance
 
-| Rule ID | Data Attribute                                      | Mandatory/ Optional | Regulatory Reference                                        |
-|---------|-----------------------------------------------------|---------------------|-------------------------------------------------------------|
-| 6.9.1   | Compliance Country             | *To be covered in next version* | |
-| 6.9.2   | Compliance Regulation Name            | *To be covered in next version* | |
-| 6.9.3   | Compliance Statement            | *To be covered in next version* | |
-| 6.9.4   | Compliance Reason for Exemption            | *To be covered in next version* | |
-| 6.9.5   | Compliance Remark            | *To be covered in next version* | |
-| 6.9.6   | Compliance Documentation            | *To be covered in next version* | |
+| Rule ID | Data Attribute                  | Mandatory/ Optional             | Regulatory Reference |
+|---------|---------------------------------|---------------------------------|----------------------|
+| 6.9.1   | Compliance Country              | *To be covered in next version* |                      |
+| 6.9.2   | Compliance Regulation Name      | *To be covered in next version* |                      |
+| 6.9.3   | Compliance Statement            | *To be covered in next version* |                      |
+| 6.9.4   | Compliance Reason for Exemption | *To be covered in next version* |                      |
+| 6.9.5   | Compliance Remark               | *To be covered in next version* |                      |
+| 6.9.6   | Compliance Documentation        | *To be covered in next version* |                      |
 
 ### 6.10 Sources
 
-| Rule ID | Data Attribute                                      | Mandatory/ Optional | Regulatory Reference                                        |
-|---------|-----------------------------------------------------|---------------------|-------------------------------------------------------------|
-| 6.10.1   | Sources             | *To be covered in next version* | | 
-| 6.10.2   | Category | Mandatory | Regulation (EU) 2024/1781, Annex III and Article 27 | 
+| Rule ID | Data Attribute | Mandatory/ Optional             | Regulatory Reference                                |
+|---------|----------------|---------------------------------|-----------------------------------------------------|
+| 6.10.1  | Sources        | *To be covered in next version* |                                                     |
+| 6.10.2  | Category       | Mandatory                       | Regulation (EU) 2024/1781, Annex III and Article 27 |
 
 ### 6.11 Additional Data
 
-| Rule ID | Data Attribute                                      | Mandatory/ Optional | Regulatory Reference                                        |
-|---------|-----------------------------------------------------|---------------------|-------------------------------------------------------------|
-| 6.11.1  | Description  | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 |
-| 6.11.2  | Label        | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 | 
-| 6.11.3  | Type Unit    | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | 
-| 6.11.4  | Data Type    | Mandatory | Regulation (EU) 2024/1781, Article 9 & 4 |
-| 6.11.5  | Data         | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | 
-| 6.11.6  | Children     | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | 
+| Rule ID | Data Attribute | Mandatory/ Optional | Regulatory Reference                     |
+|---------|----------------|---------------------|------------------------------------------|
+| 6.11.1  | Description    | Mandatory           | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.2  | Label          | Mandatory           | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.3  | Type Unit      | Optional            | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.4  | Data Type      | Mandatory           | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.5  | Data           | Optional            | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.6  | Children       | Optional            | Regulation (EU) 2024/1781, Article 9 & 4 |
 
 ## Appendix 1: DPP Example Data
 
-| ID | Section | Data Attribute| Example Data |
-|---------|-|---------------------------|---------------------|
-| 1.1   | Metadata |Passport Identifier       | urn:uuid:550e8400-e29b-41d4-a716-446655440000            |
-| 1.2   | Metadata |Version     | 1.0.0         |
-| 1.3   | Metadata |Status       | Released           |
-| 1.4   | Metadata |Language       | en-GB          |
-| 1.5   | Metadata |Predecessor Identifier       | urn:uuid:00000000-0000-0000-0000-000000000000    |
-| 1.6   | Metadata |Registration Identifier      | https://dummy.link/ID8283746239078 |
-| 1.7   | Metadata |Backup Reference   | https://dummy.link/ID8283746239078  |
-| 1.8   | Metadata |IssueDate     | 2000-01-01        |
-| 1.9   | Metadata |ExpirationDate     | 22000-01-01         |
-| 1.10   | Metadata |Last Modification     | 2000-01-01        |
-| 1.11   | Metadata |Economic Operator ID     | BPNL0123456789ZZ         |
-| 1.12  | Metadata |Economic Operator Name     | ABC          |
-| 1.13  | Metadata |Economic Operator Contact     | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``         |
-| 1.14  | Metadata |Economic Operator Address     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45 |
-| 2.1  | Identification |Serial Key    |     partInstanceId  |
-| 2.2  | Identification |Serial Value    |  SN12345678     |
-| 2.3  | Identification |Batch Key   |     batchId       |
-| 2.4  | Identification |Batch Value     |    BID12345678      |
-| 2.5  | Identification |    Manufacturer Part ID  |   123-0.740-3434-A       |
-| 2.6  | Identification |     Name at Manufacturer |  Mirror left for XXX123        |
-| 2.7  | Identification |    Code Key  |     TARIC     |
-| 2.8  | Identification |     	Code Value |   8703 24 10 00       |
-| 2.9  | Identification |  Code Description    |  A 10th-digit customs nomenclature code.        |
-| 2.10  | Identification |  Carrier Type    |     QR     |
-| 2.11  | Identification |  	Carrier Position    |    upper-left side      |
-| 2.12  | Identification |  Classification Standard    |   ECLASS 15.0       |
-| 2.13  | Identification |  Classification ID    |     44-09-01     |
-| 2.14  |Identification  |  	Classification Description    |   ECLASS is an international cross-industry master-data business standard for products and services information to be exchanged.       |
-| 2.15  | Identification |  	Picture    |   Product front view  |
-| 3.1  |  Operation| Facility ID     |   BPNS1234567890AA       |
-| 3.2 | Operation |   	Facility Address   |    BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45      |
-| 3.3  |  Operation|  Manufacturer ID    |   BPNL0123456789ZZ       |
-| 3.4  | Operation |  Manufacturer Name    |   ABC       |
-| 3.5  |  Operation| Manufacturer Contact     |     faxNumber:+49 89 0987654321, website: 
-``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``     |
-| 3.6  | Operation | 	Manufacturer Address     |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 4  |
-| 3.7  | Operation |  Manufacturing Date    |    2000-01-01      |
-| 3.8  | Operation |  	Applicable    |   true       |
-| 3.8.1  |Operation  | EORI     |      GB123456789000    |
-| 3.8.2  | Operation |  Importer Identification    |   BPNL0123456789ZZ       |
-| 3.8.3  | Operation |   Importer Name   |    ABC      |
-| 3.8.4  | Operation |   Importer Contact   | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``         |
-| 3.8.5  | Operation |    Importer Address  |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
-| 3.9  |Operation  | Other Operator ID     |  BPNL0123456789XX        |
-| 3.10  | Operation |  Other Operator Name    |   ABC       |
-| 3.11  | Operation | 	Other Operator Contact    |   faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``        |
-| 3.12 | Operation | Other Operator Address     |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45           |
-| 3.13 |  Operation|  Other Operator Role    |    distributor      |
-| 3.14  |Operation  | Symbol of Extended Producer Responsibility Scheme     |   true       |
-| 3.15  | Operation | Territory of Extended Producer Responsibility Scheme     |  DE        |
-| 3.16  | Operation |  Collection Points of Extended Producer Responsibility Scheme ID    |  BPNA1234567890AA        |
-| 3.17  |Operation  |   Collection Points of Extended Producer Responsibility Scheme Address   |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45         |
-| 4.1  | Handling | Applicable     |     true     |
-| 4.1.1  | Handling | Sources Identification     |   BPNL0123456789ZZ       |
-| 4.1.2  | Handling |  Sources Contact    |  faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``        |
-| 4.1.3  |Handling  |   Sources Address  |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
-| 4.1.4  |  Handling|  	Manufacturer Part ID    |   123-0.740-3434-A       |
-| 4.1.5  | Handling |  Name at Manufacturer    |    Mirror left from car XYZ      |
-| 5.1  | Characteristics | 	Life Type     |    guaranteed lifetime      |
-| 5.2  |Characteristics  |  Life Value    |    36      |
-| 5.3  |Characteristics  |   	Life Unit   | unit:month         |
-| 5.4 | Characteristics |  	Value (Width)    |     20.5     |
-| 5.5  |  Characteristics|  Unit (Width)    |   unit:millimetre       |
-| 5.6  |Characteristics  |  	Value (Length)    |         20.5      |
-| 5.7  |Characteristics  |  	Unit (Length)    |  unit:millimetre        |
-| 5.8  | Characteristics |  Value (Diameter)    |       20.5        |
-| 5.9  | Characteristics |   	Unit (Diameter)   |  unit:millimetre        |
-| 5.10  |Characteristics  |   Value (Height)   |            20.5   |
-| 5.11  | Characteristics |  Unit (Height)    |   unit:millimetre       |
-| 5.12  | Characteristics |  Value (Gross Weight)    |    20.5      |
-| 5.13  |  Characteristics|  Unit (Gross Weight)    |   unit:kilogram     |
-| 5.14  | Characteristics| 	Value (Volume)     |   20.5       |
-| 5.15  | Characteristics | 	Unit (Volume)     |      unit:litre  |
-| 5.16  | Characteristics | 	Value (Gross Volume)     |   20.5       |
-| 5.17  | Characteristics |  Unit (Gross Volume)    |     unit:litre     |
-| 5.18  | Characteristics |  Value (Weight)    |     20.5     |
-| 5.19  | Characteristics | Unit (Weight)     |      unit:kilogram    |
-| 5.20  | Characteristics |  Value (Item Quantity)    |   20       |
-| 5.21  |Characteristics  |   Unit Item Quantity   |  unit:piece        |
-| 5.22  |Characteristics  |   Physical State   |      solid    |
-| 5.23  |Characteristics  |  General Performance Class    |    A      |
-| 5.24  |Characteristics  | Other Characteristic Name     |     shape     |
-| 5.25  |Characteristics  |  Other Characteristic Outcome    |   cubic       |
-| 6.1  | Commercial |	Placed On Market     |    2000-01-01      |
-| 6.2  | Commercial |  Purpose    |     automotive     |
-| 6.3  | Commercial |  Purchase Order    |    XXX      |
-| 6.4  | Commercial |  Recall Information    |   Product safety recall       |
-| 7.1 | Composition |  	Applicable (Substances of Concern)    |   true       |
-| 7.1.1  | Composition  |  	Chemical ID (Substances of Concern)    |   201-004-7       |
-| 7.1.2  |  Composition | 	List Type ID (Substances of Concern)     |     CAS     |
-| 7.1.3  |  Composition |  	Chemical Name (Substances of Concern)    |    phenolphthalein      |
-| 7.1.4  |  Composition | Material Unit (Substances of Concern)    |   unit:percent       |
-| 7.1.5  |  Composition |  	Concentration (Substances of Concern)    |    2.6      |
-| 7.1.6  |  Composition | Min Concentration (Substances of Concern)     |     2.1     |
-| 7.1.7  |  Composition |  Max Concentration (Substances of Concern)    |    5.3      |
-| 7.1.8  |  Composition | Location of Substances (Substances of Concern)     |     Housing     |
-| 7.1.9  |  Composition |  Exemption for Substances (Substances of Concern)    | shall not apply to product x containing not more than 1,5 ml of liquid          |
-| 7.1.10  | Composition  | 	Hazard Category (Substances of Concern)     |   category 1A       |
-| 7.1.11  | Composition |  Hazard Class (Substances of Concern)    |     Skin corrosion     |
-| 7.1.12  |  Composition | 	Hazard Statement (Substances of Concern)    |    Causes severe skin burns and eye damage.      |
-| 7.1.13  |  Composition |  Documentation    |      ``https://dummy.link`` , URL, Example Document XYZ       |
-| 7.2  |  Composition | Applicable (Material Composition)    |     true     |
-| 7.2.1  |  Composition | Component Name     | Top lid         |
-| 7.2.2  | Composition  | Component Code     |   ABC123       |
-| 7.2.3  |  Composition |  Component Description    |   Yellow bin        |
-| 7.2.4  | Composition  |  Component Location    |  The screw cap is located at the top of the container.        |
-| 7.2.5  |  Composition | Sorting Information     |   Yellow waste bin is appropriate for discard this component. Group component by diameter for efficient storage. Rinse and remove food residues to ensure cleanliness.       |
-| 7.2.6  |  Composition | Component Passport Identifier     |   urn:uuid:550e8400-e29b-41d4-a716-446655440000       |
-| 7.2.7  |  Composition |	Chemical ID (Material Composition)      |    201-004-7      |
-| 7.2.8  |  Composition |  List Type ID (Material Composition)    |       CAS       |
-| 7.2.9  |  Composition | Chemical Name (Material Composition)     |     phenolphthalein      |
-| 7.2.10  |  Composition |  Material Type    |    impurity      |
-| 7.2.11  |  Composition |  Material Origin    |     CN     |
-| 7.2.12 |  Composition | Material Passport Identifier     |    urn:uuid:550e8400-e29b-41d4-a716-446655440000      |
-| 7.2.13  |  Composition |  Material Unit    |  kg        |
-| 7.2.14  |  Composition | Concentration     |       2.6      |
-| 7.2.15  |  Composition |  Min Concentration    |     2.1         |
-| 7.2.16  |   Composition|  Max Concentration   |       5.3       |
-| 7.2.17  |   Composition|   Location   |   handle       |
-| 7.2.18  |   Composition|   Recycled   |      12.5    |
-| 7.2.19  |   Composition|  Documentation    |     ``https://dummy.link`` , URL, Example Document XYZ        |
-| 7.3.1 |  Composition | 	List Name (Declarable Ingredient List)     |      Critical Raw Materials    |
-| 7.3.2 |  Composition |   Document ID (Declarable Ingredient List)   |     XXX     |
-| 7.3.3  |  Composition |  Documentation (Declarable Ingredient List)    |     ``https://dummy.link`` , URL, Example Document XYZ    |
-| 8.1  |Sustainability  | State	     |   Original       |
-| 8.2  |Sustainability  |value (product carbon footprint)      |      12.678    |
-| 8.3  |Sustainability  | 	footprintUnit(product carbon footprint)     |   kg CO2 / kWh       |
-| 8.4  |Sustainability  |  footprintType(product carbon footprint)    |     Climate Change     |
-| 8.5  |Sustainability |   	footprintLifecycle(product carbon footprint)   |   main product production       |
-| 8.6  |Sustainability  |  	performanceClass(product carbon footprint)    |     A     |
-| 8.7  |Sustainability  |   facility(product carbon footprint)   |   BPNA1234567890AA       |
-| 8.8  |Sustainability  |  	Facility Address    |   BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45       |
-| 8.9  | Sustainability |  Rulebook    |      ``https://dummy.link`` , URL, Example Document XYZ      |
-| 8.10  | Sustainability | Declaration     |     ``https://dummy.link`` , URL, Example Document XYZ       |
-| 8.11  |Sustainability  |  	value (product environmental footprint)    |    12.678        |
-| 8.12  |Sustainability  |  footprintUnit (product environmental footprint)    |   kg CO2 / kWh         |
-| 8.13  |Sustainability  |  footprintType (product environmental footprint)    |      Climate Change (Could be any other environmental impact category, Cliamte change is just an example here)      |
-| 8.14  | Sustainability |  footprintLifecycle (product environmental footprint)    |  main product production         |
-| 8.15  |Sustainability  | performanceClass (product environmental footprint)     |     A     |
-| 8.16  | Sustainability |  facility (product environmental footprint)    |     BPNA1234567890AA       |
-| 8.17  | Sustainability | Facility Address     |   BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45         |
-| 8.18  |  Sustainability| Rulebook    |    ``https://dummy.link`` , URL, Example Document XYZ       |
-| 8.19  |Sustainability  | Declaration     |     ``https://dummy.link`` , URL, Example Document XYZ      |
-| 8.20  | Sustainability |  value (product material footprint)    |    12.678            |
-| 8.21  | Sustainability | footprintUnit (product material footprint)     |    kg CO2 / kWh        |
-| 8.22  | Sustainability | 	footprintType (product material footprint)     |    Climate Change (Could be any other environmental impact category, Cliamte change is just an example here)         |
-| 8.23  | Sustainability |  	footprintLifecycle (product material footprint)    |    main product production         |
-| 8.24  | Sustainability |  performanceClass (product material footprint)    |       A      |
-| 8.25  | Sustainability |  facility (product material footprint)    |      BPNA1234567890AA           |
-| 8.26  | Sustainability |  Facility Address    |     BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45      |
-| 8.27  | Sustainability |  Rulebook    |     ``https://dummy.link`` , URL, Example Document XYZ      |
-| 8.28  | Sustainability |  Declaration    |  ``https://dummy.link`` , URL, Example Document XYZ         |
-| 8.29  | Sustainability |  	Reparability Score    |       B   |
-| 8.30  | Sustainability |  	Durability Score    |          A |
-| 8.31  | Sustainability |   Reuse Info   |   Product can be extracted from obsolete machinery and use in wind turbines or other renewable energy systems, contributing to sustainable energy solutions. Product can serve as components in DIY projects.       |
-| 8.32  | Sustainability |  Reuse System Identification    |     XXX     |
-| 8.33  | Sustainability |  Rotation Calculation Key    |   cycles calculated        |
-| 8.34  | Sustainability |   Rotation Calculation Value   |     100      |
-| 8.35  | Sustainability |  Trip Calculation Key    |    trips calculated       |
-| 8.36  | Sustainability | Trip Calculation Value     |     100        |
-| 8.37  | Sustainability | 	Facilitates Tracking Reusable Product Address ID     |   BPNA1234567890AA             |
-| 8.38  | Sustainability | Facilitates Tracking Reusable Product Address     |   BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
-| 8.39  | Sustainability |  Collection Points Reusable Product ID    |        |
-| 8.40  | Sustainability |   Collection Points Reusable Product Address   |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45          |
-| 8.41  | Sustainability |  	Recyclability Performance Grade    |     C     |
-| 9.1  | Compliance |   Compliance Country   |     UK     |
-| 9.2 | Compliance |  Compliance Regulation Name    |  REACH regulation        |
-| 9.3  |Compliance  |  Compliance Statement    |   Hereby we declare under our sole responsibility that the product:XXX is in conformity with the provisions of the EU directives and regulations.       |
-| 9.4  | Compliance |  Compliance Reason for Exemption    |   Radioactive substance       |
-| 9.5  | Compliance |   Compliance Remark   |  If you need more information about the (pre-)registration status, please get in contact with our experts from the Compliance Team: ``www.xyz.com``        |
-| 9.6  |Compliance  |   Compliance Documentation  |     ``https://dummy.link`` , URL, Example Document XYZ            |
-| 10.1  |Sources  |  Sources    |          |
-| 10.2  | Sources |  Category    |          |
-| 11.1  |Additional Data  | Description     |  Description of an attribute        |
-| 11.2  | Additional Data |  Label    |  Maximum permitted battery power        |
-| 11.3  | Additional Data |  Type Unit    |  unit:volume        |
-| 11.4  |Additional Data  |  Data Type    |  xsd:integer        |
-| 11.5  | Additional Data |  Data    |     23     |
-| 11.6  |Additional Data  |  Children    |          |
+| ID     | Section         | Data Attribute                                                       | Example Data                                                                                                                                                                                                |
+|--------|-----------------|----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1.1    | Metadata        | Passport Identifier                                                  | urn:uuid:550e8400-e29b-41d4-a716-446655440000                                                                                                                                                               |
+| 1.2    | Metadata        | Version                                                              | 1.0.0                                                                                                                                                                                                       |
+| 1.3    | Metadata        | Status                                                               | Released                                                                                                                                                                                                    |
+| 1.4    | Metadata        | Language                                                             | en-GB                                                                                                                                                                                                       |
+| 1.5    | Metadata        | Predecessor Identifier                                               | urn:uuid:00000000-0000-0000-0000-000000000000                                                                                                                                                               |
+| 1.6    | Metadata        | Registration Identifier                                              | <https://dummy.link/ID8283746239078>                                                                                                                                                                        |
+| 1.7    | Metadata        | Backup Reference                                                     | <https://dummy.link/ID8283746239078>                                                                                                                                                                        |
+| 1.8    | Metadata        | IssueDate                                                            | 2000-01-01                                                                                                                                                                                                  |
+| 1.9    | Metadata        | ExpirationDate                                                       | 22000-01-01                                                                                                                                                                                                 |
+| 1.10   | Metadata        | Last Modification                                                    | 2000-01-01                                                                                                                                                                                                  |
+| 1.11   | Metadata        | Economic Operator ID                                                 | BPNL0123456789ZZ                                                                                                                                                                                            |
+| 1.12   | Metadata        | Economic Operator Name                                               | ABC                                                                                                                                                                                                         |
+| 1.13   | Metadata        | Economic Operator Contact                                            | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``                                                                         |
+| 1.14   | Metadata        | Economic Operator Address                                            | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 2.1    | Identification  | Serial Key                                                           | partInstanceId                                                                                                                                                                                              |
+| 2.2    | Identification  | Serial Value                                                         | SN12345678                                                                                                                                                                                                  |
+| 2.3    | Identification  | Batch Key                                                            | batchId                                                                                                                                                                                                     |
+| 2.4    | Identification  | Batch Value                                                          | BID12345678                                                                                                                                                                                                 |
+| 2.5    | Identification  | Manufacturer Part ID                                                 | 123-0.740-3434-A                                                                                                                                                                                            |
+| 2.6    | Identification  | Name at Manufacturer                                                 | Mirror left for XXX123                                                                                                                                                                                      |
+| 2.7    | Identification  | Code Key                                                             | TARIC                                                                                                                                                                                                       |
+| 2.8    | Identification  | Code Value                                                           | 8703 24 10 00                                                                                                                                                                                               |
+| 2.9    | Identification  | Code Description                                                     | A 10th-digit customs nomenclature code.                                                                                                                                                                     |
+| 2.10   | Identification  | Carrier Type                                                         | QR                                                                                                                                                                                                          |
+| 2.11   | Identification  | Carrier Position                                                     | upper-left side                                                                                                                                                                                             |
+| 2.12   | Identification  | Classification Standard                                              | ECLASS 15.0                                                                                                                                                                                                 |
+| 2.13   | Identification  | Classification ID                                                    | 44-09-01                                                                                                                                                                                                    |
+| 2.14   | Identification  | Classification Description                                           | ECLASS is an international cross-industry master-data business standard for products and services information to be exchanged.                                                                              |
+| 2.15   | Identification  | Picture                                                              | Product front view                                                                                                                                                                                          |
+| 3.1    | Operation       | Facility ID                                                          | BPNS1234567890AA                                                                                                                                                                                            |
+| 3.2    | Operation       | Facility Address                                                     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 3.3    | Operation       | Manufacturer ID                                                      | BPNL0123456789ZZ                                                                                                                                                                                            |
+| 3.4    | Operation       | Manufacturer Name                                                    | ABC                                                                                                                                                                                                         |
+| 3.5    | Operation       | Manufacturer Contact                                                 | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``                                                                         |
+| 3.6    | Operation       | Manufacturer Address                                                 | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 4                                                                                                                                              |
+| 3.7    | Operation       | Manufacturing Date                                                   | 2000-01-01                                                                                                                                                                                                  |
+| 3.8    | Operation       | Applicable                                                           | true                                                                                                                                                                                                        |
+| 3.8.1  | Operation       | EORI                                                                 | GB123456789000                                                                                                                                                                                              |
+| 3.8.2  | Operation       | Importer Identification                                              | BPNL0123456789ZZ                                                                                                                                                                                            |
+| 3.8.3  | Operation       | Importer Name                                                        | ABC                                                                                                                                                                                                         |
+| 3.8.4  | Operation       | Importer Contact                                                     | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``                                                                         |
+| 3.8.5  | Operation       | Importer Address                                                     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 3.9    | Operation       | Other Operator ID                                                    | BPNL0123456789XX                                                                                                                                                                                            |
+| 3.10   | Operation       | Other Operator Name                                                  | ABC                                                                                                                                                                                                         |
+| 3.11   | Operation       | Other Operator Contact                                               | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``                                                                         |
+| 3.12   | Operation       | Other Operator Address                                               | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 3.13   | Operation       | Other Operator Role                                                  | distributor                                                                                                                                                                                                 |
+| 3.14   | Operation       | Symbol of Extended Producer Responsibility Scheme                    | true                                                                                                                                                                                                        |
+| 3.15   | Operation       | Territory of Extended Producer Responsibility Scheme                 | DE                                                                                                                                                                                                          |
+| 3.16   | Operation       | Collection Points of Extended Producer Responsibility Scheme ID      | BPNA1234567890AA                                                                                                                                                                                            |
+| 3.17   | Operation       | Collection Points of Extended Producer Responsibility Scheme Address | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 4.1    | Handling        | Applicable                                                           | true                                                                                                                                                                                                        |
+| 4.1.1  | Handling        | Sources Identification                                               | BPNL0123456789ZZ                                                                                                                                                                                            |
+| 4.1.2  | Handling        | Sources Contact                                                      | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``                                                                         |
+| 4.1.3  | Handling        | Sources Address                                                      | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 4.1.4  | Handling        | Manufacturer Part ID                                                 | 123-0.740-3434-A                                                                                                                                                                                            |
+| 4.1.5  | Handling        | Name at Manufacturer                                                 | Mirror left from car XYZ                                                                                                                                                                                    |
+| 5.1    | Characteristics | Life Type                                                            | guaranteed lifetime                                                                                                                                                                                         |
+| 5.2    | Characteristics | Life Value                                                           | 36                                                                                                                                                                                                          |
+| 5.3    | Characteristics | Life Unit                                                            | unit:month                                                                                                                                                                                                  |
+| 5.4    | Characteristics | Value (Width)                                                        | 20.5                                                                                                                                                                                                        |
+| 5.5    | Characteristics | Unit (Width)                                                         | unit:millimetre                                                                                                                                                                                             |
+| 5.6    | Characteristics | Value (Length)                                                       | 20.5                                                                                                                                                                                                        |
+| 5.7    | Characteristics | Unit (Length)                                                        | unit:millimetre                                                                                                                                                                                             |
+| 5.8    | Characteristics | Value (Diameter)                                                     | 20.5                                                                                                                                                                                                        |
+| 5.9    | Characteristics | Unit (Diameter)                                                      | unit:millimetre                                                                                                                                                                                             |
+| 5.10   | Characteristics | Value (Height)                                                       | 20.5                                                                                                                                                                                                        |
+| 5.11   | Characteristics | Unit (Height)                                                        | unit:millimetre                                                                                                                                                                                             |
+| 5.12   | Characteristics | Value (Gross Weight)                                                 | 20.5                                                                                                                                                                                                        |
+| 5.13   | Characteristics | Unit (Gross Weight)                                                  | unit:kilogram                                                                                                                                                                                               |
+| 5.14   | Characteristics | Value (Volume)                                                       | 20.5                                                                                                                                                                                                        |
+| 5.15   | Characteristics | Unit (Volume)                                                        | unit:litre                                                                                                                                                                                                  |
+| 5.16   | Characteristics | Value (Gross Volume)                                                 | 20.5                                                                                                                                                                                                        |
+| 5.17   | Characteristics | Unit (Gross Volume)                                                  | unit:litre                                                                                                                                                                                                  |
+| 5.18   | Characteristics | Value (Weight)                                                       | 20.5                                                                                                                                                                                                        |
+| 5.19   | Characteristics | Unit (Weight)                                                        | unit:kilogram                                                                                                                                                                                               |
+| 5.20   | Characteristics | Value (Item Quantity)                                                | 20                                                                                                                                                                                                          |
+| 5.21   | Characteristics | Unit Item Quantity                                                   | unit:piece                                                                                                                                                                                                  |
+| 5.22   | Characteristics | Physical State                                                       | solid                                                                                                                                                                                                       |
+| 5.23   | Characteristics | General Performance Class                                            | A                                                                                                                                                                                                           |
+| 5.24   | Characteristics | Other Characteristic Name                                            | shape                                                                                                                                                                                                       |
+| 5.25   | Characteristics | Other Characteristic Outcome                                         | cubic                                                                                                                                                                                                       |
+| 6.1    | Commercial      | Placed On Market                                                     | 2000-01-01                                                                                                                                                                                                  |
+| 6.2    | Commercial      | Purpose                                                              | automotive                                                                                                                                                                                                  |
+| 6.3    | Commercial      | Purchase Order                                                       | XXX                                                                                                                                                                                                         |
+| 6.4    | Commercial      | Recall Information                                                   | Product safety recall                                                                                                                                                                                       |
+| 7.1    | Composition     | Applicable (Substances of Concern)                                   | true                                                                                                                                                                                                        |
+| 7.1.1  | Composition     | Chemical ID (Substances of Concern)                                  | 201-004-7                                                                                                                                                                                                   |
+| 7.1.2  | Composition     | List Type ID (Substances of Concern)                                 | CAS                                                                                                                                                                                                         |
+| 7.1.3  | Composition     | Chemical Name (Substances of Concern)                                | phenolphthalein                                                                                                                                                                                             |
+| 7.1.4  | Composition     | Material Unit (Substances of Concern)                                | unit:percent                                                                                                                                                                                                |
+| 7.1.5  | Composition     | Concentration (Substances of Concern)                                | 2.6                                                                                                                                                                                                         |
+| 7.1.6  | Composition     | Min Concentration (Substances of Concern)                            | 2.1                                                                                                                                                                                                         |
+| 7.1.7  | Composition     | Max Concentration (Substances of Concern)                            | 5.3                                                                                                                                                                                                         |
+| 7.1.8  | Composition     | Location of Substances (Substances of Concern)                       | Housing                                                                                                                                                                                                     |
+| 7.1.9  | Composition     | Exemption for Substances (Substances of Concern)                     | shall not apply to product x containing not more than 1,5 ml of liquid                                                                                                                                      |
+| 7.1.10 | Composition     | Hazard Category (Substances of Concern)                              | category 1A                                                                                                                                                                                                 |
+| 7.1.11 | Composition     | Hazard Class (Substances of Concern)                                 | Skin corrosion                                                                                                                                                                                              |
+| 7.1.12 | Composition     | Hazard Statement (Substances of Concern)                             | Causes severe skin burns and eye damage.                                                                                                                                                                    |
+| 7.1.13 | Composition     | Documentation                                                        | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 7.2    | Composition     | Applicable (Material Composition)                                    | true                                                                                                                                                                                                        |
+| 7.2.1  | Composition     | Component Name                                                       | Top lid                                                                                                                                                                                                     |
+| 7.2.2  | Composition     | Component Code                                                       | ABC123                                                                                                                                                                                                      |
+| 7.2.3  | Composition     | Component Description                                                | Yellow bin                                                                                                                                                                                                  |
+| 7.2.4  | Composition     | Component Location                                                   | The screw cap is located at the top of the container.                                                                                                                                                       |
+| 7.2.5  | Composition     | Sorting Information                                                  | Yellow waste bin is appropriate for discard this component. Group component by diameter for efficient storage. Rinse and remove food residues to ensure cleanliness.                                        |
+| 7.2.6  | Composition     | Component Passport Identifier                                        | urn:uuid:550e8400-e29b-41d4-a716-446655440000                                                                                                                                                               |
+| 7.2.7  | Composition     | Chemical ID (Material Composition)                                   | 201-004-7                                                                                                                                                                                                   |
+| 7.2.8  | Composition     | List Type ID (Material Composition)                                  | CAS                                                                                                                                                                                                         |
+| 7.2.9  | Composition     | Chemical Name (Material Composition)                                 | phenolphthalein                                                                                                                                                                                             |
+| 7.2.10 | Composition     | Material Type                                                        | impurity                                                                                                                                                                                                    |
+| 7.2.11 | Composition     | Material Origin                                                      | CN                                                                                                                                                                                                          |
+| 7.2.12 | Composition     | Material Passport Identifier                                         | urn:uuid:550e8400-e29b-41d4-a716-446655440000                                                                                                                                                               |
+| 7.2.13 | Composition     | Material Unit                                                        | kg                                                                                                                                                                                                          |
+| 7.2.14 | Composition     | Concentration                                                        | 2.6                                                                                                                                                                                                         |
+| 7.2.15 | Composition     | Min Concentration                                                    | 2.1                                                                                                                                                                                                         |
+| 7.2.16 | Composition     | Max Concentration                                                    | 5.3                                                                                                                                                                                                         |
+| 7.2.17 | Composition     | Location                                                             | handle                                                                                                                                                                                                      |
+| 7.2.18 | Composition     | Recycled                                                             | 12.5                                                                                                                                                                                                        |
+| 7.2.19 | Composition     | Documentation                                                        | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 7.3.1  | Composition     | List Name (Declarable Ingredient List)                               | Critical Raw Materials                                                                                                                                                                                      |
+| 7.3.2  | Composition     | Document ID (Declarable Ingredient List)                             | XXX                                                                                                                                                                                                         |
+| 7.3.3  | Composition     | Documentation (Declarable Ingredient List)                           | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.1    | Sustainability  | State                                                                | Original                                                                                                                                                                                                    |
+| 8.2    | Sustainability  | value (product carbon footprint)                                     | 12.678                                                                                                                                                                                                      |
+| 8.3    | Sustainability  | footprintUnit(product carbon footprint)                              | kg CO2 / kWh                                                                                                                                                                                                |
+| 8.4    | Sustainability  | footprintType(product carbon footprint)                              | Climate Change                                                                                                                                                                                              |
+| 8.5    | Sustainability  | footprintLifecycle(product carbon footprint)                         | main product production                                                                                                                                                                                     |
+| 8.6    | Sustainability  | performanceClass(product carbon footprint)                           | A                                                                                                                                                                                                           |
+| 8.7    | Sustainability  | facility(product carbon footprint)                                   | BPNA1234567890AA                                                                                                                                                                                            |
+| 8.8    | Sustainability  | Facility Address                                                     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 8.9    | Sustainability  | Rulebook                                                             | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.10   | Sustainability  | Declaration                                                          | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.11   | Sustainability  | value (product environmental footprint)                              | 12.678                                                                                                                                                                                                      |
+| 8.12   | Sustainability  | footprintUnit (product environmental footprint)                      | kg CO2 / kWh                                                                                                                                                                                                |
+| 8.13   | Sustainability  | footprintType (product environmental footprint)                      | Climate Change (Could be any other environmental impact category, Cliamte change is just an example here)                                                                                                   |
+| 8.14   | Sustainability  | footprintLifecycle (product environmental footprint)                 | main product production                                                                                                                                                                                     |
+| 8.15   | Sustainability  | performanceClass (product environmental footprint)                   | A                                                                                                                                                                                                           |
+| 8.16   | Sustainability  | facility (product environmental footprint)                           | BPNA1234567890AA                                                                                                                                                                                            |
+| 8.17   | Sustainability  | Facility Address                                                     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 8.18   | Sustainability  | Rulebook                                                             | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.19   | Sustainability  | Declaration                                                          | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.20   | Sustainability  | value (product material footprint)                                   | 12.678                                                                                                                                                                                                      |
+| 8.21   | Sustainability  | footprintUnit (product material footprint)                           | kg CO2 / kWh                                                                                                                                                                                                |
+| 8.22   | Sustainability  | footprintType (product material footprint)                           | Climate Change (Could be any other environmental impact category, Cliamte change is just an example here)                                                                                                   |
+| 8.23   | Sustainability  | footprintLifecycle (product material footprint)                      | main product production                                                                                                                                                                                     |
+| 8.24   | Sustainability  | performanceClass (product material footprint)                        | A                                                                                                                                                                                                           |
+| 8.25   | Sustainability  | facility (product material footprint)                                | BPNA1234567890AA                                                                                                                                                                                            |
+| 8.26   | Sustainability  | Facility Address                                                     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 8.27   | Sustainability  | Rulebook                                                             | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.28   | Sustainability  | Declaration                                                          | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.29   | Sustainability  | Reparability Score                                                   | B                                                                                                                                                                                                           |
+| 8.30   | Sustainability  | Durability Score                                                     | A                                                                                                                                                                                                           |
+| 8.31   | Sustainability  | Reuse Info                                                           | Product can be extracted from obsolete machinery and use in wind turbines or other renewable energy systems, contributing to sustainable energy solutions. Product can serve as components in DIY projects. |
+| 8.32   | Sustainability  | Reuse System Identification                                          | XXX                                                                                                                                                                                                         |
+| 8.33   | Sustainability  | Rotation Calculation Key                                             | cycles calculated                                                                                                                                                                                           |
+| 8.34   | Sustainability  | Rotation Calculation Value                                           | 100                                                                                                                                                                                                         |
+| 8.35   | Sustainability  | Trip Calculation Key                                                 | trips calculated                                                                                                                                                                                            |
+| 8.36   | Sustainability  | Trip Calculation Value                                               | 100                                                                                                                                                                                                         |
+| 8.37   | Sustainability  | Facilitates Tracking Reusable Product Address ID                     | BPNA1234567890AA                                                                                                                                                                                            |
+| 8.38   | Sustainability  | Facilitates Tracking Reusable Product Address                        | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 8.39   | Sustainability  | Collection Points Reusable Product ID                                |                                                                                                                                                                                                             |
+| 8.40   | Sustainability  | Collection Points Reusable Product Address                           | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 8.41   | Sustainability  | Recyclability Performance Grade                                      | C                                                                                                                                                                                                           |
+| 9.1    | Compliance      | Compliance Country                                                   | UK                                                                                                                                                                                                          |
+| 9.2    | Compliance      | Compliance Regulation Name                                           | REACH regulation                                                                                                                                                                                            |
+| 9.3    | Compliance      | Compliance Statement                                                 | Hereby we declare under our sole responsibility that the product:XXX is in conformity with the provisions of the EU directives and regulations.                                                             |
+| 9.4    | Compliance      | Compliance Reason for Exemption                                      | Radioactive substance                                                                                                                                                                                       |
+| 9.5    | Compliance      | Compliance Remark                                                    | If you need more information about the (pre-)registration status, please get in contact with our experts from the Compliance Team: ``www.xyz.com``                                                          |
+| 9.6    | Compliance      | Compliance Documentation                                             | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 10.1   | Sources         | Sources                                                              |                                                                                                                                                                                                             |
+| 10.2   | Sources         | Category                                                             |                                                                                                                                                                                                             |
+| 11.1   | Additional Data | Description                                                          | Description of an attribute                                                                                                                                                                                 |
+| 11.2   | Additional Data | Label                                                                | Maximum permitted battery power                                                                                                                                                                             |
+| 11.3   | Additional Data | Type Unit                                                            | unit:volume                                                                                                                                                                                                 |
+| 11.4   | Additional Data | Data Type                                                            | xsd:integer                                                                                                                                                                                                 |
+| 11.5   | Additional Data | Data                                                                 | 23                                                                                                                                                                                                          |
+| 11.6   | Additional Data | Children                                                             |                                                                                                                                                                                                             |
 
 ### NOTICE
+
 This work is licensed under the CC-BY-4.0.<br>
 
-•	SPDX-License-Identifier: CC-BY-4.0<br>
-•	SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA<br>
-•	SPDX-FileCopyrightText: 2025 Schaeffler AG<br>
-•	SPDX-FileCopyrightText: 2025 SIEMENS AG<br>
-•	SPDX-FileCopyrightText: 2025 Lisa Dräxlmaier GmbH<br>
-•	SPDX-FileCopyrightText: 2025 BASF SE<br>
-•	SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG<br>
-•	SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation<br>
+• SPDX-License-Identifier: CC-BY-4.0<br>
+• SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA<br>
+• SPDX-FileCopyrightText: 2025 Schaeffler AG<br>
+• SPDX-FileCopyrightText: 2025 SIEMENS AG<br>
+• SPDX-FileCopyrightText: 2025 Lisa Dräxlmaier GmbH<br>
+• SPDX-FileCopyrightText: 2025 BASF SE<br>
+• SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG<br>
+• SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation<br>
 • SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)<br>
-•	Source URL: https://github.com/eclipse-tractusx/digital-product-pass<br>
+• Source URL: <https://github.com/eclipse-tractusx/digital-product-pass><br>

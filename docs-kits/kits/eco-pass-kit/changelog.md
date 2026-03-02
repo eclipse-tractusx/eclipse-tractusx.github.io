@@ -12,7 +12,6 @@ title: Changelog
 
 ### 26.03 Updated
 
-
 - fixed broken Links
 
 ## [1.5.0] - 2024-07-25
