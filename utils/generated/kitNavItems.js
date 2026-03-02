@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: d7d821fbf2df5c7767f393e6e73c94cb896a5323299b1583ebf49a32b36696d1
+ * Content hash: ce1bf194683060f43aa5978472f12a05bc4be56c1b62060d1b81c07e144f003d
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -203,7 +203,7 @@ const kitsByCategory = {
         "deprecated": false
       }
     ],
-    "engineering": [
+    "automotive": [
       {
         "id": "modular-engineering",
         "name": "MODULAR ENGINEERING KIT",
