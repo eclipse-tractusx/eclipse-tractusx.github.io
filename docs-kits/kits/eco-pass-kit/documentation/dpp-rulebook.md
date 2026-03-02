@@ -126,7 +126,7 @@ In the context of Together for Sustainability (TfS), "verification" refers to th
 >
 >##### Verification
 >
-> The process of independently assessing whether reported PCF **data is accurate, complete, and conforms to a defined methodology** or standard. 
+> The process of independently assessing whether reported PCF **data is accurate, complete, and conforms to a defined methodology** or standard.
 Based on the definition provided above, a simplified interpretation would be: "Determining whether the data has been calculated in accordance with established guidelines and standards."
 >
 >##### Validation
@@ -313,7 +313,7 @@ Must fullfill the following regular expression: ^\d{4}-\d{2}-\d{2}$
 Identification of the economic operator responsible for the passport.
 
 > **Syntax**<br> To be checked via regular expression based checks.
-
+>
 > **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. For companies that are not in the Catena-X network, another valid identification number could be used (for example, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html), Tax Identification number, Commercial registration number or similar).
 
 #### 6.1.12 Economic Operator Names
@@ -350,7 +350,6 @@ The Identification section includes attributes needed for uniquely identifying t
 | 6.2.14    | Classification Description | Optional            | Regulation (EU) 2024/1781                                     |
 | 6.2.15    | Picture                    | *To be covered in next version* | Optional| | | |
 
-
 #### 6.2.1 Serial Key
 
 The key for local identification of a serial part.
@@ -365,7 +364,7 @@ The value associated with the serial key.
 >
 > If provided, the attribute must describe the unique serial key.
 
-#### 6.2.3 Batch Key  
+#### 6.2.3 Batch Key
 
 The key for local identification of a batch information.
 
@@ -446,34 +445,34 @@ The "Operations" category refers to a structured set of data that describes th
 | Rule ID | Data Attribute                                                       | Mandatory/ Optional | Regulatory Reference                             |
 |---------|----------------------------------------------------------------------|---------------------|--------------------------------------------------|
 | 6.3.1     | Facility Identification                                                          | Mandatory           | Regulation (EU) 2024/1781, Annex III(i)          |
-| 6.3.2     | Facility Address                                                     | *To be covered in next version* | | 
+| 6.3.2     | Facility Address                                                     | *To be covered in next version* | |
 | 6.3.3     | Manufacturer Identification                                                      | Mandatory           | Regulation (EU) 2024/1781, Annex III(h) & (k)    |
-| 6.3.4     | Manufacturer Names                                                    | *To be covered in next version* | | 
-| 6.3.5     | Manufacturer Contact                                                 | *To be covered in next version* | | 
-| 6.3.6     | Manufacturer Address                                                 | *To be covered in next version* | | 
-| 6.3.7     | Manufacturing Date                                                   | Optional           | Mandatory | Regulation (EU) 2024/1781, Annex III | 
+| 6.3.4     | Manufacturer Names                                                    | *To be covered in next version* | |
+| 6.3.5     | Manufacturer Contact                                                 | *To be covered in next version* | |
+| 6.3.6     | Manufacturer Address                                                 | *To be covered in next version* | |
+| 6.3.7     | Manufacturing Date                                                   | Optional           | Mandatory | Regulation (EU) 2024/1781, Annex III |
 | 6.3.8     | Applicable                                                           | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
 | 6.3.8.1   | EORI                                                                 | Mandatory           | Regulation (EU) 2024/1781, Annex III(j)          |
 | 6.3.8.2   | Importer Identification                                              | Mandatory           | Regulation (EU) 2024/1781, Annex III(j)          |
-| 6.3.8.3   | Importer Names                                                        | *To be covered in next version* | | 
-| 6.3.8.4   | Importer Contact                                                     | *To be covered in next version* | | 
-| 6.3.8.5   | Importer Address                                                     | *To be covered in next version* | | 
+| 6.3.8.3   | Importer Names                                                        | *To be covered in next version* | |
+| 6.3.8.4   | Importer Contact                                                     | *To be covered in next version* | |
+| 6.3.8.5   | Importer Address                                                     | *To be covered in next version* | |
 | 6.3.9    | Other Operator Identification                                                    | Mandatory           | Regulation (EU) 2024/1781 (h)             |
-| 6.3.10    | Other Operator Names                                                  | *To be covered in next version* | | 
-| 6.3.11    | Other Operator Contact                                               | *To be covered in next version* | | 
-| 6.3.12    | Other Operator Address                                               | *To be covered in next version* | | 
+| 6.3.10    | Other Operator Names                                                  | *To be covered in next version* | |
+| 6.3.11    | Other Operator Contact                                               | *To be covered in next version* | |
+| 6.3.12    | Other Operator Address                                               | *To be covered in next version* | |
 | 6.3.13    | Other Operator Role                                                  | Mandatory           | Regulation (EU) 2024/1781, Annex III             |
-| 6.3.14    | Symbol of Extended Producer Responsibility Scheme                    | *To be covered in next version* | | 
-| 6.3.15    | Territory of Extended Producer Responsibility Scheme                 | *To be covered in next version* | | 
-| 6.3.16    | Collection Points of Extended Producer Responsibility Scheme ID      | *To be covered in next version* | | 
-| 6.3.17    | Collection Points of Extended Producer Responsibility Scheme Address | *To be covered in next version* | | 
+| 6.3.14    | Symbol of Extended Producer Responsibility Scheme                    | *To be covered in next version* | |
+| 6.3.15    | Territory of Extended Producer Responsibility Scheme                 | *To be covered in next version* | |
+| 6.3.16    | Collection Points of Extended Producer Responsibility Scheme ID      | *To be covered in next version* | |
+| 6.3.17    | Collection Points of Extended Producer Responsibility Scheme Address | *To be covered in next version* | |
 
-#### 6.3.1 Facility Identification 
+#### 6.3.1 Facility Identification
 
 The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNS is provided.
-
+>
 > **Content Validation**<br>The BPNS is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 6.3.2 Facility Address
@@ -482,10 +481,10 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 #### 6.3.3 Manufacturer Identification
 
- Manufacturer identification (The main manufacturer, if different from the passport owner, represented by an identification number) refers to the requirement for clear and traceable information about the manufacturer or responsible economic operator of a product placed on the EU market. 
+ Manufacturer identification (The main manufacturer, if different from the passport owner, represented by an identification number) refers to the requirement for clear and traceable information about the manufacturer or responsible economic operator of a product placed on the EU market.
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNL is provided.
-> 
+>
 > **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 6.3.4 Manufacturer Name
@@ -562,7 +561,7 @@ Other Operator Identification is a secondary or additional identifier used to un
 
 #### 6.3.13 Other Operator Role
 
-This field is used to specify the "Role" of the other operator (e.g., Distributor). 
+This field is used to specify the "Role" of the other operator (e.g., Distributor).
 
 > **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
@@ -578,7 +577,7 @@ This field is used to specify the "Role" of the other operator (e.g., Distributo
 
 > To be covered in next version
 
-#### 6.3.17 Collection Points of Extended Producer Responsibility Scheme Address 
+#### 6.3.17 Collection Points of Extended Producer Responsibility Scheme Address
 
 > To be covered in next version
 
@@ -592,7 +591,7 @@ This field is used to specify the "Role" of the other operator (e.g., Distributo
 | 6.4.1.1   | Sources Identification    | Mandatory           |                            |
 | 6.4.1.2   | Sources Contact           | *To be covered in next version* | |
 | 6.4.1.3   | Sources Address           | *To be covered in next version* | |
-| 6.4.1.4   | Manufacturer Part ID      | Mandatory           |                            | 
+| 6.4.1.4   | Manufacturer Part ID      | Mandatory           |                            |
 | 6.4.1.5   | Name at Manufacturer      | Mandatory           |                            |
 
 #### 6.4.1 Applicable
@@ -606,7 +605,7 @@ Check whether the connected attributes are applicable to the product. If it is n
 Identifies sources of spare parts for the product via unique identifiers of producers, important for traceability and supply chain management.
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNL is provided.
-
+>
 > **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 6.4.1.2 Sources Contact
@@ -640,32 +639,32 @@ Key elements under this category may include:
 
 These characteristics enable comparability across products, and informed decision-making by stakeholders.
 
-| Rule ID | Data Attribute              | Mandatory/ Optional | Regulatory Reference                 | 
+| Rule ID | Data Attribute              | Mandatory/ Optional | Regulatory Reference                 |
 |---------|-----------------------------|---------------------|--------------------------------------|
 | 6.5.1     | Life Type                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   |
 | 6.5.2     | Life Description            | Optional            | Regulation (EU) 2024/1781, Annex I   |
-| 6.5.3     | Life Value                  | Mandatory           | Regulation (EU) 2024/1781, Annex I   | 
+| 6.5.3     | Life Value                  | Mandatory           | Regulation (EU) 2024/1781, Annex I   |
 | 6.5.4     | Life Unit                   | Mandatory           | Regulation (EU) 2024/1781, Annex I   |
-| 6.5.5     | Value (Width)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.6     | Unit (Width)                | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.5     | Value (Width)               | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.6     | Unit (Width)                | Optional            | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.7     |  Value (Length)             | Optional            | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.8     | Unit (Length)               | Optional            | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.9     |  Value (Diameter)           | Optional            | Regulation (EU) 2024/1781, Article 7 |
-| 6.5.10     | Unit (Diameter)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.11    |  Value (Height)             | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.12    | Unit (Height)               | Optional            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.13    |  Value (Gross Weight)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.10     | Unit (Diameter)             | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.11    |  Value (Height)             | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.12    | Unit (Height)               | Optional            | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.13    |  Value (Gross Weight)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.14    | Unit (Gross Weight)         |Mandatory            | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.15    |  Value (Volume)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.16    | Unit (Volume)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.17    |  Value (Gross Volume)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.15    |  Value (Volume)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.16    | Unit (Volume)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.17    |  Value (Gross Volume)       | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.18    | Unit (Gross Volume)         | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
-| 6.5.19    |  Value (Weight)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
-| 6.5.20    | Unit (Weight)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.19    |  Value (Weight)             | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.20    | Unit (Weight)               | Mandatory           | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.21    | Item quantity in package value  | *To be covered in next version* | | | | |
 | 6.5.22    | Item quantity in package unit        | *To be covered in next version* | | | | |
-| 6.5.23    | Physical State              | Optional            |  | 
-| 6.5.24    | General Performance Class   | Optional            | Regulation (EU) 2024/1781, Article 7 | 
+| 6.5.23    | Physical State              | Optional            |  |
+| 6.5.24    | General Performance Class   | Optional            | Regulation (EU) 2024/1781, Article 7 |
 | 6.5.25    | Other Characteristic Name   | *To be covered in next version* | | | | |
 | 6.5.26    | Other Characteristic Outcome| *To be covered in next version* | | | | |
 
@@ -858,16 +857,16 @@ Recall information refers to the data and documentation associated with the proc
 | Rule ID | Data Attribute                                   | Mandatory/ Optional | Regulatory Reference                  |
 |---------|--------------------------------------------------|---------------------|---------------------------------------|
 | 6.7.1     | Applicable (Substances of Concern)               | Mandatory           | Regulation (EU) 2024/1781             |
-| 6.7.1.1   | Locations of Substances (Substances of Concern)   | Mandatory           | Regulation (EU) 2024/1781             | 
-| 6.7.1.2   | Exemption for Substances (Substances of Concern) | Mandatory           | Regulation (EU) 2024/1781 Article 7 (5) (c)  | 
+| 6.7.1.1   | Locations of Substances (Substances of Concern)   | Mandatory           | Regulation (EU) 2024/1781             |
+| 6.7.1.2   | Exemption for Substances (Substances of Concern) | Mandatory           | Regulation (EU) 2024/1781 Article 7 (5) (c)  |
 | 6.7.1.3  | Hazard Category (Substances of Concern)          | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
 | 6.7.1.4  | Hazard Class (Substances of Concern)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 6.7.1.5  | Hazard Statement (Substances of Concern)         | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.1.5  | Hazard Statement (Substances of Concern)         | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
 | 6.7.1.6  | Documentation                                    | *To be covered in next version* | | | | |
-| 6.7.1.7   | Min Concentration Value (Substances of Concern)        | Optional           | Regulation (EU) 2024/1781, Article 7  | 
-| 6.7.1.8   | Min Concentration Unit (Substances of Concern)        | Optional           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.1.7   | Min Concentration Value (Substances of Concern)        | Optional           | Regulation (EU) 2024/1781, Article 7  |
+| 6.7.1.8   | Min Concentration Unit (Substances of Concern)        | Optional           | Regulation (EU) 2024/1781, Article 7  |
 | 6.7.1.9   | Max Concentration Value (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
-| 6.7.1.10   | Max Concentration Unit (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.1.10   | Max Concentration Unit (Substances of Concern)        | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
 | 6.7.2     | Applicable (component Information)                | Mandatory           | Regulation (EU) 2024/1781             |
 | 6.7.2.1   | Component Name                                   | *To be covered in next version* | | | | |
 | 6.7.2.2   | Component Code                                   | *To be covered in next version* | | | | |
@@ -877,7 +876,7 @@ Recall information refers to the data and documentation associated with the proc
 | 6.7.2.6   | Component Passport Identifier                    | *To be covered in next version* | | | | |
 | 6.7.2.7   | Material ID (Material Composition)               | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
 | 6.7.2.8   | Material List Type ID (Material Composition)              | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
-| 6.7.2.9   | Material Name (Material Composition)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  | 
+| 6.7.2.9   | Material Name (Material Composition)             | Mandatory           | Regulation (EU) 2024/1781, Article 7  |
 | 6.7.2.10  | Material Type                                    | *To be covered in next version* | | | | |
 | 6.7.2.11  | Material Origin                                  | *To be covered in next version* | | | | |
 | 6.7.2.12  | Material Passport Identifier                     | *To be covered in next version* | | | | |
@@ -896,7 +895,7 @@ Recall information refers to the data and documentation associated with the proc
 
 #### 6.7.1 Applicable (Substances of Concern)
 
- Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled 
+ Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.
 
 > **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
@@ -905,7 +904,7 @@ Recall information refers to the data and documentation associated with the proc
 The location of the substances of concern within the product <br> Further description: <br>This requires specifying the exact location of the substance of concern within the product—for example, whether it is contained in the packaging or integrated into the product itself
 
 > **Content Validation**
-> 
+>
 > As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.7.1.2 Exemption for Substances (Substances of Concern)
@@ -913,7 +912,7 @@ The location of the substances of concern within the product <br> Further descri
 Exemptions to the substance of concern: An exemption to the substance of concern refers to a formally recognized exception that permits the use or presence of a regulated or restricted chemical substance within a product or component, under specific conditions. The exemption must be documented and justified in accordance with applicable legal frameworks (e.g., REACH, RoHS), and may be subject to review, expiration, or renewal.
 
 > **Content Validation**
-> 
+>
 > As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.7.1.3 Hazard Category (Substances of Concern)
@@ -993,23 +992,23 @@ Check whether the connected attributes are applicable to the product. If it is n
 #### 6.7.2.2 Component Code  
 
 > To be covered in next version
- 
-#### 6.7.2.3 Component Description 
+
+#### 6.7.2.3 Component Description
 
 > To be covered in next version
- 
-#### 6.7.2.4 Component Locations 
+
+#### 6.7.2.4 Component Locations
 
 > To be covered in next version
- 
+
 #### 6.7.2.5 Sorting Information  
 
 > To be covered in next version
- 
+
 #### 6.7.2.6 Component Passport Identifier
 
 > To be covered in next version
- 
+
 #### 6.7.2.7 Material ID (Material Composition)
 
 A Material ID  is a unique identifier assigned to a material to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Material ID facilitates accurate identification, classification, and communication of information, including composition, hazards, and regulatory status.
@@ -1067,7 +1066,7 @@ The name of the material which is present in the product.
 
 > To be covered in next version
 
- #### 6.7.2.18 Max Concentration Unit
+#### 6.7.2.18 Max Concentration Unit
 
 > To be covered in next version
 
@@ -1183,7 +1182,6 @@ The specific phase within a product's life cycle to which the associated carbon 
 >
 > In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
 
-
 #### 6.8.6 performanceClass(product carbon footprint)
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. Classification into a carbon footprint performance class will be calculated in accordance with the methodology set out in the delegated acts adopted by the Commission.
@@ -1197,7 +1195,7 @@ Performance classification of a footprint refers to the categorization of a prod
 The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNA is provided
-
+>
 > **Content Validation**
 >
 > The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members
@@ -1255,7 +1253,6 @@ Performance classification of a footprint refers to the categorization of a prod
 > **Content Validation**
 >
 > At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
-
 
 #### 6.8.16 facilityIdentification (product environmental footprint)
 
@@ -1330,7 +1327,6 @@ The identifier used for a location. Unique facility identifier means a unique st
 > **Content Validation**
 >
 > The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
-
 
 #### 6.8.26 Facility Address 
 
@@ -1433,10 +1429,7 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 6.11.5  | Data         | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | 
 | 6.11.6  | Children     | Optional | Regulation (EU) 2024/1781, Article 9 & 4 | 
 
-
-
 ## Appendix 1: DPP Example Data
-
 
 | ID | Section | Data Attribute| Example Data |
 |---------|-|---------------------------|---------------------|
@@ -1452,7 +1445,7 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 1.10   | Metadata |Last Modification     | 2000-01-01        |
 | 1.11   | Metadata |Economic Operator ID     | BPNL0123456789ZZ         |
 | 1.12  | Metadata |Economic Operator Name     | ABC          |
-| 1.13  | Metadata |Economic Operator Contact     | faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com         |
+| 1.13  | Metadata |Economic Operator Contact     | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``         |
 | 1.14  | Metadata |Economic Operator Address     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45 |
 | 2.1  | Identification |Serial Key    |     partInstanceId  |
 | 2.2  | Identification |Serial Value    |  SN12345678     |
@@ -1473,18 +1466,19 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 3.2 | Operation |   	Facility Address   |    BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45      |
 | 3.3  |  Operation|  Manufacturer ID    |   BPNL0123456789ZZ       |
 | 3.4  | Operation |  Manufacturer Name    |   ABC       |
-| 3.5  |  Operation| Manufacturer Contact     |     faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com     |
+| 3.5  |  Operation| Manufacturer Contact     |     faxNumber:+49 89 0987654321, website: 
+``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``     |
 | 3.6  | Operation | 	Manufacturer Address     |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 4  |
 | 3.7  | Operation |  Manufacturing Date    |    2000-01-01      |
 | 3.8  | Operation |  	Applicable    |   true       |
 | 3.8.1  |Operation  | EORI     |      GB123456789000    |
 | 3.8.2  | Operation |  Importer Identification    |   BPNL0123456789ZZ       |
 | 3.8.3  | Operation |   Importer Name   |    ABC      |
-| 3.8.4  | Operation |   Importer Contact   | faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com         |
+| 3.8.4  | Operation |   Importer Contact   | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``         |
 | 3.8.5  | Operation |    Importer Address  |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
 | 3.9  |Operation  | Other Operator ID     |  BPNL0123456789XX        |
 | 3.10  | Operation |  Other Operator Name    |   ABC       |
-| 3.11  | Operation | 	Other Operator Contact    |   faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com        |
+| 3.11  | Operation | 	Other Operator Contact    |   faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``        |
 | 3.12 | Operation | Other Operator Address     |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45           |
 | 3.13 |  Operation|  Other Operator Role    |    distributor      |
 | 3.14  |Operation  | Symbol of Extended Producer Responsibility Scheme     |   true       |
@@ -1493,7 +1487,7 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 3.17  |Operation  |   Collection Points of Extended Producer Responsibility Scheme Address   |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45         |
 | 4.1  | Handling | Applicable     |     true     |
 | 4.1.1  | Handling | Sources Identification     |   BPNL0123456789ZZ       |
-| 4.1.2  | Handling |  Sources Contact    |  faxNumber:+49 89 0987654321, website: https://www.samsung.com, phoneNumber: +49 89 1234567890, email: test.mail@example.com        |
+| 4.1.2  | Handling |  Sources Contact    |  faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``        |
 | 4.1.3  |Handling  |   Sources Address  |  BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45        |
 | 4.1.4  |  Handling|  	Manufacturer Part ID    |   123-0.740-3434-A       |
 | 4.1.5  | Handling |  Name at Manufacturer    |    Mirror left from car XYZ      |
@@ -1539,7 +1533,7 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 7.1.10  | Composition  | 	Hazard Category (Substances of Concern)     |   category 1A       |
 | 7.1.11  | Composition |  Hazard Class (Substances of Concern)    |     Skin corrosion     |
 | 7.1.12  |  Composition | 	Hazard Statement (Substances of Concern)    |    Causes severe skin burns and eye damage.      |
-| 7.1.13  |  Composition |  Documentation    |      https://dummy.link , URL, Example Document XYZ       |
+| 7.1.13  |  Composition |  Documentation    |      ``https://dummy.link`` , URL, Example Document XYZ       |
 | 7.2  |  Composition | Applicable (Material Composition)    |     true     |
 | 7.2.1  |  Composition | Component Name     | Top lid         |
 | 7.2.2  | Composition  | Component Code     |   ABC123       |
@@ -1559,10 +1553,10 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 7.2.16  |   Composition|  Max Concentration   |       5.3       |
 | 7.2.17  |   Composition|   Location   |   handle       |
 | 7.2.18  |   Composition|   Recycled   |      12.5    |
-| 7.2.19  |   Composition|  Documentation    |     https://dummy.link , URL, Example Document XYZ        |
+| 7.2.19  |   Composition|  Documentation    |     ``https://dummy.link`` , URL, Example Document XYZ        |
 | 7.3.1 |  Composition | 	List Name (Declarable Ingredient List)     |      Critical Raw Materials    |
 | 7.3.2 |  Composition |   Document ID (Declarable Ingredient List)   |     XXX     |
-| 7.3.3  |  Composition |  Documentation (Declarable Ingredient List)    |     https://dummy.link , URL, Example Document XYZ    |
+| 7.3.3  |  Composition |  Documentation (Declarable Ingredient List)    |     ``https://dummy.link`` , URL, Example Document XYZ    |
 | 8.1  |Sustainability  | State	     |   Original       |
 | 8.2  |Sustainability  |value (product carbon footprint)      |      12.678    |
 | 8.3  |Sustainability  | 	footprintUnit(product carbon footprint)     |   kg CO2 / kWh       |
@@ -1571,8 +1565,8 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 8.6  |Sustainability  |  	performanceClass(product carbon footprint)    |     A     |
 | 8.7  |Sustainability  |   facility(product carbon footprint)   |   BPNA1234567890AA       |
 | 8.8  |Sustainability  |  	Facility Address    |   BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45       |
-| 8.9  | Sustainability |  Rulebook    |      https://dummy.link , URL, Example Document XYZ      |
-| 8.10  | Sustainability | Declaration     |     https://dummy.link , URL, Example Document XYZ       |
+| 8.9  | Sustainability |  Rulebook    |      ``https://dummy.link`` , URL, Example Document XYZ      |
+| 8.10  | Sustainability | Declaration     |     ``https://dummy.link`` , URL, Example Document XYZ       |
 | 8.11  |Sustainability  |  	value (product environmental footprint)    |    12.678        |
 | 8.12  |Sustainability  |  footprintUnit (product environmental footprint)    |   kg CO2 / kWh         |
 | 8.13  |Sustainability  |  footprintType (product environmental footprint)    |      Climate Change (Could be any other environmental impact category, Cliamte change is just an example here)      |
@@ -1580,8 +1574,8 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 8.15  |Sustainability  | performanceClass (product environmental footprint)     |     A     |
 | 8.16  | Sustainability |  facility (product environmental footprint)    |     BPNA1234567890AA       |
 | 8.17  | Sustainability | Facility Address     |   BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45         |
-| 8.18  |  Sustainability| Rulebook    |    https://dummy.link , URL, Example Document XYZ       |
-| 8.19  |Sustainability  | Declaration     |     https://dummy.link , URL, Example Document XYZ      |
+| 8.18  |  Sustainability| Rulebook    |    ``https://dummy.link`` , URL, Example Document XYZ       |
+| 8.19  |Sustainability  | Declaration     |     ``https://dummy.link`` , URL, Example Document XYZ      |
 | 8.20  | Sustainability |  value (product material footprint)    |    12.678            |
 | 8.21  | Sustainability | footprintUnit (product material footprint)     |    kg CO2 / kWh        |
 | 8.22  | Sustainability | 	footprintType (product material footprint)     |    Climate Change (Could be any other environmental impact category, Cliamte change is just an example here)         |
@@ -1589,8 +1583,8 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 8.24  | Sustainability |  performanceClass (product material footprint)    |       A      |
 | 8.25  | Sustainability |  facility (product material footprint)    |      BPNA1234567890AA           |
 | 8.26  | Sustainability |  Facility Address    |     BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45      |
-| 8.27  | Sustainability |  Rulebook    |     https://dummy.link , URL, Example Document XYZ      |
-| 8.28  | Sustainability |  Declaration    |  https://dummy.link , URL, Example Document XYZ         |
+| 8.27  | Sustainability |  Rulebook    |     ``https://dummy.link`` , URL, Example Document XYZ      |
+| 8.28  | Sustainability |  Declaration    |  ``https://dummy.link`` , URL, Example Document XYZ         |
 | 8.29  | Sustainability |  	Reparability Score    |       B   |
 | 8.30  | Sustainability |  	Durability Score    |          A |
 | 8.31  | Sustainability |   Reuse Info   |   Product can be extracted from obsolete machinery and use in wind turbines or other renewable energy systems, contributing to sustainable energy solutions. Product can serve as components in DIY projects.       |
@@ -1608,8 +1602,8 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 9.2 | Compliance |  Compliance Regulation Name    |  REACH regulation        |
 | 9.3  |Compliance  |  Compliance Statement    |   Hereby we declare under our sole responsibility that the product:XXX is in conformity with the provisions of the EU directives and regulations.       |
 | 9.4  | Compliance |  Compliance Reason for Exemption    |   Radioactive substance       |
-| 9.5  | Compliance |   Compliance Remark   |  If you need more information about the (pre-)registration status, please get in contact with our experts from the Compliance Team: www.xyz.com        |
-| 9.6  |Compliance  |   Compliance Documentation  |     https://dummy.link , URL, Example Document XYZ            |
+| 9.5  | Compliance |   Compliance Remark   |  If you need more information about the (pre-)registration status, please get in contact with our experts from the Compliance Team: ``www.xyz.com``        |
+| 9.6  |Compliance  |   Compliance Documentation  |     ``https://dummy.link`` , URL, Example Document XYZ            |
 | 10.1  |Sources  |  Sources    |          |
 | 10.2  | Sources |  Category    |          |
 | 11.1  |Additional Data  | Description     |  Description of an attribute        |
