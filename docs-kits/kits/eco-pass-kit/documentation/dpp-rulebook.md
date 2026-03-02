@@ -2,42 +2,34 @@
 
 ## Table of Contents
 
-1. [Introduction](#1-Introduction)<br>
-1.1 [Goal of this Document](#11-Goal-of-this-Document)<br>
-1.2 [Target Audience](#12-Target-Audience)<br>
-1.3 [Scope and Applicability](#13-Scope-and-Applicability)<br>
-1.4 [Structure of this Rulebook](#14-Structure-of-this-Rulebook)<br>
-
-2. [The Value of Validated Data](#2-The-Value-of-Validated-Data)<br>
-
-3. [Key Concepts and Definitions](#3-Key-Concepts-and-Definitions)<br>
-3.1 [DPP Overview](#31-DPP-Overview)<br>
-3.2 [Definition of Terms](#32-Definition-of-Terms)<br>
-3.3 [Key Stakeholders and their Roles](#33-Key-Stakeholders-and-their-Roles)<br>
-
-4. [Placement of DPP Rulebook within the Data Trust & Security KIT](#4-placement-of-dpp-rulebook-within-the-data-trust-security-kit)<br>
-
-5. [General Principles for Data Handling in the DPP Model](#5-General-Principles-for-Data-Handling-in-the-DPP-Model)<br>
-5.1 [Data Ownership and Responsibility](#51-Data-Ownership-and-Responsibility)<br>
-5.2 [Data Entry Guidelines (General Rules for Data Input)](#52-Data-Entry-Guidelines-General-Rules-for-Data-Input)<br>
-5.3 [Data Format and Standardization](#53-Data-Format-and-Standardization)<br>
-
-6. [The DPP Data Model: Overview of Data Points](#6-The-DPP-Data-Model-Overview-of-Data-Points)<br>
-6.1 [Metadata](#61-Metadata)<br>
-6.2 [Identification](#62-Identification)<br>
-6.3 [Operation](#63-Operation)<br>
-6.4 [Handling](#64-Handling)<br>
-6.5 [Characteristics](#65-Characteristics)<br>
-6.6 [Commercial](#66-Commercial)<br>
-6.7 [Materials](#67-Materials)<br>
-6.8 [Sustainability](#68-Sustainability)<br>
-6.9 [Compliance](#69-Compliance)<br>
-6.10 [Sources](#610-Sources)<br>
-6.11 [Additional Data](#611-Additional-Data)<br>
-
-
-    [Appendix 1: DPP Example](#Appendix-1-DPP-Example)<br>
-
+1. [Introduction](#1-introduction)
+   - 1.1 [Goal of this Document](#11-goal-of-this-document)
+   - 1.2. [Target Audience](#12-target-audience)
+   - 1.3. [Scope and Applicability](#13-scope-and-applicability)
+   - 1.4. [Structure of this Rulebook](#14-structure-of-this-rulebook)
+2. [The Value of Validated Data](#2-the-value-of-validated-data)
+3. [Key Concepts and Definitions](#3-key-concepts-and-definitions)
+   - 3.1 [DPP Overview](#31-dpp-overview)
+   - 3.2 [Definition of Terms](#32-definition-of-terms)
+   - 3.3 [Key Stakeholders and their Roles](#33-key-stakeholders-and-their-roles)
+4. [Placement of DPP Rulebook within the Data Trust & Security KIT](#4-placement-of-dpp-rulebook-within-the-data-trust--security-kit)
+5. [General Principles for Data Handling in the DPP Model](#5-general-principles-for-data-handling-in-the-dpp-model)
+   - 5.1 [Data Ownership and Responsibility](#51-data-ownership-and-responsibility)
+   - 5.2 [Data Entry Guidelines (General Rules for Data Input)](#52-data-entry-guidelines-general-rules-for-data-input)
+   - 5.3 [Data Format and Standardization](#53-data-format-and-standardization)
+6. [The DPP Data Model: Overview of Data Points](#6-the-dpp-data-model-overview-of-data-points)
+   - 6.1 [Metadata](#61-metadata)
+   - 6.2 [Identification](#62-identification)
+   - 6.3 [Operation](#63-operation)
+   - 6.4 [Handling](#64-handling)
+   - 6.5 [Characteristics](#65-characteristics)
+   - 6.6 [Commercial](#66-commercial)
+   - 6.7 [Composition](#67-composition)
+   - 6.8 [Sustainability](#68-sustainability)
+   - 6.9 [Compliance](#69-compliance)
+   - 6.10 [Sources](#610-sources)
+   - 6.11 [Additional Data](#611-additional-data)
+7. [Appendix 1: DPP Example](#appendix-1-dpp-example-data)
 
 ## 1. Introduction
 
@@ -60,6 +52,7 @@ This rulebook refers to and is based on the Generic DPP Data Model, released in 
 ### 1.4 Structure of this Rulebook
 
 The Rulebook is organized to provide:
+
 - Definitions and clarifications of key terms and concepts,
 - General principles for handling and entering DPP data,
 - Guidance and reference to standards to help with Data Validation
@@ -84,6 +77,7 @@ The business value of validated data is substantial and multifaceted. Reliable d
 Ultimately, the validation rulebook supports assuring data reliability. This is particularly important given the undeniable value of exchanging trustworthy data to enable effective digitalization of data exchange processes. It equips automotive companies, regardless of size, with the tools necessary to leverage data effectively, nurturing growth and sustainability in an increasingly digitalized market landscape.
 
 ## 3. Key Concepts and Definitions
+
 ### 3.1 DPP Overview
 
 The Digital Product Passport (DPP) is a standardized digital record that travels with a product throughout its entire life cycle. It compiles and shares essential information—such as origin of materials, composition, repairability, and end-of-life options—across supply chains and with stakeholders (e.g., manufacturers, distributors, recyclers, and regulators).
@@ -93,57 +87,75 @@ DPPs are required by the Ecodesign for Sustainable Products Regulation (ESPR) as
 ### 3.2 Definition of Terms
 
 #### 3.2.1 DID:
+
 Globally unique identifiers that do not require a centralized registration authority. Designed for decentralized identity systems (e.g., blockchain-based identity).
 
 #### 3.2.2 GTIN: 
+
 The Global Trade Item Number (GTIN) is a unique identifier used internationally to identify trade items (products and services) in the supply chain. It is part of the GS1 system of standards, which ensures consistency and interoperability across industries and countries.
 
 
 #### 3.2.3 Sequential Numbering:
+
 In ERP context it means Material numbers are assigned automatically in ascending order and hence it simplifies master data governance and avoids duplication.
 
 #### 3.2.4 Regular Based Expression:
-A Regular-Based Expression Check refers to the process of validating or analyzing data against predefined patterns using regular expressions (regex). This technique ensures that data conforms to expected formats (e.g., email addresses, phone numbers, codes) by applying rule-based pattern matching. It is commonly used for data quality assurance, input validation, and automated error detection.
 
+A Regular-Based Expression Check refers to the process of validating or analyzing data against predefined patterns using regular expressions (regex). This technique ensures that data conforms to expected formats (e.g., email addresses, phone numbers, codes) by applying rule-based pattern matching. It is commonly used for data quality assurance, input validation, and automated error detection.
 
 #### 3.2.5 Verification vs. Validation
 
 Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation." The following sub section provides a brief overview of the differing definitions.
 
 > #### 3.2.5.1 TfS:
-> ##### Verification: 
+> 
+> ##### Verification:
+> 
 > Process for evaluating an environmental information **statement based on historical data** and information to determine whether the statement conforms with the relevant criteria. 
+> 
 > ##### Validation:
+> 
 > Process for evaluating the plausibility of assumptions, limitations, and methods that support an environmental information **statement about the outcome of future activities**.
 Two situations:
->- Projection of PCFs for existing products into the future: Reflecting changes in material source, sourcing of purchased parts, technology, tooling, energy mix etc..
->- Prediction of PCFs for new product developments not in serial production yet
+>
+> - Projection of PCFs for existing products into the future: Reflecting changes in material source, sourcing of purchased parts, technology, tooling, energy mix etc..
+> - Prediction of PCFs for new product developments not in serial production yet
 The term “environmental information validation” is shortened to “validation” in this document to reduce sentence complexity and aid understanding.<br><br>
 In the context of Together for Sustainability (TfS), "verification" refers to the evaluation of historical Product Carbon Footprints (PCFs), while "validation" pertains to the assessment of projected or future PCFs. These definitions are derived from ISO 14065:2020 and ISO 14066:2023. However, as these interpretations are highly specific to PCFs—and even within the PCF domain, definitions of verification and validation vary across initiatives such as PACT (as outlined below), a thorough evaluation has led to the conclusion that they are currently not well-suited for addressing "data plausibility" within Digital Product Passports
-
+>
 >#### 3.2.5.2 PACT
+>
 >##### Verification: 
+>
 > The process of independently assessing whether reported PCF **data is accurate, complete, and conforms to a defined methodology** or standard. 
 Based on the definition provided above, a simplified interpretation would be: "Determining whether the data has been calculated in accordance with established guidelines and standards."
+>
 >##### Validation:
+>
 > The process of confirming that the **methodology, assumptions, and data used** to estimate future or modelled PCFs are appropriate and reasonable.
 In simpler terms, this can be understood as evaluating whether the data appears logical and internally consistent in terms of its content.<br><br>
 This interpretation is consistent with the definitions found on Wikipedia and also closely reflects our own understanding of the terms "verification" and "validation."
-
+>
 >#### 3.2.5.3 Definition for Validation & Verification in Standards & Regulations  
+>
 > The terms verification and validation are used in many standards and regulations, but their meanings can vary depending on the context. In general, verification is about checking whether something was done correctly, while validation is about making sure it meets the intended purpose or requirements. Below are selected definitions from key standards and regulations that illustrate how these terms are interpreted and applied in different domains.
->##### Verification: 
+>
+> ##### Verification: 
+>
 > The act of determining whether an operation has been accomplished correctly (ISO/TC 97/SC 1 N759)
->##### Validation:
->- Validation confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled (ISO 9000:2015)
->- "Validation data" means data used for providing an evaluation of the trained AI system and for tuning its non-learnable parameters and its learning process in order, inter alia, to prevent underfitting or overfitting; (Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence and amending Regulations (EC) No 300/2008, (EU) No 167/2013, (EU) No 168/2013, (EU) 2018/858, (EU) 2018/1139 and (EU) 2019/2144 and Directives 2014/90/EU, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligence Act))
->- "Validation" means the process of verifying and confirming that data in electronic form are valid in accordance with this Regulation. (Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC)
+>
+> ##### Validation:
+>
+> - Validation confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled (ISO 9000:2015)
+> - "Validation data" means data used for providing an evaluation of the trained AI system and for tuning its non-learnable parameters and its learning process in order, inter alia, to prevent underfitting or overfitting; (Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence and amending Regulations (EC) No 300/2008, (EU) No 167/2013, (EU) No 168/2013, (EU) 2018/858, (EU) 2018/1139 and (EU) 2019/2144 and Directives 2014/90/EU, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligence Act))
+> - "Validation" means the process of verifying and confirming that data in electronic form are valid in accordance with this Regulation. (Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC)
 
 #### 3.2.5.4 Conclusion:
+
 After thorough research of these standards and guidelines, the Data Trust team drew two conclusions:
+
 - Verification refers to the process of assessing whether the submitted **data has been calculated in accordance with relevant guidelines and standards**. Validation, on the other hand, involves conducting plausibility checks to determine **whether the data is reasonable**, coherent, and suitable for exchange within supply chains
 - Given the varying definitions of "verification" and "validation" across different platforms and use cases, achieving consensus on a single, universally applicable definition—particularly between contexts such as Digital Product Passports (DPPs) and Product Carbon Footprints (PCFs) has proven challenging. This is especially true considering the differing levels of maturity between these use cases.
-
 
 ### 3.3 Key Stakeholders and their Roles
 
@@ -168,10 +180,7 @@ The Rulebook is a subset of the broader Data Trust and Security Kit, which is or
 
 <img width="377" height="169" alt="image" src="https://github.com/user-attachments/assets/41aa555a-793b-4597-9ad7-e28e3f219834" />
 
-
-
 This figure is taken from [Data Trust and Security Kit](https://eclipse-tractusx.github.io/docs-kits/kits/data-trust-and-security-kit/adoption-view/), where "Layer 3" references to this rulebook.
-
 
 ## 5. General Principles for Data Handling in the DPP Model
 
@@ -183,45 +192,43 @@ This section sets out the main rules and guiding principles for entering, managi
 - Owners are accountable for the accuracy, completeness, and timely updating of their data.
 - Changes or updates to data should be tracked using the predecessor identifier field in generic DPP data model to ensure traceability.
 - Data in the DPPs must be updated under any of the following conditions:
-    - Changes in product characteristics (e.g. materials, design, certifications)
-    - Regulatory updates (e.g. new or revised delegated/implementing acts)
-    - Lifecycle events (e.g. manufacturing, repair, refurbishment, end-of-life)
-    - New relevant information (e.g. discovery of substances of concern)
-    - Service provider requirements (e.g. updates for data integrity and traceability)
+  - Changes in product characteristics (e.g. materials, design, certifications)
+  - Regulatory updates (e.g. new or revised delegated/implementing acts)
+  - Lifecycle events (e.g. manufacturing, repair, refurbishment, end-of-life)
+  - New relevant information (e.g. discovery of substances of concern)
+  - Service provider requirements (e.g. updates for data integrity and traceability)
 
 ### 5.2 Data Entry Guidelines (General Rules for Data Input)
 
 - Provide the most accurate and up-to-date information available **at the time of DPP issuance**.
 - Some groups of data points include an "Applicable" field that determines whether the related data points must be completed.
-    - If "Applicable" is set to True, all related data points in that group are required and must be filled in.
-    - If "Applicable" is set to False, none of the related data points should be filled.
+  - If "Applicable" is set to True, all related data points in that group are required and must be filled in.
+  - If "Applicable" is set to False, none of the related data points should be filled.
     Separately, a data point marked as "Optional" means it can be filled in if relevant, but it is not mandatory to provide a value.
 - Use consistent naming conventions and units (refer to Section 4.3).
 - Do not use company-internal jargon, abbreviations, or codes unless these are defined in the DPP schema or Rulebook.
 
 #### 5.2.1 Granularity
+
 - Data can be provided on differnet levels; Model, batch and item.
-  - ##### Model Level
-    Model-level information describes the characteristics of a product or material as defined by its general specification or design. 
-  - ##### Batch Level
-    Represents a specific production lot or group of items manufactured under the same conditions within a defined timeframe. Batch-level data typically includes details such as production date, process parameters, specific manufacturing plant and any other variations.
-  - ##### Item Level
-    Denotes the individual product unit, uniquely identifiable (often via serial number). Item-level data provides the most granular information, refering to a specific unit of the product.
+  - **Model Level**: Model-level information describes the characteristics of a product or material as defined by its general specification or design. 
+  - **Batch Level**: Represents a specific production lot or group of items manufactured under the same conditions within a defined timeframe. Batch-level data typically includes details such as production date, process parameters, specific manufacturing plant and any other variations.
+  - **Item Level**: Denotes the individual product unit, uniquely identifiable (often via serial number). Item-level data provides the most granular information, refering to a specific unit of the product.
 - All data points that are reuirqed in this data model need to be provided on model level unless it is stated otherwise.
 - Precise levels of granularity will be laid out in the delegated acts for certain product groups and will be reflected in this rulebook, once they are available.
 
-#### 5.2.2 Open Data Points 
+#### 5.2.2 Open Data Points
 
 Some data points in the generic digital product passport are quite open-ended and allow for different types of information. Because of this, it’s not always possible to set strict rules for what can be entered. For these data points, you can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. While there aren’t rigid rules in these cases, it’s important to apply good judgement and ensure the information is relevant and clear. 
 
 ### 5.3 Data Format and Standardization
+
 - Enter all data according to the format specified in the DPP model
-   - When entering numerical data, the decimal separator should follow the language or regional conventions applied within the data system to ensure clarity and consistency.
-   - All dates should be entered using the YYYY-MM-DD format
+  - When entering numerical data, the decimal separator should follow the language or regional conventions applied within the data system to ensure clarity and consistency.
+  - All dates should be entered using the YYYY-MM-DD format
 - For some data points, a value is paired with a unit. Usually, you have two data points: the first data point to describe the value and the second data point to describe the related unit.
 - **Apply standardized identifiers (e.g., product codes, material codes, company identifiers such as VAT or DUNS numbers) if required.**
 - For free text fields, keep entries clear and concise.
-
 
 ## 6. The DPP Data Model: Overview of Data Points
 
@@ -297,7 +304,7 @@ The date until the product passport remains available.
 
 > **Content Validation**<br>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html).<br><br>
 Must fullfill the following regular expression: ^\d{4}-\d{2}-\d{2}$
-> 
+
 #### 6.1.10 Last Modification
 
 *To be covered in next version*
@@ -308,7 +315,7 @@ Identification of the economic operator responsible for the passport.
 
 > **Syntax**<br> To be checked via regular expression based checks.
 
-> **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. For companies that are not in the Catena-X network, another valid identification number could be used (for example, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html, Tax Identification number, Commercial registration number or similar).
+> **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. For companies that are not in the Catena-X network, another valid identification number could be used (for example, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html), Tax Identification number, Commercial registration number or similar).
 
 #### 6.1.12 Economic Operator Names
 
@@ -351,7 +358,6 @@ The key for local identification of a serial part.
 
 At present, there is no universally recognized industry standard that can be referenced in this context. It is therefore recommended to follow the internal guidelines established by your organization.
 
-
 #### 6.2.2 Serial Value
 
 The value associated with the serial key.
@@ -360,11 +366,11 @@ The value associated with the serial key.
 
 #### 6.2.3 Batch Key  
 
-The key for local identification of a batch information. 
+The key for local identification of a batch information.
 
 > **Content Validation**<br>The attribute must conform to one of the predefined identifier types or custom keys used by your company. There is currently no universally adopted standard across the industry. However, sectors such as chemicals and manufacturing commonly apply Sequential Material Numbering as a best practice. This approach has been validated by the 2021 industry rankings and benchmarking studies.
 
-#### 6.2.4 Batch Value 
+#### 6.2.4 Batch Value
 
 The value associated with the batch key.
 
@@ -376,49 +382,49 @@ The value associated with the batch key.
 
 > **Content Validation**<br>The attribute must conform to one of the predefined identifier types or custom keys used by your company. There is currently no universally adopted standard across the industry. However, sectors such as chemicals and manufacturing commonly apply Sequential Material Numbering as a best practice. This approach has been validated by the 2021 industry rankings and benchmarking studies.
 
-#### 6.2.6 Name at Manufacturer 
+#### 6.2.6 Name at Manufacturer
 
 The name of the part provided by the manufacturer.
 
 > **Content Validation**<br>Must contain the Name of the Part as assigned by the manufacturer. At present, there is no universally recognized industry standard that can be referenced in this context. It is therefore recommended to follow the internal guidelines established by your organization.
 
-#### 6.2.7 Code Key 
+#### 6.2.7 Code Key
 
 The code key for product identification.
 
 > **Syntax**<br>Must be a valid identifier code such as [Global Trade Item Number (GTIN)](https://ref.gs1.org/standards/gtin-management/), [Decentralized Identifier (DID)](https://www.w3.org/TR/did-1.0/), [International Standard Book Number (ISBN)](https://www.iso.org/standard/65483.html#:~:text=ISO%202108%3A2017%20establishes%20the%20specifications%20for%20the%20International,specific%20publisher%20that%20is%20available%20to%20the%20public.), Hash, TARIC, CN, HS, potential waste codes, internal company codes, etc.
 
-#### 6.2.8 Code Value 
+#### 6.2.8 Code Value
 
 The identifier value related to the code key.
 
 > **Syntax**<br>Must be a valid identifier code as defined in [Global Trade Item Number (GTIN)](https://ref.gs1.org/standards/gtin-management/), [Decentralized Identifier (DID)](https://www.w3.org/TR/did-1.0/), [International Standard Book Number (ISBN)](https://www.iso.org/standard/65483.html#:~:text=ISO%202108%3A2017%20establishes%20the%20specifications%20for%20the%20International,specific%20publisher%20that%20is%20available%20to%20the%20public.), etc.
 
-#### 6.2.9 Code Description 
+#### 6.2.9 Code Description
 
 *To be covered in next version*
 
-#### 6.2.10 Carrier Type 
+#### 6.2.10 Carrier Type
 
 The type of data carrier used for product identification. The format of a Product Passport is typically digital and can be implemented through various technologies to ensure accessibility and interoperability. "Data carrier" means a linear barcode symbol, a two-dimensional symbol or other automatic identification data capture medium that can be read by a device.
 
 > **Content Validation**<br>Must align with recognizable  data carrier types like QR, barcode, etc. in accordance with [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746)
 
-#### 6.2.11 Carrier Position 
+#### 6.2.11 Carrier Position
 
 The spatial arrangement or position of the data carrier on the product.
 
 > **Content Validation**<br>If specified, the attribute must describe the carrier's positioning in accordance with [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746)
 
-#### 6.2.12 Classification Standard 
+#### 6.2.12 Classification Standard
 
 Outlines classification standards for parts.
 
-> **Content Validation**<br>Must refer to known standards in classification e.g., [ECLASS 15.0](https://eclass.eu/aktuelles/news/eclass-release-150-ab-sofort-verfuegbar) for automotive industry. 
+> **Content Validation**<br>Must refer to known standards in classification e.g., [ECLASS 15.0](https://eclass.eu/aktuelles/news/eclass-release-150-ab-sofort-verfuegbar) for automotive industry.
 
-#### 6.2.13 Classification ID   
+#### 6.2.13 Classification ID
 
-The identifier for the part classification standard according to related key-value pairs. 
+The identifier for the part classification standard according to related key-value pairs.
 
 > **Content Validation**<br>Must correspond with the classification standard used e.g., Vehicle Identification Number (VIN) defined in accordance with [ISO ISO 3779](https://www.iso.org/standard/52200.html) and [ISO 4030](https://www.iso.org/standard/9721.html)
 
@@ -432,8 +438,8 @@ Optional property describing the classification standard.
 
 *To be covered in next version*
 
-
 ### 6.3 Operation
+
 The "Operations" category refers to a structured set of data that describes the activities, processes, and lifecycle events associated with a product.
 
 | Rule ID | Data Attribute                                                       | Mandatory/ Optional | Regulatory Reference                             |
@@ -478,7 +484,7 @@ The identifier used for a location. Unique facility identifier means a unique st
  Manufacturer identification (The main manufacturer, if different from the passport owner, represented by an identification number) refers to the requirement for clear and traceable information about the manufacturer or responsible economic operator of a product placed on the EU market. 
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNL is provided.
-
+> 
 > **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 6.3.4 Manufacturer Name
@@ -498,7 +504,7 @@ The identifier used for a location. Unique facility identifier means a unique st
 Represents the date of final product manufacturing (e.g. final quality check, ready-for-shipment event).
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks
-
+>
 > **Content Validation**<br>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
 
 #### 6.3.8 Applicable
@@ -512,7 +518,7 @@ Represents the date of final product manufacturing (e.g. final quality check, re
 An EORI number (Economic Operators Registration and Identification number) is a unique identification number assigned by a customs authority in the European Union to businesses and individuals involved in importing or exporting or transit goods into or out of the EU.
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks
-
+>
 > **Content Validation**<br>The EORI number must be in accordance to [Regulation (EU) No 952/2013](https://eur-lex.europa.eu/eli/reg/2013/952/oj/eng) which provides the legal basis for the EORI system.
 
 #### 6.3.8.2 Importer Identification
@@ -520,46 +526,46 @@ An EORI number (Economic Operators Registration and Identification number) is a 
 Importer identification (The importer of the product) refers to the requirement to clearly and reliably identify the importer of a product that is placed on the EU market, especially when the manufacturer is based outside the EU, ensuring product traceability. 
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNL is provided.
-
+>
 > **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 6.3.8.3 Importer Name
 
 *To be covered in next version*
 
-#### 6.3.8.4 Importer Contact 
+#### 6.3.8.4 Importer Contact
 
 *To be covered in next version*
 
-#### 6.3.8.5 Importer Address 
+#### 6.3.8.5 Importer Address
 
 *To be covered in next version*
 
 #### 6.3.9 Other Operator Identification  
 
-Other Operator Identification is a secondary or additional identifier used to uniquely reference an other operator for a product, for example: distributors/retailers/logistics/designers/smelters/recyclers/professional repairers/waste treatment facilities/remanufacturers/ etc.. 
+Other Operator Identification is a secondary or additional identifier used to uniquely reference an other operator for a product, for example: distributors/retailers/logistics/designers/smelters/recyclers/professional repairers/waste treatment facilities/remanufacturers/ etc.
 
 > **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
-#### 6.3.10 Other Operator Name 
+#### 6.3.10 Other Operator Name
 
 *To be covered in next version*
 
-#### 6.3.11 Other Operator Contact 
+#### 6.3.11 Other Operator Contact
 
 *To be covered in next version*
 
-#### 6.3.12 Other Operator Address 
+#### 6.3.12 Other Operator Address
 
 *To be covered in next version*
 
-#### 6.3.13 Other Operator Role 
+#### 6.3.13 Other Operator Role
 
 This field is used to specify the "Role" of the other operator (e.g., Distributor). 
 
 > **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
-#### 6.3.14 Symbol of Extended Producer Responsibility Scheme   
+#### 6.3.14 Symbol of Extended Producer Responsibility Scheme
 
 *To be covered in next version*
 
@@ -576,6 +582,7 @@ This field is used to specify the "Role" of the other operator (e.g., Distributo
 *To be covered in next version*
 
 ### 6.4 Handling
+
 "Handling" refers to the information related to the safe, appropriate, and sustainable management of a product or component throughout its lifecycle.
 
 | Rule ID | Data Attribute            | Mandatory/ Optional | Regulatory Reference       |
@@ -601,15 +608,15 @@ Identifies sources of spare parts for the product via unique identifiers of prod
 
 > **Content Validation**<br>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
-#### 6.4.1.2 Sources Contact   
+#### 6.4.1.2 Sources Contact
 
 *To be covered in next version*
 
-#### 6.4.1.3 Sources Address  
+#### 6.4.1.3 Sources Address
 
 *To be covered in next version*
 
-#### 6.4.1.4 Manufacturer Part ID    
+#### 6.4.1.4 Manufacturer Part ID
 
 Part ID as assigned by the manufacturer of the part. The Part ID identifies the part in the manufacturer`s dataspace. The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available.
 
@@ -673,7 +680,7 @@ These characteristics enable comparability across products, and informed decisio
 
 The numeric value describing the product’s lifespan in terms of the specified type.
 
-> **Syntax**<br>Must be a valid integer for lifespan value and must be > 0. 
+> **Syntax**<br>Must be a valid integer for lifespan value and must be > 0.
 
 #### 6.5.4 Life Unit
 
@@ -685,7 +692,7 @@ The unit corresponding to the respective lifespan, specified using one of the fo
 
 Represents the width of the item.
 
-> **Syntax**<br>Must be a valid float representing width and must be > 0. 
+> **Syntax**<br>Must be a valid float representing width and must be > 0.
 
 #### 6.5.6 Unit (Width)
 
@@ -693,12 +700,11 @@ Specifies unit of measure for widths.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-
 #### 6.5.7 Value (Length)
 
 The length of the item.
 
-> **Syntax**<br>Valid float for length value required and must be > 0. 
+> **Syntax**<br>Valid float for length value required and must be > 0.
 
 #### 6.5.8 Unit (Length)
 
@@ -706,12 +712,11 @@ Defines unit used for measuring length.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-
 #### 6.5.9 Value (Diameter)
 
 Specifies diameter of the item.
 
-> **Syntax**<br>Must be float for diameter and must be > 0. 
+> **Syntax**<br>Must be float for diameter and must be > 0.
 
 #### 6.5.10 Unit (Diameter)
 
@@ -719,12 +724,11 @@ Indicates unit for diameter measurements.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-
 #### 6.5.11 Value (Height)
 
 Measures height of the item.
 
-> **Syntax**<br>Requires a float value corresponding to height and must be > 0. 
+> **Syntax**<br>Requires a float value corresponding to height and must be > 0.
 
 #### 6.5.12 Unit (Height)
 
@@ -736,7 +740,7 @@ Defines unit of height measure.
 
 Specifies total weight of the item including packaging.
 
-> **Syntax**<br>Must be valid float to reflect gross weight and must be > 0. 
+> **Syntax**<br>Must be valid float to reflect gross weight and must be > 0.
 
 #### 6.5.14 Unit (Gross Weight)
 
@@ -744,12 +748,11 @@ Defines measurement unit for gross weight.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-
 #### 6.5.15 Value (Volume)
 
 Measures product’s volume.
 
-> **Syntax**<br>Valid float required for volume and must be > 0. 
+> **Syntax**<br>Valid float required for volume and must be > 0.
 
 #### 6.5.16 Unit (Volume)
 
@@ -757,12 +760,11 @@ Defines the unit to express volume measurements.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-
 #### 6.5.17 Value (Gross Volume)
 
 Represents gross volume of the product including packaging.
 
-> **Syntax**<br>Must be valid float for gross volume and must be > 0. 
+> **Syntax**<br>Must be valid float for gross volume and must be > 0.
 
 #### 6.5.18 Unit (Gross Volume)
 
@@ -774,7 +776,7 @@ Specifies measurement unit for gross volume.
 
 Details the weight of the product.
 
-> **Syntax**<br>Must be valid float representing weight and must be > 0. 
+> **Syntax**<br>Must be valid float representing weight and must be > 0.
 
 #### 6.5.20 Unit (Weight)
 
@@ -782,13 +784,13 @@ Defines unit of weight measures.
 
 > **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
-#### 6.5.21 Item quantity in package value 
+#### 6.5.21 Item quantity in package value
 
-*To be covered in next version* 
+*To be covered in next version*
 
 #### 6.5.22 Item quantity in package unit
 
-*To be covered in next version* 
+*To be covered in next version*
 
 #### 6.5.23 Physical State
 
@@ -819,7 +821,7 @@ A general performance class refers to a standardized categorization of products 
 | 6.6.3     | Purchase Order      | Optional            |                          |
 | 6.6.4     | Recall Information  | Mandatory           | Regulation (EU) 2023/988 |
 
-#### 6.6.1 Placed On Market 
+#### 6.6.1 Placed On Market
 
 The timestamp in the format (yyyy-mm-dd) with or without time zone when the product was put in the market.
 
@@ -832,7 +834,7 @@ Specify one or more target industries for the product described in the Digital P
 
 > **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
-#### 6.6.3 Purchase Order 
+#### 6.6.3 Purchase Order
 
 A unique identifier assigned to the order of the product for tracking purposes between the supplier and customer.
 
@@ -843,6 +845,7 @@ A unique identifier assigned to the order of the product for tracking purposes b
 Recall information refers to the data and documentation associated with the process of removing a product from the market due to safety, quality, or compliance concerns.
 
 > **Content Validation**<br>Information on dangerous products should, in general, be made available to the public via the [EU Safety Gate Portal](https://ec.europa.eu/safety-gate/#/screen/home)
+
 ### 6.7 Composition
 
 "Composition" category refers to: The classification and specification of the substances and material types and components used in a product, with a focus on their environmental performance, circularity potential, and criticality.
@@ -896,13 +899,17 @@ Recall information refers to the data and documentation associated with the proc
 
 The location of the substances of concern within the product <br> Further description: <br>This requires specifying the exact location of the substance of concern within the product—for example, whether it is contained in the packaging or integrated into the product itself
 
-> **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
+> **Content Validation**
+> 
+> As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.7.1.2 Exemption for Substances (Substances of Concern)
 
 Exemptions to the substance of concern: An exemption to the substance of concern refers to a formally recognized exception that permits the use or presence of a regulated or restricted chemical substance within a product or component, under specific conditions. The exemption must be documented and justified in accordance with applicable legal frameworks (e.g., REACH, RoHS), and may be subject to review, expiration, or renewal.
 
-> **Content Validation**<br>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
+> **Content Validation**
+> 
+> As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
 
 #### 6.7.1.3 Hazard Category (Substances of Concern)
 
@@ -914,48 +921,65 @@ A hazard category is a classification level within a hazard class that indicates
 
 Hazard class means the nature of the physical, health or environmental hazard.
 
-> **Content Validation**<br>Hazard category defined in accordance to:[<br>1- Article 2 of Regulation (EC) No 1272/2008<br>2- labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC <br>3- amending Regulation (EC) No 1907/2006))](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+> **Content Validation**<br>
+> 
+> Hazard category defined in accordance to:
+> 
+> 1. [Article 2 of Regulation (EC) No 1272/2008](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+> 2. [labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+> 3. [amending Regulation (EC) No 1907/2006](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
 
 #### 6.7.1.5 Hazard Statement (Substances of Concern)
 
 "Hazard statement" means a phrase assigned to a hazard class and category that describes the nature of the hazards of a hazardous substance or mixture, including, where appropriate, the degree of hazard.
 
-> **Content Validation**<br>Hazard category defined in accordance to:[Regulation (EC) No 1272/2008 of the European Parliament and of the Council of 16 December 2008 on classification, labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC, and amending Regulation (EC) No 1907/2006](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02008R1272-20231201)
+> **Content Validation**
+> 
+> Hazard category defined in accordance to:[Regulation (EC) No 1272/2008 of the European Parliament and of the Council of 16 December 2008 on classification, labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC, and amending Regulation (EC) No 1907/2006](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02008R1272-20231201)
 
 #### 6.7.1.6 Documentation
 
  *To be covered in next version*
 
-
 #### 6.7.1.7 Minimum Concentration Value (Substances of Concern)
 
 The minimum concentration of the substance of concern at the level of the product
 
-> **Syntax**<br>The value must be > = 0
+> **Syntax**
+> 
+> The value must be > = 0
 
 #### 6.7.1.8 Minimum Concentration Value (Substances of Concern)
 
 This field defines the unit of minimum concentration, selected from a predefined enumeration. Permissible units include mass percent, volume percent, parts per thousand (ppt), parts per million (ppm), parts per billion (ppb), and parts per trillion (ppt)
 
-> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+> **Syntax**
+> 
+> For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 #### 6.7.1.9 Max Concentration Value (Substances of Concern)
 
 The maximum concentration of the substance of concern at the level of the product
 
-> **Syntax**<br>The value must be > = 0
+> **Syntax**
+> 
+> The value must be > = 0
 
 #### 6.7.1.10 Max Concentration Value (Substances of Concern)
 
 This field defines the unit of maximum concentration, selected from a predefined enumeration. Permissible units include mass percent, volume percent, parts per thousand (ppt), parts per million (ppm), parts per billion (ppb), and parts per trillion (ppt)
 
-> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+> **Syntax**
+> 
+> For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
 
 #### 6.7.2 Applicable (Component Information)
 
 Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled
 
-> **Syntax**<br>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+> **Syntax**
+> 
+> If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
 
 #### 6.7.2.1 Component Name
 
@@ -985,19 +1009,26 @@ Check whether the connected attributes are applicable to the product. If it is n
 
 A Material ID  is a unique identifier assigned to a material to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Material ID facilitates accurate identification, classification, and communication of information, including composition, hazards, and regulatory status.
 
-> **Content Validation**<br>The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
+> **Content Validation**
+> 
+> The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
 
 #### 6.7.2.8 Material List Type ID (Material Composition)
 
 This field specifies the classification system or standard employed for the identification of material composition. Acceptable standards may include, but are not limited to, the Chemical Abstracts Service (CAS) Registry Number, the International Union of Pure and Applied Chemistry (IUPAC) nomenclature, or the European Community (EC) number
 
-> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options  ("IUPAC" "CAS" "EC" "InChI" "INCI" "SMILES")
+> **Syntax**
+> 
+> For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options  ("IUPAC" "CAS" "EC" "InChI" "INCI" "SMILES")
 
 #### 6.7.2.9 Material Name (Material Composition)
 
 The name of the material which is present in the product.
 
-> **Content Validation**<br>The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
+> **Content Validation**
+> 
+> The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). 
+> Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
 
 #### 6.7.2.10 Material Type   
 
@@ -1110,25 +1141,33 @@ The name of the material which is present in the product.
 
 The current condition or lifecycle phase of a product, as recorded in the Digital Product Passport, indicating whether the product is new, used, repaired, refurbished, remanufactured, or at end-of-life, in order to support traceability, circularity, and sustainability objectives.
 
-> **Syntax**<br>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options ("original" "repurposed" "re-used" "remanufactured" "waste").
+> **Syntax**
+> 
+> For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options ("original" "repurposed" "re-used" "remanufactured" "waste").
 
 #### 6.8.2 footprintvalue (product carbon footprint)
 
 "Carbon footprint" means the sum of greenhouse gas emissions and greenhouse gas removals in a product system, expressed as CO2 equivalents and based on a life cycle assessment using the single impact category of climate change;
 
-> **Content Validation**<br>In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
+> **Content Validation**
+> 
+> In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
 
 #### 6.8.3 footprintUnit(product carbon footprint)
 
 The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
 
-> **Content Validation**<br>In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
+> **Content Validation**
+> 
+> In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
 
 #### 6.8.4 footprintType(product carbon footprint)
 
 Specifies type of environmental footprint measured, aiding in detailed sustainability analysis.
 
-> **Content Validation**<br>In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
+> **Content Validation**
+> 
+> In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
 
 Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biogenic Removals and Emissions" "Climate Change Land Use and Land Use Change" "Ozone Depletion" "Acidification" "Eutrophication Aquatic Freshwater" "Eutrophication Fresh Marine" "Eutrophication Terrestrial" "Photochemical Ozone Formation" "Abiotic Depletion- Minerals and Metals" "Fossil Fuels" "Water Use" "Particulate Matter Emissions" "Ionizing Radiation, Human Health" "Eco-Toxicity" "Human Toxicity, Cancer Effects" "Human Toxicity, Non-Cancer Effects" "Land Use Related Impacts/Soil Quality").
 
@@ -1136,14 +1175,18 @@ Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biog
 
 The specific phase within a product's life cycle to which the associated carbon footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'
 
-> **Content Validation**<br>In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
+> **Content Validation**
+> 
+> In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
 
 
 #### 6.8.6 performanceClass(product carbon footprint)
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. Classification into a carbon footprint performance class will be calculated in accordance with the methodology set out in the delegated acts adopted by the Commission.
 
-> **Content Validation**<br> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
+> **Content Validation**
+> 
+> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
 
 #### 6.8.7 facilityIdentification(product carbon footprint)
 
@@ -1151,7 +1194,9 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNA is provided
 
-> **Content Validation**<br>The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members
+> **Content Validation**
+> 
+> The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members
 
 #### 6.8.8 Facility Address
 
@@ -1169,19 +1214,25 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 "Environmental footprint" means a quantification of the environmental impacts resulting from a product throughout its life cycle, whether in relation to a single environmental impact category or an aggregated set of impact categories based on the Product Environmental Footprint method established by Recommendation (EU) 2021/2279 or other scientific methods developed by international organisations, widely tested in collaboration with different industry sectors and adopted or implemented by the Commission in other Union law.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
+> **Content Validation**
+> 
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
 
 #### 6.8.12 footprintUnit (product environmental footprint)
 
 The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
+> **Content Validation**
+> 
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
 
 #### 6.8.13 footprintType (product environmental footprint)
 
 Categorizes type of environmental impact for depth in sustainability analysis.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
+> **Content Validation**
+> 
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
 
 Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biogenic Removals and Emissions" "Climate Change Land Use and Land Use Change" "Ozone Depletion" "Acidification" "Eutrophication Aquatic Freshwater" "Eutrophication Fresh Marine" "Eutrophication Terrestrial" "Photochemical Ozone Formation" "Abiotic Depletion- Minerals and Metals" "Fossil Fuels" "Water Use" "Particulate Matter Emissions" "Ionizing Radiation, Human Health" "Eco-Toxicity" "Human Toxicity, Cancer Effects" "Human Toxicity, Non-Cancer Effects" "Land Use Related Impacts/Soil Quality")
 
@@ -1189,12 +1240,17 @@ Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biog
 
 The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
+> **Content Validation**
+> 
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
 
 #### 6.8.15 performanceClass (product environmental footprint)
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
-> **Content Validation**<br> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
+
+> **Content Validation**
+> 
+>  At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
 
 
 #### 6.8.16 facilityIdentification (product environmental footprint)
@@ -1202,8 +1258,10 @@ Performance classification of a footprint refers to the categorization of a prod
 The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNA is provided
-
-> **Content Validation**<br>The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+>
+> **Content Validation**
+> 
+> The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 #### 6.8.17 Facility Address
 
@@ -1221,19 +1279,25 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 "Material footprint" refers to the total amount of raw materials extracted to meet final consumption demands.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
+> **Content Validation**
+> 
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
 
 #### 6.8.21 footprintUnit (product material footprint)
 
 The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
+> **Content Validation**
+> 
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
 
 #### 6.8.22 footprintType (product material footprint)
 
 Impact categorization clarifies footprint implications within material contexts.
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
+> **Content Validation**
+> 
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
 
 Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biogenic Removals and Emissions" "Climate Change Land Use and Land Use Change" "Ozone Depletion" "Acidification" "Eutrophication Aquatic Freshwater" "Eutrophication Fresh Marine" "Eutrophication Terrestrial" "Photochemical Ozone Formation" "Abiotic Depletion- Minerals and Metals" "Fossil Fuels" "Water Use" "Particulate Matter Emissions" "Ionizing Radiation, Human Health" "Eco-Toxicity" "Human Toxicity, Cancer Effects" "Human Toxicity, Non-Cancer Effects" "Land Use Related Impacts/Soil Quality")
 
@@ -1241,13 +1305,17 @@ Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biog
 
 The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'
 
-> **Content Validation**<br>For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
+> **Content Validation**
+> 
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
 
 #### 6.8.24 performanceClass (product material footprint)
 
 Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
 
-> **Content Validation**<br> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
+> **Content Validation**
+> 
+> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
 
 #### 6.8.25 facilityIdentification (product material footprint)
 
@@ -1255,7 +1323,9 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 > **Syntax**<br>Validity should be verified using regular expression-based checks in case BPNA is provided
 
-> **Content Validation**<br>The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+> **Content Validation**
+> 
+> The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
 
 
 #### 6.8.26 Facility Address 
@@ -1274,13 +1344,17 @@ The identifier used for a location. Unique facility identifier means a unique st
 
 In the context of the ESPR, the reparability score is a quantified indicator that reflects the ease with which a product can be repaired. It assesses factors such as the availability of spare parts, accessibility of repair information, design for disassembly, required tools, and time needed for repair. The score is intended to promote product longevity, reduce environmental impact, and empower consumers and repair professionals by enabling informed choices and facilitating circular economy practices.
 
-> **Content Validation**<br>Reparability score in accordance to Annex I of [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng)
+> **Content Validation**
+> 
+> Reparability score in accordance to Annex I of [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng)
 
 #### 6.8.30 Durability Score
 
 The durability score is an indicator established under the Ecodesign for Sustainable Products Regulation (ESPR) that measures a product’s ability to maintain its intended performance and functionality over time under normal usage conditions. It reflects the product’s resistance to aging, and failure, and is based on criteria such as tested lifespan, failure rates, warranty coverage, and availability of maintenance support. The score is designed to promote longer-lasting products, reduce premature obsolescence, and support sustainable consumption and production patterns.
 
-> **Content Validation**<br>Durability score in accordance to Annex I of [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng)
+> **Content Validation**
+> 
+> Durability score in accordance to Annex I of [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng)
 
 #### 6.8.31 Reuse Info 
 
@@ -1539,9 +1613,6 @@ The durability score is an indicator established under the Ecodesign for Sustain
 | 11.4  |Additional Data  |  Data Type    |  xsd:integer        |
 | 11.5  | Additional Data |  Data    |     23     |
 | 11.6  |Additional Data  |  Children    |          |
-
-
-
 
 ### NOTICE
 This work is licensed under the CC-BY-4.0.<br>
