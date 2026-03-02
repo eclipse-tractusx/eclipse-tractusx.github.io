@@ -19,8 +19,9 @@ the same understanding of its legal meaning. Therefore, standardized `constraint
 Still, individual freedom of contract is a very high good and is still possible, but in Catena-X done offline in
 additional paper contracts.
 
-The document does not have the claim to decribe in completeness the specified contraints out of the standard. The
-following description is limited to the mandatory constraints as required from [CX-0152][cx-standards-url].
+The document in this version does not have the claim to describe in completeness the specified constraints out of
+the standard. The following description is limited to the mandatory constraints as required from
+[CX-0152][cx-standards-url].
 
 ### Data Exchange Governance
 
@@ -37,7 +38,7 @@ in a machine-readable way in a providers' contract offer. When a consumer starts
 contract offer, not only will the policy in the `ContractRequestMessage` be checked but also the availability
 of a `DataExchangeGovernanceCredential`.
 
-Here's an example of an `odrl:Constraint` referencing the `DataExchangeGovernanceCrendential`:
+Here's an example of an `odrl:Constraint` referencing the `DataExchangeGovernanceCredential`:
 
 ```json
 {

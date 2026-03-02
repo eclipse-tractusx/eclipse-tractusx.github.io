@@ -20,7 +20,7 @@ are shown from Catena-X as one implementing dataspace using the technology.
 
 Sharing data along a supply chain adds great value for every participant. A wide range of use cases support efficiency
 in engineering, production and logistics. A prerequisite of the support of the transfer use cases is trust between the
-involved partners and a clear scope on which data is transfered and under which conditions it can be used. The
+involved partners and a clear scope on which data is transferred and under which conditions it can be used. The
 technologies described in the Connector KIT provide exactly that framework that allows trustworthy exchange within a supply chain.
 
 ### Mission
@@ -48,11 +48,11 @@ Before going into details, some basic terms need to be described as they are use
 - Dataspace: The overall term for the principles with which data transfer is organized within an ecosystem. The
   technical details of those principles are the scope of this KIT. It is based on concepts developed by the
   [IDSA][idsa-url], see [DSP][dsp-url] for a more formal definition.
-- Data Provider: A data provider is a company, that owns data and that data to others. The role is motivated from a
-  legal viewpoint to refer to the flow of data, not necessarily the technical means to transfer the data.
+- Data Provider: A data provider is a company, that owns data and offers that data to others. The role is motivated
+  from a legal viewpoint to refer to the flow of data, not necessarily the technical means to transfer the data.
   > **Catena-X**: In Catena-X, this role is defined in standard [CX-0152][cx-standards-url].
-- Data Consumer: A data consumer is a company, that consumes data offered by a data provider. The role is motivated from a
-  legal viewpoint to refer to the flow of data, not necessarily the technical means to transfer the data.
+- Data Consumer: A data consumer is a company, that consumes data offered by a data provider. The role is motivated
+  from a legal viewpoint to refer to the flow of data, not necessarily the technical means to transfer the data.
   > **Catena-X**: In Catena-X, this role is defined in standard [CX-0152][cx-standards-url].
 - Provider: Is a technical role of a company that runs an it system known as resource server to which it provides
   access to, see [DSP][dsp-url] for reference.
@@ -71,7 +71,7 @@ that drive the interaction patterns. In detail, they are:
 - Decentralization: The data transfer from a data provider to a data consumer is a peer-to-peer activity which does not
   require the involvement of third parties like a central authority. This comes with two major goals:
   - The data transfer cannot be observed outside of the two acting companies, especially the data is directly
-    transfered between the two parties.
+    transferred between the two parties.
   - Data transfer activities are not blocked by outages of central services.
 - Scalability: Efforts from an individual participant to maintain connections to relevant participants as well as the
   overall effort to support a dataspace with a virtually unlimited number of participants are both within
@@ -81,7 +81,7 @@ that drive the interaction patterns. In detail, they are:
   available. The data transfer is preceded by a formal acceptance of the conditions of the transfer by both parties.
 - Interoperability: The data transfer is standardized in a way, that allows to identify
   - which type of data is offered and what to expect semantically as content of the data,
-  - how the data is transfered, i.e., which protocols resp. which APIs to use for transfering it,
+  - how the data is transferred, i.e., which protocols resp. which APIs to use for transfering it,
   - under which conditions the data can be used.
 
 ## Basic Concepts used for Dataspace Connectivity
@@ -114,13 +114,13 @@ In detail, the relevant assets are:
 
 - Identity: The DSP requires trustworthy identities for participants. For the interaction between participants, the
   connector uses [*Decentralized Identifiers*][did-url] (DID). A DID is a globally unique identifier that is associated
-  with a participant. As a paticipant can have more than one DID a dedicated DID is required for interacting in a
+  with a participant. As a participant can have more than one DID a dedicated DID is required for interacting in a
   defined dataspace.
 
   Within this KIT the [WEB-DID][did-web-url] method is used which allows the associated company to publish metadata,
   like service endpoints or public keys in a DID document. The DID document can be accessed simply through knowledge
   of the DID. DIDs, and especially the availability of required metadata in the DID document enable the targeted
-  dentralization goal.
+  decentralization goal.
 
   > **Catena-X:** In Catena-X, there is another relevant identifier used to identify a dataspace participant. With
   the *Business Partner Number* (BPNL), a globally unique and legally binding identifier is used, that is persistent,
@@ -338,12 +338,12 @@ functionalities:
      in the return of the necessary information like endpoint and token to use to initiate a request.
 
    - In a push transfer, initiating the transfer ends with the provider to be actively pushing data to a consumer
-     owned data sink. An example for this is a cloud storage service to which a data object is transfered to.
+     owned data sink. An example for this is a cloud storage service to which a data object is transferred to.
      To enable the provider to send the data, the access information, i.e., the endpoint url of the sink and the access
      credentials have to be provided by the consumer in the transfer process request.
 
 After the transfer process is started, the data plane is responsible for the data transfer, i.e., it mediates between
-the consuming service and the providing service to get the data transfered. The data plane is a transfer technology
+the consuming service and the providing service to get the data transferred. The data plane is a transfer technology
 specific implementation that connects an existing technology to the concepts of the dataspace concept. The technology
 specific information on data endpoints used and access information needed are part of the transfer process creation.
 

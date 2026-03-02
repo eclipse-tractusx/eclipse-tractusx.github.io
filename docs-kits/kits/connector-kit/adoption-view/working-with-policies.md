@@ -12,7 +12,7 @@ The entire page is independent of the conventions in the Catena-X dataspace.
 
 Policies are a formalization of the terms under which a *Provider* extends an offer to the dataspace. The
 [Dataspace Protocol Specification][dsp-url] has selected the [Open Digital Rights Language (ODRL)][odrl-url]
-as a formalism and vocabulary to describe such offers. This site exclusively cover the topic of policies in the
+as a formalism and vocabulary to describe such offers. This site exclusively covers the topic of policies in the
 sense of the dataspace protocol. The connector also uses ODRL policies to restrict visibility on contract offers - calling
 them *Access Policies*. Selecting the right *Access Policies* is a matter of the individual provider and not
 regulated by the dataspace. Doing it properly however is essential to comply with fundamental anti-trust and information
@@ -71,13 +71,15 @@ like this:
     {
       "action": "use",
       "constraint": [
-        "and": [
-          {
-            "leftOperand": "https://w3id.org/some-dataspace/role",
-            "operator": "eq",
-            "rightOperand": "NonGovernmentalOrganizationCredential"
-          }
-        ]
+        {
+          "and": [
+            {
+              "leftOperand": "https://w3id.org/some-dataspace/role",
+              "operator": "eq",
+              "rightOperand": "NonGovernmentalOrganizationCredential"
+            }
+          ]
+        }
       ]
     }
   ],

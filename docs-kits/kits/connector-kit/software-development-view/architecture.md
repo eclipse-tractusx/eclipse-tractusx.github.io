@@ -50,7 +50,7 @@ participant cba as Consumer Business App
 
     cba->>+ccp: Initiate Contract Negotiation
     ccp->>pcp: Contract Request Message
-    ccp-->>-cba: Contract Negotation Initiated
+    ccp-->>-cba: Contract Negotiation Initiated
     par
       pcp->>ccp: Contract Agreement Message
     and
@@ -155,13 +155,13 @@ The general interaction pattern is driven by the Dataspace Protocol which define
    access to the data is possible.
 
 After the transfer process is started, the data plane is responsible for the data transfer, i.e., it mediates between
-the consuming service and the providing service to get the data transfered. The data plane is a transfer technology
+the consuming service and the providing service to get the data transferred. The data plane is a transfer technology
 specific implementation that connects an existing technology to the concepts of the dataspace concept. The technology
 specific information on data endpoints used and access information needed are part of the transfer process creation.
 
 ### The contract data model
 
-The following diagram shows the depdendencies between the data objects created for and during a data transfer:
+The following diagram shows the dependencies between the data objects created for and during a data transfer:
 
 ![DSP Domain Model](./assets/domain-model.png)
 
@@ -170,7 +170,7 @@ provider in its connector. It references an *Access Policy* and a *Contract Poli
 *Asset* which defines the service offering referring furtheron to the *Data Address* which is the concrete resource
 description that provides the offer.
 
-During a catalog request, the *Contract Definition* id transfered into a concrete *Contract Offer* that is added in
+During a catalog request, the *Contract Definition* id transferred into a concrete *Contract Offer* that is added in
 the form of a *Dataset* in the provided catalog. A consumer starts a *Contract Negotiation*, referring to one of
 the provided *Contract Offers* and eventually, both connector agree on the contract which leads to a *Contract
 Agreement* that is an immutable representation of all relevant details concerning the contract.
@@ -184,7 +184,7 @@ the concrete offering and *Resource* objects necessary for the transfer.
 The following figure shows the involved services and the basic interaction between the services in this case in a Pull
 scenario.
 
-![Basic Service Interaction](./assets/connector_interactions.drawio.png)
+![Basic Service Interaction](./assets/connector-interactions.drawio.png)
 
 The figure shows the interaction between a consumer *Participant A* and a provider *Participant B*. In the following,
 the different interactions are described in detail.
@@ -206,7 +206,7 @@ The data transfer is initiated at the consumer. If the consumer does not have th
 transfer, he has to check some centrally operated services (step R1), that provide him with the necessary identifiers
 to initiate the decentral data transfer.
 
->> **Catena-X**: In the case of Catena-X the identifiers are the BPNL and the DID. The *Central Participant Management*
+> **Catena-X**: In the case of Catena-X the identifiers are the BPNL and the DID. The *Central Participant Management*
 is provided by a service called *BDRS* (BPN-DID Resolution Service). It is implemented in a way that it is impossible
 to track the concrete interest in a company. In case of the BDRS this is ensured by returning a list of all known mappings
 between BPNLs and DIDs. It is a local mechanism in the consumer connector to identify the concrete mapping needed in a
@@ -347,10 +347,10 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2026 Cofinity-X GmbH
 - Source
   URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/connector-kit/software-development-view/architecture.md](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/connector-kit/software-development-view/architecture.md)
-- Image: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/connector_interactions.drawio.png](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/connector_interactions.drawio.png)
+- Image: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/connector-interactions.drawio.png](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/connector-interactions.drawio.png)
 
 - SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation
-- Image: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/domain_model.png](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/domain_model.png)
+- Image: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/domain-model.png](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/software-development-view/assets/domain-model.png)
 
 [dcat-url]: https://www.w3.org/TR/vocab-dcat-3
 

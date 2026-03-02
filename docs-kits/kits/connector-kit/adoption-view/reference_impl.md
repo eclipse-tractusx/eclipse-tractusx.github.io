@@ -1,15 +1,15 @@
 ---
 sidebar_position: 5
 title: Adoption View - Reference Implementation
-description: A adoptors introduction into the reference implementation
+description: An introduction for adoptors to the reference implementation
 id: connector-reference-implementation
 ---
 
 ![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
 
-The Connector KIT is providing insides into the standardized way of interaction between two dataspace
-participants concerning the usage of the dataspace protocol. The specified aspects from the standard
-are in principle complete to participate in the dataspace with an implementation.
+The Connector KIT provides insights into the standardized way of interaction between two dataspace
+participants using the dataspace protocol. The aspects specified in the standard are in principle
+sufficient to enable participation in the dataspace with an implementation.
 
 Nonetheless, the reference implementation provided in Eclipse Tractus-X, the [Tractus-X EDC][edc-url]
 is a full implementation of the standard which is production-ready and in heavy use throughout the

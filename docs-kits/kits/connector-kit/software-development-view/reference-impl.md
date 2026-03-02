@@ -28,13 +28,13 @@ if needed.
 - Tractus-X Connector [Releases][release-url] showing all available releases with release notes and links to test reports
 - Tractus-X Connector [Readme][readme-url]
 - Tractus-X Connector [Management API Walkthrough][mgmt-api-url], which describes how to interact with a connector from
-  an app perpective controlling the interactions with the connector on provider and consumer side.
-- Tractus-X Connector [Migration Guides][migation-guide-url] which describes for each version update the things to adapt
+  an app perspective controlling the interactions with the connector on provider and consumer side.
+- Tractus-X Connector [Migration Guides][migration-guide-url] which describes for each version update what to adapt
   to meet the requirements of the new version.
 - Tractus-X Connector [OpenApi-Hub][tx-connector-openapi-url]
 - Tractus-X Connector [Developer Documentation][dev-docu-url] containing some concept documentation and decision records
 - Tractus-X BPN-DID resolution service [main repository][bdrs-repo-url]
-- Tractux-X BDRS [OpenApi-Hub][tx-bdrs-openapi-url]
+- Tractus-X BDRS [OpenApi-Hub][tx-bdrs-openapi-url]
 
 ## Notice
 
@@ -55,7 +55,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 [mgmt-api-url]: https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs/usage/management-api-walkthrough
 
-[migation-guide-url]: https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs/migration
+[migration-guide-url]: https://github.com/eclipse-tractusx/tractusx-edc/tree/main/docs/migration
 
 [readme-url]: https://github.com/eclipse-tractusx/tractusx-edc/blob/main/README.md
 

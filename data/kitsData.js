@@ -124,7 +124,7 @@ export const kitsData = {
       logo: ConnectorKitLogo,
       logoLicencse: {
         type: 'CC-BY-4.0',
-        authors: '2026 Eclipse Tractus-X Contributors', // Komma separated list of authors
+        authors: ['2024 Eclipse Tractus-X Contributors', '2026 Cofinity-X GmbH'], // Komma separated list of authors
         licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/connector/connector-kit-raw-logo.svg.license',
         sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/connector/connector-kit-raw-logo.svg'
       },
@@ -144,8 +144,8 @@ export const kitsData = {
       description: 'The EDC as a connector implements a framework agreement for sovereign, cross-organizational data exchange.',
       metadata: {
         created: '2022-08-01',
-        lastUpdated: '2024-06-07',
-        latestVersion: '3.0.0',
+        lastUpdated: '2026-03-18',
+        latestVersion: '4.0.0',
         new: false
       }
     },
