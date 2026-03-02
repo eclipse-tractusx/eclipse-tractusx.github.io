@@ -982,8 +982,9 @@ export const kitsData = {
         }
       }
     ],
-    "engineering": [
-      {
+    "semiconductor": [],
+    "construction": [],
+    "automotive": [{
         id: 'modular-engineering',
         name: 'MODULAR ENGINEERING KIT',
         logo: ModularEngineeringKITLogo,
@@ -998,8 +999,8 @@ export const kitsData = {
         logoWidth: 100,
         route: '/docs-kits/next/kits/modular-engineering-kit/adoption-view',
         colors: {
-          primary: '#bdbbd7',
-          gradient: 'linear-gradient(135deg, #9694ac 0%, #bdbbd7 100%)'
+        primary: '#dc7fd3',
+        gradient: 'linear-gradient(135deg, #dc7fd3 0%, #d100bc 100%)'
         },
         maturity: {
           currentLevel: 'Sandbox',
@@ -1031,8 +1032,8 @@ export const kitsData = {
         logoWidth: 100,
         route: '/docs-kits/next/kits/engineering-as-a-service-kit/adoption-view',
         colors: {
-          primary: '#bdbbd7',
-          gradient: 'linear-gradient(135deg, #9694ac 0%, #bdbbd7 100%)'
+          primary: '#dd86d4',
+          gradient: 'linear-gradient(135deg, #dd86d4 0%, #9803c2 100%)'
         },
         maturity: {
           currentLevel: 'Sandbox',
@@ -1050,9 +1051,6 @@ export const kitsData = {
         }
       }
     ],
-    "semiconductor": [],
-    "construction": [],
-    "automotive": [],
     "chemical": []
   }
 };
