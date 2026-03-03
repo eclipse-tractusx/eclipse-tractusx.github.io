@@ -117,8 +117,12 @@
     }
 
     .btn_container {
+        flex-wrap: wrap;
+        padding: 0 10px;
         .btn {
-            margin: 15px 5px;
+            margin: 5px;
+            flex: 1 1 140px;
+            justify-content: center;
             }
     }
 
@@ -130,7 +134,7 @@
   
   @media screen and (min-width: 2200px) {
     .heroBanner {
-      width: 70vw;
+      width: 100%;
       margin: auto;
       display: flex;
     }
@@ -139,7 +143,7 @@
   
   @media screen and (min-width: 3200px) {
     .heroBanner {
-      width: 60vw;
+      width: 100%;
       margin: auto;
       display: flex;
     }
