@@ -49,7 +49,7 @@ Please refer to the [Catena-X Library][StandardLibrary] for the newest version o
 
 ### Software Developers
 
-[https://catena-x.net/en/tractus-x-1](https://catena-x.net/en/tractus-x-1)
+[https://eclipse-tractusx.github.io](https://eclipse-tractusx.github.io)
 
 [https://github.com/eclipse-tractusx](https://github.com/eclipse-tractusx)
 
