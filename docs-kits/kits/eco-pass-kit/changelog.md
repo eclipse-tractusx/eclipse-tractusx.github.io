@@ -4,7 +4,7 @@ title: Changelog
 
 ![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.svg)
 
-## [1.6.0] - 2026-03-02
+## [1.5.1] - 2026-03-03
 
 ### 26.03 Added
 
@@ -12,7 +12,7 @@ title: Changelog
 
 ### 26.03 Updated
 
-- fixed broken Links
+- fixed broken Links and removed references to reference application
 
 ## [1.5.0] - 2024-07-25
 

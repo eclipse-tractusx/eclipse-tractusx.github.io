@@ -125,7 +125,7 @@ The following information is required for enabling the digital twin search, in o
 
 | Name                   | Example          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |------------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Specific Asset Id Type | *partInstanceId* | The specific asset id type is used to search in the `digital twin registry` for a specific digital twin. It is basically the `name` of  "specificAssetId" object located at the [`digital twin`](#aas-30-digital-twin-example) `specificAssetIds` property. The `*partInstanceId*` is used as an example most of the time, since the digital twin registry implemented a hotfix that allows companies say who can access to their `partInstanceId` fields. Now allowing the *"PUBLIC_READABLE"* property. |
+| Specific Asset Id Type | *partInstanceId* | The specific asset id type is used to search in the `digital twin registry` for a specific digital twin. It is basically the `name` of  "specificAssetId" object located at the `digital twin` `specificAssetIds` property. The `*partInstanceId*` is used as an example most of the time, since the digital twin registry implemented a hotfix that allows companies say who can access to their `partInstanceId` fields. Now allowing the *"PUBLIC_READABLE"* property. |
 | Specific Asset Id Type | *IMR18650V1*     | The specific asset id value is added in the `digital twin lookup` when calling the `EDC Provider Proxy`. It basically points to the value of the *`Specific Asset Id Type`* property.                                                                                                                                                                                                                                                                                                                     |
 
 [![Digital Twin Search](./resources/development-view/ecoPassSearchSequence.svg)](./resources/development-view/ecoPassSearchSequence.svg)
@@ -138,9 +138,9 @@ The **Data Negotiation and Transfer Phase** is the phase responsible for the fin
 
 The following information is required for enabling the digital twin search, in order to start the data transfer phase:
 
-| Name                 | Example                               | Description                                                                                                                                                   |
-|----------------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Contract with Policy | [Contract Example](#contract-example) | To start the contract negotiation we need to agree on a policy for the a specific contract. This needs to be selected by the one that is requesting the data. |
+| Name                 | Description                           |
+|----------------------|---------------------------------------|
+| Contract with Policy | To start the contract negotiation we need to agree on a policy for the a specific contract. This needs to be selected by the one that is requesting the data. |
 
 ### Sequence Diagram for Negotiate and Transfer
 
