@@ -1032,7 +1032,7 @@ In order to facilitate collaboration with the Catena-X dataspace the DCM standar
 For further details, please refer to [CX-0128 Demand and Capacity Management Data Exchange][StandardLibrary].
 
 ## Colaboration in multi-company scenarios
-There are situations where multiple companies are involved in the DCM process. This section gives an overview of some potential cases/situations and how to handle them. 
+There are situations where multiple companies are involved in the DCM process. This section gives an overview of some potential cases/situations and how to handle them.
 
 **Directed buy**: in this case a company (e.g. an OEM) asks its supplier A to buy parts from supplier B, whereas  
 - The purchasing contracts are in place between supplier A and B. The OEM has only a contract with supplier A.  
