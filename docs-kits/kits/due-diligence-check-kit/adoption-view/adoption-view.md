@@ -264,5 +264,32 @@ The development of the KIT will take place throughout this year, with a strong f
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2026 Accenture
+- SPDX-FileCopyrightText: 2026 BMW Group
+- SPDX-FileCopyrightText: 2026 CarbonEase
+- SPDX-FileCopyrightText: 2026 CATL
+- SPDX-FileCopyrightText: 2026 DASU
+- SPDX-FileCopyrightText: 2026 D-fine
+- SPDX-FileCopyrightText: 2026 Dräxlmaier
+- SPDX-FileCopyrightText: 2026 Drive
+- SPDX-FileCopyrightText: 2026 Ford
+- SPDX-FileCopyrightText: 2026 Helpdesk
+- SPDX-FileCopyrightText: 2026 INOVIA Solutions
+- SPDX-FileCopyrightText: 2026 Magna
+- SPDX-FileCopyrightText: 2026 Mercedes Benz
+- SPDX-FileCopyrightText: 2026 Mittelstandsverbund
+- SPDX-FileCopyrightText: 2026 Nanjing fuchuang big data industry development Co.Ltd
+- SPDX-FileCopyrightText: 2026 Prewave
+- SPDX-FileCopyrightText: 2026 RBA
+- SPDX-FileCopyrightText: 2026 RSCI
+- SPDX-FileCopyrightText: 2026 Schaeffler
+- SPDX-FileCopyrightText: 2026 Silver Atena
+- SPDX-FileCopyrightText: 2026 TÜV Süd
+- SPDX-FileCopyrightText: 2026 University Ulm
+- SPDX-FileCopyrightText: 2026 VDA
+- SPDX-FileCopyrightText: 2026 VW
+- SPDX-FileCopyrightText: 2026 Witte
+- SPDX-FileCopyrightText: 2026 ZF
+
 - SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
