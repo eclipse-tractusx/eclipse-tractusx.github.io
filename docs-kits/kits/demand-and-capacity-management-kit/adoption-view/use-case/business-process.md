@@ -1096,4 +1096,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
 
-[StandardLibrary]: https://catenax-ev.github.io/docs/next/standards/CX-0128-andCapacityManagementDataExchange
+[StandardLibrary]: https://catenax-ev.github.io/docs/standards/CX-0128-DemandandCapacityManagementDataExchange
