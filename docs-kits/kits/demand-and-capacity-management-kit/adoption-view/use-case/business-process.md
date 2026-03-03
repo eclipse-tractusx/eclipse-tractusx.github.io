@@ -1043,7 +1043,6 @@ There are situations where multiple companies are involved in the DCM process. T
 - If the part 1 are delivered by supplier A to the OEM and then transported to the supplier B, for the Catena-X DCM process the OEM creates the demands and sends them to the supplier A.  
 - In case the part 1 are ordered by the OEM from supplier A but delivered directly to supplier B, for the Catena-X DCM process the OEM creates demands and sends it to supplier A, indicating a delivery location BPNS belonging to supplier B.
 **Contract manufacturing / cooperation plants**: in case of manufacturing plants co-owned by multiple companies or producing on behalf of other companies, a possible solution is to create the plant as BPNS for all manufacturers involved. For example, if a plant is co-owned by OEMs A and B, two BPNS can be created (one each for the BPNL of OEM A and B). That way, each OEM can send out his respective demand using his own BPNL and BPNS, avoiding confusion.
-  
 **Joint ventures**: joint ventures are often separate legal entities and are operated independently, therefore they would need to be onboarded to Catena-X as a separate BPNL with separate BPNS.
 
 **Note**: in all cases, the demands need to be sent out by the company who orders the parts (i.e. is the purchasing party in the contract and pays for the parts).  
