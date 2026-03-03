@@ -1047,7 +1047,7 @@ There are situations where multiple companies are involved in the DCM process. T
   
 **Joint ventures**: joint ventures are often separate legal entities and are operated independently, therefore they would need to be onboarded to Catena-X as a separate BPNL with separate BPNS.
 
-**Note**: in all cases, the demands need to be send out by the company who orders the parts (i.e. is the purchasing party in the contract and pays for the parts).  
+**Note**: in all cases, the demands need to be sent out by the company who orders the parts (i.e. is the purchasing party in the contract and pays for the parts).  
 
 ## Notice
 
