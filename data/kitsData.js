@@ -599,8 +599,8 @@ export const kitsData = {
       logoLicencse: {
         type: 'CC-BY-4.0',
         authors: '2026 Eclipse Tractus-X Contributors',
-        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/due-diligence-check/due-diligence-kit-raw-logo.svg.license',
-        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/due-diligence-check/due-diligence-kit-raw-logo.svg'
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/due-diligence/due-diligence-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/due-diligence/due-diligence-kit-raw-logo.svg'
       },
       logoHeight: 140,
       logoWidth: 140,
