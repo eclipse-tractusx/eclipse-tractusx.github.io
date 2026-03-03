@@ -298,7 +298,7 @@ The customer is responsible for publishing capacity groups to their customer and
 - Refresh the data at a minimum of once every four weeks.
 - Align, ideally within a contract, the unit of measure for capacity quantities (e.g., pieces, kilograms, metric tons) with the Customer and utilize lead factors as conversion factors, if applicable.
 
-The supplier must provide capacity data to the customer, corresponding to the material demand data previously shared. Thereby, the supplier is acting as a data provider and the customer as a data consumer of the exchanged capacity group. 
+The supplier must provide capacity data to the customer, corresponding to the material demand data previously shared. Thereby, the supplier is acting as a data provider and the customer as a data consumer of the exchanged capacity group.
 
 The customer must have the capability to consume the capacity group data from the supplier.
 
