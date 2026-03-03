@@ -585,8 +585,8 @@ export const kitsData = {
       description: 'Quick build of solutions for companies of any size to engage a collaborative capacity management.',
       metadata: {
         created: '2023-03-01',
-        lastUpdated: '2025-09-29',
-        latestVersion: '1.4.0',
+        lastUpdated: '2026-03-03',
+        latestVersion: '1.5.0',
         new: false
       }
     },
