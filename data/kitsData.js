@@ -885,7 +885,7 @@ export const kitsData = {
       logo: CCMKitLogo,
       logoLicencse: {
         type: 'CC-BY-4.0',
-        authors: '2026 Eclipse Tractus-X Contributors',
+        authors: '2026 Eclipse Tractus-X Contributors; 2026 Catena-X Automotive Network e.V.',
         licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg.license',
         sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg'
       },
@@ -893,20 +893,20 @@ export const kitsData = {
       logoWidth: 100,
       route: '/docs-kits/next/kits/company-certificate-management-kit/adoption-view',
       colors: {
-        primary: '#4A90A4',
-        gradient: 'linear-gradient(135deg, #6BC4D6 0%, #4A90A4 100%)'
+        primary: '#1E13C2',
+        gradient: 'linear-gradient(135deg, #3372CC 0%, #1E13C2 100%)'
       },
       maturity: {
         currentLevel: 'Sandbox',
         graduationStatus: 'draft'
       },
       deprecated: false,
-      domain: 'Quality',
+      domain: 'Master Data Management',
       industries: ['automotive', 'manufacturing'],
-      description: 'Manage and exchange company certificates across the supply chain to ensure compliance and quality standards.',
+      description: 'Manage and exchange in a decentralized manner company certificates across the supply chain to ensure compliance and quality standards.',
       metadata: {
         created: '2026-02-09',
-        lastUpdated: '2026-02-09',
+        lastUpdated: '2026-03-04',
         latestVersion: '0.1.0',
         new: true
       }
