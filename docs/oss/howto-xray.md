@@ -15,8 +15,6 @@ sidebar_position: 42
 
 Please see the sections below for a tutorial on how you can use this system to achieve the testing requirements and objectives for your Tractus-X project.
 
-<br/>
-
 ---
 
 ## 2. Accessing the Xray Testing Board and Create Button
@@ -27,10 +25,8 @@ Please see the sections below for a tutorial on how you can use this system to a
    - Use the global "Create" button at the top of the page, or
    - The context-specific "Create" button on the right side within the Testing Board.
 
-![howto-xray-create_button.png](../images/howto-xray-create_button.png)
+![The Create buttons are highlighted in the Jira Xray interface for easy access to create new test artifacts](../images/howto-xray-create_button.png)
 <p><em>Screenshot: The "Create" buttons are highlighted in the Jira Xray interface for easy access to create new test artifacts.</em></p>
-
-<br/>
 
 ---
 
@@ -46,10 +42,8 @@ For all kinds of test types, you need to fill out these basic information.
 2. In the creation dialog, select **Test** as the Work type.
 3. Fill in all relevant fields. Fields marked with an asterisk are mandatory, e.g. a Summary (= title of the test)
 
-![howto-xray-create-test-case-1.png](../images/howto-xray-create-test-case-1.png)
+![Top of the Create dialogue box with Test selected as the Work type and the Summary field highlighted](../images/howto-xray-create-test-case-1.png)
 <p><em>Screenshot: Top of the "Create" dialogue box with Test selected as the "Work type" and the "Summary" field highlighted</em></p>
-
-<br/>
 
 #### Summary: Brief description of the test
 
@@ -59,8 +53,6 @@ A good Jira Xray test case summary should clearly indicate the system and use ca
 
 - [Portal Frontend] User can reset password via email
 - [BPDM] Validate mandatory field error handling
-
-<br/>
 
 #### **Description:** Detailed explanation of the test
 
@@ -76,8 +68,6 @@ A good Jira test case description should briefly explain the purpose and context
 - The test ensures that a valid reset link is sent via email and that the new password can be used for login.
 - Precondition: A user account with valid email must exist.
 
-<br/>
-
 #### Labels: For categorization
 
 The **Labels** field in a Jira test case should be used to support filtering, grouping, and reporting by product, use case, or environment. Labels should be:
@@ -92,10 +82,8 @@ The **Labels** field in a Jira test case should be used to support filtering, gr
 - regression
 - stable-environment
 
-![howto-xray-labels.png](../images/howto-xray-labels.png)
+![Setting the right labels helps to find, group, and associate this issue to Policy Store API of the IRS on the Integration Environment](../images/howto-xray-labels.png)
 <p><em>Screenshot: Setting the right labels helps to find, group, and associate this issue to Policy Store API of the IRS on the Integration Environment.</em></p>
-
-<br/>
 
 #### Fix Versions: Specify relevant releases
 
@@ -106,8 +94,6 @@ The **Fix Versions** field should be used to indicate the release or version for
 - Reporting test readiness and execution progress for releases
 
 You can find all available fix versions in the [Release versions overview](https://catena-x.atlassian.net/projects/CXTPM?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page)
-
-<br/>
 
 #### Component, Team: (see Section 10 for details)
 
@@ -122,8 +108,6 @@ The **Component** field should indicate the technical module or system the test 
 - Portal Frontend
 - BPDM
 
-<br/>
-
 The **Team** field should indicate the team responsible for creating, maintaining, or executing the test case. It ensures:
 
 - Clear ownership
@@ -136,18 +120,14 @@ The **Team** field should indicate the team responsible for creating, maintainin
 - Portal
 - PURIS
 
-![howto-xray-create-test-case-2.png](../images/howto-xray-create-test-case-2.png)
+![Bottom part of the first Create dialogue screen with the Team selection dropdown menu](../images/howto-xray-create-test-case-2.png)
 <p><em>Screenshot: Bottom part of the first "Create" dialogue screen with the "Team" selection dropdown menu.</em></p>
-
-<br/>
 
 On the second screen, please add the test type:
 
 - **Test Type: Manual, Cucumber, or Generic.**
 
 Depending on your choice, Jira will change the layout and offer you different options to describe your test case.
-
-<br/>
 
 ### 3.2 Manual Test Type
 
@@ -191,18 +171,14 @@ Depending on your choice, Jira will change the layout and offer you different op
 >
 >Expected Result: User is redirected to the dashboard page
 
-<br/>
-
 #### Template (Manual)
 
 You can follow these instructions or clone from the template test case.
 For manual test cases, please open [CXTPM-672](https://catena-x.atlassian.net/browse/CXTPM-672). From the
 three-dots-menu, choose *Clone* and adapt the fields accordingly.
 
-![howto-xray-clone-from-template.png](../images/howto-xray-clone-from-template.png)
+![Clone from the template for a manual test case](../images/howto-xray-clone-from-template.png)
 <p><em>Screenshot: Clone from the template for a manual test case</em></p>
-
-<br/>
 
 ### 3.3 Cucumber Test Type
 
@@ -284,18 +260,14 @@ Feature: Asset Creation in Trace-X
 - **Scenario Outline:** Template for multiple similar scenarios with different data
 - **Examples:** Data table providing values for scenario outline placeholders
 
-<br/>
-
 #### Template (Cucumber)
 
 You can follow these instructions or clone from the Cucumber template test case.
-For manual test cases please open [CXTPM-673](https://catena-x.atlassian.net/browse/CXTPM-673). From the
+For a Cucumber test case template please open [CXTPM-673](https://catena-x.atlassian.net/browse/CXTPM-673). From the
 three-dots-menu, choose **Clone** and adapt the fields accordingly.
 
-![howto-xray-clone-from-template-cucumber.png](../images/howto-xray-clone-from-template-cucumber.png)
+![Clone from the template for a Cucumber test case](../images/howto-xray-clone-from-template-cucumber.png)
 <p><em>Screenshot: Clone from the template for a Cucumber test case</em></p>
-
-<br/>
 
 ### 3.4 Generic Test Type
 
@@ -309,8 +281,6 @@ three-dots-menu, choose **Clone** and adapt the fields accordingly.
 1. Select **Test Type = Generic**
 2. Provide a clear description of what needs to be tested
 3. Include any specific conditions or configurations
-
-<br/>
 
 #### Generic Test Example
 
@@ -340,22 +310,17 @@ three-dots-menu, choose **Clone** and adapt the fields accordingly.
 > - Test is executed externally via GitHub Actions
 > - Results (JMeter .xml or .json) are uploaded via the Xray REST API to the corresponding Test Execution
 
-<br/>
-
 ---
 
 ## 4. Test Sets
 
 The Xray Test Set is used to group related tests for better organization and reuse.
-<br/>
 
 ### 4.1 Purpose Of Test Sets
 
 - Logical grouping of Test issues (e.g., by feature, module, or type).
 - Reuse the same set of tests across different Test Plans or Executions.
 - Simplifies bulk operations like assigning, executing, or reporting on tests.
-
-<br/>
 
 ### 4.2 Creating Test Sets
 
@@ -364,21 +329,14 @@ The Xray Test Set is used to group related tests for better organization and reu
 3. Fill in the fields, those marked with an asterisk are mandatory:
    - **Summary:** Name of the Test Set.
    - **Description:** Brief description of the Test Set.
-   - **Labels, Fix Versions, Component, Team, Priority:** For categorization and traceability.
-   - For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
+   - **Labels, Fix Versions, Component, Team, Priority:** For categorization and traceability. For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
 4. Click **Create** to finalize the Test Set.
 
-<br/>
-
-![howto-xray-testset-create-dialog.png](../images/howto-xray-testset-create-dialog.png)
+![The Work type dropdown is highlighted, showing Test Set selected in the creation dialog](../images/howto-xray-testset-create-dialog.png)
 <p><em>Screenshot: The "Work type" dropdown is highlighted, showing "Test Set" selected in the creation dialog.</em></p>
 
-<br/>
-
-![howto-xray-testset-dialog-details.png](../images/howto-xray-testset-dialog-details.png)
+![The Fix version, Priority, Team and Labels dropdowns are highlighted in the Create dialogue box](../images/howto-xray-testset-dialog-details.png)
 <p><em>Screenshot: The "Fix version", "Priority", "Team" and "Labels" dropdowns are highlighted in the "Create" dialogue box.</em></p>
-
-<br/>
 
 ### 4.3 Adding Test Cases to Test Sets
 
@@ -386,15 +344,11 @@ The Xray Test Set is used to group related tests for better organization and reu
 2. Use the **Add Tests** option to include existing test cases, or create new test cases directly within the Test Set.
 3. Assign priorities and link the Test Set to requirements or defects for traceability.
 
-![howto-xray-testset-add-test.png](../images/howto-xray-testset-add-test.png)
+![Add new or existing tests to a test set](../images/howto-xray-testset-add-test.png)
 <p><em>Screenshot: Add new or existing tests to a test set</em></p>
 
-<br/>
-
-![howto-xray-testset-add-test.png](../images/howto-xray-testset-add-test_2.png)
+![Add existing test from the list or use the more sophisticated search](../images/howto-xray-testset-add-test_2.png)
 <p><em>Screenshot: Add existing test from the list or use the more sophisticated search</em></p>
-
-<br/>
 
 ---
 
@@ -410,8 +364,6 @@ The purpose of an Xray Test Plan is to organize and manage the execution of a se
 - Allow for multiple executions of the same test set within the same plan (e.g., different environments or iterations).
 - Enable reporting and metrics like pass/fail rates, execution history, and requirement traceability.
 
-<br/>
-
 ### 5.2 Creating Test Plans
 
 1. Click the **Create** button.
@@ -419,16 +371,11 @@ The purpose of an Xray Test Plan is to organize and manage the execution of a se
 3. Fill in the fields, marked with an asterisk are mandatory:
    - **Summary:** Name of the Test Plan.
    - **Description:** Brief description of the Test Plan.
-   - **Labels, Fix Versions, Component, Team:** For categorization and traceability.
-   - For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
+   - **Labels, Fix Versions, Component, Team:** For categorization and traceability. For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
 4. Click **Create** to finalize the Test Plan.
 
-<br/>
-
-![howto-xray-testplan-create-dialog.png](../images/howto-xray-testplan-create-dialog.png)
+![In the Create menu the Work type dropdown with Test Plan as the selected option is highlighted](../images/howto-xray-testplan-create-dialog.png)
 <p><em>Screenshot: In the "Create" menu the "Work type" dropdown with "Test Plan" as the selected option is highlighted.</em></p>
-
-<br/>
 
 ### 5.3 Integrating Test Sets into Test Plans
 
