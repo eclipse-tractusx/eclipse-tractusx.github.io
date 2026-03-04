@@ -2,7 +2,7 @@
 title: First International Eclipse Tractus-X Hackathon in Spain 🇪🇸
 description: Join us for the first international open source hackathon of Eclipse Tractus-X in Bilbao, Spain!
 slug: first-international-hackathon
-date: 2026-02-17T09:00
+date: 2026-01-30T09:00
 hide_table_of_contents: false
 authors:
   - mikel_garcia
@@ -10,7 +10,6 @@ authors:
   - bjoern_roy
   - stephan_bauer
 ---
-
 ![img](IMG_4856.jpeg)
 
 Hi Everyone 👋,
@@ -31,6 +30,10 @@ Let's have the **first international Open Source Hackathon of Eclipse Tractus-X 
 
 **[Register Here](https://forms.office.com/e/LkYbasfXJA)** 📋✍🏻
 
+## 📅 Agenda
+
+![Agenda Hackathon](./AgendaHackathon.png)
+
 ### ‼️ IMPORTANT
 
 - **Please reserve this date if you're willing to come!** 🗓️
@@ -38,7 +41,7 @@ Let's have the **first international Open Source Hackathon of Eclipse Tractus-X 
 - This is a **"WORKING/DEVELOPING" hands-on event** — send this to your developers!
 - It is meant to be **technical** and we will be solving two challenges together
 - This is **NOT a "business oriented"** event
-- **SO BRING YOUR LAPTOPS!** 💻 And lots of motivation to code and learn!
+- **SO BRING YOUR LAPTOPS!** 💻 And lots of motivation to code and learn! You can use your favorite IDE (we recommend visual studio code!)
 
 ## 📢 Official Communications
 
@@ -104,6 +107,12 @@ The location is next to the airport, near Bilbao at a "Technological Center". De
 - Hotel Meliá Bilbao
 - Hotel Catalonia Gran Via de Bilbao
 - Hotel ILUNION Bilbao
+
+## 📥 Event Resources
+
+Download resources from the hackathon event:
+
+**[Hackathon Resources](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/tree/main/events/hackathons/2026/feb-17)** 📂
 
 ## 🤝 Hosting & Support
 

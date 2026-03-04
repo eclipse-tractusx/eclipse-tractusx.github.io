@@ -79,6 +79,7 @@ import DataDrivenQualityLogo from "@site/static/img/kits/data-driven-quality-man
 import TraceabilityKitLogo from "@site/static/img/kits/traceability/traceability-kit-raw-logo.svg";
 import DataChainKitLogo from "@site/static/img/kits/data-chain/data-chain-kit-raw-logo.svg";
 import EcoPassKitLogo from "@site/static/img/kits/eco-pass/eco-pass-kit-raw-logo.svg";
+import EngineeringAsAServiceKITLogo from "@site/static/img/kits/engineering-as-a-service/engineering-as-a-service-kit-raw-logo.svg";
 import PCFKitLogo from "@site/static/img/kits/pcf/pcf-kit-raw-logo.svg";
 import PurisKitLogo from "@site/static/img/kits/puris/puris-kit-raw-logo.svg";
 import DCMKitLogo from "@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-raw-logo.svg";
@@ -86,6 +87,7 @@ import ESSKitLogo from "@site/static/img/kits/ess/ess-kit-raw-logo.svg";
 import LogisticsKitLogo from "@site/static/img/kits/logistics/logistics-kit-raw-logo.svg";
 import MaaSKitLogo from "@site/static/img/kits/manufacturing-as-a-service/manufacturing-as-a-service-kit-raw-logo.svg";
 import ModelBasedProductionLogo from "@site/static/img/kits/model-based-production/model-based-production-kit-raw-logo.svg";
+import ModularEngineeringKITLogo from "@site/static/img/kits/modular-engineering/modular-engineering-kit-raw-logo.svg";
 import ModularProductionLogo from "@site/static/img/kits/modular-production/modular-production-kit-raw-logo.svg";
 import OSIMKitLogo from "@site/static/img/kits/osim/osim-kit-raw-logo.svg";
 import RequirementsKitLogo from "@site/static/img/kits/requirements/requirements-kit-raw-logo.svg";
@@ -96,6 +98,7 @@ import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-ki
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
 import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
 import CCMKitLogo from "@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg";
+import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
 
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
@@ -240,9 +243,7 @@ export const kitsData = {
         latestVersion: '10.0.0',
         new: false
       }
-    }
-  ],
-  industryCoreFoundation: [
+    },
     {
       id: 'digital-twin',
       name: 'DIGITAL TWIN KIT',
@@ -269,11 +270,13 @@ export const kitsData = {
       description: 'Digital Twins enable data-level interoperability - even between parties previously unknown to each other.',
       metadata: {
         created: '2023-07-12',
-        lastUpdated: '2024-08-01',
-        latestVersion: '2.0.1',
+        lastUpdated: '2026-02-28',
+        latestVersion: '2.0.2',
         new: false
       }
-    },
+    }
+  ],
+  industryCoreFoundation: [
     {
       id: 'industry-core',
       name: 'INDUSTRY CORE KIT',
@@ -427,6 +430,38 @@ export const kitsData = {
         lastUpdated: '2024-12-09',
         latestVersion: '1.3.0',
         new: false
+      }
+    },
+    {
+      id: 'ai-service',
+      name: 'AI SERVICE KIT',
+      logo: AiServiceKitLogo,
+      logoHeight: 80,
+      logoWidth: 80,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/ai-service/ai-service-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/ai-service/ai-service-kit-raw-logo.svg',
+        originalSourceUrl: 'https://www.svgrepo.com/svg/235253/chip-ai',
+      },
+      route: '/docs-kits/next/kits/ai-service-kit/adoption-view',
+      colors: {
+        primary: '#071de2',
+        gradient: 'linear-gradient(135deg, #6170f5 0%, #071de2 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Artificial Intelligence (AI)',
+      description: 'Defines standard ways to expose and use AI Services.',
+      metadata: {
+        created: '2025-12-19',
+        lastUpdated: '2026-01-29',
+        latestVersion: '0.0.1',
+        new: true
       }
     },
   ],
@@ -914,7 +949,7 @@ export const kitsData = {
   ],
   // List here the industry-specific KITs (will not be shown in the cross-industry use cases gallery)
   industryKits: {
-    "shop-floor": [
+    "manufacturing": [
       {
         id: 'maas',
         name: 'MANUFACTURING AS A SERVICE KIT',
@@ -982,7 +1017,73 @@ export const kitsData = {
     ],
     "semiconductor": [],
     "construction": [],
-    "automotive": [],
+    "automotive": [{
+        id: 'modular-engineering',
+        name: 'MODULAR ENGINEERING KIT',
+        logo: ModularEngineeringKITLogo,
+        logoLicencse: {
+          type: 'CC-BY-4.0',
+          authors: '2026 Eclipse Tractus-X Contributors',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/modular-engineering/modular-engineering-kit-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/modular-engineering/modular-engineering-kit-raw-logo.svg',
+          originalSourceUrl: 'https://www.svgrepo.com/svg/368275/gantt-solid',
+        },
+        logoHeight: 100,
+        logoWidth: 100,
+        route: '/docs-kits/next/kits/modular-engineering-kit/adoption-view',
+        colors: {
+        primary: '#dc7fd3',
+        gradient: 'linear-gradient(135deg, #dc7fd3 0%, #d100bc 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Engineering',
+        industries: ['automotive'],
+        description: 'Defines standard ways for the orchestration of engineering activities in federated development ecosystems.',
+        metadata: {
+          created: '2026-02-13',
+          lastUpdated: '2026-02-13',
+          latestVersion: '0.0.1',
+          new: true
+        }
+      },
+      {
+        id: 'engineering-as-a-service',
+        name: 'ENGINEERING AS A SERVICE KIT',
+        logo: EngineeringAsAServiceKITLogo,
+        logoLicencse: {
+          type: 'CC-BY-4.0',
+          authors: '2026 wishforge.games; 2026 Eclipse Tractus-X Contributors',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/engineering-as-a-service/engineering-as-a-service-kit-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/engineering-as-a-service/engineering-as-a-service-kit-raw-logo.svg',
+          originalSourceUrl: 'https://www.svgrepo.com/svg/385262/engineering-protection-hold-hand-cog-technology',
+        },
+        logoHeight: 100,
+        logoWidth: 100,
+        route: '/docs-kits/next/kits/engineering-as-a-service-kit/adoption-view',
+        colors: {
+          primary: '#dd86d4',
+          gradient: 'linear-gradient(135deg, #dd86d4 0%, #9803c2 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Engineering',
+        industries: ['automotive'],
+        description: 'Defines the minimum viable logic for federated engineering service brokerage.',
+        metadata: {
+          created: '2026-02-13',
+          lastUpdated: '2026-02-13',
+          latestVersion: '0.0.1',
+          new: true
+        }
+      }
+    ],
     "chemical": []
   }
 };
@@ -1026,13 +1127,28 @@ export const industries = [
     description: 'Industry Specific KITs for manufacturing and production environments, focusing on shop floor operations, industrial equipment integration, and production optimization. Enable smart manufacturing, flexible production networks, and real-time operational data exchange.',
     icon: PrecisionManufacturing,
     gradient: 'linear-gradient(135deg, #1D71B8, #5ba9de, #c1d100)',
-    dataspaces: []
-    //    colors: {
-    //  layer1: '#81d100',
-    //  layer2: '#c1d100',
-    //  layer3: '#5ba9de',
-    //  layer4: '#1D71B8'
-    //},
+    dataspaces: [
+      {
+        name: "Factory-X",
+        url: "https://factory-x.org",
+        gradient: 'linear-gradient(135deg, #ffa600, #b3cb2d)',
+        logo: {
+          src: 'https://factory-x.org/wp-content/uploads/factory-x-logo.svg',
+          alt: 'Factory-X Logo',
+          width: 100,
+          height: 70
+        },
+        colors: {
+          layer1: '#81d100',
+          layer2: '#c1d100',
+          layer3: '#5ba9de',
+          layer4: '#1D71B8'
+        },
+        subtitle: 'The Digital Ecosystem',
+        description: 'Project which aims to build an open and collaborative digital ecosystem for factory outfitters and operators, based on Catena-X and Platform Industry 4.0 concepts.',
+        kits: ['connector', 'digital-twin', 'maas', 'pcf', 'modular-production', 'eco-pass']
+      }
+    ]
   },
   {
     id: 'semiconductor',
