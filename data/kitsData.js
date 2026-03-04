@@ -228,7 +228,7 @@ export const kitsData = {
       },
       maturity: {
         currentLevel: 'Graduated',
-        graduatedAt: '2026-03-18'
+        graduatedAt: '2025-09-08'
       },
       deprecated: false,
       domain: "Participant Management",
