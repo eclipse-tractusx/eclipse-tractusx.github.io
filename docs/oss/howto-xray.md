@@ -392,7 +392,7 @@ This work and all embedded screenshot images are licensed under the [CC-BY-4.0](
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2025, 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/)
-- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray)
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray.md](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray.md)
 - Images: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/images](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/images)
 
 ## AUTHORS
