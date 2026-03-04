@@ -67,7 +67,7 @@ The agenda itself is dependent on the labeled features.
 The Open Planning session finalizes the roadmap for **R26.06**, prioritizing features and aligning all participants on deliverables for the release.
 
 - Date: 26.02.2026
-- Time: 09:05 - 12:15 (end time can vary based on discussion and features)
+- Time: 09:05 - 10:15 (end time can vary based on discussion and features)
 - Teams Link: See the Open Meetings page (One-time meetings) for the join link and local-time conversion: [Open Meetings](/community/open-meetings#one-time-meetings)
 
 Who Should Attend:
@@ -85,8 +85,8 @@ Your participation is crucial to ensure the success of the release planning. Exp
 Here’s the plan for the day:
 
 - 09:05 - 09:20: Open Planning - Vision & Introduction
-- 09:20 - 12:00: Joint Open Planning (all teams)
-- 12:00 - 12:15: Feedback Retro / Open Planning Wrap-up / Summary & Next Steps
+- 09:20 - 10:10: Joint Open Planning (all teams)
+- 10:10 - 10:15: Feedback Retro / Open Planning Wrap-up / Summary & Next Steps
 
 #### Joint Open Planning
 
@@ -94,13 +94,17 @@ Here’s the plan for the day:
 The planning sessions will be driven by our Release Planning Board and filtered by Topic/Product. The current agenda is only an example and will be updated with the actual features that are planned for **R26.06**.
 :::
 
-|          Time | Topics                                | Features |
-|--------------:|---------------------------------------|---------:|
-| 09:05 – 09:20 | Open Planning - Vision & Introduction |          |
-| 09:20 – 10:00 | Product & Platform Topics             |          |
-| 10:00 – 10:30 | Sustainability & Use Cases            |          |
-| 10:30 – 11:15 | Engineering                           |          |
-| 11:15 – 12:00 | Test Management / Misc                |          |
+| Time          | Committee                             | Features                                                                                                                    |
+|---------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| 09:05 – 09:20 | Open Planning - Vision & Introduction |                                                                                                                             |
+| 09:20 – 09:25 | Dataspace Connectivity                | [1](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?sliceBy%5Bvalue%5D=Dataspace+Connectivity)                |
+| 09:25 – 09:30 | DCM                                   | [1](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?sliceBy%5Bvalue%5D=DCM)                                   |
+| 09:30 – 09:50 | IC                                    | [6](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?sliceBy%5Bvalue%5D=IC)                                    |
+| 09:50 – 09:55 | Test management                       | [1](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?sliceBy%5Bvalue%5D=Testmanagement)                        |
+| 09:55 – 10:00 | AI                                    | [1](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?sliceBy%5Bvalue%5D=AI)                                    |
+| 10:00 – 10:05 | Due Diligence Check                   | [1](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?sliceBy%5Bvalue%5D=Due+Diligence+Check)                   |
+| 10:05 - 10:10 | Traceability                          | [2](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?sliceBy%5Bvalue%5D=Traceability)                          |
+| 10:10 – 10:15 | Miscellaneous and Closing             | [1](https://github.com/orgs/eclipse-tractusx/projects/26/views/28?sliceBy%5Bvalue%5D=Eclipse+Tractus-X+%28Miscellaneous%29) |
 
 ### Prerequisites for features to be considered in Open Planning
 

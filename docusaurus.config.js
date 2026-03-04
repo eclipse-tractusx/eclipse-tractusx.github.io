@@ -156,7 +156,7 @@ const config = {
         blogDescription: 'This blog hosts Tractus-X release changelogs.',
         blogSidebarCount: 'ALL',
         blogSidebarTitle: 'Release Changelogs',
-        onUntruncatedBlogPosts: 'ignore', 
+        onUntruncatedBlogPosts: 'ignore',
       },
     ],
     [
@@ -322,7 +322,7 @@ const config = {
             label: 'Tutorials',
           },
           {
-            to: '/community/intro',
+            to: '/community/open-meetings',
             label: 'Community',
             position: 'left',
           },
@@ -352,9 +352,16 @@ const config = {
             ],
           },
           {
-            href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
-            label: 'GitHub',
+            to: '/community/open-meetings',
             position: 'right',
+            'aria-label': 'Open meetings',
+            className: 'navbar-icon-link header-open-meetings',
+          },
+          {
+            href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
+            position: 'right',
+            'aria-label': 'GitHub',
+            className: 'navbar-icon-link header-github-link',
           },
         ],
       },
