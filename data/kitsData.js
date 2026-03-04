@@ -124,7 +124,7 @@ export const kitsData = {
       logo: ConnectorKitLogo,
       logoLicencse: {
         type: 'CC-BY-4.0',
-        authors: ['2024 Eclipse Tractus-X Contributors', '2026 Cofinity-X GmbH'], // Komma separated list of authors
+        authors: '2026 Eclipse Tractus-X Contributors', // Komma separated list of authors
         licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/connector/connector-kit-raw-logo.svg.license',
         sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/connector/connector-kit-raw-logo.svg'
       },
