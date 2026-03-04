@@ -151,8 +151,6 @@ The industry therefore requires:
 - A structured risk-based decision logic
 - Interoperable integration of existing Due Diligence instruments
 - SME-tailored proportionality mechanisms
-- Interoperable integration of existing Due Diligence instruments
-- SME-tailored proportionality mechanisms
 - A governance structure ensuring regulatory alignment and competition compliance
 
 ---
