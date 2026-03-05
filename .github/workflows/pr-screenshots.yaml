@@ -1,0 +1,212 @@
+#********************************************************************************
+# Copyright (c) 2024 Contributors to the Eclipse Foundation
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+#*******************************************************************************/
+
+name: PR Page Screenshots
+
+# Takes screenshots of Docusaurus pages that correspond to changed MD/MDX files
+# and posts them as a comment on the pull request.
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**/*.md"
+      - "**/*.mdx"
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  screenshot:
+    name: Screenshot changed pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Get changed MD/MDX files
+        id: changed-files
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              per_page: 100,
+            });
+            const mdFiles = files
+              .filter(f => f.status !== 'removed')
+              .filter(f => f.filename.endsWith('.md') || f.filename.endsWith('.mdx'))
+              .map(f => f.filename);
+            core.setOutput('files', JSON.stringify(mdFiles));
+            core.setOutput('count', String(mdFiles.length));
+            return mdFiles.length;
+
+      - name: Install dependencies
+        if: steps.changed-files.outputs.count != '0'
+        run: npm ci
+
+      - name: Build website
+        if: steps.changed-files.outputs.count != '0'
+        run: npm run build
+
+      - name: Install Playwright and Chromium
+        if: steps.changed-files.outputs.count != '0'
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Start local server
+        if: steps.changed-files.outputs.count != '0'
+        run: |
+          npx docusaurus serve --port 3000 &
+          echo "SERVER_PID=$!" >> "$GITHUB_ENV"
+          # Wait until the server is ready (up to 60 seconds)
+          timeout=60
+          until curl -sf http://localhost:3000 > /dev/null; do
+            sleep 2
+            timeout=$((timeout - 2))
+            if [ "$timeout" -le 0 ]; then
+              echo "Timed out waiting for local server"
+              exit 1
+            fi
+          done
+          echo "Server is ready."
+
+      - name: Take screenshots of changed pages
+        if: steps.changed-files.outputs.count != '0'
+        id: screenshots
+        env:
+          BASE_URL: http://localhost:3000
+          SCREENSHOT_DIR: /tmp/screenshots
+          CHANGED_FILES: ${{ steps.changed-files.outputs.files }}
+        run: node scripts/screenshot-pages.js "$CHANGED_FILES"
+
+      - name: Stop local server
+        if: always() && steps.changed-files.outputs.count != '0'
+        run: |
+          if [ -n "$SERVER_PID" ]; then
+            kill "$SERVER_PID" || true
+          fi
+
+      - name: Upload screenshots as artifacts
+        if: steps.changed-files.outputs.count != '0'
+        id: artifact-upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-page-screenshots
+          path: /tmp/screenshots/
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: Post PR comment with screenshot results
+        if: always() && steps.changed-files.outputs.count != '0'
+        uses: actions/github-script@v7
+        env:
+          ARTIFACT_URL: ${{ steps.artifact-upload.outputs.artifact-url }}
+          CHANGED_FILES: ${{ steps.changed-files.outputs.files }}
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            const resultsPath = '/tmp/screenshots/results.json';
+            let results = [];
+            let screenshotsTaken = 0;
+
+            if (fs.existsSync(resultsPath)) {
+              results = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+              screenshotsTaken = results.filter(r => r.status === 'success').length;
+            } else {
+              // Build failed or screenshots step didn't run — list changed files only
+              const changedFiles = JSON.parse(process.env.CHANGED_FILES || '[]');
+              results = changedFiles.map(f => ({ file: f, url: null, screenshot: null, status: 'skipped', note: 'Screenshot step did not complete' }));
+            }
+
+            const artifactUrl = process.env.ARTIFACT_URL || '';
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const siteBaseUrl = 'https://eclipse-tractusx.github.io';
+
+            const statusIcon = (status) => {
+              if (status === 'success') return '✅';
+              if (status === 'not_found') return '⚠️ (404)';
+              if (status === 'error') return '❌';
+              return '⏭️';
+            };
+
+            const rows = results.map(r => {
+              const fileLink = `\`${r.file}\``;
+              const urlCell = r.url ? `[\`${r.url}\`](${siteBaseUrl}${r.url})` : '—';
+              return `| ${fileLink} | ${urlCell} | ${statusIcon(r.status)} |`;
+            }).join('\n');
+
+            const downloadSection = artifactUrl
+              ? `\n\n📦 **[Download Screenshots](${artifactUrl})** — artifacts are stored for 7 days.`
+              : `\n\n> Screenshots could not be uploaded. Check the [workflow run](${runUrl}) for details.`;
+
+            const limitNote = results.some(r => r.note === 'Screenshot limit reached')
+              ? '\n\n> ⚠️ Only the first 15 changed pages were screenshotted. See the workflow run for details.\n'
+              : '';
+
+            const body = [
+              '## 📸 Screenshots of Changed Pages',
+              '',
+              `Screenshots were taken for **${screenshotsTaken}** of the changed MD/MDX pages.`,
+              limitNote,
+              '',
+              '| Changed File | Rendered URL | Status |',
+              '|---|---|:---:|',
+              rows,
+              downloadSection,
+              '',
+              `> 🔗 [View workflow run](${runUrl})`,
+            ].join('\n');
+
+            // Find and update an existing bot comment, or create a new one
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.find(c =>
+              c.user.type === 'Bot' && c.body.includes('## 📸 Screenshots of Changed Pages')
+            );
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
