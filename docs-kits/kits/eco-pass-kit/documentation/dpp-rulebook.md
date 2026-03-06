@@ -1,3 +1,14 @@
+---
+id: dpp-rulebook
+title: DPP Rulebook
+description: DPP Rulebook which allows attestation providers to provider trust to the digital product passports.
+sidebar_position: 1
+---
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="eco-pass" />
+
 # DPP Rulebook
 
 ## Table of Contents
