@@ -11,7 +11,7 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 All notable changes to this Kit will be documented in this file.
 
-## [0.1.0] - unreleased
+## [0.1.0] - R26.03
 
 ### Added
 

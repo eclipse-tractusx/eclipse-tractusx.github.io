@@ -556,8 +556,8 @@ export const kitsData = {
       industries: ['automotive'],
       description: 'Carbon Border Adjustment Mechanism (CBAM) compliance and reporting for cross-border emissions data.',
       metadata: {
-        created: '2025-11-18',
-        lastUpdated: '2026-01-26',
+        created: '2025-08-13',
+        lastUpdated: '2026-03-09',
         latestVersion: '0.1.0',
         new: true
       }

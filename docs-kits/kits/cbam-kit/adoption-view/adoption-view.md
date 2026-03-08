@@ -38,13 +38,13 @@ Catena-X provides a reliable, standardized data infrastructure that enables indu
 
 [Carbon Border Adjustment Mechanism](https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en)
 
-[CBAM Guidance and Legislation - Taxation and Customs Union](<https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-guidance-and-legislation_en>)
+[CBAM Guidance and Legislation - Taxation and Customs Union](https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-guidance-and-legislation_en)
 
 ## Business Process
 
 ### Initiation of the CBAM Process
 
-The CBAM (Carbon Border Adjustment Mechanism) process begins when a product is imported into the EU under a CN Code that is subject to CBAM reporting and originates from specified countries. Only importers with annual imports above the defined mass-based threshold are subject to CBAM declarations to the official CBAM declarations portal. 
+The CBAM (Carbon Border Adjustment Mechanism) process begins when a product is imported into the EU under a CN Code that is subject to CBAM reporting and originates from specified countries. Only importers with annual imports above the defined mass-based threshold are subject to CBAM declarations to the official CBAM declarations portal.
 CBAM relevant data must be reliably collected and submitted via the EU CBAM portal, which currently supports XML uploads or manual entry (no futher information available at this time). The CBAM declaration requires detailed information, including:
 
 - Production date and installation
@@ -56,10 +56,6 @@ To enable the collection of supplier specific data the importer initiates the re
 ![CbamCatena](../resources/cbam-process.svg)
 
 Figure 1: The CBAM Data Exchange mechanism with Catena-X
-
-
-
-
 
 ### CBAM Data Exchange Flow
 
@@ -91,10 +87,10 @@ sequenceDiagram
 
 ## CBAM Data models: Request & Response
 
-<details> 
+### CBAM Request Data Model
+
+<details>
   <summary>CBAM REQUEST Data model - Property Overview | click to expand</summary>
-  
-  ### CBAM Request Data Model
 
 This table gives a business-level overview of all properties in the CBAM request data model. **M** = mandatory, **O** = optional. Object groups are separated by blank rows; `·` dots indicate nesting depth. For full technical details see the corresponding datamodel file.
 
@@ -177,7 +173,7 @@ This table gives a business-level overview of all properties in the CBAM request
 | `·····` latitude | O | The latitude where the installation is located. | 28.6139 |
 | `·····` typeOfCoordinates | O | The type of coordinates: 01 GPS, 02 GNSS | 01 |
 | `·····` plotOrParcelNumber | O | The plot or parcel number of the location. | PLOT-456-INDUSTRIAL-ZONE-A |
-| `·····` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at https://unece.org/trade/uncefact/unlocode | INDEL |
+| `·····` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at [https://unece.org/trade/uncefact/unlocode](https://unece.org/trade/uncefact/unlocode) | INDEL |
 | | | | |
 | _**··· installationActivityData**_ | O | Object describing temporal reference and mass flow attributed to the installation. | n.a. |
 | `····` netMass | M | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, produced in the stated installation, calculated as the sum across all applicable production methods within that installation. | 60.0 |
@@ -193,14 +189,143 @@ This table gives a business-level overview of all properties in the CBAM request
 | `·····` referencePeriodEnd | O | End date of the period in which relevant data was collected at the installation for the specified production method, serving as the reference period for emissions calculation; both start and end date must be in the same calendar year. | 2024-12-31T23:59:59Z |
 | `·····` netMass | M | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request produced in the stated installation by the stated production method only. | 60.0 |
 
+</details>
 
+<details>
+  <summary>CBAM REQUEST Example JSON Payload | click to expand</summary>
+
+```json
+{
+  "requestedElements": [
+    "operatorIdentification",
+    "operatorActivityData",
+    "installation",
+    "emissionsRecords"
+  ],
+  "companyIds": {
+    "requestingCompanyIds": [
+      {
+        "type": "Company-ID",
+        "value": "Customer-Corp-12-EU"
+      }
+    ],
+    "respondingCompanyIds": [
+      {
+        "type": "Supplier-ID",
+        "value": "Steel-Corp-12-IN"
+      }
+    ]
+  },
+  "good": [
+    {
+      "cnCode": "72011000",
+      "productIds": [
+        {
+          "type": "GTIN",
+          "value": "4712345060507"
+        }
+      ],
+      "productDescription": "Hot-rolled steel coil, grade S235JR",
+      "businessTransactionDetails": {
+        "transactionReferenceDocuments": [
+          {
+            "type": "invoice",
+            "id": "INV-2024-12345"
+          }
+        ],
+        "requestReferencePeriodStart": "2024-01-01T00:00:00Z",
+        "requestReferencePeriodEnd": "2024-12-31T23:59:59Z",
+        "requestedNetMass": 60
+      },
+      "operator": [
+        {
+          "transactionReferenceDocumentLink": {
+            "refDocType": "invoice",
+            "refDocId": "INV-2024-12345",
+            "refDocElement": {
+              "type": "batchNumber",
+              "value": "02"
+            }
+          },
+          "operatorIdentification": {
+            "operatorIsSupplier": true,
+            "operatorIds": {
+              "operatorBpnl": "BPNL000000000OPR",
+              "operatorCbamId": "O3CI-OPR-123456",
+              "otherIds": [
+                {
+                  "type": "Operator-Tracking-ID",
+                  "value": "OP.DE-Steel_north_AG1"
+                }
+              ]
+            },
+            "operatorName": "Steel Example Corp.",
+            "operatorContactEmailAddress": "contact@steelexample.com",
+            "address": {
+              "country": "DE",
+              "city": "Duisburg",
+              "street": "Werkstraße 1"
+            }
+          },
+          "operatorActivityData": {
+            "netMass": 60.0
+          },
+          "installation": [
+            {
+              "installationIdentification": {
+                "installationIds": {
+                  "installationCbamId": "O3CI-INST-654321",
+                  "otherIds": [
+                    {
+                      "type": "Installation-ID",
+                      "value": "INST-987654"
+                    }
+                  ]
+                },
+                "installationName": "Steel Manufacturing Facility - Delhi Plant",
+                "address": {
+                  "countryCode": "IN",
+                  "city": "Delhi",
+                  "longitude": 77.2197,
+                  "latitude": 28.6139,
+                  "typeOfCoordinates": "01",
+                  "plotOrParcelNumber": "PLOT-456-INDUSTRIAL-ZONE-A",
+                  "unlocode": "INDEL"
+                }
+              },
+              "installationActivityData": {
+                "netMass": 60.0
+              },
+              "emissionsRecords": [
+                {
+                  "productionMethod": {
+                    "methodId": "P24",
+                    "specificSteelMillId": "MILL-001",
+                    "additionalInformation": "Uses recycled scrap as input"
+                  },
+                  "productionMethodActivityData": {
+                    "referencePeriodStart": "2024-01-01T00:00:00Z",
+                    "referencePeriodEnd": "2024-12-31T23:59:59Z",
+                    "netMass": 60.0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 </details>
 
-<details> 
+### CBAM Response Data Model
+
+<details>
   <summary>CBAM RESPONSE Data model - Property Overview | click to expand</summary>
 
-  ### CBAM Response Data Model
 
 This table gives a business-level overview of all properties in the CBAM response data model. **M** = mandatory, **O** = optional. Object groups are separated by blank rows; `·` dots indicate nesting depth. For full technical details see the corresponding datamodel file.
 
@@ -281,7 +406,7 @@ This table gives a business-level overview of all properties in the CBAM respons
 | `·····` latitude | O | The latitude where the installation is located. | 28.6139 |
 | `·····` typeOfCoordinates | O | The type of coordinates: 01 GPS, 02 GNSS | 01 |
 | `·····` plotOrParcelNumber | O | The plot or parcel number of the location. | PLOT-456-INDUSTRIAL-ZONE-A |
-| `·····` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at https://unece.org/trade/uncefact/unlocode | INDEL |
+| `·····` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at [https://unece.org/trade/uncefact/unlocode](https://unece.org/trade/uncefact/unlocode) | INDEL |
 | | | | |
 | _**··· installationActivityData**_ | O | Object describing temporal reference and mass flow attributed to the installation. | n.a. |
 | `····` netMass | M | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, produced in the stated installation, calculated as the sum across all applicable production methods within that installation. | 60.0 |
@@ -318,7 +443,7 @@ This table gives a business-level overview of all properties in the CBAM respons
 | `·····` providerID | O | A unique identifier of the provider of the attestation of conformance as issued by the accreditation institute, i.e. accreditation number. | 5493001KJTIIGC8Y1R12 |
 | `·····` accreditationBodyName | O | The name of the organization that grants and maintains the formal accreditation under which the provider of the attestation of conformance is authorized to perform the attestation. | National Accreditation Institute ABX |
 | `·····` attestationOfConformanceId | O | A unique identifier assigned by the provider of the attestation of conformance to the attestation document (e.g., verification statement) for tracking and reference. | 123e4567-e89b-12d3-a456-426614174000 |
-| `·····` attestationOfConformanceLink | O | A URL to the attestation of conformance document (e.g. verification statement), enabling manual verification of its validity and authenticity. | https://exampleverifier.com/cbam/statement/123e4567 |
+| `·····` attestationOfConformanceLink | O | A URL to the attestation of conformance document (e.g. verification statement), enabling manual verification of its validity and authenticity. | [https://exampleverifier.com/cbam/statement/123e4567](https://exampleverifier.com/cbam/statement/123e4567) |
 | `·····` completedAt | O | Time stamp for when the attestation of conformance was issued. | 2024-03-15T10:00:00Z |
 | | | | |
 | _**···· carbonPricePaid**_ | O | One or multiple objects describing the carbon price due in a third country per emission object on installation level.  | n.a. |
@@ -332,7 +457,165 @@ This table gives a business-level overview of all properties in the CBAM respons
 | `·····` currency | O | The currency used for the declared amount to be paid, refering to official CBAM value list to ensure updated content. | CNY |
 | `·····` countryCode | O | Country code where the carbon price is paid, refering to official CBAM value list to ensure updated content. | CN |
 
+</details>
 
+<details>
+  <summary>CBAM RESPONSE Example JSON Payload | click to expand</summary>
+
+```json
+{
+  "companyIds": {
+    "requestingCompanyIds": [
+      {
+        "type": "Company-ID",
+        "value": "Customer-Corp-12-EU"
+      }
+    ],
+    "respondingCompanyIds": [
+      {
+        "type": "Supplier-ID",
+        "value": "Steel-Corp-12-IN"
+      }
+    ]
+  },
+  "good": [
+    {
+      "cnCode": "72011000",
+      "productIds": [
+        {
+          "type": "GTIN",
+          "value": "4712345060507"
+        }
+      ],
+      "productDescription": "Hot-rolled steel coil, grade S235JR",
+      "businessTransactionDetails": {
+        "transactionReferenceDocuments": [
+          {
+            "type": "invoice",
+            "id": "INV-2024-12345"
+          }
+        ],
+        "requestReferencePeriodStart": "2024-01-01T00:00:00Z",
+        "requestReferencePeriodEnd": "2024-12-31T23:59:59Z",
+        "requestedNetMass": 60
+      },
+      "operator": [
+        {
+          "transactionReferenceDocumentLink": {
+            "refDocType": "invoice",
+            "refDocId": "INV-2024-12345",
+            "refDocElement": {
+              "type": "batchNumber",
+              "value": "02"
+            }
+          },
+          "operatorIdentification": {
+            "operatorIsSupplier": true,
+            "operatorIds": {
+              "operatorBpnl": "BPNL000000000OPR",
+              "operatorCbamId": "O3CI-OPR-123456",
+              "otherIds": [
+                {
+                  "type": "Operator-Tracking-ID",
+                  "value": "OP.DE-Steel_north_AG1"
+                }
+              ]
+            },
+            "operatorName": "Steel Example Corp.",
+            "operatorContactEmailAddress": "contact@steelexample.com",
+            "address": {
+              "country": "DE",
+              "city": "Duisburg",
+              "street": "Werkstraße 1"
+            }
+          },
+          "operatorActivityData": {
+            "netMass": 60.0
+          },
+          "installation": [
+            {
+              "installationIdentification": {
+                "installationIds": {
+                  "installationCbamId": "O3CI-INST-654321",
+                  "otherIds": [
+                    {
+                      "type": "Installation-ID",
+                      "value": "INST-987654"
+                    }
+                  ]
+                },
+                "installationName": "Steel Manufacturing Facility - Delhi Plant",
+                "address": {
+                  "countryCode": "IN",
+                  "city": "Delhi",
+                  "longitude": 77.2197,
+                  "latitude": 28.6139,
+                  "typeOfCoordinates": "01",
+                  "plotOrParcelNumber": "PLOT-456-INDUSTRIAL-ZONE-A",
+                  "unlocode": "INDEL"
+                }
+              },
+              "installationActivityData": {
+                "netMass": 60.0
+              },
+              "emissionsRecords": [
+                {
+                  "productionMethod": {
+                    "methodId": "P24",
+                    "specificSteelMillId": "MILL-001",
+                    "additionalInformation": "Uses recycled scrap as input"
+                  },
+                  "productionMethodActivityData": {
+                    "referencePeriodStart": "2024-01-01T00:00:00Z",
+                    "referencePeriodEnd": "2024-12-31T23:59:59Z",
+                    "netMass": 60.0
+                  },
+                  "directEmissions": {
+                    "additionalInformation": "Calculated using official CBAM excel template",
+                    "specificEmbeddedEmissionsDirect": 1.85
+                  },
+                  "indirectEmissions": {
+                    "sourceOfEmissionFactor": "02",
+                    "emissionFactorTonnesCo2PerMwh": 0.45,
+                    "sourceOfEmissionFactorValue": "IEA 2022 Electricity Report",
+                    "specificEmbeddedEmissionsIndirect": 0.25,
+                    "electricityConsumedMwhPerTonnesGood": 0.6,
+                    "sourceOfElectricity": "SOE03"
+                  },
+                  "freeAllocationFactor": 0.6,
+                  "attestationOfConformance": {
+                    "attestationType": "CBAM third party verification",
+                    "attestationStandard": "Regulation (EU) 2025/2083",
+                    "providerName": "TÜV X",
+                    "providerID": "5493001KJTIIGC8Y1R12",
+                    "accreditationBodyName": "National Accreditation Institute ABX",
+                    "attestationOfConformanceId": "123e4567-e89b-12d3-a456-426614174000",
+                    "attestationOfConformanceLink": "https://exampleverifier.com/cbam/statement/123e4567",
+                    "completedAt": "2024-03-15T10:00:00Z"
+                  },
+                  "carbonPricePaid": [
+                    {
+                      "typeOfInstrument": "01",
+                      "independentPersonId": {
+                        "type": "National CBAM Verifier Registry",
+                        "value": "CBAM_VER_ZGG0612"
+                      },
+                      "descriptionAndIndicationOfLegalAct": "Country ABC National Carbon Tax Act 2022",
+                      "amountOfCarbonPricePaid": 12000.00,
+                      "currency": "CNY",
+                      "countryCode": "CN"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 </details>
 
@@ -348,7 +631,7 @@ For each import, the importer collects shipment-specific data (composite data) u
 - Country of customs origin
 - Associated installation
 
-Throughout the year, the importer is required to generate forecasts of expected import volumes. Based on these forecasts, the importer is supposed to purchase a corresponding number of CO₂ certificates already during the year, as specified in the regulation. These certificates are initially based on default emission values or on the emission values known from previous requests. Actual data as provided by the supplier will be available in the year following the import. These steps of purchasing CO₂ certificates and declaring emission values to the official EU CBAM portal will be outside of this use case (i.e. data model). 
+Throughout the year, the importer is required to generate forecasts of expected import volumes. Based on these forecasts, the importer is supposed to purchase a corresponding number of CO₂ certificates already during the year, as specified in the regulation. These certificates are initially based on default emission values or on the emission values known from previous requests. Actual data as provided by the supplier will be available in the year following the import. These steps of purchasing CO₂ certificates and declaring emission values to the official EU CBAM portal will be outside of this use case (i.e. data model).
 
 This Catena-X use case serves to exchange data about the involved installations and expected mass flows only (e.g. to prepare forecasting). The request can be tailored accordingly by defining the required response objects in the property **requestedElements**. The response can be linked to the request and can be reduced to non-emission-related datafields.
 
@@ -404,13 +687,12 @@ Here is a tabular overview of the key roles in the CBAM process:
 
 Depending on the use case and related KIT, Catena-X provides different semantic models that help to structure and make use of data via semantic information. These models help to provide a basic meaning to the data and their relationship, thereby enabling interoperability between data sets. Catena-X data models rely on principles as understandability, standardization, accuracy, differentiation, audibility, comprehensiveness, and provision of insights to drive improvement actions.
 
-
 ## Possible Use Cases
 
 ### 1. Master data request/reply
 
-The master data request is used when a new supplier is to be created. Their master data is requested via the Catena-X network. The aim is to verify the supplier's identity and obtain important material-related/production-related master data. This exchange is requested via the *MasterDataRequest* API call.
-The supplier responds (*MasterDataReply*. API call) with their own master data, including:
+The master data request is used when a new supplier is to be created. Their master data is requested via the Catena-X network. The aim is to verify the supplier's identity and obtain important material-related/production-related master data. This exchange is requested via the _MasterDataRequest_ API call.
+The supplier responds (_MasterDataReply_. API call) with their own master data, including:
 
 - Supplier identification (e.g., supplier number)
 - Registration status in Catena-X
@@ -424,23 +706,22 @@ Once the sub-supplier responds, the supplier consolidates the data and sends it 
 ### 2. Composition data request/replay
 
 The request for the composition of the import is made when data about the material itself and its ecological footprint is needed for an interim calculation during the year.
-Based on the master data, the importer uses the *CompositionDataRequest*-API call to receive data from the supplier. This includes:
+Based on the master data, the importer uses the _CompositionDataRequest_-API call to receive data from the supplier. This includes:
 
 - Exact material type and structure
 - CN number (customs nomenclature)
 - Verified CO₂ emission values from the previous year, if available
 - The specific material mass delivered for the defined period
 - The operator data of the plant in which it was manufactured
-  
-This data is then sent back to the importer using the *CompositionDataRequest*-API call.
+
+This data is then sent back to the importer using the _CompositionDataRequest_-API call.
 
 ### 3. Emission data request/reply
 
 The emissions data request is initiated after the end of the calendar year. Its purpose is to record the actual emissions values for all material deliveries per supplier that took place during the year.
-The importer sends an emissions data request using the *EmissionsDataRequest*-API call to each supplier, asking for the following:
-Actual CO₂ emissions per installation, per material/product produced there The location of the installation for each batch/material/product delivered using the *EmissionDataReply*-API call.
+The importer sends an emissions data request using the _EmissionsDataRequest_-API call to each supplier, asking for the following:
+Actual CO₂ emissions per installation, per material/product produced there The location of the installation for each batch/material/product delivered using the _EmissionDataReply_-API call.
 If discrepancies are found—such as unknown locations, incorrect location names, or inconsistent emission values—clarification is requested. Once all data has been verified, the system aggregates it to calculate the annual emissions footprint per supplier and material.
-
 
 ## NOTICE
 
