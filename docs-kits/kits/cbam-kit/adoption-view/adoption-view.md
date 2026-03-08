@@ -194,7 +194,7 @@ This table gives a business-level overview of all properties in the CBAM request
 <details>
   <summary>CBAM REQUEST Example JSON Payload Notification | click to expand</summary>
 
-Due to the fact that in Catena-X there is a Notification Payload standardized in [CX-0151 Industry Core Basics](https://catenax-ev.github.io/docs/standards/CX-0151-IndustryCoreBasics#14-examples) the CBAM content would be embedded in a notification payload, which contains important metadata for the applications to parse. This payload is just an example from how it could look like:
+Due to the fact that in Catena-X there is a Notification Payload standardized in [CX-0151 Industry Core Basics](https://catenax-ev.github.io/docs/standards/CX-0151-IndustryCoreBasics#14-examples) the CBAM REQUEST payload will follow it and be embedded in a notification payload inside the `content` key, additionally it will have a `header` which contains important metadata for the applications to parse. This payload is just an example from how it could look like, since there is yet no standard available:
 
 ```json
 {
@@ -339,7 +339,6 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
 <details>
   <summary>CBAM RESPONSE Data model - Property Overview | click to expand</summary>
 
-
 This table gives a business-level overview of all properties in the CBAM response data model. **M** = mandatory, **O** = optional. Object groups are separated by blank rows; `·` dots indicate nesting depth. For full technical details see the corresponding datamodel file.
 
 | Property | M/O | Description | Example |
@@ -475,7 +474,7 @@ This table gives a business-level overview of all properties in the CBAM respons
 <details>
   <summary>CBAM RESPONSE Example JSON Payload Notification | click to expand</summary>
 
-Due to the fact that in Catena-X there is a Notification Payload standardized in [CX-0151 Industry Core Basics](https://catenax-ev.github.io/docs/standards/CX-0151-IndustryCoreBasics#14-examples) the CBAM content would be embedded in a notification payload, which contains important metadata for the applications to parse. This payload is just an example from how it could look like:
+Due to the fact that in Catena-X there is a Notification Payload standardized in [CX-0151 Industry Core Basics](https://catenax-ev.github.io/docs/standards/CX-0151-IndustryCoreBasics#14-examples) the CBAM RESPONSE payload will follow it and be embedded in a notification payload inside the `content` key, additionally it will have a `header` which contains important metadata for the applications to parse. This payload is just an example from how it could look like, since there is yet no standard available:
 
 ```json
 {
