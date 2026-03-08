@@ -7,236 +7,221 @@ id: policies-in-catena
 
 ## Data Sovereignty in Catena-X
 
-This page extends on the previous section's fundamentals and introduces conventions specific to the Catena-X Dataspace.
-It assumes basic knowledge on `Policies` and their processing. Please go back to [the fundamentals](working-with-policies.md)
+This page extends on the previous section's fundamentals and introduces conventions specific to the Catena-X dataspace.
+It assumes basic knowledge on `Policies` and their processing. Please go back to [the fundamentals][fundamentals-url]
 if that's unfamiliar.
 
-Catena-X recommends to focus on `permission` property to further specify the contracts' details. In general,
-every data provider can decide on his or her own under which conditions their data datasets (assets) are shared in the
-network. In practice, this works as long as both parties, Provider and Consumer, have the same understanding of its
-legal meaning. Therefore, standardized such `Constraint`s with their `leftOperand`s and `rightOperand`s are key for
-automation. Still, individual freedom of contract is a very high good and is still possible.
+In Catena-X, the definition of possible policy constraints is done in the standard [CX-0152][cx-standards-url]. In
+general, every provider can decide on his or her own under which conditions their *Datasets*, resp. *Contract
+Definitions* are shared in the network. In practice, this works as long as both parties, provider and consumer, have
+the same understanding of its legal meaning. Therefore, standardized `constraint`s with their `leftOperand`s and
+`rightOperand`s are key for automation and provided by the [CX-0152][cx-standards-url].
+Still, individual freedom of contract is a very high good and is still possible, but in Catena-X done offline in
+additional paper contracts.
 
-This guidance is however also relevant for Enablement Service Providers building components enabling connectivity to the
-Dataspace (as specified in CX-0018). The authoritative resource for schemas is
-the [Catena-X ODRL Profile](https://github.com/catenax-eV/cx-odrl-profile). It is also available via the [Policy Hub](https://github.com/eclipse-tractusx/policy-hub/blob/main/docs/technical-documentation/requests/example-requests.md)
-that is operated centrally. The API is documented in this Repository and can be accessed with an access token to the
-Portal. It's a convenience feature for the negotiating parties to check if a given offer matches the policy constraints
-agreed by the Catena-X association - for instance by keeping a definite list of valid `rightOperands` to a particular
-`leftOperand` in a `Constraint`.
-
-As mentioned in the primer on policies, Providers and Consumers must have a common
-understanding of the meaning and consequences of `odrl:Offers` and, on a more granular level, their `odrl:Constraints`.
-That's why there is a set of predefined `odrl:Constraints` - all of which have to
-be [accepted explicitly](working-with-policies.md#consumer-side-odrloffer-in-a-contractrequestmessage) and
-some [checked against a Consumer's VP](working-with-policies.md#provider-side-checking-a-consumers-verifiable-presentation)
-additionally. They are formalized in the [Catena-X ODRL profile](https://github.com/catenax-eV/cx-odrl-profile)
-which extends the regular [ODRL vocabulary](https://www.w3.org/TR/odrl-vocab/). Since usage or contract policies are
-highly dependent on the use case,
-they are described by them in their associated KITs and only general elements are explained in the following.
-
-Here's a non-normative overview of these extensions:
+The document in this version does not have the claim to describe in completeness the specified constraints out of
+the standard. The following description is limited to the mandatory constraints as required from
+[CX-0152][cx-standards-url].
 
 ### Data Exchange Governance
 
-The FrameworkAgreement references the legally binding Data Exchange Governance document set up by the Catena-X association. It
-governs the _"who, with whom, what, where from and where to, why, how, and when"_ of Data Sharing in Catena-X
-([Source](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations)).
-It is roughly structured along the lines of business scenarios under which a set of business partners
-want to exchange data.
+The *Framework Agreement* references the legally binding *Data Exchange Governance* document set up by the
+Catena-X association. It governs the _"who, with whom, what, where from and where to, why, how, and when" of
+data sharing in Catena-X ([Source][governance-framework-url]). It is roughly structured along the lines of
+business scenarios under which a set of business partners want to exchange data.
 
-Each Participant commits to the Data Exchange Governance during Onboarding. They are granted a set of VCs as proof of
-that commitment. Consequently, the FrameworkAgreement Constraint belongs to the kind of `odrl:Constraint`s that have to be
-[checked against a VP](working-with-policies.md#provider-side-checking-a-consumers-verifiable-presentation). The
-details are listed in the most current version of standard
-[CX-0050 Framework Credential](https://catena-x.net/de/standard-library).
-The Governance Framework is referred to in a machine-readable way in a Provider's Offers. When a Consumer starts the
-negotiation for said offer, not only will the Policy in the `ContractRequestMessage` be checked but also their
-Credentials. Here's an example of an `odrl:Constraint` referencing the Data Exchange Governance and invoking the VC-check:
+Each participant commits to the *Data Exchange Governance* during onboarding. They are granted a dedicated
+`DataExchangeGovernanceCredential` VC as proof of that commitment. Consequently, the `FrameworkAgreement`
+constraint belongs to the kind of `odrl:Constraint`s that have to be checked against a verifiable presentation.
+The details are listed in the standard [CX-0050][cx-standards-url]. The governance framework is referred to
+in a machine-readable way in a providers' contract offer. When a consumer starts the negotiation for said
+contract offer, not only will the policy in the `ContractRequestMessage` be checked but also the availability
+of a `DataExchangeGovernanceCredential`.
+
+Here's an example of an `odrl:Constraint` referencing the `DataExchangeGovernanceCredential`:
 
 ```json
 {
-  "@context": {
-    "odrl": "http://www.w3.org/ns/odrl/2/"
-  },
-  "odrl:leftOperand": "https://w3id.org/catenax/policy/FrameworkAgreement",
-  "odrl:operator": {
-    "@id": "odrl:eq"
-  },
-  "odrl:rightOperand": "DataExchangeGovernance:1.0"
+  "@context": [
+    "http://www.w3.org/ns/odrl.jsonld",
+    "https://w3id.org/catenax/2025/9/policy/context.jsonld"
+  ],
+  "@type": "Set",
+  "permission": [
+    {
+      "action": "use",
+      "constraint": [
+        {
+          "leftOperand": "FrameworkAgreement",
+          "operator": "eq",
+          "rightOperand": "DataExchangeGovernance:1.0"
+        }
+      ]
+    }
+  ],
+  "obligation": [],
+  "prohibition": []
 }
 ```
 
 ### Usage Purposes
 
-Purposes are published in [CX ODRL Profile](https://github.com/catenax-eV/cx-odrl-profile) and restrict the purpose the Consumer is privileged to use the
-obtained data for. Unlike a Use Case Framework Constraint, the purposes are NOT checked against VCs, thus necessary
-for a successful negotiation mechanism is
-only [the Consumer's consent to the Offer](working-with-policies.md#consumer-side-odrloffer-in-a-contractrequestmessage).
-Versions for UsagePurpose `rightOperand`s are typically 1-digit.
+Purposes are published in [CX-0152][cx-standards-url] driven by the creation of use cases within Catena-X, as a
+usage purpose represents the conventions and legal requirements of the corresponding use case. The defined usage
+purpose restricts the purpose the consumer can use in a standardized way. Unlike a `FrameworkAgreement` constraint,
+the purposes are NOT checked against VCs, thus necessary for a successful negotiation mechanism is only the consumers'
+consent to the policy in the contract offer.
+
+Usage purpose `rightOperand`s are versioned. The version is expressed with a single version number
 
 Here's an example from the Use Case Framework Traceability:
 
-| Predefined Policy                | Typically used where? | Predefined Purpose                                                                                                                                        |
-|----------------------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `cx.core.qualityNotifications:1` | Notification API      | The data can be used for quality analysis to identify and select affected components and to send quality notifications to affected customers or suppliers |
+| Predefined Policy                | Typically used where? | Predefined Purpose                                                                                                                                                                                        |
+|----------------------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cx.core.qualityNotifications:1` | Notification API      | The Data Consumer may use the Data in line with the following purposes: quality analyses to identify and select affected components and to send quality notifications to affected customers or suppliers. |
 
 A `odrl:Constraint` referencing this purpose looks like this:
 
 ```json
 {
-  "@context": {
-    "odrl": "http://www.w3.org/ns/odrl/2/"
-  },
-  "odrl:leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
-  "odrl:operator": {
-    "@id": "odrl:eq"
-  },
-  "odrl:rightOperand": "cx.core.qualityNotifications:1"
+  "@context": [
+    "http://www.w3.org/ns/odrl.jsonld",
+    "https://w3id.org/catenax/2025/9/policy/context.jsonld"
+  ],
+  "@type": "Set",
+  "permission": [
+    {
+      "action": "use",
+      "constraint": [
+        {
+          "leftOperand": "UsagePurpose",
+          "operator": "isAnyOf",
+          "rightOperand": [
+            "cx.core.qualityNotifications:1"
+          ]
+        }
+      ]
+    }
+  ],
+  "obligation": [],
+  "prohibition": []
 }
 ```
 
-### Contract References
+### Chaining constraints
 
-Contract References by default aren't checked against credentials either. They are a vehicle to refer to contracts that
-are not governed by the Catena-X association - for instance bilaterally. Referencing such a contract's identifier can
-be achieved via an `odrl:Constraint` like this:
-
-```json
-{
-  "@context": {
-    "odrl": "http://www.w3.org/ns/odrl/2/"
-  },
-  "odrl:leftOperand": "https://w3id.org/catenax/policy/ContractReference",
-  "odrl:operator": {
-    "@id": "odrl:eq"
-  },
-  "odrl:rightOperand": "contract-123456789"
-}
-```
-
-### Chaining Constraints
-
-If a Policy is supposed to hold multiple constraints, Data Providers may chain them via a logical AND. This can be
+If a policy is supposed to hold multiple constraints, providers may chain them via a logical *AND*. This can be
 achieved via an `odrl:and` object encapsulating multiple other `odrl:Constraint`s or entering a list of them
 into the `odrl:constraint` property. The example below contains both versions.
 
-Constraints that are supposed to be checked with a logical OR should be published as separate Data Offers.
+Constraints that are supposed to be checked with a logical *OR* should be published as separate contract offers.
 
 ## Example
 
-This specific Catalog contains one single `dcat:Dataset`, called "json-1-paper". It is the only entry in the top-level
-`dcat:dataset` property. To access this Dataset, the Consumer can choose between two Offers (see the `odrl:hasPolicy`
-property):
+This specific catalog contains one single `Dataset`, called "json-1-paper". It is the only entry in the top-level
+`dataset` property. To access this Dataset, the Consumer can choose between two contract offers (see the
+`hasPolicy` property):
 
-- `"Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMg==:anNvbi0xLXBhcGVy:ZDA4ZDM5OTgtOGY5ZS00MzBmLThjZDEtZmYwOWQxMmQxYzk5"`
-- `"Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMQ==:anNvbi0xLXBhcGVy:ODFkMDI2MWYtNDNlNi00ZTIxLWJkMWYtZmFmZTI3MWQwYzhj"`
+- `"MDE5Y2FlNTgtZGJjNy03ZjI2LTk4ZTUtMGIwZDNhMTUxNWRh:anNvbi0xLXBhcGVy:N2FmZGYyYTgtNWU4Zi00NTkyLThhZDQtZjg2NjAzZDBmZDRl"`
+- `"MDE5Y2FlNTgtZGJjNy03NDYxLTliNGYtNjU2MjJhZTA2ZjBh:anNvbi0xLXBhcGVy:YzEzOGMwMzctNTY5Mi00ZjUyLTk1YjItMWMyMzBhYjMzYzEx"`
 
 ```json
 {
-  "@context": {
-    "@vocab": "https://w3id.org/edc/v0.0.1/ns/",
-    "edc": "https://w3id.org/edc/v0.0.1/ns/",
-    "tx": "https://w3id.org/tractusx/v0.0.1/ns/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "dct": "https://purl.org/dc/terms/",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "dspace": "https://w3id.org/dspace/v0.8/"
-  },
-  "@id": "693e9b66-04f2-4bfb-b3cd-daf5857b47c9",
-  "@type": "dcat:Catalog",
-  "dcat:dataset": [
+  "@id": "ebc35d09-47fe-4c86-b522-8b49fa2ec7f4",
+  "@type": "Catalog",
+  "dataset": [
     {
       "@id": "json-1-paper",
-      "@type": "dcat:Dataset",
-      "odrl:hasPolicy": [
+      "@type": "Dataset",
+      "hasPolicy": [
         {
-          "@id": "Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMg==:anNvbi0xLXBhcGVy:ZDA4ZDM5OTgtOGY5ZS00MzBmLThjZDEtZmYwOWQxMmQxYzk5",
-          "@type": "odrl:Set",
-          "odrl:permission": {
-            "odrl:action": {
-              "@id": "http://www.w3.org/ns/odrl/2/use"
-            },
-            "odrl:constraint": {
-              "odrl:and": [
+          "@id": "MDE5Y2FlNTgtZGJjNy03ZjI2LTk4ZTUtMGIwZDNhMTUxNWRh:anNvbi0xLXBhcGVy:N2FmZGYyYTgtNWU4Zi00NTkyLThhZDQtZjg2NjAzZDBmZDRl",
+          "@type": "Offer",
+          "permission": [
+            {
+              "action": "use",
+              "constraint": [
                 {
-                  "odrl:leftOperand": "https://w3id.org/catenax/policy/FrameworkAgreement",
-                  "odrl:operator": {
-                    "@id": "odrl:eq"
-                  },
-                  "odrl:rightOperand": "DataExchangeGovernance:1.0"
-                },
-                {
-                  "odrl:leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
-                  "odrl:operator": {
-                    "@id": "odrl:eq"
-                  },
-                  "odrl:rightOperand": "cx.core.industrycore:1"
+                  "and": [
+                    {
+                      "leftOperand": "FrameworkAgreement",
+                      "operator": "eq",
+                      "rightOperand": "DataExchangeGovernance:1.0"
+                    },
+                    {
+                      "leftOperand": "UsagePurpose",
+                      "operator": "eq",
+                      "rightOperand": "cx.core.industrycore:1"
+                    }
+                  ]
                 }
               ]
             }
-          },
-          "odrl:prohibition": [],
-          "odrl:obligation": []
+          ]
         },
         {
-          "@id": "Y29udHJhY3QtYmlsYXRlcmFsLXBhcGVyLWV4YW1wbGUtMQ==:anNvbi0xLXBhcGVy:ODFkMDI2MWYtNDNlNi00ZTIxLWJkMWYtZmFmZTI3MWQwYzhj",
-          "@type": "odrl:Set",
-          "odrl:permission": {
-            "odrl:action": {
-              "@id": "http://www.w3.org/ns/odrl/2/use"
-            },
-            "odrl:constraint": [
-              {
-                "odrl:leftOperand": "https://w3id.org/catenax/policy/FrameworkAgreement",
-                "odrl:operator": {
-                  "@id": "odrl:eq"
-                },
-                "odrl:rightOperand": "DataExchangeGovernance:1.0"
-              },
-              {
-                "odrl:leftOperand": "https://w3id.org/catenax/policy/ContractReference",
-                "odrl:operator": {
-                  "@id": "odrl:eq"
-                },
-                "odrl:rightOperand": "contract-123456789"
-              },
-              {
-                "odrl:leftOperand": "https://w3id.org/catenax/policy/UsagePurpose",
-                "odrl:operator": {
-                  "@id": "odrl:eq"
-                },
-                "odrl:rightOperand": "cx.core.industrycore:1"
-              }
-            ]
-          },
-          "odrl:prohibition": [],
-          "odrl:obligation": []
+          "@id": "MDE5Y2FlNTgtZGJjNy03NDYxLTliNGYtNjU2MjJhZTA2ZjBh:anNvbi0xLXBhcGVy:YzEzOGMwMzctNTY5Mi00ZjUyLTk1YjItMWMyMzBhYjMzYzEx",
+          "@type": "Offer",
+          "permission": [
+            {
+              "action": "use",
+              "constraint": [
+                {
+                  "and": [
+                    {
+                      "leftOperand": "FrameworkAgreement",
+                      "operator": "eq",
+                      "rightOperand": "DataExchangeGovernance:1.0"
+                    },
+                    {
+                      "leftOperand": "ContractReference",
+                      "operator": "eq",
+                      "rightOperand": "contract-123456789"
+                    },
+                    {
+                      "leftOperand": "UsagePurpose",
+                      "operator": "eq",
+                      "rightOperand": "cx.core.industrycore:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
-      "dcat:distribution": [
+      "distribution": [
         {
-          "@type": "dcat:Distribution",
-          "dct:format": {
-            "@id": "HttpData-PULL"
-          },
-          "dcat:accessService": "911f5da0-c9ee-4259-9a95-39428d08f777"
+          "@type": "Distribution",
+          "format": "HttpData-PULL",
+          "accessService": {
+            "@id": "be23856b-4eaf-4e85-a873-65692e5d7f2c",
+            "@type": "DataService",
+            "endpointDescription": "dspace:connector",
+            "endpointURL": "https://connector.example.org/api/v1/dsp/2025-1"
+          }
         }
       ],
-      "version": 1.0,
-      "content-type": "application/json",
-      "name": "json-1-paper",
-      "description": "Asset json-1-paper for test purposes",
+      "dct:type": "Connector KIT Demo Asset",
       "id": "json-1-paper"
     }
   ],
-  "dcat:service": {
-    "@id": "911f5da0-c9ee-4259-9a95-39428d08f777",
-    "@type": "dcat:DataService",
-    "dct:terms": "connector",
-    "dct:endpointUrl": "https://provider-dsp-end.point/api/v1/dsp"
-  },
-  "participantId": "PROVIDER-BPNL"
+  "service": [
+    {
+      "@id": "be23856b-4eaf-4e85-a873-65692e5d7f2c",
+      "@type": "DataService",
+      "endpointDescription": "dspace:connector",
+      "endpointURL": "https://connector.example.org/api/v1/dsp/2025-1"
+    }
+  ],
+  "participantId": "did:web:wallet.example.org:api:did:example-did",
+  "@context": [
+    "https://w3id.org/tractusx/auth/v1.0.0",
+    "https://w3id.org/catenax/2025/9/policy/context.jsonld",
+    "https://w3id.org/catenax/2025/9/policy/odrl.jsonld",
+    "https://w3id.org/dspace/2025/1/context.jsonld",
+    "https://w3id.org/edc/dspace/v0.0.1"
+  ]
 }
 ```
 
@@ -246,5 +231,12 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Cofinity-X GmbH
 - Source
-  URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
+  URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/connector-kit/adoption-view/policies-in-catena.md](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/connector-kit/adoption-view/policies-in-catena.md)
+
+[cx-standards-url]: https://catenax-ev.github.io/docs/standards/overview
+
+[fundamentals-url]: ./working-with-policies.md
+
+[governance-framework-url]: https://catenax-ev.github.io/docs/operating-model/how-data-space-operations
