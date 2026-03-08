@@ -54,8 +54,6 @@ The **EDC Data Planes** execute the actual data transfer after a successful auth
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-
-```md
 - SPDX-FileCopyrightText: 2026 Accenture
 - SPDX-FileCopyrightText: 2026 BMW Group
 - SPDX-FileCopyrightText: 2026 CarbonEase
@@ -82,7 +80,5 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2026 Volkswagen
 - SPDX-FileCopyrightText: 2026 Witte Automotive
 - SPDX-FileCopyrightText: 2026 ZF
-```
-
 - SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

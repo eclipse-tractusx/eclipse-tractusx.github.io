@@ -600,7 +600,7 @@ export const kitsData = {
       logo: DueDiligenceKitLogo,
       logoLicencse: {
         type: 'CC-BY-4.0',
-        authors: '2026 Eclipse Tractus-X Contributors',
+        authors: '2026 Eclipse Tractus-X Contributors; 2026 Catena-X Automotive Network e.V.',
         licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/due-diligence/due-diligence-kit-raw-logo.svg.license',
         sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/due-diligence/due-diligence-kit-raw-logo.svg'
       },
@@ -622,7 +622,7 @@ export const kitsData = {
       description: 'Facilitate due diligence processes by providing standardized data exchange for risk assessment and compliance check.',
       metadata: {
         created: '2026-02-23',
-        lastUpdated: '2026-02-24',
+        lastUpdated: '2026-03-09',
         latestVersion: '0.0.1',
         new: true
       }
