@@ -11,7 +11,7 @@ toc_max_heading_level: 2
 
 All notable changes to this KIT will be documented in this file.
 
-## [0.0.1] - 2025-08-14
+## [0.0.1] - R26.03 - 2026-03-09
 
 ### Added
 
