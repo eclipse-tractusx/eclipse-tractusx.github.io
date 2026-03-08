@@ -61,7 +61,7 @@ Figure 1: The CBAM Data Exchange mechanism with Catena-X
 
 
 
-### CBAM Data Exchange Flow 
+### CBAM Data Exchange Flow
 
 This diagram shows the high-level flow of a CBAM data exchange between an **importer** (i.e. customer, typically EU-based) and a **supplier** (i.e. non-EU producer or distributer) using the Catena-X **notification Standard** (see development view). Each exchange entails records for one or multiple CBAM goods tied to specific business transactions. This results in a tailored emissions response scoped exactly to the specified transactions, making each exchanged response unique. Both business partners require a CBAM app to generate and receive Catena-X notifications. The specification of the two current data models (request and response) is partly based on assumptions due to insufficiently specified regulation texts (data models are subject to change once official EU CBAM regulation is updated).
 
@@ -379,7 +379,6 @@ However, collecting actual data is only worthwhile for suppliers with significan
 #### Challenges and Regulatory Requirements
 
 A major challenge is that EU importers sometimes do not have direct contracts with the operator (e.g. in case of distributors as suppliers). Instead, importers must rely on their suppliers to provide the necessary data from upstream partners. To ensure the availability of the data, it is recommended to contractually oblige the suppliers to provide the data. This complexity increases with longer supply chains.
-
 
 ## Architecture
 
