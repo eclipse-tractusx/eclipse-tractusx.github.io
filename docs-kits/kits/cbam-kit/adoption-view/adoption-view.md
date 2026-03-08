@@ -192,130 +192,143 @@ This table gives a business-level overview of all properties in the CBAM request
 </details>
 
 <details>
-  <summary>CBAM REQUEST Example JSON Payload | click to expand</summary>
+  <summary>CBAM REQUEST Example JSON Payload Notification | click to expand</summary>
+
+Due to the fact that in Catena-X there is a Notification Payload standardized in [CX-0151 Industry Core Basics](https://catenax-ev.github.io/docs/standards/CX-0151-IndustryCoreBasics#14-examples) the CBAM content would be embedded in a notification payload, which contains important metadata for the applications to parse. This payload is just an example from how it could look like:
 
 ```json
 {
-  "requestedElements": [
-    "operatorIdentification",
-    "operatorActivityData",
-    "installation",
-    "emissionsRecords"
-  ],
-  "companyIds": {
-    "requestingCompanyIds": [
-      {
-        "type": "Company-ID",
-        "value": "Customer-Corp-12-EU"
-      }
-    ],
-    "respondingCompanyIds": [
-      {
-        "type": "Supplier-ID",
-        "value": "Steel-Corp-12-IN"
-      }
-    ]
+  "header": {
+    "senderBpn" : "BPNL0000000001AB",
+    "senderFeedbackUrl": "https://domain.tld/path/to/api",
+    "context" : "CBAM-CBAMAPI-Request:1.0.0",
+    "messageId" : "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
+    "receiverBpn" : "BPNL0000000002CD",
+    "sentDateTime" : "2025-05-04T00:00:00-07:00",
+    "version" : "0.1.0"
   },
-  "good": [
-    {
-      "cnCode": "72011000",
-      "productIds": [
+  "content": {
+    "requestedElements": [
+      "operatorIdentification",
+      "operatorActivityData",
+      "installation",
+      "emissionsRecords"
+    ],
+    "companyIds": {
+      "requestingCompanyIds": [
         {
-          "type": "GTIN",
-          "value": "4712345060507"
+          "type": "Company-ID",
+          "value": "Customer-Corp-12-EU"
         }
       ],
-      "productDescription": "Hot-rolled steel coil, grade S235JR",
-      "businessTransactionDetails": {
-        "transactionReferenceDocuments": [
-          {
-            "type": "invoice",
-            "id": "INV-2024-12345"
-          }
-        ],
-        "requestReferencePeriodStart": "2024-01-01T00:00:00Z",
-        "requestReferencePeriodEnd": "2024-12-31T23:59:59Z",
-        "requestedNetMass": 60
-      },
-      "operator": [
+      "respondingCompanyIds": [
         {
-          "transactionReferenceDocumentLink": {
-            "refDocType": "invoice",
-            "refDocId": "INV-2024-12345",
-            "refDocElement": {
-              "type": "batchNumber",
-              "value": "02"
-            }
-          },
-          "operatorIdentification": {
-            "operatorIsSupplier": true,
-            "operatorIds": {
-              "operatorBpnl": "BPNL000000000OPR",
-              "operatorCbamId": "O3CI-OPR-123456",
-              "otherIds": [
-                {
-                  "type": "Operator-Tracking-ID",
-                  "value": "OP.DE-Steel_north_AG1"
-                }
-              ]
-            },
-            "operatorName": "Steel Example Corp.",
-            "operatorContactEmailAddress": "contact@steelexample.com",
-            "address": {
-              "country": "DE",
-              "city": "Duisburg",
-              "street": "Werkstraße 1"
-            }
-          },
-          "operatorActivityData": {
-            "netMass": 60.0
-          },
-          "installation": [
-            {
-              "installationIdentification": {
-                "installationIds": {
-                  "installationCbamId": "O3CI-INST-654321",
-                  "otherIds": [
-                    {
-                      "type": "Installation-ID",
-                      "value": "INST-987654"
-                    }
-                  ]
-                },
-                "installationName": "Steel Manufacturing Facility - Delhi Plant",
-                "address": {
-                  "countryCode": "IN",
-                  "city": "Delhi",
-                  "longitude": 77.2197,
-                  "latitude": 28.6139,
-                  "typeOfCoordinates": "01",
-                  "plotOrParcelNumber": "PLOT-456-INDUSTRIAL-ZONE-A",
-                  "unlocode": "INDEL"
-                }
-              },
-              "installationActivityData": {
-                "netMass": 60.0
-              },
-              "emissionsRecords": [
-                {
-                  "productionMethod": {
-                    "methodId": "P24",
-                    "specificSteelMillId": "MILL-001",
-                    "additionalInformation": "Uses recycled scrap as input"
-                  },
-                  "productionMethodActivityData": {
-                    "referencePeriodStart": "2024-01-01T00:00:00Z",
-                    "referencePeriodEnd": "2024-12-31T23:59:59Z",
-                    "netMass": 60.0
-                  }
-                }
-              ]
-            }
-          ]
+          "type": "Supplier-ID",
+          "value": "Steel-Corp-12-IN"
         }
       ]
-    }
-  ]
+    },
+    "good": [
+      {
+        "cnCode": "72011000",
+        "productIds": [
+          {
+            "type": "GTIN",
+            "value": "4712345060507"
+          }
+        ],
+        "productDescription": "Hot-rolled steel coil, grade S235JR",
+        "businessTransactionDetails": {
+          "transactionReferenceDocuments": [
+            {
+              "type": "invoice",
+              "id": "INV-2024-12345"
+            }
+          ],
+          "requestReferencePeriodStart": "2024-01-01T00:00:00Z",
+          "requestReferencePeriodEnd": "2024-12-31T23:59:59Z",
+          "requestedNetMass": 60
+        },
+        "operator": [
+          {
+            "transactionReferenceDocumentLink": {
+              "refDocType": "invoice",
+              "refDocId": "INV-2024-12345",
+              "refDocElement": {
+                "type": "batchNumber",
+                "value": "02"
+              }
+            },
+            "operatorIdentification": {
+              "operatorIsSupplier": true,
+              "operatorIds": {
+                "operatorBpnl": "BPNL000000000OPR",
+                "operatorCbamId": "O3CI-OPR-123456",
+                "otherIds": [
+                  {
+                    "type": "Operator-Tracking-ID",
+                    "value": "OP.DE-Steel_north_AG1"
+                  }
+                ]
+              },
+              "operatorName": "Steel Example Corp.",
+              "operatorContactEmailAddress": "contact@steelexample.com",
+              "address": {
+                "country": "DE",
+                "city": "Duisburg",
+                "street": "Werkstraße 1"
+              }
+            },
+            "operatorActivityData": {
+              "netMass": 60.0
+            },
+            "installation": [
+              {
+                "installationIdentification": {
+                  "installationIds": {
+                    "installationCbamId": "O3CI-INST-654321",
+                    "otherIds": [
+                      {
+                        "type": "Installation-ID",
+                        "value": "INST-987654"
+                      }
+                    ]
+                  },
+                  "installationName": "Steel Manufacturing Facility - Delhi Plant",
+                  "address": {
+                    "countryCode": "IN",
+                    "city": "Delhi",
+                    "longitude": 77.2197,
+                    "latitude": 28.6139,
+                    "typeOfCoordinates": "01",
+                    "plotOrParcelNumber": "PLOT-456-INDUSTRIAL-ZONE-A",
+                    "unlocode": "INDEL"
+                  }
+                },
+                "installationActivityData": {
+                  "netMass": 60.0
+                },
+                "emissionsRecords": [
+                  {
+                    "productionMethod": {
+                      "methodId": "P24",
+                      "specificSteelMillId": "MILL-001",
+                      "additionalInformation": "Uses recycled scrap as input"
+                    },
+                    "productionMethodActivityData": {
+                      "referencePeriodStart": "2024-01-01T00:00:00Z",
+                      "referencePeriodEnd": "2024-12-31T23:59:59Z",
+                      "netMass": 60.0
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
@@ -460,160 +473,173 @@ This table gives a business-level overview of all properties in the CBAM respons
 </details>
 
 <details>
-  <summary>CBAM RESPONSE Example JSON Payload | click to expand</summary>
+  <summary>CBAM RESPONSE Example JSON Payload Notification | click to expand</summary>
+
+Due to the fact that in Catena-X there is a Notification Payload standardized in [CX-0151 Industry Core Basics](https://catenax-ev.github.io/docs/standards/CX-0151-IndustryCoreBasics#14-examples) the CBAM content would be embedded in a notification payload, which contains important metadata for the applications to parse. This payload is just an example from how it could look like:
 
 ```json
 {
-  "companyIds": {
-    "requestingCompanyIds": [
-      {
-        "type": "Company-ID",
-        "value": "Customer-Corp-12-EU"
-      }
-    ],
-    "respondingCompanyIds": [
-      {
-        "type": "Supplier-ID",
-        "value": "Steel-Corp-12-IN"
-      }
-    ]
+  "header" : {
+    "senderBpn" : "BPNL0000000001AB",
+    "senderFeedbackUrl": "https://domain.tld/path/to/api",
+    "context" : "CBAM-CBAMAPI-Response:1.0.0",
+    "messageId" : "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
+    "receiverBpn" : "BPNL0000000002CD",
+    "sentDateTime" : "2025-05-04T00:00:00-07:00",
+    "version" : "0.1.0"
   },
-  "good": [
-    {
-      "cnCode": "72011000",
-      "productIds": [
+  "content": {
+    "companyIds": {
+      "requestingCompanyIds": [
         {
-          "type": "GTIN",
-          "value": "4712345060507"
+          "type": "Company-ID",
+          "value": "Customer-Corp-12-EU"
         }
       ],
-      "productDescription": "Hot-rolled steel coil, grade S235JR",
-      "businessTransactionDetails": {
-        "transactionReferenceDocuments": [
-          {
-            "type": "invoice",
-            "id": "INV-2024-12345"
-          }
-        ],
-        "requestReferencePeriodStart": "2024-01-01T00:00:00Z",
-        "requestReferencePeriodEnd": "2024-12-31T23:59:59Z",
-        "requestedNetMass": 60
-      },
-      "operator": [
+      "respondingCompanyIds": [
         {
-          "transactionReferenceDocumentLink": {
-            "refDocType": "invoice",
-            "refDocId": "INV-2024-12345",
-            "refDocElement": {
-              "type": "batchNumber",
-              "value": "02"
-            }
-          },
-          "operatorIdentification": {
-            "operatorIsSupplier": true,
-            "operatorIds": {
-              "operatorBpnl": "BPNL000000000OPR",
-              "operatorCbamId": "O3CI-OPR-123456",
-              "otherIds": [
-                {
-                  "type": "Operator-Tracking-ID",
-                  "value": "OP.DE-Steel_north_AG1"
-                }
-              ]
-            },
-            "operatorName": "Steel Example Corp.",
-            "operatorContactEmailAddress": "contact@steelexample.com",
-            "address": {
-              "country": "DE",
-              "city": "Duisburg",
-              "street": "Werkstraße 1"
-            }
-          },
-          "operatorActivityData": {
-            "netMass": 60.0
-          },
-          "installation": [
-            {
-              "installationIdentification": {
-                "installationIds": {
-                  "installationCbamId": "O3CI-INST-654321",
-                  "otherIds": [
-                    {
-                      "type": "Installation-ID",
-                      "value": "INST-987654"
-                    }
-                  ]
-                },
-                "installationName": "Steel Manufacturing Facility - Delhi Plant",
-                "address": {
-                  "countryCode": "IN",
-                  "city": "Delhi",
-                  "longitude": 77.2197,
-                  "latitude": 28.6139,
-                  "typeOfCoordinates": "01",
-                  "plotOrParcelNumber": "PLOT-456-INDUSTRIAL-ZONE-A",
-                  "unlocode": "INDEL"
-                }
-              },
-              "installationActivityData": {
-                "netMass": 60.0
-              },
-              "emissionsRecords": [
-                {
-                  "productionMethod": {
-                    "methodId": "P24",
-                    "specificSteelMillId": "MILL-001",
-                    "additionalInformation": "Uses recycled scrap as input"
-                  },
-                  "productionMethodActivityData": {
-                    "referencePeriodStart": "2024-01-01T00:00:00Z",
-                    "referencePeriodEnd": "2024-12-31T23:59:59Z",
-                    "netMass": 60.0
-                  },
-                  "directEmissions": {
-                    "additionalInformation": "Calculated using official CBAM excel template",
-                    "specificEmbeddedEmissionsDirect": 1.85
-                  },
-                  "indirectEmissions": {
-                    "sourceOfEmissionFactor": "02",
-                    "emissionFactorTonnesCo2PerMwh": 0.45,
-                    "sourceOfEmissionFactorValue": "IEA 2022 Electricity Report",
-                    "specificEmbeddedEmissionsIndirect": 0.25,
-                    "electricityConsumedMwhPerTonnesGood": 0.6,
-                    "sourceOfElectricity": "SOE03"
-                  },
-                  "freeAllocationFactor": 0.6,
-                  "attestationOfConformance": {
-                    "attestationType": "CBAM third party verification",
-                    "attestationStandard": "Regulation (EU) 2025/2083",
-                    "providerName": "TÜV X",
-                    "providerID": "5493001KJTIIGC8Y1R12",
-                    "accreditationBodyName": "National Accreditation Institute ABX",
-                    "attestationOfConformanceId": "123e4567-e89b-12d3-a456-426614174000",
-                    "attestationOfConformanceLink": "https://exampleverifier.com/cbam/statement/123e4567",
-                    "completedAt": "2024-03-15T10:00:00Z"
-                  },
-                  "carbonPricePaid": [
-                    {
-                      "typeOfInstrument": "01",
-                      "independentPersonId": {
-                        "type": "National CBAM Verifier Registry",
-                        "value": "CBAM_VER_ZGG0612"
-                      },
-                      "descriptionAndIndicationOfLegalAct": "Country ABC National Carbon Tax Act 2022",
-                      "amountOfCarbonPricePaid": 12000.00,
-                      "currency": "CNY",
-                      "countryCode": "CN"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "Supplier-ID",
+          "value": "Steel-Corp-12-IN"
         }
       ]
-    }
-  ]
+    },
+    "good": [
+      {
+        "cnCode": "72011000",
+        "productIds": [
+          {
+            "type": "GTIN",
+            "value": "4712345060507"
+          }
+        ],
+        "productDescription": "Hot-rolled steel coil, grade S235JR",
+        "businessTransactionDetails": {
+          "transactionReferenceDocuments": [
+            {
+              "type": "invoice",
+              "id": "INV-2024-12345"
+            }
+          ],
+          "requestReferencePeriodStart": "2024-01-01T00:00:00Z",
+          "requestReferencePeriodEnd": "2024-12-31T23:59:59Z",
+          "requestedNetMass": 60
+        },
+        "operator": [
+          {
+            "transactionReferenceDocumentLink": {
+              "refDocType": "invoice",
+              "refDocId": "INV-2024-12345",
+              "refDocElement": {
+                "type": "batchNumber",
+                "value": "02"
+              }
+            },
+            "operatorIdentification": {
+              "operatorIsSupplier": true,
+              "operatorIds": {
+                "operatorBpnl": "BPNL000000000OPR",
+                "operatorCbamId": "O3CI-OPR-123456",
+                "otherIds": [
+                  {
+                    "type": "Operator-Tracking-ID",
+                    "value": "OP.DE-Steel_north_AG1"
+                  }
+                ]
+              },
+              "operatorName": "Steel Example Corp.",
+              "operatorContactEmailAddress": "contact@steelexample.com",
+              "address": {
+                "country": "DE",
+                "city": "Duisburg",
+                "street": "Werkstraße 1"
+              }
+            },
+            "operatorActivityData": {
+              "netMass": 60.0
+            },
+            "installation": [
+              {
+                "installationIdentification": {
+                  "installationIds": {
+                    "installationCbamId": "O3CI-INST-654321",
+                    "otherIds": [
+                      {
+                        "type": "Installation-ID",
+                        "value": "INST-987654"
+                      }
+                    ]
+                  },
+                  "installationName": "Steel Manufacturing Facility - Delhi Plant",
+                  "address": {
+                    "countryCode": "IN",
+                    "city": "Delhi",
+                    "longitude": 77.2197,
+                    "latitude": 28.6139,
+                    "typeOfCoordinates": "01",
+                    "plotOrParcelNumber": "PLOT-456-INDUSTRIAL-ZONE-A",
+                    "unlocode": "INDEL"
+                  }
+                },
+                "installationActivityData": {
+                  "netMass": 60.0
+                },
+                "emissionsRecords": [
+                  {
+                    "productionMethod": {
+                      "methodId": "P24",
+                      "specificSteelMillId": "MILL-001",
+                      "additionalInformation": "Uses recycled scrap as input"
+                    },
+                    "productionMethodActivityData": {
+                      "referencePeriodStart": "2024-01-01T00:00:00Z",
+                      "referencePeriodEnd": "2024-12-31T23:59:59Z",
+                      "netMass": 60.0
+                    },
+                    "directEmissions": {
+                      "additionalInformation": "Calculated using official CBAM excel template",
+                      "specificEmbeddedEmissionsDirect": 1.85
+                    },
+                    "indirectEmissions": {
+                      "sourceOfEmissionFactor": "02",
+                      "emissionFactorTonnesCo2PerMwh": 0.45,
+                      "sourceOfEmissionFactorValue": "IEA 2022 Electricity Report",
+                      "specificEmbeddedEmissionsIndirect": 0.25,
+                      "electricityConsumedMwhPerTonnesGood": 0.6,
+                      "sourceOfElectricity": "SOE03"
+                    },
+                    "freeAllocationFactor": 0.6,
+                    "attestationOfConformance": {
+                      "attestationType": "CBAM third party verification",
+                      "attestationStandard": "Regulation (EU) 2025/2083",
+                      "providerName": "TÜV X",
+                      "providerID": "5493001KJTIIGC8Y1R12",
+                      "accreditationBodyName": "National Accreditation Institute ABX",
+                      "attestationOfConformanceId": "123e4567-e89b-12d3-a456-426614174000",
+                      "attestationOfConformanceLink": "https://exampleverifier.com/cbam/statement/123e4567",
+                      "completedAt": "2024-03-15T10:00:00Z"
+                    },
+                    "carbonPricePaid": [
+                      {
+                        "typeOfInstrument": "01",
+                        "independentPersonId": {
+                          "type": "National CBAM Verifier Registry",
+                          "value": "CBAM_VER_ZGG0612"
+                        },
+                        "descriptionAndIndicationOfLegalAct": "Country ABC National Carbon Tax Act 2022",
+                        "amountOfCarbonPricePaid": 12000.00,
+                        "currency": "CNY",
+                        "countryCode": "CN"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
