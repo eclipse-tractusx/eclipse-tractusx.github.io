@@ -256,7 +256,7 @@ This table gives a business-level overview of all properties in the CBAM request
 | `-----` latitude | O | The latitude where the installation is located. | 28.6139 |
 | `-----` typeOfCoordinates | O | The type of coordinates according to the value list that is accepted by the corresponding field in the CBAM declaration portal.  | 01 |
 | `-----` plotOrParcelNumber | O | The plot or parcel number of the location. | PLOT-456-INDUSTRIAL-ZONE-A |
-| `-----` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at <https://unece.org/trade/uncefact/unlocode> | INDEL |
+| `-----` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at [https://unece.org/trade/uncefact/unlocode](https://unece.org/trade/uncefact/unlocode) | INDEL |
 | `---` installationNetMass | O | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, produced in the stated installation, calculated as the sum across all applicable production methods within that installation. | 60.0 |
 | | | | |
 | `---` _**emissionsRecords**_ | O | One or more objects detailing the specific production method(s) that the emission objects refer to; each installation may include multiple production methods. | n.a. |
@@ -461,7 +461,7 @@ This table gives a business-level overview of all properties in the CBAM respons
 | `-----` latitude | O | The latitude where the installation is located. | 28.6139 |
 | `-----` typeOfCoordinates | O | The type of coordinates according to the value list that is accepted by the corresponding field in the CBAM declaration portal.  | 01 |
 | `-----` plotOrParcelNumber | O | The plot or parcel number of the location. | PLOT-456-INDUSTRIAL-ZONE-A |
-| `-----` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at <https://unece.org/trade/uncefact/unlocode> | INDEL |
+| `-----` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at [https://unece.org/trade/uncefact/unlocode](https://unece.org/trade/uncefact/unlocode) | INDEL |
 | `---` installationNetMass | O | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, produced in the stated installation, calculated as the sum across all applicable production methods within that installation. | 60.0 |
 | | | | |
 | `---` _**emissionsRecords**_ | O | One or more objects detailing the specific production method(s) that the emission objects refer to; each installation may include multiple production methods. | n.a. |
@@ -496,7 +496,7 @@ This table gives a business-level overview of all properties in the CBAM respons
 | `-----` providerId | O | A unique identifier of the provider of the attestation of conformance as issued by the accreditation institute, i.e. accreditation number. | 5493001KJTIIGC8Y1R12 |
 | `-----` accreditationBodyName | O | The name of the organization that grants and maintains the formal accreditation under which the provider of the attestation of conformance is authorized to perform the attestation. | National Accreditation Institute ABX |
 | `-----` attestationOfConformanceId | O | A unique identifier assigned by the provider of the attestation of conformance to the attestation document (e.g., verification statement) for tracking and reference. | 123e4567-e89b-12d3-a456-426614174000 |
-| `-----` attestationOfConformanceLink | O | A URL to the attestation of conformance document (e.g. verification statement), enabling manual verification of its validity and authenticity. | <https://exampleverifier.com/cbam/statement/123e4567> |
+| `-----` attestationOfConformanceLink | O | A URL to the attestation of conformance document (e.g. verification statement), enabling manual verification of its validity and authenticity. | [https://exampleverifier.com/cbam/statement/123e4567](https://exampleverifier.com/cbam/statement/123e4567) |
 | `-----` completedAt | O | Time stamp for when the attestation of conformance was issued. | 2026-03-15T10:00:00Z |
 | | | | |
 | `----` _**carbonPricePaid**_ | O | One or multiple objects describing the carbon price due in a third country per emission object on installation level.  | n.a. |
