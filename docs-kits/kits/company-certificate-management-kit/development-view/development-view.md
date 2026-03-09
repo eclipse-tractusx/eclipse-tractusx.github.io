@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## Development View
 
-![Company Certificate Management KIT Icon](@site/static/img/kits/company-certificate-management/ccm-kit-logo.svg)
+![Company Certificate Management KIT Icon](@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg)
 
 Technical documentation for developers, architects, and implementers.
 
@@ -13,390 +13,105 @@ Technical documentation for developers, architects, and implementers.
 Software Developers, Solution Architects, Technical Leads, API Developers, Integration Engineers.
 :::
 
----
-
 ### More Guides
 
-[LINK TO THE OTHER FILES IN THIS VIEW IN CASE THERE ARE MORE]
+- [Architecture & CCM API Guide](architecture.md)
 
-- [Architecture Overview](architecture.md)
+## Functional Requirements
 
-### Core Components
+### Core Functionalities
 
-#### Component 1: [Component Name]
+#### Certificate Lifecycle Management
 
-**Purpose**: [Component description]
+- Creation, update, renewal, and expiration tracking of certificates.
+- Upload and storage of digital certificate documents.
+- Association of certificates with specific business partners and company records.
 
-**Technology Stack**: [Programming language, framework, key dependencies]
+#### Validation and Approval Workflows
 
-**Interfaces**: [Input, output, protocols]
+- Automated and manual validation of certificate authenticity.
+- Multi-step approval processes involving different roles (e.g., business partner manager, compliance officer).
+- Notifications and escalation for pending approvals or expiring certificates.
 
-#### Component 2: [Component Name]
+#### Integration with Master Data
 
-[Same structure as Component 1]
+- Synchronization with business partner master data (e.g., SAP, ERP systems).
+- Automatic linking of certificates to business partner records.
 
----
+#### Audit and Reporting
 
-## Sequence Diagrams
+- Logging of all actions for audit trails.
+- Generation of compliance and status reports (e.g., list of expired/missing certificates).
+- Export of reports for external audits.
 
-### Authentication Flow
+#### User and Role Management
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant APIGateway
-    participant AuthService
-    participant CoreService
+- Role-based access control (RBAC) for different user groups (e.g., admin, approver, viewer).
+- Delegation and substitution management for approvals.
 
-    Client->>APIGateway: Request with credentials
-    APIGateway->>AuthService: Validate credentials
-    AuthService-->>APIGateway: Auth token
-    APIGateway-->>Client: Token response
-    Client->>APIGateway: API Request + Token
-    APIGateway->>CoreService: Forward request
-    CoreService-->>APIGateway: Response
-    APIGateway-->>Client: Final response
-```
+#### Notifications and Alerts
 
-[Brief flow description]
+- Automated email or system notifications for certificate expiry, missing documents, or workflow tasks.
+- **API endpoints and resources**:
+  - Company Certificate Request
+  - Company Certificate Push
+  - Company Certificate Status (Accepted / Received / Rejected)
+  - Company Certificate Available
+  - Error Handling
+- Dashboard for monitoring certificate status and pending actions.
 
-### Data Exchange Flow
+#### Document Management
 
-```mermaid
-sequenceDiagram
-    participant Provider
-    participant Connector
-    participant Consumer
-    participant Storage
+- Secure upload, storage, and retrieval of certificate files.
+- Versioning and history tracking for certificate documents.
 
-    Provider->>Connector: Offer data asset
-    Connector->>Connector: Register asset
-    Consumer->>Connector: Query available assets
-    Connector-->>Consumer: Asset catalog
-    Consumer->>Connector: Request data transfer
-    Connector->>Provider: Initiate transfer
-    Provider-->>Storage: Push data
-    Storage-->>Consumer: Deliver data
-```
+## Non-Functional Requirements
 
-[Brief flow description]
+### Quality Attributes
 
----
+#### Security
 
-## API Specifications
+- Data encryption at rest and in transit.
+- Strict access controls to sensitive certificate data.
+- Compliance with relevant data protection regulations (e.g., GDPR).
 
-### API Overview
+#### Scalability
 
-[List of main APIs with purpose]
+- Ability to handle a large number of business partners and certificates.
+- Support for future integration with additional systems or modules.
 
-### Base URL
+#### Reliability & Availability
 
-```json
-https://api.example.com/v1
-```
+- High system uptime to ensure business continuity.
+- Backup and disaster recovery mechanisms.
 
-### Authentication
+#### Performance
 
-[Authentication method: OAuth 2.0 | API Keys | JWT]
+- Fast response times for certificate lookups and workflow actions.
+- Efficient batch processing for notifications and reporting.
 
-```http
-Authorization: Bearer <your-access-token>
-```
+#### Usability
 
-### API Endpoints
+- Intuitive user interface for both business and technical users.
+- Multilingual support if required by the business context.
 
-#### GET /resources
+#### Auditability
 
-**Description**: Retrieve resources
+- Comprehensive logging of all user actions and system events.
+- Tamper-proof audit trails for compliance verification.
 
-**Request**:
+#### Maintainability
 
-```http
-GET /v1/resources HTTP/1.1
-Host: api.example.com
-Authorization: Bearer <token>
-```
+- Modular architecture to support easy updates and enhancements.
+- Clear documentation for system configuration and operation.
 
-**Response** (200 OK):
+#### Integration
 
-```json
-{
-  "resources": [
-    {
-      "id": "resource-1",
-      "name": "Example Resource",
-      "type": "data-asset"
-    }
-  ]
-}
-```
+- Standard APIs or connectors for integration with ERP, CRM, and document management systems.
+- Support for importing/exporting data in standard formats (e.g., CSV, XML).
 
-#### POST /resources
 
-**Description**: Create a resource
 
-**Request**:
-
-```http
-POST /v1/resources HTTP/1.1
-Host: api.example.com
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "name": "New Resource",
-  "type": "data-asset"
-}
-```
-
-**Response** (201 Created):
-
-```json
-{
-  "id": "resource-123",
-  "name": "New Resource",
-  "type": "data-asset"
-}
-```
-
-### OpenAPI Specification
-
-[Link to OpenAPI specification and Swagger UI]
-
----
-
-## Standards Compliance
-
-| Standard | Version | Compliance | Description |
-|----------|---------|------------|-------------|
-| [Standard 1] | X.Y | Mandatory | [Description] |
-| [Standard 2] | X.Y | Optional | [Description] |
-
-### Standard Details
-
-#### [Standard Name]
-
-**Compliance Level**: [Mandatory | Optional | Recommended]
-
-**Implementation**: [Brief description]
-
-**Reference**: [Link]
-
----
-
-## Logic & Schema
-
-### Business Logic
-
-[Core business logic description]
-
-#### Logic Flow: [Process Name]
-
-**Input**: [Required data]
-
-**Processing Steps**: [Brief description of steps]
-
-**Output**: [Produced data]
-
-### Data Schema
-
-#### Schema: [Schema Name]
-
-**Purpose**: [Schema description]
-
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Unique identifier"
-    },
-    "name": {
-      "type": "string",
-      "description": "Resource name"
-    }
-  },
-  "required": ["id", "name"]
-}
-```
-
-**Example**:
-
-```json
-{
-  "id": "res-001",
-  "name": "Example Resource"
-}
-```
-
----
-
-## Semantic Models
-
-### Model: [Model Name]
-
-**Version**: X.Y.Z
-
-**Namespace**: `urn:samm:org.eclipse.tractusx.[domain]:[version]#`
-
-**Description**: [Model description]
-
-**Key Properties**:
-
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `property1` | string | Yes | [Description] |
-| `property2` | integer | No | [Description] |
-
-**Example**:
-
-```json
-{
-  "@context": {
-    "@vocab": "urn:samm:org.eclipse.tractusx.[domain]:[version]#"
-  },
-  "property1": "value1",
-  "property2": 42
-}
-```
-
-**Reference**: [Link to SAMM specification]
-
----
-
-## Test Cases
-
-### Test Strategy
-
-- **Unit Tests**: Component-level testing
-- **Integration Tests**: API integration testing
-- **End-to-End Tests**: Complete workflow testing
-
-### Test Case: [Test Name]
-
-**Objective**: [Test validation purpose]
-
-**Preconditions**: [Required setup]
-
-**Test Steps**: [Brief description]
-
-**Expected Outcome**: [Expected result]
-
----
-
-## Sample Data
-
-### Sample Dataset: [Dataset Name]
-
-**Purpose**: [Sample purpose]
-
-**Format**: JSON
-
-**Download**: [Link]
-
-**Example**:
-
-```json
-{
-  "sampleData": [
-    {
-      "id": "sample-001",
-      "field1": "value1"
-    }
-  ]
-}
-```
-
----
-
-## Developer Tutorials
-
-### Quick Start
-
-**Prerequisites**: [List prerequisites]
-
-**Steps**:
-
-1. Clone repository:
-
-```bash
-git clone https://github.com/eclipse-tractusx/[repository-name].git
-```
-
-1. Configure `application.properties`:
-
-```properties
-server.port=8080
-api.base-url=https://api.example.com
-```
-
-1. Build and run:
-
-```bash
-mvn clean install
-mvn spring-boot:run
-```
-
-1. Verify:
-
-```bash
-curl http://localhost:8080/health
-```
-
----
-
-## Integration Examples
-
-### Integration with [System Name]
-
-**Java Example**:
-
-```java
-public class KitIntegration {
-    private final KitClient client;
-
-    public KitIntegration(String apiUrl, String apiKey) {
-        this.client = new KitClient(apiUrl, apiKey);
-    }
-
-    public Resource getResource(String resourceId) {
-        return client.resources().get(resourceId);
-    }
-}
-```
-
-**Python Example**:
-
-```python
-from kit_sdk import KitClient
-
-client = KitClient(api_url="https://api.example.com", api_key="your-key")
-resource = client.resources.get("resource-id")
-```
-
----
-
-## Additional Resources
-
-### Reference Implementations
-
-- TBD
-
-### SDKs and Libraries
-
-| Language | SDK | Link |
-|----------|-----|------|
-| Java | [SDK Name] | [Link] |
-| Python | [SDK Name] | [Link] |
-
-### Developer Tools
-
-- [Postman Collection](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template/resources/postman-collection.json)
-- [OpenAPI Generator](https://openapi-generator.tech/)
-
----
 
 ## NOTICE
 
