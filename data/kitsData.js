@@ -78,6 +78,7 @@ import DigitalTwinKitLogo from "@site/static/img/kits/digital-twin/digital-twin-
 import DataDrivenQualityLogo from "@site/static/img/kits/data-driven-quality-management/data-driven-quality-management-kit-raw-logo.svg";
 import TraceabilityKitLogo from "@site/static/img/kits/traceability/traceability-kit-raw-logo.svg";
 import DataChainKitLogo from "@site/static/img/kits/data-chain/data-chain-kit-raw-logo.svg";
+import DueDiligenceKitLogo from "@site/static/img/kits/due-diligence/due-diligence-kit-raw-logo.svg";
 import EcoPassKitLogo from "@site/static/img/kits/eco-pass/eco-pass-kit-raw-logo.svg";
 import EngineeringAsAServiceKITLogo from "@site/static/img/kits/engineering-as-a-service/engineering-as-a-service-kit-raw-logo.svg";
 import PCFKitLogo from "@site/static/img/kits/pcf/pcf-kit-raw-logo.svg";
@@ -624,6 +625,39 @@ export const kitsData = {
         lastUpdated: '2024-09-17',
         latestVersion: '1.3.0',
         new: false
+      }
+    },
+    {
+      id: 'due-diligence',
+      name: 'DUE DILIGENCE CHECK KIT',
+      logo: DueDiligenceKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors; 2026 Catena-X Automotive Network e.V.',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/due-diligence/due-diligence-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/due-diligence/due-diligence-kit-raw-logo.svg'
+      },
+      logoHeight: 140,
+      logoWidth: 140,
+      route: '/docs-kits/next/kits/due-diligence-check-kit/adoption-view',
+      colors: {
+        primary: '#01b94b',
+        gradient: 'linear-gradient(135deg, #49ce97 0%, #01b94b 100%)'
+
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Sustainability',
+      industries: ['automotive', 'chemical'],
+      description: 'Facilitate due diligence processes by providing standardized data exchange for risk assessment and compliance check.',
+      metadata: {
+        created: '2026-02-23',
+        lastUpdated: '2026-03-09',
+        latestVersion: '0.0.1',
+        new: true
       }
     },
     {
