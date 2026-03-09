@@ -1,3 +1,23 @@
+---
+id: changelog
+title: "Changelog"
+sidebar_position: 2
+---
+
+<!-- 
+KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
+Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
+Do not remove!
+This logo is only visible when compiled with Docusarus (final version of the hosted KIT)
+-->
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+<Kit3DLogo kitId="<kit-id>" />
+
+<!--
+KIT LOGO END
+-->
+
 # Changelog
 
 All notable changes to this KIT will be documented in this file.
@@ -23,7 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History
 
-## [1.0.0] - YYYY-MM-DD
+## [0.0.1] - YYYY-MM-DD - R26.03
 
 ### Added
 

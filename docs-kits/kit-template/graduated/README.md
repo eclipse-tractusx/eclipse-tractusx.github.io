@@ -1,4 +1,4 @@
-# KIT Template
+# Graduated KIT Template
 
 ## Remove this file before publishing
 
@@ -23,7 +23,7 @@ Follow these steps to create your KIT:
 #### 1. **Copy and Rename**
 ```bash
 # From the docs-kits/kits/ directory
-cp -r ../kit-template ./<kit-id>-kit
+cp -r ../kit-template/graduated ./<kit-id>-kit
 cd <kit-id>-kit
 ```
 
@@ -60,7 +60,7 @@ Add maintainers to `/.github/CODEOWNERS`:
 ## Directory Structure
 
 ```
-kit-template/
+kit-template/graduated
 ├── README.md                    # Main guide - START HERE (REMOVE THIS FILE BEFORE PUBLISHING)
 ├── changelog.md                 # Version history template
 │
@@ -385,5 +385,5 @@ For questions, reach out via [Matrix Chat](https://chat.eclipse.org/#/room/#trac
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

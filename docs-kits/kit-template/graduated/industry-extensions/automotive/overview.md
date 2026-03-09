@@ -1,4 +1,5 @@
 ---
+id: automotive-extension
 title: Automotive Industry Extension
 sidebar_position: 1
 ---
@@ -24,9 +25,21 @@ sidebar_position: 1
  ********************************************************************************/
 -->
 
-## Automotive Industry Extension
+<!-- 
+KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
+Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
+Do not remove!
+This logo is only visible when compiled with Docusarus (final version of the hosted KIT)
+-->
 
-![KIT NAME Icon](@site/static/img/kits-2.0/tx-black-kit.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+<Kit3DLogo kitId="<kit-id>" />
+
+<!--
+KIT LOGO END
+-->
+
+## Automotive Industry Extension
 
 This extension adapts the **[KIT_NAME] KIT** for the automotive industry with Catena-X standards compliance.
 
