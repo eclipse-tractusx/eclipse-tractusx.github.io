@@ -81,7 +81,7 @@ import DataChainKitLogo from "@site/static/img/kits/data-chain/data-chain-kit-ra
 import EcoPassKitLogo from "@site/static/img/kits/eco-pass/eco-pass-kit-raw-logo.svg";
 import EngineeringAsAServiceKITLogo from "@site/static/img/kits/engineering-as-a-service/engineering-as-a-service-kit-raw-logo.svg";
 import PCFKitLogo from "@site/static/img/kits/pcf/pcf-kit-raw-logo.svg";
-import CBAMKitLogo from "@site/static/img/kits/cbam/cbam-kit-raw-logo.svg";
+npm rimport CBAMKitLogo from "@site/static/img/kits/cbam/cbam-kit-raw-logo.svg";
 import PurisKitLogo from "@site/static/img/kits/puris/puris-kit-raw-logo.svg";
 import DCMKitLogo from "@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-raw-logo.svg";
 import ESSKitLogo from "@site/static/img/kits/ess/ess-kit-raw-logo.svg";

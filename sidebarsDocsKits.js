@@ -257,7 +257,8 @@ const sidebars = {
       collapsed: true,
       items: [
         'kits/cbam-kit/changelog',
-        'kits/cbam-kit/adoption-view/adoption-view'
+        'kits/cbam-kit/adoption-view/adoption-view',
+        'kits/cbam-kit/development-view/development-view'
       ]
     },
     {
