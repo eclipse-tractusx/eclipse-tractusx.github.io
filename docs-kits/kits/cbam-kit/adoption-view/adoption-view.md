@@ -47,7 +47,7 @@ CBAM obligations are triggered when goods are imported into the EU under a CN Co
 
 To collect the required supplier-specific data, the importer sends a structured data request to the supplier via Catena-X. The supplier responds with tailored emission reports covering the relevant installations and production methods (see Figure 1). Solid arrows illustrate the main focus of this KIT which is the data exchange between supplier and importer. Dashed arrows illustrate the downstream exchange of data between supplier and operator which is also possible with the presented data model. The dashed box indicates the focus of this KIT which excludes the exchange of data between importer and EU CBAM portal.
 
-![CbamCatena](../resources/cbam-process.svg)
+![CbamCatena](../resources/cbam-process.drawio.svg)
 
 Figure 1: The CBAM Data Exchange mechanism with Catena-X
 
