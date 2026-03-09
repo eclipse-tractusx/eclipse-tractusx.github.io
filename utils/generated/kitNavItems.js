@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: ce1bf194683060f43aa5978472f12a05bc4be56c1b62060d1b81c07e144f003d
+ * Content hash: c62e1a745cdb2dddd7fe5cefd611c3be9ff085fea523aba71b4724d7f0a59727
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -125,6 +125,12 @@ const kitsByCategory = {
       "id": "circularity",
       "name": "CIRCULARITY KIT",
       "route": "/docs-kits/kits/circularity-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "due-diligence",
+      "name": "DUE DILIGENCE CHECK KIT",
+      "route": "/docs-kits/next/kits/due-diligence-check-kit/adoption-view",
       "deprecated": false
     },
     {
