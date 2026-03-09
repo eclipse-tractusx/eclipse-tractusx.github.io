@@ -24,8 +24,6 @@ sidebar_position: 1
  ********************************************************************************/
 -->
 
-# Development View
-
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 <Kit3DLogo kitId="cbam" />
@@ -56,7 +54,7 @@ Each notification consists of a header and a body. The CBAM request and response
 
 ---
 
-# Data Exchange Flow
+## Data Exchange Flow
 
 The CBAM data exchange follows the Catena-X **Connectivity** and **Industry Core** principles for connector setup and data transfer initiation. For those details, refer to the respective KITs. The description below focuses exclusively on the CBAM-specific protocol: the structure and sequence of the two CBAM notifications.
 
@@ -70,7 +68,8 @@ sequenceDiagram
     Supplier->>Importer: CBAM Response Notification
 ```
 
-**Flow Description:** </br>
+**Flow Description:**
+
 1. **CBAM Request**: The Importer's CBAM App sends a request notification specifying the goods (by CN Code and business transaction), the reference period, and the data elements required in the response (`requestedElements`).
 2. **Processing**: The Supplier's CBAM App maps the request to real production data and calculates the embedded emissions per good, operator, installation, and production method.
 3. **CBAM Response**: The Supplier's CBAM App sends back a response notification containing the calculated emission data, scoped exactly to the transactions specified in the request.
@@ -80,33 +79,27 @@ Each notification carries a `header` (sender/receiver BPNLs, a unique `messageId
 
 ---
 
+## Data Schema
 
-# Data Schema
+### Semantic Models
 
-
-## Semantic Models
-
-### Model: CBAM
+#### Model: CBAM
 
 **Version**: 1.0.0
 
 **Namespace**: `urn:samm:io.catenax.cbam:1.0.0`
 
-**Description**: </br>
+**Description**:
 _Purpose_: The SAMM defines the CBAM data model used to exchange CBAM-relevant information between an importer (customer) and a supplier, capturing identifiers, goods, transaction context, installation/operator details, activity/emissions characteristics, attestations and carbon-price information.
 
 _Request vs Response separation_: The SAMM cleanly separates request and response concerns: the request model specifies what the importer may ask for (scope, requested elements, transaction context, identifiers), while the response model specifies what the supplier must provide (installation/operator identification, activityData/emissionsRecords, attestations, carbon-price details), enabling clear responsibilities and automated schema generation.
 
-</br>
-
 **Key Properties Request Datamodel**:
 
-</br>
-
-<details> 
+<details>
   <summary>CBAM REQUEST Data model - Object Structure Overview | click to expand</summary>
 
-```
+```bash
 Request
 ├── requestedElements[]  # e.g. "respondingCompanyIds", ...
 ├── companyIds
@@ -181,10 +174,8 @@ Request
 
 </details>
 
-<details> 
+<details>
   <summary>CBAM REQUEST Data model - Property Overview | click to expand</summary>
-
-</br>
 
 This table gives a business-level overview of all properties in the CBAM request data model. **M** = mandatory, **O** = optional. Object groups are separated by blank rows; `-` dashes indicate nesting depth. For full technical details see the corresponding datamodel file.
 
@@ -279,18 +270,14 @@ This table gives a business-level overview of all properties in the CBAM request
 | `-----` referencePeriodEnd | O | End date of the period in which relevant data was collected at the installation for the specified production method, serving as the reference period for emissions calculation; both start and end date must be in the same calendar year. | 2024-12-31T23:59:59Z |
 | `-----` netMass | M | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request produced in the stated installation by the stated production method only. | 60.0 |
 
-
-
 </details>
-
-</br>
 
 **Key Properties Response Datamodel**:
 
-<details> 
+<details>
   <summary>CBAM RESPONSE Data model - Object Structure only | click to expand</summary>
 
-```
+```bash
 Response
 ├── companyIds
 │   ├── requestingCompanyIds[]
@@ -392,14 +379,10 @@ Response
                     └── countryCode
 ```
 
-
-
 </details>
 
-<details> 
+<details>
   <summary>CBAM RESPONSE Data model - Property Overview | click to expand</summary>
-
-</br>
 
 This table gives a business-level overview of all properties in the CBAM response data model. **M** = mandatory, **O** = optional. Object groups are separated by blank rows; `-` dashes indicate nesting depth. For full technical details see the corresponding datamodel file.
 
@@ -527,19 +510,13 @@ This table gives a business-level overview of all properties in the CBAM respons
 | `-----` currency | O | The currency used for the declared amount to be paid, refering to official CBAM value list to ensure updated content. | CNY |
 | `-----` countryCode | O | Country code where the carbon price is paid, refering to official CBAM value list to ensure updated content. | CN |
 
-
-
-
 </details>
-
-
 
 ---
 
+### Sample Data
 
-## Sample Data
-
-### Sample Dataset: Request Payload
+#### Sample Dataset: Request Payload
 
 **Purpose**:
 Sent by an EU importer to a non-EU supplier to request CBAM embedded-emissions data for a specific good and reference period.
@@ -553,281 +530,290 @@ Sent by an EU importer to a non-EU supplier to request CBAM embedded-emissions d
   - Operator 2 (a secondary operator, not the supplier) — responsible for 1 installation in a different non-EU country; same scope-only structure
 - **`emissionsRecords` in the request** intentionally contain only `productionMethod` + `activityData` — they declare the production scope and mass attributed; all quantitative emissions fields are left for the response
 
-
 **Format**: JSON
-
-</br>
 
 **Example Request Payload JSON**:
 
-<details> 
-  <summary>CBAM Request Payload Example JSON structure | click to expand</summary>
+<details>
+  <summary>CBAM Request Notification Payload Example JSON structure | click to expand</summary>
+
+Due to the fact that in Catena-X there is a Notification Payload standardized in [CX-0151 Industry Core Basics](https://catenax-ev.github.io/docs/standards/CX-0151-IndustryCoreBasics#14-examples) the CBAM REQUEST payload will follow it and be embedded in a notification payload inside the `content` key, additionally it will have a `header` which contains important metadata for the applications to parse. This payload is just an example from how it could look like, since there is yet no standard available:
 
 ```json
 {
-  "requestedElements": [
-    "respondingCompanyIds",
-    "cnCode",
-    "productIds",
-    "productDescription",
-    "businessTransactionDetails",
-    "transactionReferenceDocumentLink",
-    "operatorIdentification",
-    "operatorNetMass",
-    "installationIdentification",
-    "installationNetMass",
-    "activityData",
-    "productionMethod",
-    "directEmissions",
-    "indirectEmissions",
-    "freeAllocationFactor",
-    "attestationOfConformance",
-    "carbonPricePaid"
-  ],
-  "companyIds": {
-    "requestingCompanyIds": [
-      {
-        "key": "Company-ID",
-        "value": "Customer-Corp-12-EU"
-      },
-      {
-        "key": "BPNL",
-        "value": "BPNL000000000DWF"
-      }
-    ],
-    "respondingCompanyIds": [
-      {
-        "key": "Supplier-ID",
-        "value": "Steel-Corp-12-IN"
-      },
-      {
-        "key": "BPNL",
-        "value": "BPNL000000000XYZ"
-      }
-    ]
+  "header" : {
+    "senderBpn" : "BPNL0000000002CD",
+    "senderFeedbackUrl": "https://domain.tld/path/to/api",
+    "context" : "CarbonBorderAdjustmentMechanism-CBAMAPI-Request:1.0.0",
+    "messageId" : "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
+    "receiverBpn" : "BPNL0000000001AB",
+    "sentDateTime" : "2025-05-04T00:00:00-07:00",
+    "version" : "0.1.0"
   },
-  "good": [
-    {
-      "cnCode": "72011000",
-      "productIds": [
+  "content": {
+    "requestedElements": [
+      "respondingCompanyIds",
+      "cnCode",
+      "productIds",
+      "productDescription",
+      "businessTransactionDetails",
+      "transactionReferenceDocumentLink",
+      "operatorIdentification",
+      "operatorNetMass",
+      "installationIdentification",
+      "installationNetMass",
+      "activityData",
+      "productionMethod",
+      "directEmissions",
+      "indirectEmissions",
+      "freeAllocationFactor",
+      "attestationOfConformance",
+      "carbonPricePaid"
+    ],
+    "companyIds": {
+      "requestingCompanyIds": [
         {
-          "key": "Customer_Part_ID",
-          "value": "ES45AB9-000-G3"
+          "key": "Company-ID",
+          "value": "Customer-Corp-12-EU"
         },
         {
-          "key": "Supplier_Part_ID",
-          "value": "SUP-STEEL-0001"
+          "key": "BPNL",
+          "value": "BPNL000000000DWF"
         }
       ],
-      "productDescription": "Hot-rolled steel coil, grade S235JR",
-      "businessTransactionDetails": {
-        "transactionReferenceDocuments": [
-          {
-            "key": "invoice",
-            "value": "INV-2026-12345"
-          },
-          {
-            "key": "purchaseOrder",
-            "value": "PO-2026-67890"
-          }
-        ],
-        "requestReferencePeriodStart": "2026-01-01T00:00:00Z",
-        "requestReferencePeriodEnd": "2026-12-31T23:59:59Z",
-        "requestNetMass": 100.0
-      },
-      "operator": [
+      "respondingCompanyIds": [
         {
-          "transactionReferenceDocumentLink": {
-            "refDocKey": "invoice",
-            "refDocId": "INV-2026-12345",
-            "refDocElement": {
-              "key": "batchNumber",
-              "value": "01"
-            }
-          },
-          "operatorIdentification": {
-            "operatorIsSupplier": true,
-            "operatorIds": {
-              "operatorBpnl": "BPNL000000000XYZ",
-              "operatorCbamId": "O3CI-OPR-123456",
-              "otherIds": [
-                {
-                  "key": "Operator-Tracking-ID",
-                  "value": "OP.IN-Steel_north_AG1"
-                }
-              ]
-            },
-            "operatorName": "Steel Example Corp.",
-            "operatorContactEmailAddress": "contact@steelexample.com",
-            "address": {
-              "country": "IN",
-              "city": "Mumbai",
-              "street": "Industrial Area, Zone A"
-            }
-          },
-          "operatorNetMass": 100.0,
-          "installation": [
-            {
-              "installationIdentification": {
-                "installationIds": {
-                  "installationCbamId": "O3CI-INST-654321",
-                  "otherIds": [
-                    {
-                      "key": "Installation-ID",
-                      "value": "INST-987654"
-                    }
-                  ]
-                },
-                "installationName": "Blast Furnace 1",
-                "address": {
-                  "countryCode": "IN",
-                  "city": "Mumbai",
-                  "longitude": "72.8197",
-                  "latitude": "19.0760",
-                  "typeOfCoordinates": "01",
-                  "plotOrParcelNumber": "IN12345A",
-                  "unLoCode": "IN BOM"
-                }
-              },
-              "installationNetMass": 40.0,
-              "emissionsRecords": [
-                {
-                  "productionMethod": {
-                    "methodId": "P24",
-                    "specificSteelMillId": "MILL-001",
-                    "additionalInformation": "Uses recycled scrap as input"
-                  },
-                  "activityData": {
-                    "referencePeriodStart": "2026-01-01T00:00:00Z",
-                    "referencePeriodEnd": "2026-12-31T23:59:59Z",
-                    "netMass": 40.0
-                  }
-                }
-              ]
-            },
-            {
-              "installationIdentification": {
-                "installationIds": {
-                  "installationCbamId": "O3CI-INST-654322",
-                  "otherIds": [
-                    {
-                      "key": "Installation-ID",
-                      "value": "INST-987655"
-                    }
-                  ]
-                },
-                "installationName": "Blast Furnace 2",
-                "address": {
-                  "countryCode": "IN",
-                  "city": "Delhi",
-                  "longitude": "77.2197",
-                  "latitude": "28.6139",
-                  "typeOfCoordinates": "02",
-                  "plotOrParcelNumber": "IN12345B",
-                  "unLoCode": "IN DEL"
-                }
-              },
-              "installationNetMass": 60.0,
-              "emissionsRecords": [
-                {
-                  "productionMethod": {
-                    "methodId": "P38",
-                    "specificSteelMillId": "MILL-002",
-                    "additionalInformation": "Electric arc furnace process"
-                  },
-                  "activityData": {
-                    "referencePeriodStart": "2026-01-01T00:00:00Z",
-                    "referencePeriodEnd": "2026-12-31T23:59:59Z",
-                    "netMass": 60.0
-                  }
-                }
-              ]
-            }
-          ]
+          "key": "Supplier-ID",
+          "value": "Steel-Corp-12-IN"
         },
         {
-          "transactionReferenceDocumentLink": {
-            "refDocKey": "purchaseOrder",
-            "refDocId": "PO-2026-67890",
-            "refDocElement": {
-              "key": "purchaseOrderLine",
-              "value": "10"
-            }
-          },
-          "operatorIdentification": {
-            "operatorIsSupplier": false,
-            "operatorIds": {
-              "operatorBpnl": "BPNL000000000ABC",
-              "operatorCbamId": "O3CI-OPR-789012",
-              "otherIds": [
-                {
-                  "key": "Operator-Tracking-ID",
-                  "value": "OP.DE-Steel_south_AG2"
-                }
-              ]
-            },
-            "operatorName": "Secondary Steel GmbH",
-            "operatorContactEmailAddress": "cbam@secondarysteel.de",
-            "address": {
-              "country": "DE",
-              "city": "Duisburg",
-              "street": "Werkstrasse 5"
-            }
-          },
-          "operatorNetMass": 50.0,
-          "installation": [
-            {
-              "installationIdentification": {
-                "installationIds": {
-                  "installationCbamId": "O3CI-INST-111111",
-                  "otherIds": [
-                    {
-                      "key": "Installation-ID",
-                      "value": "INST-111111"
-                    }
-                  ]
-                },
-                "installationName": "Rolling Mill 1 - Wuhan Plant",
-                "address": {
-                  "countryCode": "CN",
-                  "city": "Wuhan",
-                  "longitude": "114.3055",
-                  "latitude": "30.5928",
-                  "typeOfCoordinates": "01",
-                  "plotOrParcelNumber": "CN-WH-STEEL-007",
-                  "unLoCode": "CNWUH"
-                }
-              },
-              "installationNetMass": 50.0,
-              "emissionsRecords": [
-                {
-                  "productionMethod": {
-                    "methodId": "P12",
-                    "specificSteelMillId": "MILL-003",
-                    "additionalInformation": "Continuous casting with hot rolling"
-                  },
-                  "activityData": {
-                    "referencePeriodStart": "2026-01-01T00:00:00Z",
-                    "referencePeriodEnd": "2026-12-31T23:59:59Z",
-                    "netMass": 50.0
-                  }
-                }
-              ]
-            }
-          ]
+          "key": "BPNL",
+          "value": "BPNL000000000XYZ"
         }
       ]
-    }
-  ]
+    },
+    "good": [
+      {
+        "cnCode": "72011000",
+        "productIds": [
+          {
+            "key": "Customer_Part_ID",
+            "value": "ES45AB9-000-G3"
+          },
+          {
+            "key": "Supplier_Part_ID",
+            "value": "SUP-STEEL-0001"
+          }
+        ],
+        "productDescription": "Hot-rolled steel coil, grade S235JR",
+        "businessTransactionDetails": {
+          "transactionReferenceDocuments": [
+            {
+              "key": "invoice",
+              "value": "INV-2026-12345"
+            },
+            {
+              "key": "purchaseOrder",
+              "value": "PO-2026-67890"
+            }
+          ],
+          "requestReferencePeriodStart": "2026-01-01T00:00:00Z",
+          "requestReferencePeriodEnd": "2026-12-31T23:59:59Z",
+          "requestNetMass": 100.0
+        },
+        "operator": [
+          {
+            "transactionReferenceDocumentLink": {
+              "refDocKey": "invoice",
+              "refDocId": "INV-2026-12345",
+              "refDocElement": {
+                "key": "batchNumber",
+                "value": "01"
+              }
+            },
+            "operatorIdentification": {
+              "operatorIsSupplier": true,
+              "operatorIds": {
+                "operatorBpnl": "BPNL000000000XYZ",
+                "operatorCbamId": "O3CI-OPR-123456",
+                "otherIds": [
+                  {
+                    "key": "Operator-Tracking-ID",
+                    "value": "OP.IN-Steel_north_AG1"
+                  }
+                ]
+              },
+              "operatorName": "Steel Example Corp.",
+              "operatorContactEmailAddress": "contact@steelexample.com",
+              "address": {
+                "country": "IN",
+                "city": "Mumbai",
+                "street": "Industrial Area, Zone A"
+              }
+            },
+            "operatorNetMass": 100.0,
+            "installation": [
+              {
+                "installationIdentification": {
+                  "installationIds": {
+                    "installationCbamId": "O3CI-INST-654321",
+                    "otherIds": [
+                      {
+                        "key": "Installation-ID",
+                        "value": "INST-987654"
+                      }
+                    ]
+                  },
+                  "installationName": "Blast Furnace 1",
+                  "address": {
+                    "countryCode": "IN",
+                    "city": "Mumbai",
+                    "longitude": "72.8197",
+                    "latitude": "19.0760",
+                    "typeOfCoordinates": "01",
+                    "plotOrParcelNumber": "IN12345A",
+                    "unLoCode": "IN BOM"
+                  }
+                },
+                "installationNetMass": 40.0,
+                "emissionsRecords": [
+                  {
+                    "productionMethod": {
+                      "methodId": "P24",
+                      "specificSteelMillId": "MILL-001",
+                      "additionalInformation": "Uses recycled scrap as input"
+                    },
+                    "activityData": {
+                      "referencePeriodStart": "2026-01-01T00:00:00Z",
+                      "referencePeriodEnd": "2026-12-31T23:59:59Z",
+                      "netMass": 40.0
+                    }
+                  }
+                ]
+              },
+              {
+                "installationIdentification": {
+                  "installationIds": {
+                    "installationCbamId": "O3CI-INST-654322",
+                    "otherIds": [
+                      {
+                        "key": "Installation-ID",
+                        "value": "INST-987655"
+                      }
+                    ]
+                  },
+                  "installationName": "Blast Furnace 2",
+                  "address": {
+                    "countryCode": "IN",
+                    "city": "Delhi",
+                    "longitude": "77.2197",
+                    "latitude": "28.6139",
+                    "typeOfCoordinates": "02",
+                    "plotOrParcelNumber": "IN12345B",
+                    "unLoCode": "IN DEL"
+                  }
+                },
+                "installationNetMass": 60.0,
+                "emissionsRecords": [
+                  {
+                    "productionMethod": {
+                      "methodId": "P38",
+                      "specificSteelMillId": "MILL-002",
+                      "additionalInformation": "Electric arc furnace process"
+                    },
+                    "activityData": {
+                      "referencePeriodStart": "2026-01-01T00:00:00Z",
+                      "referencePeriodEnd": "2026-12-31T23:59:59Z",
+                      "netMass": 60.0
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "transactionReferenceDocumentLink": {
+              "refDocKey": "purchaseOrder",
+              "refDocId": "PO-2026-67890",
+              "refDocElement": {
+                "key": "purchaseOrderLine",
+                "value": "10"
+              }
+            },
+            "operatorIdentification": {
+              "operatorIsSupplier": false,
+              "operatorIds": {
+                "operatorBpnl": "BPNL000000000ABC",
+                "operatorCbamId": "O3CI-OPR-789012",
+                "otherIds": [
+                  {
+                    "key": "Operator-Tracking-ID",
+                    "value": "OP.DE-Steel_south_AG2"
+                  }
+                ]
+              },
+              "operatorName": "Secondary Steel GmbH",
+              "operatorContactEmailAddress": "cbam@secondarysteel.de",
+              "address": {
+                "country": "DE",
+                "city": "Duisburg",
+                "street": "Werkstrasse 5"
+              }
+            },
+            "operatorNetMass": 50.0,
+            "installation": [
+              {
+                "installationIdentification": {
+                  "installationIds": {
+                    "installationCbamId": "O3CI-INST-111111",
+                    "otherIds": [
+                      {
+                        "key": "Installation-ID",
+                        "value": "INST-111111"
+                      }
+                    ]
+                  },
+                  "installationName": "Rolling Mill 1 - Wuhan Plant",
+                  "address": {
+                    "countryCode": "CN",
+                    "city": "Wuhan",
+                    "longitude": "114.3055",
+                    "latitude": "30.5928",
+                    "typeOfCoordinates": "01",
+                    "plotOrParcelNumber": "CN-WH-STEEL-007",
+                    "unLoCode": "CNWUH"
+                  }
+                },
+                "installationNetMass": 50.0,
+                "emissionsRecords": [
+                  {
+                    "productionMethod": {
+                      "methodId": "P12",
+                      "specificSteelMillId": "MILL-003",
+                      "additionalInformation": "Continuous casting with hot rolling"
+                    },
+                    "activityData": {
+                      "referencePeriodStart": "2026-01-01T00:00:00Z",
+                      "referencePeriodEnd": "2026-12-31T23:59:59Z",
+                      "netMass": 50.0
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
+
 </details>
 
-</br>
+#### Sample Dataset: Response Payload
 
-### Sample Dataset: Response Payload
-
-**Purpose**: 
+**Purpose**:
 Returned by the supplier with all requested CBAM data filled in, completing the emissions picture for the importer's CBAM declaration.
 
 **Structure highlights:**
@@ -840,407 +826,417 @@ Returned by the supplier with all requested CBAM data filled in, completing the 
 
 **Format**: JSON
 
-</br>
-
 **Example Response Payload JSON**:
 
+<details>
+  <summary>CBAM Response Notification Payload Example JSON structure | click to expand</summary>
 
-<details> 
-  <summary>CBAM Response Payload Example JSON structure | click to expand</summary>
+Due to the fact that in Catena-X there is a Notification Payload standardized in [CX-0151 Industry Core Basics](https://catenax-ev.github.io/docs/standards/CX-0151-IndustryCoreBasics#14-examples) the CBAM RESPONSE payload will follow it and be embedded in a notification payload inside the `content` key, additionally it will have a `header` which contains important metadata for the applications to parse. This payload is just an example from how it could look like, since there is yet no standard available:
 
 ```json
 {
-  "companyIds": {
-    "requestingCompanyIds": [
-      {
-        "key": "Company-ID",
-        "value": "Customer-Corp-12-EU"
-      },
-      {
-        "key": "BPNL",
-        "value": "BPNL000000000DWF"
-      }
-    ],
-    "respondingCompanyIds": [
-      {
-        "key": "Supplier-ID",
-        "value": "Steel-Corp-12-IN"
-      },
-      {
-        "key": "BPNL",
-        "value": "BPNL000000000XYZ"
-      }
-    ]
+  "header" : {
+    "senderBpn" : "BPNL0000000001AB",
+    "senderFeedbackUrl": "https://domain.tld/path/to/api",
+    "context" : "CarbonBorderAdjustmentMechanism-CBAMAPI-Response:1.0.0",
+    "messageId" : "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
+    "receiverBpn" : "BPNL0000000002CD",
+    "sentDateTime" : "2025-05-04T00:00:00-07:00",
+    "version" : "0.1.0"
   },
-  "good": [
-    {
-      "cnCode": "72011000",
-      "productIds": [
+  "content": {
+    "companyIds": {
+      "requestingCompanyIds": [
         {
-          "key": "Customer_Part_ID",
-          "value": "ES45AB9-000-G3"
+          "key": "Company-ID",
+          "value": "Customer-Corp-12-EU"
         },
         {
-          "key": "Supplier_Part_ID",
-          "value": "SUP-STEEL-0001"
+          "key": "BPNL",
+          "value": "BPNL000000000DWF"
         }
       ],
-      "productDescription": "Hot-rolled steel coil, grade S235JR",
-      "businessTransactionDetails": {
-        "transactionReferenceDocuments": [
-          {
-            "key": "invoice",
-            "value": "INV-2026-12345"
-          },
-          {
-            "key": "purchaseOrder",
-            "value": "PO-2026-67890"
-          }
-        ],
-        "requestReferencePeriodStart": "2026-01-01T00:00:00Z",
-        "requestReferencePeriodEnd": "2026-12-31T23:59:59Z",
-        "requestNetMass": 100.0
-      },
-      "operator": [
+      "respondingCompanyIds": [
         {
-          "transactionReferenceDocumentLink": {
-            "refDocKey": "invoice",
-            "refDocId": "INV-2026-12345",
-            "refDocElement": {
-              "key": "batchNumber",
-              "value": "01"
-            }
-          },
-          "operatorIdentification": {
-            "operatorIsSupplier": true,
-            "operatorIds": {
-              "operatorBpnl": "BPNL000000000XYZ",
-              "operatorCbamId": "O3CI-OPR-123456",
-              "otherIds": [
-                {
-                  "key": "Operator-Tracking-ID",
-                  "value": "OP.IN-Steel_north_AG1"
-                }
-              ]
-            },
-            "operatorName": "Steel Example Corp.",
-            "operatorContactEmailAddress": "contact@steelexample.com",
-            "address": {
-              "country": "IN",
-              "city": "Mumbai",
-              "street": "Industrial Area, Zone A"
-            }
-          },
-          "operatorNetMass": 100.0,
-          "installation": [
-            {
-              "installationIdentification": {
-                "installationIds": {
-                  "installationCbamId": "O3CI-INST-654321",
-                  "otherIds": [
-                    {
-                      "key": "Installation-ID",
-                      "value": "INST-987654"
-                    }
-                  ]
-                },
-                "installationName": "Blast Furnace 1",
-                "address": {
-                  "countryCode": "IN",
-                  "city": "Mumbai",
-                  "longitude": "72.8197",
-                  "latitude": "19.0760",
-                  "typeOfCoordinates": "01",
-                  "plotOrParcelNumber": "IN12345A",
-                  "unLoCode": "IN BOM"
-                }
-              },
-              "installationNetMass": 40.0,
-              "emissionsRecords": [
-                {
-                  "productionMethod": {
-                    "methodId": "P24",
-                    "specificSteelMillId": "MILL-001",
-                    "additionalInformation": "Blast furnace route using coke and iron ore"
-                  },
-                  "activityData": {
-                    "referencePeriodStart": "2026-01-01T00:00:00Z",
-                    "referencePeriodEnd": "2026-12-31T23:59:59Z",
-                    "netMass": 25.0
-                  },
-                  "directEmissions": {
-                    "additionalInformation": "Calculated using official CBAM excel template",
-                    "specificEmbeddedEmissionsDirect": 2.05
-                  },
-                  "indirectEmissions": {
-                    "sourceOfEmissionFactor": "02",
-                    "emissionFactorTonnesCo2PerMwh": 0.65,
-                    "sourceOfEmissionFactorValue": "IEA 2022 Electricity Report",
-                    "specificEmbeddedEmissionsIndirect": 0.39,
-                    "electricityConsumedMwhPerTonnesGood": 0.6,
-                    "sourceOfElectricity": "SOE03"
-                  },
-                  "freeAllocationFactor": 0.6,
-                  "attestationOfConformance": {
-                    "attestationType": "CBAM third party verification",
-                    "attestationStandard": "Regulation (EU) 2025/2083",
-                    "standardName": "ISO 14064-3",
-                    "providerName": "Verification body A1",
-                    "providerId": "5493001KJTIIGC8Y1R12",
-                    "accreditationBodyName": "National Accreditation Institute ABX",
-                    "attestationOfConformanceId": "123e4567-e89b-12d3-a456-426614174000",
-                    "attestationOfConformanceLink": "https://exampleverifierA1.com/cbam/statement/A1-123e4567",
-                    "completedAt": "2027-03-15T10:00:00Z"
-                  },
-                  "carbonPricePaid": [
-                    {
-                      "keyOfInstrument": "01",
-                      "independentPersonId": {
-                        "key": "National CBAM Verifier Registry",
-                        "value": "CBAM_VER_ZGG0612"
-                      },
-                      "descriptionAndIndicationOfLegalAct": "Country ABC National Carbon Tax Act 2022",
-                      "amountOfCarbonPricePaid": 7500.0,
-                      "currency": "INR",
-                      "countryCode": "IN"
-                    }
-                  ]
-                },
-                {
-                  "productionMethod": {
-                    "methodId": "P37",
-                    "specificSteelMillId": "MILL-001",
-                    "additionalInformation": "Direct reduced iron (DRI) route using natural gas-based shaft furnace"
-                  },
-                  "activityData": {
-                    "referencePeriodStart": "2026-01-01T00:00:00Z",
-                    "referencePeriodEnd": "2026-12-31T23:59:59Z",
-                    "netMass": 15.0
-                  },
-                  "directEmissions": {
-                    "additionalInformation": "Calculated using official CBAM excel template",
-                    "specificEmbeddedEmissionsDirect": 1.42
-                  },
-                  "indirectEmissions": {
-                    "sourceOfEmissionFactor": "02",
-                    "emissionFactorTonnesCo2PerMwh": 0.65,
-                    "sourceOfEmissionFactorValue": "IEA 2022 Electricity Report",
-                    "specificEmbeddedEmissionsIndirect": 0.28,
-                    "electricityConsumedMwhPerTonnesGood": 0.43,
-                    "sourceOfElectricity": "SOE03"
-                  },
-                  "freeAllocationFactor": 0.55,
-                  "attestationOfConformance": {
-                    "attestationType": "CBAM third party verification",
-                    "attestationStandard": "Regulation (EU) 2025/2083",
-                    "standardName": "ISO 14064-3",
-                    "providerName": "Verification body A1",
-                    "providerId": "5493001KJTIIGC8Y1R12",
-                    "accreditationBodyName": "National Accreditation Institute ABX",
-                    "attestationOfConformanceId": "523e4567-e89b-12d3-a456-426614174004",
-                    "attestationOfConformanceLink": "https://exampleverifierA1.com/cbam/statement/A1-523e4567",
-                    "completedAt": "2027-03-15T10:00:00Z"
-                  },
-                  "carbonPricePaid": [
-                    {
-                      "keyOfInstrument": "01",
-                      "independentPersonId": {
-                        "key": "National CBAM Verifier Registry",
-                        "value": "CBAM_VER_ZGG0612"
-                      },
-                      "descriptionAndIndicationOfLegalAct": "Country ABC National Carbon Tax Act 2022",
-                      "amountOfCarbonPricePaid": 4500.0,
-                      "currency": "INR",
-                      "countryCode": "IN"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "installationIdentification": {
-                "installationIds": {
-                  "installationCbamId": "O3CI-INST-654322",
-                  "otherIds": [
-                    {
-                      "key": "Installation-ID",
-                      "value": "INST-987655"
-                    }
-                  ]
-                },
-                "installationName": "Blast Furnace 2",
-                "address": {
-                  "countryCode": "IN",
-                  "city": "Delhi",
-                  "longitude": "77.2197",
-                  "latitude": "28.6139",
-                  "typeOfCoordinates": "02",
-                  "plotOrParcelNumber": "IN12345B",
-                  "unLoCode": "IN DEL"
-                }
-              },
-              "installationNetMass": 60.0,
-              "emissionsRecords": [
-                {
-                  "productionMethod": {
-                    "methodId": "P38",
-                    "specificSteelMillId": "MILL-002",
-                    "additionalInformation": "Electric arc furnace process"
-                  },
-                  "activityData": {
-                    "referencePeriodStart": "2026-01-01T00:00:00Z",
-                    "referencePeriodEnd": "2026-12-31T23:59:59Z",
-                    "netMass": 60.0
-                  },
-                  "directEmissions": {
-                    "additionalInformation": "Calculated using official CBAM excel template",
-                    "specificEmbeddedEmissionsDirect": 2.2
-                  },
-                  "indirectEmissions": {
-                    "sourceOfEmissionFactor": "02",
-                    "emissionFactorTonnesCo2PerMwh": 0.7,
-                    "sourceOfEmissionFactorValue": "IEA 2023 Electricity Report",
-                    "specificEmbeddedEmissionsIndirect": 0.42,
-                    "electricityConsumedMwhPerTonnesGood": 0.6,
-                    "sourceOfElectricity": "SOE01"
-                  },
-                  "freeAllocationFactor": 0.5,
-                  "attestationOfConformance": {
-                    "attestationType": "CBAM third party verification",
-                    "attestationStandard": "Regulation (EU) 2025/2083",
-                    "standardName": "ISO 14064-3",
-                    "providerName": "Verification body B2",
-                    "providerId": "5493001KJTIIGC8Y1R13",
-                    "accreditationBodyName": "National Accreditation Institute XYZ",
-                    "attestationOfConformanceId": "223e4567-e89b-12d3-a456-426614174001",
-                    "attestationOfConformanceLink": "https://exampleverifierB2.com/cbam/statement/B2-223e4567",
-                    "completedAt": "2027-03-16T10:00:00Z"
-                  },
-                  "carbonPricePaid": [
-                    {
-                      "keyOfInstrument": "02",
-                      "independentPersonId": {
-                        "key": "LEI",
-                        "value": "5493001KJTIIGC8Y1R13"
-                      },
-                      "descriptionAndIndicationOfLegalAct": "Country XYZ Carbon Levy Act 2023",
-                      "amountOfCarbonPricePaid": 8000.0,
-                      "currency": "CNY",
-                      "countryCode": "CN"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "key": "Supplier-ID",
+          "value": "Steel-Corp-12-IN"
         },
         {
-          "transactionReferenceDocumentLink": {
-            "refDocKey": "purchaseOrder",
-            "refDocId": "PO-2026-67890",
-            "refDocElement": {
-              "key": "purchaseOrderLine",
-              "value": "10"
-            }
-          },
-          "operatorIdentification": {
-            "operatorIsSupplier": false,
-            "operatorIds": {
-              "operatorBpnl": "BPNL000000000ABC",
-              "operatorCbamId": "O3CI-OPR-789012",
-              "otherIds": [
-                {
-                  "key": "Operator-Tracking-ID",
-                  "value": "OP.DE-Steel_south_AG2"
-                }
-              ]
-            },
-            "operatorName": "Secondary Steel GmbH",
-            "operatorContactEmailAddress": "cbam@secondarysteel.de",
-            "address": {
-              "country": "DE",
-              "city": "Duisburg",
-              "street": "Werkstrasse 5"
-            }
-          },
-          "operatorNetMass": 50.0,
-          "installation": [
-            {
-              "installationIdentification": {
-                "installationIds": {
-                  "installationCbamId": "O3CI-INST-111111",
-                  "otherIds": [
-                    {
-                      "key": "Installation-ID",
-                      "value": "INST-111111"
-                    }
-                  ]
-                },
-                "installationName": "Rolling Mill 1 - Wuhan Plant",
-                "address": {
-                  "countryCode": "CN",
-                  "city": "Wuhan",
-                  "longitude": "114.3055",
-                  "latitude": "30.5928",
-                  "typeOfCoordinates": "01",
-                  "plotOrParcelNumber": "CN-WH-STEEL-007",
-                  "unLoCode": "CNWUH"
-                }
-              },
-              "installationNetMass": 50.0,
-              "emissionsRecords": [
-                {
-                  "productionMethod": {
-                    "methodId": "P12",
-                    "specificSteelMillId": "MILL-003",
-                    "additionalInformation": "Continuous casting with hot rolling"
-                  },
-                  "activityData": {
-                    "referencePeriodStart": "2026-01-01T00:00:00Z",
-                    "referencePeriodEnd": "2026-12-31T23:59:59Z",
-                    "netMass": 50.0
-                  },
-                  "directEmissions": {
-                    "additionalInformation": "Based on metered stack measurements",
-                    "specificEmbeddedEmissionsDirect": 1.75
-                  },
-                  "indirectEmissions": {
-                    "sourceOfEmissionFactor": "01",
-                    "emissionFactorTonnesCo2PerMwh": 0.38,
-                    "sourceOfEmissionFactorValue": "National grid emission factor 2023",
-                    "specificEmbeddedEmissionsIndirect": 0.23,
-                    "electricityConsumedMwhPerTonnesGood": 0.6,
-                    "sourceOfElectricity": "SOE02"
-                  },
-                  "freeAllocationFactor": 0.4,
-                  "attestationOfConformance": {
-                    "attestationType": "CBAM third party verification",
-                    "attestationStandard": "Regulation (EU) 2025/2083",
-                    "standardName": "ISO 14064-3",
-                    "providerName": "Verification body C3",
-                    "providerId": "5493001KJTIIGC8Y1R14",
-                    "accreditationBodyName": "DAkkS",
-                    "attestationOfConformanceId": "323e4567-e89b-12d3-a456-426614174002",
-                    "attestationOfConformanceLink": "https://exampleverifierC3.com/cbam/statement/C3-323e4567",
-                    "completedAt": "2027-04-10T09:00:00Z"
-                  },
-                  "carbonPricePaid": []
-                }
-              ]
-            }
-          ]
+          "key": "BPNL",
+          "value": "BPNL000000000XYZ"
         }
       ]
-    }
-  ]
+    },
+    "good": [
+      {
+        "cnCode": "72011000",
+        "productIds": [
+          {
+            "key": "Customer_Part_ID",
+            "value": "ES45AB9-000-G3"
+          },
+          {
+            "key": "Supplier_Part_ID",
+            "value": "SUP-STEEL-0001"
+          }
+        ],
+        "productDescription": "Hot-rolled steel coil, grade S235JR",
+        "businessTransactionDetails": {
+          "transactionReferenceDocuments": [
+            {
+              "key": "invoice",
+              "value": "INV-2026-12345"
+            },
+            {
+              "key": "purchaseOrder",
+              "value": "PO-2026-67890"
+            }
+          ],
+          "requestReferencePeriodStart": "2026-01-01T00:00:00Z",
+          "requestReferencePeriodEnd": "2026-12-31T23:59:59Z",
+          "requestNetMass": 100.0
+        },
+        "operator": [
+          {
+            "transactionReferenceDocumentLink": {
+              "refDocKey": "invoice",
+              "refDocId": "INV-2026-12345",
+              "refDocElement": {
+                "key": "batchNumber",
+                "value": "01"
+              }
+            },
+            "operatorIdentification": {
+              "operatorIsSupplier": true,
+              "operatorIds": {
+                "operatorBpnl": "BPNL000000000XYZ",
+                "operatorCbamId": "O3CI-OPR-123456",
+                "otherIds": [
+                  {
+                    "key": "Operator-Tracking-ID",
+                    "value": "OP.IN-Steel_north_AG1"
+                  }
+                ]
+              },
+              "operatorName": "Steel Example Corp.",
+              "operatorContactEmailAddress": "contact@steelexample.com",
+              "address": {
+                "country": "IN",
+                "city": "Mumbai",
+                "street": "Industrial Area, Zone A"
+              }
+            },
+            "operatorNetMass": 100.0,
+            "installation": [
+              {
+                "installationIdentification": {
+                  "installationIds": {
+                    "installationCbamId": "O3CI-INST-654321",
+                    "otherIds": [
+                      {
+                        "key": "Installation-ID",
+                        "value": "INST-987654"
+                      }
+                    ]
+                  },
+                  "installationName": "Blast Furnace 1",
+                  "address": {
+                    "countryCode": "IN",
+                    "city": "Mumbai",
+                    "longitude": "72.8197",
+                    "latitude": "19.0760",
+                    "typeOfCoordinates": "01",
+                    "plotOrParcelNumber": "IN12345A",
+                    "unLoCode": "IN BOM"
+                  }
+                },
+                "installationNetMass": 40.0,
+                "emissionsRecords": [
+                  {
+                    "productionMethod": {
+                      "methodId": "P24",
+                      "specificSteelMillId": "MILL-001",
+                      "additionalInformation": "Blast furnace route using coke and iron ore"
+                    },
+                    "activityData": {
+                      "referencePeriodStart": "2026-01-01T00:00:00Z",
+                      "referencePeriodEnd": "2026-12-31T23:59:59Z",
+                      "netMass": 25.0
+                    },
+                    "directEmissions": {
+                      "additionalInformation": "Calculated using official CBAM excel template",
+                      "specificEmbeddedEmissionsDirect": 2.05
+                    },
+                    "indirectEmissions": {
+                      "sourceOfEmissionFactor": "02",
+                      "emissionFactorTonnesCo2PerMwh": 0.65,
+                      "sourceOfEmissionFactorValue": "IEA 2022 Electricity Report",
+                      "specificEmbeddedEmissionsIndirect": 0.39,
+                      "electricityConsumedMwhPerTonnesGood": 0.6,
+                      "sourceOfElectricity": "SOE03"
+                    },
+                    "freeAllocationFactor": 0.6,
+                    "attestationOfConformance": {
+                      "attestationType": "CBAM third party verification",
+                      "attestationStandard": "Regulation (EU) 2025/2083",
+                      "standardName": "ISO 14064-3",
+                      "providerName": "Verification body A1",
+                      "providerId": "5493001KJTIIGC8Y1R12",
+                      "accreditationBodyName": "National Accreditation Institute ABX",
+                      "attestationOfConformanceId": "123e4567-e89b-12d3-a456-426614174000",
+                      "attestationOfConformanceLink": "https://exampleverifierA1.com/cbam/statement/A1-123e4567",
+                      "completedAt": "2027-03-15T10:00:00Z"
+                    },
+                    "carbonPricePaid": [
+                      {
+                        "keyOfInstrument": "01",
+                        "independentPersonId": {
+                          "key": "National CBAM Verifier Registry",
+                          "value": "CBAM_VER_ZGG0612"
+                        },
+                        "descriptionAndIndicationOfLegalAct": "Country ABC National Carbon Tax Act 2022",
+                        "amountOfCarbonPricePaid": 7500.0,
+                        "currency": "INR",
+                        "countryCode": "IN"
+                      }
+                    ]
+                  },
+                  {
+                    "productionMethod": {
+                      "methodId": "P37",
+                      "specificSteelMillId": "MILL-001",
+                      "additionalInformation": "Direct reduced iron (DRI) route using natural gas-based shaft furnace"
+                    },
+                    "activityData": {
+                      "referencePeriodStart": "2026-01-01T00:00:00Z",
+                      "referencePeriodEnd": "2026-12-31T23:59:59Z",
+                      "netMass": 15.0
+                    },
+                    "directEmissions": {
+                      "additionalInformation": "Calculated using official CBAM excel template",
+                      "specificEmbeddedEmissionsDirect": 1.42
+                    },
+                    "indirectEmissions": {
+                      "sourceOfEmissionFactor": "02",
+                      "emissionFactorTonnesCo2PerMwh": 0.65,
+                      "sourceOfEmissionFactorValue": "IEA 2022 Electricity Report",
+                      "specificEmbeddedEmissionsIndirect": 0.28,
+                      "electricityConsumedMwhPerTonnesGood": 0.43,
+                      "sourceOfElectricity": "SOE03"
+                    },
+                    "freeAllocationFactor": 0.55,
+                    "attestationOfConformance": {
+                      "attestationType": "CBAM third party verification",
+                      "attestationStandard": "Regulation (EU) 2025/2083",
+                      "standardName": "ISO 14064-3",
+                      "providerName": "Verification body A1",
+                      "providerId": "5493001KJTIIGC8Y1R12",
+                      "accreditationBodyName": "National Accreditation Institute ABX",
+                      "attestationOfConformanceId": "523e4567-e89b-12d3-a456-426614174004",
+                      "attestationOfConformanceLink": "https://exampleverifierA1.com/cbam/statement/A1-523e4567",
+                      "completedAt": "2027-03-15T10:00:00Z"
+                    },
+                    "carbonPricePaid": [
+                      {
+                        "keyOfInstrument": "01",
+                        "independentPersonId": {
+                          "key": "National CBAM Verifier Registry",
+                          "value": "CBAM_VER_ZGG0612"
+                        },
+                        "descriptionAndIndicationOfLegalAct": "Country ABC National Carbon Tax Act 2022",
+                        "amountOfCarbonPricePaid": 4500.0,
+                        "currency": "INR",
+                        "countryCode": "IN"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "installationIdentification": {
+                  "installationIds": {
+                    "installationCbamId": "O3CI-INST-654322",
+                    "otherIds": [
+                      {
+                        "key": "Installation-ID",
+                        "value": "INST-987655"
+                      }
+                    ]
+                  },
+                  "installationName": "Blast Furnace 2",
+                  "address": {
+                    "countryCode": "IN",
+                    "city": "Delhi",
+                    "longitude": "77.2197",
+                    "latitude": "28.6139",
+                    "typeOfCoordinates": "02",
+                    "plotOrParcelNumber": "IN12345B",
+                    "unLoCode": "IN DEL"
+                  }
+                },
+                "installationNetMass": 60.0,
+                "emissionsRecords": [
+                  {
+                    "productionMethod": {
+                      "methodId": "P38",
+                      "specificSteelMillId": "MILL-002",
+                      "additionalInformation": "Electric arc furnace process"
+                    },
+                    "activityData": {
+                      "referencePeriodStart": "2026-01-01T00:00:00Z",
+                      "referencePeriodEnd": "2026-12-31T23:59:59Z",
+                      "netMass": 60.0
+                    },
+                    "directEmissions": {
+                      "additionalInformation": "Calculated using official CBAM excel template",
+                      "specificEmbeddedEmissionsDirect": 2.2
+                    },
+                    "indirectEmissions": {
+                      "sourceOfEmissionFactor": "02",
+                      "emissionFactorTonnesCo2PerMwh": 0.7,
+                      "sourceOfEmissionFactorValue": "IEA 2023 Electricity Report",
+                      "specificEmbeddedEmissionsIndirect": 0.42,
+                      "electricityConsumedMwhPerTonnesGood": 0.6,
+                      "sourceOfElectricity": "SOE01"
+                    },
+                    "freeAllocationFactor": 0.5,
+                    "attestationOfConformance": {
+                      "attestationType": "CBAM third party verification",
+                      "attestationStandard": "Regulation (EU) 2025/2083",
+                      "standardName": "ISO 14064-3",
+                      "providerName": "Verification body B2",
+                      "providerId": "5493001KJTIIGC8Y1R13",
+                      "accreditationBodyName": "National Accreditation Institute XYZ",
+                      "attestationOfConformanceId": "223e4567-e89b-12d3-a456-426614174001",
+                      "attestationOfConformanceLink": "https://exampleverifierB2.com/cbam/statement/B2-223e4567",
+                      "completedAt": "2027-03-16T10:00:00Z"
+                    },
+                    "carbonPricePaid": [
+                      {
+                        "keyOfInstrument": "02",
+                        "independentPersonId": {
+                          "key": "LEI",
+                          "value": "5493001KJTIIGC8Y1R13"
+                        },
+                        "descriptionAndIndicationOfLegalAct": "Country XYZ Carbon Levy Act 2023",
+                        "amountOfCarbonPricePaid": 8000.0,
+                        "currency": "CNY",
+                        "countryCode": "CN"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "transactionReferenceDocumentLink": {
+              "refDocKey": "purchaseOrder",
+              "refDocId": "PO-2026-67890",
+              "refDocElement": {
+                "key": "purchaseOrderLine",
+                "value": "10"
+              }
+            },
+            "operatorIdentification": {
+              "operatorIsSupplier": false,
+              "operatorIds": {
+                "operatorBpnl": "BPNL000000000ABC",
+                "operatorCbamId": "O3CI-OPR-789012",
+                "otherIds": [
+                  {
+                    "key": "Operator-Tracking-ID",
+                    "value": "OP.DE-Steel_south_AG2"
+                  }
+                ]
+              },
+              "operatorName": "Secondary Steel GmbH",
+              "operatorContactEmailAddress": "cbam@secondarysteel.de",
+              "address": {
+                "country": "DE",
+                "city": "Duisburg",
+                "street": "Werkstrasse 5"
+              }
+            },
+            "operatorNetMass": 50.0,
+            "installation": [
+              {
+                "installationIdentification": {
+                  "installationIds": {
+                    "installationCbamId": "O3CI-INST-111111",
+                    "otherIds": [
+                      {
+                        "key": "Installation-ID",
+                        "value": "INST-111111"
+                      }
+                    ]
+                  },
+                  "installationName": "Rolling Mill 1 - Wuhan Plant",
+                  "address": {
+                    "countryCode": "CN",
+                    "city": "Wuhan",
+                    "longitude": "114.3055",
+                    "latitude": "30.5928",
+                    "typeOfCoordinates": "01",
+                    "plotOrParcelNumber": "CN-WH-STEEL-007",
+                    "unLoCode": "CNWUH"
+                  }
+                },
+                "installationNetMass": 50.0,
+                "emissionsRecords": [
+                  {
+                    "productionMethod": {
+                      "methodId": "P12",
+                      "specificSteelMillId": "MILL-003",
+                      "additionalInformation": "Continuous casting with hot rolling"
+                    },
+                    "activityData": {
+                      "referencePeriodStart": "2026-01-01T00:00:00Z",
+                      "referencePeriodEnd": "2026-12-31T23:59:59Z",
+                      "netMass": 50.0
+                    },
+                    "directEmissions": {
+                      "additionalInformation": "Based on metered stack measurements",
+                      "specificEmbeddedEmissionsDirect": 1.75
+                    },
+                    "indirectEmissions": {
+                      "sourceOfEmissionFactor": "01",
+                      "emissionFactorTonnesCo2PerMwh": 0.38,
+                      "sourceOfEmissionFactorValue": "National grid emission factor 2023",
+                      "specificEmbeddedEmissionsIndirect": 0.23,
+                      "electricityConsumedMwhPerTonnesGood": 0.6,
+                      "sourceOfElectricity": "SOE02"
+                    },
+                    "freeAllocationFactor": 0.4,
+                    "attestationOfConformance": {
+                      "attestationType": "CBAM third party verification",
+                      "attestationStandard": "Regulation (EU) 2025/2083",
+                      "standardName": "ISO 14064-3",
+                      "providerName": "Verification body C3",
+                      "providerId": "5493001KJTIIGC8Y1R14",
+                      "accreditationBodyName": "DAkkS",
+                      "attestationOfConformanceId": "323e4567-e89b-12d3-a456-426614174002",
+                      "attestationOfConformanceLink": "https://exampleverifierC3.com/cbam/statement/C3-323e4567",
+                      "completedAt": "2027-04-10T09:00:00Z"
+                    },
+                    "carbonPricePaid": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
+
 </details>
 
 ---
 
-
-# NOTICE
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
