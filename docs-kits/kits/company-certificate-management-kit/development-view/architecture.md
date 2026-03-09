@@ -52,8 +52,10 @@ In the PUSH mechanism, the Certificate Provider initiates the transfer of a cert
 1. Certificate Consumer exposes a CCMAPI notification API asset (type `cx-taxo:CCMAPI`) in its EDC catalog.
 2. Certificate Provider negotiates a contract for this CCMAPI asset in the Consumer's EDC and obtains an EDR.
 3. Using the EDR, the Certificate Provider calls `/companycertificate/push` with a `CertificatePush` message:
-  - The header identifies sender, receiver, context, message and feedback URL.
-  - The content contains the `BusinessPartnerCertificate` payload (as defined by the semantic model `urn:samm:io.catenax.business_partner_certificate:3.1.0`).
+
+    - The header identifies sender, receiver, context, message and feedback URL.
+    - The content contains the `BusinessPartnerCertificate` payload (as defined by the semantic model `urn:samm:io.catenax.business_partner_certificate:3.1.0`).
+
 4. Consumer processes the certificate and may send feedback via `/companycertificate/status`.
 
 ### Key Points
@@ -76,14 +78,18 @@ There are two complementary parts:
 ### High-Level Flow
 
 1. Provider creates certificate assets in its EDC catalog:
-  - Subject `cx-taxo:CompanyCertificate` and type `cx-taxo:Submodel`.
-  - Semantic ID `urn:samm:io.catenax.business_partner_certificate:3.1.0`.
-  - Properties such as `certificateType` and `enclosedSites` set according to the model.
+
+    - Subject `cx-taxo:CompanyCertificate` and type `cx-taxo:Submodel`.
+    - Semantic ID `urn:samm:io.catenax.business_partner_certificate:3.1.0`.
+    - Properties such as `certificateType` and `enclosedSites` set according to the model.
+
 2. Consumer optionally sends a request via `/companycertificate/request` to indicate which certificate is desired.
 3. Provider processes the request and returns either:
-  - `IN_PROGRESS` – processing continues asynchronously.
-  - `COMPLETED` – including the `documentId` (EDC asset ID of the certificate).
-  - `REJECTED` – including one or more errors.
+
+    - `IN_PROGRESS` – processing continues asynchronously.
+    - `COMPLETED` – including the `documentId` (EDC asset ID of the certificate).
+    - `REJECTED` – including one or more errors.
+
 4. For long-running processing, the Consumer polls the same `/companycertificate/request` endpoint again (with a new message but the same business parameters) until a `COMPLETED` or `REJECTED` response is returned. The Provider never initiates a callback for request state changes.
 5. After `COMPLETED`, Consumer uses the `documentId` to search the Provider's EDC catalog and retrieves the certificate via the EDC data plane.
 6. Consumer may send feedback about reception, acceptance or rejection via `/companycertificate/status`.
@@ -201,7 +207,7 @@ Used in messages where the receiver is expected to send feedback (e.g. push, ava
 
 **Description**: Certificate Consumer requests a specific certificate from the Certificate Provider.
 
-**Request body – CertificateRequest**
+**Request body – CertificateRequest:**
 
 - `header` (Header)
   - `context` must be `CompanyCertificateManagement-CCMAPI-Request:1.0.0`.
@@ -210,7 +216,7 @@ Used in messages where the receiver is expected to send feedback (e.g. push, ava
   - `certificateType` (string, required) – Certificate type code (e.g. `iso9001`, `iatf16949`) as defined in the standard.
   - `locationBpns` (array of BpnLocation, optional) – BPNS/BPNA values for sites/addresses for which the certificate is requested.
 
-**Responses**
+**Responses:**
 
 - `202` – request accepted and in processing.
   - Body: `CertificateRequestInProgressResponse`:
@@ -229,7 +235,7 @@ Used in messages where the receiver is expected to send feedback (e.g. push, ava
 
 **Description**: Certificate Provider sends a certificate directly to the Certificate Consumer.
 
-**Request body – CertificatePush**
+**Request body – CertificatePush:**
 
 - `header` (FeedbackUrlHeader)
   - `context` must be `CompanyCertificateManagement-CCMAPI-Push:1.0.0`.
@@ -238,7 +244,7 @@ Used in messages where the receiver is expected to send feedback (e.g. push, ava
   - `BusinessPartnerCertificate` payload as defined by the JSON Schema generated from the semantic model `io.catenax.business_partner_certificate:3.1.0`.
   - Includes `documentID` (ID of the certificate document itself) and all certificate details.
 
-**Responses**
+**Responses:**
 
 - `200` – notification processed successfully.
 - `500` – internal server error.
@@ -249,7 +255,7 @@ Used in messages where the receiver is expected to send feedback (e.g. push, ava
 
 **Description**: Certificate Consumer sends feedback on the status of a consumed certificate to the Certificate Provider, regardless of whether the certificate was pushed or pulled.
 
-**Request body – CertificateStatus**
+**Request body – CertificateStatus:**
 
 - `header` (FeedbackUrlHeader)
   - `context` must be `CompanyCertificateManagement-CCMAPI-Status:1.0.0`.
@@ -262,7 +268,7 @@ Used in messages where the receiver is expected to send feedback (e.g. push, ava
   - `certificateErrors` (array of Error, optional) – General reasons for rejection of the certificate.
   - `locationErrors` (array of LocationErrorCollection, optional) – Detailed reasons per location.
 
-**Responses**
+**Responses:**
 
 - `200` – status updated successfully.
 - `500` – internal server error.
@@ -273,7 +279,7 @@ Used in messages where the receiver is expected to send feedback (e.g. push, ava
 
 **Description**: Certificate Provider notifies the Certificate Consumer that a certificate is available in the Provider's EDC catalog.
 
-**Request body – CertificateAvailable**
+**Request body – CertificateAvailable:**
 
 - `header` (FeedbackUrlHeader)
   - `context` must be `CompanyCertificateManagement-CCMAPI-Available:1.0.0`.
@@ -283,7 +289,7 @@ Used in messages where the receiver is expected to send feedback (e.g. push, ava
   - `certificateType` (string, required) – Certificate type (e.g. `iso9001`).
   - `locationBpns` (array of BpnLocation, optional) – Locations for which this certificate is relevant.
 
-**Responses**
+**Responses:**
 
 - `200` – notification processed successfully.
 - `500` – internal server error.

@@ -192,7 +192,7 @@ when the certificate transfer was accepted by the certificate consumer organizat
 
 The use cases associated to this process are:
 
-**TBD… the list will be added after the use case model**
+**TBD… the list will be added after the use case model:**
 
 ### Certificate Request from Supplier
 
@@ -203,7 +203,7 @@ certificate requester, and the certificate data are transferred to the internal 
 
 The use cases associated to this process are:
 
-**TBD… the list will be added after the use case model was reviewed**
+**TBD… the list will be added after the use case model was reviewed:**
 
 ### Use Case Model
 
@@ -215,7 +215,7 @@ The actors are certificate owner, certificate presenter and certificate requeste
 
 ##### Certificate Issuer Use Cases
 
-**CI_1: Issue certificate**
+**CI_1: Issue certificate:**
 
 The use case starts after an organization has passed an audit. The use case includes all the steps required to transfer a certificate to the certificate owner organization and to receive the confirmation that the certificate was received
 and accepted by the certificate owner.
@@ -228,7 +228,7 @@ The support of this use case by the standard and CCM applications is optional.
 
 ##### Certificate Provider Use Cases
 
-**CP_1: Accept issued certificate**
+**CP_1: Accept issued certificate:**
 
 The use case starts when the certificate owner is notified that a new certificate instance is received from the certificate issuer organization. The certificate owner verifies the certificate data and notifies the certificate issuer
 organization that he has received the certificate, and the certificate is accepted. If the certificate contains errors, then the certificate owner rejects the certificate and requests a correct certificate from the certificate issuer.
@@ -239,7 +239,7 @@ The use case ends when the certificate issuer has received an acceptance notific
 The support of this use case by the standard and CCM applications is optional.
 :::
 
-**CP_2: Create entry for certificate**
+**CP_2: Create entry for certificate:**
 
 The use case starts when new or existing certificates are available only in *.pdf format. The certificate owner enters all the data related to the existing certificate in the CCM tool and stores the new entry.
 
@@ -247,7 +247,7 @@ The use case starts when new or existing certificates are available only in *.pd
 The support of this use case by the standard and CCM applications is mandatory.
 :::
 
-**CP_3: Notify certificate presenter**
+**CP_3: Notify certificate presenter:**
 
 The use case starts after a new certificate was stored in the CCM tool. The certificate owner notifies the employees working in the certificate presenter's role that a new certificate instance is available.
 
@@ -255,7 +255,7 @@ The use case starts after a new certificate was stored in the CCM tool. The cert
 The support of this use case by the standard and the CCM applications is optional.
 :::
 
-**CP_4: Configure customer access**
+**CP_4: Configure customer access:**
 
 The use case starts after the certificate presenter was notified that a new certificate instance is available. The certificate presenters configure external visibility and access to the certificate by entering unique identifiers (e.g. BPNL)
 representing the legal entity of their customers or business partners for each certificate type. If the certificate is publicly available, then no entries are required. If the certificate needs to be exchanged according to a bilateral contract,
@@ -267,7 +267,7 @@ After the use case ends the new certificate can be provided automatically (witho
 The support of this use case by the standard and the CCM applications is mandatory.
 :::
 
-**CP_5: Manage certificate lifecycle**
+**CP_5: Manage certificate lifecycle:**
 
 The use case starts when the certificate owner or the certificate presenter want to analyze the current status of the owned certificate and to derive required certificate management actions.
 
@@ -288,7 +288,7 @@ The information displayed should allow a certificate presenter to analyze and pe
 - (Optional) Handling of certificate request received from certificate receivers (e.g. customers)
 - The support of this use case by the standard and the CCM applications is mandatory.
 
-**CP_6: Provide certificate to customer**
+**CP_6: Provide certificate to customer:**
 
 The use case can start after customer access is configured. The certificate presenter selects for each certificate the certificate consumers legal entity to which the certificate entry should be transferred.
 
@@ -305,7 +305,7 @@ The next use case in the process is cc_2 performed by the certificate receiver.
 The support of this use case by the standard and the CCM applications is mandatory.
 :::
 
-**CP_7: Receive a certificate request**
+**CP_7: Receive a certificate request:**
 
 The use case starts when a certificate provider organization has received a request for a new type of certificate or a new instance of a certificate that was not delivered. The certificate
 receiver has specified the requested certificate instance by providing the attributes that allows the identification of the missing certificate instance (e.g. type, site,…)
@@ -319,7 +319,7 @@ The use case ends when the certificate presenter has : a) presented the missing 
 The support of this use case by the standard and CCM applications is optional.
 :::
 
-**CP_8: Request a certificate from certificate owner**
+**CP_8: Request a certificate from certificate owner:**
 
 The use case starts after the use case “CP_7_ Receive a certificate request” has ended due to the fact that internal activities are required before a requested certificate can be presented
 to the certificate consumer organization.
@@ -333,11 +333,11 @@ The use case ends if a) the certificate is transferred to the certificate consum
 
 :::note
 The support of this use case by the standard and the CCM applications is optional.
-:::note
+:::
 
 ##### Certificate Consumer Use Cases
 
-**CC_1 Configure certificate provider access**
+**CC_1 Configure certificate provider access:**
 
 The use case starts when a certificate consumer organisation wants to receive certificate presentations from another organization (e.g. a supplier).
 
@@ -350,7 +350,7 @@ After the use case ends a new certificate can be presented automatically (withou
 The support of this use case by the standard and the CCM applications is mandatory.
 :::
 
-**CC_2: Verify and accept a new certificate**
+**CC_2: Verify and accept a new certificate:**
 
 The use case starts when a new certificate or a notification that a new certificate is available has been received by a certificate consuming organization.
 
@@ -369,7 +369,7 @@ The use case ends after the verified certificate data are available in the inter
 The support of this use case by the standard and the CCM applications is mandatory.
 :::
 
-**CC_3: Request a certificate from supplier**
+**CC_3: Request a certificate from supplier:**
 
 The use case starts when the certificate receiver discovers or is notified that a supplier certificate is missing or no longer valid.
 
@@ -391,10 +391,12 @@ TBD ... Proposal for a diagram that should be added to the Architecture section 
 ## Trust Levels
 
 :::info
+
 - **HINT**: In the current Data Model (Rel. 26.03) there are still 4 trust levels (none, low, high, trusted).
 - New Trust Level Concept will be released with 26.XX.
 - Aim was to reduce complexity from 4 to 3 Trust Levels.
 - Feedback is always welcome.
+
 :::
 
 ### Trust Levels Overview
