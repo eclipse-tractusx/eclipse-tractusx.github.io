@@ -265,12 +265,13 @@ const sidebars = {
       type: 'category',
       label: 'Circularity KIT',
       link: {
-          type: 'doc',
-          id: 'kits/circularity-kit/adoption-view'
+         type: 'doc',
+         id: 'kits/circularity-kit/adoption-view'
       },
       items: [
-          'kits/circularity-kit/changelog',
-          'kits/circularity-kit/adoption-view',
+         'kits/circularity-kit/changelog',
+         'kits/circularity-kit/adoption-view',
+         'kits/circularity-kit/glossary',
       ]
     },
     {
