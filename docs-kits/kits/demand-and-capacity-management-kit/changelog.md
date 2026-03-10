@@ -12,6 +12,16 @@ toc_max_heading_level: 2
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.5.0] - 2026-03-03
+
+### Added
+
+- Added specific cross-company scenerios in [Core Business Process](./adoption-view/use-case/business-process.md)
+
+### Changed
+
+- Various small improvements of wordings and minor corrections
+
 ## [1.4.0] - 2025-09-29
 
 ### Added
