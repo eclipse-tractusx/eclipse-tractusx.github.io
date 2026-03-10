@@ -116,6 +116,7 @@ const config = {
         path: 'docs-kits',
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
+        exclude: ['**/kit-template/**'],
       },
     ],
     // -- documentation-kits --
