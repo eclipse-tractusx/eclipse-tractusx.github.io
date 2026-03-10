@@ -26,7 +26,7 @@ For two reasons, regular update of this KIT will likely be required:
 
 [CBAM Guidance and Legislation - Taxation and Customs Union](<https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-guidance-and-legislation_en>)
 
-## Mission and Vision
+### Mission and Vision
 
 The Eclipse Tractus-X CBAM KIT provides a standardized, interoperable model for exchanging CBAM-relevant data, across global supply chains. It enables companies to:
 
@@ -37,7 +37,7 @@ The Eclipse Tractus-X CBAM KIT provides a standardized, interoperable model for 
 - Facilitate recognition of foreign carbon pricing schemes, pending regulation.
 - Enable CBAM related cost analyses, facilate strategic sourcing decisions
 
-## Catena-X relevant CBAM Work flow
+### Catena-X relevant CBAM Work flow
 
 CBAM obligations are triggered when goods are imported into the EU under a CN Code subject to CBAM reporting and originating from specified non-EU countries. Only importers whose annual import volumes exceed a defined mass-based threshold are required to submit declarations to the official EU CBAM portal (currently supporting XML uploads or manual entry). Each declaration must for example include details on:
 
@@ -51,7 +51,7 @@ To collect the required supplier-specific data, the importer sends a structured 
 
 Figure 1: The CBAM Data Exchange mechanism with Catena-X
 
-## CBAM Personas
+### CBAM Personas
 
 <details>
   <summary>CBAM Personas | click to expand</summary>
@@ -72,7 +72,7 @@ Here is a tabular overview of the key roles in the CBAM process:
 
 ## Business Process of CBAM Data Exchange in Catena-X
 
-## CBAM Data Exchange Flow
+### CBAM Data Exchange Flow
 
 This diagram shows the high-level flow of a CBAM data exchange between an **importer** (i.e. customer, typically EU-based) and a **supplier** (i.e. non-EU producer or distributer) using the Catena-X **notification Standard**. Each exchange entails records for one or multiple CBAM goods tied to specific business transactions. This results in a tailored emissions response scoped exactly to the specified transactions, making each exchanged response unique. Both business partners require a CBAM app to generate and receive data via standardized Catena-X notifications. CBAM apps are commercially available applications. The specification of the two current data models (request and response) is partly based on assumptions due to insufficiently specified regulation texts (data models are subject to change once official EU CBAM regulation is updated).
 
@@ -91,7 +91,7 @@ sequenceDiagram
     Note over Importer: Importer aggregates data<br/>for CBAM declaration
 ```
 
-## Principles of Request and Response
+### Principles of Request and Response
 
 <details>
   <summary>Principles of Request and Response | click to expand</summary>
@@ -110,7 +110,7 @@ sequenceDiagram
 
 ## CBAM Data models: Request & Response
 
-## CBAM Request Data Model
+### CBAM Request Data Model
 
 This table gives a business-level overview of major objects and properties contained in the CBAM request data model. For full technical details see the corresponding datamodel file.
 
@@ -118,7 +118,7 @@ This table gives a business-level overview of major objects and properties conta
 Request
 ├── requestedElements          # scope: which sections to include in response
 ├── companyIds                 # importer + supplier identifiers
-└── good[]                     # one entry per CBAM-declared good
+└── good[]                     # one entry per CBAM-declared good and business transaction
     ├── cnCode / productIds / productDescription
     ├── businessTransactionDetails
     │   └── referencePeriod / requestNetMass
@@ -133,7 +133,7 @@ Request
                 └── activityData / netMass
 ```
 
-## CBAM Response Data Model
+### CBAM Response Data Model
 
 This table gives a business-level overview of major objects and properties contained in the CBAM response data model. For full technical details see the corresponding datamodel file.
 
@@ -167,17 +167,17 @@ Response
 
 The CBAM KIT supports two distinct data exchange phases, both implemented as Catena-X notifications: the importer sends a request notification (with the CBAM request data model in the notification body) and the supplier responds with a corresponding response notification (with the CBAM response data model in the body). Partner identification is handled via the Catena-X notification header, not within the data models themselves. The **requestedElements** property in the request allows the importer to scope each exchange precisely — requesting only the data blocks needed for the given phase.
 
-## Ongoing Data Collection During the Year of Import, Forecasting and Certificate Purchase
+### Ongoing Data Collection During the Year of Import, Forecasting and Certificate Purchase
 
 Throughout the import year, the importer collects shipment-specific data to support forecasting, to obtain the legally required amount of certificates, and to build a traceable record for the final annual declaration. Two types of exchanges are relevant here:
 
 **Supplier and installation identification:** When a new supplier is onboarded or an existing one needs to be verified, the importer sends a request scoped to identity and installation data — using **requestedElements** to limit the response to operator and installation identification fields (e.g. `operatorIds`, `operatorName`, `installationIdentification`, `address`). The supplier responds with their own identifiers and the relevant installation details. If the supplier sources from multiple operators, each operator is represented as a separate operator object in the response. If sub-suppliers are involved and registered in Catena-X, the same notification exchange can be applied along the supply chain.
 
-**Composition and installation data for interim forecasting:** During the year, the importer uses transaction-specific data (CN code, net mass, reference period, business transaction identifiers such as invoice number) to send a scoped request for installation and mass flow information. The request references the relevant business transaction via `businessTransactionDetails` and limits the expected response to non-emission fields using **requestedElements** — for example requesting `operatorActivityData`, `installationIdentification`, and `installationActivityData`, but not emission records. The supplier responds with the applicable operator(s), installation(s), and the net mass attributable to the requested transaction. This data supports quarterly forecasting and early certificate purchase based on default emission values or previously known actuals.
+**Composition and installation data for interim forecasting:** During the year, the importer uses transaction-specific data (CN code, net mass, reference period, business transaction identifiers such as invoice number) to send a scoped request for installation and mass flow information. The request references the relevant business transaction via `businessTransactionDetails` and limits the expected response to non-emission fields using **requestedElements** — for example requesting `operatorNetMass`, `installationIdentification`, and `installationNetMass`, but not emission records. The supplier responds with the applicable operator(s), installation(s), and the net mass attributable to the requested transaction. This data supports quarterly forecasting and early certificate purchase based on default emission values or previously known actuals.
 
 Trading CO₂ certificates and submitting declarations to the official EU CBAM portal are outside the scope of this KIT.
 
-## Period Closing Emissions Data Collection
+### Period Closing Emissions Data Collection
 
 In the time following the reporting period, the importer sends requests to all relevant suppliers to collect the actual verified CO₂ emission data for each imported good. The request references the specific business transaction(s) via `businessTransactionDetails` (e.g. invoice number, reference period, net mass) and uses **requestedElements** to explicitly require the full emission-related data blocks from the supplier.
 
@@ -199,7 +199,7 @@ A possible alternative use case is the request for emissions per CBAM good on si
 
 The following activities are part of the broader CBAM compliance process but are **not** covered by the data models or exchanges defined in this KIT.
 
-**Submission of the annual CBAM declaration:** Using the verified emission data collected from suppliers via this KIT, the importer submits an annual CBAM declaration to the EU CBAM portal. The declaration states the actual embedded emissions imported during the reporting year and any local carbon taxes already paid by operators in the country of production. Based on this, the final number of CO₂ certificates to be surrendered is calculated. If the importer has purchased too few certificates during the year, additional ones must be acquired / excess certificates can be sold with the authoities. Certificate trade and the preparation and submission of this declaration are outside the scope of this KIT.
+**Submission of the annual CBAM declaration:** Using the verified emission data collected from suppliers via this KIT, the importer submits an annual CBAM declaration to the EU CBAM portal. The declaration states the actual embedded emissions imported during the reporting year and any local carbon taxes already paid by operators in the country of production. Based on this, the final number of CO₂ certificates to be surrendered is calculated. If the importer has purchased too few certificates during the year, additional ones must be acquired / excess certificates can be sold to the authorities. Certificate trade and the preparation and submission of this declaration are outside the scope of this KIT.
 
 ---
 <br/>
@@ -213,7 +213,7 @@ For adopting companies and their software vendors, the SAMM serves as the author
 ---
 <br/>
 
-## **💬 We would like to hear your feedback**
+## 💬 We would like to hear your feedback
 
 This KIT is currently published as a **Minimum Viable Product (MVP)**. It reflects our best current understanding of the CBAM regulation and its implementation in Catena-X, but it is actively evolving.
 

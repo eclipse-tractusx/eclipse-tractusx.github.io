@@ -54,7 +54,7 @@ sequenceDiagram
 3. **CBAM Response**: The Supplier's CBAM App sends back a response notification containing the calculated emission data, scoped exactly to the transactions specified in the request.
 
 **Notification structure:**
-Each notification carries a `header` (sender/receiver BPNLs, a unique `messageId`, and a `relatedNotificationId` linking the response back to its originating request) and a `content` field containing the CBAM request or response data model. The `relatedNotificationId` is particularly important when a supplier sends multiple separate responses to a single request — for example when emission data for different operators or goods is compiled and returned in stages.
+Each notification carries a `header` (sender/receiver BPNLs, a unique `messageId`, and a `relatedMessageId` linking the response back to its originating request) and a `content` field containing the CBAM request or response data model. The `relatedMessageId` is particularly important when a supplier sends multiple separate responses to a single request — for example when emission data for different operators or goods is compiled and returned in stages.
 
 ---
 
@@ -104,7 +104,7 @@ Request
     └── operator[]
         ├── transactionReferenceDocumentLink
         │   ├── refDocKey
-        │   ├── refDocId
+        │   ├── refDocValue
         │   └── refDocElement
         │       ├── key
         │       └── value
@@ -235,7 +235,7 @@ This table gives a business-level overview of all properties in the CBAM request
 | `-----` latitude | O | The latitude where the installation is located. | 28.6139 |
 | `-----` typeOfCoordinates | O | The type of coordinates according to the value list that is accepted by the corresponding field in the CBAM declaration portal.  | 01 |
 | `-----` plotOrParcelNumber | O | The plot or parcel number of the location. | PLOT-456-INDUSTRIAL-ZONE-A |
-| `-----` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at [https://unece.org/trade/uncefact/unlocode](https://unece.org/trade/uncefact/unlocode) | INDEL |
+| `-----` unLoCode | O | The UNLOCODE as defined by UNECE list which can be downloaded at <https://unece.org/trade/uncefact/unlocode> | INDEL |
 | `---` installationNetMass | O | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, produced in the stated installation, calculated as the sum across all applicable production methods within that installation. | 60.0 |
 | | | | |
 | `---` _**emissionsRecords**_ | O | One or more objects detailing the specific production method(s) that the emission objects refer to; each installation may include multiple production methods. | n.a. |
@@ -281,7 +281,7 @@ Response
     └── operator[]
         ├── transactionReferenceDocumentLink
         │   ├── refDocKey
-        │   ├── refDocId
+        │   ├── refDocValue
         │   └── refDocElement
         │       ├── key
         │       └── value
@@ -348,7 +348,7 @@ Response
                 │   ├── attestationOfConformanceLink
                 │   └── completedAt
                 └── carbonPricePaid[]
-                    ├── keyOfInstrument
+                    ├── typeOfInstrument
                     ├── independentPersonId
                     │   ├── key
                     │   └── value
@@ -440,7 +440,7 @@ This table gives a business-level overview of all properties in the CBAM respons
 | `-----` latitude | O | The latitude where the installation is located. | 28.6139 |
 | `-----` typeOfCoordinates | O | The type of coordinates according to the value list that is accepted by the corresponding field in the CBAM declaration portal.  | 01 |
 | `-----` plotOrParcelNumber | O | The plot or parcel number of the location. | PLOT-456-INDUSTRIAL-ZONE-A |
-| `-----` unlocode | O | The UNLOCODE as defined by UNECE list which can be downloaded at [https://unece.org/trade/uncefact/unlocode](https://unece.org/trade/uncefact/unlocode) | INDEL |
+| `-----` unLoCode | O | The UNLOCODE as defined by UNECE list which can be downloaded at <https://unece.org/trade/uncefact/unlocode> | INDEL |
 | `---` installationNetMass | O | Net mass (in tonnes) of the CBAM-relevant good attributable to the specific request, produced in the stated installation, calculated as the sum across all applicable production methods within that installation. | 60.0 |
 | | | | |
 | `---` _**emissionsRecords**_ | O | One or more objects detailing the specific production method(s) that the emission objects refer to; each installation may include multiple production methods. | n.a. |
@@ -475,11 +475,11 @@ This table gives a business-level overview of all properties in the CBAM respons
 | `-----` providerId | O | A unique identifier of the provider of the attestation of conformance as issued by the accreditation institute, i.e. accreditation number. | 5493001KJTIIGC8Y1R12 |
 | `-----` accreditationBodyName | O | The name of the organization that grants and maintains the formal accreditation under which the provider of the attestation of conformance is authorized to perform the attestation. | National Accreditation Institute ABX |
 | `-----` attestationOfConformanceId | O | A unique identifier assigned by the provider of the attestation of conformance to the attestation document (e.g., verification statement) for tracking and reference. | 123e4567-e89b-12d3-a456-426614174000 |
-| `-----` attestationOfConformanceLink | O | A URL to the attestation of conformance document (e.g. verification statement), enabling manual verification of its validity and authenticity. | [https://exampleverifier.com/cbam/statement/123e4567](https://exampleverifier.com/cbam/statement/123e4567) |
+| `-----` attestationOfConformanceLink | O | A URL to the attestation of conformance document (e.g. verification statement), enabling manual verification of its validity and authenticity. | <https://exampleverifier.com/cbam/statement/123e4567> |
 | `-----` completedAt | O | Time stamp for when the attestation of conformance was issued. | 2026-03-15T10:00:00Z |
 | | | | |
 | `----` _**carbonPricePaid**_ | O | One or multiple objects describing the carbon price due in a third country per emission object on installation level.  | n.a. |
-| `-----` keyOfInstrument | O | Attribute describing the form of carbon price, also referred to as type of instrument. The format of the values shall follow the CBAM portal value list for the corresponding field.  | 01 |
+| `-----` typeOfInstrument | O | Attribute describing the form of carbon price, also referred to as type of instrument. The format of the values shall follow the CBAM portal value list for the corresponding field.  | 01 |
 | | | | |
 | `-----` _**independentPersonId**_ | M | Identifier of the independent person issuing a payment statement about the carbon price paid by the direct supplier or any other tier-n supplier in the value chain. | n.a. |
 | `------` key | M | Name of the identifier type | National CBAM Verifier Registry |
@@ -604,7 +604,7 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
           {
             "transactionReferenceDocumentLink": {
               "refDocKey": "invoice",
-              "refDocId": "INV-2026-12345",
+              "refDocValue": "INV-2026-12345",
               "refDocElement": {
                 "key": "batchNumber",
                 "value": "01"
@@ -713,7 +713,7 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
           {
             "transactionReferenceDocumentLink": {
               "refDocKey": "purchaseOrder",
-              "refDocId": "PO-2026-67890",
+              "refDocValue": "PO-2026-67890",
               "refDocElement": {
                 "key": "purchaseOrderLine",
                 "value": "10"
@@ -879,7 +879,7 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
           {
             "transactionReferenceDocumentLink": {
               "refDocKey": "invoice",
-              "refDocId": "INV-2026-12345",
+              "refDocValue": "INV-2026-12345",
               "refDocElement": {
                 "key": "batchNumber",
                 "value": "01"
@@ -968,7 +968,7 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
                     },
                     "carbonPricePaid": [
                       {
-                        "keyOfInstrument": "01",
+                        "typeOfInstrument": "01",
                         "independentPersonId": {
                           "key": "National CBAM Verifier Registry",
                           "value": "CBAM_VER_ZGG0612"
@@ -1017,7 +1017,7 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
                     },
                     "carbonPricePaid": [
                       {
-                        "keyOfInstrument": "01",
+                        "typeOfInstrument": "01",
                         "independentPersonId": {
                           "key": "National CBAM Verifier Registry",
                           "value": "CBAM_VER_ZGG0612"
@@ -1092,7 +1092,7 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
                     },
                     "carbonPricePaid": [
                       {
-                        "keyOfInstrument": "02",
+                        "typeOfInstrument": "02",
                         "independentPersonId": {
                           "key": "LEI",
                           "value": "5493001KJTIIGC8Y1R13"
@@ -1111,7 +1111,7 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
           {
             "transactionReferenceDocumentLink": {
               "refDocKey": "purchaseOrder",
-              "refDocId": "PO-2026-67890",
+              "refDocValue": "PO-2026-67890",
               "refDocElement": {
                 "key": "purchaseOrderLine",
                 "value": "10"
