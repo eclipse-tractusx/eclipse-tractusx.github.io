@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: c62e1a745cdb2dddd7fe5cefd611c3be9ff085fea523aba71b4724d7f0a59727
+ * Content hash: 7ad82d8d98f039d1647d0c98eedc096629e9dd5f186a7c18aa44fe5239b7abab
  * 
  * To regenerate: npm run generate:nav-items
  * 
