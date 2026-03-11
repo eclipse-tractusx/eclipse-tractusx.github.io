@@ -174,7 +174,7 @@ This table gives a business-level overview of all properties in the CBAM request
 | | | | |
 | **good** | M | Array of good records to be reported. Each good record represents one declared good instance identified by CN Code and business transaction details and contains the CBAM-related information for that declared good.  | n.a. |
 | | | | |
-| `-` cnCode | M | This is the 8-digit CN code (combined nomenclature) of the reported good, refering to official CBAM value list to ensure updated content.  | 72011000 |
+| `-` cnCode | M | This is the 8-digit CN code (combined nomenclature) of the reported good, referring to official CBAM value list to ensure updated content.  | 72011000 |
 | | | | |
 | `-` _**productIds**_ | O | Set of product identifiers to identify the product from the business transaction. | n.a. |
 | `--` key | M | Name of the identifier type. | GTIN |
