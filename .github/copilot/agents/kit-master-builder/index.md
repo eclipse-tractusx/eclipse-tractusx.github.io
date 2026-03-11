@@ -252,7 +252,7 @@ sidebar_position: <number>       # Order in sidebar (1 = first)
 
 ### CC-BY-4.0 Copyright Header (MANDATORY in Every File — TRG 7.07)
 
-This HTML comment must appear at the top of every markdown file, right after the frontmatter:
+A copyright header can be included in the top header of each markdown file, important is to have a NOTICE, the copyright header is optional.
 
 ```html
 <!--
@@ -281,6 +281,8 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 ### NOTICE Footer (MANDATORY at Bottom of Every File — TRG 7.07)
 
+This markdown comment must appear at the bottom from each `md` file and it can include more company copyrights:
+
 ```markdown
 ## NOTICE
 
@@ -289,6 +291,26 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: {YEAR} Contributors to the Eclipse Foundation
 - Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io
+```
+
+Example with more copyrights:
+
+```markdown
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: {YEAR} Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: {YEAR} Company 1
+- SPDX-FileCopyrightText: {YEAR} Company 2
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io
+```
+
+The year can be in a specific time period example:
+
+```markdown
+- SPDX-FileCopyrightText: {CREATION_YEAR}, {LATEST_UPDATE_YEAR} Contributors to the Eclipse Foundation
 ```
 
 ---
