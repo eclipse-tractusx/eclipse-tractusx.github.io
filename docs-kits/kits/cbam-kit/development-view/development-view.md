@@ -458,7 +458,7 @@ This table gives a business-level overview of all properties in the CBAM respons
 | `-----` additionalInformation | O | Any additional information that the supplier wants to provide with regard to direct embedded emissions.  | Calculated using official CBAM excel template |
 | `-----` specificEmbeddedEmissionsDirect | M | Value of the direct embedded emissions, expressed in tonnes of CO₂ equivalents per tonne of product, calculated with reference to the specific production method and installation.  | 1.85 |
 | | | | |
-| `----` _**indirectEmissions**_ | O | Object deailing the indirect embedded emissions referenced to the specific production method and installation. | n.a. |
+| `----` _**indirectEmissions**_ | O | Object detailing the indirect embedded emissions referenced to the specific production method and installation. | n.a. |
 | `-----` sourceOfEmissionFactor | M | Declaration of applied literature or published information by the statistics office, according to value list expected for the corresponding field in the CBAM declaration portal. | 02 |
 | `-----` emissionFactorTonnesCo2PerMwh | M | This element declares the applied emission factor for electricity, expressed as tonnes CO2 per MWh. | 0.45 |
 | `-----` sourceOfEmissionFactorValue | M | Any additional information detailing the source of the emissions value. | IEA 2022 Electricity Report |
