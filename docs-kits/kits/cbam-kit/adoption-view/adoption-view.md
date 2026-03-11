@@ -60,7 +60,7 @@ Here is a tabular overview of the key roles in the CBAM process:
 
 | Role | Description |
 | --- | --- |
-|Importer/Declarant (Customer)| Is responsible for requesting CBAM relevant reporting data, purchasing CO₂ certificates, and submitting reports to the EU|
+|Importer/Declarant (Customer)| Is responsible for requesting CBAM relevant reporting data. Typically the customer is also the importer located within the EU who responsible for purchasing CO₂ certificates and submitting reports to the EU (as declarant). However, CBAM relevant data might also be exchanged between a non-EU customer (upstream value chain) and its supplier. |
 |Supplier| Business (contractual) partner of the customer/Importer responsible to provide initial product and site information from the operator to the customer.|
 |Operator| Is a company who operates one or multiple installations (production sites). Responsible for providing verified CO₂ emission data.|
 |EU| The European Commission, specifically the Directorate-General for Taxation and Customs Union (DG TAXUD), is responsible for the design, development, and maintenance of the CBAM Portal and its associated systems. The CBAM Registry, which is the central platform for managing declarant authorizations, submitting emissions reports (planned) and for facilitating communication between importers, national authorities, and the Commission.|
@@ -118,7 +118,7 @@ This table gives a business-level overview of major objects and properties conta
 Request
 ├── requestedElements          # scope: which sections to include in response
 ├── companyIds                 # importer + supplier identifiers
-└── good[]                     # one entry per CBAM-declared good and business transaction
+└── good[]                     # each entry requires a unique combination of cnCode and businessTransactionDetails
     ├── cnCode / productIds / productDescription
     ├── businessTransactionDetails
     │   └── referencePeriod / requestNetMass
