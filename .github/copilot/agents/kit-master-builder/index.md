@@ -338,7 +338,11 @@ Every KIT **must** be registered in `sidebarsDocsKits.js` to appear in the navig
         'kits/<kit-folder>/development-view/development-view'
       ]
     },
-    'kits/<kit-folder>/operation-view'
+    // Default (KIT template): operations view at "operations-view/operations-view.md"
+    'kits/<kit-folder>/operations-view/operations-view'
+    // If your KIT uses "operation-view/operation-view.md" (for example, Connector KIT),
+    // replace the line above with:
+    // 'kits/<kit-folder>/operation-view/operation-view'
   ]
 }
 ```
