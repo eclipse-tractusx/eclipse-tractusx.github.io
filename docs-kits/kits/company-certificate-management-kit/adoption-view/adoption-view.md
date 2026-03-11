@@ -515,6 +515,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2026 BASF SE
 - SPDX-FileCopyrightText: 2026 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 - SPDX-FileCopyrightText: 2026 Cofinity-X GmbH
+- SPDX-FileCopyrightText: 2026 Data Space Solutions GmbH
 - SPDX-FileCopyrightText: 2026 DCCS GmbH
 - SPDX-FileCopyrightText: 2026 Mercedes Benz AG
 - SPDX-FileCopyrightText: 2026 Robert Bosch Manufacturing Solutions GmbH
