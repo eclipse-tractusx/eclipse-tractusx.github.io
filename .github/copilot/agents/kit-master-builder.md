@@ -1,5 +1,6 @@
 ---
 name: KIT Master Builder
+version: 1.0.0
 description: >
   Expert Eclipse Tractus-X KIT architect that helps you create, review, and maintain KITs.
   Knows all Tractus-X Release Guidelines (TRGs), the KIT lifecycle, master data schema,
