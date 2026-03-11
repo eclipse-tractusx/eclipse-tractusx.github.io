@@ -35,9 +35,9 @@ The Eclipse Tractus-X CBAM KIT provides a standardized, interoperable model for 
 - Integrate upstream and downstream data from suppliers and partners, enabling accurate transmission of embedded emissions data for imported goods.
 - Ensure data sovereignty and security, allowing companies to retain control over sensitive sustainability information while meeting transparency requirements.
 - Facilitate recognition of foreign carbon pricing schemes, pending regulation.
-- Enable CBAM related cost analyses, facilate strategic sourcing decisions
+- Enable CBAM related cost analyses, facilitate strategic sourcing decisions
 
-### Catena-X relevant CBAM Work flow
+### Catena-X relevant CBAM Workflow
 
 CBAM obligations are triggered when goods are imported into the EU under a CN Code subject to CBAM reporting and originating from specified non-EU countries. Only importers whose annual import volumes exceed a defined mass-based threshold are required to submit declarations to the official EU CBAM portal (currently supporting XML uploads or manual entry). Each declaration must for example include details on:
 
@@ -74,7 +74,7 @@ Here is a tabular overview of the key roles in the CBAM process:
 
 ### CBAM Data Exchange Flow
 
-This diagram shows the high-level flow of a CBAM data exchange between an **importer** (i.e. customer, typically EU-based) and a **supplier** (i.e. non-EU producer or distributer) using the Catena-X **notification Standard**. Each exchange entails records for one or multiple CBAM goods tied to specific business transactions. This results in a tailored emissions response scoped exactly to the specified transactions, making each exchanged response unique. Both business partners require a CBAM app to generate and receive data via standardized Catena-X notifications. CBAM apps are commercially available applications. The specification of the two current data models (request and response) is partly based on assumptions due to insufficiently specified regulation texts (data models are subject to change once official EU CBAM regulation is updated).
+This diagram shows the high-level flow of a CBAM data exchange between an **importer** (i.e. customer, typically EU-based) and a **supplier** (i.e. non-EU producer or distributor) using the Catena-X **notification Standard**. Each exchange entails records for one or multiple CBAM goods tied to specific business transactions. This results in a tailored emissions response scoped exactly to the specified transactions, making each exchanged response unique. Both business partners require a CBAM app to generate and receive data via standardized Catena-X notifications. CBAM apps are commercially available applications. The specification of the two current data models (request and response) is partly based on assumptions due to insufficiently specified regulation texts (data models are subject to change once official EU CBAM regulation is updated).
 
 ```mermaid
 sequenceDiagram
