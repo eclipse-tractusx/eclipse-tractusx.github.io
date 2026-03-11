@@ -15,5 +15,5 @@ All notable changes to this Kit will be documented in this file.
 
 ### Added
 
-- Initial Version of CBMA KIT: adaption view
+- Initial Version of CBAM KIT: adoption view
 - Added KIT artifacts required for Sandbox Maturity Level
