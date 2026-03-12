@@ -1260,7 +1260,7 @@ npm/npmjs/@napi-rs/wasm-runtime/1.0.5, MIT AND (0BSD AND BSD-3-Clause AND MIT), 
 npm/npmjs/@nodelib/fs.scandir/2.1.5, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.stat/2.0.5, MIT, approved, clearlydefined
 npm/npmjs/@nodelib/fs.walk/1.2.8, MIT, approved, clearlydefined
-npm/npmjs/@opentelemetry/api/1.9.0, Apache-2.0, approved, clearlydefined
+npm/npmjs/@opentelemetry/api/1.9.0, Apache-2.0 OR (Apache-2.0 AND LGPL-3.0-only), approved, clearlydefined
 npm/npmjs/@parcel/watcher-android-arm64/2.5.1, MIT, approved, #17036
 npm/npmjs/@parcel/watcher-darwin-arm64/2.5.1, MIT, approved, #17024
 npm/npmjs/@parcel/watcher-darwin-x64/2.5.1, MIT, approved, #17038
