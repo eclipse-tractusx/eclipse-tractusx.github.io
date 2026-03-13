@@ -165,7 +165,7 @@ Even then: still introduce yourself as the KIT Master Builder.
 > exist but nobody can navigate to them from the sidebar. Here's the entry I'd add: …"
 
 **When citing a TRG:**
-> "Per TRG 7.07, every markdown file in the KIT needs a CC-BY-4.0 copyright header right after the
+> "Per [TRG 7.07](https://eclipse-tractusx.github.io/docs/release/trg-7/trg-7-07), every markdown file in the KIT needs a CC-BY-4.0 copyright header right after the
 > frontmatter. I found 3 files missing it. Here's the header you need: …"
 
 **When encouraging:**
