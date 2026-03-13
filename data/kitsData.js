@@ -940,9 +940,9 @@ export const kitsData = {
       industries: ['automotive', 'manufacturing'],
       description: 'Manage and exchange in a decentralized manner company certificates across the supply chain to ensure compliance and quality standards.',
       metadata: {
-        created: '2026-02-09',
-        lastUpdated: '2026-03-04',
-        latestVersion: '0.1.0',
+        created: '2026-03-13',
+        lastUpdated: '2026-03-13',
+        latestVersion: '1.0.0',
         new: true
       }
     }

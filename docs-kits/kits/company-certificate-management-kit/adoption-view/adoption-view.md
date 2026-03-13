@@ -64,94 +64,8 @@ use cases need to be supported by the CCM tool provided by the application provi
 The business process and use case model is described to transfer knowledge from potential customers to CCM application provider organizations.
 
 ![overview](../resources/img/roles-actors-business-prcess-use-cases-overview.svg)
+
 *Roles, certificate management business processes and the use cases associated to the business processes*
-
-```mermaid
-flowchart LR
-    %% ACTORS
-    CI["Certificate Issuer"]
-    O["Owner"]
-    CPR["Certificate Presenter"]
-    SRM["Operational Supplier Relationship Management"]
-    CR["Certificate Receiver"]
-
-    %% LEFT SIDE
-    CI --> CI1
-    O --> CP1
-    O --> CP2
-    O --> CP3
-    O --> CP5
-
-    %% SYSTEMS
-    subgraph CIO["Certificate Issuer Organisation"]
-        direction TB
-        CI1([CI-1: Issue certificate])
-        CP1([CP-1: Accept issued certificate])
-    end
-
-    subgraph CPO["Certificate Provider Organisation"]
-        direction TB
-        CP2([CP-2: Create entry for certificate])
-        CP3([CP-3: Notify certificate presenters])
-        CP5([CP-5: Manage certificate access])
-        CP4([CP-4: Configure customer])
-        CP6([CP-6: Provide certificate to customer])
-        CP7([CP-7: Receive certificate request])
-
-        UCP1[[Legal declaration / certification part]]
-        UCP2[[Internal legal organisation part]]
-        UCP3[[Certification transmission part]]
-        UCP4[[Certificate request part]]
-    end
-
-    subgraph CRO["Certificate Receiver Organisation"]
-        direction TB
-        CC1([CC-1: Configure process])
-        CC2([CC-2: Verify and accept a new certificate])
-        CC3([CC-3: Request certificate from supplier])
-
-        MBP[[Mandatory business process]]
-        NOTE["Optional note: may also belong to the 'Certificate receive' aspect"]
-    end
-
-    %% RIGHT SIDE
-    CPR --> CP4
-    CPR --> CP6
-    CPR --> CP7
-
-    SRM --> CC3
-    CR --> CC1
-    CR --> CC2
-
-    %% FLOWS
-    CI1 --> CP1
-    CP1 --> CP2
-    CP2 --> CP3
-    CP4 --> CP6
-    CC3 --> CP7
-    CP7 --> CC2
-
-    %% DASHED STRUCTURE
-    UCP1 -.-> CI1
-    UCP2 -.-> CP2
-    UCP3 -.-> CP6
-    UCP4 -.-> CP7
-    MBP -.-> CC2
-    NOTE -.-> CC1
-
-    %% STYLES
-    classDef actor fill:#ffffff,stroke:#666666,stroke-width:1.2px,color:#111111;
-    classDef red fill:#f7d9d9,stroke:#c95c5c,stroke-width:1.5px,color:#111111;
-    classDef green fill:#e6f4d7,stroke:#7fb04f,stroke-width:1.5px,color:#111111;
-    classDef blue fill:#dcecff,stroke:#5b8fd6,stroke-width:1.5px,color:#111111;
-    classDef grey fill:#f5f5f5,stroke:#999999,stroke-dasharray: 4 4,color:#333333;
-
-    class CI,O,CPR,SRM,CR actor;
-    class CI1,CP1 red;
-    class CP2,CP3,CP4,CP5,CP6,CP7 green;
-    class CC1,CC2,CC3 blue;
-    class UCP1,UCP2,UCP3,UCP4,MBP,NOTE grey;
-```
 
 ### Certification of a Legal Entity
 
@@ -192,8 +106,6 @@ when the certificate transfer was accepted by the certificate consumer organizat
 
 The use cases associated to this process are:
 
-**TBD… the list will be added after the use case model:**
-
 ### Certificate Request from Supplier
 
 This business process starts when a certificate requester (e.g. purchase department) of a certificate consumer organization has detected that a certificate provider (e.g. supplier) company certificate is missing.
@@ -202,8 +114,6 @@ The process includes all the activities and interactions required to transfer th
 certificate requester, and the certificate data are transferred to the internal systems (e.g. supplier relationship management system).
 
 The use cases associated to this process are:
-
-**TBD… the list will be added after the use case model was reviewed:**
 
 ### Use Case Model
 
@@ -273,20 +183,23 @@ The use case starts when the certificate owner or the certificate presenter want
 
 The CCM application provides a sortable tabellar overview of all the certificates and their most important attributes.
 
-The information displayed should allow a certificate owner to analyze and perform the following main certificate management actions:
+The information displayed should allow a **certificate owner** to analyze and perform the following main certificate management actions:
 
 - Identify missing certificates
 - Creation of new certificate data entries based on existing *.pdf versions of owned certificates
 - (Optional:) Acceptance of received certificates from certificate issuer and notification of the certificate presenter that a new certificate instance is available
 - Expiration tracking for all certificates and the derived actions (deletion, request of a new instance from the certificate issuer (optional),…)
 
-The information displayed should allow a certificate presenter to analyze and perform the following main certificate management actions:
+The information displayed should allow a **certificate presenter** to analyze and perform the following main certificate management actions:
 
 - Identify new certificate types and start to configure certificate consumer organization access
 - Expiration tracking to identify certificates that need to be transferred to certificate consumer organizations (e.g. customers)
 - Identification and handling of certificates that were not accepted by certificate receivers due to errors
 - (Optional) Handling of certificate request received from certificate receivers (e.g. customers)
-- The support of this use case by the standard and the CCM applications is mandatory.
+
+:::note
+The support of this use case by the standard and the CCM applications is mandatory.
+:::
 
 **CP_6: Provide certificate to customer:**
 
@@ -374,8 +287,12 @@ The support of this use case by the standard and the CCM applications is mandato
 The use case starts when the certificate receiver discovers or is notified that a supplier certificate is missing or no longer valid.
 
 The certificate receiver requests the missing certificate from the certificate provider organization and provides the data required to identify the missing certificate.
-The use case software support and the flow of events depends on the internal systems used by the organizations. The following software systems can be involved: a) e-Mail system, b) internal certificate storage system
-c) EDC with the included Digital Identity Wallet d) Supplier Relationship Management System e) future EU Business Wallets TBD ... Reference to architecture configurations should be added.
+The use case software support and the flow of events depends on the internal systems used by the organizations. The following software systems can be involved:
+- a) e-Mail system,
+- b) internal certificate storage system
+- c) EDC with the included Digital Identity Wallet
+- d) Supplier Relationship Management System
+- e) future EU Business Wallets
 
 The use case ends when the certificate provider organization has received the certificate request or the missing certificate was transferred via the pull mechanism to the certificate receiver organization.
 
@@ -383,7 +300,8 @@ The use case ends when the certificate provider organization has received the ce
 The support of this use case by the standard and the CCM applications is mandatory.
 :::
 
-TBD ... Proposal for a diagram that should be added to the Architecture section of this document.
+The Architecture Overview diagram explains the assumptions made in the use case descriptions. It is important to note, that the value of a CCM-Tool increases significantly if it can be integrated via APIs with existing tools
+(e.g. Supplier Relationship Management,…)
 
 ![architectuire overview](../resources/img/architecture-overview.svg)
 *Architecture Overview (Assumption: 100% on premise operation)*
