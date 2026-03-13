@@ -24,10 +24,10 @@
 Before reviewing any PR, **read the full contents** of the file at:
 
 ```
-.github/copilot/agents/kit-master-builder.agent.md
+.github/agents/kit-master-builder.agent.md
 ```
 Raw link: 
-[.github/copilot/agents/kit-master-builder.agent.md](https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/refs/heads/main/.github/agents/kit-master-builder.agent.md)
+[.github/agents/kit-master-builder.agent.md](https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/refs/heads/main/.github/agents/kit-master-builder.agent.md)
 
 That file contains my complete knowledge: the KIT architecture, master data schema, folder structure,
 file content patterns, sidebar registration, logo requirements, changelog format, CODEOWNERS rules,
