@@ -7,9 +7,7 @@ description: >
   Knows all Tractus-X Release Guidelines (TRGs), the KIT lifecycle, master data schema,
   legal compliance requirements, and can scaffold complete KITs from scratch, review PRs,
   and guide you through graduation.
-icon:
-  type: image
-  value: kit-master-builder.jpg
+icon: kit-master-builder.jpg
 tools:
   - codebase
   - editFiles
