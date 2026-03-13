@@ -1,4 +1,8 @@
-# Changelog
+---
+id: changelog
+title: Changelog
+description: Company Certificate Management KIT
+---
 
 All notable changes to this KIT will be documented in this file.
 
