@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2026 Contributors to the Eclipse Foundation
+
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
+
+This work is made available under the terms of the
+Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+which is available at https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Tariffs KIT Logo — placeholder monochrome SVG -->
+  <!-- Scale/balance icon representing trade and tariff balance -->
+  <g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Center pole -->
+    <line x1="60" y1="20" x2="60" y2="90"/>
+    <!-- Base -->
+    <line x1="40" y1="90" x2="80" y2="90"/>
+    <!-- Crossbar -->
+    <line x1="25" y1="38" x2="95" y2="38"/>
+    <!-- Left scale pan chain -->
+    <line x1="25" y1="38" x2="25" y2="55"/>
+    <!-- Right scale pan chain -->
+    <line x1="95" y1="38" x2="95" y2="55"/>
+    <!-- Left scale pan -->
+    <path d="M10 55 Q25 65 40 55" stroke="#ffffff" fill="none"/>
+    <!-- Right scale pan -->
+    <path d="M80 55 Q95 65 110 55" stroke="#ffffff" fill="none"/>
+    <!-- Top pivot circle -->
+    <circle cx="60" cy="20" r="4" fill="#ffffff" stroke="none"/>
+  </g>
+  <!-- Tariff tag symbol on left pan -->
+  <rect x="17" y="58" width="16" height="10" rx="2" fill="#ffffff" opacity="0.8"/>
+  <!-- Tariff tag symbol on right pan -->
+  <rect x="87" y="58" width="16" height="10" rx="2" fill="#ffffff" opacity="0.8"/>
+</svg>

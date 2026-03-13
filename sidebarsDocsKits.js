@@ -957,6 +957,17 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Tariffs KIT',
+      link: { type: 'generated-index' },
+      collapsed: true,
+      items: [
+        'kits/tariffs-kit/changelog',
+        'kits/tariffs-kit/adoption-view/adoption-view',
+        'kits/tariffs-kit/development-view/development-view'
+      ]
+    },
+    {
+      type: 'category',
       label: 'Traceability KIT',
       link: {
         type: 'generated-index',

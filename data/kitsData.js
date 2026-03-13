@@ -98,6 +98,7 @@ import AgentsKitLogo from "@site/static/img/kits/agents/agents-kit-raw-logo.svg"
 import BehaviorTwinKitLogo from "@site/static/img/kits/behavior-twin/behavior-twin-kit-raw-logo.svg";
 import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-kit-raw-logo.svg";
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
+import TariffsKitLogo from "@site/static/img/kits/tariffs/tariffs-kit-raw-logo.svg";
 import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
 import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
 
@@ -754,6 +755,38 @@ export const kitsData = {
         lastUpdated: '2025-05-16',
         latestVersion: '0.0.0',
         new: false
+      }
+    },
+    {
+      id: 'tariffs',
+      name: 'TARIFFS KIT',
+      logo: TariffsKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Contributors to the Eclipse Foundation',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/tariffs/tariffs-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/tariffs/tariffs-kit-raw-logo.svg'
+      },
+      logoHeight: 120,
+      logoWidth: 120,
+      route: '/docs-kits/next/kits/tariffs-kit/adoption-view',
+      colors: {
+        primary: '#C47A1E',
+        gradient: 'linear-gradient(135deg, #F5D08A 0%, #C47A1E 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Supply Chain',
+      industries: ['automotive'],
+      description: 'Standardized exchange of tariff classifications, HS codes, and duty-relevant product data across global supply chains.',
+      metadata: {
+        created: '2026-03-13',
+        lastUpdated: '2026-03-13',
+        latestVersion: '0.1.0',
+        new: true
       }
     },
       {
