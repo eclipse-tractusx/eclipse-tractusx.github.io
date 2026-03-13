@@ -3,7 +3,9 @@ title: Adoption View
 sidebar_position: 1
 ---
 
-![Company Certificate Management KIT Icon](@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="ccm" />
 
 Welcome to the **Company Certificate Management (CCM) KIT Adoption View**. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
 

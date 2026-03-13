@@ -3,7 +3,9 @@ title: Architecture Overview and CCM API Guide
 sidebar_position: 2
 ---
 
-![Company Certificate Management KIT Icon](@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="ccm" />
 
 ## Business Architecture and APIs
 

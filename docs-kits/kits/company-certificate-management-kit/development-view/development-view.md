@@ -3,9 +3,11 @@ title: Development View
 sidebar_position: 1
 ---
 
-## Development View
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
-![Company Certificate Management KIT Icon](@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg)
+<Kit3DLogo kitId="ccm" />
+
+## Development View
 
 Technical documentation for developers, architects, and implementers.
 
