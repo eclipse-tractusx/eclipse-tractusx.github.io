@@ -183,7 +183,7 @@ The support of this use case by the standard and the CCM applications is mandato
 
 The use case starts when the certificate owner or the certificate presenter want to analyze the current status of the owned certificate and to derive required certificate management actions.
 
-The CCM application provides a sortable tabellar overview of all the certificates and their most important attributes.
+The CCM application provides a sortable tabular overview of all the certificates and their most important attributes.
 
 The information displayed should allow a **certificate owner** to analyze and perform the following main certificate management actions:
 
@@ -305,7 +305,7 @@ The support of this use case by the standard and the CCM applications is mandato
 The Architecture Overview diagram explains the assumptions made in the use case descriptions. It is important to note, that the value of a CCM-Tool increases significantly if it can be integrated via APIs with existing tools
 (e.g. Supplier Relationship Management,…)
 
-![architectuire overview](../resources/img/architecture-overview.svg)
+![architecture overview](../resources/img/architecture-overview.svg)
 *Architecture Overview (Assumption: 100% on premise operation)*
 
 ## Trust Levels
