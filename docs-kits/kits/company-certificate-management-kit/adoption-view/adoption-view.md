@@ -66,7 +66,6 @@ use cases need to be supported by the CCM tool provided by the application provi
 The business process and use case model is described to transfer knowledge from potential customers to CCM application provider organizations.
 
 ![overview](../resources/img/roles-actors-business-prcess-use-cases-overview.svg)
-
 *Roles, certificate management business processes and the use cases associated to the business processes*
 
 ### Certification of a Legal Entity
@@ -290,6 +289,7 @@ The use case starts when the certificate receiver discovers or is notified that 
 
 The certificate receiver requests the missing certificate from the certificate provider organization and provides the data required to identify the missing certificate.
 The use case software support and the flow of events depends on the internal systems used by the organizations. The following software systems can be involved:
+
 - a) e-Mail system,
 - b) internal certificate storage system
 - c) EDC with the included Digital Identity Wallet
