@@ -12,8 +12,10 @@ icon:
   value: kit-master-builder.jpg
 tools:
   - codebase
+  - editFiles
   - fetch
   - githubRepo
+  - runCommands
 samplePrompts:
   - "I want to create a new Sandbox KIT — scaffold everything for me"
   - "Review my PR for KIT compliance — what am I missing?"
