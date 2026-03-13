@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 5e88cf65dabfad185137fcaa93cf373a770eae1fa9d8a2031bec2e40fc43d71c
+ * Content hash: 7ad82d8d98f039d1647d0c98eedc096629e9dd5f186a7c18aa44fe5239b7abab
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -116,6 +116,12 @@ const kitsByCategory = {
       "deprecated": false
     },
     {
+      "id": "cbam",
+      "name": "CBAM KIT",
+      "route": "/docs-kits/next/kits/cbam-kit/adoption-view",
+      "deprecated": false
+    },
+    {
       "id": "eco-pass",
       "name": "ECO PASS KIT",
       "route": "/docs-kits/kits/eco-pass-kit/adoption-view",
@@ -125,6 +131,12 @@ const kitsByCategory = {
       "id": "circularity",
       "name": "CIRCULARITY KIT",
       "route": "/docs-kits/kits/circularity-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "due-diligence",
+      "name": "DUE DILIGENCE CHECK KIT",
+      "route": "/docs-kits/next/kits/due-diligence-check-kit/adoption-view",
       "deprecated": false
     },
     {
