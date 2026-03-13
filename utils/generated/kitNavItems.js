@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 7ad82d8d98f039d1647d0c98eedc096629e9dd5f186a7c18aa44fe5239b7abab
+ * Content hash: d30fc69976d339a85693bdf40ae43c4f05b4d4d25fcff072cf5da5a9dbc2a075
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -155,6 +155,12 @@ const kitsByCategory = {
       "id": "customs",
       "name": "CUSTOMS KIT",
       "route": "/docs-kits/kits/customs-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "tariffs",
+      "name": "TARIFFS KIT",
+      "route": "/docs-kits/next/kits/tariffs-kit/adoption-view",
       "deprecated": false
     },
     {
