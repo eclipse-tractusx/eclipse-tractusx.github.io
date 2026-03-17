@@ -47,7 +47,7 @@ The solution automates, tracks, and documents the lifecycle of certificates, sup
 #### Organization Roles
 
 - **Certificate Issuer** – Accredited legal entity that issues a company certificate to another legal entity according to the governance defined for the specific type of certificate.
-- **Certificate Provider** – Legal entity that owns the company certificate and that enables to transfer or presents the certificate data to a certificate consumer.
+- **Certificate Provider** – Legal entity that owns the company certificate and that enables the transfer or presentation of the certificate data to a certificate consumer.
 - **Certificate Consumer** – Legal entity that needs the certificate data and therefore expects that the data are delivered or that requests and gets the data.
 - **Business Application Provider** – Legal entity that offers a software application that supports the business processes of the other roles.
 
@@ -67,7 +67,7 @@ The following business processes and the described use cases within the business
 use cases need to be supported by the CCM tool provided by the application provider. Some of the processes and use cases currently are implemented by company policies and existing tools (e.g. e-Mail).
 The business process and use case model is described to transfer knowledge from potential customers to CCM application provider organizations.
 
-![overview](../resources/img/roles-actors-business-prcess-use-cases-overview.svg)
+![overview](../resources/img/roles-actors-business-process-use-cases-overview.svg)
 *Roles, certificate management business processes and the use cases associated to the business processes*
 
 ### Certification of a Legal Entity
