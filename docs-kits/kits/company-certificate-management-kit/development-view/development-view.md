@@ -1,6 +1,6 @@
 ---
 id: development-view
-title: Development View
+title: Requirements
 description: Company Certificate Management KIT — Development View
 sidebar_position: 3
 ---
@@ -107,10 +107,6 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 - Standard APIs or connectors for integration with ERP, CRM, and document management systems.
 - Support for importing/exporting data in standard formats (e.g., CSV, XML).
-
-## More Guides
-
-- [Architecture & CCM API Guide](architecture.md)
 
 ## NOTICE
 

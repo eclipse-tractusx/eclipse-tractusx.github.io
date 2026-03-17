@@ -1,17 +1,32 @@
 ---
 id: architecture
-title: Architecture Overview and CCM API Guide
+title: Architecture Overview
 description: Company Certificate Management KIT — Architecture
-sidebar_position: 4
+sidebar_position: 1
 ---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 <Kit3DLogo kitId="ccm" />
 
+## Contents
+
+| Page | Description |
+|---|---|
+| [Architecture Overview](architecture.md) | System architecture, PUSH/PULL mechanism diagrams, and usage guide for the CCM API. |
+| [CCM API Guide](ccm-api-guide.md) | Notification schemas, endpoint specifications, header models, and JSON payload examples for all CCMAPI endpoints. |
+| [Requirements](development-view.md) | Functional and non-functional requirements, quality attributes, and integration considerations. |
+
 ## Business Architecture and APIs
 
 ### Architecture
+
+The Architecture Overview diagram explains the assumptions made in the use case descriptions. It is important to note, that the value of a CCM-Tool increases significantly if it can be integrated via APIs with existing tools
+(e.g. Supplier Relationship Management,…)
+
+[![architecture overview](../resources/img/architecture-overview.svg)](../resources/img/architecture-overview.svg)
+
+Architecture Overview (Assumption: 100% on premise operation)
 
 The CCM system is a modular, scalable architecture supporting integration with ERP, CRM, and document management systems. It includes a dashboard for monitoring certificate status and pending actions.
 
@@ -62,6 +77,27 @@ In the PUSH mechanism, the Certificate Provider initiates the transfer of a cert
 
 4. Consumer processes the certificate and may send feedback via `/companycertificate/status`.
 
+### PUSH Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    actor Provider as Certificate Provider
+    participant ProviderEDC as Provider EDC
+    participant ConsumerEDC as Consumer EDC
+    actor Consumer as Certificate Consumer
+
+    Consumer->>ConsumerEDC: Expose CCMAPI asset (cx-taxo:CCMAPI) in catalog
+    Provider->>ConsumerEDC: Query catalog for CCMAPI asset
+    ConsumerEDC-->>Provider: Return CCMAPI asset offer
+    Provider->>ConsumerEDC: Negotiate contract & obtain EDR
+    ConsumerEDC-->>Provider: EDR (endpoint + token)
+    Provider->>ConsumerEDC: POST /companycertificate/push<br/>(CertificatePush: header + BusinessPartnerCertificate)
+    ConsumerEDC->>Consumer: Forward CertificatePush message
+    Consumer->>Consumer: Process & validate certificate
+    Consumer->>ProviderEDC: POST /companycertificate/status<br/>(CertificateStatus: ACCEPTED / RECEIVED / REJECTED)
+    ProviderEDC->>Provider: Forward status feedback
+```
+
 ### Key Points
 
 - **PUSH is Provider-driven**: Provider decides when and for which locations a certificate is sent.
@@ -98,6 +134,36 @@ There are two complementary parts:
 5. After `COMPLETED`, Consumer uses the `documentId` to search the Provider's EDC catalog and retrieves the certificate via the EDC data plane.
 6. Consumer may send feedback about reception, acceptance or rejection via `/companycertificate/status`.
 
+### PULL Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    actor Provider as Certificate Provider
+    participant ProviderEDC as Provider EDC
+    participant ConsumerEDC as Consumer EDC
+    actor Consumer as Certificate Consumer
+
+    Provider->>ProviderEDC: Publish certificate asset<br/>(cx-taxo:CompanyCertificate, semantic ID: urn:samm:io.catenax.business_partner_certificate:3.1.0)
+    Consumer->>ProviderEDC: POST /companycertificate/request<br/>(CertificateRequest: certifiedBpn, certificateType, locationBpns)
+    ProviderEDC->>Provider: Forward request
+    Provider-->>ConsumerEDC: 202 IN_PROGRESS (processing)
+    ConsumerEDC-->>Consumer: IN_PROGRESS response
+    loop Poll until finished
+        Consumer->>ProviderEDC: POST /companycertificate/request (same parameters)
+        ProviderEDC->>Provider: Forward poll
+        Provider-->>ConsumerEDC: 200 COMPLETED (documentId) or REJECTED
+        ConsumerEDC-->>Consumer: Response
+    end
+    Consumer->>ProviderEDC: Query EDC catalog for asset by documentId
+    ProviderEDC-->>Consumer: Return asset offer
+    Consumer->>ProviderEDC: Negotiate contract & obtain EDR
+    ProviderEDC-->>Consumer: EDR (endpoint + token)
+    Consumer->>ProviderEDC: Retrieve certificate via EDC data plane
+    ProviderEDC-->>Consumer: BusinessPartnerCertificate payload
+    Consumer->>ProviderEDC: POST /companycertificate/status<br/>(CertificateStatus: ACCEPTED / RECEIVED / REJECTED)
+    ProviderEDC->>Provider: Forward status feedback
+```
+
 ### Key Points
 
 - **PULL is Consumer-driven**: Consumer asks for the certificate when needed.
@@ -106,204 +172,7 @@ There are two complementary parts:
 
 ---
 
-## Notifications (Request, Available, Feedback)
-
-CCMAPI uses JSON notifications wrapped in a common header structure. All messages share the `Header` (or `FeedbackUrlHeader`) object and a `content` object.
-
-### Request Notification (CertificateRequest)
-
-Used by the Certificate Consumer to ask the Certificate Provider for a certificate for a given legal entity and optional location BPNs. The endpoint is purely consumer-initiated and is intended to be polled by the Consumer; the Provider does not send any asynchronous callbacks for request processing state.
-
-- **Context**: `CompanyCertificateManagement-CCMAPI-Request:1.0.0`
-- **Endpoint**: `POST /companycertificate/request`
-- **Purpose**: Initiate or track the process of providing a certificate.
-
-The Provider can return to each call:
-
-- `202` with `CertificateRequestInProgressResponse` – request is being processed; Consumer can call the endpoint again later with the same business parameters to poll for completion.
-- `200` with `CertificateRequestFinishedResponse`:
-  - `COMPLETED` – certificate is available; `documentId` is provided.
-  - `REJECTED` – request rejected; `requestErrors` and optional `locationErrors` explain why.
-
-### Available Notification (CertificateAvailable)
-
-Used by the Certificate Provider to inform the Certificate Consumer that a certificate is now available in its EDC catalog.
-
-- **Context**: `CompanyCertificateManagement-CCMAPI-Available:1.0.0`
-- **Endpoint**: `POST /companycertificate/available`
-- **Purpose**: Reduce the need for the Consumer to poll for new or updated certificates; the Consumer should then pull the certificate from the EDC using the provided `documentId`.
-
-### Feedback Notification (CertificateStatus)
-
-Used by the Certificate Consumer to provide feedback on the status of a consumed certificate to the Certificate Provider.
-
-- **Context**: `CompanyCertificateManagement-CCMAPI-Status:1.0.0`
-- **Endpoint**: `POST /companycertificate/status`
-- **Purpose**: Inform the Provider whether the certificate was received, accepted or rejected, optionally with errors per certificate or per location.
-
-Feedback can report the following statuses:
-
-- `RECEIVED` – certificate has been obtained and is under validation.
-- `ACCEPTED` – certificate is accepted for the given locations.
-- `REJECTED` – certificate is rejected, including reasons.
-
-In all feedback notifications, `documentId` refers to the EDC asset ID of the certificate. When feedback is sent for a certificate that was pushed earlier, `relatedMessageId` must reference the `messageId` of the push notification.
-
----
-
-## Endpoints
-
-This section summarizes all CCMAPI endpoints and their main attributes based on the OpenAPI specification.
-
-### Common Header Models
-
-#### Header
-
-Used by most messages.
-
-**Required properties:**
-
-- `messageId` (string, UUID or `urn:uuid:<uuid>`) – Uniquely identifies a message.
-- `context` (string, enum) – One of:
-  - `CompanyCertificateManagement-CCMAPI-Request:1.0.0`
-  - `CompanyCertificateManagement-CCMAPI-Push:1.0.0`
-  - `CompanyCertificateManagement-CCMAPI-Status:1.0.0`
-  - `CompanyCertificateManagement-CCMAPI-Available:1.0.0`
-- `sentDateTime` (string, ISO 8601 date-time) – Timestamp when the message was sent.
-- `senderBpn` (string, pattern `^BPNL[a-zA-Z0-9]{12}$`) – BPNL of the sending party.
-- `receiverBpn` (string, pattern `^BPNL[a-zA-Z0-9]{12}$`) – BPNL of the receiving party.
-- `version` (string) – Version of the aspect model defining the header structure, e.g. `3.1.0`.
-
-**Optional properties:**
-
-- `relatedMessageId` (string, UUID or `urn:uuid:<uuid>`) – Links this message to a prior related message (e.g. request-to-response, push-to-feedback).
-
-#### FeedbackUrlHeader
-
-Extends `Header` with:
-
-- `senderFeedbackUrl` (string) – URL of the EDC DSP endpoint to which feedback notifications should be sent. Expected to point to a concrete path of the version 1 DSP endpoint where a `cx-taxo:CCMAPI` asset is accessible.
-
-Used in messages where the receiver is expected to send feedback (e.g. push, available, status).
-
-### Schema Types Used in Content
-
-#### BpnLocation
-
-- **Type**: string
-- **Pattern**: `^BPN[AS][a-zA-Z0-9]{12}$`
-- Represents either a site (BPNS) or an address (BPNA) business partner number.
-
-#### Error
-
-- `message` (string, required) – Human-readable description of the error.
-
-#### LocationError and LocationErrorCollection
-
-- `LocationError` contains a `message` describing an error related to a specific location.
-- `LocationErrorCollection` groups location-related errors:
-  - `bpn` (BpnLocation)
-  - `locationErrors` (array of LocationError)
-
-### POST /companycertificate/request
-
-**Role**: Offered by the Certificate Provider.
-
-**Description**: Certificate Consumer requests a specific certificate from the Certificate Provider.
-
-**Request body – CertificateRequest:**
-
-- `header` (Header)
-  - `context` must be `CompanyCertificateManagement-CCMAPI-Request:1.0.0`.
-- `content` (object, required)
-  - `certifiedBpn` (string, pattern `^BPNL[a-zA-Z0-9]{12}$`, required) – BPNL of the legal entity for which the certificate is requested.
-  - `certificateType` (string, required) – Certificate type code (e.g. `iso9001`, `iatf16949`) as defined in the standard.
-  - `locationBpns` (array of BpnLocation, optional) – BPNS/BPNA values for sites/addresses for which the certificate is requested.
-
-**Responses:**
-
-- `202` – request accepted and in processing.
-  - Body: `CertificateRequestInProgressResponse`:
-    - `header` (Header)
-    - `content.requestStatus = IN_PROGRESS`
-- `200` – request processing finished.
-  - Body: `CertificateRequestFinishedResponse` with `header` (Header) and `content` one of:
-    - `CertificateRequestCompletedResponseContent`: `requestStatus = COMPLETED`, `documentId` (string, UUID pattern) – EDC asset ID of the certificate.
-    - `CertificateRequestRejectedResponseContent`: `requestStatus = REJECTED`, `requestErrors` (array of Error, required), `locationErrors` (array of LocationErrorCollection, optional).
-- `400` – request malformed.
-- `500` – internal server error.
-
-### POST /companycertificate/push
-
-**Role**: Offered by the Certificate Consumer.
-
-**Description**: Certificate Provider sends a certificate directly to the Certificate Consumer.
-
-**Request body – CertificatePush:**
-
-- `header` (FeedbackUrlHeader)
-  - `context` must be `CompanyCertificateManagement-CCMAPI-Push:1.0.0`.
-  - `senderFeedbackUrl` specifies the EDC DSP endpoint where feedback should be sent.
-- `content`
-  - `BusinessPartnerCertificate` payload as defined by the JSON Schema generated from the semantic model `io.catenax.business_partner_certificate:3.1.0`.
-  - Includes `documentID` (ID of the certificate document itself) and all certificate details.
-
-**Responses:**
-
-- `200` – notification processed successfully.
-- `500` – internal server error.
-
-### POST /companycertificate/status
-
-**Role**: Offered by the Certificate Provider.
-
-**Description**: Certificate Consumer sends feedback on the status of a consumed certificate to the Certificate Provider, regardless of whether the certificate was pushed or pulled.
-
-**Request body – CertificateStatus:**
-
-- `header` (FeedbackUrlHeader)
-  - `context` must be `CompanyCertificateManagement-CCMAPI-Status:1.0.0`.
-  - `relatedMessageId` should reference the `messageId` of the related request or push notification.
-  - `senderFeedbackUrl` indicates where further feedback (if any) should be sent.
-- `content` (object, required)
-  - `documentId` (string, UUID format, required) – EDC asset ID of the certificate.
-  - `certificateStatus` (string, enum `ACCEPTED`, `REJECTED`, `RECEIVED`, required).
-  - `locationBpns` (array of BpnLocation, required) – Locations for which this status applies.
-  - `certificateErrors` (array of Error, optional) – General reasons for rejection of the certificate.
-  - `locationErrors` (array of LocationErrorCollection, optional) – Detailed reasons per location.
-
-**Responses:**
-
-- `200` – status updated successfully.
-- `500` – internal server error.
-
-### POST /companycertificate/available
-
-**Role**: Offered by the Certificate Consumer.
-
-**Description**: Certificate Provider notifies the Certificate Consumer that a certificate is available in the Provider's EDC catalog.
-
-**Request body – CertificateAvailable:**
-
-- `header` (FeedbackUrlHeader)
-  - `context` must be `CompanyCertificateManagement-CCMAPI-Available:1.0.0`.
-  - `senderFeedbackUrl` indicates where follow-up feedback should be sent.
-- `content` (object, required)
-  - `documentId` (string, UUID format, required) – EDC asset ID of the available certificate.
-  - `certificateType` (string, required) – Certificate type (e.g. `iso9001`).
-  - `locationBpns` (array of BpnLocation, optional) – Locations for which this certificate is relevant.
-
-**Responses:**
-
-- `200` – notification processed successfully.
-- `500` – internal server error.
-
-## Summary
-
-- Use the **PUSH mechanism** (`/companycertificate/push`) when the Provider actively sends certificates and expects status feedback via `/companycertificate/status`.
-- Use the **PULL mechanism** (`/companycertificate/request` plus EDC catalog lookup) when the Consumer needs to explicitly request or fetch certificates.
-- Use the notification endpoints `/companycertificate/request`, `/companycertificate/available` and `/companycertificate/status` to coordinate certificate discovery, availability and lifecycle feedback.
-- Always respect the header conventions (BPNs, context, message IDs, feedback URLs) and the semantic model `io.catenax.business_partner_certificate:3.1.0` when creating and consuming certificate payloads.
+For the full endpoint reference, notification schemas, and JSON payload examples, see the [CCM API Guide](ccm-api-guide.md).
 
 ## NOTICE
 
