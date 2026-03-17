@@ -100,6 +100,7 @@ import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-ki
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
 import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
 import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
+import MaterialManagementKitLogo from "@site/static/img/kits/material-management/material-management-kit-raw-logo.svg";
 
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
@@ -754,6 +755,38 @@ export const kitsData = {
         lastUpdated: '2025-05-16',
         latestVersion: '0.0.0',
         new: false
+      }
+    },
+    {
+      id: 'material-management',
+      name: 'MATERIAL MANAGEMENT KIT',
+      logo: MaterialManagementKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Contributors to the Eclipse Foundation; 2026 Catena-X Automotive Network e.V.',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/material-management/material-management-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/material-management/material-management-kit-raw-logo.svg'
+      },
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/kits/material-management-kit/adoption-view',
+      colors: {
+        primary: '#2E8B57',
+        gradient: 'linear-gradient(135deg, #90EE90 0%, #2E8B57 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Sustainability',
+      industries: ['automotive', 'manufacturing', 'chemical'],
+      description: 'Standardized IMDS material and substance data exchange via Catena-X decentralized connectors for regulatory compliance and circular economy.',
+      metadata: {
+        created: '2026-03-17',
+        lastUpdated: '2026-03-17',
+        latestVersion: '0.1.0',
+        new: true
       }
     },
       {

@@ -795,6 +795,17 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Material Management KIT',
+      link: { type: 'generated-index' },
+      collapsed: true,
+      items: [
+        'kits/material-management-kit/changelog-material-management-kit',
+        'kits/material-management-kit/adoption-view/adoption-view',
+        'kits/material-management-kit/development-view/development-view'
+      ]
+    },
+    {
+      type: 'category',
       label: 'Model Based Development and Data Processing KIT',
       link: {
         type: 'generated-index',

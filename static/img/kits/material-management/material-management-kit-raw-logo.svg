@@ -1,0 +1,19 @@
+<svg fill="#ffffff" height="800px" width="800px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve">
+  <!-- Material Management KIT Logo: stylized molecule/material lattice -->
+  <circle cx="256" cy="256" r="48" fill="none" stroke="#ffffff" stroke-width="18"/>
+  <circle cx="120" cy="140" r="32" fill="#ffffff"/>
+  <circle cx="392" cy="140" r="32" fill="#ffffff"/>
+  <circle cx="120" cy="372" r="32" fill="#ffffff"/>
+  <circle cx="392" cy="372" r="32" fill="#ffffff"/>
+  <circle cx="256" cy="80"  r="32" fill="#ffffff"/>
+  <circle cx="256" cy="432" r="32" fill="#ffffff"/>
+  <!-- Bonds -->
+  <line x1="256" y1="208" x2="148" y2="162" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <line x1="256" y1="208" x2="364" y2="162" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <line x1="256" y1="304" x2="148" y2="350" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <line x1="256" y1="304" x2="364" y2="350" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <line x1="256" y1="208" x2="256" y2="112" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <line x1="256" y1="304" x2="256" y2="400" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <!-- Center atom fill -->
+  <circle cx="256" cy="256" r="40" fill="#ffffff"/>
+</svg>
