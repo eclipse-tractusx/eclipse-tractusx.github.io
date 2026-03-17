@@ -69,7 +69,7 @@ The business process and use case model is described to transfer knowledge from 
 
 ![overview](../resources/img/roles-actors-business-process-use-cases-overview.svg)
 
-*Roles, certificate management business processes and the use cases associated to the business processes*
+Roles, certificate management business processes and the use cases associated to the business processes
 
 ### Certification of a Legal Entity
 
