@@ -1,0 +1,390 @@
+#######################################################################
+# Copyright (c) 2026 Contributors to the Eclipse Foundation
+# Copyright (c) 2026 Catena-X Automotive Network e.V.
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This work is made available under the terms of the
+# Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+# which is available at
+# https://creativecommons.org/licenses/by/4.0/legalcode.
+#
+# SPDX-License-Identifier: CC-BY-4.0
+#######################################################################
+
+@prefix samm: <urn:samm:org.eclipse.esmf.samm:meta-model:2.1.0#> .
+@prefix samm-c: <urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#> .
+@prefix samm-e: <urn:samm:org.eclipse.esmf.samm:entity:2.1.0#> .
+@prefix unit: <urn:samm:org.eclipse.esmf.samm:unit:2.1.0#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <urn:samm:io.catenax.material_management.material_information:1.0.0#> .
+@prefix ext-uuid: <urn:samm:io.catenax.shared.uuid:1.0.0#> .
+@prefix ext-mat-class: <urn:samm:io.catenax.shared.material_classification:1.0.0#> .
+
+##############################################################################
+# Aspect: MaterialInformation
+#
+# Purpose: Represents the material bill-of-materials (mBOM) of a component
+# compatible with the International Material Data System (IMDS). Captures the
+# material composition hierarchy (material data module → material → substance),
+# weight fractions, IMDS material classifications, recycled content, and
+# regulatory compliance declarations (REACH, RoHS, ELV).
+#
+# Usage: Attached as a submodel to the AAS Digital Twin of a manufactured part.
+# Exchanged via Catena-X decentralized EDC connectors.
+##############################################################################
+
+:MaterialInformation a samm:Aspect ;
+   samm:preferredName "Material Information"@en ;
+   samm:description "Aspect model representing the IMDS-compatible material bill-of-materials (mBOM) of a manufactured component, including material hierarchy, substance content, recycled material fractions, and regulatory compliance declarations. Designed for data exchange via Catena-X decentralized connectors (Eclipse Dataspace Connector)."@en ;
+   samm:see <https://www.mdsystem.com/imdsnt/startpage/index.jsp> ;
+   samm:properties (
+     :catenaXId
+     :materialDataModuleId
+     :materialDataModuleVersion
+     :validFrom
+     :validTo
+     :applicationCategory
+     :materials
+     :complianceDeclarations
+   ) ;
+   samm:operations ( ) ;
+   samm:events ( ) .
+
+##############################################################################
+# Top-level properties
+##############################################################################
+
+:catenaXId a samm:Property ;
+   samm:preferredName "Catena-X ID"@en ;
+   samm:description "The Catena-X identifier of the part twin this material information belongs to. Expressed as a URN-formatted UUID following the Catena-X Digital Twin standard."@en ;
+   samm:characteristic ext-uuid:UuidV4Trait ;
+   samm:exampleValue "urn:uuid:550e8400-e29b-41d4-a716-446655440000" .
+
+:materialDataModuleId a samm:Property ;
+   samm:preferredName "Material Data Module ID"@en ;
+   samm:description "The unique identifier of the IMDS Material Data Module (MDM) associated with this material declaration."@en ;
+   samm:characteristic :MaterialDataModuleIdCharacteristic ;
+   samm:exampleValue "MDM-2024-00123" .
+
+:materialDataModuleVersion a samm:Property ;
+   samm:preferredName "Material Data Module Version"@en ;
+   samm:description "The version of the IMDS Material Data Module. Incremented on each update to the material declaration."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:exampleValue "2.1" .
+
+:validFrom a samm:Property ;
+   samm:preferredName "Valid From"@en ;
+   samm:description "The ISO 8601 date from which this material declaration is valid."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:exampleValue "2024-01-01" .
+
+:validTo a samm:Property ;
+   samm:preferredName "Valid To"@en ;
+   samm:description "The ISO 8601 date until which this material declaration is valid. Omitted if the declaration has no expiry."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:optional true ;
+   samm:exampleValue "2026-12-31" .
+
+:applicationCategory a samm:Property ;
+   samm:preferredName "Application Category"@en ;
+   samm:description "The IMDS application category that classifies the functional area of the component (e.g. VehicleBody, Powertrain, Interior)."@en ;
+   samm:characteristic :ApplicationCategoryEnumeration ;
+   samm:exampleValue "VehicleBody" .
+
+:materials a samm:Property ;
+   samm:preferredName "Materials"@en ;
+   samm:description "The list of materials that compose this component, each with their substance content."@en ;
+   samm:characteristic :MaterialsCharacteristic .
+
+:complianceDeclarations a samm:Property ;
+   samm:preferredName "Compliance Declarations"@en ;
+   samm:description "Regulatory compliance declarations for this component covering applicable legislation (REACH, RoHS, ELV)."@en ;
+   samm:characteristic :ComplianceDeclarationsCharacteristic .
+
+##############################################################################
+# Application Category Enumeration
+##############################################################################
+
+:ApplicationCategoryEnumeration a samm-c:Enumeration ;
+   samm:preferredName "Application Category Enumeration"@en ;
+   samm:description "IMDS application category that classifies the functional area of the component."@en ;
+   samm:dataType xsd:string ;
+   samm-c:values (
+     "VehicleBody"
+     "Powertrain"
+     "Chassis"
+     "Interior"
+     "Exterior"
+     "ElectricalElectronic"
+     "FluidSystem"
+     "NVH"
+     "Thermal"
+     "Other"
+   ) .
+
+##############################################################################
+# Material Data Module ID
+##############################################################################
+
+:MaterialDataModuleIdCharacteristic a samm-c:Trait ;
+   samm:preferredName "Material Data Module ID Characteristic"@en ;
+   samm:description "Trait to constrain the IMDS Material Data Module identifier."@en ;
+   samm-c:baseCharacteristic samm-c:Text ;
+   samm-c:constraint :MaterialDataModuleIdConstraint .
+
+:MaterialDataModuleIdConstraint a samm-c:LengthConstraint ;
+   samm:preferredName "Material Data Module ID Constraint"@en ;
+   samm:description "Limits the length of the IMDS MDM identifier to 100 characters."@en ;
+   samm-c:maxValue "100"^^xsd:nonNegativeInteger .
+
+##############################################################################
+# Materials list
+##############################################################################
+
+:MaterialsCharacteristic a samm-c:List ;
+   samm:preferredName "Materials Characteristic"@en ;
+   samm:description "An ordered list of materials composing the component."@en ;
+   samm:dataType :MaterialEntity .
+
+:MaterialEntity a samm:Entity ;
+   samm:preferredName "Material Entity"@en ;
+   samm:description "A single material layer in the component's material bill-of-materials, including identification, classification, weight data, recycled content, and its associated substances."@en ;
+   samm:properties (
+     :materialId
+     :materialName
+     :materialClassification
+     :weightFraction
+     :mass
+     :recycledContentFraction
+     :substances
+   ) .
+
+:materialId a samm:Property ;
+   samm:preferredName "Material ID"@en ;
+   samm:description "Internal or IMDS-assigned identifier for this material."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:exampleValue "MAT-001" .
+
+:materialName a samm:Property ;
+   samm:preferredName "Material Name"@en ;
+   samm:description "Human-readable designation of the material (e.g. trade name, norm designation)."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:exampleValue "High-Strength Steel DP600" .
+
+:materialClassification a samm:Property ;
+   samm:preferredName "Material Classification"@en ;
+   samm:description "Classification of the material according to IMDS or VDA 231-106 standards. Leverages the shared material classification model."@en ;
+   samm:characteristic :MaterialClassificationCharacteristic .
+
+:weightFraction a samm:Property ;
+   samm:preferredName "Weight Fraction"@en ;
+   samm:description "The proportion of this material within the total component weight, expressed as a percentage (0-100)."@en ;
+   samm:characteristic :PercentageTrait ;
+   samm:exampleValue "72.5"^^xsd:double .
+
+:mass a samm:Property ;
+   samm:preferredName "Mass"@en ;
+   samm:description "The absolute mass of this material within the component, expressed in grams."@en ;
+   samm:characteristic :MassCharacteristic ;
+   samm:exampleValue "1450.0"^^xsd:double .
+
+:recycledContentFraction a samm:Property ;
+   samm:preferredName "Recycled Content Fraction"@en ;
+   samm:description "The proportion of post-consumer recycled material content within this material layer, expressed as a percentage (0-100). Supports circular economy and recycled content targets."@en ;
+   samm:characteristic :PercentageTrait ;
+   samm:exampleValue "35.0"^^xsd:double .
+
+:substances a samm:Property ;
+   samm:preferredName "Substances"@en ;
+   samm:description "The list of substances present in this material, each with CAS number, weight data, and regulatory status."@en ;
+   samm:characteristic :SubstancesCharacteristic .
+
+##############################################################################
+# Material Classification (referencing shared model)
+##############################################################################
+
+:MaterialClassificationCharacteristic a samm:Characteristic ;
+   samm:preferredName "Material Classification Characteristic"@en ;
+   samm:description "Characteristic that holds the IMDS or VDA 231-106 classification of the material."@en ;
+   samm:dataType ext-mat-class:MaterialClassificationEntity .
+
+##############################################################################
+# Substance list within material
+##############################################################################
+
+:SubstancesCharacteristic a samm-c:List ;
+   samm:preferredName "Substances Characteristic"@en ;
+   samm:description "A list of substances present within a material."@en ;
+   samm:dataType :SubstanceEntity .
+
+:SubstanceEntity a samm:Entity ;
+   samm:preferredName "Substance Entity"@en ;
+   samm:description "A chemical substance present within a material, identified by CAS number with weight data and regulatory classification."@en ;
+   samm:properties (
+     :casNumber
+     :substanceName
+     :substanceWeightFraction
+     :substanceMass
+     :isGadslDeclared
+     :isReachSvhc
+     :regulatoryLists
+   ) .
+
+:casNumber a samm:Property ;
+   samm:preferredName "CAS Number"@en ;
+   samm:description "The Chemical Abstracts Service (CAS) registry number uniquely identifying the substance."@en ;
+   samm:see <https://www.cas.org/cas-data/cas-registry> ;
+   samm:characteristic :CasNumberTrait ;
+   samm:exampleValue "7439-89-6" .
+
+:substanceName a samm:Property ;
+   samm:preferredName "Substance Name"@en ;
+   samm:description "The IUPAC name, trade name, or common name of the substance."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:exampleValue "Iron" .
+
+:substanceWeightFraction a samm:Property ;
+   samm:preferredName "Substance Weight Fraction"@en ;
+   samm:description "The proportion of this substance within its parent material, expressed as a percentage (0-100)."@en ;
+   samm:characteristic :PercentageTrait ;
+   samm:exampleValue "97.2"^^xsd:double .
+
+:substanceMass a samm:Property ;
+   samm:preferredName "Substance Mass"@en ;
+   samm:description "The absolute mass of this substance within its parent material, expressed in grams."@en ;
+   samm:characteristic :MassCharacteristic ;
+   samm:exampleValue "1409.4"^^xsd:double .
+
+:isGadslDeclared a samm:Property ;
+   samm:preferredName "Is GADSL Declared"@en ;
+   samm:description "Indicates whether this substance is listed on the Global Automotive Declarable Substance List (GADSL) and therefore subject to declaration obligations."@en ;
+   samm:see <https://www.gadsl.org/> ;
+   samm:characteristic samm-c:Boolean ;
+   samm:exampleValue "false"^^xsd:boolean .
+
+:isReachSvhc a samm:Property ;
+   samm:preferredName "Is REACH SVHC"@en ;
+   samm:description "Indicates whether this substance is listed on the REACH Candidate List of Substances of Very High Concern (SVHC)."@en ;
+   samm:see <https://echa.europa.eu/candidate-list-table> ;
+   samm:characteristic samm-c:Boolean ;
+   samm:exampleValue "false"^^xsd:boolean .
+
+:regulatoryLists a samm:Property ;
+   samm:preferredName "Regulatory Lists"@en ;
+   samm:description "The list of regulatory frameworks under which this substance is declared or restricted (e.g. GADSL, REACH-SVHC, RoHS, ELV)."@en ;
+   samm:characteristic :RegulatoryListsCharacteristic .
+
+:RegulatoryListsCharacteristic a samm-c:List ;
+   samm:preferredName "Regulatory Lists Characteristic"@en ;
+   samm:description "List of regulatory framework identifiers."@en ;
+   samm:dataType xsd:string .
+
+##############################################################################
+# Compliance Declarations
+##############################################################################
+
+:ComplianceDeclarationsCharacteristic a samm-c:List ;
+   samm:preferredName "Compliance Declarations Characteristic"@en ;
+   samm:description "A list of regulatory compliance declarations for the component."@en ;
+   samm:dataType :ComplianceDeclarationEntity .
+
+:ComplianceDeclarationEntity a samm:Entity ;
+   samm:preferredName "Compliance Declaration Entity"@en ;
+   samm:description "A single regulatory compliance declaration for the component."@en ;
+   samm:properties (
+     :regulation
+     :complianceStatus
+     :declarationDate
+     :declaringCompany
+   ) .
+
+:regulation a samm:Property ;
+   samm:preferredName "Regulation"@en ;
+   samm:description "The regulatory framework covered by this declaration."@en ;
+   samm:characteristic :RegulationEnumeration ;
+   samm:exampleValue "RoHS" .
+
+:complianceStatus a samm:Property ;
+   samm:preferredName "Compliance Status"@en ;
+   samm:description "The compliance status of the component under the referenced regulation."@en ;
+   samm:characteristic :ComplianceStatusEnumeration ;
+   samm:exampleValue "Compliant" .
+
+:declarationDate a samm:Property ;
+   samm:preferredName "Declaration Date"@en ;
+   samm:description "The ISO 8601 date on which this compliance declaration was made."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:exampleValue "2024-03-15" .
+
+:declaringCompany a samm:Property ;
+   samm:preferredName "Declaring Company"@en ;
+   samm:description "The Business Partner Number Legal (BPNL) of the company issuing this compliance declaration."@en ;
+   samm:characteristic :BpnlTrait ;
+   samm:exampleValue "BPNL00000003AYRE" .
+
+:RegulationEnumeration a samm-c:Enumeration ;
+   samm:preferredName "Regulation Enumeration"@en ;
+   samm:description "Enumeration of regulatory frameworks applicable to material compliance declarations."@en ;
+   samm:dataType xsd:string ;
+   samm-c:values ( "REACH" "RoHS" "ELV" "GADSL" "IMDS" "Other" ) .
+
+:ComplianceStatusEnumeration a samm-c:Enumeration ;
+   samm:preferredName "Compliance Status Enumeration"@en ;
+   samm:description "The compliance status of the component under the referenced regulation."@en ;
+   samm:dataType xsd:string ;
+   samm-c:values ( "Compliant" "NonCompliant" "Exempted" "UnderReview" ) .
+
+##############################################################################
+# Shared Characteristics
+##############################################################################
+
+:PercentageTrait a samm-c:Trait ;
+   samm:preferredName "Percentage Trait"@en ;
+   samm:description "A trait constraining a double to the range 0.0 to 100.0, representing a weight percentage."@en ;
+   samm-c:baseCharacteristic :DoubleCharacteristic ;
+   samm-c:constraint :PercentageRangeConstraint .
+
+:PercentageRangeConstraint a samm-c:RangeConstraint ;
+   samm:preferredName "Percentage Range Constraint"@en ;
+   samm:description "Constrains weight fraction values to the valid percentage range [0, 100]."@en ;
+   samm-c:minValue "0.0"^^xsd:double ;
+   samm-c:maxValue "100.0"^^xsd:double ;
+   samm-c:lowerBoundDefinition samm-c:AT_LEAST ;
+   samm-c:upperBoundDefinition samm-c:AT_MOST .
+
+:DoubleCharacteristic a samm:Characteristic ;
+   samm:preferredName "Double Characteristic"@en ;
+   samm:description "A numeric double characteristic."@en ;
+   samm:dataType xsd:double .
+
+:MassCharacteristic a samm-c:Measurement ;
+   samm:preferredName "Mass Characteristic"@en ;
+   samm:description "A measurement characteristic for mass values expressed in grams."@en ;
+   samm:dataType xsd:double ;
+   samm-c:unit unit:gram .
+
+:CasNumberTrait a samm-c:Trait ;
+   samm:preferredName "CAS Number Trait"@en ;
+   samm:description "A trait constraining the CAS number to a valid format (digits-digits-digit)."@en ;
+   samm-c:baseCharacteristic samm-c:Text ;
+   samm-c:constraint :CasNumberRegularExpression .
+
+:CasNumberRegularExpression a samm-c:RegularExpressionConstraint ;
+   samm:preferredName "CAS Number Regular Expression"@en ;
+   samm:description "Validates the CAS number format: one to seven digits, hyphen, two digits, hyphen, one digit."@en ;
+   samm:value "^[0-9]{1,7}-[0-9]{2}-[0-9]$" .
+
+:BpnlTrait a samm-c:Trait ;
+   samm:preferredName "BPNL Trait"@en ;
+   samm:description "A trait constraining a Business Partner Number Legal (BPNL) to the Catena-X BPNL format."@en ;
+   samm-c:baseCharacteristic samm-c:Text ;
+   samm-c:constraint :BpnlRegularExpression .
+
+:BpnlRegularExpression a samm-c:RegularExpressionConstraint ;
+   samm:preferredName "BPNL Regular Expression"@en ;
+   samm:description "Validates that the value follows the Catena-X Business Partner Number Legal (BPNL) format."@en ;
+   samm:value "^(BPN)(L)(\\d{8})([a-zA-Z0-9]{4})$" .

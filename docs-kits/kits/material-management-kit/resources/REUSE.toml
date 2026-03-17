@@ -6,3 +6,10 @@ precedence = "closest"
 SPDX-FileCopyrightText = "2026 Contributors to the Eclipse Foundation"
 SPDX-FileCopyrightText = "2026 Catena-X Automotive Network e.V."
 SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = ["semantic-models/**/*.ttl"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Contributors to the Eclipse Foundation"
+SPDX-FileCopyrightText = "2026 Catena-X Automotive Network e.V."
+SPDX-License-Identifier = "CC-BY-4.0"

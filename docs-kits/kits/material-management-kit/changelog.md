@@ -30,6 +30,9 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 - Initial version of the Material Management KIT
 - Adoption View: business context, IMDS material and substance data exchange use case, personas, and standards
 - Development View: Catena-X decentralized connector architecture, IMDS aspect models (MaterialInformation and SubstanceInformation), data exchange flow
+- SAMM 2.1.0 Turtle (TTL) semantic model files:
+  - `MaterialInformation.ttl` (`urn:samm:io.catenax.material_management.material_information:1.0.0`)
+  - `SubstanceInformation.ttl` (`urn:samm:io.catenax.material_management.substance_information:1.0.0`)
 
 ### Changed
 

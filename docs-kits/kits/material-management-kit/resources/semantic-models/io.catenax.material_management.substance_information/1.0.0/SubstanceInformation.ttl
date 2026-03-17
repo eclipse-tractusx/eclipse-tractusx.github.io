@@ -1,0 +1,276 @@
+#######################################################################
+# Copyright (c) 2026 Contributors to the Eclipse Foundation
+# Copyright (c) 2026 Catena-X Automotive Network e.V.
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This work is made available under the terms of the
+# Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+# which is available at
+# https://creativecommons.org/licenses/by/4.0/legalcode.
+#
+# SPDX-License-Identifier: CC-BY-4.0
+#######################################################################
+
+@prefix samm: <urn:samm:org.eclipse.esmf.samm:meta-model:2.1.0#> .
+@prefix samm-c: <urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#> .
+@prefix samm-e: <urn:samm:org.eclipse.esmf.samm:entity:2.1.0#> .
+@prefix unit: <urn:samm:org.eclipse.esmf.samm:unit:2.1.0#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <urn:samm:io.catenax.material_management.substance_information:1.0.0#> .
+@prefix ext-uuid: <urn:samm:io.catenax.shared.uuid:1.0.0#> .
+
+##############################################################################
+# Aspect: SubstanceInformation
+#
+# Purpose: Provides substance-level detail for a manufactured component,
+# designed for targeted regulatory compliance disclosure workflows:
+# - REACH Candidate List (SVHC) declarations
+# - Global Automotive Declarable Substance List (GADSL) reporting
+# - RoHS restricted substance screening
+# - ELV hazardous material declarations
+#
+# This aspect is complementary to MaterialInformation and covers the
+# per-substance view required for article-level REACH obligations under
+# ECHA guidance (above 0.1% w/w threshold in homogeneous materials).
+#
+# Usage: Attached as a submodel to the AAS Digital Twin of a manufactured part.
+# Exchanged via Catena-X decentralized EDC connectors.
+##############################################################################
+
+:SubstanceInformation a samm:Aspect ;
+   samm:preferredName "Substance Information"@en ;
+   samm:description "Aspect model providing substance-level disclosure data for a manufactured component, covering declarable and restricted substances under REACH, GADSL, RoHS, and ELV regulations. Designed for targeted compliance workflows and data exchange via Catena-X decentralized connectors (Eclipse Dataspace Connector)."@en ;
+   samm:see <https://echa.europa.eu/candidate-list-table> ;
+   samm:properties (
+     :catenaXId
+     :reportingDate
+     :declaringCompany
+     :reportingThresholdPpm
+     :declarationConfidence
+     :substances
+   ) ;
+   samm:operations ( ) ;
+   samm:events ( ) .
+
+##############################################################################
+# Top-level properties
+##############################################################################
+
+:catenaXId a samm:Property ;
+   samm:preferredName "Catena-X ID"@en ;
+   samm:description "The Catena-X identifier of the part twin this substance information belongs to. Expressed as a URN-formatted UUID following the Catena-X Digital Twin standard."@en ;
+   samm:characteristic ext-uuid:UuidV4Trait ;
+   samm:exampleValue "urn:uuid:550e8400-e29b-41d4-a716-446655440000" .
+
+:reportingDate a samm:Property ;
+   samm:preferredName "Reporting Date"@en ;
+   samm:description "The ISO 8601 date on which this substance declaration was generated or submitted."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:exampleValue "2024-03-15" .
+
+:declaringCompany a samm:Property ;
+   samm:preferredName "Declaring Company"@en ;
+   samm:description "The Business Partner Number Legal (BPNL) of the company issuing this substance declaration."@en ;
+   samm:characteristic :BpnlTrait ;
+   samm:exampleValue "BPNL00000003AYRE" .
+
+:reportingThresholdPpm a samm:Property ;
+   samm:preferredName "Reporting Threshold (ppm)"@en ;
+   samm:description "The concentration threshold in parts-per-million (ppm, mg/kg) above which substances are reported. For REACH SVHC article declarations the statutory threshold is 1000 ppm (0.1% w/w)."@en ;
+   samm:see <https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02006R1907-20231201> ;
+   samm:characteristic :ConcentrationCharacteristic ;
+   samm:exampleValue "1000.0"^^xsd:double .
+
+:declarationConfidence a samm:Property ;
+   samm:preferredName "Declaration Confidence"@en ;
+   samm:description "Indicates the methodology by which concentration values in this declaration were determined."@en ;
+   samm:characteristic :DeclarationConfidenceEnumeration ;
+   samm:exampleValue "Measured" .
+
+:substances a samm:Property ;
+   samm:preferredName "Substances"@en ;
+   samm:description "The list of declarable or restricted substances identified in the component."@en ;
+   samm:characteristic :SubstancesCharacteristic .
+
+##############################################################################
+# Declaration Confidence Enumeration
+##############################################################################
+
+:DeclarationConfidenceEnumeration a samm-c:Enumeration ;
+   samm:preferredName "Declaration Confidence Enumeration"@en ;
+   samm:description "Describes how the substance concentration values were determined."@en ;
+   samm:dataType xsd:string ;
+   samm-c:values ( "Measured" "Calculated" "Conservative" "Estimated" ) .
+
+##############################################################################
+# Substance list
+##############################################################################
+
+:SubstancesCharacteristic a samm-c:List ;
+   samm:preferredName "Substances Characteristic"@en ;
+   samm:description "An ordered list of declarable substances present in the component."@en ;
+   samm:dataType :SubstanceEntity .
+
+:SubstanceEntity a samm:Entity ;
+   samm:preferredName "Substance Entity"@en ;
+   samm:description "A single declarable substance present in the component, with its identification, location, concentration, and regulatory status."@en ;
+   samm:properties (
+     :casNumber
+     :ecNumber
+     :substanceName
+     :concentration
+     :homogeneousMaterial
+     :applicationLocation
+     :isIntentionallyAdded
+     :exemptions
+     :regulatoryStatus
+   ) .
+
+:casNumber a samm:Property ;
+   samm:preferredName "CAS Number"@en ;
+   samm:description "The Chemical Abstracts Service (CAS) registry number uniquely identifying the substance."@en ;
+   samm:see <https://www.cas.org/cas-data/cas-registry> ;
+   samm:characteristic :CasNumberTrait ;
+   samm:exampleValue "7440-43-9" .
+
+:ecNumber a samm:Property ;
+   samm:preferredName "EC Number"@en ;
+   samm:description "The European Community (EC) number assigned by ECHA to the substance. Optional, may be absent for polymers or certain mixtures."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:optional true ;
+   samm:exampleValue "231-152-8" .
+
+:substanceName a samm:Property ;
+   samm:preferredName "Substance Name"@en ;
+   samm:description "The IUPAC name, ECHA preferred name, or common/trade name of the substance."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:exampleValue "Cadmium" .
+
+:concentration a samm:Property ;
+   samm:preferredName "Concentration"@en ;
+   samm:description "The concentration of this substance in the homogeneous material, expressed in mg/kg (ppm). For REACH article SVHC obligations the statutory threshold is 1000 ppm."@en ;
+   samm:characteristic :ConcentrationCharacteristic ;
+   samm:exampleValue "0.5"^^xsd:double .
+
+:homogeneousMaterial a samm:Property ;
+   samm:preferredName "Homogeneous Material"@en ;
+   samm:description "The name or description of the homogeneous material layer within the component in which this substance is present. A homogeneous material is a material that cannot be mechanically disjointed into different materials."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:exampleValue "Protective Coating Layer" .
+
+:applicationLocation a samm:Property ;
+   samm:preferredName "Application Location"@en ;
+   samm:description "The sub-part or location within the component where this homogeneous material containing the substance is found."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:optional true ;
+   samm:exampleValue "Outer Shell" .
+
+:isIntentionallyAdded a samm:Property ;
+   samm:preferredName "Is Intentionally Added"@en ;
+   samm:description "Indicates whether the substance was intentionally added during the manufacturing process (true) or is an unintentional impurity (false)."@en ;
+   samm:characteristic samm-c:Boolean ;
+   samm:exampleValue "false"^^xsd:boolean .
+
+:exemptions a samm:Property ;
+   samm:preferredName "Exemptions"@en ;
+   samm:description "Applicable regulatory exemptions claimed for this substance (e.g. RoHS Annex III/IV exemption codes, ELV Annex II exemption codes)."@en ;
+   samm:characteristic :ExemptionsCharacteristic .
+
+:regulatoryStatus a samm:Property ;
+   samm:preferredName "Regulatory Status"@en ;
+   samm:description "The regulatory status of this substance under each applicable regulatory list."@en ;
+   samm:characteristic :RegulatoryStatusCharacteristic .
+
+##############################################################################
+# Exemptions list
+##############################################################################
+
+:ExemptionsCharacteristic a samm-c:List ;
+   samm:preferredName "Exemptions Characteristic"@en ;
+   samm:description "A list of regulatory exemption codes applicable to this substance."@en ;
+   samm:dataType xsd:string .
+
+##############################################################################
+# Regulatory Status per framework
+##############################################################################
+
+:RegulatoryStatusCharacteristic a samm-c:List ;
+   samm:preferredName "Regulatory Status Characteristic"@en ;
+   samm:description "A list of regulatory status records, one per applicable regulatory framework."@en ;
+   samm:dataType :RegulatoryStatusEntity .
+
+:RegulatoryStatusEntity a samm:Entity ;
+   samm:preferredName "Regulatory Status Entity"@en ;
+   samm:description "The compliance status of the substance under a specific regulatory framework."@en ;
+   samm:properties (
+     :regulatoryList
+     :status
+     :referenceDocument
+   ) .
+
+:regulatoryList a samm:Property ;
+   samm:preferredName "Regulatory List"@en ;
+   samm:description "The regulatory framework or restricted substance list against which this substance is assessed."@en ;
+   samm:characteristic :RegulatoryListEnumeration ;
+   samm:exampleValue "REACH-SVHC" .
+
+:status a samm:Property ;
+   samm:preferredName "Status"@en ;
+   samm:description "The status of the substance under the specified regulatory list."@en ;
+   samm:characteristic :RegulatorySubstanceStatusEnumeration ;
+   samm:exampleValue "Declared" .
+
+:referenceDocument a samm:Property ;
+   samm:preferredName "Reference Document"@en ;
+   samm:description "URL or document identifier for the compliance certificate, SDoC, or other supporting document substantiating the regulatory status declaration."@en ;
+   samm:characteristic samm-c:Text ;
+   samm:optional true ;
+   samm:exampleValue "https://example.com/rohs-declaration-2024.pdf" .
+
+:RegulatoryListEnumeration a samm-c:Enumeration ;
+   samm:preferredName "Regulatory List Enumeration"@en ;
+   samm:description "Enumeration of regulatory substance lists and frameworks applicable to automotive material declarations."@en ;
+   samm:dataType xsd:string ;
+   samm-c:values ( "REACH-SVHC" "GADSL" "RoHS" "ELV" "IMDS-Prohibited" "IMDS-Declarable" "Other" ) .
+
+:RegulatorySubstanceStatusEnumeration a samm-c:Enumeration ;
+   samm:preferredName "Regulatory Substance Status Enumeration"@en ;
+   samm:description "The compliance or declaration status of the substance under the specified regulatory list."@en ;
+   samm:dataType xsd:string ;
+   samm-c:values ( "Declared" "Compliant" "NonCompliant" "Exempted" "NotApplicable" "UnderReview" ) .
+
+##############################################################################
+# Shared Characteristics
+##############################################################################
+
+:ConcentrationCharacteristic a samm-c:Measurement ;
+   samm:preferredName "Concentration Characteristic"@en ;
+   samm:description "A measurement characteristic for substance concentrations expressed in mg/kg (ppm)."@en ;
+   samm:dataType xsd:double ;
+   samm-c:unit unit:milligramPerKilogram .
+
+:CasNumberTrait a samm-c:Trait ;
+   samm:preferredName "CAS Number Trait"@en ;
+   samm:description "A trait constraining the CAS number to the standard format: one to seven digits, hyphen, two digits, hyphen, one check digit."@en ;
+   samm-c:baseCharacteristic samm-c:Text ;
+   samm-c:constraint :CasNumberRegularExpression .
+
+:CasNumberRegularExpression a samm-c:RegularExpressionConstraint ;
+   samm:preferredName "CAS Number Regular Expression"@en ;
+   samm:description "Validates the CAS number format."@en ;
+   samm:value "^[0-9]{1,7}-[0-9]{2}-[0-9]$" .
+
+:BpnlTrait a samm-c:Trait ;
+   samm:preferredName "BPNL Trait"@en ;
+   samm:description "A trait constraining a Business Partner Number Legal (BPNL) to the Catena-X BPNL format."@en ;
+   samm-c:baseCharacteristic samm-c:Text ;
+   samm-c:constraint :BpnlRegularExpression .
+
+:BpnlRegularExpression a samm-c:RegularExpressionConstraint ;
+   samm:preferredName "BPNL Regular Expression"@en ;
+   samm:description "Validates that the value follows the Catena-X Business Partner Number Legal (BPNL) format."@en ;
+   samm:value "^(BPN)(L)(\\d{8})([a-zA-Z0-9]{4})$" .

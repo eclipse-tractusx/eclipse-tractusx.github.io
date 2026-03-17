@@ -117,14 +117,31 @@ sequenceDiagram
 
 ## Semantic Models / Aspect Models
 
-The Material Management KIT defines two SAMM-based aspect models designed to represent IMDS material
-declaration data in the Catena-X data space.
+The Material Management KIT defines two SAMM-based aspect models to represent IMDS material
+declaration data in the Catena-X data space. The SAMM 2.1.0 Turtle (TTL) source files are
+attached to this KIT and available in the `resources/semantic-models/` folder:
+
+| Aspect Model | Version | TTL File |
+| --- | --- | --- |
+| MaterialInformation | 1.0.0 | [MaterialInformation.ttl](../resources/semantic-models/io.catenax.material_management.material_information/1.0.0/MaterialInformation.ttl) |
+| SubstanceInformation | 1.0.0 | [SubstanceInformation.ttl](../resources/semantic-models/io.catenax.material_management.substance_information/1.0.0/SubstanceInformation.ttl) |
+
+The models are authored using the [Semantic Aspect Meta Model (SAMM) 2.1.0](https://eclipse-esmf.github.io/samm-specification/snapshot/index.html)
+specification and follow the namespace convention `io.catenax.material_management.*` consistent
+with the [eclipse-tractusx/sldt-semantic-models](https://github.com/eclipse-tractusx/sldt-semantic-models) repository.
+The models reference the following shared aspect models:
+
+| Shared Model | Version | Purpose |
+| --- | --- | --- |
+| `io.catenax.shared.uuid` | 1.0.0 | Catena-X Digital Twin UUID format (`UuidV4Trait`) |
+| `io.catenax.shared.material_classification` | 1.0.0 | IMDS / VDA 231-106 material classification entity |
 
 ### Aspect Model: MaterialInformation
 
 **Version**: 1.0.0
 **Namespace**: `urn:samm:io.catenax.material_management.material_information:1.0.0`
 **AAS Submodel Template ID**: `urn:samm:io.catenax.material_management.material_information:1.0.0#MaterialInformation`
+**TTL Source**: [MaterialInformation.ttl](../resources/semantic-models/io.catenax.material_management.material_information/1.0.0/MaterialInformation.ttl)
 
 **Description**: Represents the material bill-of-materials (mBOM) of a component in IMDS format.
 Captures the material composition hierarchy (material data module → material → substance) including
@@ -250,6 +267,7 @@ MaterialInformation
 **Version**: 1.0.0
 **Namespace**: `urn:samm:io.catenax.material_management.substance_information:1.0.0`
 **AAS Submodel Template ID**: `urn:samm:io.catenax.material_management.substance_information:1.0.0#SubstanceInformation`
+**TTL Source**: [SubstanceInformation.ttl](../resources/semantic-models/io.catenax.material_management.substance_information/1.0.0/SubstanceInformation.ttl)
 
 **Description**: Provides substance-level detail for a specific homogeneous material within a
 component. Designed for targeted REACH SVHC disclosure, GADSL reporting, and restricted substance
