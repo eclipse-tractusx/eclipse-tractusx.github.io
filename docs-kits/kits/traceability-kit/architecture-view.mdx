@@ -62,16 +62,19 @@ The following diagram shows a basic data processing flow how a company's interna
 
 ### Digital Twins and Aspect Models
 
-Data provisioning of Traceability is built on the data provisioning of the [Industry Core KIT](../industry-core-kit/architecture-view), i.e., Traceability extends the digital twins PartType and PartInstance with additional aspect models:
+Data provisioning of Traceability is built on the data provisioning of the [Industry Core KIT](../industry-core-kit/architecture-view), i.e., Traceability extends the digital twins PartType, PartInstance and qualityTask with additional aspect models:
 
 - Digital Twin "PartType"
   - N/A
 - Digital Twin "PartInstance"
-  - Aspect model ["TractionBatteryCode"](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/data-provider-development-view#tractionbatterycode)
-  - Aspect model ["SoftwareInformation"](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/data-provider-development-view#softwareinformation)
-  - Aspect model ["CertificateSigningRequests"](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/software-development-view/data-provider-development-view#certificatesigningrequests)
+  - Aspect model ["TractionBatteryCode"](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main)
+  - Aspect model ["SoftwareInformation"](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main)
+  - Aspect model ["CertificateSigningRequests"](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main)
+  - Aspect model ["ZeroKmFailure"](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main)
 
-and an additional **digital twin** qualityTask (please find discription of DT qualityTask in the Traceability Adoption View and CX-0125 Traceability Standard)
+- Digital Twin "qualityTask"
+  - Aspect model ["ZeroKmFailure"](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main)
+  - Aspect models out of several use cases, like data driven quality, logistics etc.
 
 Details about the listed aspect models, i.e., the SAMM data model as well as example data, can be found in the [Developer View](software-development-view/data-provider.mdx).
 

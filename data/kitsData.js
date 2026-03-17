@@ -366,8 +366,8 @@ export const kitsData = {
       description: 'Trace parts and materials across the entire value chain to enable data driven use cases over all n-tier levels.',
       metadata: {
         created: '2023-04-12',
-        lastUpdated: '2025-08-07',
-        latestVersion: '7.0.0',
+        lastUpdated: '2026-02-17',
+        latestVersion: '8.0.0',
         new: false
       }
     },
