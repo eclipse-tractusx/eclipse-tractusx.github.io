@@ -1,23 +1,19 @@
 ---
+id: development-view
 title: Development View
-sidebar_position: 1
+description: Company Certificate Management KIT — Development View
+sidebar_position: 3
 ---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 <Kit3DLogo kitId="ccm" />
 
-## Development View
-
 Technical documentation for developers, architects, and implementers.
 
 :::info Target Audience
 Software Developers, Solution Architects, Technical Leads, API Developers, Integration Engineers.
 :::
-
-### More Guides
-
-- [Architecture & CCM API Guide](architecture.md)
 
 ## Functional Requirements
 
@@ -111,6 +107,10 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 - Standard APIs or connectors for integration with ERP, CRM, and document management systems.
 - Support for importing/exporting data in standard formats (e.g., CSV, XML).
+
+## More Guides
+
+- [Architecture & CCM API Guide](architecture.md)
 
 ## NOTICE
 

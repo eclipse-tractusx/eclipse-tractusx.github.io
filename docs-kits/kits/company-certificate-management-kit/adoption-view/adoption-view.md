@@ -1,6 +1,8 @@
 ---
+id: adoption-view
 title: Adoption View
-sidebar_position: 1
+description: Company Certificate Management KIT — Adoption View
+sidebar_position: 2
 ---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';

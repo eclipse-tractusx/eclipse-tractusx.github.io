@@ -1,6 +1,8 @@
 ---
+id: architecture
 title: Architecture Overview and CCM API Guide
-sidebar_position: 2
+description: Company Certificate Management KIT — Architecture
+sidebar_position: 4
 ---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
