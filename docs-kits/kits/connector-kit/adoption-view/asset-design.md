@@ -28,6 +28,5 @@ mechanism to decide the accessibility of the requested data.-->
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2024 Contributors of the Eclipse Foundation
 - SPDX-FileCopyrightText: 2025 Cofinity-X GmbH
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/adoption-view/asset-design.md](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/docs-kits/kits/connector-kit/adoption-view/asset-design.md)
