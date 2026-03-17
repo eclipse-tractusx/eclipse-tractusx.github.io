@@ -1,6 +1,6 @@
 ---
 sidebar_position: 5
-title: Adoption View - Reference Implementation
+title: Reference Implementation
 description: An introduction for adoptors to the reference implementation
 id: connector-reference-implementation
 ---
