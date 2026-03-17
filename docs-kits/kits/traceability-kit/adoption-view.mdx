@@ -114,22 +114,22 @@ The target vision aims to enable an end-to-end (E2E) data exchange of special ch
 ### Aspect Model ZeroKmFailure
 
 Quality issues not only appear while vehicles are on the road. During the assembling phase at the OEM components can show unexpected performances or abnormalities which needs to be analysed. Until the root cause isn't clear and the problem is not solved, these components must be blocked.
-In this case it is crucial that the supplier is informed immediately. The information which is provided with the aspect model "zeroKmFailure" supports a fast start of processing, analysing and identification of all affected components as well as solving the problem. 
+In this case it is crucial that the supplier is informed immediately. The information which is provided with the aspect model "ZeroKmFailure" supports a fast start of processing, analysing and identification of all affected components as well as solving the problem.
 Information like the data matrix code (DMC) of the component, assembly line and date in combination of the amount of defect parts per shift and a description of appearing error, and some more data, is transmitted by this aspect model. This bundle of data enables the Tier 1 to narrow down affected production batches much faster.
 
 #### Processual Approach
 
-Best practice of getting these data as a supplier is a data pull via digital twin (DT) qualityTask which is created by the OEM (the supplier is informed about an existing DT qualityTask due to a "unique ID Push" - see CX-0151 Industry Core Basics) by the OEM). The DT qualityTask reflects the quality issue itself and provides the digital mirror of the affected fleet at the same time. For more information about the DT qualityTask please see next section. 
-Alternatively, the information can be provided via DT of the affected car. 
+Best practice of getting these data as a supplier is a data pull via digital twin (DT) qualityTask which is created by the OEM (the supplier is informed about an existing DT qualityTask due to a "unique ID Push" - see CX-0151 Industry Core Basics) by the OEM). The DT qualityTask reflects the quality issue itself and provides the digital mirror of the affected fleet at the same time. For more information about the DT qualityTask please see next section.
+Alternatively, the information can be provided via DT of the affected car.
 
 ### Digital Twin qualityTask
 
-The DT (digital twin) qualityTask provides the overarching bracket in case of a concrete quality issue or in case of abnormalities which needs to be clarified (or wants to be studied), especially if the range of the affected parts is not clear and the root cause is unknown. 
+The DT (digital twin) qualityTask provides the overarching bracket in case of a concrete quality issue or in case of abnormalities which needs to be clarified (or wants to be studied), especially if the range of the affected parts is not clear and the root cause is unknown.
 This kind of DT represents the quality issue or quality problem itself as a case or kind of a file. It is NOT a virtual representation of a physical asset (IDTA conformity of DT - asset kind: not applicable).
-Data, no matter what discipline but important to reveal the root cause, and all vehicles (at the OEM) or components/batches (at the TierN) which are affected shall be linked to this (relative) DT. 
+Data, no matter what discipline but important to reveal the root cause, and all vehicles (at the OEM) or components/batches (at the TierN) which are affected shall be linked to this (relative) DT.
 Having this holistic overview of data and therefore the impact of affected goods/vehicles, the root cause can be found much faster and narrowing down the actual affected goods/vehicles can be done more precisely. The result of analysis can be useful for related issues, like adopting production processes, safer transportation etc. to avoid similar failures.
- 
-Furthermore the DT qualityTask provides the bridge to the data driven quality use case. Aspect models can be provided via DT from the OEM and pulled by the Tier1. To inform about a DT qualityTask, the unique ID push (see CX-0151 Industry Core Basics) mechanism can be used. 
+
+Furthermore the DT qualityTask provides the bridge to the data driven quality use case. Aspect models can be provided via DT from the OEM and pulled by the Tier1. To inform about a DT qualityTask, the unique ID push (see CX-0151 Industry Core Basics) mechanism can be used.
 The specific asset IDs of the DT qualityTask provides the opportunity to list the identification numbers from the affected partners, like the problemID or a case number of an existing application which is used.
 This DT can be used as well as a fleet DT by an OEM. All vehicles in field or in an earlier stage that show the same abnormality or want to be observed can be linked to it (like a BoM), marked by that as affected and analysed deeper.
 
