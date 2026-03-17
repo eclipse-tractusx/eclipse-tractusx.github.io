@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: Adoption View - Contract Definition Design
+title: Contract Definition Design
 description: A discussion on aspects to be considered when designing contract definitions and the impact on the implementation.
 id: contract-definition-design
 ---
