@@ -62,16 +62,14 @@ def collect_markdown_files(base_path):
     for pattern in ['**/*.md', '**/*.mdx']:
         md_files.extend(base_path.glob(pattern))
     
-    # Remove duplicates and sort
-    md_files = list(set(md_files))
-    
-    # Custom sort: README.md first, then alphabetically by path
+    # Remove duplicates and exclude README files
+    md_files = [f for f in set(md_files) if f.stem.upper() != 'README']
+
+    # Custom sort: changelog last, everything else alphabetically
     def sort_key(path):
         relative = path.relative_to(base_path)
-        # README.md gets priority 0
-        if path.name == 'README.md' and path.parent == base_path:
-            return (0, str(relative))
-        # Everything else sorted alphabetically
+        if path.stem.lower() == 'changelog':
+            return (2, str(relative))
         return (1, str(relative))
     
     md_files.sort(key=sort_key)
@@ -87,158 +85,297 @@ def read_markdown_file(file_path):
         print(f"Error reading {file_path}: {e}")
         return ""
 
-def setup_document_styles(doc):
+def _apply_font(style, font_name):
+    """Set the given font and strip any theme-font overrides from a style's XML."""
+    style.font.name = font_name
+    rPr = style.font._element
+    rFonts = rPr.find(qn('w:rFonts'))
+    if rFonts is None:
+        rFonts = OxmlElement('w:rFonts')
+        rPr.insert(0, rFonts)
+    rFonts.set(qn('w:ascii'), font_name)
+    rFonts.set(qn('w:hAnsi'), font_name)
+    rFonts.set(qn('w:cs'), font_name)
+    for attr in [qn('w:asciiTheme'), qn('w:hAnsiTheme'), qn('w:cstheme'), qn('w:eastAsiaTheme')]:
+        if attr in rFonts.attrib:
+            del rFonts.attrib[attr]
+
+
+def setup_document_styles(doc, body_font='Calibri'):
     """Set up custom styles for the Word document."""
-    
-    # Define styles
+
+    # Patch the document theme so major/minor fonts match, not Calibri/Calibri Light
+    try:
+        import re as _re
+        theme_part = doc.part.part_related_by(
+            'http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme'
+        )
+        theme_xml = theme_part._blob.decode('utf-8')
+        theme_xml = _re.sub(r'(<a:latin typeface=")[^"]*(")', rf'\g<1>{body_font}\2', theme_xml)
+        theme_part._blob = theme_xml.encode('utf-8')
+    except Exception:
+        pass
+
     styles = doc.styles
-    
+
+    # Default Paragraph Font (catches any unstyled runs)
+    try:
+        _apply_font(styles['Default Paragraph Font'], body_font)
+    except Exception:
+        pass
+
     # Normal style
     try:
         normal_style = styles['Normal']
-        normal_font = normal_style.font
-        normal_font.name = 'Calibri'
-        normal_font.size = Pt(11)
-        normal_font.color.rgb = RGBColor(0, 0, 0)
+        _apply_font(normal_style, body_font)
+        normal_style.font.size = Pt(11)
+        normal_style.font.color.rgb = RGBColor(0, 0, 0)
     except KeyError:
         pass
-    
+
     # Heading 1
     try:
         h1_style = styles['Heading 1']
-        h1_font = h1_style.font
-        h1_font.name = 'Calibri'
-        h1_font.size = Pt(24)
-        h1_font.bold = True
-        h1_font.color.rgb = RGBColor(44, 62, 80)
+        _apply_font(h1_style, body_font)
+        h1_style.font.size = Pt(24)
+        h1_style.font.bold = True
+        h1_style.font.color.rgb = RGBColor(44, 62, 80)
     except KeyError:
         pass
-    
+
     # Heading 2
     try:
         h2_style = styles['Heading 2']
-        h2_font = h2_style.font
-        h2_font.name = 'Calibri'
-        h2_font.size = Pt(18)
-        h2_font.bold = True
-        h2_font.color.rgb = RGBColor(52, 73, 94)
+        _apply_font(h2_style, body_font)
+        h2_style.font.size = Pt(18)
+        h2_style.font.bold = True
+        h2_style.font.color.rgb = RGBColor(52, 73, 94)
     except KeyError:
         pass
-    
+
     # Heading 3
     try:
         h3_style = styles['Heading 3']
-        h3_font = h3_style.font
-        h3_font.name = 'Calibri'
-        h3_font.size = Pt(14)
-        h3_font.bold = True
-        h3_font.color.rgb = RGBColor(127, 140, 141)
+        _apply_font(h3_style, body_font)
+        h3_style.font.size = Pt(14)
+        h3_style.font.bold = True
+        h3_style.font.color.rgb = RGBColor(127, 140, 141)
     except KeyError:
         pass
-    
-    # Code style
+
+    # Code style (keep monospaced)
     try:
         code_style = styles.add_style('Code', WD_STYLE_TYPE.PARAGRAPH)
-        code_font = code_style.font
-        code_font.name = 'Courier New'
-        code_font.size = Pt(9)
+        code_style.font.name = 'Courier New'
+        code_style.font.size = Pt(9)
         code_style.paragraph_format.left_indent = Inches(0.5)
         code_style.paragraph_format.space_before = Pt(6)
         code_style.paragraph_format.space_after = Pt(6)
     except:
         pass
 
-def add_page_number_footer(doc):
-    """Add page numbers to the footer."""
-    for section in doc.sections:
-        footer = section.footer
-        footer.is_linked_to_previous = False
-        
-        # Clear existing footer content
-        footer.paragraphs[0].clear()
-        
-        # Add page number
-        paragraph = footer.paragraphs[0]
-        paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        
-        # Create run for page number
-        run = paragraph.add_run()
-        run.font.size = Pt(10)
-        run.font.color.rgb = RGBColor(128, 128, 128)
-        
-        # Add page number field
-        fldChar1 = OxmlElement('w:fldChar')
-        fldChar1.set(qn('w:fldCharType'), 'begin')
-        
-        instrText = OxmlElement('w:instrText')
-        instrText.set(qn('xml:space'), 'preserve')
-        instrText.text = 'PAGE'
-        
-        fldChar2 = OxmlElement('w:fldChar')
-        fldChar2.set(qn('w:fldCharType'), 'end')
-        
-        run._r.append(fldChar1)
-        run._r.append(instrText)
-        run._r.append(fldChar2)
-        
-        # Add "of total pages"
-        run.add_text(' of ')
-        
-        # Add total pages field
-        fldChar3 = OxmlElement('w:fldChar')
-        fldChar3.set(qn('w:fldCharType'), 'begin')
-        
-        instrText2 = OxmlElement('w:instrText')
-        instrText2.set(qn('xml:space'), 'preserve')
-        instrText2.text = 'NUMPAGES'
-        
-        fldChar4 = OxmlElement('w:fldChar')
-        fldChar4.set(qn('w:fldCharType'), 'end')
-        
-        run._r.append(fldChar3)
-        run._r.append(instrText2)
-        run._r.append(fldChar4)
+def _add_page_num_field(run, field):
+    """Append a simple Word field (PAGE or NUMPAGES) to a run."""
+    fc1 = OxmlElement('w:fldChar')
+    fc1.set(qn('w:fldCharType'), 'begin')
+    instr = OxmlElement('w:instrText')
+    instr.set(qn('xml:space'), 'preserve')
+    instr.text = field
+    fc2 = OxmlElement('w:fldChar')
+    fc2.set(qn('w:fldCharType'), 'end')
+    run._r.append(fc1)
+    run._r.append(instr)
+    run._r.append(fc2)
 
-def create_new_section_with_header(doc, file_name):
-    """Create a new section with a header showing the source file."""
-    # Add a section break
+
+def add_page_number_footer(doc, kit_title=None, template_url=None):
+    """Add a 3-column footer: kit title LEFT | Page X of Y CENTER | source link RIGHT.
+    Only configures section 0; all other sections inherit via is_linked_to_previous=True."""
+
+    def _build_footer(footer):
+        footer.is_linked_to_previous = False
+        footer.paragraphs[0].clear()
+        para = footer.paragraphs[0]
+
+        # Two tab stops: center and right
+        pPr = para._p.get_or_add_pPr()
+        tabs_el = OxmlElement('w:tabs')
+        center_tab = OxmlElement('w:tab')
+        center_tab.set(qn('w:val'), 'center')
+        center_tab.set(qn('w:pos'), '4675')
+        right_tab = OxmlElement('w:tab')
+        right_tab.set(qn('w:val'), 'right')
+        right_tab.set(qn('w:pos'), '9350')
+        tabs_el.append(center_tab)
+        tabs_el.append(right_tab)
+        pPr.append(tabs_el)
+
+        # LEFT: kit title
+        left_run = para.add_run(kit_title if kit_title else '')
+        left_run.font.size = Pt(9)
+        left_run.font.color.rgb = RGBColor(100, 100, 100)
+
+        # CENTER: Page X of Y
+        para.add_run('\t')
+        page_run = para.add_run()
+        page_run.font.size = Pt(9)
+        page_run.font.color.rgb = RGBColor(100, 100, 100)
+        _add_page_num_field(page_run, 'PAGE')
+        page_run.add_text(' of ')
+        _add_page_num_field(page_run, 'NUMPAGES')
+
+        # RIGHT: source link
+        para.add_run('\t')
+        if template_url:
+            add_hyperlink(para, 'KIT Template Source', template_url)
+        else:
+            right_run = para.add_run('Eclipse Tractus-X')
+            right_run.font.size = Pt(8)
+            right_run.font.color.rgb = RGBColor(100, 100, 100)
+
+    for i, section in enumerate(doc.sections):
+        if i == 0:
+            # Build the footer on section 0
+            _build_footer(section.footer)
+            # Also apply to first-page footer of section 0 so page 1 has it too
+            if section.different_first_page_header_footer:
+                _build_footer(section.first_page_footer)
+        else:
+            # All other sections inherit from the previous section
+            section.footer.is_linked_to_previous = True
+
+def add_toc(doc):
+    """Insert a Word Table of Contents field on its own page."""
+    toc_heading = doc.add_heading('Table of Contents', level=1)
+    toc_heading.alignment = WD_ALIGN_PARAGRAPH.LEFT
+
+    # Word TOC fields require each fldChar and instrText in its own <w:r>
+    paragraph = doc.add_paragraph()
+    p = paragraph._p
+
+    def _make_run(*children):
+        r = OxmlElement('w:r')
+        for child in children:
+            r.append(child)
+        return r
+
+    # <w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r>
+    fc_begin = OxmlElement('w:fldChar')
+    fc_begin.set(qn('w:fldCharType'), 'begin')
+    fc_begin.set(qn('w:dirty'), 'true')
+    p.append(_make_run(fc_begin))
+
+    # <w:r><w:instrText> TOC \o "1-3" \h \z \u </w:instrText></w:r>
+    instr = OxmlElement('w:instrText')
+    instr.set(qn('xml:space'), 'preserve')
+    instr.text = ' TOC \\o "1-3" \\h \\z \\u '
+    p.append(_make_run(instr))
+
+    # <w:r><w:fldChar w:fldCharType="separate"/></w:r>
+    fc_sep = OxmlElement('w:fldChar')
+    fc_sep.set(qn('w:fldCharType'), 'separate')
+    p.append(_make_run(fc_sep))
+
+    # Placeholder text shown before Word updates the field
+    placeholder_r = OxmlElement('w:r')
+    placeholder_t = OxmlElement('w:t')
+    placeholder_t.text = 'Right-click here and select "Update Field" to generate the Table of Contents.'
+    placeholder_r.append(placeholder_t)
+    p.append(placeholder_r)
+
+    # <w:r><w:fldChar w:fldCharType="end"/></w:r>
+    fc_end = OxmlElement('w:fldChar')
+    fc_end.set(qn('w:fldCharType'), 'end')
+    p.append(_make_run(fc_end))
+
+    note = doc.add_paragraph()
+    note_run = note.add_run('Tip: In Word, press Ctrl+A then F9 to update all fields including this TOC.')
+    note_run.font.size = Pt(9)
+    note_run.font.italic = True
+    note_run.font.color.rgb = RGBColor(128, 128, 128)
+
+    doc.add_page_break()
+
+def add_section_title_page(doc, title, file_label=None):
+    """Add a new Word section, set its running header, then render a compact section title bar."""
     new_section = doc.add_section()
-    
-    # Configure header
+    # Disable different-first-page so the header shows on every page of this section
+    new_section.different_first_page_header_footer = False
+    new_section.header.is_linked_to_previous = False
+
     header = new_section.header
-    header.is_linked_to_previous = False
-    
-    # Clear existing header
-    for paragraph in header.paragraphs:
-        paragraph.clear()
-    
-    # Add file name to header
-    if len(header.paragraphs) == 0:
+    # Clear any existing paragraphs
+    for p in header.paragraphs:
+        p.clear()
+
+    if not header.paragraphs:
         header_para = header.add_paragraph()
     else:
         header_para = header.paragraphs[0]
-    
+
     header_para.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-    run = header_para.add_run(f"Source: {file_name}")
-    run.font.size = Pt(9)
-    run.font.italic = True
-    run.font.color.rgb = RGBColor(128, 128, 128)
-    
-    # Add a line below the header
-    header_para2 = header.add_paragraph()
-    header_para2.add_run('_' * 100)
-    header_para2.runs[0].font.size = Pt(6)
-    header_para2.runs[0].font.color.rgb = RGBColor(200, 200, 200)
-    
-    return new_section
+    header_run = header_para.add_run(file_label if file_label else title)
+    header_run.font.size = Pt(9)
+    header_run.font.italic = True
+    header_run.font.color.rgb = RGBColor(100, 100, 100)
+
+    # Thin rule under header text
+    pPr = header_para._p.get_or_add_pPr()
+    pBdr = OxmlElement('w:pBdr')
+    bottom = OxmlElement('w:bottom')
+    bottom.set(qn('w:val'), 'single')
+    bottom.set(qn('w:sz'), '4')
+    bottom.set(qn('w:space'), '1')
+    bottom.set(qn('w:color'), 'CCCCCC')
+    pBdr.append(bottom)
+    pPr.append(pBdr)
+
+    # Compact title bar — no spacers, content follows immediately
+    title_para = doc.add_heading(title, level=1)
+    title_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    title_para.paragraph_format.space_before = Pt(6)
+    title_para.paragraph_format.space_after = Pt(4)
+
+    # Thin decorative rule below title
+    rule_para = doc.add_paragraph()
+    rule_para.paragraph_format.space_before = Pt(0)
+    rule_para.paragraph_format.space_after = Pt(12)
+    pPr2 = rule_para._p.get_or_add_pPr()
+    pBdr2 = OxmlElement('w:pBdr')
+    bot2 = OxmlElement('w:bottom')
+    bot2.set(qn('w:val'), 'single')
+    bot2.set(qn('w:sz'), '6')
+    bot2.set(qn('w:space'), '1')
+    bot2.set(qn('w:color'), '2C3E50')
+    pBdr2.append(bot2)
+    pPr2.append(pBdr2)
+
+def extract_frontmatter_title(content):
+    """Extract the title field from YAML frontmatter, or return None."""
+    match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, flags=re.DOTALL)
+    if match:
+        for line in match.group(1).splitlines():
+            m = re.match(r"^title:\s*[\'\"]?(.*?)[\'\"]?\s*$", line)
+            if m:
+                return m.group(1).strip().strip("\"'")
+    return None
 
 def clean_markdown_content(content):
-    """Clean markdown content by removing frontmatter and comments."""
+    """Clean markdown content by removing frontmatter, comments, and MDX/JSX specifics."""
     # Remove frontmatter (YAML between ---)
     content = re.sub(r'^---\s*\n.*?\n---\s*\n', '', content, flags=re.DOTALL | re.MULTILINE)
     
-    # Remove HTML comments
+    # Remove HTML comments (including KIT LOGO blocks and REUSE blocks)
     content = re.sub(r'<!--.*?-->', '', content, flags=re.DOTALL)
+    
+    # Remove JSX/MDX import statements  (e.g. import Kit3DLogo from '...')
+    content = re.sub(r'^import\s+\w+\s+from\s+[^\n]+\n?', '', content, flags=re.MULTILINE)
+    
+    # Remove JSX self-closing and open/close component tags.
+    # Use DOTALL + non-greedy so attributes containing '<' (e.g. kitId="<kit-id>") are handled.
+    content = re.sub(r'<[A-Z]\w+\b.*?/>', '', content, flags=re.DOTALL)   # self-closing
+    content = re.sub(r'<[A-Z]\w+\b.*?>', '', content, flags=re.DOTALL)    # opening tag
+    content = re.sub(r'</[A-Z]\w+>', '', content)                           # closing tag
     
     # Remove docusaurus-specific syntax like :::info, :::tip, etc.
     content = re.sub(r':::(\w+)\s*(.*?)\n', r'**\1**: \2\n', content)
@@ -247,7 +384,6 @@ def clean_markdown_content(content):
     # Handle mermaid diagrams - convert to special marker
     def replace_mermaid(match):
         mermaid_code = match.group(1).strip()
-        # Use a special marker that will be recognized later
         return f'\n\n**[MERMAID_DIAGRAM_START]**\n```\n{mermaid_code}\n```\n**[MERMAID_DIAGRAM_END]**\n\n'
     
     content = re.sub(r'```mermaid\s*(.*?)```', replace_mermaid, content, flags=re.DOTALL)
@@ -442,6 +578,73 @@ def process_mermaid_diagram(doc, mermaid_code):
     shading_elm.set(qn('w:fill'), 'F8F9FA')
     code_para._p.get_or_add_pPr().append(shading_elm)
 
+def add_hint_box(doc, text, is_todo=False):
+    """
+    Render a blockquote as a styled callout box.
+    - TODO blockquotes: amber/yellow background with a ✏ icon label.
+    - Regular blockquotes: light-blue background, italic.
+    """
+    if is_todo:
+        # Strip leading "TODO:" or "TODO" from the text for the body
+        body = re.sub(r'^TODO[:\s]*', '', text, flags=re.IGNORECASE).strip()
+        fill_color = 'FFF3CD'   # amber-yellow
+        border_color = 'FFCA28'
+        label = '✏  TODO'
+        label_color = RGBColor(0x85, 0x64, 0x04)
+        body_color  = RGBColor(0x66, 0x4D, 0x03)
+    else:
+        body = text
+        fill_color = 'E8F4FD'   # light blue
+        border_color = '5DADE2'
+        label = None
+        label_color = None
+        body_color  = RGBColor(0x1A, 0x5E, 0x7A)
+
+    def _shade_para(p, fill):
+        shd = OxmlElement('w:shd')
+        shd.set(qn('w:val'), 'clear')
+        shd.set(qn('w:color'), 'auto')
+        shd.set(qn('w:fill'), fill)
+        p._p.get_or_add_pPr().append(shd)
+
+    def _border_para(p, color):
+        """Add a thick left border to a paragraph to simulate a callout bar."""
+        pPr = p._p.get_or_add_pPr()
+        pBdr = OxmlElement('w:pBdr')
+        left = OxmlElement('w:left')
+        left.set(qn('w:val'), 'thick')
+        left.set(qn('w:sz'), '24')       # 3pt
+        left.set(qn('w:space'), '8')
+        left.set(qn('w:color'), color)
+        pBdr.append(left)
+        pPr.append(pBdr)
+
+    indent = Inches(0.25)
+
+    if label:
+        label_p = doc.add_paragraph()
+        label_p.paragraph_format.left_indent  = indent
+        label_p.paragraph_format.space_before = Pt(8)
+        label_p.paragraph_format.space_after  = Pt(0)
+        label_run = label_p.add_run(label)
+        label_run.bold = True
+        label_run.font.size = Pt(10)
+        label_run.font.color.rgb = label_color
+        _shade_para(label_p, fill_color)
+        _border_para(label_p, border_color)
+
+    body_p = doc.add_paragraph()
+    body_p.paragraph_format.left_indent  = indent
+    body_p.paragraph_format.space_before = Pt(0) if label else Pt(8)
+    body_p.paragraph_format.space_after  = Pt(8)
+    body_run = body_p.add_run(body)
+    body_run.font.size = Pt(10)
+    body_run.font.italic = not is_todo
+    body_run.font.color.rgb = body_color
+    _shade_para(body_p, fill_color)
+    _border_para(body_p, border_color)
+
+
 def add_html_to_docx(doc, html_content, base_path):
     """Parse HTML and add content to Word document."""
     soup = BeautifulSoup(html_content, 'html.parser')
@@ -537,9 +740,8 @@ def add_html_to_docx(doc, html_content, base_path):
         elif element.name == 'blockquote':
             text = element.get_text().strip()
             if text:
-                p = doc.add_paragraph(text)
-                p.paragraph_format.left_indent = Inches(0.5)
-                p.style.font.italic = True
+                is_todo = text.upper().startswith('TODO')
+                add_hint_box(doc, text, is_todo=is_todo)
         
         # Lists
         elif element.name in ['ul', 'ol']:
@@ -577,52 +779,124 @@ def add_html_to_docx(doc, html_content, base_path):
         elif element.name == 'hr':
             doc.add_paragraph('_' * 80)
 
-def process_markdown_file(doc, file_path, base_path, source_path, is_first_file=False):
+def process_markdown_file(doc, file_path, base_path, source_path):
     """Process a single markdown file and add to document."""
     print(f"Processing: {file_path.name}")
     
-    # Read content
-    content = read_markdown_file(file_path)
-    if not content:
+    # Read raw content (before cleaning) to extract frontmatter title
+    raw_content = read_markdown_file(file_path)
+    if not raw_content:
         return False
     
-    # Clean content
-    content = clean_markdown_content(content)
+    # Extract title from frontmatter
+    section_title = extract_frontmatter_title(raw_content)
+    if not section_title:
+        # Fall back to a prettified filename
+        section_title = file_path.stem.replace('-', ' ').replace('_', ' ').title()
     
-    # Check if content has meaningful text (not just whitespace)
+    # Clean content (strips frontmatter, comments, JSX, imports, etc.)
+    content = clean_markdown_content(raw_content)
+    
+    # Check if content has meaningful text
     stripped_content = re.sub(r'<[^>]+>', '', content)
     stripped_content = re.sub(r'\s+', ' ', stripped_content).strip()
     
-    # Skip if insufficient content (less than 50 characters of actual text)
     if len(stripped_content) < 50:
         print(f"  Skipping {file_path.name} - insufficient content ({len(stripped_content)} chars)")
         return False
     
-    # Get relative path for header (relative to source_path, not base_path)
-    relative_path = file_path.relative_to(source_path)
+    # Add a prominent section title page for every file
+    # Use the relative path (e.g. adoption-view/adoption-view.md) as the running page header
+    try:
+        rel_label = str(file_path.relative_to(source_path))
+    except ValueError:
+        rel_label = file_path.name
+    add_section_title_page(doc, section_title, file_label=rel_label)
     
-    # Create new section with header for each file (except the first one)
-    if not is_first_file:
-        create_new_section_with_header(doc, str(relative_path))
-    
-    # Convert to HTML
+    # Convert to HTML and add to document
     html_content = markdown_to_html(content)
-    
-    # Add to document - pass the file's parent directory for image resolution
     add_html_to_docx(doc, html_content, file_path.parent)
     
+    doc.add_paragraph()  # trailing spacing
     return True
-    
-    # Add spacing
-    doc.add_paragraph()
 
-def generate_word_doc(source_path, output_path):
+def extract_readme_intro(source_path):
+    """
+    Extract the first descriptive paragraph and any requirements URL from README.md.
+    Returns (description, requirements_url) — either may be None.
+    """
+    readme = source_path / 'README.md'
+    if not readme.exists():
+        return None, None
+
+    text = readme.read_text(encoding='utf-8')
+    description = None
+    req_url = None
+
+    for line in text.splitlines():
+        stripped = line.strip()
+        # Skip headings, blank lines, blockquotes, code fences, badge lines
+        if not stripped or stripped.startswith('#') or stripped.startswith('>') \
+                or stripped.startswith('```') or stripped.startswith('!'):
+            continue
+        # Pick up a requirements URL (line containing the kit-lifecycle anchor)
+        if 'kit-lifecycle' in stripped or ('requirements' in stripped.lower() and 'http' in stripped):
+            url_match = re.search(r'https?://\S+', stripped)
+            if url_match and req_url is None:
+                req_url = url_match.group(0).rstrip(')')
+            continue
+        # First plain-text line is the description
+        if description is None and not stripped.startswith('-') and not stripped.startswith('|'):
+            # Strip inline markdown (bold, italic, backticks, links)
+            clean = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', stripped)
+            clean = re.sub(r'[*_`]', '', clean)
+            if len(clean) > 20:
+                description = clean
+
+    return description, req_url
+
+
+def extract_readme_title(source_path):
+    """Extract the first # heading from README.md as the document title."""
+    readme = source_path / 'README.md'
+    if not readme.exists():
+        return None
+    for line in readme.read_text(encoding='utf-8').splitlines():
+        if line.startswith('# '):
+            return line[2:].strip()
+    return None
+
+
+def add_hyperlink(paragraph, text, url):
+    """Add a clickable hyperlink run to a paragraph."""
+    part = paragraph.part
+    r_id = part.relate_to(url, 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink', is_external=True)
+    hyperlink = OxmlElement('w:hyperlink')
+    hyperlink.set(qn('r:id'), r_id)
+    rPr = OxmlElement('w:rPr')
+    color = OxmlElement('w:color')
+    color.set(qn('w:val'), '2980B9')
+    u = OxmlElement('w:u')
+    u.set(qn('w:val'), 'single')
+    rPr.append(color)
+    rPr.append(u)
+    r = OxmlElement('w:r')
+    r.append(rPr)
+    t = OxmlElement('w:t')
+    t.text = text
+    r.append(t)
+    hyperlink.append(r)
+    paragraph._p.append(hyperlink)
+    return hyperlink
+
+def generate_word_doc(source_path, output_path, body_font='Calibri'):
     """
     Generate a Word document from markdown files in the specified folder.
     
     Args:
         source_path: Path to the directory containing markdown files
         output_path: Path where the Word document should be saved
+        body_font: Font name to use for body and heading text
     """
     print(f"Starting Word document generation from: {source_path}")
     
@@ -630,24 +904,74 @@ def generate_word_doc(source_path, output_path):
     doc = Document()
     
     # Setup styles
-    setup_document_styles(doc)
-    
-    # Add title page
+    setup_document_styles(doc, body_font=body_font)
+
     folder_name = source_path.name
-    title = doc.add_heading(f'{folder_name} Documentation', 0)
-    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    
-    doc.add_paragraph()
-    subtitle = doc.add_paragraph('Eclipse Tractus-X')
-    subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    subtitle.runs[0].font.size = Pt(16)
-    
-    doc.add_paragraph()
-    date_para = doc.add_paragraph(f'Generated: {datetime.now().strftime("%Y-%m-%d")}')
-    date_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    date_para.runs[0].font.size = Pt(12)
-    
-    doc.add_page_break()
+    readme_title = extract_readme_title(source_path) or f'{folder_name} KIT Template'
+    template_url = (
+        f'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io'
+        f'/tree/main/docs-kits/kit-template/{folder_name}'
+    )
+    readme_desc, req_url = extract_readme_intro(source_path)
+
+    # First section: first-page header shows centered doc title; regular header stays empty
+    first_section = doc.sections[0]
+    first_section.different_first_page_header_footer = True
+
+    # Regular header (page 2+ of TOC section): empty
+    first_section.header.is_linked_to_previous = False
+    for p in first_section.header.paragraphs:
+        p.clear()
+
+    # First-page header: centered "Eclipse Tractus-X <title>"
+    fph = first_section.first_page_header
+    fph.is_linked_to_previous = False
+    for p in fph.paragraphs:
+        p.clear()
+    fph_para = fph.paragraphs[0] if fph.paragraphs else fph.add_paragraph()
+    fph_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    fph_run = fph_para.add_run(f'Eclipse Tractus-X {readme_title}'.upper())
+    fph_run.font.size = Pt(11)
+    fph_run.font.bold = True
+    fph_run.font.color.rgb = RGBColor(44, 62, 80)
+
+    # Description + requirements link at the very start of the body
+    if readme_desc or req_url:
+        if readme_desc:
+            desc_para = doc.add_paragraph(readme_desc)
+            desc_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
+            desc_r = desc_para.runs[0]
+            desc_r.font.size = Pt(10)
+            desc_r.font.italic = True
+            desc_r.font.color.rgb = RGBColor(80, 80, 80)
+        if req_url:
+            req_para = doc.add_paragraph()
+            req_label = req_para.add_run('Requirements can be found here: ')
+            req_label.font.size = Pt(9)
+            req_label.font.bold = True
+            req_label.font.color.rgb = RGBColor(80, 80, 80)
+            add_hyperlink(req_para, req_url, req_url)
+
+    # Disclaimer
+    disclaimer_para = doc.add_paragraph()
+    disclaimer_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    disclaimer_para.paragraph_format.space_before = Pt(14)
+    disclaimer_para.paragraph_format.space_after = Pt(14)
+    disclaimer_label = disclaimer_para.add_run('⚠ Disclaimer: ')
+    disclaimer_label.font.size = Pt(9)
+    disclaimer_label.font.bold = True
+    disclaimer_label.font.color.rgb = RGBColor(133, 77, 14)
+    disclaimer_text = disclaimer_para.add_run(
+        'This Word document is a reference template only and will not be published as part of the KIT. '
+        'In order to publish a KIT, the content of this document must be manually copied into the KIT template repository and adapted to fit the KIT structure and guidelines.'
+        'The Table of Contents is not part of the KIT structure and should be removed before publication, it is only relevant for this word document.'
+    )
+    disclaimer_text.font.size = Pt(9)
+    disclaimer_text.font.italic = True
+    disclaimer_text.font.color.rgb = RGBColor(133, 77, 14)
+
+    # Table of Contents fills the rest of page 1
+    add_toc(doc)
     
     # Collect all markdown files
     md_files = collect_markdown_files(source_path)
@@ -657,16 +981,15 @@ def generate_word_doc(source_path, output_path):
         print("Error: No markdown files found!")
         sys.exit(1)
     
-    # Process each file
+    # Process each file — every file gets its own section title page
     files_added = 0
-    for i, md_file in enumerate(md_files):
-        # Pass whether this is the first file that actually gets added
-        was_added = process_markdown_file(doc, md_file, md_file.parent, source_path, is_first_file=(files_added == 0))
+    for md_file in md_files:
+        was_added = process_markdown_file(doc, md_file, md_file.parent, source_path)
         if was_added:
             files_added += 1
     
-    # Add page numbers to footer
-    add_page_number_footer(doc)
+    # Add 3-column footer (kit title | page# | source link) to all sections
+    add_page_number_footer(doc, kit_title=readme_title, template_url=template_url)
     
     # Save document
     print("Saving Word document...")
@@ -691,7 +1014,12 @@ def main():
         nargs='?',
         help='Output file path (optional, defaults to <folder-name>.docx in repo root)'
     )
-    
+    parser.add_argument(
+        '--font',
+        default='Calibri',
+        help='Body font to use (default: Calibri)'
+    )
+
     args = parser.parse_args()
     
     # Get the repository root (assuming script is in scripts/ directory)
@@ -730,7 +1058,7 @@ def main():
     
     # Generate the Word document
     try:
-        generate_word_doc(source_path, output_path)
+        generate_word_doc(source_path, output_path, body_font=args.font)
     except Exception as e:
         print(f"Error generating Word document: {e}")
         import traceback

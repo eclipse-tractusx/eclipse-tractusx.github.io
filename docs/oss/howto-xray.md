@@ -3,18 +3,17 @@ title: Tractus-X Jira Xray Tutorial
 sidebar_position: 42
 ---
 
-## 1. Prerequisites
+## 1. Introduction and Prerequisites
 
-- This is a tutorial on how to create and structure test cases, test sets and test plans in the central [Eclipse Tractus-X Test Management Jira](https://catena-x.atlassian.net/browse/CXTPM/) system.
+- This is a tutorial on how to create and structure test cases, test sets and test plans in the central **[Eclipse Tractus-X Test Management Jira](https://catena-x.atlassian.net/browse/CXTPM/)** test management system.
 - This test management system is mainly intended to manage and execute tests at the end-to-end integration testing level, but can be used by the Tractus-X projects for tests at any test level.
-- This test management system is an Atlassian Jira installation (Cloud version), with Xray - Test Management for Jira installed as an application in it.
-- The license for the project was originally purchased by Catena-X e.V., thus all links below currently still have the name Catena-X in the URL, as this could not be changed without causing further issues. But the system can now be used with a free license for open source projects that in 2025 was granted by Atlassian Pty Ltd to the Eclipse Foundation respectively the Eclipse Tractus-X project.
-- Similar to permissions in GitHub, the system is set up so that viewing access to the [Eclipse Tractus-X Test Management Jira project space](https://catena-x.atlassian.net/browse/CXTPM/) is possible without creating an account.
-- However in order to add, edit or delete test assets in the repository you will need a Jira account and the applicable permissions assigned: Project access granted and project role "Contributor" to edit your own or "Committer" to also edit assets of other team members.
+- This test management system is an Atlassian Jira installation (Cloud version), with **Xray - Test Management for Jira** installed as an application in it.
+- The Atlassian Jira subscription for the project was originally purchased by Catena-X e.V. Thus please note that all links below currently still have the name Catena-X in the URL, as this could not be changed without causing further issues. But this test management system can now be used free of charge by Eclipse Tractus-X test management and product teams for their testing purposes after an Atlassian Open Source Cloud Subscription for open source projects was granted by Atlassian Pty Ltd to the Eclipse Foundation respectively the Eclipse Tractus-X project.
+- Similar to permissions used in the Eclipse Tractus-X GitHub, the system is set up so that viewing access to the [Eclipse Tractus-X Test Management Jira project space](https://catena-x.atlassian.net/browse/CXTPM/) is possible without creating an account.
+- However in order to add, edit or delete test assets in the repository you will need a Jira account and the applicable permissions assigned by an administrator: Project access granted and project role "Contributor" to edit assets created yourself with your account or "Committer" to also edit assets of other team members and projects.
 - To work with Xray test management in Jira, [create a Jira account](https://id.atlassian.com/signup?application=jira&continue=https%3A%2F%2Fcatena-x.atlassian.net) or log in and contact Tractus-X / Catena-X e.V. Test Manager [Monika Jacobsen](mailto:monika.jacobsen@catena-x.net) to get added as a Jira project member.
 
 Please see the sections below for a tutorial on how you can use this system to achieve the testing requirements and objectives for your Tractus-X project.
-<br/>
 
 ---
 
@@ -25,10 +24,9 @@ Please see the sections below for a tutorial on how you can use this system to a
 3. **Locate the "Create" button**:
    - Use the global "Create" button at the top of the page, or
    - The context-specific "Create" button on the right side within the Testing Board.
-![howto-xray-create_button.png](../images/howto-xray-create_button.png)
-*Screenshot: The "Create" buttons are highlighted in the Jira Xray interface for easy access to create new test artifacts.*
 
-<br/>
+![The Create buttons are highlighted in the Jira Xray interface for easy access to create new test artifacts](../images/howto-xray-create_button.png)
+<p><em>Screenshot: The "Create" buttons are highlighted in the Jira Xray interface for easy access to create new test artifacts.</em></p>
 
 ---
 
@@ -43,25 +41,22 @@ For all kinds of test types, you need to fill out these basic information.
 1. Click the **Create** button.
 2. In the creation dialog, select **Test** as the Work type.
 3. Fill in all relevant fields. Fields marked with an asterisk are mandatory, e.g. a Summary (= title of the test)
-![howto-xray-create-test-case-1.png](../images/howto-xray-create-test-case-1.png)
-*Screenshot: Top of the "Create" dialogue box with Test selected as the "Work type" and the "Summary" field highlighted*
 
-<br/>
+![Top of the Create dialogue box with Test selected as the Work type and the Summary field highlighted](../images/howto-xray-create-test-case-1.png)
+<p><em>Screenshot: Top of the "Create" dialogue box with Test selected as the "Work type" and the "Summary" field highlighted</em></p>
 
-#### Summary*: Brief description of the test
+#### Summary: Brief description of the test
 
-A good JIRA Xray test case summary should clearly indicate the system and use case it belongs to. This should be done by including the system in square brackets followed by a short, descriptive title of what the test does.
+A good Jira Xray test case summary should clearly indicate the system and use case it belongs to. This should be done by including the system in square brackets followed by a short, descriptive title of what the test does.
 
-Examples:
+**Examples:**
 
 - [Portal Frontend] User can reset password via email
 - [BPDM] Validate mandatory field error handling
 
-<br/>
+#### **Description:** Detailed explanation of the test
 
-#### **Description*:** Detailed explanation of the test
-
-A good JIRA test case description should briefly explain the purpose and context of the test. It should include:
+A good Jira test case description should briefly explain the purpose and context of the test. It should include:
 
 - What is being tested (feature, functionality, behavior)
 - Why it’s important (business or technical relevance)
@@ -70,16 +65,12 @@ A good JIRA test case description should briefly explain the purpose and context
 **Example:**
 
 - This test verifies that a user can successfully reset their password via the Portal Frontend using the "Forgot Password" function.
-
-  The test ensures that a valid reset link is sent via email and that the new password can be used for login.
-
-  Precondition: A user account with valid email must exist.
-
-<br/>
+- The test ensures that a valid reset link is sent via email and that the new password can be used for login.
+- Precondition: A user account with valid email must exist.
 
 #### Labels: For categorization
 
-The labels field in a JIRA test case should be used to support filtering, grouping, and reporting by product, use case, or environment. Labels should be:
+The **Labels** field in a Jira test case should be used to support filtering, grouping, and reporting by product, use case, or environment. Labels should be:
 
 - Consistent and lowercase
 - Focused on system/module, test type, or team/responsibility
@@ -91,14 +82,12 @@ The labels field in a JIRA test case should be used to support filtering, groupi
 - regression
 - stable-environment
 
-![howto-xray-labels.png](../images/howto-xray-labels.png)
-*Screenshot: Setting the right labels helps to find, group, and associate this issue to Policy Store API of the IRS on the Integration Environment.*
-
-<br/>
+![Setting the right labels helps to find, group, and associate this issue to Policy Store API of the IRS on the Integration Environment](../images/howto-xray-labels.png)
+<p><em>Screenshot: Setting the right labels helps to find, group, and associate this issue to Policy Store API of the IRS on the Integration Environment.</em></p>
 
 #### Fix Versions: Specify relevant releases
 
-The Fix Versions field should be used to indicate the release or version for which the test case was created or is valid. This helps in:
+The **Fix Versions** field should be used to indicate the release or version for which the test case was created or is valid. This helps in:
 
 - Tracking test coverage per release
 - Filtering test cases relevant to a specific version
@@ -106,39 +95,33 @@ The Fix Versions field should be used to indicate the release or version for whi
 
 You can find all available fix versions in the [Release versions overview](https://catena-x.atlassian.net/projects/CXTPM?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page)
 
-<br/>
-
 #### Component, Team: (see Section 10 for details)
 
-**The Component field** should indicate the technical module or system the test case belongs to. It helps with:
+The **Component** field should indicate the technical module or system the test case belongs to. It helps with:
 
 - Grouping tests by functionality or architecture
 - Assigning ownership (component leads)
 - Filtering and reporting by system areas
 
-Examples:
+**Examples:**
 
 - Portal Frontend
 - BPDM
 
-<br/>
-
-**The Team field** should indicate the team responsible for creating, maintaining, or executing the test case. It ensures:
+The **Team** field should indicate the team responsible for creating, maintaining, or executing the test case. It ensures:
 
 - Clear ownership
 - Easier assignment and collaboration
 - Efficient filtering, reporting, and test planning per team
 
-Examples:
+**Examples:**
 
 - Testmanagement
 - Portal
 - PURIS
 
-![howto-xray-create-test-case-2.png](../images/howto-xray-create-test-case-2.png)
-*Screenshot: Bottom part of the first "Create" dialogue screen with the "Team" selection dropdown menu.*
-
-<br/>
+![Bottom part of the first Create dialogue screen with the Team selection dropdown menu](../images/howto-xray-create-test-case-2.png)
+<p><em>Screenshot: Bottom part of the first "Create" dialogue screen with the "Team" selection dropdown menu.</em></p>
 
 On the second screen, please add the test type:
 
@@ -146,16 +129,12 @@ On the second screen, please add the test type:
 
 Depending on your choice, Jira will change the layout and offer you different options to describe your test case.
 
-<br/>
-
 ### 3.2 Manual Test Type
 
 - **Purpose:** For test cases executed manually by testers
 - **Use Case:** UI testing, exploratory testing, user acceptance testing
 - **Structure:** Sequential test steps with actions, test data, and expected results
 - **Example Scenario:** Testing user login functionality
-
-<br/>
 
 #### Creating Manual Test
 
@@ -180,7 +159,7 @@ Depending on your choice, Jira will change the layout and offer you different op
 >
 >Action: Enter valid credentials
 >
->Test Data: Username: test.user@catena-x.net, Password: SecurePass123
+>Test Data: Username: `test.user@catena-x.net`, Password: SecurePass123
 >
 >Expected Result: Credentials are accepted without validation errors
 >
@@ -192,18 +171,14 @@ Depending on your choice, Jira will change the layout and offer you different op
 >
 >Expected Result: User is redirected to the dashboard page
 
-<br/>
-
-#### Template
+#### Template (Manual)
 
 You can follow these instructions or clone from the template test case.
 For manual test cases, please open [CXTPM-672](https://catena-x.atlassian.net/browse/CXTPM-672). From the
 three-dots-menu, choose *Clone* and adapt the fields accordingly.
 
-![howto-xray-clone-from-template.png](../images/howto-xray-clone-from-template.png)
-*Screenshot: Clone from the template for a manual test case*
-
-<br/>
+![Clone from the template for a manual test case](../images/howto-xray-clone-from-template.png)
+<p><em>Screenshot: Clone from the template for a manual test case</em></p>
 
 ### 3.3 Cucumber Test Type
 
@@ -211,8 +186,6 @@ three-dots-menu, choose *Clone* and adapt the fields accordingly.
 - **Use Case:** Automated testing with business-readable scenarios
 - **Structure:** Gherkin syntax (Given, When, Then)
 - **Example Scenario:** API endpoint validation
-
-<br/>
 
 #### Creating Cucumber Test
 
@@ -287,18 +260,14 @@ Feature: Asset Creation in Trace-X
 - **Scenario Outline:** Template for multiple similar scenarios with different data
 - **Examples:** Data table providing values for scenario outline placeholders
 
-<br/>
-
-#### Template
+#### Template (Cucumber)
 
 You can follow these instructions or clone from the Cucumber template test case.
-For manual test cases please open [CXTPM-673](https://catena-x.atlassian.net/browse/CXTPM-673). From the
-three-dots-menu, choose *Clone* and adapt the fields accordingly.
+For a Cucumber test case template please open [CXTPM-673](https://catena-x.atlassian.net/browse/CXTPM-673). From the
+three-dots-menu, choose **Clone** and adapt the fields accordingly.
 
-![howto-xray-clone-from-template-cucumber.png](../images/howto-xray-clone-from-template-cucumber.png)
-*Screenshot: Clone from the template for a Cucumber test case*
-
-<br/>
+![Clone from the template for a Cucumber test case](../images/howto-xray-clone-from-template-cucumber.png)
+<p><em>Screenshot: Clone from the template for a Cucumber test case</em></p>
 
 ### 3.4 Generic Test Type
 
@@ -307,15 +276,11 @@ three-dots-menu, choose *Clone* and adapt the fields accordingly.
 - **Structure:** Flexible format, can be structured or unstructured
 - **Example Scenario:** System configuration validation
 
-<br/>
-
 #### Creating Generic Test Cases
 
 1. Select **Test Type = Generic**
 2. Provide a clear description of what needs to be tested
 3. Include any specific conditions or configurations
-
-<br/>
 
 #### Generic Test Example
 
@@ -345,56 +310,45 @@ three-dots-menu, choose *Clone* and adapt the fields accordingly.
 > - Test is executed externally via GitHub Actions
 > - Results (JMeter .xml or .json) are uploaded via the Xray REST API to the corresponding Test Execution
 
-<br/>
-
 ---
 
 ## 4. Test Sets
 
 The Xray Test Set is used to group related tests for better organization and reuse.
-<br/>
 
 ### 4.1 Purpose Of Test Sets
 
 - Logical grouping of Test issues (e.g., by feature, module, or type).
-
 - Reuse the same set of tests across different Test Plans or Executions.
-
 - Simplifies bulk operations like assigning, executing, or reporting on tests.
-
-<br/>
 
 ### 4.2 Creating Test Sets
 
 1. Click the **Create** button.
 2. In the creation dialog, open the **Work type** dropdown and select **Test Set**.
-  ![howto-xray-testset-create-dialog.png](../images/howto-xray-testset-create-dialog.png)
-  *Screenshot: The "Work type" dropdown is highlighted, showing "Test Set" selected in the creation dialog.*
 3. Fill in the fields, those marked with an asterisk are mandatory:
-   - **Summary:*** Name of the Test Set.
-   - **Description:*** Brief description of the Test Set.
-   - **Labels, Fix Versions, Component, Team, Priority:** For categorization and traceability.
-     For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
+   - **Summary:** Name of the Test Set.
+   - **Description:** Brief description of the Test Set.
+   - **Labels, Fix Versions, Component, Team, Priority:** For categorization and traceability. For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
 4. Click **Create** to finalize the Test Set.
-   ![howto-xray-testset-dialog-details.png](../images/howto-xray-testset-dialog-details.png)
-   *Screenshot: The "Fix version", "Priority", "Team" and "Labels" dropdowns are highlighted in the "Create" dialogue box.*
 
-<br/>
+![The Work type dropdown is highlighted, showing Test Set selected in the creation dialog](../images/howto-xray-testset-create-dialog.png)
+<p><em>Screenshot: The "Work type" dropdown is highlighted, showing "Test Set" selected in the creation dialog.</em></p>
+
+![The Fix version, Priority, Team and Labels dropdowns are highlighted in the Create dialogue box](../images/howto-xray-testset-dialog-details.png)
+<p><em>Screenshot: The "Fix version", "Priority", "Team" and "Labels" dropdowns are highlighted in the "Create" dialogue box.</em></p>
 
 ### 4.3 Adding Test Cases to Test Sets
 
 1. Open the created Test Set.
 2. Use the **Add Tests** option to include existing test cases, or create new test cases directly within the Test Set.
-   ![howto-xray-testset-add-test.png](../images/howto-xray-testset-add-test.png)
-   *Screenshot: Add new or existing tests to a test set*
-   <br/>
-   ![howto-xray-testset-add-test.png](../images/howto-xray-testset-add-test_2.png)
-   *Screenshot: Add existing test from the list or use the more sophisticated search*
-   <br/>
-
 3. Assign priorities and link the Test Set to requirements or defects for traceability.
 
-<br/>
+![Add new or existing tests to a test set](../images/howto-xray-testset-add-test.png)
+<p><em>Screenshot: Add new or existing tests to a test set</em></p>
+
+![Add existing test from the list or use the more sophisticated search](../images/howto-xray-testset-add-test_2.png)
+<p><em>Screenshot: Add existing test from the list or use the more sophisticated search</em></p>
 
 ---
 
@@ -402,42 +356,34 @@ The Xray Test Set is used to group related tests for better organization and reu
 
 The purpose of an Xray Test Plan is to organize and manage the execution of a set of tests for a specific goal, like a release, sprint, or feature validation.
 
-<br/>
-
 ### 5.1 Purpose of Test Plans
 
 - Organize and manage a collection of Test Executions targeting a common objective (e.g., a release or sprint).
-
 - Track overall testing progress, status, and coverage in one centralized view.
-
 - Define the scope of testing by associating relevant Test issues.
-
 - Allow for multiple executions of the same test set within the same plan (e.g., different environments or iterations).
-
 - Enable reporting and metrics like pass/fail rates, execution history, and requirement traceability.
-
-<br/>
 
 ### 5.2 Creating Test Plans
 
 1. Click the **Create** button.
 2. In the creation dialog, open the **Work type** dropdown and select **Test Plan**.
-   ![howto-xray-testplan-create-dialog.png](../images/howto-xray-testplan-create-dialog.png)
-   *Screenshot: In the "Create" menu the "Work type" dropdown with "Test Plan" as the selected option is highlighted.*
 3. Fill in the fields, marked with an asterisk are mandatory:
-   - **Summary:*** Name of the Test Plan.
-   - **Description:*** Brief description of the Test Plan.
-   - **Labels, Fix Versions, Component, Team:** For categorization and traceability.
-     For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
+   - **Summary:** Name of the Test Plan.
+   - **Description:** Brief description of the Test Plan.
+   - **Labels, Fix Versions, Component, Team:** For categorization and traceability. For a detailed explanation of these fields see [chapter 3.1 Basic Test Case Creation](#31-basic-test-case-creation)
 4. Click **Create** to finalize the Test Plan.
 
-<br/>
+![In the Create menu the Work type dropdown with Test Plan as the selected option is highlighted](../images/howto-xray-testplan-create-dialog.png)
+<p><em>Screenshot: In the "Create" menu the "Work type" dropdown with "Test Plan" as the selected option is highlighted.</em></p>
 
 ### 5.3 Integrating Test Sets into Test Plans
 
 1. Open the created Test Plan.
 2. Use the **Add Test Sets** or **Add Tests** option to include relevant Test Sets or individual Test Cases.
 3. Organize and track the execution of your tests for a release or feature.
+
+---
 
 ## NOTICE
 
@@ -446,7 +392,7 @@ This work and all embedded screenshot images are licensed under the [CC-BY-4.0](
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2025, 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/)
-- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray)
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray.md](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/oss/howto-xray.md)
 - Images: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/images](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs/images)
 
 ## AUTHORS

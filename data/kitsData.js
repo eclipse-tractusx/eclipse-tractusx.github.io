@@ -78,9 +78,11 @@ import DigitalTwinKitLogo from "@site/static/img/kits/digital-twin/digital-twin-
 import DataDrivenQualityLogo from "@site/static/img/kits/data-driven-quality-management/data-driven-quality-management-kit-raw-logo.svg";
 import TraceabilityKitLogo from "@site/static/img/kits/traceability/traceability-kit-raw-logo.svg";
 import DataChainKitLogo from "@site/static/img/kits/data-chain/data-chain-kit-raw-logo.svg";
+import DueDiligenceKitLogo from "@site/static/img/kits/due-diligence/due-diligence-kit-raw-logo.svg";
 import EcoPassKitLogo from "@site/static/img/kits/eco-pass/eco-pass-kit-raw-logo.svg";
 import EngineeringAsAServiceKITLogo from "@site/static/img/kits/engineering-as-a-service/engineering-as-a-service-kit-raw-logo.svg";
 import PCFKitLogo from "@site/static/img/kits/pcf/pcf-kit-raw-logo.svg";
+import CBAMKitLogo from "@site/static/img/kits/cbam/cbam-kit-raw-logo.svg";
 import PurisKitLogo from "@site/static/img/kits/puris/puris-kit-raw-logo.svg";
 import DCMKitLogo from "@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-raw-logo.svg";
 import ESSKitLogo from "@site/static/img/kits/ess/ess-kit-raw-logo.svg";
@@ -97,6 +99,7 @@ import BehaviorTwinKitLogo from "@site/static/img/kits/behavior-twin/behavior-tw
 import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-kit-raw-logo.svg";
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
 import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
+import CCMKitLogo from "@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg";
 import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
 
 // Import Material-UI icons for industries
@@ -209,7 +212,7 @@ export const kitsData = {
         created: '2025-09-30',
         lastUpdated: '2025-09-30',
         latestVersion: '0.0.1',
-        new: true
+        new: false
       }
     },
     {
@@ -364,8 +367,8 @@ export const kitsData = {
       description: 'Trace parts and materials across the entire value chain to enable data driven use cases over all n-tier levels.',
       metadata: {
         created: '2023-04-12',
-        lastUpdated: '2025-08-07',
-        latestVersion: '7.0.0',
+        lastUpdated: '2026-02-17',
+        latestVersion: '8.0.0',
         new: false
       }
     },
@@ -530,6 +533,38 @@ export const kitsData = {
       }
     },
     {
+      id: 'cbam',
+      name: 'CBAM KIT',
+      logo: CBAMKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/cbam/cbam-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/cbam/cbam-kit-raw-logo.svg'
+      },
+      logoHeight: 120,
+      logoWidth: 120,
+      route: '/docs-kits/next/kits/cbam-kit/adoption-view',
+      colors: {
+        primary: '#3a7c96',
+        gradient: 'linear-gradient(135deg, #66C791 0%, #003399 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Sustainability',
+      industries: ['automotive'],
+      description: 'Carbon Border Adjustment Mechanism (CBAM) compliance and reporting for cross-border emissions data.',
+      metadata: {
+        created: '2025-08-13',
+        lastUpdated: '2026-03-09',
+        latestVersion: '0.1.0',
+        new: true
+      }
+    },
+    {
       id: 'eco-pass',
       name: 'ECO PASS KIT',
       logo: EcoPassKitLogo,
@@ -556,8 +591,8 @@ export const kitsData = {
       description: 'Leverage the transparency of digital product passports to strengthen sustainability & compliance.',
       metadata: {
         created: '2023-08-11',
-        lastUpdated: '2024-07-25',
-        latestVersion: '1.5.0',
+        lastUpdated: '2026-03-03',
+        latestVersion: '1.5.1',
         new: false
       }
     },
@@ -594,6 +629,39 @@ export const kitsData = {
       }
     },
     {
+      id: 'due-diligence',
+      name: 'DUE DILIGENCE CHECK KIT',
+      logo: DueDiligenceKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors; 2026 Catena-X Automotive Network e.V.',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/due-diligence/due-diligence-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/due-diligence/due-diligence-kit-raw-logo.svg'
+      },
+      logoHeight: 140,
+      logoWidth: 140,
+      route: '/docs-kits/next/kits/due-diligence-check-kit/adoption-view',
+      colors: {
+        primary: '#01b94b',
+        gradient: 'linear-gradient(135deg, #49ce97 0%, #01b94b 100%)'
+
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Sustainability',
+      industries: ['automotive', 'chemical'],
+      description: 'Facilitate due diligence processes by providing standardized data exchange for risk assessment and compliance check.',
+      metadata: {
+        created: '2026-02-23',
+        lastUpdated: '2026-03-09',
+        latestVersion: '0.0.1',
+        new: true
+      }
+    },
+    {
       id: 'dcm',
       name: 'DEMAND & CAPACITY MANAGEMENT KIT',
       logo: DCMKitLogo,
@@ -620,8 +688,8 @@ export const kitsData = {
       description: 'Quick build of solutions for companies of any size to engage a collaborative capacity management.',
       metadata: {
         created: '2023-03-01',
-        lastUpdated: '2025-09-29',
-        latestVersion: '1.4.0',
+        lastUpdated: '2026-03-03',
+        latestVersion: '1.5.0',
         new: false
       }
     },
@@ -878,7 +946,7 @@ export const kitsData = {
         created: '2025-09-29',
         lastUpdated: '2025-09-29',
         latestVersion: '0.1.0',
-        new: true
+        new: false
       }
     },
     {
@@ -910,6 +978,38 @@ export const kitsData = {
         created: '2025-11-28',
         lastUpdated: '2025-11-28',
         latestVersion: '1.0.0',
+        new: false
+      }
+    },
+    {
+      id: 'ccm',
+      name: 'COMPANY CERTIFICATE MANAGEMENT KIT',
+      logo: CCMKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors; 2026 Catena-X Automotive Network e.V.',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg'
+      },
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/next/kits/company-certificate-management-kit/adoption-view',
+      colors: {
+        primary: '#1E13C2',
+        gradient: 'linear-gradient(135deg, #3372CC 0%, #1E13C2 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Master Data Management',
+      industries: ['automotive', 'manufacturing'],
+      description: 'Manage and exchange in a decentralized manner company certificates across the supply chain to ensure compliance and quality standards.',
+      metadata: {
+        created: '2026-03-17',
+        lastUpdated: '2026-03-17',
+        latestVersion: '0.1.0',
         new: true
       }
     }

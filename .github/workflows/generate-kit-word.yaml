@@ -20,38 +20,72 @@
 name: Generate Kit Template Documents
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'docs-kits/kit-template/**'
-      - 'scripts/generate_kit_word.py'
-      - 'scripts/generate_kit_pdf.py'
-      - '.github/workflows/generate-kit-word.yaml'
   pull_request:
     paths:
       - 'docs-kits/kit-template/**'
+      - '!docs-kits/kit-template/**/*.docx'
       - 'scripts/generate_kit_word.py'
-      - 'scripts/generate_kit_pdf.py'
       - '.github/workflows/generate-kit-word.yaml'
   workflow_dispatch:
+    inputs:
+      template:
+        description: 'Which template to generate'
+        required: false
+        default: 'both'
+        type: choice
+        options:
+          - both
+          - graduated
+          - sandbox
 
 jobs:
-  generate-documents:
+  # ── Step 1: detect which template directories changed ──────────────────────
+  detect:
     runs-on: ubuntu-latest
-    
+    outputs:
+      graduated: ${{ steps.filter.outputs.graduated }}
+      sandbox: ${{ steps.filter.outputs.sandbox }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Detect changed paths
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            graduated:
+              - 'docs-kits/kit-template/graduated/**'
+              - '!docs-kits/kit-template/graduated/**/*.docx'
+              - 'scripts/generate_kit_word.py'
+              - '.github/workflows/generate-kit-word.yaml'
+            sandbox:
+              - 'docs-kits/kit-template/sandbox/**'
+              - '!docs-kits/kit-template/sandbox/**/*.docx'
+              - 'scripts/generate_kit_word.py'
+              - '.github/workflows/generate-kit-word.yaml'
+
+  # ── Step 2: generate only what changed (or what was requested manually) ────
+  generate:
+    needs: detect
+    runs-on: ubuntu-latest
+    # Run when at least one template needs regeneration, considering manual dispatch overrides
+    if: |
+      needs.detect.outputs.graduated == 'true' ||
+      needs.detect.outputs.sandbox == 'true' ||
+      github.event_name == 'workflow_dispatch'
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
-      - name: Install system dependencies for PDF
+
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -60,50 +94,51 @@ jobs:
             libgdk-pixbuf2.0-0 \
             libffi-dev \
             shared-mime-info
-      
+
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r scripts/requirements.txt
-      
-      - name: Generate Word document
+
+      - name: Generate Graduated KIT Word document
+        if: |
+          needs.detect.outputs.graduated == 'true' ||
+          (github.event_name == 'workflow_dispatch' &&
+           (github.event.inputs.template == 'graduated' || github.event.inputs.template == 'both'))
         run: |
-          python scripts/generate_kit_word.py docs-kits/kit-template docs-kits/kit-template/kit-template.docx
-      
-      - name: Generate PDF document
+          echo "Generating graduated template…"
+          python scripts/generate_kit_word.py \
+            docs-kits/kit-template/graduated \
+            docs-kits/kit-template/graduated/kit-template-graduated.docx
+
+      - name: Generate Sandbox KIT Word document
+        if: |
+          needs.detect.outputs.sandbox == 'true' ||
+          (github.event_name == 'workflow_dispatch' &&
+           (github.event.inputs.template == 'sandbox' || github.event.inputs.template == 'both'))
         run: |
-          python scripts/generate_kit_pdf.py docs-kits/kit-template docs-kits/kit-template/kit-template.pdf
-      
+          echo "Generating sandbox template…"
+          python scripts/generate_kit_word.py \
+            docs-kits/kit-template/sandbox \
+            docs-kits/kit-template/sandbox/kit-template-sandbox.docx
+
       - name: Check generated files
         run: |
-          if [ -f docs-kits/kit-template/kit-template.docx ] && [ -f docs-kits/kit-template/kit-template.pdf ]; then
-            echo "Documents generated successfully!"
-            ls -lh docs-kits/kit-template/kit-template.*
-          else
-            echo "Error: Documents not generated"
-            exit 1
-          fi
-      
-      - name: Commit generated documents
-        if: github.event_name == 'push'
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add docs-kits/kit-template/kit-template.docx docs-kits/kit-template/kit-template.pdf
-          git diff --staged --quiet || git commit -m "chore: update kit-template documents [skip ci]"
-      
-      - name: Push changes
-        if: github.event_name == 'push'
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-      
+          FAILED=0
+          for f in \
+            docs-kits/kit-template/graduated/kit-template-graduated.docx \
+            docs-kits/kit-template/sandbox/kit-template-sandbox.docx; do
+            if [ -f "$f" ]; then
+              echo "✓ $f ($(du -h "$f" | cut -f1))"
+            fi
+          done
+          exit $FAILED
+
       - name: Upload documents as artifacts
         uses: actions/upload-artifact@v4
         with:
           name: kit-template-documents
           path: |
-            docs-kits/kit-template/kit-template.docx
-            docs-kits/kit-template/kit-template.pdf
+            docs-kits/kit-template/graduated/kit-template-graduated.docx
+            docs-kits/kit-template/sandbox/kit-template-sandbox.docx
           retention-days: 30

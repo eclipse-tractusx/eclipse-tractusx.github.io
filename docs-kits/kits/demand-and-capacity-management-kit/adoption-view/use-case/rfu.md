@@ -9,7 +9,12 @@ sidebar_position: 5
 
 ## Business Roles and Functions
 
-Request for update uses its own aspect model and API. Request for update is provided and consumed by both customer and supplier.
+Request for update uses its own aspect model and API. Customers and suppliers must be able to consume and process an RfU. Being able to provide an RfU is recommended.
+
+To properly process an RfU, the following steps must be executed:
+
+1. Response: Answering with the appropriate HTTP status code
+2. Action: If that status code is `200 OK`: Providing the requested material demands and capacity groups via `WeekBasedMaterialDemand` API or `WeekBasedCapacityGroup` API respectively.
 
 |Function / Role|Customer|Supplier|
 |-|-|-|

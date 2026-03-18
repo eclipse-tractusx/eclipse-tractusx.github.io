@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: ce1bf194683060f43aa5978472f12a05bc4be56c1b62060d1b81c07e144f003d
+ * Content hash: 2b4a52f32fc5e399c77d6375056b02ac074f4c6f276599d140f3a1494b15abdb
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -116,6 +116,12 @@ const kitsByCategory = {
       "deprecated": false
     },
     {
+      "id": "cbam",
+      "name": "CBAM KIT",
+      "route": "/docs-kits/next/kits/cbam-kit/adoption-view",
+      "deprecated": false
+    },
+    {
       "id": "eco-pass",
       "name": "ECO PASS KIT",
       "route": "/docs-kits/kits/eco-pass-kit/adoption-view",
@@ -125,6 +131,12 @@ const kitsByCategory = {
       "id": "circularity",
       "name": "CIRCULARITY KIT",
       "route": "/docs-kits/kits/circularity-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "due-diligence",
+      "name": "DUE DILIGENCE CHECK KIT",
+      "route": "/docs-kits/next/kits/due-diligence-check-kit/adoption-view",
       "deprecated": false
     },
     {
@@ -185,6 +197,12 @@ const kitsByCategory = {
       "id": "geometry",
       "name": "GEOMETRY KIT",
       "route": "/docs-kits/kits/geometry-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "ccm",
+      "name": "COMPANY CERTIFICATE MANAGEMENT KIT",
+      "route": "/docs-kits/next/kits/company-certificate-management-kit/adoption-view",
       "deprecated": false
     }
   ],
