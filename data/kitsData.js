@@ -212,7 +212,7 @@ export const kitsData = {
         created: '2025-09-30',
         lastUpdated: '2025-09-30',
         latestVersion: '0.0.1',
-        new: true
+        new: false
       }
     },
     {
@@ -946,7 +946,7 @@ export const kitsData = {
         created: '2025-09-29',
         lastUpdated: '2025-09-29',
         latestVersion: '0.1.0',
-        new: true
+        new: false
       }
     },
     {
@@ -978,7 +978,7 @@ export const kitsData = {
         created: '2025-11-28',
         lastUpdated: '2025-11-28',
         latestVersion: '1.0.0',
-        new: true
+        new: false
       }
     },
     {
