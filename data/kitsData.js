@@ -447,7 +447,7 @@ export const kitsData = {
         sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/ai-service/ai-service-kit-raw-logo.svg',
         originalSourceUrl: 'https://www.svgrepo.com/svg/235253/chip-ai',
       },
-      route: '/docs-kits/next/kits/ai-service-kit/adoption-view',
+      route: '/docs-kits/kits/ai-service-kit/adoption-view',
       colors: {
         primary: '#071de2',
         gradient: 'linear-gradient(135deg, #6170f5 0%, #071de2 100%)'
@@ -544,7 +544,7 @@ export const kitsData = {
       },
       logoHeight: 120,
       logoWidth: 120,
-      route: '/docs-kits/next/kits/cbam-kit/adoption-view',
+      route: '/docs-kits/kits/cbam-kit/adoption-view',
       colors: {
         primary: '#3a7c96',
         gradient: 'linear-gradient(135deg, #66C791 0%, #003399 100%)'
@@ -640,7 +640,7 @@ export const kitsData = {
       },
       logoHeight: 140,
       logoWidth: 140,
-      route: '/docs-kits/next/kits/due-diligence-check-kit/adoption-view',
+      route: '/docs-kits/kits/due-diligence-check-kit/adoption-view',
       colors: {
         primary: '#01b94b',
         gradient: 'linear-gradient(135deg, #49ce97 0%, #01b94b 100%)'
@@ -993,7 +993,7 @@ export const kitsData = {
       },
       logoHeight: 100,
       logoWidth: 100,
-      route: '/docs-kits/next/kits/company-certificate-management-kit/adoption-view',
+      route: '/docs-kits/kits/company-certificate-management-kit/adoption-view',
       colors: {
         primary: '#1E13C2',
         gradient: 'linear-gradient(135deg, #3372CC 0%, #1E13C2 100%)'
@@ -1097,7 +1097,7 @@ export const kitsData = {
         },
         logoHeight: 100,
         logoWidth: 100,
-        route: '/docs-kits/next/kits/modular-engineering-kit/adoption-view',
+        route: '/docs-kits/kits/modular-engineering-kit/adoption-view',
         colors: {
         primary: '#dc7fd3',
         gradient: 'linear-gradient(135deg, #dc7fd3 0%, #d100bc 100%)'
@@ -1130,7 +1130,7 @@ export const kitsData = {
         },
         logoHeight: 100,
         logoWidth: 100,
-        route: '/docs-kits/next/kits/engineering-as-a-service-kit/adoption-view',
+        route: '/docs-kits/kits/engineering-as-a-service-kit/adoption-view',
         colors: {
           primary: '#dd86d4',
           gradient: 'linear-gradient(135deg, #dd86d4 0%, #9803c2 100%)'
