@@ -1,0 +1,46 @@
+{
+    "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c32413",
+    "modelItems": [
+        {
+            "semanticTags": [
+                "DetailLevel_0"
+            ],
+            "catenaXId": "urn:uuid:055c1128-0375-47c8-98de-7cf802c32414",
+            "customTags": [
+                "Drive"
+            ]
+        }
+    ],
+    "localTransform": {
+        "matrix4x4": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+        ]
+    },
+    "boundingVolume": {
+        "minPoint": [
+            0.51,
+            -0.25,
+            -0.2
+        ],
+        "maxPoint": [
+            1.6,
+            0.26,
+            0.36
+        ]
+    }
+}
