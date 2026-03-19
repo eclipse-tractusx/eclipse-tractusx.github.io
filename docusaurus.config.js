@@ -306,6 +306,11 @@ const config = {
                 label: 'KIT Master Data',
                 className: 'kit-nav-item'
               },
+              {
+                to: '/Kits-Role-Overview',
+                label: 'KITs by Role',
+                className: 'kit-nav-item'
+              },
               // Dynamically generated from kitsData
               ...generateKitNavItems(),
             ],
