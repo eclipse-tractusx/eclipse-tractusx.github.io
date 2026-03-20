@@ -107,6 +107,8 @@ Policies are defined based on the W3C ODRL format. This allows a standardized wa
   }
 }
 
+<img width="209" height="275" alt="image" src="https://github.com/user-attachments/assets/df2c3aaa-02cf-4ec9-80bc-11394d0d2f33" />
+
 More information can be found in the Policies in Catena-X of the Connector KIT.
 
 ## Semantic Models
