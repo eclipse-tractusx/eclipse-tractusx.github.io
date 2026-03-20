@@ -6,7 +6,7 @@ sidebar_position: 4
 ---
 
 
-## eSDScom In A Nutshell - Extended Version
+## eSDScom in a nutshell - Extended Version
 
 
 eSDScom is the industry standard for sending safety data sheets, exposure scenarios and relevant compliance information in the global chemical supply chain. It is a comprehensive and efficient solution saving money and time. It’s a package, covering the following developments and regulations for chemicals:
