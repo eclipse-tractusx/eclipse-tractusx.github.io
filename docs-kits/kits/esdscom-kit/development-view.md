@@ -65,8 +65,7 @@ eSDScom is not bound to the JSON format provided in Catena-X's eSDScom KIT.
 - For general information on this project, got to the [eSDScom Web Pages](https://www.esdscom.eu/)
 
 ## More guides
-LINK TO THE OTHER FILES IN THIS VIEW IN CASE THERE ARE MORE:
-Insert here link to architecture.md
+https://github.com/esdscom/eclipse-tractusx.github.io/blob/main/docs-kits/kits/esdscom-kit/architecture.md
 
 ## Notice
 This work is licensed under the [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/legalcode).
