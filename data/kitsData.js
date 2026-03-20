@@ -769,7 +769,7 @@ export const kitsData = {
       },
       logoHeight: 100,
       logoWidth: 100,
-      route: '/docs-kits/kits/material-management-kit/adoption-view',
+      route: '/docs-kits/next/kits/material-management-kit/adoption-view',
       colors: {
         primary: '#2E8B57',
         gradient: 'linear-gradient(135deg, #90EE90 0%, #2E8B57 100%)'
