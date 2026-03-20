@@ -64,6 +64,10 @@ eSDScom is not bound to the JSON format provided in Catena-X's eSDScom KIT.
 - Besides the data model, eSDScom delivers a curated library of Standard Phrases, i.e. expert approved wordings for all supported regulatory purposes. See the [eSDScom Phrase Browser and Proposal Tool](https://phrases.esdscom.eu/) to read and contribute.
 - For general information on this project, got to the [eSDScom Web Pages](https://www.esdscom.eu/)
 
+## More guides
+LINK TO THE OTHER FILES IN THIS VIEW IN CASE THERE ARE MORE:
+Insert here link to architecture.md
+
 ## Notice
 This work is licensed under the [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/legalcode).
 - SPDX-License-Identifier: CC BY-ND 4.0
