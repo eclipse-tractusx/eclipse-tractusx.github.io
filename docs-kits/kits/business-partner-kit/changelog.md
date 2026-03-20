@@ -17,11 +17,11 @@ Compatible for **release 26.03**.
 
 ### Added
 
-- Added api hub hyperlink for all services in development view of business partner kit with latest BPDM Application version 7.3.0.
+- ./.
 
 ### Changed
 
-- ./.
+- Updated API Hub hyperlinks for all services in the development view of the Business Partner KIT to use the latest BPDM Application version 7.3.0.
 
 ### Removed
 
