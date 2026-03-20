@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: e63b19e2a3bd85db76dc1d4f2ccea92f4a66f7cb88b622a9b848e18b5958478f
+ * Content hash: ce1bf194683060f43aa5978472f12a05bc4be56c1b62060d1b81c07e144f003d
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -56,15 +56,15 @@ const kitsByCategory = {
       "name": "BUSINESS PARTNER KIT",
       "route": "/docs-kits/kits/business-partner-kit/adoption-view",
       "deprecated": false
-    }
-  ],
-  "industryCoreFoundation": [
+    },
     {
       "id": "digital-twin",
       "name": "DIGITAL TWIN KIT",
       "route": "/docs-kits/kits/digital-twin-kit/adoption-view",
       "deprecated": false
-    },
+    }
+  ],
+  "industryCoreFoundation": [
     {
       "id": "industry-core",
       "name": "INDUSTRY CORE KIT",
@@ -93,6 +93,12 @@ const kitsByCategory = {
       "id": "agents",
       "name": "KNOWLEDGE AGENTS KIT",
       "route": "/docs-kits/kits/knowledge-agents-kit/adoption-view/intro",
+      "deprecated": false
+    },
+    {
+      "id": "ai-service",
+      "name": "AI SERVICE KIT",
+      "route": "/docs-kits/next/kits/ai-service-kit/adoption-view",
       "deprecated": false
     }
   ],
@@ -183,7 +189,7 @@ const kitsByCategory = {
     }
   ],
   "industryKits": {
-    "shop-floor": [
+    "manufacturing": [
       {
         "id": "maas",
         "name": "MANUFACTURING AS A SERVICE KIT",
@@ -194,6 +200,20 @@ const kitsByCategory = {
         "id": "modular-production",
         "name": "MODULAR PRODUCTION KIT",
         "route": "/docs-kits/kits/modular-production-kit/adoption-view",
+        "deprecated": false
+      }
+    ],
+    "automotive": [
+      {
+        "id": "modular-engineering",
+        "name": "MODULAR ENGINEERING KIT",
+        "route": "/docs-kits/next/kits/modular-engineering-kit/adoption-view",
+        "deprecated": false
+      },
+      {
+        "id": "engineering-as-a-service",
+        "name": "ENGINEERING AS A SERVICE KIT",
+        "route": "/docs-kits/next/kits/engineering-as-a-service-kit/adoption-view",
         "deprecated": false
       }
     ]

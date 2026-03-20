@@ -40,12 +40,19 @@ const localizer = dateFnsLocalizer({
 
 // Common timezones
 const TIMEZONES = [
-  { value: 'Europe/Berlin', label: 'Berlin (CET/CEST)' },
-  { value: 'UTC', label: 'UTC' },
-  { value: 'America/New_York', label: 'New York (EST/EDT)' },
-  { value: 'America/Los_Angeles', label: 'Los Angeles (PST/PDT)' },
-  { value: 'Asia/Tokyo', label: 'Tokyo (JST)' },
-  { value: 'Asia/Shanghai', label: 'Shanghai (CST)' },
+  { value: 'Europe/Berlin', label: '(CET/CEST) Berlin / Madrid / Paris' },
+  { value: 'Europe/Bucharest', label: '(EET/EEST) Eastern Europe' },
+  { value: 'Africa/Johannesburg', label: '(SAST) South Africa' },
+  { value: 'UTC', label: '(UTC/GMT) London / Lisbon' },
+  { value: 'America/New_York', label: '(EST/EDT) New York / Toronto' },
+  { value: 'America/Los_Angeles', label: '(PST/PDT) Los Angeles / Vancouver' },
+  { value: 'America/Mexico_City', label: '(CST/CDT) Mexico City' },
+  { value: 'America/Sao_Paulo', label: '(BRT/BRST) São Paulo' },
+  { value: 'America/Argentina/Buenos_Aires', label: '(ART) Buenos Aires' },
+  { value: 'Asia/Kolkata', label: '(IST) India' },
+  { value: 'Asia/Tokyo', label: '(JST) Tokyo' },
+  { value: 'Asia/Seoul', label: '(KST) Seoul' },
+  { value: 'Asia/Shanghai', label: '(CST) Shanghai' },
 ];
 
 export default function MeetingCalendar({ onTimezoneChange }) {
