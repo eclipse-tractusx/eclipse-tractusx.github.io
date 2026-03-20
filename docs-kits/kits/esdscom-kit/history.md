@@ -2,7 +2,7 @@
 id: history
 title: eSDScom Project History
 description: More info on the roots of eSDScom
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 
