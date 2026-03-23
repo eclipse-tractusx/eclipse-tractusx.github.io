@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 7ad82d8d98f039d1647d0c98eedc096629e9dd5f186a7c18aa44fe5239b7abab
+ * Content hash: 03be2282acf83595ce68c5c5d497cd74ef2cf413b2ea6cda9b0ab0ba6d0b87fc
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -98,7 +98,7 @@ const kitsByCategory = {
     {
       "id": "ai-service",
       "name": "AI SERVICE KIT",
-      "route": "/docs-kits/next/kits/ai-service-kit/adoption-view",
+      "route": "/docs-kits/kits/ai-service-kit/adoption-view",
       "deprecated": false
     }
   ],
@@ -118,7 +118,7 @@ const kitsByCategory = {
     {
       "id": "cbam",
       "name": "CBAM KIT",
-      "route": "/docs-kits/next/kits/cbam-kit/adoption-view",
+      "route": "/docs-kits/kits/cbam-kit/adoption-view",
       "deprecated": false
     },
     {
@@ -136,7 +136,7 @@ const kitsByCategory = {
     {
       "id": "due-diligence",
       "name": "DUE DILIGENCE CHECK KIT",
-      "route": "/docs-kits/next/kits/due-diligence-check-kit/adoption-view",
+      "route": "/docs-kits/kits/due-diligence-check-kit/adoption-view",
       "deprecated": false
     },
     {
@@ -198,6 +198,12 @@ const kitsByCategory = {
       "name": "GEOMETRY KIT",
       "route": "/docs-kits/kits/geometry-kit/adoption-view",
       "deprecated": false
+    },
+    {
+      "id": "ccm",
+      "name": "COMPANY CERTIFICATE MANAGEMENT KIT",
+      "route": "/docs-kits/kits/company-certificate-management-kit/adoption-view",
+      "deprecated": false
     }
   ],
   "industryKits": {
@@ -219,13 +225,13 @@ const kitsByCategory = {
       {
         "id": "modular-engineering",
         "name": "MODULAR ENGINEERING KIT",
-        "route": "/docs-kits/next/kits/modular-engineering-kit/adoption-view",
+        "route": "/docs-kits/kits/modular-engineering-kit/adoption-view",
         "deprecated": false
       },
       {
         "id": "engineering-as-a-service",
         "name": "ENGINEERING AS A SERVICE KIT",
-        "route": "/docs-kits/next/kits/engineering-as-a-service-kit/adoption-view",
+        "route": "/docs-kits/kits/engineering-as-a-service-kit/adoption-view",
         "deprecated": false
       }
     ]

@@ -99,6 +99,7 @@ import BehaviorTwinKitLogo from "@site/static/img/kits/behavior-twin/behavior-tw
 import CircularityKitLogo from "@site/static/img/kits/circularity/circularity-kit-raw-logo.svg";
 import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.svg";
 import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
+import CCMKitLogo from "@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg";
 import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
 
 // Import Material-UI icons for industries
@@ -211,7 +212,7 @@ export const kitsData = {
         created: '2025-09-30',
         lastUpdated: '2025-09-30',
         latestVersion: '0.0.1',
-        new: true
+        new: false
       }
     },
     {
@@ -366,8 +367,8 @@ export const kitsData = {
       description: 'Trace parts and materials across the entire value chain to enable data driven use cases over all n-tier levels.',
       metadata: {
         created: '2023-04-12',
-        lastUpdated: '2025-08-07',
-        latestVersion: '7.0.0',
+        lastUpdated: '2026-02-17',
+        latestVersion: '8.0.0',
         new: false
       }
     },
@@ -446,7 +447,7 @@ export const kitsData = {
         sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/ai-service/ai-service-kit-raw-logo.svg',
         originalSourceUrl: 'https://www.svgrepo.com/svg/235253/chip-ai',
       },
-      route: '/docs-kits/next/kits/ai-service-kit/adoption-view',
+      route: '/docs-kits/kits/ai-service-kit/adoption-view',
       colors: {
         primary: '#071de2',
         gradient: 'linear-gradient(135deg, #6170f5 0%, #071de2 100%)'
@@ -543,7 +544,7 @@ export const kitsData = {
       },
       logoHeight: 120,
       logoWidth: 120,
-      route: '/docs-kits/next/kits/cbam-kit/adoption-view',
+      route: '/docs-kits/kits/cbam-kit/adoption-view',
       colors: {
         primary: '#3a7c96',
         gradient: 'linear-gradient(135deg, #66C791 0%, #003399 100%)'
@@ -639,7 +640,7 @@ export const kitsData = {
       },
       logoHeight: 140,
       logoWidth: 140,
-      route: '/docs-kits/next/kits/due-diligence-check-kit/adoption-view',
+      route: '/docs-kits/kits/due-diligence-check-kit/adoption-view',
       colors: {
         primary: '#01b94b',
         gradient: 'linear-gradient(135deg, #49ce97 0%, #01b94b 100%)'
@@ -945,7 +946,7 @@ export const kitsData = {
         created: '2025-09-29',
         lastUpdated: '2025-09-29',
         latestVersion: '0.1.0',
-        new: true
+        new: false
       }
     },
     {
@@ -977,6 +978,38 @@ export const kitsData = {
         created: '2025-11-28',
         lastUpdated: '2025-11-28',
         latestVersion: '1.0.0',
+        new: false
+      }
+    },
+    {
+      id: 'ccm',
+      name: 'COMPANY CERTIFICATE MANAGEMENT KIT',
+      logo: CCMKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors; 2026 Catena-X Automotive Network e.V.',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg'
+      },
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/kits/company-certificate-management-kit/adoption-view',
+      colors: {
+        primary: '#1E13C2',
+        gradient: 'linear-gradient(135deg, #3372CC 0%, #1E13C2 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Master Data Management',
+      industries: ['automotive', 'manufacturing'],
+      description: 'Manage and exchange in a decentralized manner company certificates across the supply chain to ensure compliance and quality standards.',
+      metadata: {
+        created: '2026-03-17',
+        lastUpdated: '2026-03-17',
+        latestVersion: '0.1.0',
         new: true
       }
     }
@@ -1064,7 +1097,7 @@ export const kitsData = {
         },
         logoHeight: 100,
         logoWidth: 100,
-        route: '/docs-kits/next/kits/modular-engineering-kit/adoption-view',
+        route: '/docs-kits/kits/modular-engineering-kit/adoption-view',
         colors: {
         primary: '#dc7fd3',
         gradient: 'linear-gradient(135deg, #dc7fd3 0%, #d100bc 100%)'
@@ -1097,7 +1130,7 @@ export const kitsData = {
         },
         logoHeight: 100,
         logoWidth: 100,
-        route: '/docs-kits/next/kits/engineering-as-a-service-kit/adoption-view',
+        route: '/docs-kits/kits/engineering-as-a-service-kit/adoption-view',
         colors: {
           primary: '#dd86d4',
           gradient: 'linear-gradient(135deg, #dd86d4 0%, #9803c2 100%)'
