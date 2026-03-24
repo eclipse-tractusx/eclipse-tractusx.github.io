@@ -19,10 +19,10 @@
 
 /**
  * Upcoming Events Data
- * 
+ *
  * This file contains the data for upcoming community events displayed on the homepage.
  * Events are automatically filtered to show only upcoming dates.
- * 
+ *
  * @typedef {Object} Event
  * @property {string} id - Unique identifier for the event
  * @property {string} title - Event title
@@ -43,6 +43,19 @@
  */
 export const upcomingEvents = [
   {
+    id: 'community-days-07-2026',
+    title: 'Sixth Eclipse Tractus-X Community Days',
+    date: '2026-07-02',
+    endDate: '2026-07-03',
+    location: 'ARENA2036 e.V., Stuttgart, Germany',
+    description: 'Join us for the Sixth Eclipse Tractus-X Community Days at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart)! Two days of collaboration, workshops, keynotes, and networking with the global Tractus-X community. Connect with contributors from Manufacturing-X initiatives, participate in hands-on challenges, and help shape the future of open-source data spaces.',
+    registrationUrl: 'https://arena2036.de/reader/sixth-eclipse-tractus-x-community-days/',
+    blogSlug: 'community-days-07-2026',
+    eventType: 'community-days',
+    featured: true,
+    image: '/img/tractus-x-community-days-26-05.png'
+  },
+  /*{
     id: 'hackathon-spain-2026',
     title: 'First International Hackathon Spain',
     date: '2026-02-17',
@@ -53,8 +66,7 @@ export const upcomingEvents = [
     eventType: 'hackathon',
     featured: true,
     image: '/img/events/hackathon-spain.jpeg'
-  }
-  /*,
+  },
   {
     id: 'open-planning-r26-09',
     title: 'Open Planning R26.09',
@@ -100,7 +112,7 @@ export const EVENT_TYPES = {
 export const getUpcomingEvents = (events) => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  
+
   return events
     .filter(event => {
       const eventDate = new Date(event.endDate || event.date);
