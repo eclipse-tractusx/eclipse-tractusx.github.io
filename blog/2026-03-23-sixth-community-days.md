@@ -9,7 +9,7 @@ authors:
 tags: [community, event, tractus-x, collaboration, open-source]
 ---
 
-![Sixth Eclipse Tractus-X Community Days Banner](@site/static/img/tractus-x-community-days-26-05.png)
+![Sixth Eclipse Tractus-X Community Days Banner](@site/static/img/tractus-x-community-days-26-07.png)
 
 Dear Eclipse Tractus-X- and Dataspace-Community,
 

@@ -53,46 +53,8 @@ export const upcomingEvents = [
     blogSlug: 'community-days-07-2026',
     eventType: 'community-days',
     featured: true,
-    image: '/img/tractus-x-community-days-26-05.png'
+    image: '/img/tractus-x-community-days-26-07.png'
   },
-  /*{
-    id: 'hackathon-spain-2026',
-    title: 'First International Hackathon Spain',
-    date: '2026-02-17',
-    location: 'Bilbao, Spain',
-    description: 'Be part of the first international Eclipse Tractus-X Hackathon! Collaborate with developers from around the world to solve two challenges related to identity management (wallet) and use case development, which will support our goals for the next release in March R26.03!',
-    registrationUrl: 'https://forms.office.com/e/LkYbasfXJA',
-    blogSlug: 'first-international-hackathon',
-    eventType: 'hackathon',
-    featured: true,
-    image: '/img/events/hackathon-spain.jpeg'
-  },
-  {
-    id: 'open-planning-r26-09',
-    title: 'Open Planning R26.09',
-    date: '2026-04-15',
-    location: 'Virtual',
-    description: 'Join our open planning session for Release 26.09. Discuss upcoming features, roadmap priorities, and contribute to the planning process.',
-    registrationUrl: 'https://eclipse-tractusx.github.io/community/open-meetings',
-    blogSlug: null,
-    eventType: 'open-planning',
-    featured: false,
-    image: '/img/community.png'
-  },
-  {
-    id: 'community-days-06-2026',
-    title: 'Eclipse Tractus-X Community Days',
-    date: '2026-06-15',
-    endDate: '2026-06-16',
-    location: 'Munich, Germany',
-    description: 'Join us for two exciting days of collaboration, workshops, and networking with the Eclipse Tractus-X community. Learn about the latest developments, share your experiences, and connect with fellow contributors.',
-    registrationUrl: 'https://eclipse-tractusx.github.io/community/open-meetings',
-    blogSlug: 'fifth-community-days',
-    eventType: 'community-days',
-    featured: false,
-    image: '/img/events/community-days.png'
-  },
-  */
 ];
 
 /**
