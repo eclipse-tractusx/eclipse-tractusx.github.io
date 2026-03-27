@@ -77,6 +77,7 @@ The header contains the routing and identification information:
 -	Supplier DUNS number
 -	Formulation (specification) number
 -	Version number of the SDS (current and previous)
+-	Date of compilation
 -	Supplier product name
 -	Country (legal area)
 -	Language
