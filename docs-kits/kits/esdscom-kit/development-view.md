@@ -50,8 +50,8 @@ Figure 1 must be created and implemented here until 06.04.2026 (similar to Suppl
 <img width="878" height="518" alt="image" src="https://github.com/user-attachments/assets/00f5aba3-ddc9-46a2-a02c-9d4c6fb20ae2" />
 
 From conceptual point of view the system consists of different building blocks. These building blocks in the following diagram show which participant deploys which components. Identification and Access Management is omitted for simplicity reasons.
-<img width="900" height="1047" alt="image" src="https://github.com/user-attachments/assets/a8c6929f-6771-4074-a417-3fdc8f249117" />
 Figure 2: Whitebox view on a PURIS system
+<img width="900" height="1047" alt="image" src="https://github.com/user-attachments/assets/a8c6929f-6771-4074-a417-3fdc8f249117" />
 
 ### Component/Sequence Diagrams
 Visual representations of system interactions
