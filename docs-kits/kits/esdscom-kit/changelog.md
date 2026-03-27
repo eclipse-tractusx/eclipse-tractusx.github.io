@@ -2,7 +2,7 @@
 id: changelog
 title: Change Log
 description: Release Notes of the eSDScom KIT
-sidebar_position: 4
+sidebar_position: 1
 ---
 
 All notable changes to this KIT will be documented in this file.
