@@ -92,6 +92,17 @@ Processing: The Supplier's eSDScom App maps the request to available SDS
 eSDScom Response: The Supplier's eSDScom App sends back a response containing the requested SDS data
 Notification structure: Each notification carries a header (sender/receiver BPNLs, a unique messageId, and a relatedMessageId linking the response back to its originating request) and a content field containing the eSDScom request or response data model. The relatedMessageId is particularly important when a supplier sends multiple separate responses to a single request — for example when SDS for different operators are compiled and returned in stages.
 
+### Data Schema
+#### Semantic Models
+Model: eSDScom
+Version: 1.0.0
+Namespace: urn:samm:io.....etc.
+
+##### Description
+Purpose: The SAMM defines the eSDScom data model used to exchange eSDScom-relevant SDS information between an OEM (customer) and a supplier.
+Request vs Response separation: The SAMM cleanly separates request and response concerns: the request model specifies what the OEM may ask for (scope, requested elements, identifiers), while the response model specifies what the supplier must provide the requested SDS data, enabling clear responsibilities and automated schema generation.
+
+
 ### API Specifications
 Of any describe here: OpenAPI/Swagger files with endpoint documentation
 eSDScom is a data model, not a software. No API.
@@ -101,9 +112,6 @@ Technical standards and protocol compliance
 
 ### Logic/Schema
 Business logic definitions and data flow diagrams
-
-### Semantic Models
-Detailed data structures and relationships
 
 ### Test Cases
 Unit tests, integration tests, and validation scenarios
