@@ -46,14 +46,12 @@ The Onboarding of the parties on the Catena-X Dataspace shall be effectuated fol
 
 Figure 1 shows the high-level architecture of the notification exchange in the Catena-X dataspace and the services that are involved. Both the notification sender and the notification recipient must be members of the Catena-X network in order to communicate with each other. With the help of the Identity Access Management (IAM) each participant can authenticate itself, verify the identity of the requesting party and decide whether to authorize the request.
 
-Figure 1 must be created and implemented here until 06.04.2026 (similar to Supply-Chain Use case)
+Figure 1 must be created and implemented here until 06.04.2026 (similar to Supply-Chain Use case and CBAM: own overview of esdscom in CX )
 <img width="878" height="518" alt="image" src="https://github.com/user-attachments/assets/00f5aba3-ddc9-46a2-a02c-9d4c6fb20ae2" />
 
 From conceptual point of view the system consists of different building blocks. These building blocks in the following diagram show which participant deploys which components. Identification and Access Management is omitted for simplicity reasons.
-
-Note: We need an own overview of esdscom in CX: Figure 2: Whitebox view on a PURIS system
-
-image
+<img width="900" height="1047" alt="image" src="https://github.com/user-attachments/assets/a8c6929f-6771-4074-a417-3fdc8f249117" />
+Figure 2: Whitebox view on a PURIS system
 
 ### Component/Sequence Diagrams
 Visual representations of system interactions
