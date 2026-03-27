@@ -8,9 +8,10 @@ sidebar_position: 5
 ## Development View
 Content of this chapter to be filled unitl 06.04.2026 regarding technical documentation for developers, architects, and implementers.
 eSDScom is a data model, not a software. No API.
+This document provides a developer-focused overview of the eSDScom KIT, including a technical breakdown of the architecture, and data exchange protocols and semantic models.
 
 ### Target Audience: 
-Software developers, architects, technical implementers, other interested parties
+Software Developers, Solution Architects, Technical Leads, API Developers, Integration Engineers.
 
 ### Focus
 Technical implementation, APIs, and development resources
