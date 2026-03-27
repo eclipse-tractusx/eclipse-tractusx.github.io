@@ -18,7 +18,7 @@ Technical implementation, APIs, and development resources
 
 Required contents in the following sub-chapters:
 
-#### Architecture Overview
+### Architecture Overview
 
 This section is non-normative
 To be filled until 06.04.2026
@@ -55,45 +55,45 @@ Note: We need an own overview of esdscom in CX: Figure 2: Whitebox view on a PUR
 
 image
 
-#### Component/Sequence Diagrams
+### Component/Sequence Diagrams
 Visual representations of system interactions
 
-#### API Specifications
+### API Specifications
 Of any describe here: OpenAPI/Swagger files with endpoint documentation
 eSDScom is a data model, not a software. No API.
 
-#### Standards
+### Standards
 Technical standards and protocol compliance
 
-#### Logic/Schema
+### Logic/Schema
 Business logic definitions and data flow diagrams
 
-#### Semantic Models
+### Semantic Models
 Detailed data structures and relationships
 
-#### Test Cases
+### Test Cases
 Unit tests, integration tests, and validation scenarios
 
-#### Sample Data
+### Sample Data
 Example datasets and payloads
 
-#### Tutorials
+### Tutorials
 Developer quick-start guides and code examples
 
-### Best Practices
+## Best Practices
 
-#### working code examples
+### working code examples
 
-#### API endpoint examples with request/response samples
+### API endpoint examples with request/response samples
 eSDScom is a data model, not a software. No API.
 
-#### Document error handling and edge cases
+### Document error handling and edge cases
 
-#### Architecture diagrams (C4, UML, etc.)
+### Architecture diagrams (C4, UML, etc.)
 
-#### Link to live API documentation
+### Link to live API documentation
 
-#### Sample data in multiple formats (JSON, XML, CSV)
+### Sample data in multiple formats (JSON, XML, CSV)
 eSDScom is not bound to the JSON format provided in Catena-X's eSDScom KIT. 
 - An implementation of the eSDScom data model as an XML Schema Definition (XSD) can be found at [eSDScom's Github pages](https://github.com/esdscom/sdscom-xml)
 - Besides the data model, eSDScom delivers a curated library of Standard Phrases, i.e. expert approved wordings for all supported regulatory purposes. See the [eSDScom Phrase Browser and Proposal Tool](https://phrases.esdscom.eu/) to read and contribute.
