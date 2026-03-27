@@ -2,7 +2,7 @@
 id: development-view
 title: Development View
 description: Overview on the eSDScom KIT
-sidebar_position: 5
+sidebar_position: 3
 ---
 
 ## Development View
