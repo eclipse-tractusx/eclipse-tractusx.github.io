@@ -2,7 +2,7 @@
 id: adoption-view
 title: Adoption View
 description: Data Model of the eSDScom KIT
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 Welcome to the [esdscom] KIT Adoption View. This view provides a high level business view on the eSDScom KIT with its vision, mission, benefits, and business value.
