@@ -97,44 +97,68 @@ Notification structure: Each notification carries a header (sender/receiver BPNL
 #### Semantic Models
 Model: eSDScom
 Version: 1.0.0
-Namespace: urn:samm:io.....etc.
+Namespace: urn:samm:io.catenax.eSDScom:1.0.0
 
 ##### Description
 Purpose: The SAMM defines the eSDScom data model used to exchange eSDScom-relevant SDS information between an OEM (customer) and a supplier.
 Request vs Response separation: The SAMM cleanly separates request and response concerns: the request model specifies what the OEM may ask for (scope, requested elements, identifiers), while the response model specifies what the supplier must provide the requested SDS data, enabling clear responsibilities and automated schema generation.
 
+#### Key Properties Request Datamodel
+insert here: eSDScom REQUEST Data model - Object Structure Overview | click to expand
+insert here: eSDScom REQUEST Data model - Property Overview | click to expand
 
-### API Specifications
+#### Key Properties Response Datamodel
+insert here: eSDScom RESPONSE Data model - Object Structure only | click to expand
+insert here: eSDScom RESPONSE Data model - Property Overview | click to expand
+
+#### Sample Data
+Sample Dataset: Request Payload
+Purpose: Sent a Safety Data Sheet (SDS) along the supply-chain.
+Structure highlights: requestedElements — exhaustive set of all required SDS data.
+Format: JSON
+Example Request Payload JSON:
+insert here: eSDScom Request Notification Payload Example JSON structure | click to expand
+Due to the fact that in Catena-X there is a Notification Payload standardized in CX-0151 Industry Core Basics the eSDScom REQUEST payload will follow it and be embedded in a notification payload inside the content key, additionally it will have a header which contains important metadata for the applications to parse. This payload is just an example from how it could look like, since there is yet no standard available:
+{
+  "header" : {
+    "senderBpn" : "BPNL0000000002CD",
+    "senderFeedbackUrl": "https://domain.tld/path/to/api",
+    "context" : "CarbonBorderAdjustmentMechanism-CBAMAPI-Request:1.0.0",
+    "messageId" : "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
+    "receiverBpn" : "BPNL0000000001AB",
+    "sentDateTime" : "2025-05-04T00:00:00-07:00",
+    "version" : "0.1.0"
+  },
+  "content": {
+    "requestedElements": [here must follow the eSDScom data fields]
+
+Sample Dataset: Response Payload
+Purpose: Returned by the supplier with all requested eSDScom data filled in. 
+Format: JSON
+Example Response Payload JSON:
+insert here: eSDScom Response Notification Payload Example JSON structure | click to expand
+Due to the fact that in Catena-X there is a Notification Payload standardized in CX-0151 Industry Core Basics the eSDScom RESPONSE payload will follow it and be embedded in a notification payload inside the content key, additionally it will have a header which contains important metadata for the applications to parse. This payload is just an example from how it could look like, since there is yet no standard available:
+{
+  "header" : {
+    "senderBpn" : "BPNL0000000001AB",
+    "senderFeedbackUrl": "https://domain.tld/path/to/api",
+    "context" : "this field to be specified for eSDScom??????????:1.0.0",
+    "messageId" : "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
+    "receiverBpn" : "BPNL0000000002CD",
+    "sentDateTime" : "2025-05-04T00:00:00-07:00",
+    "version" : "0.1.0"
+  },
+  "content": {
+
+#### API Specifications
 Of any describe here: OpenAPI/Swagger files with endpoint documentation
 eSDScom is a data model, not a software. No API.
 
-### Standards
+#### Standards
 Technical standards and protocol compliance
 
-### Logic/Schema
-Business logic definitions and data flow diagrams
-
-### Test Cases
-Unit tests, integration tests, and validation scenarios
-
-### Sample Data
-Example datasets and payloads
-
-### Tutorials
+#### Tutorials
 Developer quick-start guides and code examples
-
-## Best Practices
-
-### working code examples
-
-### API endpoint examples with request/response samples
-eSDScom is a data model, not a software. No API.
-
-### Document error handling and edge cases
-
-### Architecture diagrams (C4, UML, etc.)
-
-### Link to live API documentation
 
 ### Sample data in multiple formats (JSON, XML, CSV)
 eSDScom is not bound to the JSON format provided in Catena-X's eSDScom KIT. 
@@ -142,8 +166,24 @@ eSDScom is not bound to the JSON format provided in Catena-X's eSDScom KIT.
 - Besides the data model, eSDScom delivers a curated library of Standard Phrases, i.e. expert approved wordings for all supported regulatory purposes. See the [eSDScom Phrase Browser and Proposal Tool](https://phrases.esdscom.eu/) to read and contribute.
 - For general information on this project, got to the [eSDScom Web Pages](https://www.esdscom.eu/)
 
-## More guides
-https://github.com/esdscom/eclipse-tractusx.github.io/blob/main/docs-kits/kits/esdscom-kit/architecture.md
+### History
+eSDScom traces back to the 1990s and is the industry standard for sending safety data sheets, exposure scenarios and relevant compliance information in the global chemical supply chain. It is a comprehensive and efficient solution saving money and time. It’s a package, covering the following developments and regulations for chemicals:
+•	Safety Data Sheets to assist with occupational safety and health
+•	Notification data to help customers with their legal obligations
+•	for Europe: Exposure Scenarios and ENES achievements for downstream users
+The eSDScom project acts as a think tank for software companies, content and service providers and chemical companies in the field of hazardous chemicals / dangerous goods management and maintains contacts to other associations and authorities.
+eSDScom is established also within companies for systems integration. Many associations, i.a. the European Automotive industry (ACEA) as well as the European chemical industry (CEFIC) supports the digital data exchange via eSDScom. For more information:
+•	https://cefic.org/guidance-and-management-frameworks/reach-clp/escom-package-guidance/
+•	https://www.acea.auto/publication/position-paper-the-role-of-esdscom-in-the-electronic-exchange-of-safety-data-sheets-within-the-auto-industry/
+For general project information, please go to https://esdscom.eu .
+
+It integrates two types of deliverables:
+
+#### Standard phrases
+With roots in a single company phrase cataloge, The Federation of German Industries (BDI) formed the BDI Standard Phrae Catalogue which later becaume EuPhraC (European Phrases Catalogue).
+
+#### Data Model and Exchange Format
+With roots in EDAS and its XML flavour EDASx, the project decided to redefine the exchange format when the European chemicals law was redefining the requirements in today's form (REACH and CLP). When Cefic started the ESCom project (Exposure Scenario Communication), the new format SDScomXML was defined. Its version 5 allowed to cover information on all relevant legislative regions in one XML document (instead of focusing of one SDS document per XML document) to facilitate systems integration. Later, ESCom and SDScom were joined to eSDScom.
 
 ## Notice
 This work is licensed under the [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/legalcode).
