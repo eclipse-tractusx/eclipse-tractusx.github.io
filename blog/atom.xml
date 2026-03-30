@@ -2,11 +2,71 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/blog</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2026-02-10T11:00:00.000Z</updated>
+    <updated>2026-03-23T10:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/blog"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Join Us for the Sixth Eclipse Tractus-X Community Days (Special Edition)!]]></title>
+        <id>https://eclipse-tractusx.github.io/blog/community-days-07-2026</id>
+        <link href="https://eclipse-tractusx.github.io/blog/community-days-07-2026"/>
+        <updated>2026-03-23T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The Sixth Eclipse Tractus-X Community Days (Special Edition) — July 2–3, 2026 at ARENA2036 e.V. in Stuttgart, Germany.]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Sixth Eclipse Tractus-X Community Days Banner" src="https://eclipse-tractusx.github.io/assets/images/tractus-x-community-days-26-07-b7ed30cdb06e8ac728aaeef034bd0e1e.png" width="1000" height="300" class="img_ev3q"></p>
+<p>Dear Eclipse Tractus-X - and Dataspace-Community,</p>
+<p>We are thrilled to announce the <strong>Sixth Eclipse Tractus-X Community Days</strong>, taking place on <strong>July 2–3, 2026 at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany)</strong>! 🎉</p>
+<p>Building on the enormous success of our previous five editions, this year's Community Days once again promises to be the premier gathering for everyone passionate about <strong>open-source data spaces, automotive innovation, and collaborative technology development</strong>. Whether you're a developer, a solution architect, a product manager, or just curious about Tractus-X — this event has something for you.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-attend">Why Attend?<a href="https://eclipse-tractusx.github.io/blog/community-days-07-2026#why-attend" class="hash-link" aria-label="Direct link to Why Attend?" title="Direct link to Why Attend?" translate="no">​</a></h3>
+<p>The Eclipse Tractus-X Community Days are the heartbeat of our open-source ecosystem. Every edition brings together a growing, global community to share knowledge, build connections, and shape the future of the Catena-X data space together.</p>
+<ul>
+<li class="">🌍 <strong>Global Community:</strong> Connect with contributors from across the world — including participants from Manufacturing-X initiatives such as Factory-X, Chem-X, Aerospace-X, Semiconductor-X, Construction-X, and more.</li>
+<li class="">🛠️ <strong>Hands-On Workshops:</strong> Dive deep into technical sessions, practical tutorials, and real-world challenges using the latest Eclipse Tractus-X components and KITs.</li>
+<li class="">💡 <strong>Innovation &amp; Use Cases:</strong> Learn about the latest advancements, new use cases, and release highlights from the Tractus-X ecosystem.</li>
+<li class="">🤝 <strong>Networking:</strong> Forge meaningful connections with fellow contributors, solution providers, and industry leaders in the Catena-X ecosystem.</li>
+<li class="">🎤 <strong>Keynotes &amp; Presentations:</strong> Hear from thought leaders, open-source pioneers, and decision-makers shaping the future of data-driven industries.</li>
+<li class="">🧩 <strong>Coding Challenges:</strong> Take part in exciting coding challenges and hackathon-style sessions that let you contribute directly to the Tractus-X ecosystem.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="recap-of-the-fifth-eclipse-tractus-x-community-days">Recap of the Fifth Eclipse Tractus-X Community Days<a href="https://eclipse-tractusx.github.io/blog/community-days-07-2026#recap-of-the-fifth-eclipse-tractus-x-community-days" class="hash-link" aria-label="Direct link to Recap of the Fifth Eclipse Tractus-X Community Days" title="Direct link to Recap of the Fifth Eclipse Tractus-X Community Days" translate="no">​</a></h3>
+<p>Missed the fifth edition? Catch up with the full recap video from December 2025 in Stuttgart:</p>
+<iframe width="100%" height="550" src="https://www.youtube.com/embed/cnErz6RxzaI" title="Fifth Eclipse Tractus-X Community Days Recap" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<p>The Fifth Community Days at ARENA2036 brought together an incredible community of innovators. Read more about the highlights and impressions from that event on the <a href="https://arena2036.de/reader/fifth-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">ARENA2036 event page</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="temporary-agenda-subject-to-change">Temporary Agenda <em>(subject to change)</em><a href="https://eclipse-tractusx.github.io/blog/community-days-07-2026#temporary-agenda-subject-to-change" class="hash-link" aria-label="Direct link to temporary-agenda-subject-to-change" title="Direct link to temporary-agenda-subject-to-change" translate="no">​</a></h3>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>The final agenda will be published closer to the event. The structure below is a preliminary outline based on our established format. We will update this as speakers and sessions are confirmed.</p></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="day-1">Day 1<a href="https://eclipse-tractusx.github.io/blog/community-days-07-2026#day-1" class="hash-link" aria-label="Direct link to Day 1" title="Direct link to Day 1" translate="no">​</a></h4>
+<table><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td>09:00 – 09:30</td><td>Registration &amp; Welcome Coffee</td></tr><tr><td>09:30 – 10:00</td><td><strong>Opening &amp; Welcome</strong></td></tr><tr><td>10:00 – 10:45</td><td><strong>Keynote: State of Eclipse Tractus-X</strong></td></tr><tr><td>10:45 – 11:00</td><td>Coffee Break</td></tr><tr><td>11:00 – 12:30</td><td><strong>Parallel Streams: Presentations · Workshops · Challenges</strong></td></tr><tr><td>12:30 – 13:30</td><td>Lunch Break</td></tr><tr><td>13:30 – 15:30</td><td><strong>Parallel Streams: Presentations · Workshops · Challenges</strong></td></tr><tr><td>15:30 – 16:00</td><td>Coffee Break</td></tr><tr><td>16:00 – 17:00</td><td><strong>Developer Panel &amp; Open Discussion</strong></td></tr><tr><td>18:00 – open end</td><td><strong>Networking Evening Event</strong></td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="day-2">Day 2<a href="https://eclipse-tractusx.github.io/blog/community-days-07-2026#day-2" class="hash-link" aria-label="Direct link to Day 2" title="Direct link to Day 2" translate="no">​</a></h4>
+<table><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td>09:00 – 09:30</td><td>Welcome Back &amp; Tech Talk</td></tr><tr><td>09:30 – 12:30</td><td><strong>Continuation of Streams: Workshops · Challenges</strong></td></tr><tr><td>12:30 – 13:30</td><td>Lunch Break</td></tr><tr><td>13:30 – 15:30</td><td><strong>Advanced Sessions &amp; Collaborative Working Groups</strong></td></tr><tr><td>15:30 – 16:00</td><td><strong>Wrap-Up &amp; Key Takeaways</strong></td></tr><tr><td>16:00</td><td>Farewell</td></tr></tbody></table>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>We are actively looking for <strong>speakers, workshop facilitators, and challenge leaders</strong>! If you'd like to contribute a session, presentation, or use-case showcase — we'd love to hear from you. Please reach out via the <a href="https://accounts.eclipse.org/mailing-list/tractusx-dev" target="_blank" rel="noopener noreferrer" class="">Tractus-X mailing list</a> or our <a href="https://matrix.to/#/#tractusx-dev:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Matrix community channel</a>.</p></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="register-now">Register Now!<a href="https://eclipse-tractusx.github.io/blog/community-days-07-2026#register-now" class="hash-link" aria-label="Direct link to Register Now!" title="Direct link to Register Now!" translate="no">​</a></h3>
+<p>Don't miss your spot — <strong>registration is open</strong> and places are limited!</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p><strong>Save the date: July 2–3, 2026</strong> at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart) and register <a href="https://arena2036.de/reader/sixth-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">here</a> to secure your participation.</p></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="looking-back--our-community-days-journey">Looking Back — Our Community Days Journey<a href="https://eclipse-tractusx.github.io/blog/community-days-07-2026#looking-back--our-community-days-journey" class="hash-link" aria-label="Direct link to Looking Back — Our Community Days Journey" title="Direct link to Looking Back — Our Community Days Journey" translate="no">​</a></h3>
+<p>The Tractus-X Community Days have grown from a small inaugural gathering into a globally recognized open-source event. Here's a look back at our journey so far:</p>
+<ul>
+<li class="">🥇 <strong><a href="https://arena2036.de/en/de/catena-x/tractus-x-community-days" target="_blank" rel="noopener noreferrer" class="">First Eclipse Tractus-X Community Days</a></strong> <em>(December 2023)</em> — The inaugural event that launched our community tradition at ARENA2036</li>
+<li class="">🥈 <strong><a href="https://arena2036.de/en/reader/second-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">Second Eclipse Tractus-X Community Days</a></strong> <em>(May 2024)</em> — Expanded participation, deeper technical sessions, and the first international wave of attendees</li>
+<li class="">🥉 <strong><a href="https://arena2036.de/en/reader/third-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">Third Eclipse Tractus-X Community Days</a></strong> <em>(December 2024)</em> — Over 220 participants from Japan, Spain, the USA, and India — a truly global event</li>
+<li class="">4️⃣ <strong><a href="https://arena2036.de/en/reader/fourth-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">Fourth Eclipse Tractus-X Community Days</a></strong> <em>(May 2025)</em> — International collaboration, exciting use case sharing, and growing Manufacturing-X involvement</li>
+<li class="">5️⃣ <strong><a href="https://arena2036.de/reader/fifth-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">Fifth Eclipse Tractus-X Community Days</a></strong> <em>(December 2025)</em> — Another milestone edition bringing the community even closer together</li>
+</ul>
+<p>Each event has strengthened our community and accelerated open-source innovation in the automotive and manufacturing sectors. We're proud of how far we've come — and excited about what's next!</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="be-part-of-the-future">Be Part of the Future<a href="https://eclipse-tractusx.github.io/blog/community-days-07-2026#be-part-of-the-future" class="hash-link" aria-label="Direct link to Be Part of the Future" title="Direct link to Be Part of the Future" translate="no">​</a></h3>
+<p>The Eclipse Tractus-X Community Days are more than just an event — they are where the open-source community comes together to <strong>build, learn, and collaborate</strong>. Your participation, your ideas, and your contributions are what make this ecosystem thrive.</p>
+<p>Whether you're a <strong>first-time attendee</strong> or a <strong>long-time contributor</strong>, we look forward to welcoming you to Stuttgart on <strong>July 2–3, 2026</strong> for the sixth edition of this remarkable community gathering.</p>
+<p>Let's continue driving open-source innovation together! 🚀</p>
+<hr>
+<p><em>Stay tuned for updates on the detailed agenda, confirmed speakers, and all event information. Follow us on <a href="https://github.com/eclipse-tractusx" target="_blank" rel="noopener noreferrer" class="">GitHub</a>, <a href="https://matrix.to/#/#tractusx-dev:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Matrix</a>, and subscribe to the <a href="https://accounts.eclipse.org/mailing-list/tractusx-dev" target="_blank" rel="noopener noreferrer" class="">Tractus-X mailing list</a>.</em></p>]]></content>
+        <author>
+            <name>Stephan Bauer</name>
+            <uri>https://catena-x.net/</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="event" term="event"/>
+        <category label="tractus-x" term="tractus-x"/>
+        <category label="collaboration" term="collaboration"/>
+        <category label="open-source" term="open-source"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Eclipse Tractus-X Partners with Eclipse Dataspace Working Group]]></title>
         <id>https://eclipse-tractusx.github.io/blog/edwg-partnership</id>
@@ -1495,103 +1555,6 @@ feature requesters are encouraged to attend and actively engage in the discussio
 <hr>
 <p>For any questions or further information, feel free to reach out via our <a href="https://accounts.eclipse.org/mailing-list/tractusx-dev" target="_blank" rel="noopener noreferrer" class="">mailing list</a> or join us in the Tractus-X <a href="https://matrix.to/#/#automotive.tractusx:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Matrix channel</a>.</p>
 <p>We look forward to your participation and collaboration! 🚀</p>]]></content>
-        <author>
-            <name>Stephan Bauer</name>
-            <uri>https://catena-x.net/</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Refinement Day 2 for Release 25.03]]></title>
-        <id>https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03</id>
-        <link href="https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03"/>
-        <updated>2024-10-10T12:38:00.000Z</updated>
-        <summary type="html"><![CDATA[Tractus-X Community Update - Refinement Day 2 for Release 25.03]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/Tractus-X_openplanning-c022e22e9b50e26a8db4e32806e85d1f.png" width="1880" height="940" class="img_ev3q"></p>
-<p>Hello, Eclipse Tractus-X Community!</p>
-<p>We are excited to announce <strong>Refinement Day 2</strong>, taking place on <strong>November 6th, from 09:05 to 12:00</strong>. This session will build on the work from <strong>Refinement Day 1</strong>
-and focus primarily on the <strong>identified dependencies</strong>. These dependencies, <strong>which were highlighted by the labels on the features during Refinement Day 1</strong>, will be the
-center of attention for this event.</p>
-<p>You can still continue refining features as necessary, but our main focus for this session will be resolving these dependencies to ensure smooth progress toward <strong>Release 25.03</strong>.</p>
-<p>The Teams session links and breakout groups remain the same as on Refinement Day 1. You can find the overall Teams session link and more information on the
-<a href="https://eclipse-tractusx.github.io/community/open-meetings#Refinement%20Day%202%20-%20Release%2025.03" target="_blank" rel="noopener noreferrer" class="">open-meetings</a> page.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="agenda-for-refinement-day-2">Agenda for Refinement Day 2<a href="https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03#agenda-for-refinement-day-2" class="hash-link" aria-label="Direct link to Agenda for Refinement Day 2" title="Direct link to Agenda for Refinement Day 2" translate="no">​</a></h2>
-<p>Here’s the plan for the day:</p>
-<ul>
-<li class=""><strong>09:05 - 09:30</strong>: Welcome, Introduction, and Expectations</li>
-<li class=""><strong>09:30 - 11:15</strong>: Refinement in dedicated groups, grouped by expert groups</li>
-<li class=""><strong>11:15 - 11:45</strong>: Presenting the results, grouped by expert groups</li>
-<li class=""><strong>11:45 - 12:00</strong>: Closing and Next Steps</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="group-work--presenting-results">Group Work &amp; Presenting Results<a href="https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03#group-work--presenting-results" class="hash-link" aria-label="Direct link to Group Work &amp; Presenting Results" title="Direct link to Group Work &amp; Presenting Results" translate="no">​</a></h2>
-<p>During the refinement sessions, each group will focus on resolving <strong>identified dependencies</strong> from Refinement Day 1, which are visible via the <strong>related labels</strong> on the features.
-While further feature refinement is allowed, the emphasis is on addressing and coordinating <strong>dependencies</strong> between groups and components.</p>
-<p>Our working Board for the day is the <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/36" target="_blank" rel="noopener noreferrer" class="">Release Planning - R25.03 - Preperation</a></p>
-<p>You’re encouraged to collaborate across groups as needed, and we’ll provide <strong>Teams sessions</strong> (we will use the same sessions from Refinement Day 1) for each group to work in.
-It might be the case for some experts to jump into different other groups to resolve dependencies.</p>
-<p>Important for the session:</p>
-<ul>
-<li class="">Use the <a href="https://github.com/eclipse-tractusx/sig-release/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=1_feature_template.md" target="_blank" rel="noopener noreferrer" class="">feature template</a> to structure your work</li>
-<li class="">Identify dependencies with other components or groups and add the correct labels to the features</li>
-<li class="">Use the supported-by field to map the feature with your expert group</li>
-<li class="">help each other to solve/analyze dependencies</li>
-</ul>
-<p>At the end of the refinement session, we’ll regroup and present the progress made. Each expert group will present their refined features, focusing on what’s been developed so far and the key insights.</p>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>If the feature is ready refined, the status should be set to <code>Backlog</code>-&gt; this should by an alignment, between the requesting Expert Group/Committee and the open-source community.</p></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="committeeexpert-groups-and-teams-sessions">Committee/Expert Groups and Teams Sessions:<a href="https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03#committeeexpert-groups-and-teams-sessions" class="hash-link" aria-label="Direct link to Committee/Expert Groups and Teams Sessions:" title="Direct link to Committee/Expert Groups and Teams Sessions:" translate="no">​</a></h3>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>The sessions for the committees can be used to sync within the underlying expert groups. Feel free to switch between groups if necessary!</p></div></div>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDM1MjE2NmQtMDU5NC00MjM2LTlkOGEtZWI1YTM0MzBjMTkw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Network Service Committee</a>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YThmNzMzODAtM2M0NS00MGVjLWJiNjMtODA5Njk3OWY4ODFi%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Business Partner Data Management</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MGY3YzE1OTAtMDgxMS00YTVhLWE2ODYtMzM4MDMxZTk5MWJh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Self-Sovereign Identity</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTJmYzdmOGMtOGE3Mi00YjkzLThlZTEtMTliNzJiZDljMTZl%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Dataspace Connectivity</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDkyMWZmNDMtYmYzYi00MGM4LTg5NmUtNDIzZGJiZjFmZTIz%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Digital Twins</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDVhNGMzYjAtNTk1MC00NTZlLWI1NzgtYjE0MjQ2NDgxOTJj%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Company Certificate Management</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OWM3YjUyYmMtOGQ1MS00M2JlLTliMjYtZTAxN2NkZTE5Njk4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Portal</a> -&gt; Monday, 11. November 2024 from 15:00 to 17:00</li>
-</ul>
-</li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_Y2Y1YTY3ZGQtMzEzOC00MGJmLTk1ZjEtOTBhZjgxMWVkZjBi%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Sustainability Committee</a>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTQxMWY0YzgtYmM5MS00ZTA4LWE2YTUtMzk5Y2Y2NmZmNjJl%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Digital Product Pass</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDMxOGM2YTItZGVhOC00N2EzLTlmMGEtYWJmYjYwOWFmMjk4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Circularity</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDIwMmQ3MGQtZWQ1Mi00YzQ5LTg3MjMtMmM3MWY1OGRlYmM2%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Product Carbon Footprint - Methodology &amp; Verification</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjFlZWYzNWYtNTViMy00NmExLTljOGYtYWE0N2U5MmQ3MzI3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Product Carbon Footprint - Architecture &amp; Interoperability</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NWI1MzJmMzQtODliOC00ZDM0LTk0ZDgtMDdmYTljMGUxZjE3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Product Carbon Footprint - on Electronics</a></li>
-</ul>
-</li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YmFhNDllOWItMWFiYi00MzBhLTkwZDMtM2FiOGZjOTAwY2E4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Product Lifecycle, Quality and Resiliency Committee</a>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTRmZjI5Y2EtZmZjYy00ZDcxLWIyMTItMzc0YzYwMzMwZGI3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Traceability</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MzhhMDMwZDQtMWM5Ny00YjNlLWEyZDYtNjg1MTRlZTM0ZGI5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Demand &amp; Capacity</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjUyMzRiYTItMDNhNC00YzJhLWE0MmItOGZjZGU2MDEzNWE1%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Online Simulation</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OWZhODUxZGMtMGExNS00Y2NiLThlM2YtM2ExMjYyM2IzZTkw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">PURIS</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDNjYTg5NjEtMGU1Mi00MWQ4LWI2ZTctZmQ5NDQwNmYzOGM1%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Data-driven Quality</a></li>
-</ul>
-</li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NzUxYzNlZjYtNzdkMi00NTExLWEzMWItMDc0NTM1YjM4ZGM5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Industry Core Committee</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjI5YjNiNjItYTY4Ny00YTY0LTllNDAtZGRkMmMwYjA4OGRl%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Architecture Management Committee</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_Mzk3N2ExMWMtNTk4ZS00ZjI0LWEzZjgtZDliOTM1MjE0ZmY0%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Data Space Operations Committee</a>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NWIwOGFiOGYtMjQ3Ni00YjA0LTg1N2MtNDJmMTQ0OGQ0ZTBm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Data Sovereignty</a></li>
-</ul>
-</li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjdmMTk2ZGEtMjFiMy00ZWIxLTllZDYtNTVlNTMwZDE5MjQ5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Working Groups</a>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OTk4NTYxZDctYmQzMy00ZTRmLTg0YzctZjBiZGExODUxM2Uw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Data Integration Pattern</a></li>
-</ul>
-</li>
-</ul>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Feel free to switch between groups if necessary!</p></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="special-note-for-kits">Special Note for KITs<a href="https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03#special-note-for-kits" class="hash-link" aria-label="Direct link to Special Note for KITs" title="Direct link to Special Note for KITs" translate="no">​</a></h3>
-<p>For KITs, we understand that not all sections of the template are necessary right now. The most important things to include at this stage are:</p>
-<ul>
-<li class="">The <strong>Feature Team</strong> responsible for the work</li>
-<li class="">A brief <strong>explanation of the feature</strong> (just 2 sentences)</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="next-steps--release-planning-days">Next Steps &amp; Release Planning Days<a href="https://eclipse-tractusx.github.io/blog/refinement-day-2-R25.03#next-steps--release-planning-days" class="hash-link" aria-label="Direct link to Next Steps &amp; Release Planning Days" title="Direct link to Next Steps &amp; Release Planning Days" translate="no">​</a></h2>
-<p>By the end of the session, we expect to have features ready refined. It might be the case, not all are fully refined but will be in good shape for further refinement and proactive work until we will meet again for the
-<a href="https://eclipse-tractusx.github.io/community/open-meetings#Release%20Planning%20Days%20-%20Release%2025.03" target="_blank" rel="noopener noreferrer" class="">Release Planning Days</a></p>
-<p>We look forward to a productive Refinement Day - Happy Refining! 🚀</p>]]></content>
         <author>
             <name>Stephan Bauer</name>
             <uri>https://catena-x.net/</uri>
