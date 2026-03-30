@@ -1,6 +1,6 @@
 ---
-title: Join Us for the Sixth Eclipse Tractus-X Community Days!
-description: The Sixth Eclipse Tractus-X Community Days — July 2–3, 2026 at ARENA2036 e.V. in Stuttgart, Germany.
+title: Join Us for the Sixth Eclipse Tractus-X Community Days (Special Edition)!
+description: The Sixth Eclipse Tractus-X Community Days (Special Edition) — July 2–3, 2026 at ARENA2036 e.V. in Stuttgart, Germany.
 slug: community-days-07-2026
 date: 2026-03-23T10:00
 hide_table_of_contents: false
@@ -9,9 +9,9 @@ authors:
 tags: [community, event, tractus-x, collaboration, open-source]
 ---
 
-![Sixth Eclipse Tractus-X Community Days Banner](@site/static/img/tractus-x-community-days-26-07.png)
+![Sixth Eclipse Tractus-X Community Days Banner](@site/static/img/events/tractus-x-community-days-26-07.png)
 
-Dear Eclipse Tractus-X- and Dataspace-Community,
+Dear Eclipse Tractus-X - and Dataspace-Community,
 
 We are thrilled to announce the **Sixth Eclipse Tractus-X Community Days**, taking place on **July 2–3, 2026 at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany)**! 🎉
 

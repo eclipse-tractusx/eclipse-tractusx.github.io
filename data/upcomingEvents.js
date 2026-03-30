@@ -48,12 +48,12 @@ export const upcomingEvents = [
     date: '2026-07-02',
     endDate: '2026-07-03',
     location: 'ARENA2036 e.V., Stuttgart, Germany',
-    description: 'Join us for the Sixth Eclipse Tractus-X Community Days at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart)! Two days of collaboration, workshops, keynotes, and networking with the global Tractus-X community. Connect with contributors from Manufacturing-X initiatives, participate in hands-on challenges, and help shape the future of open-source data spaces.',
-    registrationUrl: 'https://arena2036.de/reader/sixth-eclipse-tractus-x-community-days/',
+    description: 'Join us for the Sixth Eclipse Tractus-X Community Days (Special Edition) at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart)! Two days of collaboration, workshops, keynotes, and networking with the global Tractus-X community. Connect with contributors from Manufacturing-X initiatives, participate in hands-on challenges, and help shape the future of open-source data spaces.',
+    registrationUrl: 'https://eveeno.com/159341884',
     blogSlug: 'community-days-07-2026',
     eventType: 'community-days',
     featured: true,
-    image: '/img/tractus-x-community-days-26-07.png'
+    image: '/img/events/VI-tractus-x-community-days-banner.png'
   },
 ];
 
