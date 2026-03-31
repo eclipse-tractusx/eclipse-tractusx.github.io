@@ -267,6 +267,11 @@ The expression rightOperand: "cx.euaiact.base:1" indicates that data usage is pe
 
 Note: the "cx.euaiact.base:1" mentioned in the example and the description above is under discussion and not defined yet. Please be reminded that you may not use this value at the moment.
 
+## Sample Implementation
+
+A sample implementation [here](https://github.com/fj-oss-contributors/ai-service-kit-reference) shows how AI Service can be exposed.
+
+
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
