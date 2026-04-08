@@ -17,8 +17,8 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import { parse, format, addDays, addWeeks, startOfDay, endOfDay, isBefore, isAfter, isWithinInterval } from 'date-fns';
-import { toZonedTime, fromZonedTime, formatInTimeZone } from 'date-fns-tz';
+import {addDays, format, isBefore, isWithinInterval, parse} from 'date-fns';
+import {formatInTimeZone, fromZonedTime, toZonedTime} from 'date-fns-tz';
 
 // Source timezone for all meeting data
 const SOURCE_TIMEZONE = 'Europe/Berlin';
@@ -41,7 +41,7 @@ function parseTimeInTimezone(dateStr, timeStr, timezone = SOURCE_TIMEZONE) {
   const [hours, minutes] = timeStr.split(':').map(Number);
   const baseDate = parse(dateStr, 'yyyy-MM-dd', new Date());
   baseDate.setHours(hours, minutes, 0, 0);
-  
+
   // Convert from the source timezone to UTC
   return fromZonedTime(baseDate, timezone);
 }
@@ -53,7 +53,7 @@ function parseTimeInTimezone(dateStr, timeStr, timezone = SOURCE_TIMEZONE) {
 function convertToDisplayDate(utcDate, targetTimezone) {
   // Convert the UTC date to the target timezone
   const zonedDate = toZonedTime(utcDate, targetTimezone);
-  
+
   // Extract the date/time components from the zoned time
   const year = zonedDate.getFullYear();
   const month = zonedDate.getMonth();
@@ -61,7 +61,7 @@ function convertToDisplayDate(utcDate, targetTimezone) {
   const hours = zonedDate.getHours();
   const minutes = zonedDate.getMinutes();
   const seconds = zonedDate.getSeconds();
-  
+
   // Create a new Date object with these components in the local timezone
   // This will display as the correct time when the calendar renders it
   return new Date(year, month, day, hours, minutes, seconds);
@@ -103,14 +103,15 @@ export function generateCalendarEvents(meetings, startDate, endDate, timezone = 
       return;
     }
 
-    const { recurrence } = meeting;
-    
+    const {recurrence} = meeting;
+
     if (recurrence.frequency === 'once') {
-      // Single event
+      // Single event — endDate may differ from startDate for multi-day events
+      const endDateStr = recurrence.endDate || recurrence.startDate;
       const eventStart = parseTimeInTimezone(recurrence.startDate, recurrence.startTime, SOURCE_TIMEZONE);
-      const eventEnd = parseTimeInTimezone(recurrence.startDate, recurrence.endTime, SOURCE_TIMEZONE);
-      
-      if (isWithinInterval(eventStart, { start: startDate, end: endDate })) {
+      const eventEnd = parseTimeInTimezone(endDateStr, recurrence.endTime, SOURCE_TIMEZONE);
+
+      if (isWithinInterval(eventStart, {start: startDate, end: endDate})) {
         events.push({
           ...meeting,
           start: convertToDisplayDate(eventStart, timezone),
@@ -124,19 +125,19 @@ export function generateCalendarEvents(meetings, startDate, endDate, timezone = 
       // Recurring events
       const validFrom = recurrence.validFrom ? parse(recurrence.validFrom, 'yyyy-MM-dd', new Date()) : startDate;
       const validUntil = recurrence.validUntil ? parse(recurrence.validUntil, 'yyyy-MM-dd', new Date()) : endDate;
-      
+
       let currentDate = new Date(Math.max(startDate.getTime(), validFrom.getTime()));
       const finalDate = new Date(Math.min(endDate.getTime(), validUntil.getTime()));
-      
+
       while (isBefore(currentDate, finalDate) || currentDate.getTime() === finalDate.getTime()) {
         const dayOfWeek = currentDate.getDay();
         const dayName = Object.keys(DAY_MAP).find(key => DAY_MAP[key] === dayOfWeek);
-        
+
         if (recurrence.daysOfWeek && recurrence.daysOfWeek.includes(dayName)) {
           const dateStr = format(currentDate, 'yyyy-MM-dd');
           const eventStart = parseTimeInTimezone(dateStr, recurrence.startTime, SOURCE_TIMEZONE);
           const eventEnd = parseTimeInTimezone(dateStr, recurrence.endTime, SOURCE_TIMEZONE);
-          
+
           // Check interval for weekly/bi-weekly meetings
           if (recurrence.frequency === 'weekly' && recurrence.interval > 1) {
             // Calculate weeks from validFrom
@@ -147,7 +148,7 @@ export function generateCalendarEvents(meetings, startDate, endDate, timezone = 
               continue;
             }
           }
-          
+
           events.push({
             ...meeting,
             start: convertToDisplayDate(eventStart, timezone),
@@ -157,7 +158,7 @@ export function generateCalendarEvents(meetings, startDate, endDate, timezone = 
             allDay: false,
           });
         }
-        
+
         currentDate = addDays(currentDate, 1);
       }
     }
@@ -174,8 +175,8 @@ export function getScheduleDescription(meeting, timezone = SOURCE_TIMEZONE) {
     return 'No dedicated schedule - session needs to be requested';
   }
 
-  const { recurrence } = meeting;
-  
+  const {recurrence} = meeting;
+
   if (recurrence.frequency === 'once') {
     const startTime = parseTimeInTimezone(recurrence.startDate, recurrence.startTime, SOURCE_TIMEZONE);
     const endTime = parseTimeInTimezone(recurrence.startDate, recurrence.endTime, SOURCE_TIMEZONE);
@@ -185,8 +186,14 @@ export function getScheduleDescription(meeting, timezone = SOURCE_TIMEZONE) {
     const dateStr = formatInTimeZone(startTime, timezone, 'EEEE, d. MMMM yyyy');
     const timeRange = formatTimeRange(startTime, endTime, timezone);
     const tzAbbr = getTimezoneAbbreviation(startTime, timezone);
-    
-    return `${dateStr} from ${timeRange} ${tzAbbr}`;
+
+    if (recurrence.endDate && recurrence.endDate !== recurrence.startDate) {
+      const endEventDate = parse(recurrence.endDate, 'yyyy-MM-dd', new Date());
+      const endDateFormatted = formatInTimeZone(endEventDate, timezone, 'EEEE, d. MMMM yyyy');
+      return `${startDateFormatted} – ${endDateFormatted} from ${timeRange} ${tzAbbr}`;
+    }
+
+    return `${startDateFormatted} from ${timeRange} ${tzAbbr}`;
   }
 
   // Recurring events
@@ -231,7 +238,7 @@ export function getCategoryColor(category) {
     'product': '#50c878',       // Green
     'one-time': '#f5a623',      // Orange
   };
-  
+
   return colors[category] || '#999999';
 }
 
