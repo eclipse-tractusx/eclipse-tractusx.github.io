@@ -1,1 +1,0 @@
-Place any resources in this Folder.
