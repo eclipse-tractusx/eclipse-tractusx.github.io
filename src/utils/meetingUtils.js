@@ -197,7 +197,7 @@ export function getScheduleDescription(meeting, timezone = SOURCE_TIMEZONE) {
   }
 
   // Recurring events
-  const sampleDate = recurrence.validFrom ? recurrence.validFrom : format(new Date(), 'yyyy-MM-dd');
+  const sampleDate = format(new Date(), 'yyyy-MM-dd');
   const startTime = parseTimeInTimezone(sampleDate, recurrence.startTime, SOURCE_TIMEZONE);
   const endTime = parseTimeInTimezone(sampleDate, recurrence.endTime, SOURCE_TIMEZONE);
   const timeRange = formatTimeRange(startTime, endTime, timezone);
