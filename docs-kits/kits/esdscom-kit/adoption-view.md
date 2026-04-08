@@ -67,7 +67,7 @@ Increase in SDS data quality due to potential for built-in data validity checks 
 To decide which company can use the data asset under specific conditions, usage policies (also referred to as contract policies) are used. Therefore, they are more specific than access policies and only used just after access is granted. Currently, the usage policies aren't technically enforced but based on a legal framework agreements. Signing of framework agreements can be enforced during contract negotiation depending on the connector implementation.
 Policies are defined based on the W3C ODRL format. This allows a standardized way of formulating policy payloads. It further allows to stack different constraints with the odrl:and operator. Therefore, every data provider can decide on his or her own under which conditions their data assets are shared in the network. It is recommended to restrict the data usage for all exchanged data standards. An example of one usage policy containing three different constraints is shown and described in the following:
 
-'''json
+```json
 {
   "@context": {
     "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
@@ -107,7 +107,7 @@ Policies are defined based on the W3C ODRL format. This allows a standardized wa
     "prohibition": []
   }
 }
-'''
+```
 
 More information can be found in the Policies in Catena-X of the Connector KIT.
 
