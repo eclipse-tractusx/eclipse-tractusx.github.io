@@ -53,18 +53,10 @@ The Onboarding of the parties on the Catena-X Dataspace shall be effectuated fol
 
 Figure 1 shows the high-level architecture of the notification exchange in the Catena-X dataspace and the services that are involved. Both the notification sender and the notification recipient must be members of the Catena-X network in order to communicate with each other. With the help of the Identity Access Management (IAM) each participant can authenticate itself, verify the identity of the requesting party and decide whether to authorize the request.
 
-Figure 1 must be created and implemented here until 06.04.2026 (similar to Supply-Chain Use case and CBAM: own overview of esdscom in CX)
-<img width="878" height="518" alt="image" src="https://github.com/user-attachments/assets/00f5aba3-ddc9-46a2-a02c-9d4c6fb20ae2" />
-
-From conceptual point of view the system consists of different building blocks. These building blocks in the following diagram show which participant deploys which components. Identification and Access Management is omitted for simplicity reasons.
-<img width="900" height="1047" alt="image" src="https://github.com/user-attachments/assets/a8c6929f-6771-4074-a417-3fdc8f249117" />
-Figure 2: Whitebox view on a PURIS system
+<img width="878" height="518" alt="image" src="https://github.com/esdscom/eclipse-tractusx.github.io/blob/main/docs-kits/kits/esdscom-kit/Resources/Architecture%20-%20eSDScom%20Use%20Case.drawio.svg" />
 
 The architecture is designed for a decentralized data exchange within the Catena-X network, leveraging core services and standardized components.
-
-insert here Figure 3
-
-Figure 3 shows how two companies, a Data Consumer (the importer requesting eSDScom data) and a Data Provider (the supplier providing it), exchange eSDScom data securely over the Catena-X network without connecting to each other's internal systems directly.
+Figure 1 shows how two companies, a Data Consumer (the importer requesting eSDScom data) and a Data Provider (the supplier providing it), exchange eSDScom data securely over the Catena-X network without connecting to each other's internal systems directly.
 Each company operates the same two-component setup. The first is a eSDScom App, the business application where the importer composes requests and where the supplier prepares and calculates the eSDScom response data. The eSDScom app is a third-party business application required to manage and exchange eSDScom-relevant data that is compatible with Catena-X. The second is an EDC (Eclipse Dataspace Connector), a standardized secure gateway which manages who is allowed to connect and under what agreed conditions, and which is the actual channel through which the notification data travels.
 When a data exchange is triggered, the importer's eSDScom App pushes a request notification toward the supplier. Before any data moves, both connectors perform an authorization handshake to confirm the identities of both parties and verify that the data sharing conditions are met. Once authorized, the notification is sent to the supplier's eSDScom App. It prepares the response, and sends it back in the opposite direction.
 The connectors act as trusted, policy-enforced gateways on both sides, ensuring that data is only shared with verified partners and under agreed terms.
@@ -119,7 +111,8 @@ Format: JSON
 Example Request Payload JSON:
 insert here: eSDScom Request Notification Payload Example JSON structure | click to expand
 Due to the fact that in Catena-X there is a Notification Payload standardized in CX-0151 Industry Core Basics the eSDScom REQUEST payload will follow it and be embedded in a notification payload inside the content key, additionally it will have a header which contains important metadata for the applications to parse. This payload is just an example from how it could look like, since there is yet no standard available:
-{
+
+```{
   "header" : {
     "senderBpn" : "BPNL0000000002CD",
     "senderFeedbackUrl": "https://domain.tld/path/to/api",
@@ -131,6 +124,7 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
   },
   "content": {
     "requestedElements": [here must follow the eSDScom data fields]
+```
 
 Sample Dataset: Response Payload
 Purpose: Returned by the supplier with all requested eSDScom data filled in. 
@@ -138,6 +132,8 @@ Format: JSON
 Example Response Payload JSON:
 insert here: eSDScom Response Notification Payload Example JSON structure | click to expand
 Due to the fact that in Catena-X there is a Notification Payload standardized in CX-0151 Industry Core Basics the eSDScom RESPONSE payload will follow it and be embedded in a notification payload inside the content key, additionally it will have a header which contains important metadata for the applications to parse. This payload is just an example from how it could look like, since there is yet no standard available:
+
+```
 {
   "header" : {
     "senderBpn" : "BPNL0000000001AB",
@@ -149,6 +145,7 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
     "version" : "0.1.0"
   },
   "content": {
+```
 
 #### API Specifications
 Of any describe here: OpenAPI/Swagger files with endpoint documentation
