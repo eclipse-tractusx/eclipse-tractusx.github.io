@@ -190,10 +190,10 @@ export function getScheduleDescription(meeting, timezone = SOURCE_TIMEZONE) {
     if (recurrence.endDate && recurrence.endDate !== recurrence.startDate) {
       const endEventDate = parse(recurrence.endDate, 'yyyy-MM-dd', new Date());
       const endDateFormatted = formatInTimeZone(endEventDate, timezone, 'EEEE, d. MMMM yyyy');
-      return `${startDateFormatted} – ${endDateFormatted} from ${timeRange} ${tzAbbr}`;
+      return `${dateStr} – ${endDateFormatted} from ${timeRange} ${tzAbbr}`;
     }
 
-    return `${startDateFormatted} from ${timeRange} ${tzAbbr}`;
+    return `${dateStr} from ${timeRange} ${tzAbbr}`;
   }
 
   // Recurring events
