@@ -32,6 +32,8 @@
     "@mermaid-js/layout-elk": "^0.1.9",
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.17",
+    "ajv": "^8.18.0",
+    "ajv-formats": "^2.1.1",
     "clsx": "^1.2.1",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
