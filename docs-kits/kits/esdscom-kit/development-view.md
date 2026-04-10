@@ -58,14 +58,16 @@ Figure 1 shows the high-level architecture of the notification exchange in the C
 The architecture is designed for a decentralized data exchange within the Catena-X network, leveraging core services and standardized components.
 Figure 1 shows how two companies, a Data Consumer (the importer requesting eSDScom data) and a Data Provider (the supplier providing it), exchange eSDScom data securely over the Catena-X network without connecting to each other's internal systems directly.
 Each company operates the same two-component setup. The first is a eSDScom App, the business application where the importer composes requests and where the supplier prepares and calculates the eSDScom response data. The eSDScom app is a third-party business application required to manage and exchange eSDScom-relevant data that is compatible with Catena-X. The second is an EDC (Eclipse Dataspace Connector), a standardized secure gateway which manages who is allowed to connect and under what agreed conditions, and which is the actual channel through which the notification data travels.
-When a data exchange is triggered, the importer's eSDScom App pushes a request notification toward the supplier. Before any data moves, both connectors perform an authorization handshake to confirm the identities of both parties and verify that the data sharing conditions are met. Once authorized, the notification is sent to the supplier's eSDScom App. It prepares the response, and sends it back in the opposite direction.
+There a two use cases for eSDScom data exchange:
+Use case 1: The provider (supplier) is sending a SDS
+Use case 2: The consumer (customer, cleint or recipient) is requesting a SDS 
+Before any data moves, both connectors perform an authorization handshake to confirm the identities of both parties and verify that the data sharing conditions are met. Once authorized, the notification is sent to the provider or consumer (depending on the above use cases) eSDScom App. It prepares the response, and sends it back in the opposite direction.
 The connectors act as trusted, policy-enforced gateways on both sides, ensuring that data is only shared with verified partners and under agreed terms.
-Each notification consists of a header and a body. The eSDScom request and response data models are carried in the notification body. 
-
+Each notification consists of a header and a body.
 The header contains the routing and identification information:
 1.  the BPNL (Business Partner Number Legal) of both the sending and receiving company
 2.  a unique message ID assigned to each individual message, and a related message ID that references the original request. The related message ID is particularly important when a supplier sends multiple separate responses to a single request, for example when emission data for different operators or goods is compiled and returned in stages. Each response can be matched back to the originating request via this identifier.
-3.	Several data fields which allows an unique assignment of the documents, e.g.:
+The following data fields in the eSDScom data model allow an unique assignment of the documents:
 -	Supplier DUNS number
 -	Formulation (specification) number
 -	Version number of the SDS (current and previous)
@@ -73,17 +75,6 @@ The header contains the routing and identification information:
 -	Supplier product name
 -	Country (legal area)
 -	Language
-
-### Data Exchange Flow
-The eSDScom data exchange follows the Catena-X Connectivity and Industry Core principles for connector setup and data transfer initiation. For those details, refer to the respective KITs. The description below focuses exclusively on the eSDScom-specific protocol: the structure and sequence of the two eSDScom notifications.
-
-insert here Figure 4
-
-Flow Description:
-eSDScom Request: The Importer's eSDScom App sends a request notification specifying the SDS (requestedElements).
-Processing: The Supplier's eSDScom App maps the request to available SDS 
-eSDScom Response: The Supplier's eSDScom App sends back a response containing the requested SDS data
-Notification structure: Each notification carries a header (sender/receiver BPNLs, a unique messageId, and a relatedMessageId linking the response back to its originating request) and a content field containing the eSDScom request or response data model. The relatedMessageId is particularly important when a supplier sends multiple separate responses to a single request — for example when SDS for different operators are compiled and returned in stages.
 
 ### Data Schema
 #### Semantic Models
@@ -94,14 +85,6 @@ Namespace: urn:samm:io.catenax.eSDScom:1.0.0
 ##### Description
 Purpose: The SAMM defines the eSDScom data model used to exchange eSDScom-relevant SDS information between an OEM (customer) and a supplier.
 Request vs Response separation: The SAMM cleanly separates request and response concerns: the request model specifies what the OEM may ask for (scope, requested elements, identifiers), while the response model specifies what the supplier must provide the requested SDS data, enabling clear responsibilities and automated schema generation.
-
-#### Key Properties Request Datamodel
-insert here: eSDScom REQUEST Data model - Object Structure Overview | click to expand
-insert here: eSDScom REQUEST Data model - Property Overview | click to expand
-
-#### Key Properties Response Datamodel
-insert here: eSDScom RESPONSE Data model - Object Structure only | click to expand
-insert here: eSDScom RESPONSE Data model - Property Overview | click to expand
 
 #### Sample Data
 Sample Dataset: Request Payload
@@ -148,14 +131,13 @@ Due to the fact that in Catena-X there is a Notification Payload standardized in
 ```
 
 #### API Specifications
-Of any describe here: OpenAPI/Swagger files with endpoint documentation
-eSDScom is a data model, not a software. No API.
+eSDScom is using the standard document infra structure and just rely on standard APIs. 
 
 #### Standards
-Technical standards and protocol compliance
+Technical standards and protocol compliance are not applicable.
 
 #### Tutorials
-Developer quick-start guides and code examples
+Developer quick-start guides and code examples are not yet available.
 
 ### Sample data in multiple formats (JSON, XML, CSV)
 eSDScom is not bound to the JSON format provided in Catena-X's eSDScom KIT. 
