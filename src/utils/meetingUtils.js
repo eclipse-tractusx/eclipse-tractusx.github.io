@@ -178,12 +178,12 @@ export function getScheduleDescription(meeting, timezone = SOURCE_TIMEZONE) {
   const {recurrence} = meeting;
 
   if (recurrence.frequency === 'once') {
-    const endDateStr = recurrence.endDate || recurrence.startDate;
-    const eventDate = parse(recurrence.startDate, 'yyyy-MM-dd', new Date());
     const startTime = parseTimeInTimezone(recurrence.startDate, recurrence.startTime, SOURCE_TIMEZONE);
-    const endTime = parseTimeInTimezone(endDateStr, recurrence.endTime, SOURCE_TIMEZONE);
-
-    const startDateFormatted = formatInTimeZone(eventDate, timezone, 'EEEE, d. MMMM yyyy');
+    const endTime = parseTimeInTimezone(recurrence.startDate, recurrence.endTime, SOURCE_TIMEZONE);
+    
+    // Use the UTC-correct startTime (not a local-midnight parse) so the date
+    // displays consistently regardless of the visitor's browser timezone.
+    const dateStr = formatInTimeZone(startTime, timezone, 'EEEE, d. MMMM yyyy');
     const timeRange = formatTimeRange(startTime, endTime, timezone);
     const tzAbbr = getTimezoneAbbreviation(startTime, timezone);
 
