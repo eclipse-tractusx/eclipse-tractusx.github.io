@@ -1,5 +1,8 @@
 import MeetingCalendar from '@site/src/components/OpenMeetings/MeetingCalendar';
 import MeetingsList from '@site/src/components/OpenMeetings/MeetingsList';
+import TodaysMeetings from '@site/src/components/OpenMeetings/TodaysMeetings';
+import FeaturedMeetings from '@site/src/components/OpenMeetings/FeaturedMeetings';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 # Open Meetings
 
@@ -18,7 +21,15 @@ Want to add a new meeting to this calendar? Check out our [guide on creating ope
 
 :::
 
+<BrowserOnly fallback={<div>Loading today's meetings...</div>}>
+{() => <TodaysMeetings />}
+</BrowserOnly>
+
 <MeetingCalendar />
+
+<BrowserOnly fallback={<div>Loading featured meetings...</div>}>
+{() => <FeaturedMeetings />}
+</BrowserOnly>
 
 ---
 

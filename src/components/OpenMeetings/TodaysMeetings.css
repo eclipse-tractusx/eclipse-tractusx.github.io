@@ -1,0 +1,213 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+.todays-meetings {
+  background: linear-gradient(135deg, #fffaf0 0%, #fff5e6 100%);
+  border: 1px solid #faa023;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.todays-meetings__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.todays-meetings__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.todays-meetings__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1a1a2e;
+}
+
+.todays-meetings__subtitle {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.15rem 0 0;
+}
+
+.todays-meetings__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.todays-meetings__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.todays-meetings__item:hover {
+  border-color: #faa023;
+  box-shadow: 0 2px 8px rgba(250, 160, 35, 0.12);
+}
+
+.todays-meetings__item--live {
+  border-color: #22c55e;
+  background: #f0fdf4;
+  box-shadow: 0 0 0 1px #22c55e;
+}
+
+.todays-meetings__item--past {
+  opacity: 0.55;
+}
+
+.todays-meetings__time {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  min-width: 110px;
+}
+
+.todays-meetings__time-separator {
+  color: #aaa;
+}
+
+.todays-meetings__info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.todays-meetings__name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1a1a2e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todays-meetings__live-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #22c55e;
+  white-space: nowrap;
+  animation: pulse-live 2s infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.todays-meetings__join-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  background: #faa023;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.todays-meetings__join-btn:hover {
+  background: #e89012;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Dark mode */
+[data-theme='dark'] .todays-meetings {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-color: #faa023;
+}
+
+[data-theme='dark'] .todays-meetings__title {
+  color: #fff;
+}
+
+[data-theme='dark'] .todays-meetings__subtitle {
+  color: #aaa;
+}
+
+[data-theme='dark'] .todays-meetings__item {
+  background: #1e2127;
+  border-color: #333;
+}
+
+[data-theme='dark'] .todays-meetings__item:hover {
+  border-color: #faa023;
+}
+
+[data-theme='dark'] .todays-meetings__item--live {
+  background: #0a2e1a;
+  border-color: #22c55e;
+}
+
+[data-theme='dark'] .todays-meetings__time {
+  color: #ddd;
+}
+
+[data-theme='dark'] .todays-meetings__name {
+  color: #eee;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .todays-meetings {
+    padding: 1rem 1.25rem;
+  }
+
+  .todays-meetings__item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .todays-meetings__time {
+    min-width: auto;
+    font-size: 0.8rem;
+  }
+
+  .todays-meetings__info {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  .todays-meetings__join-btn {
+    margin-left: auto;
+    font-size: 0.75rem;
+  }
+}

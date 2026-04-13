@@ -17,162 +17,249 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-/* Collapsible meeting card */
-.meeting-info-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
-  background-color: #ffffff;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+/* ── Marketplace meeting card ────────────────────────────── */
+.meeting-card {
+  background: #ffffff;
+  border-radius: 16px;
   overflow: hidden;
-}
-
-.meeting-info-card:hover {
-  border-color: #faa023;
-  box-shadow: 0 2px 8px rgba(250, 160, 35, 0.12);
-}
-
-.meeting-info-card--expanded {
-  border-color: #faa023;
-  box-shadow: 0 2px 12px rgba(250, 160, 35, 0.15);
-}
-
-/* Clickable header row */
-.meeting-info-header {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.25rem;
-  cursor: pointer;
-  user-select: none;
-  gap: 1rem;
+  flex-direction: column;
+  height: 100%;
 }
 
-.meeting-info-header:focus-visible {
-  outline: 2px solid #faa023;
-  outline-offset: -2px;
-  border-radius: 8px;
+.meeting-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(250, 160, 35, 0.15);
 }
 
-/* Summary: title + schedule in one line */
-.meeting-info-summary {
+.meeting-card--expanded {
+  box-shadow: 0 6px 24px rgba(250, 160, 35, 0.18);
+}
+
+/* ── Optional image ──────────────────────────────────────── */
+.meeting-card__image {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #faa023 0%, #ff8c42 100%);
+}
+
+.meeting-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.meeting-card:hover .meeting-card__image img {
+  transform: scale(1.05);
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+.meeting-card__body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  min-width: 0;
 }
 
-.meeting-info-title {
+/* ── Category badge ──────────────────────────────────────── */
+.meeting-card__badge {
+  display: inline-block;
+  color: #fff;
+  padding: 0.2rem 0.65rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 1.4;
-  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.6rem;
+  width: fit-content;
+}
+
+/* ── Title ───────────────────────────────────────────────── */
+.meeting-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem;
+  line-height: 1.35;
   color: inherit;
 }
 
-.meeting-info-title .hash-link {
+.meeting-card__title .hash-link {
   opacity: 0;
   transition: opacity 0.15s;
 }
 
-.meeting-info-card:hover .meeting-info-title .hash-link {
+.meeting-card:hover .meeting-card__title .hash-link {
   opacity: 1;
 }
 
-.meeting-info-schedule {
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #a5a5a5;
-  margin-top: 0.2rem;
-}
-
-/* Chevron arrow */
-.meeting-info-chevron {
-  font-size: 16px;
+/* ── Schedule ────────────────────────────────────────────── */
+.meeting-card__schedule {
+  font-size: 0.8rem;
   color: #888;
-  transition: transform 0.25s ease;
-  flex-shrink: 0;
+  margin-bottom: 0.6rem;
 }
 
-.meeting-info-chevron--open {
-  transform: rotate(180deg);
+/* ── Description ─────────────────────────────────────────── */
+.meeting-card__desc {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
 }
 
-/* Collapsible details wrapper */
-.meeting-info-details-wrapper {
+.meeting-card__desc--clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Join Meeting button ─────────────────────────────────── */
+.meeting-card__join-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.3rem;
+  background: #faa023;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+  margin-bottom: 0.6rem;
+  width: fit-content;
+}
+
+.meeting-card__join-btn:hover {
+  background: #e89012;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ── Show details toggle ─────────────────────────────────── */
+.meeting-card__toggle {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #faa023;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  margin-top: auto;
+  width: fit-content;
+  transition: color 0.2s;
+}
+
+.meeting-card__toggle:hover {
+  color: #e89012;
+}
+
+/* ── Collapsible details ─────────────────────────────────── */
+.meeting-card__details-wrapper {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.35s ease;
 }
 
-/* Details content area */
-.meeting-info-details {
-  padding: 0 1.25rem 1rem;
+.meeting-card__details {
+  padding-top: 0.75rem;
   border-top: 1px solid #eee;
+  margin-top: 0.5rem;
 }
 
-.meeting-info-details p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 0.75rem 0;
+.meeting-card__detail-group {
+  margin-bottom: 0.6rem;
 }
 
-.meeting-info-item-link {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+.meeting-card__detail-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #999;
+  margin-bottom: 0.2rem;
+}
+
+.meeting-card__detail-link {
+  font-size: 0.85rem;
   color: #faa023;
-  list-style-image: url("/img/product_link_bullet.png");
+  text-decoration: none;
 }
 
-.meeting-info-item-title {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+.meeting-card__detail-link:hover {
+  text-decoration: underline;
+}
+
+.meeting-card__link-list {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Dark mode support */
-[data-theme='dark'] .meeting-info-card {
-  background-color: #1b1b1d;
-  border-color: #444;
+.meeting-card__link-list li {
+  margin-bottom: 0.2rem;
 }
 
-[data-theme='dark'] .meeting-info-card:hover {
-  border-color: #faa023;
-  box-shadow: 0 2px 8px rgba(250, 160, 35, 0.2);
+.meeting-card__link-list a {
+  font-size: 0.85rem;
+  color: #faa023;
+  text-decoration: none;
 }
 
-[data-theme='dark'] .meeting-info-card--expanded {
-  border-color: #faa023;
+.meeting-card__link-list a:hover {
+  text-decoration: underline;
 }
 
-[data-theme='dark'] .meeting-info-details {
-  border-top-color: #444;
+/* ── Dark mode ───────────────────────────────────────────── */
+[data-theme='dark'] .meeting-card {
+  background: #1e2127;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme='dark'] .meeting-info-schedule {
-  color: #888;
+[data-theme='dark'] .meeting-card:hover {
+  box-shadow: 0 6px 24px rgba(250, 160, 35, 0.2);
 }
 
-[data-theme='dark'] .meeting-info-chevron {
-  color: #aaa;
+[data-theme='dark'] .meeting-card__schedule {
+  color: #999;
 }
 
-/* Responsive adjustments */
+[data-theme='dark'] .meeting-card__desc {
+  color: #bbb;
+}
+
+[data-theme='dark'] .meeting-card__details {
+  border-top-color: #333;
+}
+
+[data-theme='dark'] .meeting-card__detail-label {
+  color: #777;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .meeting-info-header {
-    padding: 0.75rem 1rem;
+  .meeting-card__body {
+    padding: 1rem 1.15rem 1.15rem;
   }
 
-  .meeting-info-title {
-    font-size: 15px;
+  .meeting-card__title {
+    font-size: 0.95rem;
   }
 
-  .meeting-info-schedule {
-    font-size: 12px;
+  .meeting-card__schedule {
+    font-size: 0.75rem;
   }
 
-  .meeting-info-details {
-    padding: 0 1rem 0.75rem;
+  .meeting-card__desc {
+    font-size: 0.82rem;
   }
 }

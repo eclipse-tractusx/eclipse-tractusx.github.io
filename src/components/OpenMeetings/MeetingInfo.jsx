@@ -17,14 +17,25 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 import React, { useState, useRef, useEffect } from 'react';
-import { getScheduleDescription } from '@site/src/utils/meetingUtils';
+import { getScheduleDescription, getCategoryColor } from '@site/src/utils/meetingUtils';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import './MeetingInfo.css';
+
+const CATEGORY_LABELS = {
+  general: 'General',
+  product: 'Product',
+  'one-time': 'Event',
+};
 
 export default function MeetingInfo({title, schedule, description, contact, sessionLink = undefined, meetingLink = undefined, additionalLinks = [], meetingData = null, timezone = 'Europe/Berlin'}) {
     const [isExpanded, setIsExpanded] = useState(false);
     const detailsRef = useRef(null);
     const [contentHeight, setContentHeight] = useState(0);
+
+    const category = meetingData?.category;
+    const categoryColor = category ? getCategoryColor(category) : '#999';
+    const categoryLabel = category ? (CATEGORY_LABELS[category] || category) : '';
+    const image = meetingData?.image;
 
     useEffect(() => {
         if (detailsRef.current) {
@@ -36,83 +47,93 @@ export default function MeetingInfo({title, schedule, description, contact, sess
         setIsExpanded((prev) => !prev);
     };
 
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            handleToggle();
-        }
-    };
-
     return (
-        <section className={`meeting-info-card ${isExpanded ? 'meeting-info-card--expanded' : ''}`} id={title}>
-            <div
-                className="meeting-info-header"
-                onClick={handleToggle}
-                onKeyDown={handleKeyDown}
-                role="button"
-                tabIndex={0}
-                aria-expanded={isExpanded}
-                aria-controls={`meeting-details-${title}`}
-            >
-                <div className="meeting-info-summary">
-                    <h3 className="meeting-info-title">
-                        {title}
-                        <a className="hash-link" href={`#${title}`} title="Direct link to open meeting" onClick={(e) => e.stopPropagation()}></a>
-                    </h3>
-                    <BrowserOnly fallback={<div className="meeting-info-schedule">{schedule}</div>}>
-                      {() => {
-                        const displaySchedule = meetingData
-                          ? getScheduleDescription(meetingData, timezone)
-                          : schedule;
-                        return <div className="meeting-info-schedule">{displaySchedule}</div>;
-                      }}
-                    </BrowserOnly>
+        <section className={`meeting-card ${isExpanded ? 'meeting-card--expanded' : ''}`} id={title}>
+            {image && (
+                <div className="meeting-card__image">
+                    <img src={image} alt={title} loading="lazy" />
                 </div>
-                <span className={`meeting-info-chevron ${isExpanded ? 'meeting-info-chevron--open' : ''}`} aria-hidden="true">
-                    &#9662;
-                </span>
-            </div>
-            <div
-                id={`meeting-details-${title}`}
-                className="meeting-info-details-wrapper"
-                style={{ maxHeight: isExpanded ? `${contentHeight}px` : '0' }}
-            >
-                <div className="meeting-info-details" ref={detailsRef}>
-                    <p>{description}</p>
+            )}
 
-                    <ul>
-                        <li className="meeting-info-item-title">Contact:</li>
-                        <li className="meeting-info-item-link">
-                            <a href={"mailto:" + contact}>{contact}</a>
-                        </li>
-                    </ul>
+            <div className="meeting-card__body">
+                {categoryLabel && (
+                    <span className="meeting-card__badge" style={{ backgroundColor: categoryColor }}>
+                        {categoryLabel}
+                    </span>
+                )}
 
-                    <ul>
-                        <li className="meeting-info-item-title">Participation opportunities:</li>
-                            {sessionLink && (
-                                <li className="meeting-info-item-link">
-                                    <a href={sessionLink}>Join Meeting</a>
-                                </li>
-                            )}
-                            {meetingLink && (
-                                <li className="meeting-info-item-link">
-                                    <a href={meetingLink}>Download calendar file</a>
-                                </li>
-                            )}
-                    </ul>
-                    {additionalLinks.length > 0 && (
-                    <ul>
-                        <li className="meeting-info-item-title">Additional links:</li>
-                        {additionalLinks.map((link, index) => {
-                            const { url, title: linkTitle } = link;
-                            return (
-                                <li key={`${index}${url}`} className="meeting-info-item-link">
-                                    <a href={url}>{linkTitle}</a>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                    )}
+                <h3 className="meeting-card__title">
+                    {title}
+                    <a className="hash-link" href={`#${title}`} title="Direct link to open meeting" onClick={(e) => e.stopPropagation()}>{' '}</a>
+                </h3>
+
+                <BrowserOnly fallback={<div className="meeting-card__schedule">{schedule}</div>}>
+                  {() => {
+                    const displaySchedule = meetingData
+                      ? getScheduleDescription(meetingData, timezone)
+                      : schedule;
+                    return <div className="meeting-card__schedule">{displaySchedule}</div>;
+                  }}
+                </BrowserOnly>
+
+                <p className={`meeting-card__desc ${isExpanded ? '' : 'meeting-card__desc--clamped'}`}>
+                    {description}
+                </p>
+
+                {sessionLink && (
+                    <a
+                        href={sessionLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="meeting-card__join-btn"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        Join Meeting
+                    </a>
+                )}
+
+                <button
+                    className="meeting-card__toggle"
+                    onClick={handleToggle}
+                    aria-expanded={isExpanded}
+                    aria-controls={`meeting-details-${title}`}
+                >
+                    {isExpanded ? 'Hide details ▲' : 'Show details ▼'}
+                </button>
+
+                <div
+                    id={`meeting-details-${title}`}
+                    className="meeting-card__details-wrapper"
+                    style={{ maxHeight: isExpanded ? `${contentHeight}px` : '0' }}
+                >
+                    <div className="meeting-card__details" ref={detailsRef}>
+                        <div className="meeting-card__detail-group">
+                            <span className="meeting-card__detail-label">Contact</span>
+                            <a href={`mailto:${contact}`} className="meeting-card__detail-link">{contact}</a>
+                        </div>
+
+                        {meetingLink && (
+                            <div className="meeting-card__detail-group">
+                                <span className="meeting-card__detail-label">Calendar</span>
+                                <a href={meetingLink} className="meeting-card__detail-link">Download calendar file</a>
+                            </div>
+                        )}
+
+                        {additionalLinks.length > 0 && (
+                            <div className="meeting-card__detail-group">
+                                <span className="meeting-card__detail-label">Links</span>
+                                <ul className="meeting-card__link-list">
+                                    {additionalLinks.map((link, index) => (
+                                        <li key={`${index}${link.url}`}>
+                                            <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                                {link.title}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </section>

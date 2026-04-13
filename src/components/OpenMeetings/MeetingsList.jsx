@@ -21,6 +21,7 @@ import React, { useState, useEffect } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import MeetingInfo from './MeetingInfo';
 import { meetings, MEETING_CATEGORIES } from '@site/data/meetings';
+import './MeetingsDisplay.css';
 
 export default function MeetingsList({ category }) {
   const [selectedTimezone, setSelectedTimezone] = useState('Europe/Berlin');
@@ -43,7 +44,7 @@ export default function MeetingsList({ category }) {
   return (
     <BrowserOnly fallback={<div>Loading meetings...</div>}>
       {() => (
-        <>
+        <div className="meetings-grid">
           {filteredMeetings.map(meeting => (
             <MeetingInfo
               key={meeting.id}
@@ -57,7 +58,7 @@ export default function MeetingsList({ category }) {
               timezone={selectedTimezone}
             />
           ))}
-        </>
+        </div>
       )}
     </BrowserOnly>
   );
