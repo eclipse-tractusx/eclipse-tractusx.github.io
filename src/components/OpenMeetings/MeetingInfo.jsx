@@ -101,9 +101,9 @@ export default function MeetingInfo({title, schedule, description, contact, sess
                     aria-controls={`meeting-details-${title}`}
                 >
                     {isExpanded ? (
-                      <>Hide details <ExpandLessIcon sx={{ fontSize: 18 }} /></>
+                      <>Hide details <ExpandLessIcon aria-hidden="true" sx={{ fontSize: 18 }} /></>
                     ) : (
-                      <>Show details <ExpandMoreIcon sx={{ fontSize: 18 }} /></>
+                      <>Show details <ExpandMoreIcon aria-hidden="true" sx={{ fontSize: 18 }} /></>
                     )}
                 </button>
 

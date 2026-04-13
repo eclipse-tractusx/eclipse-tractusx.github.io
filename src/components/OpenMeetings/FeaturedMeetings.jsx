@@ -78,7 +78,7 @@ function FeaturedCard({ meeting, timezone, isHero }) {
             </a>
           )}
           <a href={`#${meeting.title}`} className="featured-card__btn featured-card__btn--secondary">
-            Details <KeyboardArrowDownIcon sx={{ fontSize: 18 }} />
+            Details <KeyboardArrowDownIcon aria-hidden="true" sx={{ fontSize: 18 }} />
           </a>
         </div>
       </div>
@@ -97,7 +97,7 @@ export default function FeaturedMeetings({ timezone = 'Europe/Berlin' }) {
   return (
     <section className="featured-meetings">
       <div className="featured-meetings__label">
-        <StarIcon sx={{ fontSize: 20 }} />
+        <StarIcon aria-hidden="true" sx={{ fontSize: 20 }} />
         Featured Meetings
       </div>
       <div className="featured-meetings__grid">

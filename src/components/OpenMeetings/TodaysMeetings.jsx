@@ -48,7 +48,7 @@ export default function TodaysMeetings({ timezone = 'Europe/Berlin' }) {
     <section className="todays-meetings">
       <div className="todays-meetings__header">
         <div className="todays-meetings__icon">
-          <CalendarTodayIcon sx={{ fontSize: 24, color: '#fff' }} />
+          <CalendarTodayIcon aria-hidden="true" sx={{ fontSize: 24, color: '#fff' }} />
         </div>
         <div>
           <h2 className="todays-meetings__title">Today&apos;s Meetings</h2>
@@ -75,7 +75,7 @@ export default function TodaysMeetings({ timezone = 'Europe/Berlin' }) {
                 <span className="todays-meetings__name">{event.title}</span>
                 {isLive && (
                   <span className="todays-meetings__live-badge">
-                    <FiberManualRecordIcon sx={{ fontSize: 10 }} />
+                    <FiberManualRecordIcon aria-hidden="true" sx={{ fontSize: 12 }} />
                     LIVE
                   </span>
                 )}
