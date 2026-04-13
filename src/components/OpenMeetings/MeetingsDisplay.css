@@ -21,18 +21,20 @@
 .meetings-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 2rem;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 @media (max-width: 996px) {
   .meetings-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 }
 
 @media (max-width: 600px) {
   .meetings-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }

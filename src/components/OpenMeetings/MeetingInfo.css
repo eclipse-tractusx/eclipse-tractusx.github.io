@@ -20,22 +20,27 @@
 /* ── Marketplace meeting card ────────────────────────────── */
 .meeting-card {
   background: #ffffff;
-  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .meeting-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 24px rgba(250, 160, 35, 0.15);
+  transform: translateY(-6px);
+  border-color: rgba(250, 160, 35, 0.2);
+  box-shadow: 0 8px 32px rgba(250, 160, 35, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .meeting-card--expanded {
-  box-shadow: 0 6px 24px rgba(250, 160, 35, 0.18);
+  border-color: rgba(250, 160, 35, 0.25);
+  box-shadow: 0 8px 32px rgba(250, 160, 35, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 /* ── Optional image ──────────────────────────────────────── */
@@ -50,11 +55,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .meeting-card:hover .meeting-card__image img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 /* ── Body ────────────────────────────────────────────────── */
@@ -65,32 +70,39 @@
   flex: 1;
 }
 
-/* ── Category badge ──────────────────────────────────────── */
+/* ── Category badge — modern glassmorphism chip ──────────── */
 .meeting-card__badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   color: #fff;
-  padding: 0.2rem 0.65rem;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-bottom: 0.6rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
   width: fit-content;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* ── Title ───────────────────────────────────────────────── */
 .meeting-card__title {
   font-size: 1.05rem;
   font-weight: 700;
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.35rem;
   line-height: 1.35;
-  color: inherit;
+  color: #1a1a2e;
+  letter-spacing: -0.01em;
 }
 
 .meeting-card__title .hash-link {
   opacity: 0;
-  transition: opacity 0.15s;
+  transition: opacity 0.2s;
 }
 
 .meeting-card:hover .meeting-card__title .hash-link {
@@ -100,16 +112,19 @@
 /* ── Schedule ────────────────────────────────────────────── */
 .meeting-card__schedule {
   font-size: 0.8rem;
-  color: #888;
+  color: #6b7280;
   margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 /* ── Description ─────────────────────────────────────────── */
 .meeting-card__desc {
   font-size: 0.85rem;
-  color: #555;
-  line-height: 1.6;
-  margin: 0 0 0.75rem;
+  color: #4b5563;
+  line-height: 1.65;
+  margin: 0 0 0.85rem;
 }
 
 .meeting-card__desc--clamped {
@@ -119,83 +134,91 @@
   overflow: hidden;
 }
 
-/* ── Join Meeting button ─────────────────────────────────── */
+/* ── Join Meeting button — modern pill with gradient ─────── */
 .meeting-card__join-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1.3rem;
-  background: #faa023;
+  gap: 0.4rem;
+  padding: 0.55rem 1.4rem;
+  background: linear-gradient(135deg, #faa023 0%, #f59e0b 100%);
   color: #fff;
-  border-radius: 8px;
-  font-size: 0.85rem;
+  border-radius: 100px;
+  font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
-  margin-bottom: 0.6rem;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-bottom: 0.75rem;
   width: fit-content;
+  box-shadow: 0 2px 8px rgba(250, 160, 35, 0.25);
+  letter-spacing: 0.01em;
 }
 
 .meeting-card__join-btn:hover {
-  background: #e89012;
+  background: linear-gradient(135deg, #e89012 0%, #d97706 100%);
   color: #fff;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(250, 160, 35, 0.35);
 }
 
-/* ── Show details toggle ─────────────────────────────────── */
+/* ── Show details toggle — modern link style ─────────────── */
 .meeting-card__toggle {
   display: inline-flex;
   align-items: center;
+  gap: 0.3rem;
   background: none;
   border: none;
-  color: #faa023;
-  font-size: 0.8rem;
-  font-weight: 600;
+  color: #6b7280;
+  font-size: 0.78rem;
+  font-weight: 500;
   cursor: pointer;
-  padding: 0.25rem 0;
+  padding: 0.3rem 0;
   margin-top: auto;
   width: fit-content;
   transition: color 0.2s;
+  letter-spacing: 0.01em;
 }
 
 .meeting-card__toggle:hover {
-  color: #e89012;
+  color: #faa023;
 }
 
 /* ── Collapsible details ─────────────────────────────────── */
 .meeting-card__details-wrapper {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .meeting-card__details {
-  padding-top: 0.75rem;
-  border-top: 1px solid #eee;
-  margin-top: 0.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid #f3f4f6;
+  margin-top: 0.6rem;
 }
 
 .meeting-card__detail-group {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
 }
 
 .meeting-card__detail-label {
   display: block;
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.68rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #999;
-  margin-bottom: 0.2rem;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  margin-bottom: 0.25rem;
 }
 
 .meeting-card__detail-link {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: #faa023;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .meeting-card__detail-link:hover {
+  color: #e89012;
   text-decoration: underline;
 }
 
@@ -206,47 +229,77 @@
 }
 
 .meeting-card__link-list li {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .meeting-card__link-list a {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: #faa023;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .meeting-card__link-list a:hover {
+  color: #e89012;
   text-decoration: underline;
 }
 
 /* ── Dark mode ───────────────────────────────────────────── */
 [data-theme='dark'] .meeting-card {
   background: #1e2127;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme='dark'] .meeting-card:hover {
-  box-shadow: 0 6px 24px rgba(250, 160, 35, 0.2);
+  border-color: rgba(250, 160, 35, 0.25);
+  box-shadow: 0 8px 32px rgba(250, 160, 35, 0.15), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .meeting-card__title {
+  color: #f3f4f6;
 }
 
 [data-theme='dark'] .meeting-card__schedule {
-  color: #999;
+  color: #9ca3af;
 }
 
 [data-theme='dark'] .meeting-card__desc {
-  color: #bbb;
+  color: #d1d5db;
+}
+
+[data-theme='dark'] .meeting-card__toggle {
+  color: #9ca3af;
+}
+
+[data-theme='dark'] .meeting-card__toggle:hover {
+  color: #faa023;
 }
 
 [data-theme='dark'] .meeting-card__details {
-  border-top-color: #333;
+  border-top-color: #374151;
 }
 
 [data-theme='dark'] .meeting-card__detail-label {
-  color: #777;
+  color: #6b7280;
+}
+
+[data-theme='dark'] .meeting-card__badge {
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 996px) {
+  .meeting-card__body {
+    padding: 1.15rem 1.25rem 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .meeting-card {
+    border-radius: 16px;
+  }
+
   .meeting-card__body {
     padding: 1rem 1.15rem 1.15rem;
   }
@@ -261,5 +314,30 @@
 
   .meeting-card__desc {
     font-size: 0.82rem;
+  }
+
+  .meeting-card__join-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .meeting-card__body {
+    padding: 0.85rem 1rem 1rem;
+  }
+
+  .meeting-card__badge {
+    font-size: 0.62rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .meeting-card__title {
+    font-size: 0.9rem;
+  }
+
+  .meeting-card__join-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
