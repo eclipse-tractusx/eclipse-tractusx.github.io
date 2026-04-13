@@ -66,6 +66,31 @@
   gap: 0.5rem;
 }
 
+.todays-meetings__section {
+  margin-bottom: 0.75rem;
+}
+
+.todays-meetings__section:last-child {
+  margin-bottom: 0;
+}
+
+.todays-meetings__section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f59e0b;
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.todays-meetings__section-label--passed {
+  color: #9ca3af;
+}
+
 .todays-meetings__item {
   display: flex;
   align-items: center;
@@ -207,6 +232,14 @@
 
 [data-theme='dark'] .todays-meetings__name {
   color: #f3f4f6;
+}
+
+[data-theme='dark'] .todays-meetings__section-label {
+  color: #f59e0b;
+}
+
+[data-theme='dark'] .todays-meetings__section-label--passed {
+  color: #6b7280;
 }
 
 [data-theme='dark'] .todays-meetings__icon {
