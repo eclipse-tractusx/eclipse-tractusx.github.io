@@ -311,7 +311,7 @@ function generateKitNavItems() {
     });
     items.push({
       to: '/Kits/cross-industry',
-      label: 'USE CASES',
+      label: 'CROSS-INDUSTRY USE CASES',
       className: 'kit-category-header'
     });
     
