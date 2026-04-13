@@ -17,6 +17,8 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 import React, { useState, useRef, useEffect } from 'react';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { getScheduleDescription, getCategoryColor } from '@site/src/utils/meetingUtils';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import './MeetingInfo.css';
@@ -98,7 +100,11 @@ export default function MeetingInfo({title, schedule, description, contact, sess
                     aria-expanded={isExpanded}
                     aria-controls={`meeting-details-${title}`}
                 >
-                    {isExpanded ? 'Hide details ▲' : 'Show details ▼'}
+                    {isExpanded ? (
+                      <>Hide details <ExpandLessIcon sx={{ fontSize: 18 }} /></>
+                    ) : (
+                      <>Show details <ExpandMoreIcon sx={{ fontSize: 18 }} /></>
+                    )}
                 </button>
 
                 <div

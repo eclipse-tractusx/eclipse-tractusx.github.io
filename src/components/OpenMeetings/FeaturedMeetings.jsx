@@ -19,6 +19,8 @@
 
 import React from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import StarIcon from '@mui/icons-material/Star';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { meetings, MEETING_CATEGORIES } from '@site/data/meetings';
 import { getScheduleDescription, getCategoryColor } from '@site/src/utils/meetingUtils';
 import './FeaturedMeetings.css';
@@ -76,7 +78,7 @@ function FeaturedCard({ meeting, timezone, isHero }) {
             </a>
           )}
           <a href={`#${meeting.title}`} className="featured-card__btn featured-card__btn--secondary">
-            Details ↓
+            Details <KeyboardArrowDownIcon sx={{ fontSize: 18 }} />
           </a>
         </div>
       </div>
@@ -94,7 +96,10 @@ export default function FeaturedMeetings({ timezone = 'Europe/Berlin' }) {
 
   return (
     <section className="featured-meetings">
-      <div className="featured-meetings__label">⭐ Featured Meetings</div>
+      <div className="featured-meetings__label">
+        <StarIcon sx={{ fontSize: 20 }} />
+        Featured Meetings
+      </div>
       <div className="featured-meetings__grid">
         <FeaturedCard meeting={hero} timezone={timezone} isHero={true} />
         {rest.map(m => (

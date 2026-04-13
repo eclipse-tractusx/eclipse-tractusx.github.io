@@ -18,6 +18,8 @@
  ********************************************************************************/
 
 import React, { useState, useMemo } from 'react';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { meetings } from '@site/data/meetings';
 import { generateCalendarEvents } from '@site/src/utils/meetingUtils';
 import { startOfDay, endOfDay } from 'date-fns';
@@ -45,7 +47,9 @@ export default function TodaysMeetings({ timezone = 'Europe/Berlin' }) {
   return (
     <section className="todays-meetings">
       <div className="todays-meetings__header">
-        <div className="todays-meetings__icon">📅</div>
+        <div className="todays-meetings__icon">
+          <CalendarTodayIcon sx={{ fontSize: 24, color: '#fff' }} />
+        </div>
         <div>
           <h2 className="todays-meetings__title">Today&apos;s Meetings</h2>
           <p className="todays-meetings__subtitle">
@@ -69,7 +73,12 @@ export default function TodaysMeetings({ timezone = 'Europe/Berlin' }) {
               </div>
               <div className="todays-meetings__info">
                 <span className="todays-meetings__name">{event.title}</span>
-                {isLive && <span className="todays-meetings__live-badge">● LIVE</span>}
+                {isLive && (
+                  <span className="todays-meetings__live-badge">
+                    <FiberManualRecordIcon sx={{ fontSize: 10 }} />
+                    LIVE
+                  </span>
+                )}
               </div>
               {event.sessionLink && (
                 <a
