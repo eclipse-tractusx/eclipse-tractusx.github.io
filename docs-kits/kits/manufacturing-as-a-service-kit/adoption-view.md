@@ -11,11 +11,11 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 ## Vision and Mission
 
-**Our Vision**
+### Our Vision
 
 Our vision is that every manufacturer with free machining capacities can easily use on- demand-manufacturing digital marketplaces for additional order entry and collaborates connected and interoperable within manufacturing data space. This allows especially small and medium enterprises more resilience with volatile business and highest competitiveness with fast processes and quality assurance including transparency on sustainability.
 
-**Our Mission**
+### Our Mission
 
 Our mission is to support factory operators and service providers on their path to digital transformation. We support in reducing the effort in acquiring new customers with scalable visibility on digital manufacturing marketplaces, by providing digital connectivity approaches and harmonized manufacturers information handling. Additionally, we structure and formalize the digital bidding process supported by automated cost and capacity calculation, to be fast and reliable in manufacturing as a service offering. Finally, we support vertical IT/OT convergence with standardized data models and interfaces for automated quality control services to ensure that manufacturers remain competitive, even when handling low lot sizes or parts they have never produced before.
 
@@ -153,7 +153,7 @@ Table 2:  AAS submodels used in MaaS and assignment to description types
 
 ### Data exchange via MX-Port Hercules
 
-Data exchange via MX-Port Hercules for secure data exchange via [Data Space Protocol (DSP)](https://github.com/eclipse-dataspace-protocol-base/DataspaceProtocol) and [Decentralized Claims Protocol (DCP)](https://github.com/eclipse-dataspace-dcp/decentralized-claims-protocol) using the Asset Administration Shell (AAS) as the data model. 
+Data exchange via MX-Port Hercules for secure data exchange via [Data Space Protocol (DSP)](https://github.com/eclipse-dataspace-protocol-base/DataspaceProtocol) and [Decentralized Claims Protocol (DCP)](https://github.com/eclipse-dataspace-dcp/decentralized-claims-protocol) using the Asset Administration Shell (AAS) as the data model.
 
 | Standard                                                                                   | Version   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Link                                                                                                                                              |
 | ------------------------------------------------------------------------------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -200,7 +200,6 @@ Table 5:  Used Hercules Use Case Architecture Decision Records in MaaS
 
 Table 6:  Used Hercules Network Architecture Decision Records in MaaS
 
-
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
@@ -218,7 +217,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2026 MT Analytics GmbH
 - SPDX-FileCopyrightText: 2026 Werkzeugmaschininenlabor (WZL) der Fakultaet Maschinenwesen, Rheinisch-Westfaehlische Technische Hochschule (RWTH) Aachen
 - SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
 
 ### Footnotes
 

@@ -7,8 +7,7 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 <Kit3DLogo kitId="maas" />
 
-The data interfaces in MaaS are based on the interfaces of the Asset Administration Shell Specification IDTA-01002 API and can be found in the repository: https://github.com/admin-shell-io/aas-specs-api
-
+The data interfaces in MaaS are based on the interfaces of the Asset Administration Shell Specification IDTA-01002 API and can be found in the repository: [https://github.com/admin-shell-io/aas-specs-api](https://github.com/admin-shell-io/aas-specs-api)
 
 ## NOTICE
 
@@ -27,4 +26,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2026 MT Analytics GmbH
 - SPDX-FileCopyrightText: 2026 Werkzeugmaschininenlabor (WZL) der Fakultaet Maschinenwesen, Rheinisch-Westfaehlische Technische Hochschule (RWTH) Aachen
 - SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
