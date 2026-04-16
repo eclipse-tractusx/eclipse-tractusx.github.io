@@ -1029,7 +1029,7 @@ export const kitsData = {
         },
         logoHeight: 100,
         logoWidth: 100,
-        route: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
+        route: '/docs-kits/next/kits/manufacturing-as-a-service-kit/adoption-view',
         colors: {
           primary: '#A098A4',
           gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
@@ -1044,9 +1044,9 @@ export const kitsData = {
         description: 'Create a federated network of networks to connect manufacturing supply and demand.',
         metadata: {
           created: '2024-03-29',
-          lastUpdated: '2024-05-27',
-          latestVersion: '1.0.0',
-          new: false
+          lastUpdated: '2026-04-16',
+          latestVersion: '0.2.0',
+          new: true
         }
       },
       {
