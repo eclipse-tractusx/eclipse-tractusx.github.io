@@ -1246,7 +1246,7 @@ export const industries = [
         },
         subtitle: 'The Digital Ecosystem',
         description: 'Project which aims to build an open and collaborative digital ecosystem for factory outfitters and operators, based on Catena-X and Platform Industry 4.0 concepts.',
-        kits: ['connector', 'digital-twin', 'maas', 'pcf', 'modular-production', 'eco-pass']
+        kits: ['connector', 'digital-twin', 'autonomous-operation', 'maas', 'pcf', 'modular-production', 'eco-pass']
       }
     ]
   },
