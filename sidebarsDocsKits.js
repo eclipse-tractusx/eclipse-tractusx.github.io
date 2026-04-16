@@ -756,7 +756,8 @@ const sidebars = {
       type: 'category',
       label: 'Manufacturing as a Service KIT',
       link: {
-        type: 'generated-index',
+        type: 'doc',
+        id: 'kits/manufacturing-as-a-service-kit/adoption-view',
       },
       collapsed: true,
       items:
@@ -765,44 +766,20 @@ const sidebars = {
           'kits/manufacturing-as-a-service-kit/adoption-view',
           {
             type: 'category',
-            label: 'Software Development View',
+            label: 'Development View',
+            link: {
+              type: 'doc',
+              id: 'kits/manufacturing-as-a-service-kit/development-view/architecture',
+            },
             collapsed: true,
             items:
               [
-                'kits/manufacturing-as-a-service-kit/software-development-view/introduction',
-                'kits/manufacturing-as-a-service-kit/software-development-view/architecture',
-                {
-                  type: 'category',
-                  label: 'Manufacturing Capability',
-                  collapsed: true,
-                  items:
-                    [
-                      'kits/manufacturing-as-a-service-kit/software-development-view/manufacturing-capability/manufacturing-capability-aspect-model',
-                      'kits/manufacturing-as-a-service-kit/software-development-view/manufacturing-capability/api-description',
-                      {
-                        type: "link",
-                        label: "Manufacturing Capability API",
-                        href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-maas-ManufacturingCapability-openAPI-v3.1.0/swagger-ui/'
-                      },
-                    ],
-                },
-                {
-                  type: 'category',
-                  label: 'Request for Quotation',
-                  collapsed: true,
-                  items:
-                    [
-                      'kits/manufacturing-as-a-service-kit/software-development-view/request-for-quotation/request-for-quotation',
-                      'kits/manufacturing-as-a-service-kit/software-development-view/request-for-quotation/api-description',
-                      {
-                        type: "link",
-                        label: "Request for Quotation API",
-                        href: 'https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-maas-RfQ-openAPI-v3/swagger-ui/'
-                      },
-                    ],
-                },
+                'kits/manufacturing-as-a-service-kit/development-view/architecture',
+                'kits/manufacturing-as-a-service-kit/development-view/api-specification',
+                'kits/manufacturing-as-a-service-kit/development-view/reference-implementation',
               ],
           },
+          'kits/manufacturing-as-a-service-kit/operations-view',
         ],
     },
     {
