@@ -1030,7 +1030,7 @@ export const kitsData = {
         },
         logoHeight: 100,
         logoWidth: 100,
-        route: '/docs-kits/kits/autonomous-operation-kit/adoption-view',
+        route: '/docs-kits/next/kits/autonomous-operation-kit/adoption-view',
         colors: {
           primary: '#A098A4',
           gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
