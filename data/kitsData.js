@@ -109,6 +109,12 @@ import PrecisionManufacturing from '@mui/icons-material/PrecisionManufacturing';
 import Memory from '@mui/icons-material/Memory';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import Science from '@mui/icons-material/Science';
+import BusinessIcon from '@mui/icons-material/Business';
+import CodeIcon from '@mui/icons-material/Code';
+import BuildIcon from '@mui/icons-material/Build';
+import StorageIcon from '@mui/icons-material/Storage';
+import SchoolIcon from '@mui/icons-material/School';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 // Categories with their corresponding CSS class names and colors
 
@@ -118,6 +124,64 @@ export const licenses = {
   "CC0 1.0 Universal": "https://creativecommons.org/publicdomain/zero/1.0/",
   "MIT": "https://opensource.org/licenses/MIT"
 }
+
+// Role definitions for the KIT role overview page
+export const kitRoles = [
+  {
+    id: 'sme',
+    name: 'SME',
+    label: 'Small & Medium Enterprise',
+    description: 'Small and medium enterprises that want to participate in data spaces as data providers or consumers, enabling collaboration and business value creation.',
+    icon: BusinessIcon,
+    gradient: 'linear-gradient(135deg, #1976D2 0%, #0D47A1 100%)',
+    color: '#1976D2',
+  },
+  {
+    id: 'service-provider',
+    name: 'Service Provider',
+    label: 'Enablement Service Provider',
+    description: 'Companies that operate decentralized services enabling sovereign participation and data exchange for data providers and consumers in the data space.',
+    icon: StorageIcon,
+    gradient: 'linear-gradient(135deg, #7B1FA2 0%, #4A148C 100%)',
+    color: '#7B1FA2',
+  },
+  {
+    id: 'app-provider',
+    name: 'App Provider',
+    label: 'Business Application Provider',
+    description: 'Companies building interoperable business applications on top of KIT standards, delivering value to data providers and consumers across use cases.',
+    icon: BuildIcon,
+    gradient: 'linear-gradient(135deg, #388E3C 0%, #1B5E20 100%)',
+    color: '#388E3C',
+  },
+  {
+    id: 'developer',
+    name: 'Developer',
+    label: 'Software Developer',
+    description: 'Software engineers implementing KIT integrations, building connectors, and developing solutions that interact with Tractus-X data space infrastructure.',
+    icon: CodeIcon,
+    gradient: 'linear-gradient(135deg, #F57C00 0%, #E65100 100%)',
+    color: '#F57C00',
+  },
+  {
+    id: 'researcher',
+    name: 'Researcher',
+    label: 'Researcher & Academia',
+    description: 'Academic institutions and researchers studying data space technologies, governance models, AI integrations, and industry use cases.',
+    icon: SchoolIcon,
+    gradient: 'linear-gradient(135deg, #0097A7 0%, #006064 100%)',
+    color: '#0097A7',
+  },
+  {
+    id: 'operator',
+    name: 'Operator',
+    label: 'Core Service Operator',
+    description: 'Organizations operating core services that enable the basic functionality of the data space, including identity providers, marketplaces, and onboarding services.',
+    icon: AccountBalanceIcon,
+    gradient: 'linear-gradient(135deg, #C62828 0%, #7F0000 100%)',
+    color: '#C62828',
+  },
+];
 
 // Kit data with their respective logos, routes, industries, and descriptions
 export const kitsData = {
@@ -145,6 +209,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: "Enablement Service",
+      roles: ['service-provider', 'developer', 'operator'],
       description: 'The EDC as a connector implements a framework agreement for sovereign, cross-organizational data exchange.',
       metadata: {
         created: '2022-08-01',
@@ -177,6 +242,7 @@ export const kitsData = {
       },
       deprecated: true,
       domain: "Governance",
+      roles: ['service-provider', 'developer', 'operator', 'researcher'],
       description: 'Enable and simplify data governance.',
       metadata: {
         created: '2024-03-08',
@@ -208,6 +274,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: "Security",
+      roles: ['service-provider', 'developer', 'operator'],
       description: 'Enable content validation, certification and verification for any use case semantic data.',
       metadata: {
         created: '2025-09-30',
@@ -239,6 +306,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: "Participant Management",
+      roles: ['sme', 'service-provider', 'developer', 'operator'],
       description: 'Get high-quality data business partner data records including the unique identifier.',
       metadata: {
         created: '2023-03-01',
@@ -270,6 +338,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: "Enablement Service",
+      roles: ['sme', 'service-provider', 'app-provider', 'developer'],
       description: 'Digital Twins enable data-level interoperability - even between parties previously unknown to each other.',
       metadata: {
         created: '2023-07-12',
@@ -303,6 +372,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: "Use Case Platform",
+      roles: ['sme', 'app-provider', 'developer'],
       description: 'Connceting Use-Cases with Core Services',
       metadata: {
         created: '2024-02-28',
@@ -334,6 +404,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: "Traceability",
+      roles: ['sme', 'app-provider', 'developer'],
       description: 'Data Chain KIT is made for apps and services to access connected data distributed between organizations.',
       metadata: {
         created: '2023-03-01',
@@ -365,6 +436,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: "Traceability",
+      roles: ['sme', 'app-provider', 'developer'],
       description: 'Trace parts and materials across the entire value chain to enable data driven use cases over all n-tier levels.',
       metadata: {
         created: '2023-04-12',
@@ -396,6 +468,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: 'Supply Chain',
+      roles: ['sme', 'app-provider'],
       description: 'Inform partners about disruptions in the supply chain.',
       metadata: {
         created: '2024-08-01',
@@ -427,6 +500,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: "Enablement Service",
+      roles: ['service-provider', 'developer', 'researcher'],
       description: 'Generate Knowledge from Data. Scalable & Efficient Semantic Dataspace Federation.',
       metadata: {
         created: '2023-09-04',
@@ -459,6 +533,7 @@ export const kitsData = {
       },
       deprecated: false,
       domain: 'Artificial Intelligence (AI)',
+      roles: ['app-provider', 'developer', 'researcher'],
       description: 'Defines standard ways to expose and use AI Services.',
       metadata: {
         created: '2025-12-19',
@@ -493,6 +568,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Sustainability',
       industries: ['automotive', 'construction'],
+      roles: ['sme', 'app-provider', 'researcher'],
       description: 'Environmental and Social Standards Incident Management in supply chains.',
       metadata: {
         created: '2024-03-06',
@@ -525,6 +601,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Sustainability',
       industries: ['automotive', 'manufacturing', 'construction', 'semiconductor'],
+      roles: ['sme', 'app-provider', 'researcher'],
       description: 'Product-specific CO2 footprint.',
       metadata: {
         created: '2023-08-23',
@@ -557,6 +634,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Sustainability',
       industries: ['automotive'],
+      roles: ['sme', 'app-provider', 'researcher'],
       description: 'Carbon Border Adjustment Mechanism (CBAM) compliance and reporting for cross-border emissions data.',
       metadata: {
         created: '2025-08-13',
@@ -589,6 +667,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Sustainability',
       industries: ['automotive', 'manufacturing', 'construction'],
+      roles: ['sme', 'app-provider', 'researcher'],
       description: 'Leverage the transparency of digital product passports to strengthen sustainability & compliance.',
       metadata: {
         created: '2023-08-11',
@@ -621,6 +700,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Sustainability',
       industries: ['automotive', 'manufacturing'],
+      roles: ['sme', 'app-provider', 'researcher'],
       description: 'Enable circular economy business models with data exchange across company boundaries.',
       metadata: {
         created: '2023-12-08',
@@ -654,6 +734,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Sustainability',
       industries: ['automotive', 'chemical'],
+      roles: ['sme', 'app-provider', 'researcher'],
       description: 'Facilitate due diligence processes by providing standardized data exchange for risk assessment and compliance check.',
       metadata: {
         created: '2026-02-23',
@@ -686,6 +767,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Supply Chain',
       industries: ['automotive', 'semiconductor'],
+      roles: ['sme', 'app-provider'],
       description: 'Quick build of solutions for companies of any size to engage a collaborative capacity management.',
       metadata: {
         created: '2023-03-01',
@@ -718,6 +800,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Supply Chain',
       industries: ['automotive', 'construction'],
+      roles: ['sme', 'app-provider'],
       description: 'Provide packing information, transport data and customs topics.',
       metadata: {
         created: '2025-02-12',
@@ -750,6 +833,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Supply Chain',
       industries: ['automotive'],
+      roles: ['sme', 'app-provider'],
       description: 'Basis for a more efficient customs process and ensure a robust preference calculation result.',
       metadata: {
         created: '2025-02-25',
@@ -782,6 +866,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Supply Chain',
       industries: ['automotive'],
+      roles: ['sme', 'app-provider', 'researcher'],
       description: 'Gain increased supply chain transparency through collaborative simulation across all stakeholders.',
       metadata: {
         created: '2023-08-18',
@@ -814,6 +899,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Supply Chain',
       industries: ['automotive'],
+      roles: ['sme', 'app-provider'],
       description: 'Predictive Unit Realtime Information Service',
       metadata: {
         created: '2023-11-29',
@@ -846,6 +932,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Engineering',
       industries: ['automotive'],
+      roles: ['sme', 'app-provider', 'developer'],
       description: 'Federated simulation and data processing.',
       metadata: {
         created: '2023-12-08',
@@ -878,6 +965,7 @@ export const kitsData = {
       deprecated: false,
       domain: "Simulations",
       industries: ['automotive'],
+      roles: ['app-provider', 'developer', 'researcher'],
       description: 'Maximize the potential of usage data through calculation services and simulations.',
       metadata: {
         created: '2024-05-16',
@@ -910,6 +998,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Quality',
       industries: ['automotive'],
+      roles: ['sme', 'app-provider'],
       description: 'Data driven quality management enables data provider and consumer to exchange and analyse existing data across company boundaries.',
       metadata: {
         created: '2023-08-18',
@@ -942,6 +1031,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Engineering',
       industries: ['automotive'],
+      roles: ['sme', 'app-provider', 'developer'],
       description: 'Cross company requirements management to enable quick information access and multiple company collaboration.',
       metadata: {
         created: '2025-09-29',
@@ -974,6 +1064,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Engineering',
       industries: ['automotive'],
+      roles: ['sme', 'app-provider', 'developer'],
       description: 'Enable secure and sovereign exchange of engineering geometry information across the entire value chain.',
       metadata: {
         created: '2025-11-28',
@@ -1006,6 +1097,7 @@ export const kitsData = {
       deprecated: false,
       domain: 'Master Data Management',
       industries: ['automotive', 'manufacturing'],
+      roles: ['sme', 'service-provider', 'operator'],
       description: 'Manage and exchange in a decentralized manner company certificates across the supply chain to ensure compliance and quality standards.',
       metadata: {
         created: '2026-03-17',
@@ -1074,6 +1166,7 @@ export const kitsData = {
         deprecated: false,
         domain: 'Production',
         industries: ['automotive', 'manufacturing'],
+        roles: ['sme', 'app-provider'],
         description: 'Create a federated network of networks to connect manufacturing supply and demand.',
         metadata: {
           created: '2024-03-29',
@@ -1106,6 +1199,7 @@ export const kitsData = {
         deprecated: false,
         domain: 'Production',
         industries: ['manufacturing'],
+        roles: ['sme', 'app-provider', 'developer'],
         description: 'Enable customized production (batch size 1) without significant increase of costs.',
         metadata: {
           created: '2023-11-20',
@@ -1142,6 +1236,7 @@ export const kitsData = {
         deprecated: false,
         domain: 'Engineering',
         industries: ['automotive'],
+        roles: ['sme', 'app-provider', 'developer'],
         description: 'Defines standard ways for the orchestration of engineering activities in federated development ecosystems.',
         metadata: {
           created: '2026-02-13',
@@ -1175,6 +1270,7 @@ export const kitsData = {
         deprecated: false,
         domain: 'Engineering',
         industries: ['automotive'],
+        roles: ['sme', 'app-provider', 'developer'],
         description: 'Defines the minimum viable logic for federated engineering service brokerage.',
         metadata: {
           created: '2026-02-13',
@@ -1461,4 +1557,10 @@ export const getDataspaceStats = () => {
   });
 
   return stats;
+};
+
+// Get all KITs relevant for a specific role
+export const getKitsByRole = (roleId) => {
+  const allKits = getAllKits();
+  return allKits.filter(kit => kit.roles && kit.roles.includes(roleId));
 };
