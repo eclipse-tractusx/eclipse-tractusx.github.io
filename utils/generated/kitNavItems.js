@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 5ce63fdcda8400f0b24cf24cbb5c4e7db4912260172d609cc5476e7c2a3519b7
+ * Content hash: 2836d12da51791318797487399255ff7416f98096fa50568b52bc25974eb0e16
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -211,7 +211,7 @@ const kitsByCategory = {
       {
         "id": "autonomous-operation",
         "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",
-        "route": "/docs-kits/kits/autonomous-operation-kit/adoption-view",
+        "route": "/docs-kits/next/kits/autonomous-operation-kit/adoption-view",
         "deprecated": false
       },
       {
