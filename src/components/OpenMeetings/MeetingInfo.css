@@ -1,0 +1,178 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+/* Collapsible meeting card */
+.meeting-info-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background-color: #ffffff;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+}
+
+.meeting-info-card:hover {
+  border-color: #faa023;
+  box-shadow: 0 2px 8px rgba(250, 160, 35, 0.12);
+}
+
+.meeting-info-card--expanded {
+  border-color: #faa023;
+  box-shadow: 0 2px 12px rgba(250, 160, 35, 0.15);
+}
+
+/* Clickable header row */
+.meeting-info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  user-select: none;
+  gap: 1rem;
+}
+
+.meeting-info-header:focus-visible {
+  outline: 2px solid #faa023;
+  outline-offset: -2px;
+  border-radius: 8px;
+}
+
+/* Summary: title + schedule in one line */
+.meeting-info-summary {
+  flex: 1;
+  min-width: 0;
+}
+
+.meeting-info-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+  color: inherit;
+}
+
+.meeting-info-title .hash-link {
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.meeting-info-card:hover .meeting-info-title .hash-link {
+  opacity: 1;
+}
+
+.meeting-info-schedule {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #a5a5a5;
+  margin-top: 0.2rem;
+}
+
+/* Chevron arrow */
+.meeting-info-chevron {
+  font-size: 16px;
+  color: #888;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.meeting-info-chevron--open {
+  transform: rotate(180deg);
+}
+
+/* Collapsible details wrapper */
+.meeting-info-details-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* Details content area */
+.meeting-info-details {
+  padding: 0 1.25rem 1rem;
+  border-top: 1px solid #eee;
+}
+
+.meeting-info-details p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0.75rem 0;
+}
+
+.meeting-info-item-link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #faa023;
+  list-style-image: url("/img/product_link_bullet.png");
+}
+
+.meeting-info-item-title {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  list-style: none;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .meeting-info-card {
+  background-color: #1b1b1d;
+  border-color: #444;
+}
+
+[data-theme='dark'] .meeting-info-card:hover {
+  border-color: #faa023;
+  box-shadow: 0 2px 8px rgba(250, 160, 35, 0.2);
+}
+
+[data-theme='dark'] .meeting-info-card--expanded {
+  border-color: #faa023;
+}
+
+[data-theme='dark'] .meeting-info-details {
+  border-top-color: #444;
+}
+
+[data-theme='dark'] .meeting-info-schedule {
+  color: #888;
+}
+
+[data-theme='dark'] .meeting-info-chevron {
+  color: #aaa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .meeting-info-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .meeting-info-title {
+    font-size: 15px;
+  }
+
+  .meeting-info-schedule {
+    font-size: 12px;
+  }
+
+  .meeting-info-details {
+    padding: 0 1rem 0.75rem;
+  }
+}
