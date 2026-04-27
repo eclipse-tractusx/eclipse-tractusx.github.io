@@ -547,7 +547,7 @@ function ShareButton({ meetingId, label, style, onClick, floating }) {
       style={style}
       onClick={handleClick}
     >
-      <Icon name={copied ? 'check_circle' : 'share'} size={16} />
+      <Icon name={copied ? 'check_circle' : 'ios_share'} size={16} />
       {label && (copied ? ' Copied!' : ` ${label}`)}
     </button>
   );
@@ -619,6 +619,7 @@ function HighlightHero({ meeting, timezone, onSelect, onDownload }) {
 
   return (
     <div className={styles.highlightCard} onClick={() => onSelect(meeting)} role="button" tabIndex={0}>
+      <ShareButton meetingId={meeting.id} floating />
       <div>
         <div className={styles.hlPriority}><Icon name="diamond" /> Highlight</div>
         <div className={styles.hlTitle}>{meeting.icon && <Icon name={meeting.icon} size={24} />} {meeting.title}</div>

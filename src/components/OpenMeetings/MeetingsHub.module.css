@@ -476,6 +476,11 @@
   background: linear-gradient(90deg, var(--om-purple), var(--om-orange), var(--om-purple));
 }
 
+.highlightCard .shareFloating {
+  top: 16px;
+  right: 12px;
+}
+
 .highlightCard::after {
   content: '';
   position: absolute;
