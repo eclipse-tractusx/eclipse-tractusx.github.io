@@ -112,12 +112,12 @@ export const meetings = [
       { title: 'Timelines', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35' },
     ],
     recurrence: {
-      frequency: 'weekly',
+      frequency: 'monthly',
       interval: 2,
       daysOfWeek: ['friday'],
       startTime: '14:05',
       endTime: '15:00',
-      validFrom: '2025-01-01',
+      validFrom: '2026-04-24',
     },
   },
   {
