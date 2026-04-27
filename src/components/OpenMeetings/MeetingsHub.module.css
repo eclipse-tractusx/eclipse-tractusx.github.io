@@ -1841,6 +1841,37 @@
   transform: translateX(0);
 }
 
+.drawerDesc {
+  font-size: 14px;
+  color: var(--om-muted);
+  line-height: 1.65;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.drawerDescExpanded {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.drawerShowMore {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--om-orange);
+  cursor: pointer;
+}
+
+.drawerShowMore:hover {
+  text-decoration: underline;
+}
+
 .drawerSection {
   margin-top: 24px;
 }
@@ -2597,6 +2628,11 @@
 .platformZoom {
   background: rgba(45, 140, 255, 0.10);
   color: #2d8cff;
+}
+
+.platformOnsite {
+  background: rgba(76, 175, 80, 0.10);
+  color: #4caf50;
 }
 
 .platformExternal {
