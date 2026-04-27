@@ -19,11 +19,19 @@
 
 import React from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 import StarIcon from '@mui/icons-material/Star';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { useColorMode } from '@docusaurus/theme-common';
 import { meetings, MEETING_CATEGORIES } from '@site/data/meetings';
 import { getScheduleDescription, getCategoryColor } from '@site/src/utils/meetingUtils';
-import './FeaturedMeetings.css';
 
 const CATEGORY_LABELS = {
   [MEETING_CATEGORIES.GENERAL]: 'General',
@@ -32,57 +40,203 @@ const CATEGORY_LABELS = {
 };
 
 function FeaturedCard({ meeting, timezone, isHero }) {
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === 'dark';
   const categoryColor = getCategoryColor(meeting.category);
   const categoryLabel = CATEGORY_LABELS[meeting.category] || meeting.category;
 
   return (
-    <div className={`featured-card ${isHero ? 'featured-card--hero' : ''}`} id={meeting.title}>
+    <Card
+      id={meeting.title}
+      elevation={0}
+      sx={{
+        border: '1px solid',
+        borderColor: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+        borderRadius: '20px',
+        overflow: 'hidden',
+        bgcolor: isDark ? '#1e2127' : '#fff',
+        boxShadow: isDark
+          ? '0 1px 3px rgba(0,0,0,0.2), 0 6px 24px rgba(0,0,0,0.2)'
+          : '0 1px 3px rgba(0,0,0,0.04), 0 6px 24px rgba(0,0,0,0.06)',
+        transition: 'transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.3s, border-color 0.3s',
+        display: isHero ? 'grid' : 'flex',
+        flexDirection: isHero ? undefined : 'column',
+        gridTemplateColumns: isHero ? { xs: '1fr', md: '1fr 1.2fr' } : undefined,
+        gridColumn: isHero ? '1 / -1' : undefined,
+        '@media (hover: hover)': {
+          '&:hover': {
+            transform: 'translateY(-6px)',
+            borderColor: 'rgba(250,160,35,0.2)',
+            boxShadow: isDark
+              ? '0 12px 40px rgba(250,160,35,0.15), 0 4px 12px rgba(0,0,0,0.2)'
+              : '0 12px 40px rgba(250,160,35,0.12), 0 4px 12px rgba(0,0,0,0.06)',
+          },
+          '&:hover img': { transform: 'scale(1.06)' },
+        },
+        '&:hover .hash-link': { opacity: 1 },
+      }}
+    >
       {meeting.image && (
-        <div className="featured-card__image">
-          <img src={meeting.image} alt={meeting.title} loading="lazy" />
-          <span className="featured-card__badge" style={{ backgroundColor: categoryColor }}>
-            {categoryLabel}
-          </span>
-        </div>
+        <CardMedia
+          component="img"
+          image={meeting.image}
+          alt={meeting.title}
+          loading="lazy"
+          sx={{
+            minHeight: isHero ? { xs: 180, md: 280 } : { xs: 140, md: 180 },
+            objectFit: 'cover',
+            background: 'linear-gradient(135deg, #faa023 0%, #ff8c42 100%)',
+            transition: 'transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94)',
+          }}
+        />
       )}
-      <div className="featured-card__body">
+
+      {meeting.image && (
+        <Chip
+          label={categoryLabel}
+          size="small"
+          sx={{
+            position: 'absolute',
+            top: 14,
+            right: 14,
+            bgcolor: categoryColor,
+            color: '#fff',
+            fontWeight: 600,
+            fontSize: '0.68rem',
+            textTransform: 'uppercase',
+            letterSpacing: '0.06em',
+            backdropFilter: 'blur(12px)',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            border: '1px solid rgba(255,255,255,0.25)',
+          }}
+        />
+      )}
+
+      <CardContent
+        sx={{
+          p: isHero ? { xs: '1.5rem', md: '2rem 2.5rem' } : '1.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          flex: 1,
+          '&:last-child': { pb: isHero ? { xs: '1.5rem', md: '2rem' } : '1.5rem' },
+        }}
+      >
         {!meeting.image && (
-          <span className="featured-card__badge featured-card__badge--inline" style={{ backgroundColor: categoryColor }}>
-            {categoryLabel}
-          </span>
+          <Chip
+            label={categoryLabel}
+            size="small"
+            sx={{
+              bgcolor: categoryColor,
+              color: '#fff',
+              fontWeight: 600,
+              fontSize: '0.68rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              width: 'fit-content',
+              mb: 1,
+              border: isDark ? '1px solid rgba(255,255,255,0.1)' : 'none',
+            }}
+          />
         )}
-        <h3 className="featured-card__title">
+
+        <Typography
+          variant="h6"
+          sx={{
+            fontSize: isHero ? { xs: '1.2rem', md: '1.5rem' } : { xs: '1rem', md: '1.15rem' },
+            fontWeight: 700,
+            mb: 0.5,
+            lineHeight: 1.3,
+            color: isDark ? '#f3f4f6' : '#1a1a2e',
+            letterSpacing: '-0.01em',
+            wordBreak: 'break-word',
+          }}
+        >
           {meeting.title}
-          <a className="hash-link" href={`#${meeting.title}`} title="Direct link to meeting">{' '}</a>
-        </h3>
-        <BrowserOnly fallback={<p className="featured-card__schedule">Loading schedule...</p>}>
+          <a className="hash-link" href={`#${meeting.title}`} title="Direct link to meeting"
+            style={{ opacity: 0, transition: 'opacity 0.2s' }}>{' '}</a>
+        </Typography>
+
+        <BrowserOnly fallback={<Typography variant="body2" sx={{ color: '#6b7280', mb: 1 }}>Loading schedule...</Typography>}>
           {() => (
-            <p className="featured-card__schedule">
+            <Typography variant="body2" sx={{ fontSize: '0.82rem', color: isDark ? '#9ca3af' : '#6b7280', mb: 1 }}>
               {meeting.recurrence
                 ? getScheduleDescription(meeting, timezone)
                 : 'No dedicated schedule — session needs to be requested'}
-            </p>
+            </Typography>
           )}
         </BrowserOnly>
-        <p className="featured-card__desc">{meeting.description}</p>
 
-        <div className="featured-card__actions">
+        <Typography
+          variant="body2"
+          sx={{
+            fontSize: isHero ? { xs: '0.88rem', md: '0.95rem' } : '0.88rem',
+            color: isDark ? '#d1d5db' : '#4b5563',
+            lineHeight: 1.65,
+            mb: 2,
+            flex: 1,
+            display: '-webkit-box',
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
+          {meeting.description}
+        </Typography>
+
+        <Stack spacing={1} sx={{ mt: 'auto', width: '100%' }}>
           {meeting.sessionLink && (
-            <a
+            <Button
+              variant="contained"
+              fullWidth
               href={meeting.sessionLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="featured-card__btn featured-card__btn--primary"
+              sx={{
+                bgcolor: '#faa023',
+                color: '#fff',
+                borderRadius: '5px',
+                fontFamily: '"Manrope", sans-serif',
+                fontSize: isHero ? '16px' : '14px',
+                fontWeight: 600,
+                textTransform: 'none',
+                py: isHero ? 1.2 : 0.8,
+                boxShadow: 'none',
+                '&:hover': {
+                  bgcolor: '#1e1e1e',
+                  color: '#faa023',
+                  boxShadow: 'none',
+                },
+              }}
             >
               Join Meeting
-            </a>
+            </Button>
           )}
-          <a href={`#${meeting.title}`} className="featured-card__btn featured-card__btn--secondary">
-            Details <KeyboardArrowDownIcon aria-hidden="true" sx={{ fontSize: 18 }} />
-          </a>
-        </div>
-      </div>
-    </div>
+          <Button
+            variant="outlined"
+            fullWidth
+            href={`#${meeting.title}`}
+            endIcon={<KeyboardArrowDownIcon sx={{ fontSize: '18px !important' }} />}
+            sx={{
+              borderRadius: '5px',
+              fontFamily: '"Manrope", sans-serif',
+              fontSize: '14px',
+              fontWeight: 600,
+              textTransform: 'none',
+              py: 0.8,
+              color: isDark ? '#9ca3af' : '#6b7280',
+              borderColor: isDark ? '#374151' : '#e5e7eb',
+              '&:hover': {
+                bgcolor: isDark ? '#374151' : '#f9fafb',
+                color: '#faa023',
+                borderColor: '#faa023',
+              },
+            }}
+          >
+            Details
+          </Button>
+        </Stack>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -95,17 +249,42 @@ export default function FeaturedMeetings({ timezone = 'Europe/Berlin' }) {
   const rest = featured.slice(1);
 
   return (
-    <section className="featured-meetings">
-      <div className="featured-meetings__label">
-        <StarIcon aria-hidden="true" sx={{ fontSize: 20 }} />
-        Featured Meetings
-      </div>
-      <div className="featured-meetings__grid">
+    <Box component="section" sx={{ mb: 4 }}>
+      <Stack
+        direction="row"
+        spacing={1}
+        alignItems="center"
+        sx={{
+          fontSize: '0.82rem',
+          fontWeight: 600,
+          color: '#faa023',
+          textTransform: 'uppercase',
+          letterSpacing: '0.1em',
+          mb: 2,
+          '&::after': {
+            content: '""',
+            flex: 1,
+            height: '1px',
+            background: 'linear-gradient(90deg, rgba(250,160,35,0.3) 0%, transparent 100%)',
+          },
+        }}
+      >
+        <StarIcon sx={{ fontSize: 20 }} />
+        <span>Featured Meetings</span>
+      </Stack>
+
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+          gap: 3,
+        }}
+      >
         <FeaturedCard meeting={hero} timezone={timezone} isHero={true} />
         {rest.map(m => (
           <FeaturedCard key={m.id} meeting={m} timezone={timezone} isHero={false} />
         ))}
-      </div>
-    </section>
+      </Box>
+    </Box>
   );
 }

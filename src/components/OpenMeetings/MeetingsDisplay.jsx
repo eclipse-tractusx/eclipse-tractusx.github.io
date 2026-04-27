@@ -19,12 +19,14 @@
 
 import React, { useState } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import MeetingCalendar from './MeetingCalendar';
 import MeetingInfo from './MeetingInfo';
 import TodaysMeetings from './TodaysMeetings';
 import FeaturedMeetings from './FeaturedMeetings';
 import { meetings, MEETING_CATEGORIES } from '@site/data/meetings';
-import './MeetingsDisplay.css';
 
 export default function MeetingsDisplay() {
   const [selectedTimezone, setSelectedTimezone] = useState('Europe/Berlin');
@@ -42,56 +44,65 @@ export default function MeetingsDisplay() {
 
           <FeaturedMeetings timezone={selectedTimezone} />
 
-          <h2 id="general-office-hours">General Office Hours</h2>
-          <div className="meetings-grid">
+          <Typography variant="h5" component="h2" id="general-office-hours" sx={{ mb: 2 }}>
+            General Office Hours
+          </Typography>
+          <Grid container spacing={3} sx={{ mb: 4 }}>
             {generalMeetings.map(meeting => (
-              <MeetingInfo
-                key={meeting.id}
-                title={meeting.title}
-                schedule={meeting.recurrence ? 'Loading...' : 'No dedicated schedule - session needs to be requested'}
-                description={meeting.description}
-                contact={meeting.contact}
-                sessionLink={meeting.sessionLink}
-                additionalLinks={meeting.additionalLinks || []}
-                meetingData={meeting}
-                timezone={selectedTimezone}
-              />
+              <Grid item xs={12} sm={6} md={4} key={meeting.id}>
+                <MeetingInfo
+                  title={meeting.title}
+                  schedule={meeting.recurrence ? 'Loading...' : 'No dedicated schedule - session needs to be requested'}
+                  description={meeting.description}
+                  contact={meeting.contact}
+                  sessionLink={meeting.sessionLink}
+                  additionalLinks={meeting.additionalLinks || []}
+                  meetingData={meeting}
+                  timezone={selectedTimezone}
+                />
+              </Grid>
             ))}
-          </div>
+          </Grid>
 
-          <h2 id="product-regular-meetings">Product Regular meetings</h2>
-          <div className="meetings-grid">
+          <Typography variant="h5" component="h2" id="product-regular-meetings" sx={{ mb: 2 }}>
+            Product Regular meetings
+          </Typography>
+          <Grid container spacing={3} sx={{ mb: 4 }}>
             {productMeetings.map(meeting => (
-              <MeetingInfo
-                key={meeting.id}
-                title={meeting.title}
-                schedule={meeting.recurrence ? 'Loading...' : 'No dedicated schedule'}
-                description={meeting.description}
-                contact={meeting.contact}
-                sessionLink={meeting.sessionLink}
-                additionalLinks={meeting.additionalLinks || []}
-                meetingData={meeting}
-                timezone={selectedTimezone}
-              />
+              <Grid item xs={12} sm={6} md={4} key={meeting.id}>
+                <MeetingInfo
+                  title={meeting.title}
+                  schedule={meeting.recurrence ? 'Loading...' : 'No dedicated schedule'}
+                  description={meeting.description}
+                  contact={meeting.contact}
+                  sessionLink={meeting.sessionLink}
+                  additionalLinks={meeting.additionalLinks || []}
+                  meetingData={meeting}
+                  timezone={selectedTimezone}
+                />
+              </Grid>
             ))}
-          </div>
+          </Grid>
 
-          <h2 id="one-time-meetings">One-time meetings</h2>
-          <div className="meetings-grid">
+          <Typography variant="h5" component="h2" id="one-time-meetings" sx={{ mb: 2 }}>
+            One-time meetings
+          </Typography>
+          <Grid container spacing={3} sx={{ mb: 4 }}>
             {oneTimeMeetings.map(meeting => (
-              <MeetingInfo
-                key={meeting.id}
-                title={meeting.title}
-                schedule={meeting.recurrence ? 'Loading...' : 'No dedicated schedule'}
-                description={meeting.description}
-                contact={meeting.contact}
-                sessionLink={meeting.sessionLink}
-                additionalLinks={meeting.additionalLinks || []}
-                meetingData={meeting}
-                timezone={selectedTimezone}
-              />
+              <Grid item xs={12} sm={6} md={4} key={meeting.id}>
+                <MeetingInfo
+                  title={meeting.title}
+                  schedule={meeting.recurrence ? 'Loading...' : 'No dedicated schedule'}
+                  description={meeting.description}
+                  contact={meeting.contact}
+                  sessionLink={meeting.sessionLink}
+                  additionalLinks={meeting.additionalLinks || []}
+                  meetingData={meeting}
+                  timezone={selectedTimezone}
+                />
+              </Grid>
             ))}
-          </div>
+          </Grid>
         </>
       )}
     </BrowserOnly>

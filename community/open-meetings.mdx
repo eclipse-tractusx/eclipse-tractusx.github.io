@@ -1,46 +1,9 @@
-import MeetingCalendar from '@site/src/components/OpenMeetings/MeetingCalendar';
-import MeetingsList from '@site/src/components/OpenMeetings/MeetingsList';
-import TodaysMeetings from '@site/src/components/OpenMeetings/TodaysMeetings';
-import FeaturedMeetings from '@site/src/components/OpenMeetings/FeaturedMeetings';
-import BrowserOnly from '@docusaurus/BrowserOnly';
-
-# Open Meetings
-
-This page hosts information about all of our open Tractus-X meetings.
-These are dedicated sync meetings for specific products, as well as open planning sessions.
-
-:::info
-
-All meeting times are shown in your selected timezone. The calendar and meeting times below will automatically adjust based on your timezone selection.
-
-:::
-
-:::tip How to Add a Meeting
-
-Want to add a new meeting to this calendar? Check out our [guide on creating open meetings](/community/intro#how-to-create-open-meetings) for step-by-step instructions.
-
-:::
-
-<BrowserOnly fallback={<div>Loading today's meetings...</div>}>
-{() => <TodaysMeetings />}
-</BrowserOnly>
-
-<MeetingCalendar />
-
-<BrowserOnly fallback={<div>Loading featured meetings...</div>}>
-{() => <FeaturedMeetings />}
-</BrowserOnly>
-
+---
+title: Open Meetings
+description: Open Tractus-X meetings for products, community, and planning sessions.
+hide_title: true
 ---
 
-## General Office Hours
+import MeetingsHub from '@site/src/components/OpenMeetings/MeetingsHub';
 
-<MeetingsList category="general" />
-
-## Product Regular meetings
-
-<MeetingsList category="product" />
-
-## One-time meetings
-
-<MeetingsList category="one-time" />
+<MeetingsHub />

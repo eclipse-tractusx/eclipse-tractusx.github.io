@@ -17,8 +17,9 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import {addDays, format, isBefore, isWithinInterval, parse} from 'date-fns';
+import {addDays, format, isAfter, isBefore, isWithinInterval, parse} from 'date-fns';
 import {formatInTimeZone, fromZonedTime, toZonedTime} from 'date-fns-tz';
+import {getOccurrenceHolidayStatus} from './holidayUtils';
 
 // Source timezone for all meeting data
 const SOURCE_TIMEZONE = 'Europe/Berlin';
@@ -112,13 +113,16 @@ export function generateCalendarEvents(meetings, startDate, endDate, timezone = 
       const eventEnd = parseTimeInTimezone(endDateStr, recurrence.endTime, SOURCE_TIMEZONE);
 
       if (isWithinInterval(eventStart, {start: startDate, end: endDate})) {
+        const holidayStatus = getOccurrenceHolidayStatus(eventStart, recurrence.startDate, meeting);
+        // One-time events are never skipped — they were explicitly scheduled
         events.push({
           ...meeting,
           start: convertToDisplayDate(eventStart, timezone),
           end: convertToDisplayDate(eventEnd, timezone),
-          utcStart: eventStart,  // Store original UTC time for modal display
-          utcEnd: eventEnd,      // Store original UTC time for modal display
+          utcStart: eventStart,
+          utcEnd: eventEnd,
           allDay: false,
+          holidayInfo: holidayStatus.status !== 'normal' ? holidayStatus : undefined,
         });
       }
     } else {
@@ -126,37 +130,64 @@ export function generateCalendarEvents(meetings, startDate, endDate, timezone = 
       const validFrom = recurrence.validFrom ? parse(recurrence.validFrom, 'yyyy-MM-dd', new Date()) : startDate;
       const validUntil = recurrence.validUntil ? parse(recurrence.validUntil, 'yyyy-MM-dd', new Date()) : endDate;
 
-      let currentDate = new Date(Math.max(startDate.getTime(), validFrom.getTime()));
-      const finalDate = new Date(Math.min(endDate.getTime(), validUntil.getTime()));
+      // Expand iteration range by ±1 day to handle timezone boundary crossings
+      // between source timezone (Europe/Berlin) and the requested range timezone
+      let currentDate = addDays(new Date(Math.max(startDate.getTime(), validFrom.getTime())), -1);
+      const finalDate = addDays(new Date(Math.min(endDate.getTime(), validUntil.getTime())), 1);
+
+      const seenDates = new Set();
 
       while (isBefore(currentDate, finalDate) || currentDate.getTime() === finalDate.getTime()) {
-        const dayOfWeek = currentDate.getDay();
-        const dayName = Object.keys(DAY_MAP).find(key => DAY_MAP[key] === dayOfWeek);
+        // Use source timezone (Europe/Berlin) for calendar date and day-of-week,
+        // since meeting schedules (daysOfWeek, startTime, endTime) are defined there
+        const sourceDateStr = formatInTimeZone(currentDate, SOURCE_TIMEZONE, 'yyyy-MM-dd');
 
-        if (recurrence.daysOfWeek && recurrence.daysOfWeek.includes(dayName)) {
-          const dateStr = format(currentDate, 'yyyy-MM-dd');
-          const eventStart = parseTimeInTimezone(dateStr, recurrence.startTime, SOURCE_TIMEZONE);
-          const eventEnd = parseTimeInTimezone(dateStr, recurrence.endTime, SOURCE_TIMEZONE);
+        // Skip duplicate source dates (can occur at ±1 day expansion boundaries)
+        if (!seenDates.has(sourceDateStr)) {
+          seenDates.add(sourceDateStr);
 
-          // Check interval for weekly/bi-weekly meetings
-          if (recurrence.frequency === 'weekly' && recurrence.interval > 1) {
-            // Calculate weeks from validFrom
-            const daysDiff = Math.floor((currentDate.getTime() - validFrom.getTime()) / (24 * 60 * 60 * 1000));
-            const weeksDiff = Math.floor(daysDiff / 7);
-            if (weeksDiff % recurrence.interval !== 0) {
-              currentDate = addDays(currentDate, 1);
-              continue;
+          const sourceZoned = toZonedTime(currentDate, SOURCE_TIMEZONE);
+          const dayOfWeek = sourceZoned.getDay();
+          const dayName = Object.keys(DAY_MAP).find(key => DAY_MAP[key] === dayOfWeek);
+
+          if (recurrence.daysOfWeek && recurrence.daysOfWeek.includes(dayName)) {
+            const eventStart = parseTimeInTimezone(sourceDateStr, recurrence.startTime, SOURCE_TIMEZONE);
+            const eventEnd = parseTimeInTimezone(sourceDateStr, recurrence.endTime, SOURCE_TIMEZONE);
+
+            // Only include events whose actual UTC time falls within the requested range
+            if (isBefore(eventStart, endDate) && isAfter(eventEnd, startDate)) {
+              // Check interval for weekly/bi-weekly meetings
+              let includeEvent = true;
+              if (recurrence.frequency === 'weekly' && recurrence.interval > 1) {
+                const validFromDate = parse(recurrence.validFrom || sourceDateStr, 'yyyy-MM-dd', new Date());
+                const currentSourceDate = parse(sourceDateStr, 'yyyy-MM-dd', new Date());
+                const daysDiff = Math.round((currentSourceDate.getTime() - validFromDate.getTime()) / (24 * 60 * 60 * 1000));
+                const weeksDiff = Math.floor(daysDiff / 7);
+                if (weeksDiff % recurrence.interval !== 0) {
+                  includeEvent = false;
+                }
+              }
+
+              if (includeEvent) {
+                const holidayStatus = getOccurrenceHolidayStatus(eventStart, sourceDateStr, meeting);
+
+                // Skip dates that are explicitly marked to be skipped
+                if (holidayStatus.status === 'skipped') {
+                  // Don't add this event — it's been cancelled
+                } else {
+                  events.push({
+                    ...meeting,
+                    start: convertToDisplayDate(eventStart, timezone),
+                    end: convertToDisplayDate(eventEnd, timezone),
+                    utcStart: eventStart,
+                    utcEnd: eventEnd,
+                    allDay: false,
+                    holidayInfo: holidayStatus.status !== 'normal' ? holidayStatus : undefined,
+                  });
+                }
+              }
             }
           }
-
-          events.push({
-            ...meeting,
-            start: convertToDisplayDate(eventStart, timezone),
-            end: convertToDisplayDate(eventEnd, timezone),
-            utcStart: eventStart,  // Store original UTC time for modal display
-            utcEnd: eventEnd,      // Store original UTC time for modal display
-            allDay: false,
-          });
         }
 
         currentDate = addDays(currentDate, 1);
