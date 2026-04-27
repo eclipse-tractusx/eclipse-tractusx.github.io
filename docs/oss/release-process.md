@@ -217,22 +217,22 @@ The release process is supported by various open meetings where the community co
 ### General Office Hour
 
 - **Community Office Hour**: Weekly meeting (Fridays) for general updates and discussions
-  - [Meeting details and links](/community/open-meetings#general-office-hours)
+  - [Meeting details and links](/community/open-meetings)
 - **Committer Meeting**: Bi-weekly meeting for committer-specific topics
-  - [Meeting details and links](/community/open-meetings#general-office-hours)
+  - [Meeting details and links](/community/open-meetings)
 
 ### Release-Related Meetings
 
 - **Briefing Testing Phase**: One-time meeting per release for preparation of the test phase and clarifycation of the process of the release test phase
-  - [Current and upcoming sessions](/community/open-meetings#one-time-meetings)
+  - [Current and upcoming sessions](/community/open-meetings)
 - **Kick-Off Testing Phase**: One-tiem meeting per release with latest updates on the test phase and the deployment status
-  - [Current and upcoming sessions](/community/open-meetings#one-time-meetings)
+  - [Current and upcoming sessions](/community/open-meetings)
 - **Eclipse Tractus-X E2E Test Phase Daily**: Daily meeting during test phase for general updates and discussion on the test phase
-  - [Current and upcoming sessions](/community/open-meetings#one-time-meetings)
+  - [Current and upcoming sessions](/community/open-meetings)
 - **Alignment Day**: One-time meeting per release for dependency discussions
-  - [Current and upcoming sessions](/community/open-meetings#one-time-meetings)
+  - [Current and upcoming sessions](/community/open-meetings)
 - **Open Planning Day**: One-time meeting per release for feature planning
-  - [Current and upcoming sessions](/community/open-meetings#one-time-meetings)
+  - [Current and upcoming sessions](/community/open-meetings)
 
 ### Product-Specific Meetings
 

@@ -35,7 +35,7 @@ export default function GetStartedSection() {
           </p>
           <div className={styles.getStartedButtons}>
             <Link 
-              to="/community/open-meetings#general-office-hours" 
+              to="/community/open-meetings" 
               className={styles.primaryButton}
             >
               <Groups className={styles.buttonIcon} />

@@ -244,6 +244,15 @@ function PlatformBadge({ link }) {
   );
 }
 
+function OnsiteBadge({ meeting }) {
+  if (!meeting?.onsite) return null;
+  return (
+    <span className={`${styles.platformBadge} ${styles.platformOnsite}`} title={meeting.location || 'On-site event'}>
+      <Icon name="location_on" size={13} /> Onsite
+    </span>
+  );
+}
+
 function HolidayBadge({ event }) {
   if (!event?.holidayInfo || event.holidayInfo.status === 'normal') return null;
   if (event.holidayInfo.status === 'skipped') {
@@ -411,6 +420,9 @@ function generateICSBlob(meeting, timezone, recurring) {
       descParts.push(`\\n\\nJoin: ${meeting.sessionLink}`);
     }
   }
+  if (meeting.registrationLink) {
+    descParts.push(`\\n\\nRegister: ${meeting.registrationLink}`);
+  }
   if (meeting.contact) {
     descParts.push(`\\nContact: ${getContactEmail(meeting.contact)}`);
   }
@@ -432,6 +444,7 @@ function generateICSBlob(meeting, timezone, recurring) {
         '<div style="margin-bottom:4px"><b>Microsoft Teams Meeting</b></div>',
         `<div style="margin-bottom:8px"><a href="${escapedLink}" style="font-size:14px;color:#6264A7;text-decoration:underline">Join the meeting</a></div>`,
         '</div>',
+        meeting.registrationLink ? `<p><a href="${meeting.registrationLink.replace(/&/g, '&amp;')}">Register</a></p>` : '',
         meeting.contact ? `<p>Contact: ${getContactEmail(meeting.contact)}</p>` : '',
         '</BODY></HTML>',
       ].filter(Boolean).join('');
@@ -442,15 +455,29 @@ function generateICSBlob(meeting, timezone, recurring) {
         escapedDesc ? `<p>${escapedDesc}</p>` : '',
         `<p><b>${platformLabel} Meeting</b></p>`,
         `<p><a href="${escapedLink}">Join ${platformLabel} Meeting</a></p>`,
+        meeting.registrationLink ? `<p><a href="${meeting.registrationLink.replace(/&/g, '&amp;')}">Register</a></p>` : '',
         meeting.contact ? `<p>Contact: ${getContactEmail(meeting.contact)}</p>` : '',
         '</BODY></HTML>',
       ].filter(Boolean).join('');
     }
     lines.push(foldICSLine(`X-ALT-DESC;FMTTYPE=text/html:${htmlDesc}`));
+  } else if (meeting.registrationLink || meeting.description) {
+    const escapedDesc = meeting.description ? meeting.description.replace(/&/g, '&amp;').replace(/</g, '&lt;') : '';
+    const htmlDesc = [
+      '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">',
+      '<HTML><BODY>',
+      escapedDesc ? `<p>${escapedDesc}</p>` : '',
+      meeting.registrationLink ? `<p><b>Registration</b></p><p><a href="${meeting.registrationLink.replace(/&/g, '&amp;')}">Register for this event</a></p>` : '',
+      meeting.contact ? `<p>Contact: ${getContactEmail(meeting.contact)}</p>` : '',
+      '</BODY></HTML>',
+    ].filter(Boolean).join('');
+    lines.push(foldICSLine(`X-ALT-DESC;FMTTYPE=text/html:${htmlDesc}`));
   }
 
   // Teams-specific properties that help Outlook detect it as a Teams meeting
-  if (isTeams && meeting.sessionLink) {
+  if (meeting.location) {
+    lines.push(foldICSLine(`LOCATION:${meeting.location}`));
+  } else if (isTeams && meeting.sessionLink) {
     lines.push(foldICSLine(`X-MICROSOFT-SKYPETEAMSMEETINGURL:${meeting.sessionLink}`));
     lines.push(`LOCATION:Microsoft Teams Meeting`);
   } else if (meeting.sessionLink) {
@@ -622,6 +649,7 @@ function HighlightHero({ meeting, timezone, onSelect, onDownload }) {
               : getContacts(meeting.contact).map(c => c.name?.split(' ')[0]).join(', ')}
           </span>
           {meeting.sessionLink && <PlatformBadge link={meeting.sessionLink} />}
+          <OnsiteBadge meeting={meeting} />
         </div>
         {meeting.additionalLinks?.length > 0 && (
           <div className={styles.hlLinks}>
@@ -634,10 +662,16 @@ function HighlightHero({ meeting, timezone, onSelect, onDownload }) {
           </div>
         )}
         <div className={styles.hlActions}>
-          {meeting.sessionLink && (
-            <a href={meeting.sessionLink} target="_blank" rel="noopener noreferrer"
+          {meeting.registrationLink && (
+            <a href={meeting.registrationLink} target="_blank" rel="noopener noreferrer"
                className={`${styles.btn} ${styles.btnHighlight}`} onClick={e => e.stopPropagation()}>
               <Icon name="how_to_reg" size={16} /> Register Now
+            </a>
+          )}
+          {meeting.sessionLink && (
+            <a href={meeting.sessionLink} target="_blank" rel="noopener noreferrer"
+               className={`${styles.btn} ${meeting.registrationLink ? styles.btnSecondary : styles.btnHighlight}`} onClick={e => e.stopPropagation()}>
+              <Icon name="videocam" size={16} /> {getPlatformShort(detectPlatform(meeting.sessionLink)) ? `Join ${getPlatformShort(detectPlatform(meeting.sessionLink))}` : 'Join Meeting'}
             </a>
           )}
           {next && (
@@ -684,6 +718,7 @@ function FeaturedCard({ meeting, timezone, onSelect, onDownload }) {
       <div className={styles.fcSchedule}>
         <Icon name="repeat" size={15} /> {getScheduleDescription(meeting, timezone)}
         {meeting.sessionLink && <PlatformBadge link={meeting.sessionLink} />}
+        <OnsiteBadge meeting={meeting} />
       </div>
       {next && (
         <div className={styles.fcNext}>
@@ -732,6 +767,12 @@ function FeaturedCard({ meeting, timezone, onSelect, onDownload }) {
           <a href={meeting.sessionLink} target="_blank" rel="noopener noreferrer"
              className={`${styles.btn} ${styles.btnPrimary}`} onClick={e => e.stopPropagation()}>
             <Icon name="videocam" size={16} /> {getPlatformShort(detectPlatform(meeting.sessionLink)) ? `Join ${getPlatformShort(detectPlatform(meeting.sessionLink))}` : 'Join Meeting'}
+          </a>
+        )}
+        {meeting.registrationLink && (
+          <a href={meeting.registrationLink} target="_blank" rel="noopener noreferrer"
+             className={`${styles.btn} ${meeting.sessionLink ? styles.btnSecondary : styles.btnPrimary}`} onClick={e => e.stopPropagation()}>
+            <Icon name="how_to_reg" size={16} /> Register
           </a>
         )}
         {next && (
@@ -911,9 +952,16 @@ function TodaySection({ timezone, onSelect, onDownload }) {
                   <span className={styles.cardFreqContact}><Icon name="person" size={14} /> {getContactDisplay(ev.contact)}</span>
                 )}
                 {ev.sessionLink && <><span className={styles.cardFreqDot}>&middot;</span><PlatformBadge link={ev.sessionLink} /></>}
+                {ev.onsite && <><span className={styles.cardFreqDot}>&middot;</span><OnsiteBadge meeting={ev} /></>}
               </div>
               {!isEnded && (
                 <div className={styles.cardActions}>
+                  {ev.registrationLink && !ev.sessionLink && (
+                    <a href={ev.registrationLink} target="_blank" rel="noopener noreferrer"
+                       className={`${styles.btn} ${styles.btnPrimary}`} onClick={e => e.stopPropagation()}>
+                      <Icon name="how_to_reg" size={16} /> Register
+                    </a>
+                  )}
                   {ev.sessionLink && (
                     <a href={ev.sessionLink} target="_blank" rel="noopener noreferrer"
                        className={`${styles.btn} ${isLive ? styles.btnPrimary : styles.btnSecondary}`} onClick={e => e.stopPropagation()}>
@@ -1096,6 +1144,7 @@ function AgendaView({ timezone, meetingsList, onSelect, onDownload }) {
                         ))}
                       </span>
                       {ev.sessionLink && <><span>&middot;</span><PlatformBadge link={ev.sessionLink} /></>}
+                      {ev.onsite && <><span>&middot;</span><OnsiteBadge meeting={ev} /></>}
                     </div>
                   </div>
                   <span className={`${styles.badge} ${getCategoryBadgeClass(ev.category)}`}>
@@ -1108,6 +1157,14 @@ function AgendaView({ timezone, meetingsList, onSelect, onDownload }) {
                     <HolidayBadge event={ev} />
                   </span>
                   <div className={styles.rowActions}>
+                    {ev.registrationLink && !ev.sessionLink && !isEnded && (
+                      <a href={ev.registrationLink} target="_blank" rel="noopener noreferrer"
+                         className={`${styles.btn} ${styles.btnPrimary}`}
+                         style={{ fontSize: 12, padding: '5px 14px' }}
+                         onClick={e => e.stopPropagation()}>
+                        <Icon name="how_to_reg" size={16} /> Register
+                      </a>
+                    )}
                     {ev.sessionLink && !isEnded && (
                       <a href={ev.sessionLink} target="_blank" rel="noopener noreferrer"
                          className={`${styles.btn} ${isLive ? styles.btnPrimary : styles.btnSecondary}`}
@@ -1195,6 +1252,7 @@ function AllMeetingsView({ timezone, meetingsList, onSelect, onDownload }) {
             <div className={styles.cardSchedule}>
               <Icon name="repeat" size={14} /> {getScheduleDescription(meeting, timezone)}
               {meeting.sessionLink && <PlatformBadge link={meeting.sessionLink} />}
+              <OnsiteBadge meeting={meeting} />
             </div>
             {next && (
               <div className={styles.cardNext}>
@@ -1253,6 +1311,12 @@ function AllMeetingsView({ timezone, meetingsList, onSelect, onDownload }) {
                 <a href={meeting.sessionLink} target="_blank" rel="noopener noreferrer"
                    className={`${styles.btn} ${styles.btnPrimary}`} onClick={e => e.stopPropagation()}>
                   <Icon name="videocam" size={16} /> {getPlatformShort(detectPlatform(meeting.sessionLink)) ? `Join ${getPlatformShort(detectPlatform(meeting.sessionLink))}` : 'Join Meeting'}
+                </a>
+              )}
+              {meeting.registrationLink && (
+                <a href={meeting.registrationLink} target="_blank" rel="noopener noreferrer"
+                   className={`${styles.btn} ${meeting.sessionLink ? styles.btnSecondary : styles.btnPrimary}`} onClick={e => e.stopPropagation()}>
+                  <Icon name="how_to_reg" size={16} /> Register
                 </a>
               )}
               {!isOnDemand(meeting) && next && (
@@ -1396,6 +1460,7 @@ function CalendarView({ timezone, meetingsList, onSelect }) {
                     <Icon name="schedule" size={13} />
                     {formatInTimeZone(ev.utcStart, timezone, 'HH:mm')} – {formatInTimeZone(ev.utcEnd, timezone, 'HH:mm')}
                     {ev.sessionLink && <PlatformBadge link={ev.sessionLink} />}
+                    <OnsiteBadge meeting={ev} />
                     <HolidayBadge event={ev} />
                   </div>
                 </div>
@@ -1657,6 +1722,27 @@ function CalendarConfigurator({ meeting, timezone: hubTimezone, allMeetings, onC
               </div>
             )}
 
+            {/* 5b. Registration link preview */}
+            {selected?.registrationLink && (
+              <div className={styles.ccField}>
+                <div className={styles.ccFieldLabel}>
+                  <Icon name="how_to_reg" size={15} /> Registration link (embedded in .ics)
+                </div>
+                <div className={styles.ccLinkPreview}>
+                  <div className={`${styles.ccLinkIconBox}`} style={{ background: 'rgba(76, 175, 80, 0.10)', color: '#4caf50' }}>
+                    <Icon name="how_to_reg" size={18} />
+                  </div>
+                  <div className={styles.ccLinkInfo}>
+                    <div className={styles.ccLinkPlatform}>Event Registration</div>
+                    <div className={styles.ccLinkUrl}>{selected.registrationLink}</div>
+                  </div>
+                  <span className={styles.ccLinkCheck}>
+                    <Icon name="check_circle" size={18} />
+                  </span>
+                </div>
+              </div>
+            )}
+
             <div className={styles.ccDivider} />
 
             {/* 6. Add to calendar */}
@@ -1696,7 +1782,19 @@ function CalendarConfigurator({ meeting, timezone: hubTimezone, allMeetings, onC
 
 function MeetingDrawer({ meeting, timezone, onClose, onDownload }) {
   const drawerRef = useRef(null);
+  const descRef = useRef(null);
+  const [descExpanded, setDescExpanded] = useState(false);
+  const [descOverflows, setDescOverflows] = useState(false);
   const next = meeting ? getNextOccurrence(meeting, timezone) : null;
+
+  // Reset expanded state when meeting changes
+  useEffect(() => { setDescExpanded(false); }, [meeting]);
+
+  // Detect if description overflows the clamp
+  useEffect(() => {
+    if (!descRef.current) return;
+    setDescOverflows(descRef.current.scrollHeight > descRef.current.clientHeight + 1);
+  }, [meeting]);
 
   // Close on Escape
   useEffect(() => {
@@ -1746,7 +1844,12 @@ function MeetingDrawer({ meeting, timezone, onClose, onDownload }) {
               </div>
 
               <h2 style={{ fontSize: 22, fontWeight: 800, color: 'var(--om-fg)', marginTop: 16, marginBottom: 4 }}>{meeting.icon && <Icon name={meeting.icon} size={22} />} {meeting.title}</h2>
-              <p style={{ fontSize: 14, color: 'var(--om-muted)', lineHeight: 1.65, marginBottom: 0 }}>{meeting.description}</p>
+              <p ref={descRef} className={`${styles.drawerDesc} ${descExpanded ? styles.drawerDescExpanded : ''}`}>{meeting.description}</p>
+              {(descOverflows || descExpanded) && (
+                <button className={styles.drawerShowMore} onClick={() => setDescExpanded(v => !v)}>
+                  {descExpanded ? 'Show less' : 'Show more'}
+                </button>
+              )}
 
               <div className={styles.drawerSection}>
                 <div className={styles.drawerSectionTitle}><Icon name="event" size={15} /> Schedule</div>
@@ -1755,7 +1858,14 @@ function MeetingDrawer({ meeting, timezone, onClose, onDownload }) {
                     <Icon name="repeat" size={16} />
                     <span>{getScheduleDescription(meeting, timezone)}</span>
                     {meeting.sessionLink && <PlatformBadge link={meeting.sessionLink} />}
+                    <OnsiteBadge meeting={meeting} />
                   </div>
+                  {meeting.location && (
+                    <div className={styles.scheduleRow}>
+                      <Icon name="location_on" size={16} />
+                      <span>{meeting.location}</span>
+                    </div>
+                  )}
                   {next && (
                     <div className={`${styles.scheduleRow} ${styles.scheduleRowNext}`}>
                       <Icon name="event_upcoming" size={16} />
@@ -1797,13 +1907,13 @@ function MeetingDrawer({ meeting, timezone, onClose, onDownload }) {
                         <div className={styles.contactSocials}>
                           {c.github && (
                             <a href={`https://github.com/${c.github}`} target="_blank" rel="noopener noreferrer" className={styles.socialLink} title="GitHub">
-                              <img src="https://cdn.simpleicons.org/github/888" alt="GitHub" width="14" height="14" />
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                               <span>{c.github}</span>
                             </a>
                           )}
                           {c.linkedin && (
                             <a href={`https://www.linkedin.com/in/${c.linkedin}`} target="_blank" rel="noopener noreferrer" className={styles.socialLink} title="LinkedIn">
-                              <img src="https://cdn.simpleicons.org/linkedin/0A66C2" alt="LinkedIn" width="14" height="14" />
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                               <span>LinkedIn</span>
                             </a>
                           )}
@@ -1839,6 +1949,12 @@ function MeetingDrawer({ meeting, timezone, onClose, onDownload }) {
                 <a href={meeting.sessionLink} target="_blank" rel="noopener noreferrer"
                    className={`${styles.btn} ${styles.btnPrimary}`} style={{ justifyContent: 'center' }}>
                   <Icon name="videocam" size={16} /> {getPlatformShort(detectPlatform(meeting.sessionLink)) ? `Join ${getPlatformShort(detectPlatform(meeting.sessionLink))}` : 'Join Meeting'}
+                </a>
+              )}
+              {meeting.registrationLink && (
+                <a href={meeting.registrationLink} target="_blank" rel="noopener noreferrer"
+                   className={`${styles.btn} ${meeting.sessionLink ? styles.btnSecondary : styles.btnPrimary}`} style={{ justifyContent: 'center' }}>
+                  <Icon name="how_to_reg" size={16} /> Register
                 </a>
               )}
               {!isOnDemand(meeting) && next && (

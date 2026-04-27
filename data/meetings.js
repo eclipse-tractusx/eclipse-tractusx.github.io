@@ -112,12 +112,12 @@ export const meetings = [
       { title: 'Timelines', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35' },
     ],
     recurrence: {
-      frequency: 'weekly',
+      frequency: 'monthly',
       interval: 2,
       daysOfWeek: ['friday'],
       startTime: '14:05',
       endTime: '15:00',
-      validFrom: '2025-01-01',
+      validFrom: '2026-04-24',
     },
   },
   {
@@ -411,9 +411,11 @@ export const meetings = [
     title: 'Sixth Eclipse Tractus-X Community Days',
     category: MEETING_CATEGORIES.ONE_TIME,
     priority: MEETING_PRIORITIES.HIGHLIGHT,
+    onsite: true,
+    location: 'ARENA2036 e.V., Stuttgart, Germany',
     description: 'Join us for the Sixth Eclipse Tractus-X Community Days at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany)! Two full days of keynotes, workshops, hands-on challenges, and networking with the global Tractus-X open-source community. Connect with contributors from Manufacturing-X initiatives (Factory-X, Chem-X, Aerospace-X and more), participate in technical coding challenges, and help shape the future of open-source data spaces.',
     contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.MATHIAS_MOSER, CONTACTS.MIKEL_GARCIA],
-    sessionLink: 'https://eveeno.com/159341884',
+    registrationLink: 'https://eveeno.com/159341884',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-community-events:matrix.eclipse.org',
     additionalLinks: [
       { title: 'News Blog & Registration', url: '/blog/community-days-07-2026' },
