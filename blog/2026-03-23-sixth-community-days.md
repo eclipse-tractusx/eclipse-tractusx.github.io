@@ -49,29 +49,25 @@ The final agenda will be published closer to the event. The structure below is a
 
 #### Day 1
 
-| Time | Session |
-|------|---------|
-| 09:00 – 09:30 | Registration & Welcome Coffee |
-| 09:30 – 10:00 | **Opening & Welcome** |
-| 10:00 – 10:45 | **Keynote: State of Eclipse Tractus-X** |
-| 10:45 – 11:00 | Coffee Break |
-| 11:00 – 12:30 | **Parallel Streams: Presentations · Workshops · Challenges** |
-| 12:30 – 13:30 | Lunch Break |
-| 13:30 – 15:30 | **Parallel Streams: Presentations · Workshops · Challenges** |
-| 15:30 – 16:00 | Coffee Break |
-| 16:00 – 17:00 | **Developer Panel & Open Discussion** |
-| 18:00 – open end | **Networking Evening Event** |
+| Time             | Session                                                      |
+|------------------|--------------------------------------------------------------|
+| 09:00 – 09:30    | Registration & Welcome Coffee                                |
+| 09:30 – 10:00    | **Opening & Welcome**                                        |
+| 10:00 – 10:45    | **Keynote: State of Eclipse Tractus-X**                      |
+| 10:45 – 11:00    | Coffee Break                                                 |
+| 11:00 – 12:30    | **Parallel Streams: Presentations · Workshops · Challenges** |
+| 12:30 – 13:30    | Lunch Break                                                  |
+| 13:30 – 15:30    | **Parallel Streams: Presentations · Workshops · Challenges** |
+| 15:30 – 16:00    | Coffee Break                                                 |
+| 16:00 – 17:00    | **Developer Panel & Open Discussion**                        |
+| 18:00 – open end | **Networking Evening Event**                                 |
 
 #### Day 2
 
-| Time | Session |
-|------|---------|
-| 09:00 – 09:30 | Welcome Back & Tech Talk |
-| 09:30 – 12:30 | **Continuation of Streams: Workshops · Challenges** |
-| 12:30 – 13:30 | Lunch Break |
-| 13:30 – 15:30 | **Advanced Sessions & Collaborative Working Groups** |
-| 15:30 – 16:00 | **Wrap-Up & Key Takeaways** |
-| 16:00 | Farewell |
+| Time          | Session                                             |
+|---------------|-----------------------------------------------------|
+| 09:00 – 09:30 | Welcome Back & Tech Talk                            |
+| 09:30 – 12:00 | **Continuation of Streams: Workshops · Challenges** |
 
 :::info
 We are actively looking for **speakers, workshop facilitators, and challenge leaders**! If you'd like to contribute a session, presentation, or use-case showcase — we'd love to hear from you. Please reach out via the [Tractus-X mailing list](https://accounts.eclipse.org/mailing-list/tractusx-dev) or our [Matrix community channel](https://matrix.to/#/#tractusx-dev:matrix.eclipse.org).

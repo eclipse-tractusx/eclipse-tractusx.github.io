@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 03be2282acf83595ce68c5c5d497cd74ef2cf413b2ea6cda9b0ab0ba6d0b87fc
+ * Content hash: 2836d12da51791318797487399255ff7416f98096fa50568b52bc25974eb0e16
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -209,6 +209,12 @@ const kitsByCategory = {
   "industryKits": {
     "manufacturing": [
       {
+        "id": "autonomous-operation",
+        "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",
+        "route": "/docs-kits/next/kits/autonomous-operation-kit/adoption-view",
+        "deprecated": false
+      },
+      {
         "id": "maas",
         "name": "MANUFACTURING AS A SERVICE KIT",
         "route": "/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view",
@@ -311,7 +317,7 @@ function generateKitNavItems() {
     });
     items.push({
       to: '/Kits/cross-industry',
-      label: 'USE CASES',
+      label: 'CROSS-INDUSTRY USE CASES',
       className: 'kit-category-header'
     });
     
