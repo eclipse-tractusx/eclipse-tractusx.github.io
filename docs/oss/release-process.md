@@ -217,9 +217,9 @@ The release process is supported by various open meetings where the community co
 ### General Office Hour
 
 - **Community Office Hour**: Weekly meeting (Fridays) for general updates and discussions
-  - [Meeting details and links](/community/open-meetings)
+  - [Meeting details and links](https://eclipse-tractusx.github.io/community/open-meetings#community-office-hour)
 - **Committer Meeting**: Bi-weekly meeting for committer-specific topics
-  - [Meeting details and links](/community/open-meetings)
+  - [Meeting details and links](https://eclipse-tractusx.github.io/community/open-meetings#committer-meeting)
 
 ### Release-Related Meetings
 
@@ -238,10 +238,14 @@ The release process is supported by various open meetings where the community co
 
 Individual products have their own regular sync meetings:
 
-- Portal Open Meeting
-- EDC Weekly
-- BPDM Open Meeting
-- Industry Core Hub & Tractus-X SDK Weekly
+- [Portal Open Meeting](https://eclipse-tractusx.github.io/community/open-meetings#portal-open-meeting)
+- [Connector Open Meeting](https://eclipse-tractusx.github.io/community/open-meetings#edc-weekly)
+- [BPDM Open Meeting](https://eclipse-tractusx.github.io/community/open-meetings#bpdm-open-meeting)
+- [Industry Core Hub Weekly](https://eclipse-tractusx.github.io/community/open-meetings#industry-core-hub-weekly)
+- [Tractus-X SDK Weekly](https://eclipse-tractusx.github.io/community/open-meetings#tractus-x-sdk-weekly)
+- [Identity Hub Weekly](https://eclipse-tractusx.github.io/community/open-meetings#identity-hub-weekly)
+- [Umbrella Helm Chart Sync](https://eclipse-tractusx.github.io/community/open-meetings#umbrella-helm-chart-sync)
+- [Semantic Model Modelling](https://eclipse-tractusx.github.io/community/open-meetings#semantic-model-modelling)
 - And more...
 
 See the full list on the [Open Meetings page](/community/open-meetings).
