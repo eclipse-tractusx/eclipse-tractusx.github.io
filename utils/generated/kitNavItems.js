@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 2836d12da51791318797487399255ff7416f98096fa50568b52bc25974eb0e16
+ * Content hash: 98576d2873b527284fe54cb82f9c5f62498b465ea89e299cbb5b2bf53ff30109
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -217,7 +217,7 @@ const kitsByCategory = {
       {
         "id": "maas",
         "name": "MANUFACTURING AS A SERVICE KIT",
-        "route": "/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view",
+        "route": "/docs-kits/next/kits/manufacturing-as-a-service-kit/adoption-view",
         "deprecated": false
       },
       {
