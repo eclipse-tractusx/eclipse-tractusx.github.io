@@ -23,7 +23,7 @@ tags: [community, meeting-minutes]
 ### Security team
 
 - Updates to Acceptance Criteria and that DAST (dynamic application security testing) scans will not be considered
-- Friendly reminder to check out the [Security Office Hours](https://eclipse-tractusx.github.io/community/open-meetings#Security%20-%20Office%20Hour) and the [Security Office Hour Minutes](https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-03-14)
+- Friendly reminder to check out the [Security Office Hours](/community/open-meetings) and the [Security Office Hour Minutes](https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-03-14)
 
 ### FOSS
 

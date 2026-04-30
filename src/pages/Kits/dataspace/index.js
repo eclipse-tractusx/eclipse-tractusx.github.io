@@ -249,7 +249,7 @@ export default function DataspacePage() {
             </a>. <br /><br />
             To collaborate, add your dataspace to this industry or support the content refactor, please join our{' '}
             <a 
-              href="https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour"
+              href="https://eclipse-tractusx.github.io/community/open-meetings#kits-office-hour"
               style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
             >
               KIT office hours

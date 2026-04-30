@@ -26,6 +26,7 @@ npm/npmjs/-/argparse/2.0.1, Python-2.0, approved, CQ22954
 npm/npmjs/-/array-flatten/1.1.1, MIT, approved, clearlydefined
 npm/npmjs/-/array-union/2.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/astring/1.9.0, MIT, approved, clearlydefined
+npm/npmjs/-/astronomia/4.2.0, MIT, approved, #27680
 npm/npmjs/-/autoprefixer/10.4.27, MIT, approved, #7494
 npm/npmjs/-/babel-loader/9.2.1, MIT AND (BSD-2-Clause AND ISC AND MIT), approved, #16179
 npm/npmjs/-/babel-plugin-dynamic-import-node/2.3.3, MIT, approved, clearlydefined
@@ -55,6 +56,7 @@ npm/npmjs/-/bytes/3.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/bytes/3.1.2, MIT, approved, clearlydefined
 npm/npmjs/-/cacheable-lookup/7.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/cacheable-request/10.2.14, MIT, approved, clearlydefined
+npm/npmjs/-/caldate/2.0.5, ISC AND (ISC AND MIT), approved, #27678
 npm/npmjs/-/call-bind-apply-helpers/1.0.2, MIT, approved, #17826
 npm/npmjs/-/call-bind/1.0.9, MIT, approved, #11092
 npm/npmjs/-/call-bound/1.0.4, MIT, approved, #17832
@@ -188,8 +190,13 @@ npm/npmjs/-/d3-zoom/3.0.0, ISC, approved, clearlydefined
 npm/npmjs/-/d3/7.9.0, ISC, approved, #14261
 npm/npmjs/-/dagre-d3-es/7.0.13, MIT, approved, clearlydefined
 npm/npmjs/-/date-arithmetic/4.1.0, MIT, approved, clearlydefined
+npm/npmjs/-/date-bengali-revised/2.0.2, MIT, approved, #27679
+npm/npmjs/-/date-chinese/2.1.4, MIT, approved, #27682
+npm/npmjs/-/date-easter/1.0.3, MIT, approved, clearlydefined
 npm/npmjs/-/date-fns-tz/3.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/date-fns/4.1.0, MIT, approved, clearlydefined
+npm/npmjs/-/date-holidays-parser/3.4.7, ISC AND (ISC AND MIT), approved, #27681
+npm/npmjs/-/date-holidays/3.27.0, CC-BY-SA-3.0 AND ISC AND ISC AND (CC-BY-SA-3.0 AND ISC AND MIT) AND CC-BY-SA-3.0 AND CC0-1.0 AND (ISC AND MIT), approved, #27677
 npm/npmjs/-/dayjs/1.11.18, MIT, approved, #9149
 npm/npmjs/-/debounce/1.2.1, MIT, approved, clearlydefined
 npm/npmjs/-/debug/2.6.9, MIT, approved, clearlydefined
@@ -430,6 +437,7 @@ npm/npmjs/-/isarray/0.0.1, MIT, approved, clearlydefined
 npm/npmjs/-/isarray/1.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/isexe/2.0.0, ISC, approved, clearlydefined
 npm/npmjs/-/isobject/3.0.1, MIT, approved, clearlydefined
+npm/npmjs/-/jalaali-js/1.2.8, MIT, approved, clearlydefined
 npm/npmjs/-/jest-util/29.7.0, MIT, approved, clearlydefined
 npm/npmjs/-/jest-worker/27.5.1, 0BSD AND Apache-2.0 AND BSD-2-Clause AND MIT, approved, #1952
 npm/npmjs/-/jest-worker/29.7.0, MIT, approved, clearlydefined
@@ -720,6 +728,7 @@ npm/npmjs/-/postcss-unique-selectors/6.0.4, MIT, approved, clearlydefined
 npm/npmjs/-/postcss-value-parser/4.2.0, MIT, approved, #24878
 npm/npmjs/-/postcss-zindex/6.0.2, MIT, approved, clearlydefined
 npm/npmjs/-/postcss/8.5.9, MIT, approved, #19395
+npm/npmjs/-/prepin/1.0.3, Unlicense, approved, clearlydefined
 npm/npmjs/-/pretty-error/4.0.0, MIT, approved, clearlydefined
 npm/npmjs/-/pretty-time/1.1.0, MIT, approved, clearlydefined
 npm/npmjs/-/prism-react-renderer/1.3.5, MIT, approved, clearlydefined
