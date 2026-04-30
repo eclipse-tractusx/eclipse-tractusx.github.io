@@ -932,7 +932,7 @@ function TodaySection({ timezone, onSelect, onDownload }) {
                   <Icon name={ev.icon} size={36} />
                 </div>
               )}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'flex-start', marginBottom: 8 }}>
                 <span className={`${styles.badge} ${getCategoryBadgeClass(ev.category)}`}>
                   {CATEGORY_LABELS[ev.category]}
                 </span>
