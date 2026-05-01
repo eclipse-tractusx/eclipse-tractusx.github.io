@@ -22,6 +22,24 @@ import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import { format, parse, startOfWeek, getDay, addMonths, subMonths, startOfMonth, endOfMonth } from 'date-fns';
 import { enUS } from 'date-fns/locale';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import CloseIcon from '@mui/icons-material/Close';
+import { useColorMode } from '@docusaurus/theme-common';
 import { meetings } from '@site/data/meetings';
 import { generateCalendarEvents, getCategoryStyle, formatDateInTimezone, formatTimeRange } from '@site/src/utils/meetingUtils';
 import './MeetingCalendar.css';
@@ -55,6 +73,12 @@ const TIMEZONES = [
   { value: 'Asia/Shanghai', label: '(CST) Shanghai' },
 ];
 
+const LEGEND_ITEMS = [
+  { color: '#4a90e2', label: 'General Office Hours' },
+  { color: '#50c878', label: 'Product Meetings' },
+  { color: '#f5a623', label: 'One-time Meetings' },
+];
+
 export default function MeetingCalendar({ onTimezoneChange }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [view, setView] = useState('month');
@@ -62,6 +86,8 @@ export default function MeetingCalendar({ onTimezoneChange }) {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const calendarContainerRef = useRef(null);
   const [fixedWidth, setFixedWidth] = useState(null);
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === 'dark';
 
   // Capture initial width and lock it
   useEffect(() => {
@@ -106,41 +132,65 @@ export default function MeetingCalendar({ onTimezoneChange }) {
   };
 
   return (
-    <div className="meeting-calendar-container" ref={calendarContainerRef}>
-      <div className="calendar-controls">
-        <div className="timezone-selector">
-          <label htmlFor="timezone-select">Timezone: </label>
-          <select
+    <Box className="meeting-calendar-container" ref={calendarContainerRef}>
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        justifyContent="space-between"
+        alignItems={{ xs: 'flex-start', sm: 'center' }}
+        spacing={2}
+        sx={{ mb: 2 }}
+      >
+        <FormControl size="small" sx={{ minWidth: 280 }}>
+          <InputLabel id="timezone-select-label">Timezone</InputLabel>
+          <Select
+            labelId="timezone-select-label"
             id="timezone-select"
             value={selectedTimezone}
+            label="Timezone"
             onChange={(e) => handleTimezoneChange(e.target.value)}
-            className="timezone-select"
+            sx={{
+              bgcolor: isDark ? '#1b1b1d' : '#fff',
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: isDark ? '#444' : '#ccc',
+              },
+              '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#faa023',
+              },
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: '#faa023',
+              },
+              color: isDark ? '#fff' : 'inherit',
+            }}
           >
             {TIMEZONES.map((tz) => (
-              <option key={tz.value} value={tz.value}>
+              <MenuItem key={tz.value} value={tz.value}>
                 {tz.label}
-              </option>
+              </MenuItem>
             ))}
-          </select>
-        </div>
-        
-        <div className="calendar-legend">
-          <div className="legend-item">
-            <span className="legend-color" style={{ backgroundColor: '#4a90e2' }}></span>
-            <span>General Office Hours</span>
-          </div>
-          <div className="legend-item">
-            <span className="legend-color" style={{ backgroundColor: '#50c878' }}></span>
-            <span>Product Meetings</span>
-          </div>
-          <div className="legend-item">
-            <span className="legend-color" style={{ backgroundColor: '#f5a623' }}></span>
-            <span>One-time Meetings</span>
-          </div>
-        </div>
-      </div>
+          </Select>
+        </FormControl>
 
-      <div style={{ width: fixedWidth ? `${fixedWidth}px` : '100%', maxWidth: '100%', overflow: 'hidden', margin: '0 auto' }}>
+        <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
+          {LEGEND_ITEMS.map((item) => (
+            <Stack key={item.label} direction="row" spacing={0.75} alignItems="center">
+              <Box
+                sx={{
+                  width: 20,
+                  height: 20,
+                  borderRadius: '3px',
+                  bgcolor: item.color,
+                  flexShrink: 0,
+                }}
+              />
+              <Typography variant="body2" sx={{ fontSize: 14 }}>
+                {item.label}
+              </Typography>
+            </Stack>
+          ))}
+        </Stack>
+      </Stack>
+
+      <Box sx={{ width: fixedWidth ? `${fixedWidth}px` : '100%', maxWidth: '100%', overflow: 'hidden', margin: '0 auto' }}>
         <Calendar
           localizer={localizer}
           events={events}
@@ -156,41 +206,117 @@ export default function MeetingCalendar({ onTimezoneChange }) {
           popup
           views={['month', 'week', 'day']}
         />
-      </div>
+      </Box>
 
-      {selectedEvent && (
-        <div className="event-modal-overlay" onClick={handleCloseModal}>
-          <div className="event-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={handleCloseModal}>×</button>
-            <h3>{selectedEvent.title}</h3>
-            <div className="modal-content">
-              <p className="modal-time">
-                <strong>Time:</strong> {formatTimeRange(selectedEvent.utcStart || selectedEvent.start, selectedEvent.utcEnd || selectedEvent.end, selectedTimezone)}
-              </p>
-              <p className="modal-date">
-                <strong>Date:</strong> {formatDateInTimezone(selectedEvent.utcStart || selectedEvent.start, selectedTimezone, 'EEEE, MMMM d, yyyy')}
-              </p>
-              <p><strong>Description:</strong> {selectedEvent.description}</p>
-              <p><strong>Contact:</strong> <a href={`mailto:${selectedEvent.contact}`}>{selectedEvent.contact}</a></p>
+      <Dialog
+        open={Boolean(selectedEvent)}
+        onClose={handleCloseModal}
+        maxWidth="sm"
+        fullWidth
+        PaperProps={{
+          sx: {
+            borderRadius: '12px',
+            bgcolor: isDark ? '#1b1b1d' : '#fff',
+            color: isDark ? '#fff' : 'inherit',
+          },
+        }}
+      >
+        {selectedEvent && (
+          <>
+            <DialogTitle sx={{ pr: 6, color: isDark ? '#fff' : '#333' }}>
+              {selectedEvent.title}
+              <IconButton
+                aria-label="close"
+                onClick={handleCloseModal}
+                sx={{
+                  position: 'absolute',
+                  right: 8,
+                  top: 8,
+                  color: isDark ? '#ccc' : '#666',
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
+            </DialogTitle>
+            <DialogContent dividers sx={{ color: isDark ? '#ccc' : '#666' }}>
+              <Typography variant="body1" sx={{ mb: 1, color: isDark ? '#fff' : '#333' }}>
+                <strong>Time:</strong>{' '}
+                {formatTimeRange(
+                  selectedEvent.utcStart || selectedEvent.start,
+                  selectedEvent.utcEnd || selectedEvent.end,
+                  selectedTimezone,
+                )}
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 1, color: isDark ? '#fff' : '#333' }}>
+                <strong>Date:</strong>{' '}
+                {formatDateInTimezone(
+                  selectedEvent.utcStart || selectedEvent.start,
+                  selectedTimezone,
+                  'EEEE, MMMM d, yyyy',
+                )}
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 1 }}>
+                <strong>Description:</strong> {selectedEvent.description}
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 1 }}>
+                <strong>Contact:</strong>{' '}
+                <Link href={`mailto:${selectedEvent.contact}`} sx={{ color: '#faa023' }}>
+                  {selectedEvent.contact}
+                </Link>
+              </Typography>
               {selectedEvent.sessionLink && (
-                <p><a href={selectedEvent.sessionLink} target="_blank" rel="noopener noreferrer" className="join-link">Join Meeting</a></p>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  href={selectedEvent.sessionLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    bgcolor: '#faa023',
+                    color: '#fff',
+                    borderRadius: '5px',
+                    fontFamily: '"Manrope", sans-serif',
+                    fontSize: '14px',
+                    textTransform: 'none',
+                    mt: 1,
+                    py: 0.8,
+                    boxShadow: 'none',
+                    '&:hover': { bgcolor: '#1e1e1e', color: '#faa023', boxShadow: 'none' },
+                  }}
+                >
+                  Join Meeting
+                </Button>
               )}
               {selectedEvent.additionalLinks && selectedEvent.additionalLinks.length > 0 && (
-                <div className="additional-links">
-                  <strong>Additional Links:</strong>
-                  <ul>
+                <Box sx={{ mt: 2 }}>
+                  <Typography variant="body1" sx={{ fontWeight: 'bold', mb: 0.5 }}>
+                    Additional Links:
+                  </Typography>
+                  <List dense disablePadding>
                     {selectedEvent.additionalLinks.map((link, index) => (
-                      <li key={index}>
-                        <a href={link.url} target="_blank" rel="noopener noreferrer">{link.title}</a>
-                      </li>
+                      <ListItem key={index} disableGutters disablePadding sx={{ mb: 0.25 }}>
+                        <Link
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          sx={{ color: '#faa023', '&:hover': { textDecoration: 'underline' } }}
+                        >
+                          {link.title}
+                        </Link>
+                      </ListItem>
                     ))}
-                  </ul>
-                </div>
+                  </List>
+                </Box>
               )}
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseModal} sx={{ color: isDark ? '#ccc' : '#666' }}>
+                Close
+              </Button>
+            </DialogActions>
+          </>
+        )}
+      </Dialog>
+    </Box>
   );
 }

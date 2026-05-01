@@ -69,6 +69,7 @@ Depending on the logic category from the KIT feel free to place it under one of 
 */
 
 // Import the raw logos
+import AutonomousOperationKitLogo from "@site/static/img/kits/autonomous-operation/autonomous-operation-kit-raw-logo.svg"
 import ConnectorKitLogo from "@site/static/img/kits/connector/connector-kit-raw-logo.svg";
 import DataGovernanceLogo from "@site/static/img/kits/data-governance/data-governance-kit-raw-logo.svg";
 import DataTrustSecurityLogo from "@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-raw-logo.svg";
@@ -241,8 +242,8 @@ export const kitsData = {
       description: 'Get high-quality data business partner data records including the unique identifier.',
       metadata: {
         created: '2023-03-01',
-        lastUpdated: '2025-09-08',
-        latestVersion: '10.0.0',
+        lastUpdated: '2026-03-18',
+        latestVersion: '10.1.0',
         new: false
       }
     },
@@ -1018,6 +1019,38 @@ export const kitsData = {
   industryKits: {
     "manufacturing": [
       {
+        id: 'autonomous-operation',
+        name: 'AUTONOMOUS OPERATION & REMOTE SERVICES KIT',
+        logo: AutonomousOperationKitLogo,
+        logoLicencse: {
+          type: 'CC0 1.0 Universal',
+          authors: '2026 Eclipse Tractus-X Contributors',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/autonomous-operation/autonomous-operation-kit-raw-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/autonomous-operation/autonomous-operation-kit-raw-logo.svg'
+        },
+        logoHeight: 100,
+        logoWidth: 100,
+        route: '/docs-kits/next/kits/autonomous-operation-kit/adoption-view',
+        colors: {
+          primary: '#A098A4',
+          gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Production',
+        industries: ['manufacturing'],
+        description: 'Enable remote, assisted and autonomous operation of highly automated manufacturing equipment',
+        metadata: {
+          created: '2026-01-15',
+          lastUpdated: '2026-04-15',
+          latestVersion: '0.0.1',
+          new: true
+        }
+      },
+      {
         id: 'maas',
         name: 'MANUFACTURING AS A SERVICE KIT',
         logo: MaaSKitLogo,
@@ -1029,7 +1062,7 @@ export const kitsData = {
         },
         logoHeight: 100,
         logoWidth: 100,
-        route: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
+        route: '/docs-kits/next/kits/manufacturing-as-a-service-kit/adoption-view',
         colors: {
           primary: '#A098A4',
           gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
@@ -1044,9 +1077,9 @@ export const kitsData = {
         description: 'Create a federated network of networks to connect manufacturing supply and demand.',
         metadata: {
           created: '2024-03-29',
-          lastUpdated: '2024-05-27',
-          latestVersion: '1.0.0',
-          new: false
+          lastUpdated: '2026-04-16',
+          latestVersion: '0.2.0',
+          new: true
         }
       },
       {
@@ -1213,7 +1246,7 @@ export const industries = [
         },
         subtitle: 'The Digital Ecosystem',
         description: 'Project which aims to build an open and collaborative digital ecosystem for factory outfitters and operators, based on Catena-X and Platform Industry 4.0 concepts.',
-        kits: ['connector', 'digital-twin', 'maas', 'pcf', 'modular-production', 'eco-pass']
+        kits: ['connector', 'digital-twin', 'autonomous-operation', 'maas', 'pcf', 'modular-production', 'eco-pass']
       }
     ]
   },
