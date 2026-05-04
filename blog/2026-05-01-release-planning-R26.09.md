@@ -67,7 +67,7 @@ The agenda itself is dependent on the labeled features.
 
 The Open Planning session finalizes the roadmap for **R26.09**, prioritizing features and aligning all participants on deliverables for the release.
 
-- Date: TBD
+- Date: 28.05.2026
 - Time: 09:05 - 10:15 (end time can vary based on discussion and features)
 - Teams Link: See the Open Meetings page for the join link and local-time conversion: [Open Meetings](/community/open-meetings)
 
