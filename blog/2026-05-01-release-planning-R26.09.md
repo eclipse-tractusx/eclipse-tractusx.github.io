@@ -41,7 +41,7 @@ Even if you don't have questions, it could be interesting anyway.
 
 :::
 
-- Date: TBD
+- Date: 13.05.2026
 - Time: 09:05 - 10:00
 - Main Teams Link: See the Open Meetings page for the join link and local-time conversion: [Open Meetings](/community/open-meetings)
 
