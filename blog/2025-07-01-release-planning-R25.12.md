@@ -22,7 +22,7 @@ and ensure a well-structured release.
 **Key Information:**
 
 - 📅 **Dates and Times**: Listed for each session below.
-- 📂 **Resources**: Visit our [**open meetings page**](/community/open-meetings#one-time-meetings) for all session links and additional documentation.
+- 📂 **Resources**: Visit our [**open meetings page**](/community/open-meetings) for all session links and additional documentation.
 - 🔗 **Preparation Materials**: Ensure readiness by reviewing the provided templates, guidelines, and your own features.
 
 We look forward to seeing you there and working together to make R25.12 a success!

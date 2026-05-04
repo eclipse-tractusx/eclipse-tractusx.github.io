@@ -25,157 +25,6 @@
   box-sizing: border-box;
 }
 
-.calendar-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.timezone-selector {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.timezone-select {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  background-color: white;
-  cursor: pointer;
-}
-
-.timezone-select:focus {
-  outline: none;
-  border-color: #faa023;
-}
-
-.calendar-legend {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 14px;
-}
-
-.legend-color {
-  width: 20px;
-  height: 20px;
-  border-radius: 3px;
-  display: inline-block;
-}
-
-/* Modal styles */
-.event-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.event-modal {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 600px;
-  width: 90%;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #666;
-  line-height: 1;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-close:hover {
-  color: #000;
-}
-
-.event-modal h3 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.modal-content {
-  color: #666;
-}
-
-.modal-content p {
-  margin-bottom: 0.75rem;
-}
-
-.modal-time,
-.modal-date {
-  font-size: 16px;
-  color: #333;
-}
-
-.join-link {
-  display: inline-block;
-  background-color: #faa023;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
-  margin-top: 0.5rem;
-}
-
-.join-link:hover {
-  background-color: #e89012;
-  color: white;
-}
-
-.additional-links ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 0.5rem;
-}
-
-.additional-links li {
-  margin-bottom: 0.25rem;
-}
-
-.additional-links a {
-  color: #faa023;
-  text-decoration: none;
-}
-
-.additional-links a:hover {
-  text-decoration: underline;
-}
-
 /* Override react-big-calendar styles */
 .rbc-calendar {
   font-family: inherit;
@@ -250,34 +99,7 @@
   border-color: #e89012;
 }
 
-/* Dark mode support */
-[data-theme='dark'] .timezone-select {
-  background-color: #1b1b1d;
-  color: #ffffff;
-  border-color: #444;
-}
-
-[data-theme='dark'] .event-modal {
-  background-color: #1b1b1d;
-  color: #ffffff;
-}
-
-[data-theme='dark'] .event-modal h3 {
-  color: #ffffff;
-}
-
-[data-theme='dark'] .modal-content {
-  color: #cccccc;
-}
-
-[data-theme='dark'] .modal-close {
-  color: #cccccc;
-}
-
-[data-theme='dark'] .modal-close:hover {
-  color: #ffffff;
-}
-
+/* Dark mode support for react-big-calendar */
 [data-theme='dark'] .rbc-calendar {
   background-color: #1b1b1d;
   color: #ffffff;
@@ -338,25 +160,6 @@
     min-width: 600px;
   }
 
-  .calendar-controls {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .timezone-selector {
-    width: 100%;
-  }
-
-  .timezone-select {
-    flex: 1;
-    width: 100%;
-  }
-
-  .calendar-legend {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
   .rbc-toolbar {
     flex-wrap: wrap;
     font-size: 12px;
@@ -385,11 +188,6 @@
     font-size: 12px;
     padding: 3px;
   }
-
-  .event-modal {
-    width: 95%;
-    padding: 1.5rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -412,14 +210,4 @@
     font-size: 10px;
     padding: 1px 2px;
   }
-
-  .legend-item {
-    font-size: 12px;
-  }
-
-  .legend-color {
-    width: 16px;
-    height: 16px;
-  }
 }
-

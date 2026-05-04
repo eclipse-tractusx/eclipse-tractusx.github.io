@@ -62,7 +62,7 @@ export default function KitsFooter({ disclaimer, simple = false, title = 'Want t
             </p>
             
             <div className={styles.links}>
-              <a href="https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour" className={styles.link}>
+              <a href="https://eclipse-tractusx.github.io/community/open-meetings#kits-office-hour" className={styles.link}>
                 <EventIcon className={styles.linkIcon} />
                 Join our KIT Office Hours
               </a>

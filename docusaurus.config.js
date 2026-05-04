@@ -46,7 +46,7 @@ const config = {
       // see https://docusaurus.io/blog/releases/3.8#css-cascade-layers
       useCssCascadeLayers: true
     },
-    experimental_faster: {
+    faster: {
       lightningCssMinimizer: true,
       mdxCrossCompilerCache: true,
       rspackBundler: true,

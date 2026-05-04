@@ -41,7 +41,7 @@ We are planning to develop a frontend, a backend, have an extensive documentatio
 
 We are looking for developers and brave contributors which want to innovate and collaborate for building this new open source wallet together!
 
-If you are interested on joining the development, feel free to join our [open meetings](https://eclipse-tractusx.github.io/community/open-meetings#Identity%20Hub%20Weekly) and build dataspaces with us!
+If you are interested on joining the development, feel free to join our [open meetings](https://eclipse-tractusx.github.io/community/open-meetings#identity-hub-weekly) and build dataspaces with us!
 
 ### Links of interest
 

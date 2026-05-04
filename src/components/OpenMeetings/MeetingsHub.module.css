@@ -1,0 +1,3268 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+/* ============================================================
+   Open Meetings v2 — CSS Module
+   Supports Docusaurus light & dark themes via [data-theme]
+   ============================================================ */
+
+/* ---------- CSS Variables (light defaults) ---------- */
+:root {
+  --om-orange: #e6941e;
+  --om-orange-dim: rgba(230, 148, 30, 0.10);
+  --om-blue: #4a90e2;
+  --om-blue-dim: rgba(74, 144, 226, 0.10);
+  --om-green: #50c878;
+  --om-green-dim: rgba(80, 200, 120, 0.10);
+  --om-red: #e74c3c;
+  --om-red-dim: rgba(231, 76, 60, 0.10);
+  --om-purple: #7c4dff;
+  --om-purple-dim: rgba(124, 77, 255, 0.08);
+  --om-bg: #ffffff;
+  --om-surface: rgba(0, 0, 0, 0.02);
+  --om-surface-hover: rgba(0, 0, 0, 0.04);
+  --om-border: rgba(0, 0, 0, 0.08);
+  --om-border-hover: rgba(0, 0, 0, 0.15);
+  --om-fg: #1a1a2e;
+  --om-muted: #6b7280;
+  --om-dimmed: #9ca3af;
+  --om-radius: 12px;
+  --om-radius-sm: 8px;
+  --om-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+}
+
+:root[data-theme='dark'] {
+  --om-orange: #faa023;
+  --om-orange-dim: rgba(250, 160, 35, 0.12);
+  --om-blue: #6db3f8;
+  --om-blue-dim: rgba(74, 144, 226, 0.12);
+  --om-green: #6de09a;
+  --om-green-dim: rgba(80, 200, 120, 0.12);
+  --om-red: #ff6b5b;
+  --om-red-dim: rgba(231, 76, 60, 0.15);
+  --om-purple: #b088f9;
+  --om-purple-dim: rgba(176, 136, 249, 0.12);
+  --om-bg: #0a0a0a;
+  --om-surface: rgba(255, 255, 255, 0.03);
+  --om-surface-hover: rgba(255, 255, 255, 0.06);
+  --om-border: rgba(255, 255, 255, 0.07);
+  --om-border-hover: rgba(255, 255, 255, 0.14);
+  --om-fg: #ededed;
+  --om-muted: #888;
+  --om-dimmed: #555;
+}
+
+/* ---------- Shared ---------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------- Page Header ---------- */
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 32px 0 24px;
+  border-bottom: 1px solid var(--om-border);
+}
+
+.pageHeaderContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--om-fg);
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.3px;
+}
+
+.pageTitleIcon {
+  color: var(--om-orange);
+}
+
+.pageSubtitle {
+  font-size: 14px;
+  color: var(--om-muted);
+  margin: 0 0 12px;
+  line-height: 1.55;
+  max-width: 640px;
+}
+
+.pageHeaderLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--om-orange);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.pageHeaderLink:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+  color: var(--om-orange);
+}
+
+.pageHeaderTz {
+  flex-shrink: 0;
+}
+
+.sectionLabel {
+  padding: 28px 0 14px;
+  border-bottom: 1px solid var(--om-border);
+}
+
+.sectionTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--om-fg);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sectionDesc {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--om-muted);
+  margin-top: 4px;
+  line-height: 1.55;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.badgeLive {
+  background: var(--om-red-dim);
+  color: var(--om-red);
+}
+
+.badgeCountdown {
+  background: var(--om-surface-hover);
+  color: var(--om-muted);
+}
+
+.badgeEnded {
+  background: var(--om-surface);
+  color: var(--om-dimmed);
+}
+
+.badgeHoliday {
+  background: rgba(255, 193, 7, 0.12);
+  color: #d4a017;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+:root[data-theme='dark'] .badgeHoliday {
+  background: rgba(255, 214, 0, 0.1);
+  color: #ffd600;
+  border-color: rgba(255, 214, 0, 0.18);
+}
+
+.badgeHolidaySkipped {
+  background: rgba(244, 67, 54, 0.08);
+  color: #d32f2f;
+  border: 1px solid rgba(244, 67, 54, 0.15);
+  text-decoration: line-through;
+}
+
+:root[data-theme='dark'] .badgeHolidaySkipped {
+  background: rgba(244, 67, 54, 0.1);
+  color: #ef5350;
+  border-color: rgba(244, 67, 54, 0.2);
+}
+
+.badgeGeneral {
+  background: var(--om-blue-dim);
+  color: var(--om-blue);
+}
+
+.badgeProduct {
+  background: var(--om-green-dim);
+  color: var(--om-green);
+}
+
+.badgeOnetime {
+  background: var(--om-orange-dim);
+  color: var(--om-orange);
+}
+
+.badgeHighlight {
+  background: var(--om-purple-dim);
+  color: var(--om-purple);
+}
+
+.badgeFeatured {
+  background: var(--om-orange-dim);
+  color: var(--om-orange);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--om-red);
+  animation: omPulse 1.8s infinite;
+}
+
+@keyframes omPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--om-orange-dim);
+  color: var(--om-orange);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.monoText {
+  font-family: var(--om-mono);
+}
+
+.linkChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--om-muted);
+  background: var(--om-surface-hover);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--om-border);
+  transition: all 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.linkChip:hover {
+  background: var(--om-surface-hover);
+  color: var(--om-fg);
+  border-color: var(--om-border-hover);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--om-radius-sm);
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btnPrimary {
+  background: var(--om-orange);
+  color: #0a0a0a;
+}
+
+.btnPrimary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(250, 160, 35, 0.25);
+  color: #0a0a0a;
+  text-decoration: none;
+}
+
+.btnSecondary {
+  background: var(--om-surface-hover);
+  color: var(--om-muted);
+  border: 1px solid var(--om-border);
+}
+
+.btnSecondary:hover {
+  background: var(--om-surface-hover);
+  border-color: var(--om-border-hover);
+  color: var(--om-fg);
+  text-decoration: none;
+}
+
+.btnCopied {
+  background: var(--om-green) !important;
+  border-color: var(--om-green) !important;
+  color: #fff !important;
+  animation: copiedPulse 0.35s ease-out;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+@keyframes copiedPulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+.btnHighlight {
+  background: linear-gradient(135deg, var(--om-purple), #8b5cf6);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.3);
+}
+
+.btnHighlight:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+  color: #fff;
+  text-decoration: none;
+}
+
+.btnGhost {
+  background: none;
+  color: var(--om-muted);
+  padding: 6px 8px;
+}
+
+.btnGhost:hover {
+  color: var(--om-fg);
+  background: var(--om-surface-hover);
+}
+
+/* ---------- Timezone Bar ---------- */
+.tzBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0;
+  font-size: 13px;
+  color: var(--om-dimmed);
+  flex-wrap: wrap;
+}
+
+.tzSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--om-surface-hover);
+  border: 1px solid var(--om-border);
+  color: var(--om-fg);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 32px 6px 12px;
+  border-radius: var(--om-radius-sm);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.tzSelect:hover {
+  border-color: var(--om-border-hover);
+}
+
+.tzSelect:focus {
+  outline: none;
+  border-color: var(--om-orange);
+  box-shadow: 0 0 0 2px rgba(250, 160, 35, 0.15);
+}
+
+.tzSelectWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tzSelectWrap::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--om-muted);
+  pointer-events: none;
+}
+
+.tzDst {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--om-orange-dim);
+  color: var(--om-orange);
+}
+
+.tzOffset {
+  color: var(--om-muted);
+  font-family: var(--om-mono);
+  font-size: 12px;
+}
+
+/* ---------- Highlight Hero ---------- */
+.highlightCard {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(124, 77, 255, 0.04), rgba(250, 160, 35, 0.03));
+  border: 1px solid rgba(124, 77, 255, 0.15);
+  border-radius: 16px;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-top: 14px;
+}
+
+:root[data-theme='dark'] .highlightCard {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.06), rgba(250, 160, 35, 0.04));
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+.highlightCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--om-purple), var(--om-orange), var(--om-purple));
+}
+
+.highlightCard .shareFloating {
+  top: 16px;
+  right: 12px;
+}
+
+.highlightCard::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(124, 77, 255, 0.06), transparent 70%);
+  pointer-events: none;
+}
+
+.highlightCard:hover {
+  border-color: rgba(124, 77, 255, 0.3);
+  box-shadow: 0 0 60px rgba(124, 77, 255, 0.06), 0 0 120px rgba(250, 160, 35, 0.03);
+}
+
+:root[data-theme='dark'] .highlightCard:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: 0 0 60px rgba(139, 92, 246, 0.08), 0 0 120px rgba(250, 160, 35, 0.04);
+}
+
+.hlPriority {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--om-purple);
+  margin-bottom: 8px;
+}
+
+.hlTitle {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  color: var(--om-fg);
+}
+
+.hlDesc {
+  font-size: 15px;
+  color: var(--om-muted);
+  line-height: 1.65;
+  max-width: 640px;
+  margin-bottom: 16px;
+}
+
+.hlMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--om-muted);
+  margin-bottom: 20px;
+}
+
+.hlMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hlMetaDate {
+  color: var(--om-purple);
+  font-weight: 600;
+}
+
+.hlLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.hlActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hlCountdown {
+  text-align: center;
+  padding: 20px;
+  min-width: 180px;
+  position: relative;
+  z-index: 1;
+}
+
+.countdownValue {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--om-purple), var(--om-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.countdownLabel {
+  font-size: 13px;
+  color: var(--om-muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.countdownDate {
+  font-size: 14px;
+  color: var(--om-purple);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* ---------- Featured Cards ---------- */
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.featuredGrid > :first-child {
+  grid-column: 1 / -1;
+}
+
+.featuredCard {
+  position: relative;
+  overflow: hidden;
+  background: var(--om-surface);
+  border: 1px solid rgba(230, 148, 30, 0.12);
+  border-radius: var(--om-radius);
+  padding: 24px;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+
+:root[data-theme='dark'] .featuredCard {
+  border-color: rgba(250, 160, 35, 0.15);
+}
+
+.featuredCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--om-orange), transparent);
+  opacity: 0.6;
+}
+
+.featuredCard:hover {
+  border-color: rgba(230, 148, 30, 0.25);
+  box-shadow: 0 0 40px rgba(230, 148, 30, 0.05);
+  background: var(--om-surface-hover);
+}
+
+:root[data-theme='dark'] .featuredCard:hover {
+  border-color: rgba(250, 160, 35, 0.3);
+  box-shadow: 0 0 40px rgba(250, 160, 35, 0.06);
+}
+
+.fcTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.fcPriority {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--om-orange);
+}
+
+.fcTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--om-fg);
+}
+
+.featuredGrid > :first-child .fcTitle {
+  font-size: 22px;
+}
+
+.fcSchedule {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--om-muted);
+  margin-bottom: 4px;
+}
+
+.fcNext {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--om-orange);
+  font-weight: 600;
+}
+
+.fcDesc {
+  font-size: 13px;
+  color: var(--om-muted);
+  margin: 12px 0;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fcContact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--om-muted);
+  padding: 10px 0;
+  border-top: 1px solid var(--om-border);
+}
+
+.fcContact strong {
+  color: var(--om-fg);
+  font-weight: 500;
+}
+
+.fcActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* ---------- Today Section ---------- */
+.todayToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  gap: 12px;
+}
+
+.todayDayToggle {
+  display: flex;
+  gap: 0;
+  background: var(--om-surface);
+  border: 1px solid var(--om-border);
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.todayDayBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--om-muted);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.todayDayBtnActive {
+  background: var(--om-orange-dim);
+  color: var(--om-orange);
+  font-weight: 600;
+}
+
+.todayDayBtn:hover:not(.todayDayBtnActive) {
+  color: var(--om-fg);
+}
+
+.todayDayCount {
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--om-surface-hover);
+  color: var(--om-muted);
+  padding: 1px 6px;
+  border-radius: 8px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.todayDayBtnActive .todayDayCount {
+  background: rgba(230, 148, 30, 0.15);
+  color: var(--om-orange);
+}
+
+.todayScrollNav {
+  display: flex;
+  gap: 4px;
+}
+
+.todayScrollBtn {
+  padding: 4px !important;
+  border-radius: 8px !important;
+}
+
+.todayScrollBtn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.todayCarousel {
+  display: flex;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.todayCarousel::-webkit-scrollbar {
+  display: none;
+}
+
+.todayCarousel > .todayCard {
+  min-width: 300px;
+  max-width: 360px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+/* Wrapper: side-by-side on desktop, stacked on mobile */
+.todayCarouselWrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+/* Ended meetings toggle — vertical pill on left (desktop) */
+.endedToggleBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 6px;
+  border-radius: var(--om-radius);
+  border: 1px solid var(--om-border);
+  background: var(--om-surface-hover);
+  color: var(--om-muted);
+  font-size: 11px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  min-width: 32px;
+  flex-shrink: 0;
+}
+
+.endedToggleLabel {
+  display: none;
+}
+
+.endedArrowDesktop {
+  display: inline-flex;
+}
+
+.endedArrowMobile {
+  display: none;
+}
+
+.endedToggleBtn:hover {
+  background: var(--om-surface);
+  color: var(--om-fg);
+}
+
+/* Hide ended cards when toggled off */
+.todayCarouselHideEnded > .todayCardEnded {
+  display: none;
+}
+
+.todayEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px 0;
+  color: var(--om-dimmed);
+  font-size: 14px;
+}
+
+.todayGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.todayAllEnded {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px;
+  flex: 1;
+  min-width: 0;
+  background: var(--om-surface);
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius);
+  color: var(--om-muted);
+}
+
+.todayAllEndedText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.todayAllEndedText strong {
+  font-size: 15px;
+  color: var(--om-fg);
+}
+
+.todayAllEndedText span {
+  font-size: 13px;
+  color: var(--om-dimmed);
+}
+
+.todayCard {
+  display: flex;
+  flex-direction: column;
+  background: var(--om-surface);
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.todayCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--om-orange), transparent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.todayCard:hover {
+  border-color: rgba(230, 148, 30, 0.2);
+  box-shadow: 0 0 30px rgba(230, 148, 30, 0.05);
+}
+
+:root[data-theme='dark'] .todayCard:hover {
+  border-color: rgba(250, 160, 35, 0.25);
+  box-shadow: 0 0 30px rgba(250, 160, 35, 0.06);
+}
+
+.todayCard:hover::before {
+  opacity: 1;
+}
+
+.todayCardLive {
+  border-color: rgba(231, 76, 60, 0.25);
+}
+
+:root[data-theme='dark'] .todayCardLive {
+  border-color: rgba(255, 107, 91, 0.35);
+}
+
+.todayCardLive::before {
+  background: linear-gradient(90deg, transparent, var(--om-red), transparent);
+  opacity: 1;
+}
+
+.todayCardEnded {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.cardTime {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--om-muted);
+  font-family: var(--om-mono);
+}
+
+.cardFreq {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--om-dimmed);
+  margin-top: 3px;
+  min-width: 0;
+}
+
+.cardFreqItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cardFreqDot {
+  margin: 0 2px;
+  flex-shrink: 0;
+}
+
+.cardFreqContact {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.todayCardTitle {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.3;
+  min-height: calc(2 * 15px * 1.3);
+  margin-bottom: 4px;
+  color: var(--om-fg);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Card icon hero — big centered icon at top */
+.cardIconHero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -20px -20px 12px -20px;
+  padding: 20px 20px 16px;
+  background: linear-gradient(135deg, rgba(230, 148, 30, 0.04), rgba(230, 148, 30, 0.01));
+  border-bottom: 1px solid var(--om-border);
+  color: var(--om-orange);
+}
+
+.meetingCard > .cardIconHero {
+  margin: -24px -24px 12px -24px;
+  padding: 24px 24px 16px;
+}
+
+.cardIconHero img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+/* iOS-style share button — top right */
+.shareFloating {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: var(--om-surface-hover);
+  color: var(--om-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+  padding: 0;
+}
+
+.shareFloating:hover {
+  background: var(--om-surface);
+  color: var(--om-fg);
+  transform: scale(1.1);
+}
+
+.shareFloatingCopied {
+  composes: shareFloating;
+  background: rgba(76, 175, 80, 0.15);
+  color: #4caf50;
+}
+
+.cardActions {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- Search Bar ---------- */
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 8px 14px;
+  border: 1px solid var(--om-border);
+  border-radius: 10px;
+  background: var(--om-surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.searchBar:focus-within {
+  border-color: var(--om-orange);
+  box-shadow: 0 0 0 3px var(--om-orange-dim);
+}
+
+.searchIcon {
+  color: var(--om-muted);
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--om-fg);
+  outline: none;
+  padding: 4px 0;
+  min-width: 0;
+}
+
+.searchInput::placeholder {
+  color: var(--om-muted);
+}
+
+.searchClear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border: none;
+  background: var(--om-surface-hover);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--om-muted);
+  transition: color 0.15s, background 0.15s;
+}
+
+.searchClear:hover {
+  color: var(--om-fg);
+  background: var(--om-border);
+}
+
+/* ---------- View Toggle ---------- */
+.viewToggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 0 0;
+  border-bottom: 1px solid var(--om-border);
+}
+
+.tabBar {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.tabBar::-webkit-scrollbar {
+  display: none;
+}
+
+.viewTab {
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--om-muted);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.viewTabActive {
+  color: var(--om-fg);
+  border-bottom-color: var(--om-orange);
+}
+
+.viewTab:hover:not(.viewTabActive) {
+  color: var(--om-fg);
+}
+
+.tabCount {
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--om-surface-hover);
+  color: var(--om-muted);
+  padding: 1px 6px;
+  border-radius: 8px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.viewTabActive .tabCount {
+  background: var(--om-orange-dim);
+  color: var(--om-orange);
+}
+
+.filterChip {
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--om-border);
+  background: none;
+  color: var(--om-muted);
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.filterChipActive {
+  background: var(--om-surface-hover);
+  color: var(--om-fg);
+  border-color: var(--om-border-hover);
+}
+
+.filterChip:hover:not(.filterChipActive) {
+  border-color: var(--om-border-hover);
+  color: var(--om-fg);
+}
+
+/* ---------- Agenda View ---------- */
+.dayHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--om-dimmed);
+}
+
+.dayHeaderToday {
+  color: var(--om-orange);
+}
+
+.meetingRow {
+  display: grid;
+  grid-template-columns: 85px 1fr auto auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--om-surface);
+  font-size: 14px;
+  transition: background 0.12s;
+  border-radius: var(--om-radius-sm);
+  cursor: pointer;
+}
+
+.meetingRow:hover {
+  background: var(--om-surface-hover);
+}
+
+.rowTime {
+  font-family: var(--om-mono);
+  font-size: 13px;
+  color: var(--om-dimmed);
+}
+
+.rowMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--om-dimmed);
+  margin-top: 2px;
+}
+
+.rowActions {
+  display: flex;
+  gap: 6px;
+}
+
+.rowTitle {
+  font-weight: 600;
+  color: var(--om-fg);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  word-break: break-word;
+}
+
+.calNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.calNavLabel {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--om-fg);
+}
+
+.priorityStar {
+  color: var(--om-orange);
+  font-size: 15px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.priorityDiamond {
+  color: var(--om-purple);
+  font-size: 15px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* ---------- Card Grid ---------- */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 20px 0;
+}
+
+.meetingCard {
+  background: var(--om-surface);
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.meetingCard:hover {
+  border-color: var(--om-border-hover);
+  background: var(--om-surface-hover);
+}
+
+.meetingCardTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+  min-height: calc(2 * 16px * 1.3);
+  margin-bottom: 4px;
+  color: var(--om-fg);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meetingCardBody {
+  flex: 1;
+}
+
+.cardFeatured {
+  grid-column: span 2;
+  border-color: rgba(230, 148, 30, 0.12);
+  background: linear-gradient(135deg, rgba(230, 148, 30, 0.02), var(--om-surface));
+  position: relative;
+}
+
+:root[data-theme='dark'] .cardFeatured {
+  border-color: rgba(250, 160, 35, 0.15);
+  background: linear-gradient(135deg, rgba(250, 160, 35, 0.03), var(--om-surface));
+}
+
+.cardFeatured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--om-orange), transparent);
+  opacity: 0.5;
+}
+
+.cardFeatured:hover {
+  border-color: rgba(230, 148, 30, 0.25);
+  box-shadow: 0 0 40px rgba(230, 148, 30, 0.05);
+}
+
+:root[data-theme='dark'] .cardFeatured:hover {
+  border-color: rgba(250, 160, 35, 0.3);
+  box-shadow: 0 0 40px rgba(250, 160, 35, 0.06);
+}
+
+.cardHighlight {
+  grid-column: 1 / -1;
+  border-color: rgba(124, 77, 255, 0.15);
+  background: linear-gradient(135deg, rgba(124, 77, 255, 0.03), rgba(230, 148, 30, 0.02));
+  padding: 32px;
+  position: relative;
+}
+
+.cardHighlight .meetingCardTitle {
+  font-size: 22px;
+  min-height: auto;
+}
+
+:root[data-theme='dark'] .cardHighlight {
+  border-color: rgba(139, 92, 246, 0.2);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.04), rgba(250, 160, 35, 0.02));
+}
+
+.cardHighlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--om-purple), var(--om-orange), var(--om-purple));
+}
+
+.cardHighlight:hover {
+  border-color: rgba(124, 77, 255, 0.3);
+  box-shadow: 0 0 60px rgba(124, 77, 255, 0.06);
+}
+
+:root[data-theme='dark'] .cardHighlight:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: 0 0 60px rgba(139, 92, 246, 0.08);
+}
+
+.cardDesc {
+  font-size: 13px;
+  color: var(--om-muted);
+  margin: 14px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.6;
+}
+
+.holidayAlert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #b8860b;
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.25);
+  border-radius: var(--om-radius-sm);
+  padding: 8px 10px;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+:root[data-theme='dark'] .holidayAlert {
+  color: #ffd600;
+  background: rgba(255, 214, 0, 0.08);
+  border-color: rgba(255, 214, 0, 0.2);
+}
+
+.holidayAlertSkipped {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #d32f2f;
+  background: rgba(244, 67, 54, 0.06);
+  border: 1px solid rgba(244, 67, 54, 0.18);
+  border-radius: var(--om-radius-sm);
+  padding: 8px 10px;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+:root[data-theme='dark'] .holidayAlertSkipped {
+  color: #ef5350;
+  background: rgba(244, 67, 54, 0.08);
+  border-color: rgba(244, 67, 54, 0.2);
+}
+
+.cardContact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--om-muted);
+  padding: 12px 0;
+  border-top: 1px solid var(--om-border);
+  margin-top: auto;
+}
+
+.cardNext {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--om-orange);
+  font-weight: 500;
+}
+
+.cardSchedule {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--om-muted);
+  flex-wrap: wrap;
+}
+
+.cardLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+/* ---------- Calendar View ---------- */
+.calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+
+.calDayName {
+  text-align: center;
+  padding: 10px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--om-dimmed);
+}
+
+.calCell {
+  min-height: 100px;
+  padding: 8px;
+  border: 1px solid var(--om-surface);
+  background: var(--om-surface);
+  transition: background 0.1s;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.calCell:hover {
+  background: var(--om-surface-hover);
+}
+
+.calCellToday {
+  border-color: rgba(230, 148, 30, 0.25);
+  background: rgba(230, 148, 30, 0.03);
+}
+
+:root[data-theme='dark'] .calCellToday {
+  border-color: rgba(250, 160, 35, 0.3);
+  background: rgba(250, 160, 35, 0.04);
+}
+
+.calCellOther {
+  opacity: 0.25;
+}
+
+.cellDate {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--om-muted);
+  margin-bottom: 6px;
+}
+
+.calCellToday .cellDate {
+  color: var(--om-orange);
+}
+
+.calEvent {
+  padding: 2px 6px;
+  margin-bottom: 2px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calEventGeneral {
+  background: var(--om-blue-dim);
+  color: var(--om-blue);
+}
+
+.calEventProduct {
+  background: var(--om-green-dim);
+  color: var(--om-green);
+}
+
+.calEventHighlight {
+  background: var(--om-purple-dim);
+  color: var(--om-purple);
+  font-weight: 700;
+}
+
+.calEventOnetime {
+  background: var(--om-orange-dim);
+  color: var(--om-orange);
+}
+
+.calEventHoliday {
+  background: rgba(255, 193, 7, 0.15);
+  color: #b8860b;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+:root[data-theme='dark'] .calEventHoliday {
+  background: rgba(255, 214, 0, 0.1);
+  color: #ffd600;
+}
+
+.calEventMore {
+  font-size: 10px;
+  color: var(--om-dimmed);
+  padding-left: 6px;
+}
+
+/* Selected cell */
+.calCellSelected {
+  border-color: var(--om-orange) !important;
+  background: rgba(230, 148, 30, 0.06);
+  box-shadow: inset 0 0 0 1px var(--om-orange);
+}
+
+/* Mobile dots — hidden on desktop, shown on mobile */
+.calDots {
+  display: none;
+  align-items: center;
+  gap: 3px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.calDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dotGeneral { background: var(--om-blue); }
+.dotProduct { background: var(--om-green); }
+.dotHighlight { background: var(--om-purple); }
+.dotOnetime { background: var(--om-orange); }
+
+.calDotMore {
+  font-size: 9px;
+  color: var(--om-dimmed);
+  line-height: 1;
+}
+
+/* Day panel — meeting list below calendar on tap */
+.calDayPanel {
+  margin-top: 16px;
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius);
+  overflow: hidden;
+  background: var(--om-surface);
+}
+
+.calDayPanelHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--om-fg);
+  border-bottom: 1px solid var(--om-border);
+  background: var(--om-surface-hover);
+}
+
+.calDayPanelCount {
+  background: var(--om-orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+
+.calDayPanelItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--om-border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.calDayPanelItem:last-child {
+  border-bottom: none;
+}
+
+.calDayPanelItem:hover {
+  background: var(--om-surface-hover);
+}
+
+.calDayPanelTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--om-fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calDayPanelMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--om-muted);
+  margin-top: 2px;
+}
+
+.calDayPanelArrow {
+  color: var(--om-dimmed);
+  flex-shrink: 0;
+}
+
+/* ---------- Contact Section ---------- */
+.contactSection {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--om-border);
+}
+
+.contactTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--om-fg);
+  margin-bottom: 16px;
+}
+
+.contactLinks {
+  display: flex;
+  gap: 16px;
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  padding: 16px 20px;
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius);
+  background: var(--om-surface);
+  color: var(--om-fg);
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.contactCard:hover {
+  background: var(--om-surface-hover);
+  border-color: var(--om-orange);
+  text-decoration: none;
+  color: var(--om-fg);
+}
+
+.contactCardLabel {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contactCardDesc {
+  font-size: 12px;
+  color: var(--om-muted);
+  margin-top: 2px;
+}
+
+.contactCardArrow {
+  margin-left: auto;
+  color: var(--om-dimmed);
+  flex-shrink: 0;
+}
+
+/* ---------- Drawer ---------- */
+.drawerOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+}
+
+:root[data-theme='dark'] .drawerOverlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.drawerOverlayOpen {
+  display: block;
+}
+
+.drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 440px;
+  max-width: 92vw;
+  background: var(--om-bg);
+  border-left: 1px solid var(--om-border);
+  z-index: 201;
+  padding: 28px;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+}
+
+:root[data-theme='dark'] .drawer {
+  background: #111;
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+.drawerDesc {
+  font-size: 14px;
+  color: var(--om-muted);
+  line-height: 1.65;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.drawerDescExpanded {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.drawerShowMore {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--om-orange);
+  cursor: pointer;
+}
+
+.drawerShowMore:hover {
+  text-decoration: underline;
+}
+
+.drawerSection {
+  margin-top: 24px;
+}
+
+.drawerSectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--om-dimmed);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.scheduleInfo {
+  background: var(--om-surface-hover);
+  border-radius: var(--om-radius-sm);
+  padding: 14px;
+  border: 1px solid var(--om-border);
+}
+
+.scheduleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--om-muted);
+  margin-bottom: 6px;
+}
+
+.scheduleRow:last-child {
+  margin-bottom: 0;
+}
+
+.scheduleRowNext {
+  color: var(--om-orange);
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: var(--om-surface-hover);
+  border-radius: var(--om-radius-sm);
+  border: 1px solid var(--om-border);
+}
+
+.drawerContactCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  background: var(--om-surface-hover);
+  border-radius: var(--om-radius-sm);
+  border: 1px solid var(--om-border);
+}
+
+.avatarImg {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.contactSocials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--om-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.socialLink:hover {
+  color: var(--om-fg);
+  text-decoration: none;
+}
+
+.contactAvatars {
+  display: inline-flex;
+  align-items: center;
+}
+
+.contactAvatars > *:not(:first-child) {
+  margin-left: -6px;
+}
+
+.miniAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--om-surface);
+  vertical-align: middle;
+}
+
+.miniAvatarText {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--om-orange-dim);
+  color: var(--om-orange);
+  border: 2px solid var(--om-surface);
+  vertical-align: middle;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--om-surface);
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius-sm);
+  font-size: 13px;
+  color: var(--om-muted);
+  transition: all 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.drawerLink:hover {
+  background: var(--om-surface-hover);
+  color: var(--om-fg);
+  border-color: var(--om-border-hover);
+  text-decoration: none;
+}
+
+.drawerActions {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--om-border);
+}
+
+.drawerPriority {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.drawerPriorityHighlight {
+  background: var(--om-purple-dim);
+  color: var(--om-purple);
+}
+
+.drawerPriorityFeatured {
+  background: var(--om-orange-dim);
+  color: var(--om-orange);
+}
+
+/* ---------- Priority Legend ---------- */
+.priorityLegend {
+  display: flex;
+  gap: 20px;
+  padding: 8px 0 0;
+  font-size: 12px;
+  color: var(--om-dimmed);
+  flex-wrap: wrap;
+}
+
+.priorityLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ---------- Calendar Configurator Modal ---------- */
+.ccOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+:root[data-theme='dark'] .ccOverlay {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.ccOverlayOpen {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.ccWrap {
+  position: fixed;
+  inset: 0;
+  z-index: 301;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ccModal {
+  background: var(--om-bg);
+  border: 1px solid var(--om-border);
+  border-radius: 16px;
+  width: 520px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.15);
+  pointer-events: all;
+  animation: ccSlideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+:root[data-theme='dark'] .ccModal {
+  background: #111;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes ccSlideIn {
+  from { transform: translateY(24px) scale(0.97); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.ccHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+}
+
+.ccHeaderTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--om-fg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.ccAccentIcon {
+  color: var(--om-orange);
+}
+
+.ccSubtitle {
+  font-size: 13px;
+  color: var(--om-muted);
+  padding: 6px 24px 0;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ccBody {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ccField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ccFieldLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--om-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ccFieldLabel .ccAccentIcon {
+  color: var(--om-orange);
+}
+
+/* Meeting selector */
+.ccMeetingSelector {
+  position: relative;
+}
+
+.ccMeetingSelected {
+  background: var(--om-surface-hover);
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.ccMeetingSelected:hover {
+  border-color: var(--om-border-hover);
+}
+
+.ccMeetingSelectedActive {
+  border-color: var(--om-orange);
+}
+
+.ccMeetingIconBox {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ccMeetingIconBoxSm {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.ccCat_general { background: var(--om-blue-dim); color: var(--om-blue); }
+.ccCat_product { background: var(--om-green-dim); color: var(--om-green); }
+.ccCat_one-time { background: var(--om-orange-dim); color: var(--om-orange); }
+
+.ccMeetingInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.ccMeetingName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--om-fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ccMeetingNameSm {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--om-fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ccMeetingMeta {
+  font-size: 12px;
+  color: var(--om-muted);
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ccMeetingMetaSm {
+  font-size: 11px;
+  color: var(--om-muted);
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ccMetaDot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--om-muted);
+}
+
+.ccChevron {
+  color: var(--om-muted);
+  transition: transform 0.2s;
+}
+
+.ccChevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.ccDropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--om-bg);
+  border: 1px solid var(--om-orange);
+  border-radius: var(--om-radius-sm);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+:root[data-theme='dark'] .ccDropdown {
+  background: #1b1e23;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.ccDropdownItem {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid var(--om-border);
+}
+
+.ccDropdownItem:last-child {
+  border-bottom: none;
+}
+
+.ccDropdownItem:hover {
+  background: var(--om-orange-dim);
+}
+
+.ccDropdownItemSelected {
+  background: var(--om-orange-dim);
+}
+
+/* Timezone select for configurator */
+.ccTzSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--om-surface-hover);
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius-sm);
+  padding: 10px 38px 10px 14px;
+  font-size: 14px;
+  color: var(--om-fg);
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.ccTzSelect:hover {
+  border-color: var(--om-border-hover);
+}
+
+.ccTzSelect:focus {
+  outline: none;
+  border-color: var(--om-orange);
+  box-shadow: 0 0 0 2px rgba(250, 160, 35, 0.15);
+}
+
+/* Time preview */
+.ccTimePreview {
+  background: var(--om-orange-dim);
+  border: 1px solid rgba(230, 148, 30, 0.12);
+  border-radius: var(--om-radius-sm);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ccTimePreviewIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(230, 148, 30, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--om-orange);
+}
+
+.ccTimePreviewText {
+  flex: 1;
+}
+
+.ccTimePreviewLabel {
+  font-size: 11px;
+  color: var(--om-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.ccTimePreviewValue {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--om-fg);
+  margin-top: 2px;
+}
+
+.ccDstBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(230, 148, 30, 0.1);
+  color: var(--om-orange);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+/* Recurring toggle */
+.ccToggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--om-surface-hover);
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius-sm);
+  padding: 12px 14px;
+}
+
+.ccToggleRowLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ccToggleLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--om-fg);
+}
+
+.ccToggleDesc {
+  font-size: 12px;
+  color: var(--om-muted);
+  margin-top: 1px;
+}
+
+.ccToggleSwitch {
+  width: 44px;
+  height: 24px;
+  background: var(--om-surface);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.25s;
+  flex-shrink: 0;
+  border: 1px solid var(--om-border);
+}
+
+.ccToggleSwitchActive {
+  background: var(--om-orange);
+  border-color: var(--om-orange);
+}
+
+.ccToggleKnob {
+  width: 18px;
+  height: 18px;
+  background: var(--om-fg);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.ccToggleSwitchActive .ccToggleKnob {
+  left: 22px;
+}
+
+.ccRecurringDetail {
+  background: var(--om-surface-hover);
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s, opacity 0.2s, padding 0.3s;
+  padding: 0 14px;
+  font-size: 13px;
+  color: var(--om-muted);
+  line-height: 1.5;
+}
+
+.ccRecurringDetailShow {
+  max-height: 80px;
+  opacity: 1;
+  padding: 12px 14px;
+}
+
+.ccRecurringDetail strong {
+  color: var(--om-fg);
+  font-weight: 600;
+}
+
+/* Meeting link preview */
+.ccLinkPreview {
+  background: var(--om-surface-hover);
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ccLinkIconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ccLinkTeams {
+  background: rgba(98, 100, 255, 0.12);
+  color: #6264ff;
+}
+
+.ccLinkZoom {
+  background: rgba(45, 140, 255, 0.12);
+  color: #2d8cff;
+}
+
+.ccLinkInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.ccLinkPlatform {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--om-fg);
+}
+
+.ccLinkUrl {
+  font-size: 11px;
+  color: var(--om-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 1px;
+}
+
+.ccLinkCheck {
+  color: var(--om-green);
+}
+
+/* Calendar add-to options */
+.ccCalendarOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ccCalendarBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--om-surface-hover);
+  border: 1px solid var(--om-border);
+  border-radius: var(--om-radius-sm);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.15s;
+  font-family: inherit;
+  text-align: left;
+  color: var(--om-fg);
+}
+
+.ccCalendarBtn:hover {
+  border-color: var(--om-orange);
+  background: var(--om-orange-dim);
+}
+
+.ccCalendarBtnIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ccCalendarBtnText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.ccCalendarBtnText strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--om-fg);
+}
+
+.ccCalendarBtnText span {
+  font-size: 11px;
+  color: var(--om-muted);
+}
+
+.ccCalendarBtnArrow {
+  color: var(--om-muted);
+  flex-shrink: 0;
+}
+
+/* Platform badge (used in cards & rows) */
+.platformBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.platformTeams {
+  background: rgba(98, 100, 255, 0.10);
+  color: #6264ff;
+}
+
+.platformZoom {
+  background: rgba(45, 140, 255, 0.10);
+  color: #2d8cff;
+}
+
+.platformOnsite {
+  background: rgba(76, 175, 80, 0.10);
+  color: #4caf50;
+}
+
+.platformExternal {
+  background: rgba(var(--om-muted-rgb, 128, 128, 128), 0.10);
+  color: var(--om-muted);
+}
+
+/* Divider & footer */
+.ccDivider {
+  height: 1px;
+  background: var(--om-border);
+}
+
+.ccFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ccFooterHint {
+  font-size: 11px;
+  color: var(--om-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+/* ---------- Responsive: Tablet landscape (≤ 1024px) ---------- */
+@media (max-width: 1024px) {
+  /* Drawer — full-screen on tablets & phones */
+  .drawer {
+    width: 100%;
+    max-width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    border-left: none;
+    max-height: 100vh;
+    max-height: 100dvh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .drawerContent {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .drawerActions {
+    flex-shrink: 0;
+    position: sticky;
+    bottom: 0;
+    background: var(--om-bg);
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+    margin-top: auto;
+  }
+
+  :root[data-theme='dark'] .drawerActions {
+    background: #111;
+  }
+
+  /* Today carousel — vertical stack on mobile/tablet */
+  .todayCarousel {
+    flex-direction: column;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  .todayCarousel > .todayCard {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Hide scroll arrows — not needed in vertical mode */
+  .todayScrollNav {
+    display: none;
+  }
+
+  /* Wrapper stacks vertically on mobile */
+  .todayCarouselWrapper {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Toggle button full-width horizontal on mobile */
+  .endedToggleBtn {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: var(--om-radius-sm);
+    border: 1px solid var(--om-border);
+    margin-bottom: 8px;
+    min-width: auto;
+  }
+
+  .endedToggleLabel {
+    display: inline;
+  }
+
+  .endedArrowDesktop {
+    display: none;
+  }
+
+  .endedArrowMobile {
+    display: inline-flex;
+  }
+}
+
+/* ---------- Responsive: Tablet (≤ 768px) ---------- */
+@media (max-width: 768px) {
+  /* Page header */
+  .pageHeader {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0 20px;
+  }
+
+  .pageTitle {
+    font-size: 22px;
+  }
+
+  .pageHeaderTz {
+    width: 100%;
+  }
+
+  .tzBar {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tzSelect {
+    font-size: 12px;
+    padding: 6px 28px 6px 10px;
+  }
+
+  /* Highlight hero */
+  .highlightCard {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .hlTitle {
+    font-size: 22px;
+  }
+
+  .hlDesc {
+    font-size: 14px;
+  }
+
+  .hlMeta {
+    gap: 10px;
+    font-size: 12px;
+  }
+
+  .hlCountdown {
+    text-align: left;
+    padding: 16px 0 0;
+    min-width: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .countdownValue {
+    font-size: 36px;
+  }
+
+  .hlActions {
+    flex-direction: column;
+  }
+
+  .hlActions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Featured grid */
+  .featuredGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredCard {
+    padding: 18px;
+  }
+
+  .fcTitle {
+    font-size: 16px;
+  }
+
+  .featuredGrid > :first-child .fcTitle {
+    font-size: 18px;
+  }
+
+  .fcSchedule,
+  .fcNext {
+    flex-wrap: wrap;
+  }
+
+  .fcActions {
+    flex-direction: column;
+  }
+
+  .fcActions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Today section */
+  .todayToolbar {
+    flex-wrap: wrap;
+  }
+
+  .todayDayToggle {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .todayDayToggle::-webkit-scrollbar {
+    display: none;
+  }
+
+  .todayDayBtn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .todayGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .todayCardTitle {
+    font-size: 14px;
+    min-height: auto;
+  }
+
+  .todayCard {
+    padding: 16px;
+  }
+
+  .cardTime {
+    font-size: 12px;
+  }
+
+  .cardFreq {
+    font-size: 11px;
+    flex-wrap: wrap;
+  }
+
+  .cardActions {
+    flex-direction: column;
+  }
+
+  .cardActions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Agenda view */
+  .meetingRow {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 12px;
+    border: 1px solid var(--om-border);
+    border-radius: var(--om-radius-sm);
+    margin-bottom: 8px;
+  }
+
+  .rowTime {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--om-orange);
+  }
+
+  .rowMeta {
+    flex-wrap: wrap;
+  }
+
+  .rowActions {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* Card grid */
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardFeatured,
+  .cardHighlight {
+    grid-column: span 1;
+    padding: 20px;
+  }
+
+  .cardHighlight .meetingCardTitle {
+    font-size: 18px;
+  }
+
+  .meetingCardTitle {
+    min-height: auto;
+  }
+
+  .meetingCard {
+    padding: 18px;
+  }
+
+  /* Calendar */
+  .calCell {
+    min-height: 60px;
+    padding: 4px;
+    cursor: pointer;
+  }
+
+  .calEvent {
+    display: none;
+  }
+
+  .calEventMore {
+    display: none;
+  }
+
+  .calDots {
+    display: flex;
+  }
+
+  .calDayName {
+    font-size: 10px;
+    padding: 6px 2px;
+  }
+
+  .cellDate {
+    font-size: 11px;
+  }
+
+  .calDayPanelTitle {
+    white-space: normal;
+  }
+
+  /* Drawer — full-screen on phones & tablets */
+  .drawer {
+    width: 100%;
+    max-width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    border-left: none;
+    max-height: 100vh;
+    max-height: 100dvh;
+    height: 100%;
+    padding: 20px;
+  }
+
+  /* View toggle */
+  .viewToggle {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabBar {
+    min-width: max-content;
+  }
+
+  .viewTab {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* Configurator modal */
+  .ccModal {
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    max-height: 85vh;
+  }
+
+  .ccWrap {
+    align-items: flex-end;
+  }
+
+  .ccFooter {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ccBody {
+    padding: 16px 20px 20px;
+    gap: 16px;
+  }
+
+  .ccHeader {
+    padding: 16px 20px 0;
+  }
+
+  .ccSubtitle {
+    padding: 6px 20px 0;
+  }
+
+  /* Search */
+  .searchBar {
+    margin-top: 16px;
+    padding: 8px 12px;
+  }
+
+  .searchInput {
+    font-size: 13px;
+  }
+
+  /* Priority legend */
+  .priorityLegend {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Section labels */
+  .sectionLabel {
+    padding: 20px 0 12px;
+  }
+
+  .sectionDesc {
+    font-size: 12px;
+  }
+
+  .contactLinks {
+    flex-direction: column;
+  }
+
+  .contactSection {
+    margin-top: 32px;
+    padding-top: 24px;
+  }
+}
+
+/* ---------- Responsive: Small phones (≤ 480px) ---------- */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 4px;
+  }
+
+  .pageTitle {
+    font-size: 20px;
+    gap: 8px;
+  }
+
+  .pageSubtitle {
+    font-size: 13px;
+  }
+
+  .highlightCard {
+    padding: 16px;
+  }
+
+  .hlTitle {
+    font-size: 20px;
+  }
+
+  .hlMeta {
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .countdownValue {
+    font-size: 28px;
+  }
+
+  .todayCard {
+    padding: 14px;
+  }
+
+  .featuredCard {
+    padding: 14px;
+  }
+
+  .fcDesc {
+    -webkit-line-clamp: 3;
+  }
+
+  .meetingCard {
+    padding: 14px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+  .tzSelect {
+    font-size: 11px;
+    padding: 5px 24px 5px 8px;
+    max-width: 100%;
+  }
+
+  .calDayName {
+    font-size: 9px;
+    padding: 4px 1px;
+  }
+
+  .calCell {
+    min-height: 44px;
+    padding: 2px;
+    cursor: pointer;
+  }
+
+  .cellDate {
+    font-size: 10px;
+  }
+
+  .calDot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .calDayPanelHeader {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .calDayPanelItem {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .drawer {
+    padding: 16px;
+  }
+
+  .ccBody {
+    padding: 12px 16px 16px;
+  }
+
+  .ccHeader {
+    padding: 12px 16px 0;
+  }
+
+  .ccSubtitle {
+    padding: 4px 16px 0;
+    font-size: 12px;
+  }
+
+  .ccHeaderTitle {
+    font-size: 16px;
+  }
+
+  .ccMeetingSelected {
+    padding: 10px 12px;
+  }
+
+  .ccTimePreview {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .ccTimePreviewIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .badge {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+
+  .cardDesc {
+    font-size: 12px;
+    -webkit-line-clamp: 2;
+  }
+
+  .meetingCardTitle {
+    font-size: 15px;
+  }
+
+  .linkChip {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+}
+
+/* ---------- Touch device: disable hover transforms ---------- */
+@media (hover: none) {
+  .highlightCard:hover {
+    box-shadow: none;
+  }
+
+  .todayCard:hover {
+    border-color: var(--om-border);
+    box-shadow: none;
+  }
+
+  .todayCard:hover::before {
+    opacity: 0;
+  }
+
+  .meetingCard:hover {
+    border-color: var(--om-border);
+    background: var(--om-surface);
+  }
+
+  .featuredCard:hover {
+    border-color: rgba(230, 148, 30, 0.12);
+    box-shadow: none;
+    background: var(--om-surface);
+  }
+
+  .meetingRow:hover {
+    background: transparent;
+  }
+
+  .btnPrimary:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btnHighlight:hover {
+    transform: none;
+  }
+}
