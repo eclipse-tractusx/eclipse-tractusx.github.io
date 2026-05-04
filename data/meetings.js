@@ -315,7 +315,7 @@ export const meetings = [
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'Onboarding and deployment status for 26.06 on INT environment, Defect/Blocker updates, Test status of all participating products',
     contact: CONTACTS.MONIKA_JACOBSEN,
-    sessionLink: 'https://teams.microsoft.com/meet/32721275399133?p=QX4KGYYY9B9WFJm4dS',
+    sessionLink: 'https://teams.microsoft.com/meet/343522134230388?p=tDiHDy4NYj9wUY908t',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
     additionalLinks: [],
     recurrence: {
@@ -324,8 +324,8 @@ export const meetings = [
       daysOfWeek: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
       startTime: '08:30',
       endTime: '09:00',
-      validFrom: 'YYYY-MM-DD', // TODO: fill in actual kick-off date
-      validUntil: 'YYYY-MM-DD', // TODO: fill in last day of test phase
+      validFrom: '2026-05-19',
+      validUntil: '2026-06-05',
     },
   },
   {
@@ -336,12 +336,12 @@ export const meetings = [
     description: 'The goal of the meeting is to prepare for the test phase and clarify the process of the release test phase. We also want to review the Release Check Issues and discuss the deployment process.',
     contact: CONTACTS.MONIKA_JACOBSEN,
     contact: CONTACTS.MONIKA_JACOBSEN,
-    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDNhZWUyMmYtNDkxNS00MWZkLThlOWQtYjgwYTY3N2NlNTZh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22e461a1fa-5342-44e3-b2e8-32b399a9e867%22%7d',
+    sessionLink: 'https://teams.microsoft.com/meet/341698125994736?p=qJo0E8nAZq6BdyTo7N',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
     additionalLinks: [],
     recurrence: {
       frequency: 'once',
-      startDate: 'YYYY-MM-DD', // TODO: fill in actual briefing date
+      startDate: '2026-05-04',
       startTime: '08:30',
       endTime: '09:30',
     },
@@ -354,12 +354,12 @@ export const meetings = [
     description: 'The purpose of this session is to provide you with the latest updates on the test phase and the deployment status. Additionally, this will be an opportunity for you to ask any questions regarding the upcoming test phase.',
     contact: CONTACTS.MONIKA_JACOBSEN,
     contact: CONTACTS.MONIKA_JACOBSEN,
-    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_Njg3ZTZjZWEtNjQ0Ni00NGNiLWJkNGQtZWI0ZTNkNzY5YzJh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22e461a1fa-5342-44e3-b2e8-32b399a9e867%22%7d',
+    sessionLink: 'https://teams.microsoft.com/meet/363850435614611?p=DsSrIvonUzetTYn4yc',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
     additionalLinks: [],
     recurrence: {
       frequency: 'once',
-      startDate: 'YYYY-MM-DD', // TODO: fill in actual kick-off date
+      startDate: '2026-05-18',
       startTime: '08:30',
       endTime: '09:00',
     },
@@ -381,7 +381,7 @@ export const meetings = [
     ],
     recurrence: {
       frequency: 'once',
-      startDate: 'YYYY-MM-DD', // TODO: fill in actual Alignment Day date
+      startDate: '2026-05-13', 
       startTime: '09:05',
       endTime: '10:00',
     },
@@ -403,7 +403,7 @@ export const meetings = [
     ],
     recurrence: {
       frequency: 'once',
-      startDate: 'YYYY-MM-DD', // TODO: fill in actual Open Planning date
+      startDate: '2026-05-28', 
       startTime: '09:05',
       endTime: '10:15',
     },
