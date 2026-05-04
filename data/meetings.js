@@ -381,7 +381,7 @@ export const meetings = [
     ],
     recurrence: {
       frequency: 'once',
-      startDate: 'YYYY-MM-DD', // TODO: fill in actual Alignment Day date
+      startDate: '2026-05-13', 
       startTime: '09:05',
       endTime: '10:00',
     },
