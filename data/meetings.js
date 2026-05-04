@@ -403,7 +403,7 @@ export const meetings = [
     ],
     recurrence: {
       frequency: 'once',
-      startDate: 'YYYY-MM-DD', // TODO: fill in actual Open Planning date
+      startDate: '2026-05-28', 
       startTime: '09:05',
       endTime: '10:15',
     },
