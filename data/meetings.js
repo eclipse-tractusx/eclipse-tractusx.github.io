@@ -372,7 +372,7 @@ export const meetings = [
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'Address open questions and unresolved dependencies for features planned for Release 26.09. This session focuses on alignment and clarifying blockers before open planning.',
     contact: CONTACTS.STEPHAN_BAUER,
-    sessionLink: 'https://teams.microsoft.com/meet/32237268178214?p=89tbu5bGzNdCVPpfhn',
+    sessionLink: 'https://teams.microsoft.com/meet/394805715638402?p=8B9edw4w9Lw87kWdro',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-release-planning:matrix.eclipse.org',
     additionalLinks: [
       { title: 'Release Planning Board - Open Question', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/43?filterQuery=-label%3Ametadata+label%3APrep-R26.09+label%3A%22open+question%22' },
@@ -381,7 +381,7 @@ export const meetings = [
     ],
     recurrence: {
       frequency: 'once',
-      startDate: '2026-05-13', 
+      startDate: '2026-05-13',
       startTime: '09:05',
       endTime: '10:00',
     },
@@ -393,7 +393,7 @@ export const meetings = [
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'Finalize roadmap, prioritize features and align participants on deliverables for Release 26.09.',
     contact: CONTACTS.STEPHAN_BAUER,
-    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTliYzcyM2YtODMwNC00NzdiLThlNTEtNGI2MzNhYzAyMDRi%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
+    sessionLink: 'https://teams.microsoft.com/meet/342377231165448?p=Cmvp7xyFCC5kOWHskB',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-release-planning:matrix.eclipse.org',
     additionalLinks: [
       { title: 'Release Planning Board - Topic/Product', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3A%22Prep-R26.09%22+status%3ABacklog' },
@@ -403,9 +403,9 @@ export const meetings = [
     ],
     recurrence: {
       frequency: 'once',
-      startDate: '2026-05-28', 
+      startDate: '2026-05-28',
       startTime: '09:05',
-      endTime: '10:15',
+      endTime: '10:30',
     },
   },
   {
