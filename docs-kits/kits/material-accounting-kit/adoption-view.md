@@ -49,7 +49,17 @@ TEST
 
 ## Mission
 
-> TODO: Describe the mission of this KIT. Solution statement
+The mission of the Material Accounting KIT is to provide a practical and standardized framework that enables all participants in the use
+case to capture, exchange, and utilize data on secondary materials in
+a consistent and interoperable way. It guides all actors — such as
+dismantlers, recyclers, logistics providers, and manufacturers—in
+implementing standardized data models, and secure data
+exchange processes to ensure end-to-end traceability of material
+flows. By doing so, the Use Case supports the verification of
+secondary material content, reduces manual effort, and empowers
+organizations to optimize material usage while meeting regulatory and
+sustainability requirements.
+
 
 ## Business Context
 
