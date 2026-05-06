@@ -62,21 +62,7 @@ production processes.
 
 ## Vision and Mission
 
-In today’s automotive reverse value chain, material-related information is often
-fragmented, inconsistent, or lost entirely once a vehicle reaches end-of-life.
-While physical dismantling and recycling processes are already established, the
-corresponding digital transparency across companies and process steps is still
-limited.
-
-Different actors such as dismantlers, recyclers, logistics providers, and
-manufacturers generate relevant material and process data, but existing systems
-are typically not interoperable and lack standardized semantics. As a result,
-secondary material flows are difficult to trace and verify across organizational
-boundaries.
-
-<!-- What is the long-term goal? What does the KIT deliver today? Problem statatement -->
-
-## Vision
+### Vision
 
 The   vision of Material Accounting is to enable a transparent and circular
 automotive value chain, where materials from end-of-life vehicles  are
@@ -91,7 +77,7 @@ Product Passport and Secondary Material Content, the KIT establishes the
 foundation for circularity, regulatory compliance, and sustainable resource
 utilization. 
 
-## Mission
+### Mission
 
 The mission of the Material Accounting KIT is to provide a practical and standardized framework that enables all participants in the use
 case to capture, exchange, and utilize data on secondary materials in
@@ -104,16 +90,6 @@ secondary material content, reduces manual effort, and empowers
 organizations to optimize material usage while meeting regulatory and
 sustainability requirements.
 
-## Business Context
-
-<!-- Describe the business process or domain this KIT addresses. If a use case describe the use case. -->
-
-![image-example](../resources/image-example.png)
-
-> TODO: Describe the relevant business context and stakeholders.
-> We recommend diagrams in drawio (need to be stored in SVG), or you can use mermaid or plant uml
-> As described in TRG 1.04: https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-04
-> You can also include infografics/ images (which are not diagrams, like above)
 
 ## Business Value
 

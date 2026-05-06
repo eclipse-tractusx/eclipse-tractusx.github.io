@@ -139,7 +139,7 @@ classify, and assess the vehicle before dismantling and recycling processes.
 
 The WasteCode model standardizes the classification of vehicles, compositions,
 components, and materials according to waste categories. It ensures regulatory
-alignment and consistent classification across actors.
+alignment and consistent classification across actors. This model is based on the European Waste Code at 
 
 | Attribute | Definition |
 |---|---|
