@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "npm run pre-build:kit-master-data && docusaurus start",
+    "start": "npm run pre-build:kit-master-data && npm run pre-render:kit-logos && docusaurus start",
     "build": "npm run pre-build:kit-master-data && npm run pre-render:kit-logos && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
