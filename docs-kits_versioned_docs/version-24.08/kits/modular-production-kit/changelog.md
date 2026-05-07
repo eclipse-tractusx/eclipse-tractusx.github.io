@@ -5,7 +5,9 @@ description: Modular Production KIT
 sidebar_position: 1
 ---
 
-![mp kit banner](@site/static/img/kits/modular-production/modular-production-kit-gallery.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="modular-production" />
 
 ### Modular Production KIT
 

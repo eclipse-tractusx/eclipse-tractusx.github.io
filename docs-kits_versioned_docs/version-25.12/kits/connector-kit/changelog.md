@@ -1,6 +1,8 @@
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 # Changelog
 
-![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
+<Kit3DLogo kitId="connector" />
 
 ## Connector KIT
 

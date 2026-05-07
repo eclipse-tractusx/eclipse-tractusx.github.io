@@ -5,10 +5,12 @@ description: 'Data Trust & Security KIT'
 sidebar_position: 1
 ---
 
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 
 ## Adoption View
 
-![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
+<Kit3DLogo kitId="data-trust-security" />
 
 ### Vision & Mission
 

@@ -5,7 +5,9 @@ description: PCF Exchange KIT
 sidebar_position: 1
 ---
 
-![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="pcf" />
 
 ## PCF Exchange KIT
 

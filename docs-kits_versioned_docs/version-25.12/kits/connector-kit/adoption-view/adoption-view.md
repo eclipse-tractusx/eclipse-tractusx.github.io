@@ -5,7 +5,9 @@ description: The adoption view describes the basic infrastructure of cross-enter
 id: adoption-view
 ---
 
-![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="connector" />
 
 The Connector KIT describes the basic infrastructure that is used for any cross-enterprise data exchange within
 Catena-X. The infrastructure is based on [Dataspaces][idsa-url] and

@@ -2,6 +2,9 @@
 sidebar_position: 7
 title: Detailed Architecture
 ---
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
  * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
@@ -26,7 +29,7 @@ title: Detailed Architecture
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
+<Kit3DLogo kitId="agents" />
 
 **Arc42 for federated queries over the whole data space.**
 

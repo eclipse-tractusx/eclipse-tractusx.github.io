@@ -4,7 +4,9 @@ title: Test - Customer
 description: 'Tests relevant for the business role customer.'
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="dcm" />
 
 ## Introduction
 

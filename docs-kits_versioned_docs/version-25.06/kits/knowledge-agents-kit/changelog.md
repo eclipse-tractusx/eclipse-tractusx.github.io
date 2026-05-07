@@ -4,6 +4,9 @@ title: Changelog
 description: Knowledge Agent
 sidebar_position: 1
 ---
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
  * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
@@ -28,7 +31,7 @@ sidebar_position: 1
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
+<Kit3DLogo kitId="agents" />
 
 All notable changes to the (Knowledge) Agents KIT will be documented in this file.
 

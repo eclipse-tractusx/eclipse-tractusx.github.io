@@ -4,7 +4,9 @@ title: Onboarding
 description: Onboarding
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="dcm" />
 
 You can participate in the Catena-X data ecosystem in various roles. Become acquainted with the foundational building blocks of Catena-X and how all participants collaborate within a global ecosystem by reading the [Whitepaper describing the Catena-X operating model](https://catena-x.net/fileadmin/_online_media_/CX_Operating_Modelv2.1_final.pdf).
 

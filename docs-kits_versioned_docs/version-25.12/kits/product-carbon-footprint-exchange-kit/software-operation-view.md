@@ -5,7 +5,9 @@ description: PCF Exchange KIT
 sidebar_position: 4
 ---
 
-![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="pcf" />
 
 In addition to certified commercial solutions, there is now also an open-source reference implementation available for the first time to support the CX PCF Use Case Standard (data model, API,...). Further information regarding this Simple Data Exchanger (usage, configuration and deployment) are published on GitHub:
 

@@ -5,7 +5,9 @@ description: Detail capacities by defining how much of a strain a material is on
 sidebar_position: 4
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="dcm" />
 
 ## Business Roles and Functions
 

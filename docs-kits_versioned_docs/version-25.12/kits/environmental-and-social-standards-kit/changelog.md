@@ -4,7 +4,9 @@ title: Changelog
 sidebar_position: 1
 ---
 
-![ESS Kit Icon](@site/static/img/kits/ess/ess-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="ess" />
 
 ## [0.3.0] - 2024-07-11
 

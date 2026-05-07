@@ -1,19 +1,12 @@
-﻿---
+---
 id: new-use-cases
 title: New Use Cases
 description: Behaviour Twin KIT
 ---
 
-<div style={{display:'block'}}>
-  <div style={{display:'inline-block', verticalAlign:'top'}}>
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
-![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.svg)
-
-  </div>
-  <div style={{display:'inline-block', fontSize:17, color:'rgb(255,166,1)', marginLeft:7, verticalAlign:'top', paddingTop:6}}>
-Behaviour Twin KIT
-  </div>
-</div>
+<Kit3DLogo kitId="behavior-twin" />
 
 If you start to build up a very new use case within the overarching Behaviour Twin use case, you may first read the [Adoption View](./overview) of this KIT. It provides additional information for quick understanding of the used technologies. In particular, see also the [To Be Considered](./to-be-considered) section.
 

@@ -5,7 +5,9 @@ description: 'What do I have to implement?'
 sidebar_position: 3
 ---
 
-![ESS Kit Icon](@site/static/img/kits/ess/ess-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="ess" />
 
 ## Building block view
 

@@ -4,7 +4,9 @@ title: Development View
 description: 'What do I have to implement?'
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="dcm" />
 
 This page describes the most important parts for the software implementation of the DCM standards. For the full
 technical specification, please refer to the

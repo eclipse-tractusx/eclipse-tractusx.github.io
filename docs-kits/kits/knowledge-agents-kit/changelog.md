@@ -6,6 +6,7 @@ sidebar_position: 1
 ---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 <!--
  * Copyright (c) 2021 T-Systems International GmbH
  * Copyright (c) 2021 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)

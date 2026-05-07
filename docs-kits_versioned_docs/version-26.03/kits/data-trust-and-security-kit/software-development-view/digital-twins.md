@@ -4,7 +4,9 @@ title: Digital Twins & Storage
 description: 'Digital Twin Integration, Certification Processes, Implementation Best Practices and Roadmap for Data Trust & Security KIT'
 ---
 
-![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="data-trust-security" />
 
 ## Connecting with Your Digital Twins
 

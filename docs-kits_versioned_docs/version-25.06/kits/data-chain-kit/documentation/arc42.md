@@ -5,9 +5,12 @@ title: Architecture documentation (arc42)
 description: Architecture documentation (arc42)
 sidebar_position: 3
 ---
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 <!-- # Architecture documentation (arc42) -->
 
-![Datachain kit banner](@site/static/img/kits/data-chain/data-chain-kit-logo.svg)
+<Kit3DLogo kitId="data-chain" />
 
 ## Introduction and goals
 

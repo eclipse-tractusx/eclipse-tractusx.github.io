@@ -5,7 +5,9 @@ description: PURIS KIT
 sidebar_position: 3
 ---
 
-![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="puris" />
 
 ## Introduction
 

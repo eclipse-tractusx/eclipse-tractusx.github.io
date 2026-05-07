@@ -5,7 +5,9 @@ description: 'PURIS Kit Operations View'
 sidebar_position: 4
 ---
 
-![puris kit banner](@site/static/img/kits/puris/puris-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="puris" />
 
 ## Reference Implementation
 

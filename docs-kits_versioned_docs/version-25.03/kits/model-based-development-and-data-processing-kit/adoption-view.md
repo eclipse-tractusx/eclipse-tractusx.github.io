@@ -4,7 +4,9 @@ title: Adoption View
 description: Model Based Development and Data Processing Kit
 ---
 
-![Model Based Development and Data Processing Kit banner](@site/static/img/kits/model-based-production/model-based-production-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="model-based-production" />
 
 ### Model Based Development and Data Processing KIT
 

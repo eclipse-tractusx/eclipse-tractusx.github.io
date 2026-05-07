@@ -5,6 +5,8 @@ description: Data Governance KIT
 sidebar_position: 1
 ---
 
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 <!--
  * Copyright (c) 2021,2023 T-Systems International GmbH
  * Copyright (c) 2021,2023 Contributors to the Eclipse Foundation
@@ -28,7 +30,7 @@ sidebar_position: 1
 
 ## Data Governance KIT
 
-![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.svg)
+<Kit3DLogo kitId="data-governance" />
 
 All notable changes to the Data Governance KIT (=Keep It Together) will be documented in this file.
 

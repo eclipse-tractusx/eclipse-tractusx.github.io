@@ -5,7 +5,9 @@ description: Customs KIT
 sidebar_position: 1
 ---
 
-![Customs kit logo](@site/static/img/kits/customs/customs-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="customs" />
 
 ## [0.0.0] -
 

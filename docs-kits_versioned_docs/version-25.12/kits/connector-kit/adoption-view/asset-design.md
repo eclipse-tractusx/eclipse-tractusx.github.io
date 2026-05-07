@@ -5,7 +5,9 @@ description: A discussion on aspects to be considered when designing contract de
 id: contract-definition-design
 ---
 
-![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="connector" />
 
 On this page you learn about key aspects to be considered when designing contract definitions.
 

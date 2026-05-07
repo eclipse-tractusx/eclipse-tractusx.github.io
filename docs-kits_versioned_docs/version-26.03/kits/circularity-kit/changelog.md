@@ -5,7 +5,9 @@ description: Circularity KIT
 sidebar_position: 1
 ---
 
-![Circularity kit banner](@site/static/img/kits/circularity/circularity-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="circularity" />
 
 All notable changes to this KIT will be documented in this file.
 

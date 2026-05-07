@@ -5,7 +5,9 @@ description: Operation View
 id: operation-view
 ---
 
-![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="connector" />
 
 ## Reference Implementation
 

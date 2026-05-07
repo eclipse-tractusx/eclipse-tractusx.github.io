@@ -5,7 +5,9 @@ description: Digital Twin KIT
 sidebar_position: 4
 ---
 
-![DT KIT Pictotogram](@site/static/img/kits/digital-twin/digital-twin-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="digital-twin" />
 
 <!--
 Documentation of the kit.

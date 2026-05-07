@@ -5,11 +5,13 @@ description: Digital Twin KIT
 sidebar_position: 2
 ---
 
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 <!--
 Adoption View of the Kit.
 -->
 
-![DT Kit Pictotogram](@site/static/img/kits/digital-twin/digital-twin-kit-logo.svg)
+<Kit3DLogo kitId="digital-twin" />
 
 <!-- !Mandatory! -->
 ## Vision & Mission

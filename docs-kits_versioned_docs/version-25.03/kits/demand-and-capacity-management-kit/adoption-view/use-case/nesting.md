@@ -5,7 +5,9 @@ description: Nest material demands and capacity groups into other capacity group
 sidebar_position: 8
 ---
 
-![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="dcm" />
 
 ## Business Roles and Functions
 

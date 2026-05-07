@@ -4,7 +4,9 @@ title: Development View
 description: Model Based Development and Data Processing Kit
 ---
 
-![Model Based Development and Data Processing Kit banner](@site/static/img/kits/model-based-production/model-based-production-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="model-based-production" />
 
 The video included under Success Stories illustrates software application functionality realizing the MDP Use Cases based on practical implementation examples.
 

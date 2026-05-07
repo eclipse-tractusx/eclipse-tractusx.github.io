@@ -6,6 +6,7 @@ sidebar_position: 1
 ---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 <Kit3DLogo kitId="puris" />
 
 ### PURIS KIT

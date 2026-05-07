@@ -7,6 +7,7 @@ sidebar_position: 3
 ---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 <!-- # Architecture documentation (arc42) -->
 
 <Kit3DLogo kitId="data-chain" />

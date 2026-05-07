@@ -5,7 +5,9 @@ description: Demand and Capacity Notification
 sidebar_position: 3
 ---
 
-![Supply Chain Disruption Notifications kit banner](@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="supply-chain-disruption" />
 
 ## Connector Data Asset Structure
 

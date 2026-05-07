@@ -2,7 +2,9 @@
 title: Changelog
 ---
 
-![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="eco-pass" />
 
 ## [1.5.1] - 2026-03-03
 

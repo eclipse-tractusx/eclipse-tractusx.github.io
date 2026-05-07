@@ -5,7 +5,9 @@ description: Administration Guide
 sidebar_position: 3
 ---
 
-![Datachain kit banner](@site/static/img/kits/data-chain/data-chain-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="data-chain" />
 
 ## System Overview
 

@@ -5,4 +5,6 @@ description: 'Customs Kit Operations View'
 sidebar_position: 4
 ---
 
-![Customs kit logo](@site/static/img/kits/customs/customs-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="customs" />

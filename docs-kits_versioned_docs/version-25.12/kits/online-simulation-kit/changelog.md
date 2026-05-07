@@ -5,7 +5,9 @@ description: OSim Kit
 sidebar_position: 1
 ---
 
-![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="osim" />
 
 ### OSim KIT
 

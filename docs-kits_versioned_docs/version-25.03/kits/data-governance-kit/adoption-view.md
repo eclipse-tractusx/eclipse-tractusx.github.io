@@ -4,6 +4,8 @@ title: Adoption View
 description: Data Governance KIT
 sidebar_position: 2
 ---
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 ## Data Governance KIT
 
 <!--
@@ -27,7 +29,7 @@ sidebar_position: 2
 ![DatGov Kit Banner](/img/DatGovKit/DatGovKit-Icon.png)
 -->
 
-![Data Governance KIT Icon](@site/static/img/kits/data-governance/data-governance-kit-logo.svg)
+<Kit3DLogo kitId="data-governance" />
 
 This document describes the foundations of the Data Governance KIT (=Keep It Together).
 

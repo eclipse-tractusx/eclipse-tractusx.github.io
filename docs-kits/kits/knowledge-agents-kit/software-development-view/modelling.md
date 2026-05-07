@@ -4,6 +4,7 @@ title: Ontology Modelling
 ---
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 <!--
  * Copyright (c) 2024 T-Systems International GmbH
  * Copyright (c) 2024 Mercedes-Benz AG

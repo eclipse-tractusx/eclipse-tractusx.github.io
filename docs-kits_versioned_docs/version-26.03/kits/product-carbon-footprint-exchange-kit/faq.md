@@ -5,7 +5,9 @@ description: Questions and Answers
 sidebar_position: 5
 ---
 
-![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="pcf" />
 
 Welcome to the Catena-X Product Carbon Footprint (PCF) Q&A. This section provides answers to frequently asked questions about accessibility, methodology, PCF data exchange, and business value within Catena-X.
 

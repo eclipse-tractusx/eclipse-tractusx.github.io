@@ -5,7 +5,9 @@ description: 'Data Chain Kit Changelog'
 sidebar_position: 10
 ---
 
-![Datachain kit banner](@site/static/img/kits/data-chain/data-chain-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="data-chain" />
 
 ### Data Chain KIT
 

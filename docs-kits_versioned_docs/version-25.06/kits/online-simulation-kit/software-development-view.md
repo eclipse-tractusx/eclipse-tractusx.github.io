@@ -4,7 +4,9 @@ title: Software Development View
 description: OSim Kit
 ---
 
-![osim kit banner](@site/static/img/kits/osim/osim-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="osim" />
 
 ## Sample Data
 

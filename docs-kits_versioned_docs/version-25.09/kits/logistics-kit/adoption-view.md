@@ -5,7 +5,9 @@ description: Logistics KIT
 sidebar_position: 2
 ---
 
-![Logistics kit banner](@site/static/img/kits/logistics/logistics-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="logistics" />
 
 Logistics and customs are closely linked due to the global nature of trade, and companies must consider both factors to ensure smooth and successful business operations. [Customs](../customs-kit/adoption-view.md) can affect the cost of imported or exported goods and thus influence logistics costs. In logistics, the compliance with customs regulations and procedures therefore plays an important role.
 

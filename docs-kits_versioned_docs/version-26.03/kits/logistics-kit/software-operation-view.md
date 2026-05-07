@@ -5,4 +5,6 @@ description: Logistics KIT Operations View
 sidebar_position: 4
 ---
 
-![Logistics kit banner](@site/static/img/kits/logistics/logistics-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="logistics" />

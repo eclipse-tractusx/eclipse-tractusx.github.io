@@ -5,7 +5,9 @@ description: An introduction for adoptors to the reference implementation
 id: connector-reference-implementation
 ---
 
-![Connector kit banner](@site/static/img/kits/connector/connector-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="connector" />
 
 The Connector KIT provides insights into the standardized way of interaction between two dataspace
 participants using the dataspace protocol. The aspects specified in the standard are in principle

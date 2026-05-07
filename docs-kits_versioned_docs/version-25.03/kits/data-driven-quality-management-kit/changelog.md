@@ -5,7 +5,9 @@ description: Quality KIT
 sidebar_position: 1
 ---
 
-![Quality kit banner](@site/static/img/kits/data-driven-quality-management/ddqm-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="data-driven-quality" />
 
 All notable changes to this Kit will be documented in this file.
 

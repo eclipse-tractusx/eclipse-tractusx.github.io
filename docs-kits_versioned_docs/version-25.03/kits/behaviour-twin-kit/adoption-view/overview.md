@@ -1,19 +1,12 @@
-﻿---
+---
 id: overview
 title: Adoption View
 description: Behaviour Twin KIT
 ---
 
-<div style={{display:'block'}}>
-  <div style={{display:'inline-block', verticalAlign:'top'}}>
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
-![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.svg)
-
-  </div>
-  <div style={{display:'inline-block', fontSize:17, color:'rgb(255,166,1)', marginLeft:7, verticalAlign:'top', paddingTop:6}}>
-Behaviour Twin KIT
-  </div>
-</div>
+<Kit3DLogo kitId="behavior-twin" />
 
 ## CONTENTS
 
