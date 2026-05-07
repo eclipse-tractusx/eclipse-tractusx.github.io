@@ -1,13 +1,15 @@
-﻿---
+---
 id: overview
 title: Behaviour Twin KIT
 hide_title: true
 description: Behaviour Twin KIT
 ---
 
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
 <div style={{fontSize:60, color:'rgb(255,166,1)', marginBottom:8, marginTop:0, paddingTop:0}}>BEHAVIOUR TWIN KIT</div>
 
-![Behaviour Twin KIT banner](@site/static/img/kits/behavior-twin/behavior-twin-kit-logo.svg)
+<Kit3DLogo kitId="behavior-twin" />
 
 ## PURPOSE
 

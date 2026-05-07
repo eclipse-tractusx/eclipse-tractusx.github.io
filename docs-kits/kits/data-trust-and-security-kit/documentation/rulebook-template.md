@@ -5,7 +5,9 @@ description: Rulebook Example
 sidebar_position: 10
 ---
 
-![Data Trust & Security KIT Icon](@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="data-trust-security" />
 
 ## Validation & Verification Rulebook Template for Data Models
 

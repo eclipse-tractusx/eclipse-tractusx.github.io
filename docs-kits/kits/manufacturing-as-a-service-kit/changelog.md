@@ -5,7 +5,9 @@ description: Manufacturing as a Service KIT
 sidebar_position: 1
 ---
 
-![Maas kit banner](@site/static/img/kits/manufacturing-as-a-service/maas-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="maas" />
 
 ### Manufacturing as a Service KIT
 
