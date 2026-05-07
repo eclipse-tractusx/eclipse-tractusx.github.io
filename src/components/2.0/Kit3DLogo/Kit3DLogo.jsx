@@ -38,11 +38,24 @@ import styles from './Kit3DLogo.module.scss';
  */
 const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
   const containerRef = React.useRef(null);
-  const [showModal, setShowModal] = React.useState(false);
+  const optionsPanelRef = React.useRef(null);
+  const [showOptions, setShowOptions] = React.useState(false);
   const [downloadFormat, setDownloadFormat] = React.useState('svg');
   const [downloadSize, setDownloadSize] = React.useState('large');
   // Progress tracking: { active, progress (0-100), status, error }
   const [dl, setDl] = React.useState({ active: false, progress: 0, status: '', error: null });
+
+  // Close the options panel when clicking outside
+  React.useEffect(() => {
+    if (!showOptions) return;
+    const onMouseDown = (e) => {
+      if (optionsPanelRef.current && !optionsPanelRef.current.contains(e.target)) {
+        if (!dl.active) setShowOptions(false);
+      }
+    };
+    document.addEventListener('mousedown', onMouseDown);
+    return () => document.removeEventListener('mousedown', onMouseDown);
+  }, [showOptions, dl.active]);
   
   // Find the kit data from all categories
   const kitData = useMemo(() => {
@@ -219,7 +232,7 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
       }
 
       setDl({ active: false, progress: 100, status: 'Done!', error: null });
-      setTimeout(() => setShowModal(false), 600);
+      setTimeout(() => setShowOptions(false), 600);
     } catch (error) {
       console.error('Download error:', error);
       setDl({ active: false, progress: 0, status: '', error: error.message });
@@ -228,21 +241,21 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
 
   /** Quick download: SVG at large size. */
   const handleQuickDownload = () => {
-    setShowModal(true);
-    setTimeout(() => handleDownload('svg', 'large'), 50);
+    handleDownload('svg', 'large');
   };
 
   return (
     <div className={`${styles.logo3dWrapper} ${className}`}>
       {showDownload && (
-        <>
+        <div ref={optionsPanelRef}>
           {/* Download trigger button */}
           <div className={styles.downloadButtons}>
             <button
               className={`${styles.downloadButton} ${styles.downloadButtonMain}`}
               onClick={handleQuickDownload}
-              title="Download as SVG (original size)"
+              title="Download as SVG (large)"
               aria-label="Download logo"
+              disabled={dl.active}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -252,106 +265,90 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
             </button>
             <button
               className={`${styles.downloadButton} ${styles.downloadButtonDropdown}`}
-              onClick={() => { setDl({ active: false, progress: 0, status: '', error: null }); setShowModal(true); }}
+              onClick={() => { setDl({ active: false, progress: 0, status: '', error: null }); setShowOptions(v => !v); }}
               title="Download options"
               aria-label="Show download options"
-            > 
+            >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
           </div>
 
-          {/* Download modal overlay */}
-          {showModal && (
-            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-            <div className={styles.modalOverlay} onMouseDown={() => { if (!dl.active) setShowModal(false); }}>
-              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-              <div className={styles.modalContent} onMouseDown={e => e.stopPropagation()}>
-                {/* Header */}
-                <div className={styles.modalHeader}>
-                  <h4>Download Logo</h4>
-                  {!dl.active && (
-                    <button
-                      className={styles.closeButton}
-                      onClick={() => setShowModal(false)}
-                      aria-label="Close"
-                    >
-                      ×
-                    </button>
-                  )}
-                </div>
-
-                {/* Progress section — shown while downloading */}
-                {dl.active && (
-                  <div className={styles.progressSection}>
-                    <div className={styles.progressBarTrack}>
-                      <div
-                        className={styles.progressBarFill}
-                        style={{ width: `${dl.progress}%` }}
-                      />
-                    </div>
-                    <div className={styles.progressInfo}>
-                      <span className={styles.progressStatus}>{dl.status}</span>
-                      <span className={styles.progressPct}>{dl.progress}%</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Error message */}
-                {dl.error && (
-                  <div className={styles.errorMessage}>
-                    <span>Download failed: {dl.error}</span>
-                    <button
-                      className={styles.retryButton}
-                      onClick={() => handleDownload(downloadFormat, downloadSize)}
-                    >
-                      Retry
-                    </button>
-                  </div>
-                )}
-
-                {/* Options — hidden while downloading */}
+          {/* Inline options dropdown panel */}
+          {showOptions && (
+            <div className={styles.downloadOptions}>
+              <div className={styles.optionsHeader}>
+                <h4>Download Logo</h4>
                 {!dl.active && (
-                  <>
-                    <div className={styles.optionGroup}>
-                      <label>Format:</label>
-                      <select
-                        value={downloadFormat}
-                        onChange={(e) => setDownloadFormat(e.target.value)}
-                      >
-                        <option value="svg">SVG</option>
-                        <option value="png">PNG</option>
-                      </select>
-                    </div>
-
-                    <div className={styles.optionGroup}>
-                      <label>Size:</label>
-                      <select
-                        value={downloadSize}
-                        onChange={(e) => setDownloadSize(e.target.value)}
-                      >
-                        <option value="small">Small (300×280)</option>
-                        <option value="medium">Medium (600×560)</option>
-                        <option value="large">Large (1200×1120)</option>
-                        <option value="xlarge">Full (2400×2240)</option>
-                      </select>
-                    </div>
-
-                    <div className={styles.downloadActions}>
-                      <button
-                        className={styles.downloadActionButton}
-                        onClick={() => handleDownload(downloadFormat, downloadSize)}
-                      >
-                        Download {downloadFormat.toUpperCase()}
-                      </button>
-                    </div>
-                  </>
+                  <button
+                    className={styles.closeButton}
+                    onClick={() => setShowOptions(false)}
+                    aria-label="Close"
+                  >
+                    ×
+                  </button>
                 )}
               </div>
+
+              {/* Progress bar — shown while downloading */}
+              {dl.active && (
+                <div className={styles.progressSection}>
+                  <div className={styles.progressBarTrack}>
+                    <div className={styles.progressBarFill} style={{ width: `${dl.progress}%` }} />
+                  </div>
+                  <div className={styles.progressInfo}>
+                    <span className={styles.progressStatus}>{dl.status}</span>
+                    <span className={styles.progressPct}>{dl.progress}%</span>
+                  </div>
+                </div>
+              )}
+
+              {/* Error message */}
+              {dl.error && (
+                <div className={styles.errorMessage}>
+                  <span>Download failed: {dl.error}</span>
+                  <button
+                    className={styles.retryButton}
+                    onClick={() => handleDownload(downloadFormat, downloadSize)}
+                  >
+                    Retry
+                  </button>
+                </div>
+              )}
+
+              {/* Options */}
+              {!dl.active && (
+                <>
+                  <div className={styles.optionGroup}>
+                    <label>Format:</label>
+                    <select value={downloadFormat} onChange={(e) => setDownloadFormat(e.target.value)}>
+                      <option value="svg">SVG</option>
+                      <option value="png">PNG</option>
+                    </select>
+                  </div>
+                  <div className={styles.optionGroup}>
+                    <label>Size:</label>
+                    <select value={downloadSize} onChange={(e) => setDownloadSize(e.target.value)}>
+                      <option value="small">Small (300×280)</option>
+                      <option value="medium">Medium (600×560)</option>
+                      <option value="large">Large (1200×1120)</option>
+                      <option value="xlarge">Full (2400×2240)</option>
+                    </select>
+                  </div>
+                  <div className={styles.downloadActions}>
+                    <button
+                      className={styles.downloadActionButton}
+                      onClick={() => handleDownload(downloadFormat, downloadSize)}
+                    >
+                      Download {downloadFormat.toUpperCase()}
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           )}
-        </>
+        </div>
       )}
       <div ref={containerRef} className={styles.logo3dContainer}>
         <div className={styles.logo3dInner}>
