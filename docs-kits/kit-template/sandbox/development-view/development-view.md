@@ -75,26 +75,6 @@ graph LR
 > As described in TRG 1.08: https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-08
 > Will be hosted in API HUB: https://eclipse-tractusx.github.io/api-hub/
 
-## Semantic Models / Data Model
-
-<!-- Reference the relevant semantic models, APIs, or standards. -->
-
-> TODO: Link or describe the data model, when using big payloads or json-schemas use expandable sections like below:
-
-<details>
-  <summary>Semantic Model Example - click to expand</summary>
-
-Place here the description of your semantic model.
-
-```json
-{
-  "key": "value",
-  "object": {...},
-  "array": [...]
-}
-```
-
-</details>
 
 ## Protocols
 
