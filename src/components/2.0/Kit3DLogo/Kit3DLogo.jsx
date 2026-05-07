@@ -38,14 +38,11 @@ import styles from './Kit3DLogo.module.scss';
  */
 const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
   const containerRef = React.useRef(null);
-  const [showDownloadOptions, setShowDownloadOptions] = React.useState(false);
-  const [isDownloading, setIsDownloading] = React.useState(false);
-  const [downloadingFrom, setDownloadingFrom] = React.useState(null); // 'main' or 'dropdown'
+  const [showModal, setShowModal] = React.useState(false);
   const [downloadFormat, setDownloadFormat] = React.useState('svg');
-  const [downloadSettings, setDownloadSettings] = React.useState({
-    scale: 4,
-    size: 'xlarge'
-  });
+  const [downloadSize, setDownloadSize] = React.useState('large');
+  // Progress tracking: { active, progress (0-100), status, error }
+  const [dl, setDl] = React.useState({ active: false, progress: 0, status: '', error: null });
   
   // Find the kit data from all categories
   const kitData = useMemo(() => {
@@ -58,7 +55,6 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
       ...(Object.values(kitsData.industryKits || {}).flat())
     ];
     
-    return allKits.find(kit => kit.id === kitId);
     return allKits.find(kit => kit.id === kitId);
   }, [kitId]);
 
@@ -136,331 +132,222 @@ const Kit3DLogo = ({ kitId, className = '', showDownload = false }) => {
 
   const Logo = kitData.logo;
 
-  // Size multipliers based on selected size
-  const sizeMultipliers = {
-    small: 0.5,
-    original: 1,
-    large: 2,
-    xlarge: 3,
-    xxlarge: 4,
-    ultra: 6
+  // Size presets: label → [width, height]
+  const sizePresets = {
+    small:  [300, 280],
+    medium: [600, 560],
+    large:  [1200, 1120],
+    xlarge: [2400, 2240],
   };
 
-  // Handle download with current settings
-  const handleDownload = async () => {
-    if (downloadingFrom === 'dropdown') {
-      // Download from dropdown with custom settings
-      if (downloadFormat === 'svg') {
-        await handleDownloadSVGCustom();
+  /** Trigger a file download from a Blob. */
+  const downloadBlob = (blob, filename) => {
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.download = filename;
+    link.href = url;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 500);
+  };
+
+  /** Allow React to process state updates between heavy sync steps. */
+  const yieldToUI = () => new Promise(resolve => { setTimeout(resolve, 0); });
+
+  /** Main download handler — fetches pre-rendered SVG, optionally rasterises to PNG. */
+  const handleDownload = async (format, size) => {
+    const onProgress = async (pct, msg) => {
+      setDl({ active: true, progress: pct, status: msg, error: null });
+      await yieldToUI();
+    };
+
+    setDl({ active: true, progress: 0, status: 'Starting...', error: null });
+    await yieldToUI();
+
+    try {
+      await onProgress(10, 'Fetching pre-rendered logo...');
+
+      const response = await fetch(`/generated/kit-logos/${kitId}.svg`);
+      if (!response.ok) throw new Error(`Logo not found (${response.status})`);
+
+      const svgText = await response.text();
+      const [outW, outH] = sizePresets[size] || sizePresets.large;
+
+      if (format === 'svg') {
+        // Patch the SVG width/height to the requested size
+        await onProgress(80, 'Preparing SVG...');
+        const resized = svgText
+          .replace(/width="\d+"/, `width="${outW}"`)
+          .replace(/height="\d+"/, `height="${outH}"`);
+
+        await onProgress(95, 'Downloading...');
+        const svgBlob = new Blob([resized], { type: 'image/svg+xml;charset=utf-8' });
+        downloadBlob(svgBlob, `${kitId}-3d-logo-${outW}x${outH}.svg`);
       } else {
-        await handleDownloadPNGCustom();
+        // Rasterise SVG → PNG at the requested size via canvas
+        await onProgress(30, 'Rasterising to PNG...');
+
+        const svgBlob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+        const imgUrl = URL.createObjectURL(svgBlob);
+        const img = await new Promise((resolve, reject) => {
+          const image = new Image();
+          image.onload = () => resolve(image);
+          image.onerror = () => reject(new Error('Failed to rasterise SVG'));
+          image.src = imgUrl;
+        });
+
+        await onProgress(60, 'Drawing to canvas...');
+
+        const canvas = document.createElement('canvas');
+        canvas.width = outW;
+        canvas.height = outH;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, outW, outH);
+        URL.revokeObjectURL(imgUrl);
+
+        await onProgress(80, 'Encoding PNG...');
+        const pngBlob = await new Promise((resolve, reject) => {
+          canvas.toBlob(b => {
+            if (b) resolve(b);
+            else reject(new Error('Failed to create PNG'));
+          }, 'image/png', 1.0);
+        });
+
+        await onProgress(95, 'Downloading...');
+        downloadBlob(pngBlob, `${kitId}-3d-logo-${outW}x${outH}.png`);
       }
-    } else {
-      // Main button: always download SVG at original size and quality
-      await handleDownloadSVGOriginal();
+
+      setDl({ active: false, progress: 100, status: 'Done!', error: null });
+      setTimeout(() => setShowModal(false), 600);
+    } catch (error) {
+      console.error('Download error:', error);
+      setDl({ active: false, progress: 0, status: '', error: error.message });
     }
   };
 
-  // Handle SVG download at original size (for main button)
-  const handleDownloadSVGOriginal = async () => {
-    if (!containerRef.current) return;
-    setIsDownloading(true);
-    setDownloadingFrom('main');
-
-    try {
-      const html2canvas = (await import('html2canvas')).default;
-      
-      const canvas = await html2canvas(containerRef.current, {
-        backgroundColor: null,
-        scale: 2, // Fixed quality
-        logging: false,
-        useCORS: true,
-        allowTaint: true,
-      });
-
-      const blob = await new Promise((resolve) => {
-        canvas.toBlob(resolve, 'image/png', 1.0);
-      });
-
-      const reader = new FileReader();
-      const dataURL = await new Promise((resolve) => {
-        reader.onloadend = () => resolve(reader.result);
-        reader.readAsDataURL(blob);
-      });
-      
-      const width = canvas.width;
-      const height = canvas.height;
-      
-      const svgContent = [
-        '<?xml version="1.0" encoding="UTF-8" standalone="no"?>',
-        `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">`,
-        `  <image x="0" y="0" width="${width}" height="${height}" href="${dataURL}"/>`,
-        '</svg>'
-      ].join('\n');
-
-      const svgBlob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
-      const url = URL.createObjectURL(svgBlob);
-      const link = document.createElement('a');
-      link.download = `${kitId}-3d-logo.svg`;
-      link.href = url;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      setTimeout(() => {
-        URL.revokeObjectURL(url);
-        setIsDownloading(false);
-        setDownloadingFrom(null);
-      }, 500);
-    } catch (error) {
-      console.error('Error downloading SVG:', error);
-      alert('Failed to download SVG: ' + error.message);
-      setIsDownloading(false);
-      setDownloadingFrom(null);
-    }
-  };
-
-  // Handle PNG download functionality with custom settings
-  const handleDownloadPNGCustom = async () => {
-    if (!containerRef.current) return;
-    setIsDownloading(true);
-    setDownloadingFrom('dropdown');
-
-    try {
-      const html2canvas = (await import('html2canvas')).default;
-      
-      const canvas = await html2canvas(containerRef.current, {
-        backgroundColor: null,
-        scale: downloadSettings.scale * sizeMultipliers[downloadSettings.size],
-        logging: false,
-      });
-
-      const blob = await new Promise((resolve, reject) => {
-        canvas.toBlob((blob) => {
-          if (blob) {
-            resolve(blob);
-          } else {
-            reject(new Error('Failed to create blob from canvas'));
-          }
-        }, 'image/png', 1.0);
-      });
-
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.download = `${kitId}-3d-logo-${downloadSettings.size}-${downloadSettings.scale}x.png`;
-      link.href = url;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      setTimeout(() => {
-        
-        setTimeout(() => {
-          URL.revokeObjectURL(url);
-          setIsDownloading(false);
-          setDownloadingFrom(null);
-        }, 500);
-      }, 500);
-    } catch (error) {
-      console.error('Error downloading PNG:', error);
-      alert('Failed to download PNG: ' + error.message);
-      setIsDownloading(false);
-      setDownloadingFrom(null);
-    }
-  };
-
-  // Handle SVG download functionality with custom settings
-  const handleDownloadSVGCustom = async () => {
-    if (!containerRef.current) return;
-
-    try {
-      const html2canvas = (await import('html2canvas')).default;
-      
-      const canvas = await html2canvas(containerRef.current, {
-        backgroundColor: null,
-        scale: downloadSettings.scale * sizeMultipliers[downloadSettings.size],
-        logging: false,
-        useCORS: true,
-        allowTaint: true,
-      });
-
-      const blob = await new Promise((resolve) => {
-        canvas.toBlob(resolve, 'image/png', 1.0);
-      });
-
-      const reader = new FileReader();
-      const dataURL = await new Promise((resolve) => {
-        reader.onloadend = () => resolve(reader.result);
-        reader.readAsDataURL(blob);
-      });
-      
-      const width = canvas.width;
-      const height = canvas.height;
-      
-      const svgContent = [
-        '<?xml version="1.0" encoding="UTF-8" standalone="no"?>',
-        `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">`,
-        `  <image x="0" y="0" width="${width}" height="${height}" href="${dataURL}"/>`,
-        '</svg>'
-      ].join('\n');
-
-      const svgBlob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
-      const url = URL.createObjectURL(svgBlob);
-      const link = document.createElement('a');
-      link.download = `${kitId}-3d-logo-${downloadSettings.size}-${downloadSettings.scale}x.svg`;
-      link.href = url;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      setTimeout(() => {
-        URL.revokeObjectURL(url);
-        setIsDownloading(false);
-        setDownloadingFrom(null);
-      }, 500);
-    } catch (error) {
-      console.error('Error downloading SVG:', error);
-      alert('Failed to download SVG: ' + error.message);
-      setIsDownloading(false);
-      setDownloadingFrom(null);
-    }
+  /** Quick download: SVG at large size. */
+  const handleQuickDownload = () => {
+    setShowModal(true);
+    setTimeout(() => handleDownload('svg', 'large'), 50);
   };
 
   return (
     <div className={`${styles.logo3dWrapper} ${className}`}>
       {showDownload && (
         <>
+          {/* Download trigger button */}
           <div className={styles.downloadButtons}>
-            {/* Main download button */}
-            <button 
+            <button
               className={`${styles.downloadButton} ${styles.downloadButtonMain}`}
-              onClick={() => {
-                setDownloadingFrom('main');
-                setIsDownloading(true);
-                // Use setTimeout to allow React to re-render and show spinner before starting download
-                setTimeout(async () => {
-                  await handleDownloadSVGOriginal();
-                }, 50);
-              }}
+              onClick={handleQuickDownload}
               title="Download as SVG (original size)"
               aria-label="Download logo"
-              disabled={isDownloading}
             >
-              {isDownloading && downloadingFrom === 'main' ? (
-                <svg className={styles.spinner} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" strokeOpacity="0.25"/>
-                  <path d="M12 2a10 10 0 0 1 10 10" strokeLinecap="round"/>
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-              )}
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
             </button>
-            
-            {/* Dropdown arrow button */}
-            <button 
+            <button
               className={`${styles.downloadButton} ${styles.downloadButtonDropdown}`}
-              onClick={() => setShowDownloadOptions(!showDownloadOptions)}
+              onClick={() => { setDl({ active: false, progress: 0, status: '', error: null }); setShowModal(true); }}
               title="Download options"
               aria-label="Show download options"
-              disabled={isDownloading}
-            >
+            > 
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
           </div>
-          
-          {showDownloadOptions && (
-            <div className={styles.downloadOptions}>
-              <div className={styles.optionsHeader}>
-                <h4>Download Options</h4>
-                <button 
-                  className={styles.closeButton}
-                  onClick={() => setShowDownloadOptions(false)}
-                  aria-label="Close options"
-                >
-                  ×
-                </button>
-              </div>
-              
-              <div className={styles.optionGroup}>
-                <label>Format:</label>
-                <select 
-                  value={downloadFormat} 
-                  onChange={(e) => setDownloadFormat(e.target.value)}
-                >
-                  <option value="svg">SVG</option>
-                  <option value="png">PNG</option>
-                </select>
-              </div>
-              
-              <div className={styles.optionGroup}>
-                <label>Size:</label>
-                <select 
-                  value={downloadSettings.size} 
-                  onChange={(e) => setDownloadSettings({...downloadSettings, size: e.target.value})}
-                >
-                  <option value="small">Small (150x140)</option>
-                  <option value="original">Original (300x280)</option>
-                  <option value="large">Large (600x560)</option>
-                  <option value="xlarge">X-Large (900x840)</option>
-                  <option value="xxlarge">2X-Large (1200x1120)</option>
-                  <option value="ultra">Ultra (1800x1680)</option>
-                </select>
-              </div>
-              
-              <div className={styles.optionGroup}>
-                <label>Quality:</label>
-                <select 
-                  value={downloadSettings.scale} 
-                  onChange={(e) => setDownloadSettings({...downloadSettings, scale: Number(e.target.value)})}
-                >
-                  <option value="2">Standard (2x)</option>
-                  <option value="3">High (3x)</option>
-                  <option value="4">Ultra (4x)</option>
-                  <option value="5">Maximum (5x)</option>
-                  <option value="6">Extreme (6x)</option>
-                  <option value="8">Print Quality (8x)</option>
-                </select>
-              </div>
-              
-              <div className={styles.downloadActions}>
-                <button 
-                  className={styles.downloadActionButton}
-                  onClick={() => {
-                    setDownloadingFrom('dropdown');
-                    setIsDownloading(true);
-                    // Use setTimeout to allow React to re-render and show spinner before starting download
-                    setTimeout(async () => {
-                      try {
-                        if (downloadFormat === 'svg') {
-                          await handleDownloadSVGCustom();
-                        } else {
-                          await handleDownloadPNGCustom();
-                        }
-                      } finally {
-                        setShowDownloadOptions(false);
-                      }
-                    }, 50);
-                  }}
-                  disabled={isDownloading}
-                >
-                  {isDownloading && downloadingFrom === 'dropdown' ? (
-                    <>
-                      <svg className={styles.spinnerInline} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="12" cy="12" r="10" strokeOpacity="0.25"/>
-                        <path d="M12 2a10 10 0 0 1 10 10" strokeLinecap="round"/>
-                      </svg>
-                      Downloading...
-                    </>
-                  ) : (
-                    `Download ${downloadFormat.toUpperCase()}`
+
+          {/* Download modal overlay */}
+          {showModal && (
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+            <div className={styles.modalOverlay} onMouseDown={() => { if (!dl.active) setShowModal(false); }}>
+              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+              <div className={styles.modalContent} onMouseDown={e => e.stopPropagation()}>
+                {/* Header */}
+                <div className={styles.modalHeader}>
+                  <h4>Download Logo</h4>
+                  {!dl.active && (
+                    <button
+                      className={styles.closeButton}
+                      onClick={() => setShowModal(false)}
+                      aria-label="Close"
+                    >
+                      ×
+                    </button>
                   )}
-                </button>
+                </div>
+
+                {/* Progress section — shown while downloading */}
+                {dl.active && (
+                  <div className={styles.progressSection}>
+                    <div className={styles.progressBarTrack}>
+                      <div
+                        className={styles.progressBarFill}
+                        style={{ width: `${dl.progress}%` }}
+                      />
+                    </div>
+                    <div className={styles.progressInfo}>
+                      <span className={styles.progressStatus}>{dl.status}</span>
+                      <span className={styles.progressPct}>{dl.progress}%</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Error message */}
+                {dl.error && (
+                  <div className={styles.errorMessage}>
+                    <span>Download failed: {dl.error}</span>
+                    <button
+                      className={styles.retryButton}
+                      onClick={() => handleDownload(downloadFormat, downloadSize)}
+                    >
+                      Retry
+                    </button>
+                  </div>
+                )}
+
+                {/* Options — hidden while downloading */}
+                {!dl.active && (
+                  <>
+                    <div className={styles.optionGroup}>
+                      <label>Format:</label>
+                      <select
+                        value={downloadFormat}
+                        onChange={(e) => setDownloadFormat(e.target.value)}
+                      >
+                        <option value="svg">SVG</option>
+                        <option value="png">PNG</option>
+                      </select>
+                    </div>
+
+                    <div className={styles.optionGroup}>
+                      <label>Size:</label>
+                      <select
+                        value={downloadSize}
+                        onChange={(e) => setDownloadSize(e.target.value)}
+                      >
+                        <option value="small">Small (300×280)</option>
+                        <option value="medium">Medium (600×560)</option>
+                        <option value="large">Large (1200×1120)</option>
+                        <option value="xlarge">Full (2400×2240)</option>
+                      </select>
+                    </div>
+
+                    <div className={styles.downloadActions}>
+                      <button
+                        className={styles.downloadActionButton}
+                        onClick={() => handleDownload(downloadFormat, downloadSize)}
+                      >
+                        Download {downloadFormat.toUpperCase()}
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           )}
