@@ -68,6 +68,27 @@ KIT LOGO END
 
 > TODO: Describe the business value of this KIT and why it should be implemented
 
+## Semantic Models / Data Model
+
+<!-- Reference the relevant semantic models, APIs, or standards. -->
+
+> TODO: Link or describe the data model, when using big payloads or json-schemas use expandable sections like below:
+
+<details>
+  <summary>Semantic Model Example - click to expand</summary>
+
+Place here the description of your semantic model.
+
+```json
+{
+  "key": "value",
+  "object": {...},
+  "array": [...]
+}
+```
+
+</details>
+
 ## Standards
 
 <!-- Provide a list of standards this KIT. -->
