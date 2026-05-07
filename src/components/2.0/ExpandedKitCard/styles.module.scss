@@ -398,6 +398,7 @@
   justify-content: center;
   align-items: center;
   flex: 1; /* Take up available space, pushing content to bottom */
+  width: 100%; /* Ensure full width for proper horizontal centering */
   margin-bottom: 1rem;
 }
 
@@ -414,6 +415,8 @@
   height: var(--logo-height, 80px) !important;
   max-width: var(--logo-width, 80px) !important;
   max-height: var(--logo-height, 80px) !important;
+  display: block; /* Ensure SVG is block-level for proper centering */
+  margin: 0 auto; /* Fallback centering for SVGs that ignore flex */
 }
 
 // Card title - designed to properly accommodate two lines
