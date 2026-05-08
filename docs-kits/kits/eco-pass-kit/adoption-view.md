@@ -39,20 +39,12 @@ In short: Catena‑X standards make battery passport data consistent, traceable,
 - **Reduced customer integration effort**: Catena‑X connects OEMs, suppliers, and service providers in a shared data space. Supporting its standards allows software vendors to integrate directly into this ecosystem and serve multiple customers with one solution, instead of building isolated, customer-specific implementations.
 - **Interoperability as a key differentiator**: Catena‑X enables standardized and interoperable data exchange across the entire value chain, allowing certified solutions to seamlessly exchange battery passport data with other systems. This makes solutions more attractive to customers.
 
-
-## Use Case Explanation
-
-### Today's Challenges
-
-Today's globalized supply chains often struggle with transparency, data fragmentation and inefficiencies through the lack of digitally available product information. Traceability becomes difficult, hindering the ability to track products' origins and ensure accountability. Risk management and compliance efforts are compromised, impacting product quality and sustainability. Customer expectations for transparency and sustainability information remain unmet, potentially leading to dissatisfaction and loss of market share. Moreover, supply chains lack the resilience and responsiveness needed to adapt to disruptions effectively.
-Embracing a digital product passport can address these challenges, enabling transparent, efficient and sustainable supply chains. Implementing the EcoPass KIT can enable companies to address these challenges by creating a comprehensive, accurate and up-to-date record of their products' lifecycles. This information can be used to improve resource efficiency, optimize recycling processes and reduce waste, ultimately driving the adoption of circular economy principles.
-
 ### How can the EcoPass KIT help to address regulatory challenges?
-
 - Manufacturers are required to disclose information regarding the environmental impact of their products under the European Union's (EU) Ecodesign Directive. The EcoPass KIT can assist producers in adhering to this rule by offering a digital record of the environmental impact of their products.
 - Companies are required to provide information regarding their efforts to address forced labor and human trafficking in their supply chains under the California Transparency in Supply Chains Act (CTSCA). The EcoPass KIT's digital record of a company's supply chain operations can assist businesses to comply with this law.
 - Certain manufacturers of products are required to take back and recycle their products at the end of their functional lifespans under the German Waste Management Act (Kreislaufwirtschaftsgesetz). The EcoPass KIT, which offers a digital record of the goods that have been returned and recycled, can assist producers in adhering to this obligation.
 
+## Use Cases covered by the EcoPass KIT
 
 ### Battery Pass: A real-world example
 
@@ -67,7 +59,20 @@ In the automotive industry, a Battery Passport or Digital Product Passport for b
 5. **End-of-Life Management**: When the battery reaches the end of its useful life, the Battery Passport provides detailed instructions for proper disposal and recycling, ensuring compliance with regulations and facilitating the recovery of valuable materials. The data stored in the Battery Passport helps recycling facilities to efficiently process the battery, reducing waste and promoting a circular economy.
 
 Throughout this process, the Battery Passport serves as a single, secure, and easily accessible source of information for various stakeholders, such as vehicle manufacturers, suppliers, service providers, regulators and vehicle owners. By implementing a digital product passport like the Battery Pass in the automotive industry, companies can promote transparency, traceability, and sustainability, ultimately contributing to a more eco-friendly and circular economy.
-For more information please read the [Battery Pass Viewer App Success Story](./success-stories/battery-pass-viewer-app.mdx)!
+
+### Battery Pass: Catena-X Standard explained
+The CX‑XXXX Battery Passport standard specifies how battery‑related information is modeled, provisioned, discovered and accessed within the Catena‑X dataspace for:
+- Traction, industrial and similar batteries that fall under the scope of the EU Battery Regulation or comparable regulatory schemes.
+- End‑to‑end lifecycle usage within the automotive battery value chain (manufacturing, use phase, second‑life, end‑of‑life and recycling).
+- Provisioning of both complete digital battery passports and partial, lifecycle‑specific data contributions, based on Catena‑X digital twins and the joint Catena‑X/IDTA Battery Passport aspect models.
+
+The standard destinguishes three different use cases:
+- Use Case (1) - Provisioning of near-complete battery passport: Typically used in situations where the data provider manufactures the battery, but the battery passport will be published by the data consumer. This can happen depending on the contractual situation and depending on who is the economic operator of the battery and who is putting it onto the EU market.
+- Use Case (2) - component supplier integration (for example cells, housing, battery packs): Typically used to provide data from a component supplier to a battery manufacturer.
+- Use Case (3) - DPP-Service provider view: Complete exchange of DPPs to service provider, which provides it public.
+
+Please note that Use Case 2 is not available in the current version of the standard and will be added later.
+
 
 ## Semantic Models
 
