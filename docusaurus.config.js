@@ -456,6 +456,18 @@ const config = {
             items: [
               {
                 html: `
+                  <a href="https://dataspace.eclipse.org" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;align-items:center;text-decoration:none;">
+                    <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;">A project under the purview of the</span>
+                    <img alt='Eclipse Dataspace Working Group' src='/img/edwg-logo-white.svg' style="height:60px;"/>
+                  </a>
+                `
+              }
+            ]
+          },
+          {
+            items: [
+              {
+                html: `
                   <img alt='' src='/img/EF_registered_wht_png.png'/>
                 `
               }

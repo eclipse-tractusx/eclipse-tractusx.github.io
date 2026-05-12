@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Eclipse Dataspace Working Group Logo (White)
+  Source: https://dataspace.eclipse.org
+  SPDX-License-Identifier: CC-BY-4.0
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" fill="white">
+  <!-- Eclipse arc -->
+  <path d="M 30 60 A 40 40 0 1 1 30 61" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 30 30 A 40 40 0 0 1 70 60" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <!-- Text: eclipse -->
+  <text x="80" y="45" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="300" letter-spacing="2" fill="white">eclipse</text>
+  <!-- Text: DATASPACE -->
+  <text x="80" y="75" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="4" fill="white">DATASPACE</text>
+  <!-- Text: WORKING GROUP -->
+  <text x="80" y="100" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" letter-spacing="6" fill="white">WORKING GROUP</text>
+</svg>
