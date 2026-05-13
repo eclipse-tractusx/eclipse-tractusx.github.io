@@ -398,6 +398,7 @@
   justify-content: center;
   align-items: center;
   flex: 1; /* Take up available space, pushing content to bottom */
+  width: 100%; /* Ensure full width for proper horizontal centering */
   margin-bottom: 1rem;
 }
 
@@ -414,6 +415,8 @@
   height: var(--logo-height, 80px) !important;
   max-width: var(--logo-width, 80px) !important;
   max-height: var(--logo-height, 80px) !important;
+  display: block; /* Ensure SVG is block-level for proper centering */
+  margin: 0 auto; /* Fallback centering for SVGs that ignore flex */
 }
 
 // Card title - designed to properly accommodate two lines
@@ -435,16 +438,17 @@
 }
 
 // Content area - contains title, description and badges at bottom
+// Uses fixed height (min-height = max-height) so that titles align across all cards
 .expandedKitCard__content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Align content to bottom */
   flex-shrink: 0; /* Don't shrink, maintain size */
+  min-height: 50%; /* Ensure consistent height across cards for title alignment */
   max-height: 50%; /* Limit content area to half the card to prevent overflow */
   overflow: hidden; /* Hide any content that still overflows */
 }
 
-// Description text - positioned at bottom above badges
+// Description text - positioned between title and badges, fills available space
 .expandedKitCard__description {
   font-size: 0.85rem; /* Slightly smaller to fit better */
   line-height: 1.4; /* Tighter line spacing */
@@ -455,17 +459,21 @@
   word-wrap: break-word;
   word-break: break-word;
   hyphens: auto;
+  flex: 1; /* Fill available space to push maturity chips to bottom */
+  min-height: 0; /* Allow flex item to shrink below content size */
   /* Limit height to approximately 3 lines for better space management */
   max-height: 3.57rem; /* 3 lines * 1.4 line-height * 0.85rem font-size */
 }
 
-// Maturity section - positioned at very bottom
+// Maturity section - always pinned at the very bottom of the content area
 .expandedKitCard__maturity {
   display: flex;
   flex-wrap: wrap;
   gap: 0.375rem; /* Reduced gap for better space utilization */
   margin: 0; /* No extra margin, let parent spacing handle it */
+  margin-top: auto; /* Push to bottom of flex container */
   align-items: center;
+  flex-shrink: 0; /* Never shrink the maturity chips */
 }
 
 // Chips styling (reused from KitCard)
@@ -614,6 +622,7 @@
   }
 
   .expandedKitCard__content {
+    min-height: 60%; /* Match max-height for consistent title alignment */
     max-height: 60%; /* More content space on tablets */
   }
 }
@@ -699,6 +708,7 @@
   }
 
   .expandedKitCard__content {
+    min-height: 65%; /* Match max-height for consistent title alignment */
     max-height: 65%; /* More content space on mobile */
   }
 
