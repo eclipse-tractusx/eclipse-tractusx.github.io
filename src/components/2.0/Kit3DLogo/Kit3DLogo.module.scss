@@ -271,6 +271,85 @@
   }
 }
 
+/* ─── Progress bar ───────────────────────────────────────────────────── */
+
+.progressSection {
+  margin-bottom: 20px;
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-200);
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--ifm-color-primary);
+  transition: width 0.3s ease;
+}
+
+.progressInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.progressStatus {
+  font-size: 13px;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.progressPct {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* ─── Error state ────────────────────────────────────────────────────── */
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: var(--ifm-color-danger-darkest);
+  font-size: 13px;
+
+  [data-theme='dark'] & {
+    background: rgba(248, 113, 113, 0.1);
+    border-color: rgba(248, 113, 113, 0.3);
+    color: var(--ifm-color-danger-lightest);
+  }
+}
+
+.retryButton {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background: var(--ifm-color-primary);
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--ifm-color-primary-dark);
+  }
+}
+
 /* 3D Logo Stack Container */
 .logo3dContainer {
   position: relative;

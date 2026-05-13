@@ -43,7 +43,7 @@ npm/npmjs/-/baseline-browser-mapping/2.10.24, Apache-2.0, approved, #26300
 npm/npmjs/-/batch/0.6.1, MIT, approved, clearlydefined
 npm/npmjs/-/big.js/5.2.2, MIT, approved, clearlydefined
 npm/npmjs/-/binary-extensions/2.3.0, MIT, approved, #13867
-npm/npmjs/-/body-parser/1.20.4, MIT, approved, clearlydefined
+npm/npmjs/-/body-parser/1.20.4, MIT, approved, #27898
 npm/npmjs/-/bonjour-service/1.3.0, MIT, approved, clearlydefined
 npm/npmjs/-/boolbase/1.0.0, ISC, approved, #24861
 npm/npmjs/-/boxen/6.2.1, MIT, approved, clearlydefined
@@ -454,7 +454,7 @@ npm/npmjs/-/json-schema-traverse/0.4.1, MIT, approved, clearlydefined
 npm/npmjs/-/json-schema-traverse/1.0.0, MIT, approved, #24851
 npm/npmjs/-/json2mq/0.2.0, MIT, approved, clearlydefined
 npm/npmjs/-/json5/2.2.3, MIT, approved, #15226
-npm/npmjs/-/jsonfile/6.2.0, MIT, approved, clearlydefined
+npm/npmjs/-/jsonfile/6.2.0, MIT, approved, #27883
 npm/npmjs/-/katex/0.16.45, Apache-2.0 AND MIT AND OFL-1.1 AND LicenseRef-Public-Domain, approved, #8549
 npm/npmjs/-/keyv/4.5.4, MIT, approved, #4674
 npm/npmjs/-/khroma/2.1.0, MIT, approved, clearlydefined
@@ -482,7 +482,7 @@ npm/npmjs/-/lightningcss/1.32.0, MPL-2.0, approved, clearlydefined
 npm/npmjs/-/lilconfig/3.1.3, MIT AND ISC, approved, #18956
 npm/npmjs/-/lines-and-columns/1.2.4, MIT, approved, clearlydefined
 npm/npmjs/-/linkify-it/4.0.1, MIT, approved, clearlydefined
-npm/npmjs/-/loader-runner/4.3.1, MIT, approved, clearlydefined
+npm/npmjs/-/loader-runner/4.3.1, MIT, approved, #27891
 npm/npmjs/-/loader-utils/2.0.4, MIT, approved, #4986
 npm/npmjs/-/local-pkg/1.1.2, MIT, approved, #20362
 npm/npmjs/-/locate-path/7.2.0, MIT, approved, clearlydefined
