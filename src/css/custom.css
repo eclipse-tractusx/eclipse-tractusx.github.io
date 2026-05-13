@@ -549,3 +549,42 @@ div[class*="blogPostPage"],
 [data-theme='dark'] .kit-home-icon::before {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fbb24d"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>');
 }
+
+/* Product Category Headers in Navbar Dropdown */
+.product-category-header {
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  color: #667eea !important;
+  letter-spacing: 0.05em !important;
+  text-align: left !important;
+}
+
+.product-category-header:hover {
+  color: #764ba2 !important;
+  background-color: var(--ifm-color-emphasis-100) !important;
+}
+
+[data-theme='dark'] .product-category-header {
+  color: #a4b8f8 !important;
+}
+
+[data-theme='dark'] .product-category-header:hover {
+  color: #c4d0ff !important;
+}
+
+/* Add package icon to Products HOMEPAGE using pseudo-element */
+.product-home-icon::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23667eea"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 013 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9zM12 4.15L6.04 7.5 12 10.85l5.96-3.35L12 4.15zM5 15.91l6 3.38v-6.71L5 9.21v6.7zm8 3.38l6-3.38V9.21l-6 3.37v6.71z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: sub;
+}
+
+[data-theme='dark'] .product-home-icon::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23a4b8f8"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 013 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9zM12 4.15L6.04 7.5 12 10.85l5.96-3.35L12 4.15zM5 15.91l6 3.38v-6.71L5 9.21v6.7zm8 3.38l6-3.38V9.21l-6 3.37v6.71z"/></svg>');
+}
