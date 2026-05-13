@@ -311,6 +311,43 @@ const config = {
             ],
           },
           {
+            type: 'dropdown',
+            label: 'Products',
+            position: 'left',
+            to: '/Products',
+            items: [
+              {
+                to: 'Products',
+                label: 'PRODUCTS HOMEPAGE',
+                className: 'product-category-header product-home-icon'
+              },
+              {
+                type: 'html',
+                value: '<hr style="margin: 8px 0; border-color: var(--ifm-color-emphasis-300);">'
+              },
+              {
+                to: '/Products/use-cases',
+                label: 'USE CASES',
+                className: 'product-category-header'
+              },
+              {
+                to: '/Products/dataspace-foundation',
+                label: 'DATASPACE FOUNDATION',
+                className: 'product-category-header'
+              },
+              {
+                to: '/Products/industry-core',
+                label: 'INDUSTRY CORE FOUNDATION',
+                className: 'product-category-header'
+              },
+              {
+                to: '/Products/qa-testing',
+                label: 'QA / TESTING & TOOLS',
+                className: 'product-category-header'
+              },
+            ],
+          },
+          {
             type: 'doc',
             docId: 'developer',
             position: 'left',
