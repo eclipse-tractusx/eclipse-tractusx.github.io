@@ -162,7 +162,6 @@
   padding: 2rem 1.5rem; /* Increased padding for larger content area */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Push description and badges to bottom */
   text-decoration: none;
   color: inherit;
   overflow: hidden;
@@ -392,19 +391,13 @@
   margin-bottom: 1rem;
 }
 
-// Fixed icon section at top - takes up more space now
+// Fixed icon section at top - fixed height so content aligns across cards
 .expandedKitCard__iconSection {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1; /* Take up available space, pushing content to bottom */
+  flex: 0 0 50%; /* Fixed at 50% of card height - never grow or shrink */
   width: 100%; /* Ensure full width for proper horizontal centering */
-  margin-bottom: 1rem;
-}
-
-// When deprecated badge is present, adjust icon section
-.expandedKitCard--deprecated .expandedKitCard__iconSection {
-  margin-top: 3rem; /* Add space for deprecated badge */
 }
 
 // Kit icon - uses variable dimensions from kit data
@@ -429,8 +422,6 @@
   transition: color 0.3s ease;
   text-align: left;
   word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
   overflow: hidden;
   /* Exactly two lines: 2 * 1.25 line-height * 1.1rem font-size = 2.75rem */
   max-height: 2.75rem;
@@ -438,13 +429,11 @@
 }
 
 // Content area - contains title, description and badges at bottom
-// Uses fixed height (min-height = max-height) so that titles align across all cards
+// Uses fixed height (flex-basis 50%) so that titles align across all cards
 .expandedKitCard__content {
   display: flex;
   flex-direction: column;
-  flex-shrink: 0; /* Don't shrink, maintain size */
-  min-height: 50%; /* Ensure consistent height across cards for title alignment */
-  max-height: 50%; /* Limit content area to half the card to prevent overflow */
+  flex: 0 0 50%; /* Fixed at 50% of card height - matches icon section */
   overflow: hidden; /* Hide any content that still overflows */
 }
 
@@ -457,8 +446,6 @@
   transition: color 0.3s ease;
   overflow: hidden;
   word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
   flex: 1; /* Fill available space to push maturity chips to bottom */
   min-height: 0; /* Allow flex item to shrink below content size */
   /* Limit height to approximately 3 lines for better space management */
