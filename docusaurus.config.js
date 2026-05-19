@@ -306,6 +306,11 @@ const config = {
                 label: 'KIT Master Data',
                 className: 'kit-nav-item'
               },
+              {
+                to: '/documentation/kit-3d-logo-library',
+                label: 'KIT Assets',
+                className: 'kit-nav-item'
+              },
               // Dynamically generated from kitsData
               ...generateKitNavItems(),
             ],
