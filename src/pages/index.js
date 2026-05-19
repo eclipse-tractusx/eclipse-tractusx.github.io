@@ -48,8 +48,8 @@ export default function Home() {
   const aboutInput = {
     highlightText: "Welcome to the community",
     title: "The magic behind Eclipse Tractus-X",
-    descriptionHighlight: "The Eclipse Tractus-X™ project",
-    description: " is the official open-source project in the Catena-X ecosystem and several other Manufacturing-X ecosystems under the umbrella of the Eclipse Foundation. The Eclipse Foundation is a not-for-profit corporation that is supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.",
+    descriptionHighlight: "Eclipse Tractus-X™",
+    description: " — Where we build dataspaces! A collaborative, open-source project driving the digital transformation of various industries. We enable secure, self-sovereign and efficient data exchange, powered by seamless collaboration across the supply chain and built on trusted open standards.",
     buttonText: "About Us",
     link: "/AboutUs"
   }

@@ -31,10 +31,10 @@ export default function AboutUsContent() {
       <div className={styles.container}>
 
         <div className={styles.title_container}>
-          <h2 className="title-h2">Background</h2>
+          <h2 className="title-h2">Our Mission</h2>
 
           <p className="description-p">
-            The Eclipse Tractus-X™ project is the official open-source project in the Catena-X ecosystem and several other Manufacturing-X ecosystems under the umbrella of the Eclipse Foundation. The Eclipse Foundation is a not-for-profit corporation that is supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.
+            Eclipse Tractus-X™ — Where we build dataspaces! Is a collaborative, open-source project aimed at driving the digital transformation of various industries, including automotive, manufacturing, chemical, semiconductor and construction. Our mission is to enable secure, self-sovereign and efficient data exchange, powered by seamless collaboration across the supply chain and built on trusted open standards.
           </p>
 
           <div className={styles.img_container}>
@@ -48,32 +48,38 @@ export default function AboutUsContent() {
             />
           </div>
 
+          <h2 className="title-h2">What We Do</h2>
+
           <p className="description-p">
-            The Catena-X ecosystem consists of the following three areas, which are connected by the Tractus-X project:
+            Eclipse Tractus-X™ is the home of the reference implementations used in Catena-X and several Manufacturing-X initiatives. We develop open, interoperable solutions that foster collaboration between diverse stakeholders, providing a foundation for scalable, data-driven applications. This includes reference implementations and domain models for supply chain, compliance, sustainability, and more.
+          </p>
+
+          <h2 className="title-h2">KITs — Keep It Together</h2>
+
+          <p className="description-p">
+            We are also the home of the Eclipse Tractus-X™ KITs (Keep It Together) — modular architecture blueprints co-created by multiple stakeholders. The KITs accelerate the adoption of dataspace technologies and use cases across complex data ecosystems.
+          </p>
+
+          <h2 className="title-h2">Open-Source Software</h2>
+
+          <p className="description-p">
+            Our open-source software includes demonstrators, libraries, reference implementations, and incubating components, empowering service providers to build their own solutions based on the Eclipse Tractus-X KITs blueprints.
           </p>
 
           <p className="description-p">
-            (1) The <strong>Catena-X Automotive Network e.V.</strong> (in the following called ‘association’) is responsible for standardization, certifications, and governance of the Catena-X ecosystem and is managing the Eclipse Tractus-X project. Association members can participate in working groups to actively shape the Catena-X ecosystem.
+            Reference implementations are released under the Apache 2.0 license. According to the Apache 2.0 license, anyone can freely use, modify, and distribute the reference implementations in any environment.
           </p>
 
-          <p className="description-p">
-            (2) The <strong>development environment</strong> is responsible for the development of the initial reference implementations of the core and enabling services. The reference implementations are managed in the Tractus-X repositories, that contain, among other things, source code, technical documentation, and deployment instructions.
-          </p>
+          <h2 className="title-h2">Who Participates</h2>
 
           <p className="description-p">
-            (3) In the <strong>operating environment</strong>, the open-source reference implementations can be freely used, modified, and operated by providers - including core service provider (e.g., marketplace), enablement service provider (e.g., Eclipse Dataspace Connector), and business application provider (e.g., traceability applications).
+            Participants in Eclipse Tractus-X™ include both users and providers from across the automotive value chain and beyond — from large enterprises to small and medium-sized companies. We place a particular focus on supporting the integration and participation of SMEs in the data economy.
           </p>
 
-          <p className="description-p">
-            Tractus-X supports developers to accelerate the development and operation of services / applications and to contribute significantly to the rapid scaling of the ecosystem. Therefore Tractus-X provides reference implementations of core and enabling services as well as KITs to accelerate the development of interoperable and innovative applications and the on-boarding to the Catena-X ecosystem.
-          </p>
+          <h2 className="title-h2">Governance</h2>
 
           <p className="description-p">
-            Reference implementations are free and open-source software (FOSS) components, which are managed in the associated Eclipse Tractus-X project. Other reference implementations (e.g., DAPS) used by the Catena-X ecosystem but developed by other projects such as Gaia-X or IDSA can also be found in the Eclipse Tractus-X project.
-          </p>
-
-          <p className="description-p">
-            Reference implementations are released under the Apache 2.0 license. According to the Apache 2.0 license, anyone can freely use, modify, and distribute the reference implementations in any environment. Reference implementations are usually not market-ready solutions and require a certain industrialization effort, which can vary depending on the software component. As part of the development environment, the Catena-X consortium provides the first open-source Catena-X reference implementations for core and enabling services.
+            Eclipse Tractus-X™ is a project under the purview of the <strong>Eclipse Dataspace Working Group (EDWG)</strong>, operating under the umbrella of the Eclipse Foundation. The Eclipse Foundation is a not-for-profit corporation that is supported by over 320 members, and represents the world’s largest sponsored collection of Open Source projects and developers.
           </p>
         </div>
 
