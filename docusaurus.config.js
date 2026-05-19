@@ -465,7 +465,7 @@ const config = {
               },
               {
                 label: "Manufacturing-X",
-                href: "https://manufacturing-x.com/",
+                href: "https://www.plattform-i40.de/IP/Navigation/EN/Manufacturing-X/Manufacturing-X.html",
               },
               {
                 label: "Construct-X",
