@@ -195,8 +195,8 @@ export const kitsData = {
         licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-trust-and-security/data-trust-and-security-kit-raw-logo.svg.license',
         sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-trust-and-security/data-trust-and-security-kit-raw-logo.svg'
       },
-      logoHeight: 120,
-      logoWidth: 120,
+      logoHeight: 110,
+      logoWidth: 110,
       route: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
       colors: {
         primary: '#2A1FB3',
