@@ -62,7 +62,11 @@ This KIT provides a comprehensive overview of the business context and benefits 
 
 ---
 
+## Business Value
+
 ### Value Proposition #1: 
+The Catena-X EcoPass KIT aims to empower participants to share product pass-related data in a secure and sovereign way while ensuring the interoperability of the different applications involved in the process.
+To achieve this, the relevant Catena-X standards and data modes are referenced, explained, and placed within a broader context of business processes.
 
 **Benefit**: [Primary benefit description]
 
@@ -70,8 +74,6 @@ This KIT provides a comprehensive overview of the business context and benefits 
 
 **Measurable Outcomes**: [Key metrics]
 
-The Catena-X EcoPass KIT aims to empower participants to share product pass-related data in a secure and sovereign way while ensuring the interoperability of the different applications involved in the process.
-To achieve this, the relevant Catena-X standards and data modes are referenced, explained, and placed within a broader context of business processes.
 
 ### Value of standardization
 Using Catena‑X data models and standards for the battery passport is particularly valuable because they create a consistent and verifiable foundation for battery-related data across the entire lifecycle.
@@ -98,7 +100,42 @@ In short: Catena‑X standards make battery passport data consistent, traceable,
 - Companies are required to provide information regarding their efforts to address forced labor and human trafficking in their supply chains under the California Transparency in Supply Chains Act (CTSCA). The EcoPass KIT's digital record of a company's supply chain operations can assist businesses to comply with this law.
 - Certain manufacturers of products are required to take back and recycle their products at the end of their functional lifespans under the German Waste Management Act (Kreislaufwirtschaftsgesetz). The EcoPass KIT, which offers a digital record of the goods that have been returned and recycled, can assist producers in adhering to this obligation.
 
-## Use Cases covered by the EcoPass KIT
+### Summary of Business Benefits
+
+| Stakeholder Type | Key Benefits | Time to Value |
+|------------------|--------------|---------------|
+| **OEMs** | [List 2-3 benefits for large enterprises] | [e.g., "6 months"] |
+| **SMEs** | [List 2-3 benefits for small-medium enterprises] | [e.g., "3 months"] |
+| **Solution Providers** | [List 2-3 benefits for tech vendors] | [e.g., "90 days"] |
+| **Data Providers** | [List 2-3 benefits for data providers] | [e.g., "4 weeks"] |
+
+---
+
+## Use Case Context
+
+### Industry Challenge
+
+[Describe current industry problems and pain points]
+
+**Current Challenges:**
+
+- **Challenge 1**: [Problem description and impact]
+- **Challenge 2**: [Problem description and impact]
+- **Challenge 3**: [Problem description and impact]
+
+### The Solution
+
+[Explain how this KIT addresses the challenges]
+
+**Solution Components:**
+
+1. **[Component 1]**: [Description]
+2. **[Component 2]**: [Description]
+3. **[Component 3]**: [Description]
+
+---
+
+## Use Cases
 
 ### Battery Pass: A real-world example
 
@@ -115,7 +152,7 @@ In the automotive industry, a Battery Passport or Digital Product Passport for b
 Throughout this process, the Battery Passport serves as a single, secure, and easily accessible source of information for various stakeholders, such as vehicle manufacturers, suppliers, service providers, regulators and vehicle owners. By implementing a digital product passport like the Battery Pass in the automotive industry, companies can promote transparency, traceability, and sustainability, ultimately contributing to a more eco-friendly and circular economy.
 
 ### Battery Pass: Catena-X Standard explained
-The CX‑XXXX Battery Passport standard specifies how battery‑related information is modeled, provisioned, discovered and accessed within the Catena‑X dataspace for:
+The CX‑0160 Battery Passport standard specifies how battery‑related information is modeled, provisioned, discovered and accessed within the Catena‑X dataspace for:
 - Traction, industrial and similar batteries that fall under the scope of the EU Battery Regulation or comparable regulatory schemes.
 - End‑to‑end lifecycle usage within the automotive battery value chain (manufacturing, use phase, second‑life, end‑of‑life and recycling).
 - Provisioning of both complete digital battery passports and partial, lifecycle‑specific data contributions, based on Catena‑X digital twins and the joint Catena‑X/IDTA Battery Passport aspect models.
@@ -415,40 +452,6 @@ Please note that Use Case 2 is not available in the current version of the stand
 
 </details>
 
-### Battery Passport
-
-#### Battery Passport Introduction
-
-The Catena-X standards, which are crucial to create a more sustainable battery business, serve as the foundation for the data model behind the Battery Passport. The Battery Passport assists in enhancing the traceability and sustainability of batteries by offering a thorough record of a battery's life cycle. This will mitigate the battery industry's environmental effect and make it easier to recycle batteries.
-
-Due to requirements of the regulation [(EU) 2023/1542](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1542) for batteries and waste batteries, a data model for Battery Passport was created, which increases the efficiency of circular economy ecosystems of all partners in the value network. The battery passport is a tool for the exchange of information and enables tracking and tracing of batteries usage information.
-The Battery Passport is a standardized data model that will enable stakeholders to access the relevant data. The version of the Battery Passport Data Model `v.6.0.0` consists out of the following information:
-
-- Passport metadata
-- Product identification
-- Product operation
-- Product handling
-- Product characteristic
-- Sustainability information
-- Materials information
-- Commercial information
-- Sources (documents)
-- Conformity information
-- Safety information
-- Performance information
-
-References to shared aspects are the following:
-
-- urn:samm:io.catenax.generic.digital_product_passport:5.0.0
-- and indirect references from the above mentioned aspect
-
-It is important to note that the data model contains information/data fields, which are mandatory for the fulfillment of the regulation ([(EU) 2023/1542](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R1542)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
-
-#### Link to current Battery Pass model
-
-The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.battery.battery_pass). For each version there is a separated directory containing the ttl-file and a generated samples.
-
-#### Example Battery Passport Payload
 
 
 ---
@@ -475,5 +478,22 @@ For previous versions of this KIT a reference application was mentioned and used
 This application has been deprecated and should no longer be seen as valid reference.
 For some insights into the application of the KIT for generic product passports have a look at the EcoPAss KIT of the [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub). 
 :::
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023, 2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023, 2024 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023, 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023, 2024 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2023, 2024 SAP SE
+- SPDX-FileCopyrightText: 2023, 2024 CGI Deutschland B.V. & Co. KG
 - SPDX-FileCopyrightText: 2023, 2024, 2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK
+- SPDX-FileCopyrightText: 2023, 2024 BASF SE
+- SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
+- SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2026 Mercedes-Benz AG
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

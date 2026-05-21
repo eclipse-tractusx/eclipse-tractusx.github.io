@@ -34,13 +34,11 @@ This logo is only visible when compiled with Docusarus (final version of the hos
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
-<Kit3DLogo kitId="<eco-pass>" />
+<Kit3DLogo kitId="eco-pass" />
 
 <!--
 KIT LOGO END
 -->
-
-## Automotive Industry Extension
 
 This extension adapts the **EcoPass KIT** for the automotive industry with Catena-X standards compliance.
 
