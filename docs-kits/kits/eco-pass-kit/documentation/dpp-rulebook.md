@@ -5,6 +5,10 @@ description: DPP Rulebook which allows attestation providers to provider trust t
 sidebar_position: 1
 ---
 
+:::info Target Audience
+Responsibles for gathering, managing, or exchanging DPP data across the value chain (i.e., Data provider and data consumer) in Catena-X network : such as product managers, sustainability officers, and supply chain specialists .
+:::
+
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 <Kit3DLogo kitId="eco-pass" />

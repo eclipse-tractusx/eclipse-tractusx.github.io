@@ -31,6 +31,12 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 <!--
 KIT LOGO END
 -->
+
+:::info Target Audience
+Application Developer, Business Architects, Solution Architects.
+:::
+
+
 ## Introduction
 
 ### General Development Information
