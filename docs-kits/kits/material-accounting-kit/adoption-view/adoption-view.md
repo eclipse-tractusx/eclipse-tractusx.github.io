@@ -1,7 +1,7 @@
 ---
 id: adoption-view
 title: Adoption View
-description: '<KIT NAME> KIT'
+description: 'Material Accounting KIT'
 sidebar_position: 2
 ---
 
@@ -27,7 +27,7 @@ This logo is only visible when compiled with Docusarus (final version of the hos
 -->
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
-<Kit3DLogo kitId="<kit-id>" />
+<Kit3DLogo kitId="material-accounting" />
 
 <!--
 KIT LOGO END
@@ -58,8 +58,6 @@ and traceable material flows, enabling better circularity decisions, regulatory
 compliance, and the scalable integration of secondary materials into future
 production processes.
 
-> TODO: Provide a short description of the KIT's purpose and scope.
-
 ## Vision and Mission
 
 ### Vision
@@ -81,8 +79,8 @@ utilization.
 
 The mission of the Material Accounting KIT is to provide a practical and standardized framework that enables all participants in the use
 case to capture, exchange, and utilize data on secondary materials in
-a consistent and interoperable way. It guides all actors — such as
-dismantlers, recyclers, logistics providers, and manufacturers—in
+a consistent and interoperable way. It guides all actors, such as
+dismantlers, recyclers, logistics providers, and manufacturers, in
 implementing standardized data models, and secure data
 exchange processes to ensure end-to-end traceability of material
 flows. By doing so, the Use Case supports the verification of
@@ -139,34 +137,205 @@ approaches, which strengthens circular economy implementation.
 
 | Current Challenges | Solutions |
 |---|---|
-| 🔍 **Limited Transparency after End-of-Life**: Material information is lost or fragmented during dismantling and recycling. | 🧾 **Digital Tracking of Secondary Material Flows**: End-of-life vehicles → dismantling → recycling → new production |
-| 🔗 **Complex & Distributed Value Chains**: Multiple actors generate disconnected and non-standardized data. | 🧩 **Standardized & Verifiable Data Models**: Harmonized semantics ensure consistent and machine-readable material data. |
-| ⚖️ **Regulatory & Reporting Pressure**: Recycled content and recovery rates must be proven with auditable data. | 🤝 **Cross-Company Transparency with Data Sovereignty**: Trusted data exchange across actors while maintaining control. |
-| 📄 **High Manual Effort**: Material verification relies on documentation, estimates, and manual processes. | 📊 **Reduced Compliance Effort**: Reusable, auditable data instead of repetitive manual reporting. |
-| 🖥️ **Integration Barriers**: Existing IT systems are not designed for scalable, cross-company material data exchange. | 🚀 **Better Circular Decision-Making**: Material flows become visible, comparable, and optimizable. |
+| **Limited Transparency after End-of-Life**: Material information is lost or fragmented during dismantling and recycling. | **Digital Tracking of Secondary Material Flows**: End-of-life vehicles → dismantling → recycling → new production |
+| **Complex & Distributed Value Chains**: Multiple actors generate disconnected and non-standardized data. | **Standardized & Verifiable Data Models**: Harmonized semantics ensure consistent and machine-readable material data. |
+| **Regulatory & Reporting Pressure**: Recycled content and recovery rates must be proven with auditable data. | **Cross-Company Transparency with Data Sovereignty**: Trusted data exchange across actors while maintaining control. |
+| **High Manual Effort**: Material verification relies on documentation, estimates, and manual processes. | **Reduced Compliance Effort**: Reusable, auditable data instead of repetitive manual reporting. |
+| **Integration Barriers**: Existing IT systems are not designed for scalable, cross-company material data exchange. | **Better Circular Decision-Making**: Material flows become visible, comparable, and optimizable. |
 
 <!-- Describe why this KIT is attractive for service providers to be implemented -->
 
-> TODO: Describe the business value of this KIT and why it should be implemented
+## Use Case Overview
+
+The following diagram illustrates the Material Accounting use case across the automotive circular economy lifecycle. It shows how materials and related information move through the different stages of the reverse and forward value chain, from dismantling and recycling to material, component, and vehicle manufacturing.
+
+Material Accounting acts as a cross-functional data layer that accompanies these physical processes by enabling the standardized exchange of material-related information between actors. Each process step generates input and output data that can be linked through digital twins and semantic models, ensuring traceability, transparency, and interoperability across company boundaries.
+
+*Figure 1: Material Accounting across the automotive end-of-life.*
+![Use Case Overview](../resources/use-case-overview-tight.svg) 
+
+
+## Semantic Models / Data Model
+
+Material Accounting is based on a set of standardized semantic aspect
+models that define how vehicles, components, materials and recycling
+processes are described and exchanged within the Catena-X ecosystem.
+These models establish a common business semantics across all
+participants in the reverse value chain. By structuring data in a
+consistent and machine-readable way, they enable traceability of
+material flows, verification of recycled content, and interoperability
+across companies. Each aspect model represents a specific perspective
+on the asset and is implemented as a digital twin submodel. The models
+are exchanged and updated along transaction events triggered by
+physical processes such as dismantling, transport, recycling, and
+manufacturing.
+
+The following figure provides an overview of the six semantic aspect
+models defined for Material Accounting and their integration into the
+existing Catena-X data model landscape. At the center of the
+architecture, the **PartInstance (SerialPart)** and **SingleLevelBomAsBuilt**
+models from the Industry Core establish the structural foundation by
+linking vehicles, components, and parts. Building on this, the six
+Material Accounting aspect models extend the digital twin with
+circularity-relevant information: **VehicleInformation** describes the
+vehicle at end-of-life, **Composition** links assets to their material
+breakdown, **Material** defines the characteristics of materials,
+**RecyclingInformation** captures recycled content shares, **WasteCode**
+ensures regulatory classification, and **RecyclingBatch** represents
+process and batch-level transformations. Together, these models form a
+coherent semantic structure that enables the traceability of materials
+across the reverse value chain and ensures that all participants
+operate on a consistent interoperable data basis.
+
+*Figure 2: Six New Aspect Models (SAMM)*
+![samm image](../resources/SAMM.drawio.svg) 
+
+Material Accounting builds on existing Catena-X standards, as seen above, particularly:
+
+- PartInstance (SerialPart) for identifying physical assets
+- SingleLevelBomAsBuilt for linking vehicles, components, and materials
+
+The Material Accounting aspect models extend this foundation by adding
+circularity-relevant data such as material composition, recycling processes, waste classification, and material origin.
+
+### 1.	VehicleInformation
+
+The VehicleInformation model describes the vehicle at the end-of-life point, when it enters the
+reverse value chain. It provides the contextual data required to identify,
+classify, and assess the vehicle before dismantling and recycling processes.
+
+| Attribute | Definition |
+|---|---|
+| `anonymizedVin` | OEM-specific hashed VIN |
+| `vehicleType` | A vehicle type is a classification of a vehicle based on its design, construction, and purpose |
+| `productionDate` | Production date of the vehicle |
+| `emptyWeight` | The empty weight of the vehicle in kg as specified |
+| `oem` | Original equipment manufacturer |
+| `vehicleSeries` | Series information of the vehicle model that needs to be processed |
+| `modelIdentifier` | OEM-specific model identifier or OEM-specific project name |
+| `driveType` | Drive type of a vehicle according enumeration |
+| `vehicleCondition` | Condition of the actual vehicle |
+
+### 2. WasteCode
+
+The WasteCode model standardizes the classification of vehicles, component set`s,
+components, and materials according to waste categories. It ensures regulatory
+alignment and consistent classification across actors. This model is based on the European Waste Code at 
+
+| Attribute | Definition |
+|---|---|
+| `wasteCode` | The waste code is used to identify the type of waste on part or material level|
+
+
+### 3.	RecyclingBatch
+
+The RecyclingBatch model captures process-related and transactional data
+describing how materials, components, and compositions are handled, transferred,
+and processed across the reverse value chain. It reflects real-world operations
+such as transport, weighing, and treatment steps.
+
+| Attribute | Definition |
+|---|---|
+| `sender` | Sender of the RecyclingBatch |
+| `receiver` | Receiver of the RecyclingBatch |
+| `actorNumber` | Operating number of the actor |
+| `bpnsProperty` | The Catena-X Business Partner Number of the actor |
+| `actorRole` | Type of the actor in the recycling process |
+| `treatmentProcedure` | Process that is used to handle waste according to the chosen strategy |
+| `mechanicalRecycling` | Materials that have undergone mechanical recycling (true or false) |
+| `chemicalRecycling` | Materials that have undergone chemical recycling (true or false) |
+| `processType` | The process reflects the current processing phase in the reverse chain |
+| `childProcessType` | The child process steps detail further capabilities required for recycling |
+| `startTimestamp` | Start of the specific process step |
+| `endTimestamp` | End of the specific process step |
+| `inputNetMass` | Incoming net weight in the specific process step |
+| `outputNetMass` | Outgoing net weight in the specific process step |
+| `measurementType` | Measuring instrument for material share or weight determination |
+| `measurementTimestamp` | Timestamp of the specific time of measurement |
+| `processLoss` | Weight of loss within the specific process step |
+| `lossType` | Specification of loss within the specific process step |
+| `weighingSlip` | Official document that records the result of weighing (of component set / components / materials) on a scale |
+| `transferId` | Identifier for the transport between two actors |
+| `operator` | Operator of the transport process |
+| `containerTypeId` | Standardized number for the container type which contains component set´s / components / materials according to AVAL |
+| `containerDescription` | Standardized description of the container type according to AVAL |
+| `containerVolume` | Volume of the container type according to AVAL |
+| `containerWeight` | Empty weight of the container based on the scale display |
+| `recyclingBatchId` | Identifier of the recycling batch |
+
+
+### 4.  Material
+
+The Material model provides a standardized description of materials, including their classification, physical and chemical characteristics, and processing status.  
+It enables consistent identification and comparison of materials across actors and processes.
+
+| Attribute | Definition |
+|---|---|
+| `materialCategory*` | Highest-level classification that groups materials into broad, fundamental classes |
+| `materialGroup*` | A more specific subdivision within a Material Category |
+| `materialSubgroup*` | A refined subset of a material Group that classifies materials |
+| `classificationStandard*` | Standard according to which the material is classified |
+| `materialStatus` | Status of the material in the process step |
+| `materialFormat` | Format of the material in the process step |
+| `physicalState` | The physical state of the material |
+| `chemicalCharacterization` | Description of the chemical composition and properties |
+| `thermalCharacterization` | Information about thermal behaviour |
+| `rangeOfUncertainty` | Tolerance specification in material composition |
+
+\* from shared model `MaterialClassification`
+
+### 5. RecyclingInformation
+
+The RecyclingInformation model captures the origin and quantitative distribution of material shares. It enables the calculation and verification of recycled content across the reverse value chain.
+
+| Attribute | Definition |
+|---|---|
+| `materialSourceShare` | Shares of primary and secondary materials |
+| `preConsumerShares` | Set of pre consumer material shares |
+| `postConsumerShares` | Set of post consumer material shares |
+| `reutilizationMaterialShare` | Material share from reutilization of materials |
+| `origin` | Information on material origin |
+| `otherInformation` | Document verifying origin, quality, or compliance |
+
+---
+
+## 6. Composition
+
+The Composition model describes how components and materials are grouped and structured within vehicles or batches. It enables the creation of material balances and the traceability of material allocations.
+
+| Attribute | Definition |
+|---|---|
+| `materialWeight` | Weight of a material in a part |
 
 ## Standards
 
-<!-- Provide a list of standards this KIT. -->
-
-> TODO: Add the standards or external documetantion
-
 | Name | Description | Link to standard |
-| ---- | ----------- | ---------------------- |
-| `CX-XXXX` | This protocol is important when doing the data exchange | [example-link](https://cx-example.com) |
-| `FX-XXXX` | This protocol is important when doing a vertical integration with shop floor machinery | [example-link](https://fx-example.com) |
-| `ISO XXXX:XXXX` | This protocol is used as | [example-link](https://iso-example.com) |
+|---|---|---|
+| CX-0159 | Material Accounting standard defining harmonized technical specifications and semantic models for digital material accounting within Catena-X. | [CX-0159 Material Accounting v.1.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0159-Material-Accounting) |
+| CX-0001 | Defines the EDC Discovery API used to discover connectors and enable data exchange setup within Catena-X. | [CX-0001 Participant Agent Registration](https://catenax-ev.github.io/docs/next/standards/CX-0001-ParticipantAgentRegistration) |
+| CX-0002 | Defines Digital Twins in Catena-X, including principles for representing assets through Asset Administration Shells. | [CX-0002 Digital Twins in Catena-X](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX) |
+| CX-0003 | Defines the SAMM Aspect Meta Model used for standardized semantic aspect modeling in Catena-X. | [CX-0003 SAMM Aspect Meta Model](https://catenax-ev.github.io/docs/next/standards/CX-0003-SAMMSemanticAspectMetaModel) |
+| CX-0018 | Defines Dataspace Connectivity and DSP/DCP-compliant data exchange mechanisms. | [CX-0018 Dataspace Connectivity](https://catenax-ev.github.io/docs/next/standards/CX-0018-DataspaceConnectivity) |
+| CX-0127 | Defines the Industry Core Part Instance model used for linking physical assets and digital twins. | [CX-0127 Industry Core: Part Instance](https://catenax-ev.github.io/docs/next/standards/CX-0127-IndustryCore-PartInstance) |
+| CX-0152 | Defines policy constraints and conventions for sovereign data exchange within Catena-X. | [CX-0152 Policy Constraints for Data Exchange](https://catenax-ev.github.io/docs/next/standards/CX-0152-Policy-Constraints-For-Data-Exchange) |
+| CX-0125 | Traceability Use Case standard providing complementary guidance for traceability-related data structures and use cases. | [CX-0125 Traceability Use Case](https://catenax-ev.github.io/docs/next/standards/CX-0125-TraceabilityUseCase) |
+| CX-0131 | Circularity Core standard providing complementary concepts and guidance for circular economy use cases. | [CX-0131 Circularity Core](https://catenax-ev.github.io/docs/next/standards/CX-0131-CircularityCore) |
+| CX-0117 | Secondary Marketplace standard providing complementary guidance for circular economy marketplace use cases. | [CX-0117 Secondary Marketplace](https://catenax-ev.github.io/docs/next/standards/CX-0117-UseCaseCircularEconomy-SecondaryMarketplace) |
 
-## NOTICE
+## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [YYYY] [YOUR_COMPANY]
-- SPDX-FileCopyrightText: [YYYY] [ANOTHER_COMPANY]
-- SPDX-FileCopyrightText: [YYYY] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 BASF SE
+- SPDX-FileCopyrightText: 2026 BMW AG
+- SPDX-FileCopyrightText: 2026 Brain of Materials AG
+- SPDX-FileCopyrightText: 2026 Gestamp
+- SPDX-FileCopyrightText: 2026 Technovative Solutions Limited
+- SPDX-FileCopyrightText: 2026 LRP-Autorecycling Leipzig GmbH
+- SPDX-FileCopyrightText: 2026 Asahi Kasei
+- SPDX-FileCopyrightText: 2026 Interzero
+- SPDX-FileCopyrightText: 2026 Circularise
+- SPDX-FileCopyrightText: 2026 Containergrid GmbH
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
