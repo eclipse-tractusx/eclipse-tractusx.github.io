@@ -1,8 +1,43 @@
 ---
+id: adoption-view
 title: Adoption View
+sidebar_position: 1
 ---
 
-![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.svg)
+<!--
+Copyright(c) 2026 Contributors to the Eclipse Foundation
+
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
+
+This work is made available under the terms of the
+Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+which is available at
+https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+<!-- 
+KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
+Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
+Do not remove!
+This logo is only visible when compiled with Docusarus (final version of the hosted KIT)
+-->
+
+import Kit3DLogo from "@site/src/components/2.0/Kit3DLogo";
+
+<Kit3DLogo kitId="eco-pass" />
+
+<!--
+KIT LOGO END
+-->
+
+Welcome to the **EcoPass KIT Adoption View**. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
+
+:::info Target Audience
+Business Managers, Product Owners, Solution Architects, Industry Experts, and Decision Makers.
+:::
 
 ## Introduction
 
@@ -50,7 +85,7 @@ In short: Catena‑X standards make battery passport data consistent, traceable,
 
 In the automotive industry, a Battery Passport or Digital Product Passport for batteries plays a crucial role in ensuring transparency, traceability, and sustainability in the battery supply chain. Here's a real-world example of how a digital product passport might be set up for a battery used in electric vehicles (EVs), including its benefits, illustrated below:
 
-![BP realWorldExample](./resources/adoption-view/adoption-view-BatteryPass_a_example.svg)
+![BP realWorldExample](../resources/adoption-view/adoption-view-BatteryPass_a_example.svg)
 
 1. **Battery Manufacturing**: During the production stage, the battery manufacturer collects and records relevant data, such as the battery's unique identifier, type and model, manufacturing date and location, energy capacity and raw materials composition, including the content of critical elements like lithium, cobalt and nickel.
 2. **Supply Chain Transparency**: Information about the battery's sourcing, manufacturing and distribution processes is documented, ensuring compliance with environmental and social standards. This includes data on the origin of raw materials, labor practices and the environmental footprint of each stage of the supply chain.
@@ -1316,7 +1351,7 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
 
 The Business Architecture illustrates the interaction between the EcoPass KIT and other KITs, components, data models, and artifacts used for identity and access management, illustrated by the Figure below.
 
-![Image: Business Architecture](./resources/adoption-view/adoption-view-EcoPassKITBusinessArch.svg)
+![Image: Business Architecture](../resources/adoption-view/adoption-view-EcoPassKITBusinessArch.svg)
 
 The core of the network is to provide interoperability between different applications. For this reason, a common semantic is indispensable. In the Catena-X ecosystem, it has been agreed to use the description language SAMM to describe data models.
 To additionally provide a standardized interface, the open standard of the International Digital Twin Association (IDTA) is used, abbreviated as IDTA. This [standard](https://industrialdigitaltwin.org/wp-content/uploads/2023/04/IDTA-01002-3-0_SpecificationAssetAdministrationShell_Part2_API.pdf) corresponds to the Asset Administration Shell (AAS 3.0).
@@ -1343,7 +1378,7 @@ The Digital Product Pass Reference Implementation: [eclipse-tractusx/digital-pro
 
 - [eclipse-tractusx/digital-product-pass/dpp-tutorial](https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-tutorial)
 
-For more information about the Reference Implementation and how the KIT can be adopted consult the [Software Development View](./software-development-view.md).
+For more information about the Reference Implementation and how the KIT can be adopted consult the [Software Development View](../development-view/development-view.md).
 
 ## NOTICE
 
@@ -1356,9 +1391,11 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 T-Systems International GmbH
 - SPDX-FileCopyrightText: 2023, 2024 SAP SE
 - SPDX-FileCopyrightText: 2023, 2024 CGI Deutschland B.V. & Co. KG
-- SPDX-FileCopyrightText: 2023, 2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK und IPK
+- SPDX-FileCopyrightText: 2023, 2024,2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK
 - SPDX-FileCopyrightText: 2023, 2024 BASF SE
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2026 Mercedes-Benz AG
+
 - Source URL: [https://github.com/eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)

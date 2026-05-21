@@ -1,37 +1,90 @@
 ---
-title: Changelog
+id: changelog
+title: "Changelog"
+sidebar_position: 2
 ---
+
+<!-- 
+KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
+Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
+Do not remove!
+This logo is only visible when compiled with Docusarus (final version of the hosted KIT)
+-->
 
 ![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.svg)
 
-## [1.5.1] - 2026-03-03
+<!--
+KIT LOGO END
+-->
 
-### 26.03 Added
+# Changelog
+
+All notable changes to this KIT will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+---
+
+## Version History
+
+## [1.6.0] - 2026-05-27 - 26.06
+
+### Added
+
+### Changed
+- Structuring based on https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template
+- Summary of the KIT
+- Use Cases of DPPs with focus on Battery Use Cases
+
+### Removed
+- Electric Drive Passport as it was not used
+- Battery-pass-viewer-app Documentation, as it is deprecated
+- Passport creation process, as it was not compliant with Battery Standard
+
+
+## [1.5.1] - 2026-03-03 - R26.03
+
+### Added
 
 - DPP Rulebook first version
 
-### 26.03 Updated
+### Updated
 
 - fixed broken Links and removed references to reference application
 
-## [1.5.0] - 2024-07-25
+## [1.5.0] - 2024-07-25 - 24.08 
 
-### 24.08 Added
+### Added
 
 - Added Digital Product Pass Verification Section in adoption view
 - Added Digital Product Pass Tutorial Section adoption view & software view
 - Added Digital Product Passport as Enabler for Circular Economy Whitepaper reference
 
-### 24.08 Updated
+### Updated
 
 - Updated DPP model to version v5.0.0
 - Updated BatteryPass to v6.0.0
 - Updated TransmissionPass to v3.0.0
 - Updated DPP Verification add-on in the software development view.
 
-## [1.4.0] - 2024-05-15
+## [1.4.0] - 2024-05-15 - 24.05
 
-### 24.05 Added
+### Added
 
 - Add new route to ECO-Pass APIs
 - Add Electric Drive Passport model v1.0.0
@@ -40,7 +93,7 @@ title: Changelog
 - Added reference to the digital product pass verification feature coming in 24.05
 - Added description of digital product pass addons
 
-### 24.05 Updated
+### Updated
 
 - Update example JSON Objects
 - Update Figures
@@ -50,22 +103,20 @@ title: Changelog
 - Update Transmission pass model to v2.0.0
 - Update attribute names
 
-### 24.05 Removed
+### Removed
 
 - Remove direct links to standards
 
-### 24.05 Fixed Issues
+### Fixed
 
 - Fix Typos
 - Fix section names
 - Fix example json objects
 - Fixed points related to digital twin and policy configuration in software dev view
 
-## [released]
+## [1.0.0] - 2024-03-08 - 24.03
 
-## [1.0.0] - 2024-03-08
-
-### 24.03 Added
+### Added
 
 - Added EcoPass KIT Logo
 - Added `Digital Product Pass v3.0.0` aspect and explanations
@@ -75,19 +126,19 @@ title: Changelog
 - Added detailed data retrieval flow
 - Added Battery Pass Success Story
 
-### 24.03 Updated
+### Updated
 
 - Updated battery pass model to latest version `v4.0.0`
 - Updated Business Architecture Diagram
 
-## [0.1.0] - 2023-08-11
+## [0.1.0] - 2023-08-11 - 23.08
 
-### 23.08 Added
+### Added
 
 - move KIT to Tractus-X repository
 - Updated Software Architecture guide with descriptive documentation
 
-### 23.08 Issues Fixed
+### Fixed
 
 - Corrected links paths to absolute path
 

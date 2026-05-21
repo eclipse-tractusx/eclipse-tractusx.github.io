@@ -1,10 +1,37 @@
 ---
-id: software-operation-view
-title: Operation View
-description: EcoPass KIT Operation View
+id: operations-view
+title: Operations View
+sidebar_position: 1
 ---
 
-![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.svg)
+<!--
+Copyright(c) 2026 Contributors to the Eclipse Foundation
+
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
+
+This work is made available under the terms of the
+Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+which is available at
+https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+<!-- 
+KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
+Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
+Do not remove!
+This logo is only visible when compiled with Docusarus (final version of the hosted KIT)
+-->
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="eco-pass" />
+
+<!--
+KIT LOGO END
+-->
 
 Based on the information provided in this kit, it is possible to run and program against an infrastructure of Digital Product Pass the Catena-X-way. This infrastructure empowers Data Consumers to consume the network's data as agreed with each Data Provider and facilitated by an Operating Company. They run central and decentral services that allow them to discover each other, exchange information and contextualize it according to a standardized semantics.
 

@@ -1,9 +1,36 @@
 ---
-title: Software Development View
+id: development-view
+title: Development View
+sidebar_position: 1
 ---
+<!--
+Copyright(c) 2026 Contributors to the Eclipse Foundation
 
-![EcoPass KIT Pictotogram](@site/static/img/kits/eco-pass/eco-pass-kit-logo.svg)
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
 
+This work is made available under the terms of the
+Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+which is available at
+https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+<!-- 
+KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
+Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
+Do not remove!
+This logo is only visible when compiled with Docusarus (final version of the hosted KIT)
+-->
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="eco-pass" />
+
+<!--
+KIT LOGO END
+-->
 ## Introduction
 
 ### General Development Information
@@ -15,7 +42,7 @@ Thereby, this KIT covers various aspects, starting from how the available API En
 
 The following Figure shows how the EcoPass KIT (represented by Digital Product Passport Frontend and Backend) is embedded in the overall architecture.
 
-[![EcoPassKIT IT Arch Picture](./resources/development-view/ecoPassContext.svg)](./resources/development-view/ecoPassContext.svg)
+[![EcoPassKIT IT Arch Picture](../resources/development-view/ecoPassContext.svg)](./resources/development-view/ecoPassContext.svg)
 
 ## Data Retrieval Flow
 
@@ -23,7 +50,7 @@ In order to achieve a better understanding of the EcoPass KIT data retrieval flo
 
 In the data retrieval flow example below we will imagine that an user wants to retrieve the data related to a Catena-X Digital Product Pass ID he has in his product as form of QR Code and ID:
 
-[![Sequence Diagram](./resources/development-view/developmentview-sequence-diagramm.svg)](./resources/development-view/developmentview-sequence-diagramm.svg)
+[![Sequence Diagram](../resources/development-view/developmentview-sequence-diagramm.svg)](./resources/development-view/developmentview-sequence-diagramm.svg)
 
 | ID | CX:XYZ78901:IMR18650V1 |
 |----|------------------------|
@@ -42,7 +69,7 @@ CX:<manufacturerPartId>:<partInstanceId>
 | `<manufacturerPartId>` | The "**manufacturerPartId**" makes reference to the id type of the product. It is the identification the manufacturer gives to a specific part he produced.                                                  |
 | `<partInstanceId>`     | The "**partInstanceId**" stands to the specific id of the product. This id needs to be registered in the digital twin from the aspect. An example value in case of batteries would be the *batteryDMC_Code*. |
 
-> *Note*: This identifications as defined in the standard MUST be added to the Digital Twin. For more information consult the [Operation View Guide](./software-operation-view.md).
+> *Note*: This identifications as defined in the standard MUST be added to the Digital Twin. For more information consult the [Operation View Guide](../operations-view/operations-view.md).
 
 ### Prerequisites
 
@@ -62,7 +89,7 @@ In order to retrieve data in the Catena-X Network a number of services need to b
 
 Here is a diagram of the data retrial flow necessary to retrieve any data from the Catena-X Network without any optimizations:
 
-[![Data Retrieval Flow](./resources/development-view/dataRetrievalFlow.svg)](./resources/development-view/dataRetrievalFlow.svg)
+[![Data Retrieval Flow](../resources/development-view/dataRetrievalFlow.svg)](./resources/development-view/dataRetrievalFlow.svg)
 
 ### 1. Discovery Phase
 
@@ -111,9 +138,9 @@ The following information is required to enable the decentralized search for dig
 ### Sequence Diagram
 
 This sequence diagram represents the digital twin search and the discovery phases. For more information [go to explanation](#2-digital-twin-registry-search-phase)
-[![Sequence Diagram](./resources/development-view/developmentview-sequence-diagramm.svg)](./resources/development-view/developmentview-sequence-diagramm.svg)
+[![Sequence Diagram](../resources/development-view/developmentview-sequence-diagramm.svg)](../resources/development-view/developmentview-sequence-diagramm.svg)
 
-> **NOTE**: For learning how to register the assets and the digital twin registry and operate the EcoPass KIT visit the [Operation View](./software-operation-view.md)
+> **NOTE**: For learning how to register the assets and the digital twin registry and operate the EcoPass KIT visit the [Operation View](../operations-view/operations-view.md)
 
 ## 3. Digital Twin Search Phase Details
 
@@ -128,7 +155,7 @@ The following information is required for enabling the digital twin search, in o
 | Specific Asset Id Type | *partInstanceId* | The specific asset id type is used to search in the `digital twin registry` for a specific digital twin. It is basically the `name` of  "specificAssetId" object located at the `digital twin` `specificAssetIds` property. The `*partInstanceId*` is used as an example most of the time, since the digital twin registry implemented a hotfix that allows companies say who can access to their `partInstanceId` fields. Now allowing the *"PUBLIC_READABLE"* property. |
 | Specific Asset Id Type | *IMR18650V1*     | The specific asset id value is added in the `digital twin lookup` when calling the `EDC Provider Proxy`. It basically points to the value of the *`Specific Asset Id Type`* property.                                                                                                                                                                                                                                                                                                                     |
 
-[![Digital Twin Search](./resources/development-view/ecoPassSearchSequence.svg)](./resources/development-view/ecoPassSearchSequence.svg)
+[![Digital Twin Search](../resources/development-view/ecoPassSearchSequence.svg)](./resources/development-view/ecoPassSearchSequence.svg)
 
 ## 4. Data Negotiation and Transfer Phase Details
 
@@ -144,7 +171,7 @@ The following information is required for enabling the digital twin search, in o
 
 ### Sequence Diagram for Negotiate and Transfer
 
-[![Negotiation and Transfer](./resources/development-view/ecoPassNegotiationAndTransferSequence.svg)](./resources/development-view/ecoPassNegotiationAndTransferSequence.svg)
+[![Negotiation and Transfer](../resources/development-view/ecoPassNegotiationAndTransferSequence.svg)](../resources/development-view/ecoPassNegotiationAndTransferSequence.svg)
 
 ## Authentication and Authorization
 

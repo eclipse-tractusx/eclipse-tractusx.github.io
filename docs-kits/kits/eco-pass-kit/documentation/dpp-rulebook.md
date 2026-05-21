@@ -9,9 +9,7 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 <Kit3DLogo kitId="eco-pass" />
 
-## DPP Rulebook
-
-### Table of Contents
+## Table of Contents
 
 1. [Introduction](#1-introduction)
    - 1.1 [Goal of this Document](#11-goal-of-this-document)
