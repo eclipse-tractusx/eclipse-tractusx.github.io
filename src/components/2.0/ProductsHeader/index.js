@@ -21,6 +21,9 @@
 
 import React from 'react';
 import styles from './styles.module.scss';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import CategoryIcon from '@mui/icons-material/Category';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 export default function ProductsHeader({ productCount }) {
   return (
@@ -28,20 +31,22 @@ export default function ProductsHeader({ productCount }) {
       <div className={styles.content}>
         <h1 className={styles.title}>Products</h1>
         <p className={styles.subtitle}>
-          Explore the Eclipse Tractus-X product ecosystem — the open-source reference implementations
-          that power the Catena-X dataspace. From connectors to testing tools, find the building blocks
-          for your dataspace solution.
+          Explore the Eclipse Tractus-X product ecosystem — open-source reference implementations
+          powering the Catena-X dataspace.
         </p>
         <div className={styles.stats}>
           <div className={styles.stat}>
+            <InventoryIcon className={styles.statIcon} />
             <span className={styles.statNumber}>{productCount}</span>
             <span className={styles.statLabel}>Products</span>
           </div>
           <div className={styles.stat}>
+            <CategoryIcon className={styles.statIcon} />
             <span className={styles.statNumber}>4</span>
             <span className={styles.statLabel}>Categories</span>
           </div>
           <div className={styles.stat}>
+            <OpenInNewIcon className={styles.statIcon} />
             <span className={styles.statNumber}>Open Source</span>
             <span className={styles.statLabel}>Apache-2.0</span>
           </div>

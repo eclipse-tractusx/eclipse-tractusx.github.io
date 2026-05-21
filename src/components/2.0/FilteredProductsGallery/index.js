@@ -118,7 +118,7 @@ export default function FilteredProductsGallery({
                     className={`${styles.filterButton} ${selectedStatus === s ? styles.active : ''}`}
                     onClick={() => setSelectedStatus(s)}
                   >
-                    {s === 'active' ? '✅ Active' : s === 'phase-out' ? '⚠️ Phase Out' : 'ℹ️ TBD'}
+                    {s === 'active' ? 'Active' : s === 'phase-out' ? 'Phase Out' : 'TBD'}
                   </button>
                 ))}
               </div>

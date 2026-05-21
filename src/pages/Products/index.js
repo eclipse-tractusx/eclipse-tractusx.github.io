@@ -28,6 +28,25 @@ import ProductCard from '@site/src/components/2.0/ProductCard';
 import { products, productCategories } from '@site/data/productsData';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
+import AppsIcon from '@mui/icons-material/Apps';
+import CloudIcon from '@mui/icons-material/Cloud';
+import HubIcon from '@mui/icons-material/Hub';
+import BugReportIcon from '@mui/icons-material/BugReport';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
+const categoryIcons = {
+  'use-cases': AppsIcon,
+  'dataspace-foundation': CloudIcon,
+  'industry-core-foundation': HubIcon,
+  'qa-testing-tools': BugReportIcon,
+};
+
+const categoryRoutes = {
+  'use-cases': '/Products/use-cases',
+  'dataspace-foundation': '/Products/dataspace-foundation',
+  'industry-core-foundation': '/Products/industry-core',
+  'qa-testing-tools': '/Products/qa-testing',
+};
 
 export default function ProductsPage() {
   const { siteConfig } = useDocusaurusContext();
@@ -58,24 +77,23 @@ export default function ProductsPage() {
         <div className={styles.categoryGrid}>
           {productCategories.map(cat => {
             const count = products.filter(p => p.category === cat.id).length;
-            const categoryRoutes = {
-              'use-cases': '/Products/use-cases',
-              'dataspace-foundation': '/Products/dataspace-foundation',
-              'industry-core-foundation': '/Products/industry-core',
-              'qa-testing-tools': '/Products/qa-testing',
-            };
+            const IconComp = categoryIcons[cat.id] || AppsIcon;
             return (
               <Link
                 key={cat.id}
                 to={categoryRoutes[cat.id]}
                 className={styles.categoryCard}
               >
-                <div className={styles.categoryGradient} style={{ background: cat.gradient }} />
-                <div className={styles.categoryContent}>
-                  <h3 className={styles.categoryName}>{cat.name}</h3>
-                  <p className={styles.categoryDescription}>{cat.description}</p>
-                  <span className={styles.categoryCount}>{count} product{count !== 1 ? 's' : ''} →</span>
+                <div className={styles.categoryIconRow}>
+                  <IconComp className={styles.categoryIcon} />
+                  <span className={styles.categoryCount}>{count}</span>
                 </div>
+                <h3 className={styles.categoryName}>{cat.name}</h3>
+                <p className={styles.categoryDescription}>{cat.description}</p>
+                <span className={styles.categoryLink}>
+                  Browse
+                  <ArrowForwardIcon className={styles.categoryArrow} />
+                </span>
               </Link>
             );
           })}

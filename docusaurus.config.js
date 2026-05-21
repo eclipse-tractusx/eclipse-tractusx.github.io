@@ -332,23 +332,23 @@ const config = {
               },
               {
                 to: '/Products/use-cases',
-                label: 'USE CASES',
-                className: 'product-category-header'
+                label: 'Use Cases',
+                className: 'product-nav-item'
               },
               {
                 to: '/Products/dataspace-foundation',
-                label: 'DATASPACE FOUNDATION',
-                className: 'product-category-header'
+                label: 'Dataspace Foundation',
+                className: 'product-nav-item'
               },
               {
                 to: '/Products/industry-core',
-                label: 'INDUSTRY CORE FOUNDATION',
-                className: 'product-category-header'
+                label: 'Industry Core Foundation',
+                className: 'product-nav-item'
               },
               {
                 to: '/Products/qa-testing',
-                label: 'QA / TESTING & TOOLS',
-                className: 'product-category-header'
+                label: 'QA / Testing & Tools',
+                className: 'product-nav-item'
               },
             ],
           },

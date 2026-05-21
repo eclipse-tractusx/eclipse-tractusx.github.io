@@ -20,85 +20,65 @@
  ********************************************************************************/
 
 .header {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 3rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(180deg, var(--ifm-background-color) 0%, var(--ifm-background-surface-color) 100%);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+  [data-theme='dark'] & {
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    border-bottom-color: rgba(255, 255, 255, 0.06);
   }
 }
 
 .content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
 .title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #fff;
   margin: 0 0 1rem 0;
   letter-spacing: -0.02em;
 }
 
 .subtitle {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
   margin: 0 0 2rem 0;
+
+  [data-theme='dark'] & {
+    color: var(--ifm-color-emphasis-500);
+  }
 }
 
 .stats {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 2.5rem;
+  flex-wrap: wrap;
 }
 
 .stat {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
+}
+
+.statIcon {
+  font-size: 20px !important;
+  color: var(--ifm-color-primary);
+  opacity: 0.8;
 }
 
 .statNumber {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--ifm-color-primary);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .statLabel {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-@media (max-width: 768px) {
-  .header {
-    padding: 3rem 1.5rem;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .stats {
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
+  font-size: 0.82rem;
+  color: var(--ifm-color-emphasis-600);
 }

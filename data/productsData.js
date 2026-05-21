@@ -33,7 +33,7 @@
  *   repositories: { name: string, url: string }[],
  *   contacts: { name: string, role: string, github: string }[],
  *   details: string (longer description / overview),
- *   icon: string (emoji or icon identifier),
+ *   icon: string (MUI icon name from @mui/icons-material),
  * }
  */
 
@@ -82,7 +82,7 @@ const products = [
     category: 'use-cases',
     relevance: ['dataspace-participants'],
     status: 'active',
-    icon: '🖥️',
+    icon: 'DesktopWindows',
     repositories: [
       { name: 'industry-core-hub-frontend', url: 'https://github.com/eclipse-tractusx/industry-core-hub-frontend' },
     ],
@@ -96,7 +96,7 @@ const products = [
     category: 'use-cases',
     relevance: ['dataspace-participants'],
     status: 'active',
-    icon: '📊',
+    icon: 'BarChart',
     repositories: [
       { name: 'puris', url: 'https://github.com/eclipse-tractusx/puris' },
     ],
@@ -110,7 +110,7 @@ const products = [
     category: 'use-cases',
     relevance: ['dataspace-participants'],
     status: 'active',
-    icon: '🔍',
+    icon: 'ManageSearch',
     repositories: [
       { name: 'traceability-foss', url: 'https://github.com/eclipse-tractusx/traceability-foss' },
     ],
@@ -124,7 +124,7 @@ const products = [
     category: 'use-cases',
     relevance: ['dataspace-participants'],
     status: 'active',
-    icon: '🧠',
+    icon: 'Psychology',
     repositories: [
       { name: 'knowledge-agents', url: 'https://github.com/eclipse-tractusx/knowledge-agents' },
     ],
@@ -140,7 +140,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     status: 'active',
-    icon: '🔗',
+    icon: 'Cable',
     repositories: [
       { name: 'tractusx-edc', url: 'https://github.com/eclipse-tractusx/tractusx-edc' },
     ],
@@ -154,7 +154,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['development-testing'],
     status: 'active',
-    icon: '🪪',
+    icon: 'VerifiedUser',
     repositories: [],
     contacts: [],
     details: 'The Identity Hub Issuer Service handles the issuance of verifiable credentials, enabling decentralized identity management across the dataspace.',
@@ -166,7 +166,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['development-testing'],
     status: 'tbd',
-    icon: '👛',
+    icon: 'AccountBalanceWallet',
     repositories: [],
     contacts: [],
     details: 'The Identity Hub Holder Wallet enables participants to securely store and present their verifiable credentials when interacting within the dataspace.',
@@ -178,7 +178,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     status: 'active',
-    icon: '🏭',
+    icon: 'Factory',
     repositories: [
       { name: 'sd-factory', url: 'https://github.com/eclipse-tractusx/sd-factory' },
     ],
@@ -192,7 +192,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     status: 'active',
-    icon: '📋',
+    icon: 'Assignment',
     repositories: [
       { name: 'sldt-digital-twin-registry', url: 'https://github.com/eclipse-tractusx/sldt-digital-twin-registry' },
     ],
@@ -206,7 +206,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     status: 'phase-out',
-    icon: '🌐',
+    icon: 'Language',
     repositories: [
       { name: 'portal-frontend', url: 'https://github.com/eclipse-tractusx/portal-frontend' },
       { name: 'portal-backend', url: 'https://github.com/eclipse-tractusx/portal-backend' },
@@ -221,7 +221,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     status: 'active',
-    icon: '🏢',
+    icon: 'Business',
     repositories: [
       { name: 'bpdm', url: 'https://github.com/eclipse-tractusx/bpdm' },
     ],
@@ -235,7 +235,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     status: 'active',
-    icon: '🔎',
+    icon: 'TravelExplore',
     repositories: [
       { name: 'bpn-did-resolution-service', url: 'https://github.com/eclipse-tractusx/bpn-did-resolution-service' },
     ],
@@ -249,7 +249,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     status: 'tbd',
-    icon: '🧭',
+    icon: 'Explore',
     repositories: [
       { name: 'sldt-bpn-discovery', url: 'https://github.com/eclipse-tractusx/sldt-bpn-discovery' },
     ],
@@ -263,7 +263,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     status: 'tbd',
-    icon: '🗺️',
+    icon: 'Map',
     repositories: [
       { name: 'sldt-discovery-finder', url: 'https://github.com/eclipse-tractusx/sldt-discovery-finder' },
     ],
@@ -277,7 +277,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['dataspace-participants'],
     status: 'active',
-    icon: '📦',
+    icon: 'ViewInAr',
     repositories: [],
     contacts: [],
     details: 'The AAS Suite provides a standardized digital representation of assets following the Asset Administration Shell specification from the Industrial Digital Twin Association (IDTA).',
@@ -291,7 +291,7 @@ const products = [
     category: 'industry-core-foundation',
     relevance: ['catena-x-operative'],
     status: 'active',
-    icon: '⚙️',
+    icon: 'Settings',
     repositories: [
       { name: 'industry-core-hub-backend', url: 'https://github.com/eclipse-tractusx/industry-core-hub-backend' },
     ],
@@ -305,7 +305,7 @@ const products = [
     category: 'industry-core-foundation',
     relevance: ['catena-x-demo'],
     status: 'active',
-    icon: '🔄',
+    icon: 'SyncAlt',
     repositories: [
       { name: 'managed-simple-data-exchanger-backend', url: 'https://github.com/eclipse-tractusx/managed-simple-data-exchanger-backend' },
     ],
@@ -319,7 +319,7 @@ const products = [
     category: 'industry-core-foundation',
     relevance: ['dataspace-participants'],
     status: 'active',
-    icon: '🔗',
+    icon: 'AccountTree',
     repositories: [
       { name: 'item-relationship-service', url: 'https://github.com/eclipse-tractusx/item-relationship-service' },
     ],
@@ -333,7 +333,7 @@ const products = [
     category: 'industry-core-foundation',
     relevance: ['catena-x-operative'],
     status: 'active',
-    icon: '📐',
+    icon: 'Schema',
     repositories: [
       { name: 'sldt-semantic-hub', url: 'https://github.com/eclipse-tractusx/sldt-semantic-hub' },
     ],
@@ -349,7 +349,7 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['development-testing'],
     status: 'active',
-    icon: '☂️',
+    icon: 'CloudQueue',
     repositories: [
       { name: 'tractus-x-umbrella', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella' },
     ],
@@ -363,7 +363,7 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['catena-x-demo'],
     status: 'active',
-    icon: '🧪',
+    icon: 'Science',
     repositories: [],
     contacts: [],
     details: 'The DIM Wallet Stub provides a mock implementation of the Decentralized Identity Management wallet, enabling testing without requiring the full wallet infrastructure.',
@@ -375,7 +375,7 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['development-testing'],
     status: 'active',
-    icon: '🛠️',
+    icon: 'Construction',
     repositories: [
       { name: 'tractusx-sdk', url: 'https://github.com/eclipse-tractusx/tractusx-sdk' },
     ],
@@ -389,7 +389,7 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['development-testing'],
     status: 'active',
-    icon: '🔬',
+    icon: 'Biotech',
     repositories: [],
     contacts: [],
     details: 'The Tractus-X Testlab provides a controlled environment for validating component integrations, running conformance tests, and ensuring interoperability.',
@@ -401,7 +401,7 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['development-testing'],
     status: 'active',
-    icon: '🏗️',
+    icon: 'Engineering',
     repositories: [],
     contacts: [],
     details: 'Umbrella Infrastructure as Code provides Terraform/Pulumi definitions for provisioning cloud infrastructure needed for Tractus-X Umbrella deployments.',
@@ -413,7 +413,7 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['catena-x-demo'],
     status: 'phase-out',
-    icon: '🔧',
+    icon: 'Build',
     repositories: [],
     contacts: [],
     details: 'Tractus-X SDK Services provides shared middleware and service components that support the Tractus-X SDK development framework.',

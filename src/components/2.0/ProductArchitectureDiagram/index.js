@@ -22,6 +22,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.scss';
+import { getProductIcon } from '@site/src/components/2.0/ProductCard';
 
 export default function ProductArchitectureDiagram({ products }) {
   const byCategory = (catId) => products.filter(p => p.category === catId);
@@ -54,7 +55,7 @@ export default function ProductArchitectureDiagram({ products }) {
       className={styles.productBlock}
       style={getProductStyle(product)}
     >
-      <span className={styles.productIcon}>{product.icon}</span>
+      <span className={styles.productIcon}>{getProductIcon(product.icon, { style: { fontSize: 14 } })}</span>
       <span className={styles.productName}>{product.name.toUpperCase()}</span>
       {product.status === 'tbd' && <span className={styles.tbd}>*</span>}
     </Link>

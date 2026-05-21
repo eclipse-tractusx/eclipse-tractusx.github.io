@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 98576d2873b527284fe54cb82f9c5f62498b465ea89e299cbb5b2bf53ff30109
+ * Content hash: 075992798cd23e0ee0eb2302ebb90d622de55fe373daf1e6f30b1a9d7160606c
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -103,6 +103,12 @@ const kitsByCategory = {
     }
   ],
   "useCases": [
+    {
+      "id": "coffee",
+      "name": "COFFEE KIT",
+      "route": "/docs-kits/kits/coffee-kit/adoption-view",
+      "deprecated": false
+    },
     {
       "id": "ess",
       "name": "ESS KIT",

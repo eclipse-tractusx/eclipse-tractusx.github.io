@@ -22,6 +22,15 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.scss';
+import { getProductIcon } from '@site/src/components/2.0/ProductCard';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import FolderIcon from '@mui/icons-material/Folder';
+import PeopleIcon from '@mui/icons-material/People';
+import LinkIcon from '@mui/icons-material/Link';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ExtensionIcon from '@mui/icons-material/Extension';
 
 const relevanceLabels = {
   'catena-x-operative': 'Relevant for Catena-X Operative',
@@ -79,19 +88,19 @@ export default function ProductDetailView({ product }) {
 
       {/* Hero */}
       <div className={styles.hero}>
-        <span className={styles.heroIcon}>{product.icon}</span>
+        <span className={styles.heroIcon}>{getProductIcon(product.icon, { style: { fontSize: 48 } })}</span>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>{product.name}</h1>
           {product.subtitle && <p className={styles.heroSubtitle}>{product.subtitle}</p>}
           <div className={styles.badges}>
             {product.status === 'phase-out' && (
-              <span className={styles.badge} data-type="warning">⚠️ Phase Out / Refactoring</span>
+              <span className={styles.badge} data-type="warning"><WarningAmberIcon style={{ fontSize: 14, marginRight: 4 }} /> Phase Out / Refactoring</span>
             )}
             {product.status === 'tbd' && (
-              <span className={styles.badge} data-type="info">ℹ️ TBD</span>
+              <span className={styles.badge} data-type="info"><InfoOutlinedIcon style={{ fontSize: 14, marginRight: 4 }} /> TBD</span>
             )}
             {product.status === 'active' && (
-              <span className={styles.badge} data-type="success">✅ Active</span>
+              <span className={styles.badge} data-type="success"><CheckCircleOutlineIcon style={{ fontSize: 14, marginRight: 4 }} /> Active</span>
             )}
             <Link
               to={categoryRoutes[product.category] || '/Products'}
@@ -136,7 +145,7 @@ export default function ProductDetailView({ product }) {
           {/* Repositories */}
           {product.repositories?.length > 0 && (
             <div className={styles.sidebarSection}>
-              <h3>📁 Repositories</h3>
+              <h3><FolderIcon style={{ fontSize: 18, marginRight: 6, verticalAlign: 'text-bottom' }} /> Repositories</h3>
               <ul className={styles.repoList}>
                 {product.repositories.map(repo => (
                   <li key={repo.name}>
@@ -155,7 +164,7 @@ export default function ProductDetailView({ product }) {
           {/* Contacts */}
           {product.contacts?.length > 0 && (
             <div className={styles.sidebarSection}>
-              <h3>👥 Contacts</h3>
+              <h3><PeopleIcon style={{ fontSize: 18, marginRight: 6, verticalAlign: 'text-bottom' }} /> Contacts</h3>
               <ul className={styles.contactList}>
                 {product.contacts.map(contact => (
                   <li key={contact.github || contact.name}>
@@ -179,13 +188,13 @@ export default function ProductDetailView({ product }) {
 
           {/* Quick Links */}
           <div className={styles.sidebarSection}>
-            <h3>🔗 Quick Links</h3>
+            <h3><LinkIcon style={{ fontSize: 18, marginRight: 6, verticalAlign: 'text-bottom' }} /> Quick Links</h3>
             <div className={styles.quickLinks}>
               <Link to="/Products" className={styles.quickLink}>
-                ← All Products
+                <ArrowBackIcon style={{ fontSize: 14, marginRight: 4 }} /> All Products
               </Link>
               <Link to="/Kits" className={styles.quickLink}>
-                📦 KITs
+                <ExtensionIcon style={{ fontSize: 14, marginRight: 4 }} /> KITs
               </Link>
             </div>
           </div>
