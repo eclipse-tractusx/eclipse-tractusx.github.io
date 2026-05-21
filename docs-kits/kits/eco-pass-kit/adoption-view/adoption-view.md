@@ -123,6 +123,14 @@ The CX‑XXXX Battery Passport standard specifies how battery‑related informat
 The standard destinguishes three different use cases:
 - Use Case (1) - Provisioning of near-complete battery passport: Typically used in situations where the data provider manufactures the battery, but the battery passport will be published by the data consumer. This can happen depending on the contractual situation and depending on who is the economic operator of the battery and who is putting it onto the EU market.
 - Use Case (2) - component supplier integration (for example cells, housing, battery packs): Typically used to provide data from a component supplier to a battery manufacturer.
+- Use Case (3) - DPP-Service provider view: Complete exchange of DPPs to service provider, which provides it public.
+
+Please note that Use Case 2 is not available in the current version of the standard and will be added later.
+
+---
+
+## Semantic Models
+
 ### Core Semantic Models
 
 | Model Name | Version | Purpose | Link |
@@ -137,13 +145,6 @@ The standard destinguishes three different use cases:
 
 
 **Example**:
-- **Common semantics**: The model of a generic passport is established in Catena-X which other passes can build upon.
-
-#### Link to current Digital Product Passport model
-
-The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.generic.digital_product_passport). For each version there is a separated directory containing the ttl-file and generated samples.
-
-#### Example Digital Product Passport Payload
 
 <details>
   <summary>Payload</summary>
