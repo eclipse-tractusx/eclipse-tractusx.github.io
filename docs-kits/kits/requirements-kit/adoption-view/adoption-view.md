@@ -1,17 +1,53 @@
 ---
 id: adoption-view
 title: Adoption View
-description: 'Adoption View Requirements Kit'
-sidebar_position: 2
+sidebar_position: 1
 ---
+
+<!--
+Copyright(c) 2026 Contributors to the Eclipse Foundation
+
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
+
+This work is made available under the terms of the
+Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+which is available at
+https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+<!-- 
+KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
+Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
+Do not remove!
+This logo is only visible when compiled with Docusarus (final version of the hosted KIT)
+-->
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 <Kit3DLogo kitId="requirements" />
 
+<!--
+KIT LOGO END
+-->
+
+Welcome to the **Requirements KIT Adoption View**. This view provides business value, strategic benefits, and use cases for business stakeholders and decision-makers.
+
+:::info Target Audience
+Business Managers, Product Owners, Solution Architects, Industry Experts, and Decision Makers.
+:::
+
+---
+
 ## Vision & Mission
 
 ### Vision
+
+:::note Vision Statement
+Requirements Engineering shall be a cross-company activity where different companies refine the requirements together to create an optimal specification and thus enable a fast and reliable product engineering.
+:::
 
 Our vision is to establish a seamless, secure, and efficient engineering platform within the Catena-X ecosystem. In a first step a collaborative platform for cross company requirements management that enables quick information access and multiple company collaboration via a standardized solution in the Catena-X dataspace, inspired by ReqIF (Requirements Interchange Format). By leveraging ReqIF, we aim to optimize the information flow and collaboration between OEMs and their suppliers, fostering a deep understanding and clear communication of requirements across company boundaries, while reducing time for exchanging requirements from point to point using common data exchange tools.
 
@@ -27,11 +63,18 @@ This vision opens the way for innovative and collaborative product development b
 
 ### Mission
 
+:::note Mission Statement
+The KIT shall describe usable data models and approaches to aggregate and align Requirements in a data ecosystem. 
+:::
+
+
 The Requirements Kit aims to meticulously outline requirements by incorporating essential standards, aspect models and business logics. Its approach is designed to facilitate the exchange of requirements information between OEMs and Tier-N suppliers, ensuring that all relevant data is gathered and enabling authorized stakeholders to collaborate effectively. The data exchange process adheres to the Catena-X network's principles of data sovereignty, ensuring secure and compliant interactions. By following a standardized pipeline and utilizing data models within a data ecosystem, each partner is empowered to use their preferred applications, fostering a flexible and efficient collaboration environment.
 
-## Business Value & Benefits
+---
 
-### Business Value
+## Business Value
+
+### Value Proposition #1: [Title]
 
 The "Requirements-KIT" provides guidelines and standards, such as semantic models and data exchange processes, which help companies create a reliable and sovereign data exchange system with their partners.
 
@@ -39,15 +82,31 @@ This reduces cost and effort needed to integrate data-driven engineering process
 
 Since this KIT is built on the Industry Core KIT and will be closely connected to upcoming other KITSs within the Engineering Domain, investment and implementation costs to integrate requirement services are reduced.
 
-### Todays Challenge
+**Benefit**: [Primary benefit description]
 
-As product development becomes more and more cross-company, the requirements that are necessary for the specification of the product to be developed must also be exchanged and harmonized across companies. This exchange for coordination between the customer and the development partner takes place in an iterative process that results in various documentation and changes to the specifications.
+**Target Stakeholders**: [OEMs | SMEs | Solution Providers | etc.]
 
-Nowadays, the exchange of requirements is largely file-based, with the files being provided or exchanged via company portals (B2B platforms), for example. In most cases, the requirements are first managed by the client in special requirements management software. As a starting point for collaboration in the product development process, one or more files for the product to be developed are extracted from the requirements management software with the requirements and possibly other information and made available to the development partner. In order for the development partner to view and evaluate the requirements, they must import the file into their requirements management tool (which may or may not be the same as the customer's). Once the requirements have been evaluated by the development partner, the partner exports another file from its requirements management tool and makes it available to the client. The client then imports this file back into its system and evaluates the development partner's scores, comments, etc.
+**Measurable Outcomes**: [Key metrics]
 
-This involves the circular processing of requests between partners, which can result in multiple file exports and imports to and from the respective systems. Each import/export results in a break in the data. Changes within each version of the files must be tracked and displayed by the requirements management tools. This method of working with requirements is very time consuming and requires a lot of manual effort that has nothing to do with the actual evaluation of the requirements.
+### Value Proposition #2: [Title]
 
-In addition to the challenges mentioned above, there is also the issue that the files can be designed in a variety of content forms and the formats of the files can also vary. The formats can be divided into structured and unstructured files. Unstructured files are texts, tables etc. that are not organized into individual requirements without prior processing. These increase the effort required to organize the document into individual requirements. This also makes the exchange with the partner more difficult, as the partner does not know the newly created structure. With structured files, the aforementioned circumstances no longer exist, as the requirements are already organized. In the best case, a standardized form, such as the ReqIF format, is used. However, even when using standardized formats such as ReqIF, it is still necessary to agree on a common data model for exporting and importing in advance so that data exchange via the various requirements management tools works as smoothly as possible.
+**Benefit**: [Second benefit description]
+
+**Target Stakeholders**: [Target audience]
+
+**Measurable Outcomes**: [Key metrics]
+
+### Value Proposition #3: [Title]
+
+**Benefit**: [Third benefit description]
+
+**Target Stakeholders**: [Target audience]
+
+**Measurable Outcomes**: [Key metrics]
+
+---
+
+### Summary of Business Benefits
 
 ### Benefits for OEM, SME and Solution Provider
 
@@ -84,11 +143,88 @@ Catena-X offers solution providers a variety of strategic advantages to leverage
 9. Access to data and analysis: With access to valuable industrial data, solution providers can develop and enhance their analytics and optimization solutions to boost operational efficiency and decision-making processes for customers.
 10. Accelerated digital transformation: Catena-X allows solution providers to position their transformation strategies directly within the context of the automotive industry, a sector that is continually moving towards digital technologies.
 
-## Customer Journey
 
-![Customer Journey](resources/requirements_customer-journey.png)
+| Stakeholder Type | Key Benefits | Time to Value |
+|------------------|--------------|---------------|
+| **OEMs** | [List 2-3 benefits for large enterprises] | [e.g., "6 months"] |
+| **SMEs** | [List 2-3 benefits for small-medium enterprises] | [e.g., "3 months"] |
+| **Solution Providers** | [List 2-3 benefits for tech vendors] | [e.g., "90 days"] |
+| **Data Providers** | [List 2-3 benefits for data providers] | [e.g., "4 weeks"] |
 
-## User Journey
+---
+
+## Use Case Context
+
+### Industry Challenge
+
+As product development becomes more and more cross-company, the requirements that are necessary for the specification of the product to be developed must also be exchanged and harmonized across companies. This exchange for coordination between the customer and the development partner takes place in an iterative process that results in various documentation and changes to the specifications.
+
+Nowadays, the exchange of requirements is largely file-based, with the files being provided or exchanged via company portals (B2B platforms), for example. In most cases, the requirements are first managed by the client in special requirements management software. As a starting point for collaboration in the product development process, one or more files for the product to be developed are extracted from the requirements management software with the requirements and possibly other information and made available to the development partner. In order for the development partner to view and evaluate the requirements, they must import the file into their requirements management tool (which may or may not be the same as the customer's). Once the requirements have been evaluated by the development partner, the partner exports another file from its requirements management tool and makes it available to the client. The client then imports this file back into its system and evaluates the development partner's scores, comments, etc.
+
+This involves the circular processing of requests between partners, which can result in multiple file exports and imports to and from the respective systems. Each import/export results in a break in the data. Changes within each version of the files must be tracked and displayed by the requirements management tools. This method of working with requirements is very time consuming and requires a lot of manual effort that has nothing to do with the actual evaluation of the requirements.
+
+In addition to the challenges mentioned above, there is also the issue that the files can be designed in a variety of content forms and the formats of the files can also vary. The formats can be divided into structured and unstructured files. Unstructured files are texts, tables etc. that are not organized into individual requirements without prior processing. These increase the effort required to organize the document into individual requirements. This also makes the exchange with the partner more difficult, as the partner does not know the newly created structure. With structured files, the aforementioned circumstances no longer exist, as the requirements are already organized. In the best case, a standardized form, such as the ReqIF format, is used. However, even when using standardized formats such as ReqIF, it is still necessary to agree on a common data model for exporting and importing in advance so that data exchange via the various requirements management tools works as smoothly as possible.
+
+
+**Current Challenges:**
+
+- **Challenge 1**: [Problem description and impact]
+- **Challenge 2**: [Problem description and impact]
+- **Challenge 3**: [Problem description and impact]
+
+### The Solution
+
+[Explain how this KIT addresses the challenges]
+
+**Solution Components:**
+
+1. **[Component 1]**: [Description]
+2. **[Component 2]**: [Description]
+3. **[Component 3]**: [Description]
+
+---
+
+## Use Cases
+
+### Primary Use Case: [Use Case Name]
+
+**Description**: [Use case description]
+
+**Actors**: [Actor 1], [Actor 2], [Actor 3]
+
+**Process Flow**:
+
+1. [Step 1 description]
+2. [Step 2 description]
+3. [Step 3 description]
+
+**Business Outcomes**: [Key outcomes]
+
+**Success Metrics**: [Key metrics]
+
+### Secondary Use Case: [Use Case Name]
+
+[Same structure as primary use case]
+
+### Additional Use Cases
+
+1. **[Use Case 3]**: [Brief description]
+2. **[Use Case 4]**: [Brief description]
+
+---
+
+## Business Processes
+
+:::tip
+For industry-specific business processes, see the [Industry Extensions](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template/industry-extensions) documentation.
+:::
+
+### Core Business Process: [Process Name]
+
+
+![Customer Journey](../resources/img/requirements_customer-journey.png)
+
+### Core Business Process:  User Journey
 
 ```mermaid
 flowchart TD
@@ -112,6 +248,117 @@ flowchart TD
     E --> G
 
 ```
+### Core Business Process: [Process Name]
+
+**Purpose**: [Business goal]
+
+**Stakeholders**: [List key stakeholders]
+
+**Process Steps**:
+
+```mermaid
+sequenceDiagram
+    participant A as Actor A
+    participant B as Actor B
+    participant C as System/KIT
+    
+    A->>C: Action 1
+    C->>B: Action 2
+    B->>C: Action 3
+    C->>A: Result
+```
+
+**Process Description**: [Brief description of key steps]
+
+
+### Access & Usage Policies
+
+:::warning Industry-Specific Policies
+For industry-specific policy requirements, refer to the [Industry Extensions](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template/industry-extensions) section.
+:::
+
+#### Example Access Policy
+
+```json
+{
+  "policy": {
+    "permission": {
+      "action": "use",
+      "constraint": {
+        "leftOperand": "UsagePurpose",
+        "operator": "isAnyOf",
+        "rightOperand": [
+            "mx.core.digitalTwinRegistry:1"
+        ]
+      }
+    }
+  }
+}
+```
+
+[Brief policy explanation]
+
+---
+
+## Semantic Models
+
+[Brief explanation of semantic models used in this KIT]
+
+### Core Semantic Models
+
+| Model Name | Version | Purpose | Link |
+|------------|---------|---------|------|
+| [Model 1] | X.Y.Z | [Model purpose] | [Link] |
+| [Model 2] | X.Y.Z | [Model purpose] | [Link] |
+
+### Model Example: [Model Name]
+
+**Description**: [Brief description]
+
+**Key Attributes**: [List key attributes]
+
+**Example**:
+
+```json
+{
+  "attribute1": "example-value",
+  "attribute2": 12345
+}
+```
+
+---
+
+## Standards
+
+:::warning Industry-Specific Standards
+For industry-specific standards, refer to the [Industry Extensions](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template/industry-extensions) section.
+:::
+
+### Supported Standards
+
+| Standard | Version | Description | Compliance Level | Link |
+|----------|---------|-------------|------------------|------|
+| [Standard 1] | X.Y | [Description] | Mandatory/Optional | [Link] |
+| [Standard 2] | X.Y | [Description] | Mandatory/Optional | [Link] |
+
+---
+
+## Tutorials & Resources
+
+### Getting Started Tutorial
+
+[Link to tutorial or brief description]
+
+### Video Resources
+
+| Title | Duration | Link |
+|-------|----------|------|
+| [Video 1] | [X min] | [Link] |
+
+### Whitepaper
+
+- *Link to Factory-X Engineering Whitepaper as soon as it is available*
+
 
 ## Notice
 
@@ -122,4 +369,6 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Schaeffler AG
 - SPDX-FileCopyrightText: 2025 Mercedes Benz Group AG
 - SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK
 - SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io
