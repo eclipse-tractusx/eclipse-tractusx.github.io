@@ -75,6 +75,9 @@ Product Passport and Secondary Material Content, the KIT establishes the
 foundation for circularity, regulatory compliance, and sustainable resource
 utilization. 
 
+*Figure 1: Material Accounting and the Circular Economy.*
+![Vision](../resources/CircularEconomyDiagramm.svg)
+
 ### Mission
 
 The mission of the Material Accounting KIT is to provide a practical and standardized framework that enables all participants in the use
@@ -153,7 +156,7 @@ Material Accounting acts as a cross-functional data layer that accompanies these
 
 ![Use Case Overview](../resources/use-case-overview-tight.svg)
 
-*Figure 1: Material Accounting across the automotive end-of-life.*
+*Figure 2: Material Accounting across the automotive end-of-life.*
 
 ## User Journey
 insert video here!!
@@ -193,7 +196,7 @@ operate on a consistent interoperable data basis.
 
 ![samm image](../resources/SAMM.drawio.svg) 
 
-*Figure 2: Six New Aspect Models (SAMM)*
+*Figure 3: Six New Aspect Models (SAMM)*
 
 Material Accounting builds on existing Catena-X standards, as seen above, particularly:
 
