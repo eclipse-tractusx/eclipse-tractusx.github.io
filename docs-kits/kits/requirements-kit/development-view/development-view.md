@@ -41,271 +41,47 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 ---
 
-### More Guides
-
-- [Architecture Overview](architecture.md)
-
-### Component Diagram
-
-The flowchart illustrates the interactions between four main components in the system:
-
 ### Core Components
 
 #### Component 1: Requirement System
 
-**Purpose**: Core component responsible for requirement management
+**Purpose**: Core component responsible for requirement management at the data consumer or provider
 
-**Technology Stack**: [Programming language, framework, key dependencies]
+**Technology Stack**: Implementation depends on solution provider.
 
-**Interfaces**: [Input, output, protocols]
+**Interfaces**: Typically ReqIF Export
 
 #### Component 2: Eclipse Dataspace Connector (EDC)
 
-**Purpose**: Facilitates data exchange between partners
+**Purpose**: Facilitates contract negotiation and data exchange between partners in the data space
 
-**Technology Stack**: [Programming language, framework, key dependencies]
+**Technology Stack**: Java
 
-**Interfaces**: [Input, output, protocols]
+**Interfaces**: Dataspace Protocol
 
-#### Component 3: Requirement System
+#### Component 3: Digital Twin Registry 
 
 **Purpose**: Stores and manages digital twin information
 
-**Technology Stack**: [Programming language, framework, key dependencies]
+**Technology Stack**: Java, Go
 
-**Interfaces**: [Input, output, protocols]
+**Interfaces**: AAS API 
 
-#### Component 4: Requirement System
+#### Component 4: Submodel Server
 
 **Purpose**: Handles submodel data and operations
 
-**Technology Stack**: [Programming language, framework, key dependencies]
+**Technology Stack**: Java, Go
 
-**Interfaces**: [Input, output, protocols]
-
----
-
-## Standards Compliance
-
-| Standard | Version | Compliance | Description |
-|----------|---------|------------|-------------|
-| CX-0154 | 1.0.1 | Optional | Standard describing how to handle Master Data in Engineering. This includes parameters of  |
-| CX-0155 | 1.0.1 | Mandatory | Describes the required data models and API usage for the  |
-
-### Standard Details
-
-#### Requirements Engineering v.1.0.1
-
-**Compliance Level**: [Mandatory | Optional | Recommended]
-
-**Implementation**: [Brief description]
-
-**Reference**: [CX-0155 Requirements Engineering](https://catenax-ev.github.io/docs/next/standards/CX-0155-RequirementsEngineering)
-
-#### Digital Engineering Master Data v1.0.1
-
-**Compliance Level**: [Mandatory | Optional | Recommended]
-
-**Implementation**: [Brief description]
-
-**Reference**: [CX-0154 Master Data](https://catenax-ev.github.io/docs/standards/CX-0154-MasterDataManagement)
+**Interfaces**: AAS API
 
 ---
 
-## Logic & Schema
+## Sequence Diagrams
 
-### Business Logic
-
-[Core business logic description]
-
-#### Logic Flow: [Process Name]
-
-**Input**: [Required data]
-
-**Processing Steps**: [Brief description of steps]
-
-**Output**: [Produced data]
-
-### Data Schema
-
-#### Schema: [Schema Name]
-
-**Purpose**: [Schema description]
-
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Unique identifier"
-    },
-    "name": {
-      "type": "string",
-      "description": "Resource name"
-    }
-  },
-  "required": ["id", "name"]
-}
-```
-
-**Example**:
-
-```json
-{
-  "id": "res-001",
-  "name": "Example Resource"
-}
-```
-
----
-
-## Semantic Models
-
-### Model: [Model Name]
-
-**Version**: X.Y.Z
-
-**Namespace**: `urn:samm:org.eclipse.tractusx.[domain]:[version]#`
-
-**Description**: [Model description]
-
-**Key Properties**:
-
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `property1` | string | Yes | [Description] |
-| `property2` | integer | No | [Description] |
-
-**Example**:
-
-```json
-{
-  "@context": {
-    "@vocab": "urn:samm:org.eclipse.tractusx.[domain]:[version]#"
-  },
-  "property1": "value1",
-  "property2": 42
-}
-```
-
-**Reference**: [Link to SAMM specification]
-
----
-
-## Test Cases
-
-### Test Strategy
-
-- **Unit Tests**: Component-level testing
-- **Integration Tests**: API integration testing
-- **End-to-End Tests**: Complete workflow testing
-
-### Test Case: [Test Name]
-
-**Objective**: [Test validation purpose]
-
-**Preconditions**: [Required setup]
-
-**Test Steps**: [Brief description]
-
-**Expected Outcome**: [Expected result]
-
----
-
-## Sample Data
-
-### Sample Dataset: [Dataset Name]
-
-**Purpose**: [Sample purpose]
-
-**Format**: JSON
-
-**Download**: [Link]
-
-**Example**:
-
-```json
-{
-  "sampleData": [
-    {
-      "id": "sample-001",
-      "field1": "value1"
-    }
-  ]
-}
-```
-
----
-
-#### Interactions
-
-The system architecture demonstrates how components interact to facilitate requirement exchange:
-
-- **Requirement System Operations**
-  - Registers Digital Twins and Submodel Descriptors in the Digital Twin Registry
-  - Provides Requirement Submodels to the Submodel Service
-  - Uses the Eclipse Dataspace Connector to request requirements and send notifications
-- **Eclipse Dataspace Connector (EDC)**
-  - Handles notifications sent from partners back to the Requirement System
-  - Acts as the communication bridge between partners
-- **Digital Twin Registry**
-  - Provides Digital Twins to the Eclipse Dataspace Connector
-- **Submodel Service**
-  - Provides Submodels to the Eclipse Dataspace Connector
+### Data Exchange Flow
 
 ```mermaid
-flowchart LR
-
-reqSysC[Requirement System]
-dtrC[Digital Twin Registry]
-submodelC[Submodel Service]
-edcC[Eclipse Dataspace Connector]
-
-reqSysC -- Register Digital Twins and Submodel Descriptors --> dtrC
-reqSysC -- Provide Requirement Submodels --> submodelC
-reqSysC -- Use EDC to Request Requirements and send notifications --> edcC
-edcC -- Handle Notifications sent from partner --> reqSysC
-dtrC -- Provide Digital Twins --> edcC
-submodelC -- Provide Submodels --> edcC
-
-```
-
-### Requirement Exchange Sequence
-
-The sequence diagram illustrates the requirement exchange flow between a Customer (e.g., an OEM) and a Supplier:
-
-1. **Initial Requirement Creation**:
-
-    - Customer creates a requirement in their requirements system and registers it in their DTR and creates a submodel.
-    - Customer's system sends a notification through the EDC to the Supplier
-
-2. **Requirement Request**:
-
-    - Supplier's system requests the requirement details through the EDC
-    - The requirement is transferred from Customer's DTR to Supplier's DTR and submodel service
-
-3. **Requirement Update**:
-
-    - After processing, Supplier updates the requirement in their requirements system
-    - Supplier sends a notification about the update through the EDC back to the Customer
-    - Customer is notified about the requirement update
-
-4. **Next interactions**:
-
-- The process can be repeated for further updates or new requirements in an interactive manner between the Customer and Supplier.
-
-The diagram shows the core components involved in this exchange:
-
-- Requirement Systems (on both Customer and Supplier sides)
-- Digital Twin Registry (DTR) & Submodel Services
-- Eclipse Dataspace Connector (EDC) for secure data exchange
-- Solid lines indicate dataflow
-- Dashed lines indicate initialization of a request
-
-```mermaid
-
 sequenceDiagram
     participant oemReqSys as Requirement System Customer
     participant oemDtr as DTR & Submodel Service Customer
@@ -336,81 +112,166 @@ sequenceDiagram
     supReqSys->>supEDC: Notification (updated Requirement)
     supEDC->>oemEDC: Notification (updated Requirement)
     oemEDC->>oemReqSys: Notification (updated Requirement)
-
-
 ```
 
-## Requirements Aspect Model
+The sequence diagram illustrates the requirement exchange flow between a Customer (e.g., an OEM) and a Supplier:
 
-The following section gives an overview of the requirements aspect model. The requirements aspect model is a submodel that contains the requirements information and the status of the requirement.
+1. **Initial Requirement Creation**:
 
-| Digital Twin Type | Aspect Model | Mandatory Version | Optional Versions | KIT | Standard |
-| :-- | :-- | :-- | :-- | :-- | :-- |
-| PartType | Requirements | 1.0.0 | | Requirements | CX-0155 |
+    - Customer creates a requirement in their requirements system and registers it in their DTR and creates a submodel.
+    - Customer's system sends a notification through the EDC to the Supplier
 
-### Example of a Requirements Aspect Model
+2. **Requirement Request**:
+
+    - Supplier's system requests the requirement details through the EDC
+    - The requirement is transferred from Customer's DTR to Supplier's DTR and submodel service
+
+3. **Requirement Update**:
+
+    - After processing, Supplier updates the requirement in their requirements system
+    - Supplier sends a notification about the update through the EDC back to the Customer
+    - Customer is notified about the requirement update
+
+4. **Next interactions**:
+
+    - The process can be repeated for further updates or new requirements in an interactive manner between the Customer and Supplier.
+
+---
+
+## Standards Compliance
+
+| Standard | Version | Compliance | Description |
+|----------|---------|------------|-------------|
+| CX-0154 | 1.0.1 | Optional | Standard describing how to handle Master Data in Engineering. This includes parameters of  |
+| CX-0155 | 1.0.1 | Mandatory | Describes the required data models and API usage for the  |
+
+### Standard Details
+
+#### Requirements Engineering v.1.0.1
+
+**Compliance Level**: Mandatory
+
+**Implementation**: The Requirements Standard describes the data model and the API to use for requirements engineering in Catena-X. The data model defined is based on ReqIF and can be used in other domains then automotive as well. 
+
+**Reference**: [CX-0155 Requirements Engineering](https://catenax-ev.github.io/docs/next/standards/CX-0155-RequirementsEngineering)
+
+#### Digital Engineering Master Data v1.0.1
+
+**Compliance Level**: Recommended
+
+**Implementation**: The Digital Engineering Master Data standard describes the main artifacts required in Collaborative Engineering use cases with a focus on Catena-X. It is designed industry-agnostic and can be used in other industries as well. 
+
+**Reference**: [CX-0154 Master Data](https://catenax-ev.github.io/docs/standards/CX-0154-MasterDataManagement)
+
+---
+
+## Logic & Schema
+
+### Data Schema
+
+#### Schema: Notification Schema
+
+**Purpose**: The notification format used for the requirements exchange is based on the [Industry Core Kit's standardized notification format](../../industry-core-kit/software-development-view/notifications.mdx). The following example illustrates a notification sent from a Customer to a Supplier when a new requirement is created:
 
 ```json
 {
-  "requirementRelations": [
-    {
-      "relatedRequirementId": "urn:uuid:e6b31BC2-8102-64AF-034D-C2DC35E37cEE",
-      "requiremementRelationshipType": "RequirementSpecialismOfRequirement"
-    }
-  ],
-  "requirementId": "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
-  "requirementInformation": {
-    "foreignId": "3.1.1",
-    "longname": "Plastic deformation of the bogie",
-    "versionPredecessor": {
-      "versionPredecessorNumber": "1.4.5",
-      "versionPredecessorId": "AeEf3f22-Af51-EDF0-29D2-Ba086b386A5E"
-    },
-    "creationdate": "2025-06-05T09:35:16.166+02:00",
-    "metadata": [
-      {
-        "value": "2025-11-30T00:00:00.000+02:00",
-        "metadataDescription": "Timestamp of the expected finalization of the requirement",
-        "key": "ExpectedFinalization"
+  "$schema" : "http://json-schema.org/draft-04/schema",
+  "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#MessageHeaderAspect",
+  "description" : "Aspect model describing the shared message header.",
+  "type" : "object",
+  "components" : {
+    "schemas" : {
+      "UuidV4Trait" : {
+        "type" : "string",
+        "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.uuid:2.0.0#UuidV4Trait",
+        "description" : "The provided regular expression ensures that the UUID is composed of five groups of characters separated by hyphens, in the form 8-4-4-4-12 for a total of 36 characters (32 hexadecimal characters and 4 hyphens), optionally prefixed by \"urn:uuid:\" to make it an IRI.",
+        "pattern" : "(^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)|(^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)"
+      },
+      "ContextCharacteristic" : {
+        "type" : "string",
+        "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#ContextCharacteristic",
+        "description" : "Defining a string value for the context"
+      },
+      "Timestamp" : {
+        "type" : "string",
+        "pattern" : "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?",
+        "x-samm-aspect-model-urn" : "urn:samm:org.eclipse.esmf.samm:characteristic:2.2.0#Timestamp",
+        "description" : "Describes a Property which contains the date and time with an optional timezone."
+      },
+      "BpnlTrait" : {
+        "type" : "string",
+        "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.business_partner_number:2.0.0#BpnlTrait",
+        "description" : "The provided regular expression ensures that the BPNL is composed of prefix 'BPNL', 10 digits and two alphanumeric letters.",
+        "pattern" : "^BPNL[a-zA-Z0-9]{12}$"
+      },
+      "SemanticVersioningTrait" : {
+        "type" : "string",
+        "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#SemanticVersioningTrait",
+        "description" : "Constraint for defining a SemVer version.",
+        "pattern" : "^(0|[1-9][0-9]*).(0|[1-9][0-9]*).(0|[1-9][0-9]*)(-(0|[1-9A-Za-z-][0-9A-Za-z-]*)(.[0-9A-Za-z-]+)*)?([0-9A-Za-z-]+(.[0-9A-Za-z-]+)*)?$"
+      },
+      "HeaderCharacteristic" : {
+        "description" : "Characteristic describing the common shared aspect Message Header",
+        "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#HeaderCharacteristic",
+        "type" : "object",
+        "properties" : {
+          "messageId" : {
+            "description" : "Unique ID identifying the message. The purpose of the ID is to uniquely identify a single message, therefore it MUST not be reused.",
+            "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#messageId",
+            "$ref" : "#/components/schemas/UuidV4Trait"
+          },
+          "context" : {
+            "description" : "Information about the context the message should be considered in.\nThe value MUST consist of two parts: an identifier of the context (e.g. business domain, etc.) followed by a version number.\nBoth the identifier and the version number MUST correspond to the content of the message.\nIf the content of a message is described by an aspect model available in the Catena-X Semantic Hub, then the unique identifier of this semantic model (e.g. urn:samm:io.catenax.<ASPECT-MODEL-NAME>:1.x.x) MUST be used as a value of the context field. This is considered the default case.\nIn all other cases the value of the context field MUST follow the pattern <domain>-<subdomain>-<object>:<[major] version> (e.g. TRACE-QM-Alert:1.x.x).\nVersioning only refers to major versions in both default and fallback cases.\nNote: The version of the message's header is specified in the version field.",
+            "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#context",
+            "$ref" : "#/components/schemas/ContextCharacteristic"
+          },
+          "sentDateTime" : {
+            "description" : "Time zone aware timestamp holding the date and the time the message was sent by the sending party. The value MUST be formatted according to the ISO 8601 standard",
+            "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#sentDateTime",
+            "$ref" : "#/components/schemas/Timestamp"
+          },
+          "senderBpn" : {
+            "description" : "The Business Partner Number of the sending party. The value MUST be a valid BPN. BPNA and BPNS are not allowed. Applicable constraints are defined in the corresponding standard",
+            "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#senderBpn",
+            "$ref" : "#/components/schemas/BpnlTrait"
+          },
+          "receiverBpn" : {
+            "description" : "The Business Partner Number of the receiving party. The value MUST be a valid BPN. BPNA and BPNS are not allowed. Applicable constraints are defined in the corresponding standard.",
+            "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#receiverBpn",
+            "$ref" : "#/components/schemas/BpnlTrait"
+          },
+          "expectedResponseBy" : {
+            "description" : "Time zone aware timestamp holding the date and time by which the sending party expects a certain type of response from the receiving party. The meaning and interpretation of the fields's value are context-bound and MUST therefore be defined by any business domain or platform capability making use of it. The value MUST be formatted according to the ISO 8601 standard",
+            "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#expectedResponseBy",
+            "$ref" : "#/components/schemas/Timestamp"
+          },
+          "relatedMessageId" : {
+            "description" : "Unique ID identifying a message somehow related to the current one",
+            "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#relatedMessageId",
+            "$ref" : "#/components/schemas/UuidV4Trait"
+          },
+          "version" : {
+            "description" : "The unique identifier of the aspect model defining the structure and the semantics of the message's header. The version number should reflect the versioning schema of aspect models in Catena-X.",
+            "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#version",
+            "$ref" : "#/components/schemas/SemanticVersioningTrait"
+          }
+        },
+        "required" : [ "messageId", "context", "sentDateTime", "senderBpn", "receiverBpn", "version" ]
       }
-    ],
-    "author": "Lisa Dräxlmaier GmbH",
-    "reqifType": "Functional",
-    "reqifName": "Plastic deformation of the bogie",
-    "description": "eOMtThyhVNLWUZNRcBaQKxI",
-    "specification": [
-      "https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf"
-    ],
-    "version": {
-      "versionNumber": "2.0.0",
-      "versionId": "B50C5243-9590-Eaa5-dA9e-Adb383e2cFf6"
     }
   },
-  "requirementStatus": {
-    "customerStatus": [
-      {
-        "customerStatusComment": "Requirement needs to be evaluated",
-        "customerStatusValue": "<empty>",
-        "customerStatusTimestamp": "2025-06-05T09:35:16.166+02:00"
-      }
-    ],
-    "supplierStatus": [
-      {
-        "supplierStatusTimestamp": "2025-06-05T09:35:16.166+02:00",
-        "supplierStatusValue": "<empty>",
-        "supplierStatusComment": "More information needed from customer"
-      }
-    ],
-    "statusValue": "transition status",
-    "statusTimestamp": "2025-06-05T09:35:16.166+02:00"
-  }
+  "properties" : {
+    "header" : {
+      "description" : "Contains standardized attributes for message processing common across several use cases.",
+      "x-samm-aspect-model-urn" : "urn:samm:io.catenax.shared.message_header:3.0.0#header",
+      "$ref" : "#/components/schemas/HeaderCharacteristic"
+    }
+  },
+  "required" : [ "header" ]
 }
-
 ```
 
-## Notification Format
-
-The notification format used for the requirements exchange is based on the [Industry Core Kit's standardized notification format](../industry-core-kit/software-development-view/notifications). The following example illustrates a notification sent from a Customer to a Supplier when a new requirement is created:
+**Example**:
 
 ```json
 {
@@ -430,27 +291,84 @@ The notification format used for the requirements exchange is based on the [Indu
 }
 ```
 
-- ```requirementId```: ```requirementId``` in requirements datamodel
+---
 
-<!--
-- ```description```:
-- ToDo: Clarify if ```context``` is the right place for create/update/delete information or if this should be moved to ```content```
--->
+## Semantic Models
 
-Base idea of notifications: Only technical information about creation/change/deletion of requirement. Descriptive information about changes and comments are stored directly within the requirement submodels.
+### Model: Requirements
 
-## EDC Setup
+**Version**: 1.0.0
 
-In order to set up the EDC for the requirements use-case, the following steps are necessary:
+**Namespace**: `urn:samm:io.catenax.requirement:1.0.0#`
 
-- [Setup for the DTR](../digital-twin-kit/software-development-view/) in order to provide access to the Digital Twins for the partners
-- [Notifications](../industry-core-kit/software-development-view/notifications) to inform the partners about new requirements or updates. In the requirements use-case the standardized notifications from the Industry Core Kit are used.
+**Description**: This model describes a Requirement. It un
+
+**Key Properties**:
+
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| `requirementId` | string | Yes | UUID of the requirement |
+| `requirementStatus` | string | Yes | Requirements Status based on [https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf](https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf) |
+
+**Example**:
+
+```json
+{
+  "requirementRelations" : [ {
+    "requirementRelationshipType" : "RequirementSpecialismOfRequirement",
+    "relatedRequirementId" : "urn:uuid:e6b31BC2-8102-64AF-034D-C2DC35E37cEE"
+  } ],
+  "requirementId" : "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
+  "requirementInformation" : {
+    "foreignId" : "3.1.1",
+    "longname" : "Plastic deformation of the bogie",
+    "versionPredecessor" : {
+      "versionPredecessorNumber" : "1.4.5",
+      "versionPredecessorId" : "DaCfB4BD-15e7-edf0-77B6-Eb30De54aFbE"
+    },
+    "reqIfName" : "Plastic deformation of the bogie",
+    "reqIfType" : "Functional",
+    "metadata" : [ {
+      "value" : "2025-11-30T00:00:00.000+02:00",
+      "metadataDescription" : "Timestamp of the expected finalization of the requirement",
+      "key" : "ExpectedFinalization"
+    } ],
+    "author" : "Lisa Dräxlmaier GmbH",
+    "description" : "eOMtThyhVNLWUZNRcBaQKxI",
+    "specification" : [ "https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf" ],
+    "creationDate" : "2026-01-26T15:01:53.446Z",
+    "version" : {
+      "versionNumber" : "2.0.0",
+      "versionId" : "fA8Df9A9-3399-89AB-32eB-e7e61Bce8cFF"
+    }
+  },
+  "requirementStatus" : {
+    "customerStatus" : [ {
+      "customerStatusComment" : "Requirement needs to be evaluated",
+      "customerStatusValue" : "<empty>",
+      "customerStatusTimestamp" : "2026-01-26T15:01:53.449Z"
+    } ],
+    "supplierStatus" : [ {
+      "supplierStatusTimestamp" : "2026-01-26T15:01:53.449Z",
+      "supplierStatusValue" : "<empty>",
+      "supplierStatusComment" : "More information needed from customer"
+    } ],
+    "statusValue" : "transition status",
+    "statusTimestamp" : "2026-01-26T15:01:53.448Z"
+  }
+}
+```
+
+**Reference**: [https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.requirement/1.0.0](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.requirement/1.0.0)
+
+---
 
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2026 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
 - SPDX-FileCopyrightText: 2025 Dräxlmaier GmbH & Co. KG
 - SPDX-FileCopyrightText: 2025 Schaeffler AG
 - SPDX-FileCopyrightText: 2025 Mercedes Benz Group AG
