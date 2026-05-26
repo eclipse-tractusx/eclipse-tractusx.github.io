@@ -64,9 +64,8 @@ This vision opens the way for innovative and collaborative product development b
 ### Mission
 
 :::note Mission Statement
-The KIT shall describe usable data models and approaches to aggregate and align Requirements in a data ecosystem. 
+The KIT shall describe usable data models and approaches to aggregate and align Requirements in a data ecosystem.
 :::
-
 
 The Requirements Kit aims to meticulously outline requirements by incorporating essential standards, aspect models and business logics. Its approach is designed to facilitate the exchange of requirements information between OEMs and Tier-N suppliers, ensuring that all relevant data is gathered and enabling authorized stakeholders to collaborate effectively. The data exchange process adheres to the Catena-X network's principles of data sovereignty, ensuring secure and compliant interactions. By following a standardized pipeline and utilizing data models within a data ecosystem, each partner is empowered to use their preferred applications, fostering a flexible and efficient collaboration environment.
 
@@ -143,7 +142,6 @@ Catena-X offers solution providers a variety of strategic advantages to leverage
 9. Access to data and analysis: With access to valuable industrial data, solution providers can develop and enhance their analytics and optimization solutions to boost operational efficiency and decision-making processes for customers.
 10. Accelerated digital transformation: Catena-X allows solution providers to position their transformation strategies directly within the context of the automotive industry, a sector that is continually moving towards digital technologies.
 
-
 | Stakeholder Type | Key Benefits | Time to Value |
 |------------------|--------------|---------------|
 | **OEMs** | [List 2-3 benefits for large enterprises] | [e.g., "6 months"] |
@@ -164,7 +162,6 @@ Nowadays, the exchange of requirements is largely file-based, with the files bei
 This involves the circular processing of requests between partners, which can result in multiple file exports and imports to and from the respective systems. Each import/export results in a break in the data. Changes within each version of the files must be tracked and displayed by the requirements management tools. This method of working with requirements is very time consuming and requires a lot of manual effort that has nothing to do with the actual evaluation of the requirements.
 
 In addition to the challenges mentioned above, there is also the issue that the files can be designed in a variety of content forms and the formats of the files can also vary. The formats can be divided into structured and unstructured files. Unstructured files are texts, tables etc. that are not organized into individual requirements without prior processing. These increase the effort required to organize the document into individual requirements. This also makes the exchange with the partner more difficult, as the partner does not know the newly created structure. With structured files, the aforementioned circumstances no longer exist, as the requirements are already organized. In the best case, a standardized form, such as the ReqIF format, is used. However, even when using standardized formats such as ReqIF, it is still necessary to agree on a common data model for exporting and importing in advance so that data exchange via the various requirements management tools works as smoothly as possible.
-
 
 **Current Challenges:**
 
@@ -221,7 +218,6 @@ For industry-specific business processes, see the [Industry Extensions](https://
 
 ### Core Business Process: [Process Name]
 
-
 ![Customer Journey](../resources/img/requirements_customer-journey.png)
 
 ### Core Business Process:  User Journey
@@ -248,28 +244,6 @@ flowchart TD
     E --> G
 
 ```
-### Core Business Process: [Process Name]
-
-**Purpose**: [Business goal]
-
-**Stakeholders**: [List key stakeholders]
-
-**Process Steps**:
-
-```mermaid
-sequenceDiagram
-    participant A as Actor A
-    participant B as Actor B
-    participant C as System/KIT
-    
-    A->>C: Action 1
-    C->>B: Action 2
-    B->>C: Action 3
-    C->>A: Result
-```
-
-**Process Description**: [Brief description of key steps]
-
 
 ### Access & Usage Policies
 
@@ -359,7 +333,6 @@ For industry-specific standards, refer to the [Industry Extensions](https://gith
 
 - *Link to Factory-X Engineering Whitepaper as soon as it is available*
 
-
 ## Notice
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
@@ -371,4 +344,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK
 - SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

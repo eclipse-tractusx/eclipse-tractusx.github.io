@@ -43,7 +43,7 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 ### More Guides
 
-- - [Architecture Overview](architecture.md)
+- [Architecture Overview](architecture.md)
 
 ### Component Diagram
 
@@ -83,135 +83,6 @@ The flowchart illustrates the interactions between four main components in the s
 
 **Interfaces**: [Input, output, protocols]
 
-
----
-
-## Sequence Diagrams
-
-### Authentication Flow
-
-```mermaid
-sequenceDiagram
-    participant Client
-    participant APIGateway
-    participant AuthService
-    participant CoreService
-    
-    Client->>APIGateway: Request with credentials
-    APIGateway->>AuthService: Validate credentials
-    AuthService-->>APIGateway: Auth token
-    APIGateway-->>Client: Token response
-    Client->>APIGateway: API Request + Token
-    APIGateway->>CoreService: Forward request
-    CoreService-->>APIGateway: Response
-    APIGateway-->>Client: Final response
-```
-
-[Brief flow description]
-
-### Data Exchange Flow
-
-```mermaid
-sequenceDiagram
-    participant Provider
-    participant Connector
-    participant Consumer
-    participant Storage
-    
-    Provider->>Connector: Offer data asset
-    Connector->>Connector: Register asset
-    Consumer->>Connector: Query available assets
-    Connector-->>Consumer: Asset catalog
-    Consumer->>Connector: Request data transfer
-    Connector->>Provider: Initiate transfer
-    Provider-->>Storage: Push data
-    Storage-->>Consumer: Deliver data
-```
-
-[Brief flow description]
-
----
-
-## API Specifications
-
-### API Overview
-
-[List of main APIs with purpose]
-
-### Base URL
-
-```
-https://api.example.com/v1
-```
-
-### Authentication
-
-[Authentication method: OAuth 2.0 | API Keys | JWT]
-
-```http
-Authorization: Bearer <your-access-token>
-```
-
-### API Endpoints
-
-#### GET /resources
-
-**Description**: Retrieve resources
-
-**Request**:
-
-```http
-GET /v1/resources HTTP/1.1
-Host: api.example.com
-Authorization: Bearer <token>
-```
-
-**Response** (200 OK):
-
-```json
-{
-  "resources": [
-    {
-      "id": "resource-1",
-      "name": "Example Resource",
-      "type": "data-asset"
-    }
-  ]
-}
-```
-
-#### POST /resources
-
-**Description**: Create a resource
-
-**Request**:
-
-```http
-POST /v1/resources HTTP/1.1
-Host: api.example.com
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "name": "New Resource",
-  "type": "data-asset"
-}
-```
-
-**Response** (201 Created):
-
-```json
-{
-  "id": "resource-123",
-  "name": "New Resource",
-  "type": "data-asset"
-}
-```
-
-### OpenAPI Specification
-
-[Link to OpenAPI specification and Swagger UI]
-
 ---
 
 ## Standards Compliance
@@ -229,16 +100,15 @@ Content-Type: application/json
 
 **Implementation**: [Brief description]
 
-**Reference**: [CX-0155 Requirements Engineering ](https://catenax-ev.github.io/docs/next/standards/CX-0155-RequirementsEngineering)
+**Reference**: [CX-0155 Requirements Engineering](https://catenax-ev.github.io/docs/next/standards/CX-0155-RequirementsEngineering)
 
-#### Requirements Engineering v.1.0.1
+#### Digital Engineering Master Data v1.0.1
 
 **Compliance Level**: [Mandatory | Optional | Recommended]
 
 **Implementation**: [Brief description]
 
-**Reference**: [CX-0155 Requirements Engineering ](https://catenax-ev.github.io/docs/next/standards/CX-0155-RequirementsEngineering)
-
+**Reference**: [CX-0154 Master Data](https://catenax-ev.github.io/docs/standards/CX-0154-MasterDataManagement)
 
 ---
 
@@ -366,94 +236,6 @@ Content-Type: application/json
   ]
 }
 ```
-
----
-
-## Developer Tutorials
-
-### Quick Start
-
-**Prerequisites**: [List prerequisites]
-
-**Steps**:
-
-1. Clone repository:
-
-```bash
-git clone https://github.com/eclipse-tractusx/[repository-name].git
-```
-
-2. Configure `application.properties`:
-
-```properties
-server.port=8080
-api.base-url=https://api.example.com
-```
-
-3. Build and run:
-
-```bash
-mvn clean install
-mvn spring-boot:run
-```
-
-4. Verify:
-
-```bash
-curl http://localhost:8080/health
-```
-
----
-
-## Integration Examples
-
-### Integration with [System Name]
-
-**Java Example**:
-
-```java
-public class KitIntegration {
-    private final KitClient client;
-    
-    public KitIntegration(String apiUrl, String apiKey) {
-        this.client = new KitClient(apiUrl, apiKey);
-    }
-    
-    public Resource getResource(String resourceId) {
-        return client.resources().get(resourceId);
-    }
-}
-```
-
-**Python Example**:
-
-```python
-from kit_sdk import KitClient
-
-client = KitClient(api_url="https://api.example.com", api_key="your-key")
-resource = client.resources.get("resource-id")
-```
-
----
-
-## Additional Resources
-
-### Reference Implementations
-
-- [Implementation 1]: [Link]
-- [Implementation 2]: [Link]
-
-### SDKs and Libraries
-
-| Language | SDK | Link |
-|----------|-----|------|
-| Java | [SDK Name] | [Link] |
-| Python | [SDK Name] | [Link] |
-
-### Developer Tools
-
-- [Postman Collection](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template/resources/postman-collection.json)
-- [OpenAPI Generator](https://openapi-generator.tech/)
 
 ---
 
