@@ -76,12 +76,6 @@ continuously enriched throughout the lifecycle, enabling
 traceability of material flows and transparent tracking of secondary
 materials.
 
-The architecture also establishes the foundation for downstream
-circular economy use cases such as Secondary Material Content (SMC)
-and the Digital Product Passport (DPP), which rely on standardized
-and verifiable material-related data generated through Material
-Accounting.
-
 ## Data Exchange Flow
 
 The Material Accounting data exchange follows the Catena-X
@@ -119,7 +113,7 @@ between actors participating in Material Accounting.
    `RecyclingInformation`. The exchanged data remains interoperable
    and machine-readable across company boundaries.
 
-4. **Lifecycle Traceability and Data Enrichment**
+4. **End-of-Life Traceability and Data Enrichment**
    Throughout the reverse and forward value chain, digital twins are
    continuously enriched with additional information from
    participating actors. This enables traceability of material
