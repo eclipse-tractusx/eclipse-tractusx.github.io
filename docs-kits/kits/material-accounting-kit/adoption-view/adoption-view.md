@@ -152,7 +152,10 @@ The following diagram illustrates the Material Accounting use case across the au
 Material Accounting acts as a cross-functional data layer that accompanies these physical processes by enabling the standardized exchange of material-related information between actors. Each process step generates input and output data that can be linked through digital twins and semantic models, ensuring traceability, transparency, and interoperability across company boundaries.
 
 *Figure 1: Material Accounting across the automotive end-of-life.*
-![Use Case Overview](../resources/use-case-overview-tight.svg) 
+![Use Case Overview](../resources/use-case-overview-tight.svg)
+
+## User Journey
+insert video here!!
 
 
 ## Semantic Models / Data Model
@@ -306,6 +309,8 @@ The Composition model describes how components and materials are grouped and str
 | Attribute | Definition |
 |---|---|
 | `materialWeight` | Weight of a material in a part |
+
+ `To better understand mandatory and optional attributes, please refer to the respective Material Acccounting Data Model.`
 
 ## Standards
 
