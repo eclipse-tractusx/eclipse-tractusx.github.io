@@ -49,4 +49,4 @@ Data sovereignty is enabled by so-called verifiable credentials. These rely on t
 
 The following Figure shows how the EcoPass KIT (represented by Digital Product Passport Frontend and Backend) is embedded in the overall architecture.
 
-[![EcoPassKIT IT Arch Picture](../resources/development-view/ecoPassContext.svg)](./resources/development-view/ecoPassContext.svg)
+[![EcoPassKIT IT Arch Picture](../resources/development-view/ecoPassContext.svg)](../resources/development-view/ecoPassContext.svg)
