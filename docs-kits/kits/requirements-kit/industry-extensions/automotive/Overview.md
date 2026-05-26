@@ -194,6 +194,9 @@ sequenceDiagram
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [YYYY] [YOUR_COMPANY]
-- SPDX-FileCopyrightText: [YYYY] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
+- SPDX-FileCopyrightText: 2025 Dräxlmaier GmbH & Co. KG
+- SPDX-FileCopyrightText: 2025 Schaeffler AG
+- SPDX-FileCopyrightText: 2025 Mercedes Benz Group AG
+- SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

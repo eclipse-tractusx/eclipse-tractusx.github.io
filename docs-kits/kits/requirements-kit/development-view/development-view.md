@@ -374,3 +374,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Mercedes Benz Group AG
 - SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG
 - SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

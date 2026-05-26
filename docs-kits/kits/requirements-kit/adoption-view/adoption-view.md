@@ -213,7 +213,7 @@ In addition to the challenges mentioned above, there is also the issue that the 
 ## Business Processes
 
 :::tip
-For industry-specific business processes, see the [Industry Extensions](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template/industry-extensions) documentation.
+For industry-specific business processes, see the [Industry Extensions](../industry-extensions) documentation.
 :::
 
 ### Core Business Process: [Process Name]
@@ -338,10 +338,10 @@ For industry-specific standards, refer to the [Industry Extensions](https://gith
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2026 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
 - SPDX-FileCopyrightText: 2025 Dräxlmaier GmbH & Co. KG
 - SPDX-FileCopyrightText: 2025 Schaeffler AG
 - SPDX-FileCopyrightText: 2025 Mercedes Benz Group AG
 - SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK
 - SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
