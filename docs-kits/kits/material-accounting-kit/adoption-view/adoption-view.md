@@ -328,7 +328,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2026 BASF SE
-- SPDX-FileCopyrightText: 2026 BMW AG
+- SPDX-FileCopyrightText: 2026 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 - SPDX-FileCopyrightText: 2026 Brain of Materials AG
 - SPDX-FileCopyrightText: 2026 Gestamp
 - SPDX-FileCopyrightText: 2026 Technovative Solutions Limited
