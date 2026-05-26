@@ -17,8 +17,6 @@ This logo is only visible when compiled with Docusarus (final version of the hos
 KIT LOGO END
 -->
 
-# Changelog
-
 All notable changes to this KIT will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -47,15 +45,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 ### Changed
-- Structuring based on https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template
+
+- Structuring based on [KIT template](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template)
 - Summary of the KIT
 - Use Cases of DPPs with focus on Battery Use Cases
 
 ### Removed
+
 - Electric Drive Passport as it was not used
 - Battery-pass-viewer-app Documentation, as it is deprecated
 - Passport creation process, as it was not compliant with Battery Standard
-
 
 ## [1.5.1] - 2026-03-03 - R26.03
 
@@ -67,7 +66,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - fixed broken Links and removed references to reference application
 
-## [1.5.0] - 2024-07-25 - 24.08 
+## [1.5.0] - 2024-07-25 - 24.08
 
 ### Added
 
@@ -153,7 +152,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 T-Systems International GmbH
 - SPDX-FileCopyrightText: 2023, 2024 SAP SE
 - SPDX-FileCopyrightText: 2023, 2024 CGI Deutschland B.V. & Co. KG
-- SPDX-FileCopyrightText: 2023, 2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK und IPK
+- SPDX-FileCopyrightText: 2023, 2024 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihr Institut IPK
 - SPDX-FileCopyrightText: 2023, 2024 BASF SE
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation

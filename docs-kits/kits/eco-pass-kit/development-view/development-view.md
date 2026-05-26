@@ -38,7 +38,6 @@ Technical documentation for developers, architects, and implementers.
 Software Developers, Solution Architects, Technical Leads, API Developers, Integration Engineers.
 :::
 
-
 ### More Guides
 
 [LINK TO THE OTHER FILES IN THIS VIEW IN CASE THERE ARE MORE]
@@ -60,7 +59,6 @@ Thereby, this KIT covers various aspects, starting from how the available API En
 
 **Interfaces**: [Input, output, protocols]
 
-
 #### Component 2: Submodel Server
 
 **Purpose**: The data source adhering to a subset of the Submodel API as defined in AAS Part-2 3.0. Where the Passport Aspects are stored
@@ -76,8 +74,6 @@ Thereby, this KIT covers various aspects, starting from how the available API En
 **Technology Stack**: [Programming language, framework, key dependencies]
 
 **Interfaces**: [Input, output, protocols]
-
-
 
 ---
 
@@ -181,7 +177,7 @@ You can find the old source at [eclipse-tractusx/digital-product-pass](https://g
 Similar development is happening for the [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub).
 :::
 
-- Industry Core Hub with its EcoPass KIT Feature: https://github.com/eclipse-tractusx/industry-core-hub
+- Industry Core Hub with its EcoPass KIT Feature: [Industry Core Hub Github Page](https://github.com/eclipse-tractusx/industry-core-hub)
 
 ## NOTICE
 

@@ -57,6 +57,7 @@ This KIT shall guide Business Managers, Product Owners, Solution Architects, Ind
 :::
 
 This KIT provides a comprehensive overview of the business context and benefits of product passports.
+
 - Offer guidelines for industry stakeholders.
 - Provide a detailed description and offer tools to implement product passports.
 
@@ -64,7 +65,8 @@ This KIT provides a comprehensive overview of the business context and benefits 
 
 ## Business Value
 
-### Value Proposition #1: 
+### Value Proposition #1: Data Sovereignty
+
 The Catena-X EcoPass KIT aims to empower participants to share product pass-related data in a secure and sovereign way while ensuring the interoperability of the different applications involved in the process.
 To achieve this, the relevant Catena-X standards and data modes are referenced, explained, and placed within a broader context of business processes.
 
@@ -74,8 +76,8 @@ To achieve this, the relevant Catena-X standards and data modes are referenced, 
 
 **Measurable Outcomes**: [Key metrics]
 
-
 ### Value of standardization
+
 Using Catena‑X data models and standards for the battery passport is particularly valuable because they create a consistent and verifiable foundation for battery-related data across the entire lifecycle.
 
 - **Consistency of battery data**: The battery passport requires comparable information (e.g., CO₂ footprint, material composition). Catena‑X provides harmonized data formats and calculation rules, ensuring that all partners deliver data in the same structure and logic.
@@ -87,15 +89,18 @@ Using Catena‑X data models and standards for the battery passport is particula
 In short: Catena‑X standards make battery passport data consistent, traceable, and regulation-ready across all partners, which is essential for implementing the battery passport efficiently.
 
 ### Benefits to suppliers and OEMs
- - **Standardized structure for regulatory battery passport data**: Catena‑X defines a clear and agreed structure for all required battery passport data elements (e.g., carbon footprint, material composition, lifecycle data). This ensures that OEMs and battery suppliers can provide exactly the required information in a consistent format, without having to interpret regulatory requirements individually.
- - **Efficient verification and auditability**: Battery passport data must be auditable and verifiable across multiple contributors. By using a shared standard, OEMs and suppliers ensure that data is structured in a way that supports validation, certification, and regulatory checks without additional rework at each step.
- - **Cost reduction through reuse and scalability**: As outlined above, implementing battery passport requirements typically involves many partners across the supply chain. By using Catena‑X standards, OEMs and battery suppliers can apply the same data model and processes for all partners, avoiding individual solutions and repeated integration efforts.
+
+- **Standardized structure for regulatory battery passport data**: Catena‑X defines a clear and agreed structure for all required battery passport data elements (e.g., carbon footprint, material composition, lifecycle data). This ensures that OEMs and battery suppliers can provide exactly the required information in a consistent format, without having to interpret regulatory requirements individually.
+- **Efficient verification and auditability**: Battery passport data must be auditable and verifiable across multiple contributors. By using a shared standard, OEMs and suppliers ensure that data is structured in a way that supports validation, certification, and regulatory checks without additional rework at each step.
+- **Cost reduction through reuse and scalability**: As outlined above, implementing battery passport requirements typically involves many partners across the supply chain. By using Catena‑X standards, OEMs and battery suppliers can apply the same data model and processes for all partners, avoiding individual solutions and repeated integration efforts.
 
 ### Beneftis to software vendors
+
 - **Reduced customer integration effort**: Catena‑X connects OEMs, suppliers, and service providers in a shared data space. Supporting its standards allows software vendors to integrate directly into this ecosystem and serve multiple customers with one solution, instead of building isolated, customer-specific implementations.
 - **Interoperability as a key differentiator**: Catena‑X enables standardized and interoperable data exchange across the entire value chain, allowing certified solutions to seamlessly exchange battery passport data with other systems. This makes solutions more attractive to customers.
 
 ### How can the EcoPass KIT help to address regulatory challenges?
+
 - Manufacturers are required to disclose information regarding the environmental impact of their products under the European Union's (EU) Ecodesign Directive. The EcoPass KIT can assist producers in adhering to this rule by offering a digital record of the environmental impact of their products.
 - Companies are required to provide information regarding their efforts to address forced labor and human trafficking in their supply chains under the California Transparency in Supply Chains Act (CTSCA). The EcoPass KIT's digital record of a company's supply chain operations can assist businesses to comply with this law.
 - Certain manufacturers of products are required to take back and recycle their products at the end of their functional lifespans under the German Waste Management Act (Kreislaufwirtschaftsgesetz). The EcoPass KIT, which offers a digital record of the goods that have been returned and recycled, can assist producers in adhering to this obligation.
@@ -152,12 +157,15 @@ In the automotive industry, a Battery Passport or Digital Product Passport for b
 Throughout this process, the Battery Passport serves as a single, secure, and easily accessible source of information for various stakeholders, such as vehicle manufacturers, suppliers, service providers, regulators and vehicle owners. By implementing a digital product passport like the Battery Pass in the automotive industry, companies can promote transparency, traceability, and sustainability, ultimately contributing to a more eco-friendly and circular economy.
 
 ### Battery Pass: Catena-X Standard explained
+
 The CX‑0160 Battery Passport standard specifies how battery‑related information is modeled, provisioned, discovered and accessed within the Catena‑X dataspace for:
+
 - Traction, industrial and similar batteries that fall under the scope of the EU Battery Regulation or comparable regulatory schemes.
 - End‑to‑end lifecycle usage within the automotive battery value chain (manufacturing, use phase, second‑life, end‑of‑life and recycling).
 - Provisioning of both complete digital battery passports and partial, lifecycle‑specific data contributions, based on Catena‑X digital twins and the joint Catena‑X/IDTA Battery Passport aspect models.
 
-The standard destinguishes three different use cases:
+The standard distinguishes three different use cases:
+
 - Use Case (1) - Provisioning of near-complete battery passport: Typically used in situations where the data provider manufactures the battery, but the battery passport will be published by the data consumer. This can happen depending on the contractual situation and depending on who is the economic operator of the battery and who is putting it onto the EU market.
 - Use Case (2) - component supplier integration (for example cells, housing, battery packs): Typically used to provide data from a component supplier to a battery manufacturer.
 - Use Case (3) - DPP-Service provider view: Complete exchange of DPPs to service provider, which provides it public.
@@ -178,8 +186,7 @@ Please note that Use Case 2 is not available in the current version of the stand
 
 **Description**: Digital Product Passports address three needs by the industry: First, they gather all relevant information about a product in a single, digital tool. Second, digital product passports answer increasing regulatory requirements and demand for sustainability information along the value chain of a product. And third, Digital product passports are crucial enablers for circular economies due to their ability to provide comprehensive and transparent information about the lifecycle of automotive products. They play a critical role by fostering transparency, enhancing recycling and reuse, improving maintenance and repairs, and facilitating regulatory compliance.
 
-**Key Attributes**: ``Passport metadata``, ``Product identification``, ``Product operation``, ``Product handling``, ``Product characteristic``, `` Sustainability information``, ``Materials information``, ``Commercial information``, ``Sources (documents)``, ``Additional data``
-
+**Key Attributes**: ``Passport metadata``, ``Product identification``, ``Product operation``, ``Product handling``, ``Product characteristic``, ``Sustainability information``, ``Materials information``, ``Commercial information``, ``Sources (documents)``, ``Additional data``
 
 **Example**:
 
@@ -452,8 +459,6 @@ Please note that Use Case 2 is not available in the current version of the stand
 
 </details>
 
-
-
 ---
 
 ## Standards
@@ -474,9 +479,9 @@ For industry-specific standards, refer to the [Industry Extensions](https://gith
 ## Tutorials & Resources
 
 :::warning Old deprecated reference application
-For previous versions of this KIT a reference application was mentioned and used as example. 
+For previous versions of this KIT a reference application was mentioned and used as example.
 This application has been deprecated and should no longer be seen as valid reference.
-For some insights into the application of the KIT for generic product passports have a look at the EcoPAss KIT of the [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub). 
+For some insights into the application of the KIT for generic product passports have a look at the EcoPAss KIT of the [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub).
 :::
 
 ## NOTICE
@@ -490,7 +495,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 T-Systems International GmbH
 - SPDX-FileCopyrightText: 2023, 2024 SAP SE
 - SPDX-FileCopyrightText: 2023, 2024 CGI Deutschland B.V. & Co. KG
-- SPDX-FileCopyrightText: 2023, 2024, 2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihre Institute IPK
+- SPDX-FileCopyrightText: 2023, 2024, 2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihr Institut IPK
 - SPDX-FileCopyrightText: 2023, 2024 BASF SE
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation

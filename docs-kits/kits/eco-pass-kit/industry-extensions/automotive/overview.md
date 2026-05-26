@@ -358,7 +358,6 @@ Adds: Catena-X standards, automotive semantic models
 }
 ```
 
-
 ### Catena-X Framework Policy
 
 ```json
@@ -381,7 +380,6 @@ Adds: Catena-X standards, automotive semantic models
 ```
 
 ---
-
 
 ## Getting Started
 
