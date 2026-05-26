@@ -59,13 +59,13 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 **Interfaces**: Dataspace Protocol
 
-#### Component 3: Digital Twin Registry 
+#### Component 3: Digital Twin Registry
 
 **Purpose**: Stores and manages digital twin information
 
 **Technology Stack**: Java, Go
 
-**Interfaces**: AAS API 
+**Interfaces**: AAS API
 
 #### Component 4: Submodel Server
 
@@ -151,7 +151,7 @@ The sequence diagram illustrates the requirement exchange flow between a Custome
 
 **Compliance Level**: Mandatory
 
-**Implementation**: The Requirements Standard describes the data model and the API to use for requirements engineering in Catena-X. The data model defined is based on ReqIF and can be used in other domains then automotive as well. 
+**Implementation**: The Requirements Standard describes the data model and the API to use for requirements engineering in Catena-X. The data model defined is based on ReqIF and can be used in other domains then automotive as well.
 
 **Reference**: [CX-0155 Requirements Engineering](https://catenax-ev.github.io/docs/next/standards/CX-0155-RequirementsEngineering)
 
@@ -159,7 +159,7 @@ The sequence diagram illustrates the requirement exchange flow between a Custome
 
 **Compliance Level**: Recommended
 
-**Implementation**: The Digital Engineering Master Data standard describes the main artifacts required in Collaborative Engineering use cases with a focus on Catena-X. It is designed industry-agnostic and can be used in other industries as well. 
+**Implementation**: The Digital Engineering Master Data standard describes the main artifacts required in Collaborative Engineering use cases with a focus on Catena-X. It is designed industry-agnostic and can be used in other industries as well.
 
 **Reference**: [CX-0154 Master Data](https://catenax-ev.github.io/docs/standards/CX-0154-MasterDataManagement)
 
