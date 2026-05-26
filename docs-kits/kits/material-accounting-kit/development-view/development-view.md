@@ -46,8 +46,9 @@ The following diagram illustrates the high-level architecture of
 Material Accounting and the interaction between participating
 companies and Catena-X core services.
 
-*Figure 3: Material Accounting Architecture Overview*
 ![architecture overview](../resources/Architecture-Overview-MaterialAccouting-KIT.svg)
+
+*Figure 1: Material Accounting Architecture Overview*
 
 The architecture is based on digital twins and semantic aspect
 models that represent vehicles, component sets, components,
@@ -87,8 +88,9 @@ digital twins.
 The following diagram illustrates the high-level data exchange flow
 between actors participating in Material Accounting.
 
-*Figure 4: Data Exchange Flow Material Accounting.*
 ![Data Exchange Flow](../resources/DataExchangeFlow-MaterialAccounting-KIT.svg) 
+
+*Figure 2: Data Exchange Flow Material Accounting.*
 
 ### Flow Description
 

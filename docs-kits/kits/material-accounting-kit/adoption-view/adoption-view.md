@@ -151,8 +151,9 @@ The following diagram illustrates the Material Accounting use case across the au
 
 Material Accounting acts as a cross-functional data layer that accompanies these physical processes by enabling the standardized exchange of material-related information between actors. Each process step generates input and output data that can be linked through digital twins and semantic models, ensuring traceability, transparency, and interoperability across company boundaries.
 
-*Figure 1: Material Accounting across the automotive end-of-life.*
 ![Use Case Overview](../resources/use-case-overview-tight.svg)
+
+*Figure 1: Material Accounting across the automotive end-of-life.*
 
 ## User Journey
 insert video here!!
@@ -190,8 +191,9 @@ coherent semantic structure that enables the traceability of materials
 across the reverse value chain and ensures that all participants
 operate on a consistent interoperable data basis.
 
-*Figure 2: Six New Aspect Models (SAMM)*
 ![samm image](../resources/SAMM.drawio.svg) 
+
+*Figure 2: Six New Aspect Models (SAMM)*
 
 Material Accounting builds on existing Catena-X standards, as seen above, particularly:
 
