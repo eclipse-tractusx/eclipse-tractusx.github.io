@@ -306,6 +306,11 @@ const config = {
                 label: 'KIT Master Data',
                 className: 'kit-nav-item'
               },
+              {
+                to: '/documentation/kit-3d-logo-library',
+                label: 'KIT Assets',
+                className: 'kit-nav-item'
+              },
               // Dynamically generated from kitsData
               ...generateKitNavItems(),
             ],
@@ -414,16 +419,16 @@ const config = {
                 href: "https://github.com/eclipse-tractusx",
               },
               {
-                label: "Catena-X Automotive Network",
-                href: "https://catena-x.net/",
-              },
-              {
                 label: "Mailing List",
                 href: "https://accounts.eclipse.org/mailing-list/tractusx-dev",
               },
               {
                 label: "Report a Bug",
                 href: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues",
+              },
+              {
+                label: "Eclipse Dataspace Working Group",
+                href: "https://dataspace.eclipse.org",
               },
             ],
           },
@@ -453,16 +458,47 @@ const config = {
             ],
           },
           {
+            title: 'Collaboration',
             items: [
               {
-                html: `
-                  <img alt='' src='/img/EF_registered_wht_png.png'/>
-                `
-              }
-            ]
+                label: "Catena-X Automotive Network e.V.",
+                href: "https://catena-x.net/",
+              },
+              {
+                label: "Factory-X",
+                href: "https://factory-x.org",
+              },
+              {
+                label: "Manufacturing-X",
+                href: "https://www.plattform-i40.de/IP/Navigation/EN/Manufacturing-X/Manufacturing-X.html",
+              },
+              {
+                label: "Construct-X",
+                href: "https://construct-x.org",
+              },
+              {
+                label: "Semiconductor-X",
+                href: "https://semiconductor-x.com/",
+              },
+            ],
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.`,
+        copyright: `
+          <div style="display:flex;align-items:stretch;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:24px;">
+            <a href="https://www.eclipse.org" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-decoration:none;">
+              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">A project under the governance of the: </span>
+              <img alt="Eclipse Foundation" src="/img/EF_registered_wht_svg.svg" style="height:200px;"/>
+            </a>
+            <div class="footer-logo-divider"></div>
+            <a href="https://dataspace.eclipse.org" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-decoration:none;">
+              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">Built in collaboration with:</span>
+              <div style="display:flex;align-items:center;justify-content:center;flex:1;">
+                <img alt="Eclipse Dataspace Working Group" src="/img/edwg-logo-white.svg" style="height:200px;max-width:300px;"/>
+              </div>
+            </a>
+          </div>
+          <div>Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.</div>
+        `,
       },
       prism: {
         theme: lightCodeTheme,
