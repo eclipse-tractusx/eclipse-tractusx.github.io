@@ -287,46 +287,48 @@ function buildLogoSvg(kit) {
   });
 
   // ── Logo on top layer ──────────────────────────────────────────────────
-  // Read the raw SVG and embed it, transformed to sit on the top layer.
+  // Embed the logo SVG on the top layer using the same approach as the CSS
+  // Kit3DLogo component: the logo is rendered in its own viewport (preserving
+  // aspect ratio via preserveAspectRatio="xMidYMid meet") and then projected
+  // through the isometric transform.
   let logoContent = '';
   try {
     const svgRaw = fs.readFileSync(kit.logoSvgPath, 'utf8');
-    // Extract viewBox or width/height from the raw SVG
+    // Extract viewBox from the raw SVG
     const vbMatch = svgRaw.match(/viewBox=["']([^"']+)["']/);
     const wMatch = svgRaw.match(/width=["'](\d+(?:\.\d+)?)/);
     const hMatch = svgRaw.match(/height=["'](\d+(?:\.\d+)?)/);
 
-    let svgW, svgH;
+    let viewBox;
     if (vbMatch) {
-      const parts = vbMatch[1].split(/[\s,]+/).map(Number);
-      svgW = parts[2] || 100;
-      svgH = parts[3] || 100;
+      viewBox = vbMatch[1];
     } else {
-      svgW = wMatch ? Number.parseFloat(wMatch[1]) : 100;
-      svgH = hMatch ? Number.parseFloat(hMatch[1]) : 100;
+      const svgW = wMatch ? Number.parseFloat(wMatch[1]) : 100;
+      const svgH = hMatch ? Number.parseFloat(hMatch[1]) : 100;
+      viewBox = `0 0 ${svgW} ${svgH}`;
     }
 
+    // Extract fill attribute from root <svg> element — child elements inherit this
+    const rootSvgTag = svgRaw.match(/<svg[^>]*>/i)?.[0] || '';
+    const rootFillMatch = rootSvgTag.match(/\bfill=["']([^"']+)["']/);
+    const rootFill = rootFillMatch ? rootFillMatch[1] : null;
+
     // Logo size: same logic as the React component
+    // In CSS: <Logo style={{ width: `${logoSizePercent}%`, height: `${logoSizePercent}%` }} />
+    // The percentage is relative to the 180×180 layer
     const avgSize = (kit.logoWidth + kit.logoHeight) / 2;
     const logoSizePercent = (avgSize / 80) * 45;
     const logoW = (INNER_SIZE * logoSizePercent) / 100;
     const logoH = (INNER_SIZE * logoSizePercent) / 100;
 
-    // Position the logo centred on the top layer.
-    // In layer-local coords (centred at origin): the logo occupies
-    // [-logoW/2, -logoH/2] to [logoW/2, logoH/2]
+    // Projection matrix for the top layer (rotateX(55deg) rotateZ(45deg) translateZ(87px))
+    // Maps layer-local 2D coords to screen 2D coords (orthographic projection).
     //
-    // We need to project the four corners of the logo bounding box through
-    // the 3D transform, then use an SVG affine transform to map the logo SVG
-    // into that projected quadrilateral.
+    // For a point (px, py) on the layer surface:
+    //   screen_x = cosRZ * px - sinRZ * py
+    //   screen_y = sinRZ*cosRX * px + cosRZ*cosRX * py - topZ*sinRX
     //
-    // For an orthographic projection the affine transform is the same for all
-    // points at the same z. We compute the affine matrix directly:
-    //
-    //   | cosRZ   -sinRZ |   then   | 1       0      |
-    //   | sinRZ    cosRZ |          | 0     cosRX     |
-    //
-    // Combined: a = cosRZ, b = sinRZ*cosRX, c = -sinRZ, d = cosRZ*cosRX
+    // SVG matrix(a, b, c, d, e, f): x' = a*x + c*y + e, y' = b*x + d*y + f
     const a = cosRZ;
     const b = sinRZ * cosRX;
     const c = -sinRZ;
@@ -335,45 +337,27 @@ function buildLogoSvg(kit) {
     const topZ = 87; // top layer zOffset
     const yShift = -topZ * sinRX;
 
-    // We want to map the SVG viewbox [0, 0, svgW, svgH] onto the projected
-    // rectangle centred at (cx, cy + yShift).
-    //
-    // Scale from SVG coords to layer-local coords:
-    const sx = logoW / svgW;
-    const sy = logoH / svgH;
-
-    // The full transform: translate to centre, apply projection matrix, scale from SVG coords
-    // SVG point (u, v) → layer local (u*sx - logoW/2, v*sy - logoH/2) → projected
-    //
-    // In SVG matrix(a, b, c, d, e, f) format:
-    //   x' = a*u + c*v + e
-    //   y' = b*u + d*v + f
-    //
-    // Combined steps:
-    //   local_x = u * sx - logoW/2
-    //   local_y = v * sy - logoH/2
-    //   proj_x = a * local_x + c * local_y + cx
-    //   proj_y = b * local_x + d * local_y + cy + yShift
-    //
-    //   proj_x = (a*sx)*u + (c*sy)*v + (-a*logoW/2 - c*logoH/2 + cx)
-    //   proj_y = (b*sx)*u + (d*sy)*v + (-b*logoW/2 - d*logoH/2 + cy + yShift)
-
-    const ma = a * sx;
-    const mb = b * sx;
-    const mc = c * sy;
-    const md = d * sy;
-    const me = -a * (logoW / 2) - c * (logoH / 2) + cx;
-    const mf = -b * (logoW / 2) - d * (logoH / 2) + cy + yShift;
+    // The projection matrix translates to the projected center of the top layer.
+    // The nested <svg> is positioned at (-logoW/2, -logoH/2) in layer-local space
+    // so it's centered on the layer. The nested SVG handles viewBox mapping and
+    // preserveAspectRatio internally (matching CSS behavior exactly).
+    const me = cx + a * (-logoW / 2) + c * (-logoH / 2);
+    const mf = cy + yShift + b * (-logoW / 2) + d * (-logoH / 2);
 
     // Extract inner SVG content (everything inside the <svg ...>...</svg> tag)
     const innerMatch = svgRaw.match(/<svg[^>]*>([\s\S]*)<\/svg>/i);
     const innerSvg = innerMatch ? innerMatch[1] : '';
 
-    const cleanInner = innerSvg;
-
-    logoContent = `<g transform="matrix(${ma.toFixed(6)}, ${mb.toFixed(6)}, ${mc.toFixed(6)}, ${md.toFixed(6)}, ${me.toFixed(2)}, ${mf.toFixed(2)})"
-      opacity="1">
-      ${cleanInner}
+    // Use a nested <svg> element to properly handle viewBox and preserveAspectRatio,
+    // exactly like how CSS renders the SVG component within the rotated layer.
+    // The parent <g> applies the isometric projection transform.
+    // Include fill from root <svg> so child elements inherit the correct color.
+    const fillAttr = rootFill ? ` fill="${rootFill}"` : '';
+    logoContent = `<g transform="matrix(${a.toFixed(6)}, ${b.toFixed(6)}, ${c.toFixed(6)}, ${d.toFixed(6)}, ${me.toFixed(2)}, ${mf.toFixed(2)})">
+      <svg x="0" y="0" width="${logoW.toFixed(2)}" height="${logoH.toFixed(2)}"
+        viewBox="${viewBox}" preserveAspectRatio="xMidYMid meet" overflow="hidden"${fillAttr}>
+        ${innerSvg}
+      </svg>
     </g>`;
   } catch (err) {
     console.warn(`  ⚠  Could not read logo SVG for ${kit.id}: ${err.message}`);

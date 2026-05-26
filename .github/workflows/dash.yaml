@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       # See https://github.com/eclipse-tractusx/sig-infra/tree/main/.github/actions/run-dash for infos
       # about the dash actions and possible config
