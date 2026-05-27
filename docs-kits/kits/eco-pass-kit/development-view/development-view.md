@@ -17,7 +17,7 @@ https://creativecommons.org/licenses/by/4.0/legalcode.
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-<!-- 
+<!--
 KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
 Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
 Do not remove!
@@ -47,7 +47,7 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 ### General Development Information
 
 The developer view provides developers with resources to utilize the EcoPass KIT effectively. On the one side developers can learn how to integrate the EcoPass KIT into their applications and to make use of the product passport exchanging feature via the Catena-X network. On the other side, IT-Administrators will learn how to provide the needed passport data and which components are required.
-Thereby, this KIT covers various aspects, starting from how the available API Endpoints can be utilized for data models and how to make them available in the Catena-x Data Space.
+Thereby, this KIT covers various aspects, starting from how the available API Endpoints can be utilized for data models and how to make them available in the Catena-X Data Space.
 
 ### Core Components
 
@@ -69,7 +69,7 @@ Thereby, this KIT covers various aspects, starting from how the available API En
 
 #### Component 3: EDC
 
-**Purpose**: Main gateway to the network. In this use case two EDC need be existing, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]
+**Purpose**: Main gateway to the network. In this use case two EDCs need to exist, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]
 
 **Technology Stack**: [Programming language, framework, key dependencies]
 
@@ -81,9 +81,9 @@ Thereby, this KIT covers various aspects, starting from how the available API En
 
 ### Data Retrieval Flow
 
-In order to achieve a better understanding of the EcoPass KIT data retrieval flow, we can detail a specific example where an user wants to retrieve a specific passport for a asset in Catena-X using the EcoPass KIT.
+In order to achieve a better understanding of the EcoPass KIT data retrieval flow, we can detail a specific example where a user wants to retrieve a specific passport for an asset in Catena-X using the EcoPass KIT.
 
-In the data retrieval flow example below we will imagine that an user wants to retrieve the data related to a Catena-X Digital Product Pass ID he has in his product as form of QR Code and ID:
+In the data retrieval flow example below we will imagine that a user wants to retrieve the data related to a Catena-X Digital Product Pass ID he has in his product in the form of a QR Code and ID:
 
 [![Sequence Diagram](../resources/development-view/developmentview-sequence-diagramm.svg)](../resources/development-view/developmentview-sequence-diagramm.svg)
 
