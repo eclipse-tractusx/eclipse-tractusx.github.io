@@ -63,15 +63,26 @@ Adds: Catena-X standards, automotive semantic models
 
 ## Semantic Models
 
-### Transmission Pass (CX-0143)
+### Model: Transmission Pass
 
 **Version**: 3.1.0
 
-**Aspect Model**: `urn:samm:io.catenax.transmission.transmission_pass#`
+**Namespace**: `urn:samm:io.catenax.transmission.transmission_pass:3.1.0#`
 
-**Key Attributes**: `specVersion`, `productSpecificParameters`, `productGenericParameters`
+**Description**: The Transmission Pass corresponds to the Digital Product Passport information required by the proposed Ecodesign Regulation (ESPR-2022) and describes data collected and available during the lifespan of a transmission. It is structured into two top-level groups: `specific` for transmission-specific data (gear ratios, torque, power, oil, electrical performance, etc.) and `generic` which reuses the modules of the Generic Digital Product Passport (metadata, identification, characteristics, materials, sustainability, ...).
+
+**Key Properties**:
+
+| Property      | Type   | Required | Description                                                                                                                       |
+|---------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `specVersion` | string | No       | Specification version (URN) of the Transmission Pass data model used.                                                             |
+| `specific`    | object | Yes      | Transmission-specific parameters: drive type, gear ratios, torque, power, spreading, oil, torque converter, electrical performance, service history. |
+| `generic`     | object | Yes      | Generic DPP modules reused for the transmission: `metadata`, `identification`, `characteristics`, `commercial`, `handling`, `operation`, `materials`, `sustainability`, `sources`. |
 
 **Example**:
+
+<details>
+  <summary>Payload</summary>
 
 ```json
 {
@@ -358,26 +369,7 @@ Adds: Catena-X standards, automotive semantic models
 }
 ```
 
-### Catena-X Framework Policy
-
-```json
-{
-  "@context": {"odrl": "http://www.w3.org/ns/odrl/2/"},
-  "@type": "PolicyDefinitionRequestDto",
-  "@id": "cx-policy",
-  "policy": {
-    "@type": "Policy",
-    "odrl:permission": [{
-      "odrl:action": "USE",
-      "odrl:constraint": {
-        "odrl:leftOperand": "BusinessPartnerNumber",
-        "odrl:operator": {"@id": "odrl:eq"},
-        "odrl:rightOperand": "BPNL00000003CRHK"
-      }
-    }]
-  }
-}
-```
+</details>
 
 ---
 
