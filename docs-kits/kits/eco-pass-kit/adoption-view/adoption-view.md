@@ -68,7 +68,7 @@ This KIT provides a comprehensive overview of the business context and benefits 
 ### Value Proposition #1: Data Sovereignty
 
 The Catena-X EcoPass KIT aims to empower participants to share product pass-related data in a secure and sovereign way while ensuring the interoperability of the different applications involved in the process.
-To achieve this, the relevant Catena-X standards and data modes are referenced, explained, and placed within a broader context of business processes.
+To achieve this, the relevant Catena-X standards and data models are referenced, explained, and placed within a broader context of business processes.
 
 **Benefit**: [Primary benefit description]
 
@@ -84,7 +84,7 @@ Using Catena‑X data models and standards for the battery passport is particula
 - **End-to-end traceability**: Standardized data models enable continuous tracking of battery information across all supply chain tiers, which is essential for documenting origin, production, and lifecycle data required by regulation.
 - **Reliable aggregation of data**: Battery passport data must be collected, aggregated, and validated across multiple contributors. With shared standards, this can be done without reformatting or recalculating data at each step.
 - **Regulatory readiness**: The battery passport will become mandatory (e.g., upcoming EU regulation), and standardized data models ensure that required information is structured, auditable, and compliant from the beginning.
-- **Cost Cost savings through standardization**: Catena‑X data models eliminate the need for individual data formats, conversions, and repeated validations when exchanging battery passport information between partners. In addition, battery ecosystems typically involve a large number of partners across multiple tiers. By using a common standard, companies can reuse the same data model and integration approach for all partners, instead of building separate solutions for each connection. This significantly reduces implementation and maintenance effort across the network.
+- **Cost savings through standardization**: Catena‑X data models eliminate the need for individual data formats, conversions, and repeated validations when exchanging battery passport information between partners. In addition, battery ecosystems typically involve a large number of partners across multiple tiers. By using a common standard, companies can reuse the same data model and integration approach for all partners, instead of building separate solutions for each connection. This significantly reduces implementation and maintenance effort across the network.
 
 In short: Catena‑X standards make battery passport data consistent, traceable, and regulation-ready across all partners, which is essential for implementing the battery passport efficiently.
 
@@ -94,7 +94,7 @@ In short: Catena‑X standards make battery passport data consistent, traceable,
 - **Efficient verification and auditability**: Battery passport data must be auditable and verifiable across multiple contributors. By using a shared standard, OEMs and suppliers ensure that data is structured in a way that supports validation, certification, and regulatory checks without additional rework at each step.
 - **Cost reduction through reuse and scalability**: As outlined above, implementing battery passport requirements typically involves many partners across the supply chain. By using Catena‑X standards, OEMs and battery suppliers can apply the same data model and processes for all partners, avoiding individual solutions and repeated integration efforts.
 
-### Beneftis to software vendors
+### Benefits to software vendors
 
 - **Reduced customer integration effort**: Catena‑X connects OEMs, suppliers, and service providers in a shared data space. Supporting its standards allows software vendors to integrate directly into this ecosystem and serve multiple customers with one solution, instead of building isolated, customer-specific implementations.
 - **Interoperability as a key differentiator**: Catena‑X enables standardized and interoperable data exchange across the entire value chain, allowing certified solutions to seamlessly exchange battery passport data with other systems. This makes solutions more attractive to customers.
@@ -1791,10 +1791,10 @@ For industry-specific standards, refer to the [Industry Extensions](https://gith
 
 ### Supported Standards
 
-| Standard | Version | Description | Compliance Level | Link |
-|----------|---------|-------------|------------------|------|
-| CX-0143 | 1.3 | This standards gives a baseline for products declared under the ESPR with a generic product passport and additional product models. | Optional | [Link](https://catenax-ev.github.io/docs/standards/CX-0143-UseCaseCircularEconomyDigitalProductPassportStandard/introduction) |
-| CX-0160 | 1.0 | The Battery Passport Standard describes the existing use cases and the required models as well as Digital Twins they have to added to for Batteries. | Mandatory | [Link](https://catenax-ev.github.io/docs/standards/CX-0160-BatteryPassport) |
+| Standard | Version | Description                                                                                                                                             | Compliance Level | Link |
+|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|------|
+| CX-0143 | 1.3 | This standard gives a baseline for products declared under the ESPR with a generic product passport and additional product models.                      | Optional | [Link](https://catenax-ev.github.io/docs/standards/CX-0143-UseCaseCircularEconomyDigitalProductPassportStandard/introduction) |
+| CX-0160 | 1.0 | The Battery Passport Standard describes the existing use cases and the required models as well as Digital Twins that have to be added to for Batteries. | Mandatory | [Link](https://catenax-ev.github.io/docs/standards/CX-0160-BatteryPassport) |
 
 ---
 
@@ -1803,7 +1803,7 @@ For industry-specific standards, refer to the [Industry Extensions](https://gith
 :::warning Old deprecated reference application
 For previous versions of this KIT a reference application was mentioned and used as example.
 This application has been deprecated and should no longer be seen as valid reference.
-For some insights into the application of the KIT for generic product passports have a look at the EcoPAss KIT of the [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub).
+For some insights into the application of the KIT for generic product passports have a look at the EcoPass KIT of the [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub).
 :::
 
 ## NOTICE
