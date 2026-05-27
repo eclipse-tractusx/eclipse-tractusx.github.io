@@ -1627,15 +1627,15 @@ The durability score is an indicator established under the Ecodesign for Sustain
 
 ### NOTICE
 
-This work is licensed under the CC-BY-4.0.<br/>
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
-• SPDX-License-Identifier: CC-BY-4.0<br/>
-• SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA<br/>
-• SPDX-FileCopyrightText: 2025 Schaeffler AG<br/>
-• SPDX-FileCopyrightText: 2025 SIEMENS AG<br/>
-• SPDX-FileCopyrightText: 2025 Lisa Dräxlmaier GmbH<br/>
-• SPDX-FileCopyrightText: 2025 BASF SE<br/>
-• SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG<br/>
-• SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation<br/>
-• SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)<br/>
-• Source URL: [https://github.com/eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA
+- SPDX-FileCopyrightText: 2025 Schaeffler AG
+- SPDX-FileCopyrightText: 2025 SIEMENS AG
+- SPDX-FileCopyrightText: 2025 Lisa Dräxlmaier GmbH
+- SPDX-FileCopyrightText: 2025 BASF SE
+- SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

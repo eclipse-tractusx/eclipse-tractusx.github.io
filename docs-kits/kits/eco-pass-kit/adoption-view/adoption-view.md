@@ -226,7 +226,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2023, 2024 T-Systems International GmbH
 - SPDX-FileCopyrightText: 2023, 2024 SAP SE
 - SPDX-FileCopyrightText: 2023, 2024 CGI Deutschland B.V. & Co. KG
-- SPDX-FileCopyrightText: 2023, 2024, 2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. für ihr Institut IPK
+- SPDX-FileCopyrightText: 2023, 2024, 2026 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)
 - SPDX-FileCopyrightText: 2023, 2024 BASF SE
 - SPDX-FileCopyrightText: 2023, 2024 Henkel AG & Co. KGaA
 - SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
