@@ -70,73 +70,34 @@ This KIT provides a comprehensive overview of the business context and benefits 
 The Catena-X EcoPass KIT aims to empower participants to share product pass-related data in a secure and sovereign way while ensuring the interoperability of the different applications involved in the process.
 To achieve this, the relevant Catena-X standards and data models are referenced, explained, and placed within a broader context of business processes.
 
-**Benefit**: [Primary benefit description]
+### Value Proposition #2: Consistent and verifiable foundation through standardization
 
-**Target Stakeholders**: [OEMs | SMEs | Solution Providers | etc.]
+Using Catena‑X data models and standards for digital product passports is particularly valuable because they create a consistent and verifiable foundation for product-related data across the entire lifecycle.
 
-**Measurable Outcomes**: [Key metrics]
+- **Consistency of product data**: The product passport requires comparable information (e.g., CO₂ footprint, material composition). Catena‑X provides harmonized data formats and calculation rules, ensuring that all partners deliver data in the same structure and logic.
+- **End-to-end traceability**: Standardized data models enable continuous tracking of product information across all supply chain tiers, which is essential for documenting origin, production, and lifecycle data required by regulation.
+- **Reliable aggregation of data**: Product passport data must be collected, aggregated, and validated across multiple contributors. With shared standards, this can be done without reformatting or recalculating data at each step.
+- **Regulatory readiness**: The product passport will become mandatory (e.g., upcoming EU regulation), and standardized data models ensure that required information is structured, auditable, and compliant from the beginning.
+- **Cost savings through standardization**: Catena‑X data models eliminate the need for individual data formats, conversions, and repeated validations when exchanging product passport information between partners. In addition, product ecosystems typically involve a large number of partners across multiple tiers. By using a common standard, companies can reuse the same data model and integration approach for all partners, instead of building separate solutions for each connection. This significantly reduces implementation and maintenance effort across the network.
 
-### Value of standardization
-
-Using Catena‑X data models and standards for the battery passport is particularly valuable because they create a consistent and verifiable foundation for battery-related data across the entire lifecycle.
-
-- **Consistency of battery data**: The battery passport requires comparable information (e.g., CO₂ footprint, material composition). Catena‑X provides harmonized data formats and calculation rules, ensuring that all partners deliver data in the same structure and logic.
-- **End-to-end traceability**: Standardized data models enable continuous tracking of battery information across all supply chain tiers, which is essential for documenting origin, production, and lifecycle data required by regulation.
-- **Reliable aggregation of data**: Battery passport data must be collected, aggregated, and validated across multiple contributors. With shared standards, this can be done without reformatting or recalculating data at each step.
-- **Regulatory readiness**: The battery passport will become mandatory (e.g., upcoming EU regulation), and standardized data models ensure that required information is structured, auditable, and compliant from the beginning.
-- **Cost savings through standardization**: Catena‑X data models eliminate the need for individual data formats, conversions, and repeated validations when exchanging battery passport information between partners. In addition, battery ecosystems typically involve a large number of partners across multiple tiers. By using a common standard, companies can reuse the same data model and integration approach for all partners, instead of building separate solutions for each connection. This significantly reduces implementation and maintenance effort across the network.
-
-In short: Catena‑X standards make battery passport data consistent, traceable, and regulation-ready across all partners, which is essential for implementing the battery passport efficiently.
+In short: Catena‑X standards make product passport data consistent, traceable, and regulation-ready across all partners, which is essential for implementing the product passport efficiently.
 
 ### Benefits to suppliers and OEMs
 
-- **Standardized structure for regulatory battery passport data**: Catena‑X defines a clear and agreed structure for all required battery passport data elements (e.g., carbon footprint, material composition, lifecycle data). This ensures that OEMs and battery suppliers can provide exactly the required information in a consistent format, without having to interpret regulatory requirements individually.
-- **Efficient verification and auditability**: Battery passport data must be auditable and verifiable across multiple contributors. By using a shared standard, OEMs and suppliers ensure that data is structured in a way that supports validation, certification, and regulatory checks without additional rework at each step.
-- **Cost reduction through reuse and scalability**: As outlined above, implementing battery passport requirements typically involves many partners across the supply chain. By using Catena‑X standards, OEMs and battery suppliers can apply the same data model and processes for all partners, avoiding individual solutions and repeated integration efforts.
+- **Standardized structure for regulatory on the example of battery passport data**: Catena‑X defines a clear and agreed structure for all required battery passport data elements (e.g., carbon footprint, material composition, lifecycle data). This ensures that OEMs and battery suppliers can provide exactly the required information in a consistent format, without having to interpret regulatory requirements individually.
+- **Efficient verification and auditability**: Product passport data must be auditable and verifiable across multiple contributors. By using a shared standard, OEMs and suppliers ensure that data is structured in a way that supports validation, certification, and regulatory checks without additional rework at each step.
+- **Cost reduction through reuse and scalability**: As outlined above, implementing product passport requirements typically involves many partners across the supply chain. By using Catena‑X standards, OEMs and suppliers can apply the same data model and processes for all partners, avoiding individual solutions and repeated integration efforts.
 
 ### Benefits to software vendors
 
 - **Reduced customer integration effort**: Catena‑X connects OEMs, suppliers, and service providers in a shared data space. Supporting its standards allows software vendors to integrate directly into this ecosystem and serve multiple customers with one solution, instead of building isolated, customer-specific implementations.
-- **Interoperability as a key differentiator**: Catena‑X enables standardized and interoperable data exchange across the entire value chain, allowing certified solutions to seamlessly exchange battery passport data with other systems. This makes solutions more attractive to customers.
+- **Interoperability as a key differentiator**: Catena‑X enables standardized and interoperable data exchange across the entire value chain, allowing certified solutions to seamlessly exchange product passport data with other systems. This makes solutions more attractive to customers.
 
 ### How can the EcoPass KIT help to address regulatory challenges?
 
 - Manufacturers are required to disclose information regarding the environmental impact of their products under the European Union's (EU) Ecodesign Directive. The EcoPass KIT can assist producers in adhering to this rule by offering a digital record of the environmental impact of their products.
 - Companies are required to provide information regarding their efforts to address forced labor and human trafficking in their supply chains under the California Transparency in Supply Chains Act (CTSCA). The EcoPass KIT's digital record of a company's supply chain operations can assist businesses to comply with this law.
 - Certain manufacturers of products are required to take back and recycle their products at the end of their functional lifespans under the German Waste Management Act (Kreislaufwirtschaftsgesetz). The EcoPass KIT, which offers a digital record of the goods that have been returned and recycled, can assist producers in adhering to this obligation.
-
-### Summary of Business Benefits
-
-| Stakeholder Type | Key Benefits | Time to Value |
-|------------------|--------------|---------------|
-| **OEMs** | [List 2-3 benefits for large enterprises] | [e.g., "6 months"] |
-| **SMEs** | [List 2-3 benefits for small-medium enterprises] | [e.g., "3 months"] |
-| **Solution Providers** | [List 2-3 benefits for tech vendors] | [e.g., "90 days"] |
-| **Data Providers** | [List 2-3 benefits for data providers] | [e.g., "4 weeks"] |
-
----
-
-## Use Case Context
-
-### Industry Challenge
-
-[Describe current industry problems and pain points]
-
-**Current Challenges:**
-
-- **Challenge 1**: [Problem description and impact]
-- **Challenge 2**: [Problem description and impact]
-- **Challenge 3**: [Problem description and impact]
-
-### The Solution
-
-[Explain how this KIT addresses the challenges]
-
-**Solution Components:**
-
-1. **[Component 1]**: [Description]
-2. **[Component 2]**: [Description]
-3. **[Component 3]**: [Description]
 
 ---
 
@@ -195,7 +156,7 @@ Please note that Use Case 2 is not available in the current version of the stand
 ## Standards
 
 :::warning Industry-Specific Standards
-For industry-specific standards, refer to the [Industry Extensions](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template/industry-extensions) section.
+For industry-specific standards, refer to the [Industry Extensions](../industry-extensions/automotive/automotive-extension) section.
 :::
 
 ### Supported Standards

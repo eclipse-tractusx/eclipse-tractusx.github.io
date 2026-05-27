@@ -1,5 +1,37 @@
 {
     "githubPullRequests.ignoredPullRequestBranches": [
         "main"
-    ]
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "[!d]*/**": true,
+        "d[!o]*/**": true,
+        "do[!c]*/**": true,
+        "doc[!s]*/**": true,
+        "docs[!-]*/**": true,
+        "docs-[!k]*/**": true,
+        "docs-k[!i]*/**": true,
+        "docs-ki[!t]*/**": true,
+        "docs-kit[!s]*/**": true,
+        "docs-kits/[!k]*/**": true,
+        "docs-kits/k[!i]*/**": true,
+        "docs-kits/ki[!t]*/**": true,
+        "docs-kits/kit[!s]*/**": true,
+        "docs-kits/kits/[!e]*/**": true,
+        "docs-kits/kits/e[!c]*/**": true,
+        "docs-kits/kits/ec[!o]*/**": true,
+        "docs-kits/kits/eco[!-]*/**": true,
+        "docs-kits/kits/eco-[!p]*/**": true,
+        "docs-kits/kits/eco-p[!a]*/**": true,
+        "docs-kits/kits/eco-pa[!s]*/**": true,
+        "docs-kits/kits/eco-pas[!s]*/**": true,
+        "docs-kits/kits/eco-pass[!-]*/**": true,
+        "docs-kits/kits/eco-pass-[!k]*/**": true,
+        "docs-kits/kits/eco-pass-k[!i]*/**": true,
+        "docs-kits/kits/eco-pass-ki[!t]*/**": true
+    }
 }
