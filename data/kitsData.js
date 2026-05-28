@@ -642,7 +642,7 @@ export const kitsData = {
       },
       logoHeight: 100,
       logoWidth: 100,
-      route: '/docs-kits/next/material-accouting-kit/adoption-view',
+      route: '/docs-kits/next/material-accounting-kit/adoption-view',
       colors: {
         primary: '#1cb60e',
         gradient: 'linear-gradient(135deg, #6cd162 0%, #1cb60e 100%)'
