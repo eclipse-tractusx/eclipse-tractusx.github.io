@@ -63,8 +63,8 @@ production processes.
 
 ### Vision
 
-The   vision of Material Accounting is to enable a transparent and circular
-automotive value chain, where materials from end-of-life vehicles  are
+The vision of Material Accounting is to enable a transparent and circular
+automotive value chain, where materials from end-of-life vehicles are
 seamlessly reintegrated into new vehicle production. As illustrated in the
 figure, this vision connects all stages—from dismantling and recycling to
 material, component, and vehicle manufacturing—through a continuous digital flow
@@ -74,10 +74,11 @@ and processing history. By bridging the data gap between end-of-life and
 production, and by enabling integration with use cases such as the Digital
 Product Passport and Secondary Material Content, the KIT establishes the
 foundation for circularity, regulatory compliance, and sustainable resource
-utilization. 
+utilization.
 
 ![Vision](../resources/CircularEconomyDiagramm.svg)
-*Figure 1: Material Accounting and the Circular Economy.*
+
+Figure 1: Material Accounting and the Circular Economy.
 
 ### Mission
 
@@ -97,28 +98,28 @@ sustainability requirements.
 
 Material Accounting creates measurable business value by improving transparency, compliance, efficiency, and circular performance across the reverse value chain.
 
-**Traceability of Secondary Materials**
+### Traceability of Secondary Materials
 
 Material Accounting enables transparent tracking of material quantities,
 origins, and flows across dismantling, recycling, and manufacturing stages. This
 improves visibility into secondary material streams and builds trust across
 company boundaries.
 
-**Business Value from Closed Loops**
+### Business Value from Closed Loops
 
 By identifying and capturing value in circular material flows, companies can
 move from linear waste handling toward closed-loop material strategies. Material
 Accounting makes it possible to quantify and optimize the reuse of materials at
-the vehicle´s end of life  within the automotive ecosystem.
+the vehicle´s end of life within the automotive ecosystem.
 
-**Regulatory Compliance**
+### Regulatory Compliance
 
 Standardized and verifiable data supports compliance with legal and regulatory
 requirements and can serve as the basis for calculating and validating recycled
 content quotas and meeting reporting obligations. Auditable data reduces risk
 and increases confidence in sustainability claims.
 
-**Higher Availability and Quality of Recyclates**
+### Higher Availability and Quality of Recyclates
 
 Improved data transparency enhances supply security for secondary materials.
 Better insight into material sources and processing steps supports higher
@@ -126,13 +127,13 @@ recyclate quality and more reliable integration into manufacturing processes. In
 addition, Material Accounting enables the creation of liquid and fungible
 secondary material markets by increasing comparability, trust and tradability.
 
-**Lower Recyclate Costs through Standardization**
+### Lower Recyclate Costs through Standardization
 
 Standardized data models and interoperable exchange reduce inefficiencies,
 manual coordination, and data inconsistencies. This contributes to cost
 reductions across recycling, material sourcing, and compliance activities.
 
-**Lifecycle Responsibility**
+### Lifecycle Responsibility
 
 Material Accounting supports a holistic lifecycle perspective by linking
 end-of-life processes with new production. This enables companies to take
@@ -157,12 +158,12 @@ Material Accounting acts as a cross-functional data layer that accompanies these
 
 ![Use Case Overview](../resources/use-case-overview-tight.svg)
 
-*Figure 2: Material Accounting across the automotive end-of-life.*
+Figure 2: Material Accounting across the automotive end-of-life.
 
 ## User Journey
 
 <video width="100%" controls>
-  <source src="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/material-accounting-kit/material-accounting-user-journey.mp4" type="video/mp4">
+  <source src="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/material-accounting-kit/material-accounting-user-journey.mp4" type="video/mp4" />
 </video>
 
 ## Semantic Models / Data Model
@@ -197,9 +198,9 @@ coherent semantic structure that enables the traceability of materials
 across the reverse value chain and ensures that all participants
 operate on a consistent interoperable data basis.
 
-![samm image](../resources/SAMM.drawio.svg) 
+![samm image](../resources/SAMM.drawio.svg)
 
-*Figure 3: Six New Aspect Models (SAMM)*
+Figure 3: Six New Aspect Models (SAMM)
 
 Material Accounting builds on existing Catena-X standards, as seen above, particularly:
 
@@ -209,7 +210,7 @@ Material Accounting builds on existing Catena-X standards, as seen above, partic
 The Material Accounting aspect models extend this foundation by adding
 circularity-relevant data such as material composition, recycling processes, waste classification, and material origin.
 
-### 1.	VehicleInformation
+### 1. VehicleInformation
 
 The VehicleInformation model describes the vehicle at the end-of-life point, when it enters the
 reverse value chain. It provides the contextual data required to identify,
@@ -231,14 +232,14 @@ classify, and assess the vehicle before dismantling and recycling processes.
 
 The WasteCode model standardizes the classification of vehicles, component set`s,
 components, and materials according to waste categories. It ensures regulatory
-alignment and consistent classification across actors. This model is based on the European Waste Code at 
+alignment and consistent classification across actors. This model is based on the European Waste Code at
 
 | Attribute | Definition |
 |---|---|
 | `wasteCode` | The waste code is used to identify the type of waste on part or material level|
 
 
-### 3.	RecyclingBatch
+### 3. RecyclingBatch
 
 The RecyclingBatch model captures process-related and transactional data
 describing how materials, components, and compositions are handled, transferred,
@@ -274,8 +275,7 @@ such as transport, weighing, and treatment steps.
 | `containerWeight` | Empty weight of the container based on the scale display |
 | `recyclingBatchId` | Identifier of the recycling batch |
 
-
-### 4.  Material
+### 4. Material
 
 The Material model provides a standardized description of materials, including their classification, physical and chemical characteristics, and processing status.  
 It enables consistent identification and comparison of materials across actors and processes.

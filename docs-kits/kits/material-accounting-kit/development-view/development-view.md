@@ -49,7 +49,7 @@ companies and Catena-X core services.
 
 ![architecture overview](../resources/Architecture-Overview-MaterialAccouting-KIT.svg)
 
-*Figure 1: Material Accounting Architecture Overview*
+Figure 1: Material Accounting Architecture Overview
 
 The architecture is based on digital twins and semantic aspect
 models that represent vehicles, component sets, components,
@@ -89,9 +89,9 @@ digital twins.
 The following diagram illustrates the high-level data exchange flow
 between actors participating in Material Accounting.
 
-![Data Exchange Flow](../resources/DataExchangeFlow-MaterialAccounting-KIT.svg) 
+![Data Exchange Flow](../resources/DataExchangeFlow-MaterialAccounting-KIT.svg)
 
-*Figure 2: Data Exchange Flow Material Accounting.*
+Figure 2: Data Exchange Flow Material Accounting.
 
 ### Flow Description
 
@@ -123,15 +123,14 @@ between actors participating in Material Accounting.
    flows, verification of recycled content, and transparent tracking
    of secondary materials.
 
-
 5. **Downstream Use Cases**
    The exchanged and verified material-related information can
    subsequently be used by downstream circular economy use cases
    such as Secondary Material Content (SMC) and the Digital Product
    Passport (DPP).
 
-
 ### Exchange Principles
+
 The data exchange is based on:
 - Sovereign data sharing via Eclipse Dataspace Connector (EDC)
 - Standardized semantic models using SAMM
