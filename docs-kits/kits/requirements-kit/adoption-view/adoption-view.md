@@ -73,35 +73,13 @@ The Requirements Kit aims to meticulously outline requirements by incorporating 
 
 ## Business Value
 
-### Value Proposition #1: [Title]
+### Value Proposition #1: Reliable and sovereign requirements data exchange system
 
 The "Requirements-KIT" provides guidelines and standards, such as semantic models and data exchange processes, which help companies create a reliable and sovereign data exchange system with their partners.
 
 This reduces cost and effort needed to integrate data-driven engineering processes into their operations and IT systems.
 
 Since this KIT is built on the Industry Core KIT and will be closely connected to upcoming other KITSs within the Engineering Domain, investment and implementation costs to integrate requirement services are reduced.
-
-**Benefit**: [Primary benefit description]
-
-**Target Stakeholders**: [OEMs | SMEs | Solution Providers | etc.]
-
-**Measurable Outcomes**: [Key metrics]
-
-### Value Proposition #2: [Title]
-
-**Benefit**: [Second benefit description]
-
-**Target Stakeholders**: [Target audience]
-
-**Measurable Outcomes**: [Key metrics]
-
-### Value Proposition #3: [Title]
-
-**Benefit**: [Third benefit description]
-
-**Target Stakeholders**: [Target audience]
-
-**Measurable Outcomes**: [Key metrics]
 
 ---
 
@@ -142,13 +120,6 @@ Catena-X offers solution providers a variety of strategic advantages to leverage
 9. Access to data and analysis: With access to valuable industrial data, solution providers can develop and enhance their analytics and optimization solutions to boost operational efficiency and decision-making processes for customers.
 10. Accelerated digital transformation: Catena-X allows solution providers to position their transformation strategies directly within the context of the automotive industry, a sector that is continually moving towards digital technologies.
 
-| Stakeholder Type | Key Benefits | Time to Value |
-|------------------|--------------|---------------|
-| **OEMs** | [List 2-3 benefits for large enterprises] | [e.g., "6 months"] |
-| **SMEs** | [List 2-3 benefits for small-medium enterprises] | [e.g., "3 months"] |
-| **Solution Providers** | [List 2-3 benefits for tech vendors] | [e.g., "90 days"] |
-| **Data Providers** | [List 2-3 benefits for data providers] | [e.g., "4 weeks"] |
-
 ---
 
 ## Use Case Context
@@ -163,62 +134,13 @@ This involves the circular processing of requests between partners, which can re
 
 In addition to the challenges mentioned above, there is also the issue that the files can be designed in a variety of content forms and the formats of the files can also vary. The formats can be divided into structured and unstructured files. Unstructured files are texts, tables etc. that are not organized into individual requirements without prior processing. These increase the effort required to organize the document into individual requirements. This also makes the exchange with the partner more difficult, as the partner does not know the newly created structure. With structured files, the aforementioned circumstances no longer exist, as the requirements are already organized. In the best case, a standardized form, such as the ReqIF format, is used. However, even when using standardized formats such as ReqIF, it is still necessary to agree on a common data model for exporting and importing in advance so that data exchange via the various requirements management tools works as smoothly as possible.
 
-**Current Challenges:**
-
-- **Challenge 1**: [Problem description and impact]
-- **Challenge 2**: [Problem description and impact]
-- **Challenge 3**: [Problem description and impact]
-
-### The Solution
-
-[Explain how this KIT addresses the challenges]
-
-**Solution Components:**
-
-1. **[Component 1]**: [Description]
-2. **[Component 2]**: [Description]
-3. **[Component 3]**: [Description]
-
----
-
-## Use Cases
-
-### Primary Use Case: [Use Case Name]
-
-**Description**: [Use case description]
-
-**Actors**: [Actor 1], [Actor 2], [Actor 3]
-
-**Process Flow**:
-
-1. [Step 1 description]
-2. [Step 2 description]
-3. [Step 3 description]
-
-**Business Outcomes**: [Key outcomes]
-
-**Success Metrics**: [Key metrics]
-
-### Secondary Use Case: [Use Case Name]
-
-[Same structure as primary use case]
-
-### Additional Use Cases
-
-1. **[Use Case 3]**: [Brief description]
-2. **[Use Case 4]**: [Brief description]
-
 ---
 
 ## Business Processes
 
 :::tip
-For industry-specific business processes, see the [Industry Extensions](../industry-extensions) documentation.
+For industry-specific business processes, see the [Industry Extensions](../industry-extensions/automotive/Overview.md) documentation.
 :::
-
-### Core Business Process: [Process Name]
-
-![Customer Journey](../resources/img/requirements_customer-journey.png)
 
 ### Core Business Process:  User Journey
 
@@ -248,29 +170,46 @@ flowchart TD
 ### Access & Usage Policies
 
 :::warning Industry-Specific Policies
-For industry-specific policy requirements, refer to the [Industry Extensions](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template/industry-extensions) section.
+For industry-specific policy requirements, refer to the [Industry Extensions](../industry-extensions/automotive/Overview.md) section.
 :::
 
 #### Example Access Policy
 
 ```json
 {
-  "policy": {
-    "permission": {
-      "action": "use",
-      "constraint": {
-        "leftOperand": "UsagePurpose",
-        "operator": "isAnyOf",
-        "rightOperand": [
-            "mx.core.digitalTwinRegistry:1"
-        ]
-      }
+  "@context": [
+    "https://w3id.org/catenax/2025/9/policy/odrl.jsonld",
+    "https://w3id.org/catenax/2025/9/policy/context.jsonld"
+  ],
+  "@type": "Set", 
+  "@id": "some-id",
+  "permission": [
+    {
+      "action": "access",
+      "constraint": [
+        {
+          "and": [
+            {
+              "leftOperand": "Membership",
+              "operator": "eq", 
+              "rightOperand": "active" 
+            },
+            {
+              "leftOperand": "BusinessPartnerNumber", 
+              "operator": "isAnyOf", 
+              "rightOperand": [
+                "BPNL012345678910" 
+              ]
+            }
+          ]
+        }
+      ]
     }
-  }
+  ]
 }
 ```
 
-[Brief policy explanation]
+In the Engineering Context most data exchange is done bilateral, therefore the access policy focuses on specific partners (here with a ``BPNL`` for automotive data ecosystems.)
 
 ---
 
@@ -305,7 +244,7 @@ For industry-specific policy requirements, refer to the [Industry Extensions](ht
 ## Standards
 
 :::warning Industry-Specific Standards
-For industry-specific standards, refer to the [Industry Extensions](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template/industry-extensions) section.
+For industry-specific standards, refer to the [Industry Extensions](../industry-extensions/automotive/Overview.md) section.
 :::
 
 ### Supported Standards
