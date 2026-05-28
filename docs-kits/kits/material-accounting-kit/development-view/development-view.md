@@ -1,5 +1,5 @@
 ---
-id: development-view-material-accounting-kit-template
+id: development-view
 title: Development View
 description: 'Development View Material Accounting KIT'
 sidebar_position: 3

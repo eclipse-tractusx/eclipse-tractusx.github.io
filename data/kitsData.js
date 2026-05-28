@@ -642,7 +642,7 @@ export const kitsData = {
       },
       logoHeight: 100,
       logoWidth: 100,
-      route: '/docs-kits/kits/circularity-kit/adoption-view',
+      route: '/docs-kits/next/kits/material-accounting-kit/adoption-view',
       colors: {
         primary: '#1cb60e',
         gradient: 'linear-gradient(135deg, #6cd162 0%, #1cb60e 100%)'
@@ -656,8 +656,8 @@ export const kitsData = {
       industries: ['automotive', 'manufacturing', 'chemical'],
       description: 'Enable circular economy through end-of-life transparency and data exchange in after market supply chains.',
       metadata: {
-        created: '2026-21-05',
-        lastUpdated: '2026-21-05',
+        created: '2026-05-21',
+        lastUpdated: '2026-05-28',
         latestVersion: '0.0.1',
         new: true
       }
