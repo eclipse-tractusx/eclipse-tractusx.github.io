@@ -794,6 +794,17 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Material Accounting KIT',
+      link: { type: 'generated-index' },
+      collapsed: true,
+      items: [
+        'kits/material-accounting-kit/changelog',
+        'kits/material-accounting-kit/adoption-view/adoption-view',
+        'kits/material-accounting-kit/development-view/development-view'
+      ]
+    },
+    {
+      type: 'category',
       label: 'Manufacturing as a Service KIT',
       link: {
         type: 'doc',

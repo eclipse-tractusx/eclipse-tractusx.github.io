@@ -102,7 +102,7 @@ import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.s
 import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
 import CCMKitLogo from "@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg";
 import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
-
+import MaterialAccountingKitLogo from "@site/static/img/kits/material-accounting/material-accounting-kit-raw-logo.svg";
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
 import PrecisionManufacturing from '@mui/icons-material/PrecisionManufacturing';
@@ -627,6 +627,39 @@ export const kitsData = {
         lastUpdated: '2024-09-17',
         latestVersion: '1.3.0',
         new: false
+      }
+    },
+    {
+      id: 'material-accounting',
+      name: 'MATERIAL ACCOUNTING KIT',
+      logo: MaterialAccountingKitLogo,
+      logoLicencse: {
+        type: 'Apache-2.0',
+        authors: '2026 Bytedance;2026 Catena-X Automotive Network e.V.;2026 Contributors to the Eclipse Foundation',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/material-accounting/material-accounting-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/material-accounting/material-accounting-kit-raw-logo.svg',
+        originalSourceUrl: 'https://www.svgrepo.com/svg/388392/recycling'
+      },
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/next/kits/material-accounting-kit/adoption-view',
+      colors: {
+        primary: '#1cb60e',
+        gradient: 'linear-gradient(135deg, #6cd162 0%, #1cb60e 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Sustainability',
+      industries: ['automotive', 'manufacturing', 'chemical'],
+      description: 'Enable circular economy through end-of-life transparency and data exchange in after market supply chains.',
+      metadata: {
+        created: '2026-05-21',
+        lastUpdated: '2026-05-28',
+        latestVersion: '0.0.1',
+        new: true
       }
     },
     {
