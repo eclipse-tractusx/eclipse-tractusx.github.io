@@ -160,7 +160,7 @@ Material Accounting acts as a cross-functional data layer that accompanies these
 
 ## User Journey
 <video width="100%" controls>
-  <source src="https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/main/material-accounting-kit/material-accounting-user-journey.mp4" type="video/mp4">
+  <source src="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/material-accounting-kit/material-accounting-user-journey.mp4" type="video/mp4">
 </video>
 
 ## Semantic Models / Data Model
