@@ -277,7 +277,7 @@ such as transport, weighing, and treatment steps.
 
 ### 4. Material
 
-The Material model provides a standardized description of materials, including their classification, physical and chemical characteristics, and processing status.  
+The Material model provides a standardized description of materials, including their classification, physical and chemical characteristics, and processing status.
 It enables consistent identification and comparison of materials across actors and processes.
 
 | Attribute | Definition |
