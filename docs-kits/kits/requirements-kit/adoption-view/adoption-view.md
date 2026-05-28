@@ -225,14 +225,14 @@ It is currently planned to refactor the Requirements Model such that it is easie
 ### Core Semantic Models
 
 | Model Name | Version | Purpose | Link |
-|------------|---------|---------|------|
-| Requirement | 1.0.0 | Describe a single Requirement in the Requirement Engineering process | [Link][1] |
+| ------------ | --------- | --------- | ------ |
+| Requirement | 1.0.0 | Describe a single Requirement in the Requirement Engineering process | [Semantic Model][1] |
 
 [1]: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.requirement/1.0.0
 
 ### Model Example: Requirement
 
-**Description**: This model describes a Requirement. It is based on ReqIF and thus uses some parameters in a common format. 
+**Description**: This model describes a Requirement. It is based on ReqIF and thus uses some parameters in a common format.
 
 **Key Attributes**: `requirementId`, `requirementStatus` (customer and supplier), `requirementInformation` (actual requirement content), `requirementRelations`
 
@@ -296,9 +296,9 @@ For industry-specific standards, refer to the [Industry Extensions](../industry-
 ### Supported Standards
 
 | Standard | Version | Description | Compliance Level | Link |
-|----------|---------|-------------|------------------|------|
-| CX-0154 | 1.0.1 | Standard describing how to handle Master Data in Engineering. This includes parameters of | Optional | [Link][CX-0154] |
-| CX-0155 | 1.0.1 | Describes the required data models and API usage for the Requirements Engineering Use Case | Mandatory | [Link][CX-0155]  |
+| ---------- | --------- | ------------- | ------------------ | ------ |
+| CX-0154 | 1.0.1 | Standard describing how to handle Master Data in Engineering. This includes parameters of | Optional | [CX-0154][CX-0154] |
+| CX-0155 | 1.0.1 | Describes the required data models and API usage for the Requirements Engineering Use Case | Mandatory | [CX-0155][CX-0155] |
 
 [CX-0154]: https://catenax-ev.github.io/docs/standards/CX-0154-MasterDataManagement
 [CX-0155]: https://catenax-ev.github.io/docs/standards/CX-0155-RequirementsEngineering

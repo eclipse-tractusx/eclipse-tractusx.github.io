@@ -53,7 +53,7 @@ Adds: Catena-X standards, automotive semantic models, business processes, and po
 ## Catena-X Standards
 
 | Standard | Version | Description | Compliance |
-|----------|---------|-------------|------------|
+| ---------- | --------- | ------------- | ------------ |
 | CX-0001 | 2.0.0 | EDC Discovery API | Mandatory |
 | CX-0002 | 2.0.0 | Digital Twins | Mandatory |
 | CX-0018 | 3.0.0 | Dataspace Connectivity | Mandatory |

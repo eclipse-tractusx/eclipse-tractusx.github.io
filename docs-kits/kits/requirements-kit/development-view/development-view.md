@@ -41,9 +41,9 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 ---
 
-### Core Components
+## Core Components
 
-#### Component 1: Requirement System
+### Component 1: Requirement System
 
 **Purpose**: Core component responsible for requirement management at the data consumer or provider
 
@@ -51,7 +51,7 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 **Interfaces**: Typically ReqIF Export
 
-#### Component 2: Eclipse Dataspace Connector (EDC)
+### Component 2: Eclipse Dataspace Connector (EDC)
 
 **Purpose**: Facilitates contract negotiation and data exchange between partners in the data space
 
@@ -59,7 +59,7 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 **Interfaces**: Dataspace Protocol
 
-#### Component 3: Digital Twin Registry
+### Component 3: Digital Twin Registry
 
 **Purpose**: Stores and manages digital twin information
 
@@ -141,9 +141,9 @@ The sequence diagram illustrates the requirement exchange flow between a Custome
 ## Standards Compliance
 
 | Standard | Version | Compliance | Description |
-|----------|---------|------------|-------------|
-| CX-0154 | 1.0.1 | Optional | Standard describing how to handle Master Data in Engineering. This includes parameters of  |
-| CX-0155 | 1.0.1 | Mandatory | Describes the required data models and API usage for the  |
+| ---------- | --------- | ------------ | ------------- |
+| CX-0154 | 1.0.1 | Optional | Standard describing how to handle Master Data in Engineering. This includes parameters that are fulfilling requirements but also versions of model |
+| CX-0155 | 1.0.1 | Mandatory | Describes the required data models and API usage for the requirement use case |
 
 ### Standard Details
 
@@ -306,7 +306,7 @@ The sequence diagram illustrates the requirement exchange flow between a Custome
 **Key Properties**:
 
 | Property | Type | Required | Description |
-|----------|------|----------|-------------|
+| ---------- | ------ | ---------- | ------------- |
 | `requirementId` | string | Yes | UUID of the requirement |
 | `requirementStatus` | string | Yes | Requirements Status based on [https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf](https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf) |
 | `requirementInformation` | RequirementInformationEntity | Yes | Actual Requirement information with text, type meta data, author etc. |
