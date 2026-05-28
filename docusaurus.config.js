@@ -10,7 +10,7 @@ const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
   url: 'https://eclipse-tractusx.github.io',
-  baseUrl: '/CX-KIT-development/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
