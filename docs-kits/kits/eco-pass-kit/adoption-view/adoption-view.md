@@ -139,18 +139,29 @@ Please note that Use Case 2 is not available in the current version of the stand
 
 ### Core Semantic Models
 
-| Model Name                                      | Version | Purpose                                                                                                                                                                                                    | Link      |
-| ----------------------------------------------- | ------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --------- |
-| io.catenax.generic.digital_product_passport     | 6.1.0   | Generic Digital Product Passport (DPP) – baseline model for any product passport in Catena-X, covering metadata, identification, characteristics, sustainability, materials and commercial information.    | [Link][1] |
-| io.catenax.battery.battery_pass                 | 6.1.0   | Battery Passport aspect model aligned with the EU Battery Regulation; used for traction, industrial and similar batteries across the full lifecycle.                                                       | [Link][2] |
-| io.catenax.transmission.transmission_pass       | 3.1.0   | Transmission Passport – product passport variant for vehicle transmissions, reusing the DPP structure for transmission-specific lifecycle and component data.                                              | [Link][3] |
-| io.catenax.material.chemical_material_passport  | 3.0.0   | Chemical Material Passport – passport-style model for chemical substances and materials, providing composition and safety-relevant information used as input to product passports.                         | [Link][4] |
+| Model Name | Version | Purpose | Link |
+| ----------------------------------------------- | ------- | ---------------------------------- | --------- |
+| ``io.catenax.generic.digital_product_passport`` | 6.1.0 | Generic Digital Product Passport (DPP) – baseline model for any product passport in Catena-X, covering metadata, identification, characteristics, sustainability, materials and commercial information. | [CX SLDT][1] |
+| ``io.catenax.battery.battery_pass`` | 6.1.0 | Battery Passport aspect model aligned with the EU Battery Regulation; used for traction, industrial and similar batteries across the full lifecycle. | [CX SLDT][2] |
+| ``io.catenax.material.chemical_material_passport`` | 3.0.0 | Chemical Material Passport – passport-style model for chemical substances and materials, providing composition and safety-relevant information used as input to product passports. | [CX SLDT][3] |
+| ``urn:samm:io.admin-shell.idta.batterypass.digital_nameplate:1.0.0#`` | 1.0.0 | Part 1 of the Common Catena-X and IDTA Battery Pass (IDTA 02035-2) - applicable to describe the basic information for identification for battery passports | [IDTA Github][Sldt_IDTACX_1] |
+| ``urn:samm:io.admin-shell.idta.batterypass.handover_documentation:1.0.0#`` | 1.0.0 | Part 2 of the Common Catena-X and IDTA Battery Pass (IDTA 02035-2) - applicable to describe documents and meta data for battery passports | [IDTA Github][Sldt_IDTACX_2] |
+| ``urn:samm:io.admin-shell.idta.batterypass.carbon_footprint:1.0.0#`` | 1.0.0 | Part 3 of the Common Catena-X and IDTA Battery Pass (IDTA 02035-3) - applicable to describe the product carbon footprint for battery passports | [IDTA Github][Sldt_IDTACX_3] |
+| ``urn:samm:io.admin-shell.idta.batterypass.technical_data:1.0.1#`` | 1.0.1 | Part 4 of the Common Catena-X and IDTA Battery Pass (IDTA 02035-4) - applicable to describe the technical data for battery passports | [IDTA Github][Sldt_IDTACX_4] |
+| ``urn:samm:io.admin-shell.idta.batterypass.product_condition:1.0.1#`` | 1.0.1 | Part 5 of the Common Catena-X and IDTA Battery Pass (IDTA 02035-5) - applicable to describe the product condition for battery passports | [IDTA Github][Sldt_IDTACX_5] |
+| ``urn:samm:io.admin-shell.idta.batterypass.material_composition:1.0.1#`` | 1.0.1 | Part 6 of the Common Catena-X and IDTA Battery Pass (IDTA 02035-6) - applicable to describe the material composition for battery passports | [IDTA Github][Sldt_IDTACX_6] |
+| ``urn:samm:io.admin-shell.idta.batterypass.circularity:1.0.0#`` | 1.0.0 | Part 7 of the Common Catena-X and IDTA Battery Pass (IDTA 02035-7) - applicable to describe the circularity information for battery passports | [IDTA Github][Sldt_IDTACX_7] |
 
 [1]: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.generic.digital_product_passport/6.1.0
 [2]: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.battery.battery_pass/6.1.0
-[3]: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.transmission.transmission_pass/3.1.0
-[4]: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material.chemical_material_passport/3.0.0
-
+[3]: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.material.chemical_material_passport/3.0.0
+[Sldt_IDTACX_1]: https://github.com/admin-shell-io/smt-semantic-models/tree/main/io.admin-shell.idta.batterypass.digital_nameplate/1.0.0
+[Sldt_IDTACX_2]: https://github.com/admin-shell-io/smt-semantic-models/tree/main/io.admin-shell.idta.batterypass.handover_documentation/1.0.0
+[Sldt_IDTACX_3]: https://github.com/admin-shell-io/smt-semantic-models/tree/main/io.admin-shell.idta.batterypass.carbon_footprint/1.0.0
+[Sldt_IDTACX_4]: https://github.com/admin-shell-io/smt-semantic-models/tree/main/io.admin-shell.idta.batterypass.technical_data/1.0.1
+[Sldt_IDTACX_5]: https://github.com/admin-shell-io/smt-semantic-models/tree/main/io.admin-shell.idta.batterypass.product_condition/1.0.1
+[Sldt_IDTACX_6]: https://github.com/admin-shell-io/smt-semantic-models/tree/main/io.admin-shell.idta.batterypass.material_composition/1.0.1
+[Sldt_IDTACX_7]: https://github.com/admin-shell-io/smt-semantic-models/tree/main/io.admin-shell.idta.batterypass.circularity/1.0.0
 ---
 
 ## Standards
@@ -161,10 +172,10 @@ For industry-specific standards, refer to the [Industry Extensions](../industry-
 
 ### Supported Standards
 
-| Standard | Version | Description                                                                                                                                             | Compliance Level | Link |
-|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|------|
-| CX-0143 | 1.3 | This standard gives a baseline for products declared under the ESPR with a generic product passport and additional product models.                      | Optional | [Link](https://catenax-ev.github.io/docs/standards/CX-0143-UseCaseCircularEconomyDigitalProductPassportStandard/introduction) |
-| CX-0160 | 1.0 | The Battery Passport Standard describes the existing use cases and the required models as well as Digital Twins that have to be added to for Batteries. | Mandatory | [Link](https://catenax-ev.github.io/docs/standards/CX-0160-BatteryPassport) |
+| Standard | Version | Description | Compliance Level | Link |
+| -------- | ------- | ----------- | ---------------- | ---- |
+| CX-0143 | 1.3 | This standard gives a baseline for products declared under the ESPR with a generic product passport and additional product models. | Optional | [CX-0143](https://catenax-ev.github.io/docs/standards/CX-0143-UseCaseCircularEconomyDigitalProductPassportStandard/introduction) |
+| CX-0160 | 1.0 | The Battery Passport Standard describes the existing use cases and the required models as well as Digital Twins that have to be added to for Batteries. | Mandatory | [CX-0160](https://catenax-ev.github.io/docs/standards/CX-0160-BatteryPassport) |
 
 ---
 
