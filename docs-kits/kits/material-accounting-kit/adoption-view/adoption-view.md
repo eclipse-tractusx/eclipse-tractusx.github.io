@@ -159,8 +159,9 @@ Material Accounting acts as a cross-functional data layer that accompanies these
 *Figure 2: Material Accounting across the automotive end-of-life.*
 
 ## User Journey
-insert video here!!
-
+<video width="800" controls>
+  <source src="./material-accounting-user-journey.mp4" type="video/mp4">
+</video>
 
 ## Semantic Models / Data Model
 
