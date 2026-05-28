@@ -159,6 +159,7 @@ Material Accounting acts as a cross-functional data layer that accompanies these
 *Figure 2: Material Accounting across the automotive end-of-life.*
 
 ## User Journey
+
 <video width="100%" controls>
   <source src="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/main/material-accounting-kit/material-accounting-user-journey.mp4" type="video/mp4">
 </video>
