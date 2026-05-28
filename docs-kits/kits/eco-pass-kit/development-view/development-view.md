@@ -40,8 +40,6 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 ## More Guides
 
-[LINK TO THE OTHER FILES IN THIS VIEW IN CASE THERE ARE MORE]
-
 - [Business Architecture](architecture.md)
 
 ## General Development Information
@@ -55,25 +53,13 @@ Thereby, this KIT covers various aspects, starting from how the available API En
 
 **Purpose**: An exhaustive list of all Submodel Servers, with link to their assets, adhering to the AAS Registry API. Responsible for having the Digital Twins of the provider and indicating the endpoints to the Passport Aspects.
 
-**Technology Stack**: [Programming language, framework, key dependencies]
-
-**Interfaces**: [Input, output, protocols]
-
 ### Component 2: Submodel Server
 
 **Purpose**: The data source adhering to a subset of the Submodel API as defined in AAS Part-2 3.0. Where the Passport Aspects are stored
 
-**Technology Stack**: [Programming language, framework, key dependencies]
-
-**Interfaces**: [Input, output, protocols]
-
 ### Component 3: EDC
 
 **Purpose**: Main gateway to the network. In this use case two EDCs need to exist, one connected to the Digital Product Pass (EcoPass KIT) [EDC Consumer] and another to the Provider Catena-X components [EDC Provider]
-
-**Technology Stack**: [Programming language, framework, key dependencies]
-
-**Interfaces**: [Input, output, protocols]
 
 ---
 
