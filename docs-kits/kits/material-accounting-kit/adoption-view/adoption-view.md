@@ -93,7 +93,6 @@ secondary material content, reduces manual effort, and empowers
 organizations to optimize material usage while meeting regulatory and
 sustainability requirements.
 
-
 ## Business Value
 
 Material Accounting creates measurable business value by improving transparency, compliance, efficiency, and circular performance across the reverse value chain.
@@ -237,7 +236,6 @@ alignment and consistent classification across actors. This model is based on th
 | Attribute | Definition |
 |---|---|
 | `wasteCode` | The waste code is used to identify the type of waste on part or material level|
-
 
 ### 3. RecyclingBatch
 

@@ -132,6 +132,7 @@ Figure 2: Data Exchange Flow Material Accounting.
 ### Exchange Principles
 
 The data exchange is based on:
+
 - Sovereign data sharing via Eclipse Dataspace Connector (EDC)
 - Standardized semantic models using SAMM
 - Digital twin-based asset representation
