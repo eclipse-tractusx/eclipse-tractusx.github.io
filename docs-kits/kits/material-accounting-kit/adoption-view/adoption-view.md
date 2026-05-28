@@ -75,8 +75,8 @@ Product Passport and Secondary Material Content, the KIT establishes the
 foundation for circularity, regulatory compliance, and sustainable resource
 utilization. 
 
-*Figure 1: Material Accounting and the Circular Economy.*
 ![Vision](../resources/CircularEconomyDiagramm.svg)
+*Figure 1: Material Accounting and the Circular Economy.*
 
 ### Mission
 
