@@ -301,7 +301,7 @@ The sequence diagram illustrates the requirement exchange flow between a Custome
 
 **Namespace**: `urn:samm:io.catenax.requirement:1.0.0#`
 
-**Description**: This model describes a Requirement. It un
+**Description**: This model describes a Requirement. It is based on ReqIF.
 
 **Key Properties**:
 
@@ -309,6 +309,8 @@ The sequence diagram illustrates the requirement exchange flow between a Custome
 |----------|------|----------|-------------|
 | `requirementId` | string | Yes | UUID of the requirement |
 | `requirementStatus` | string | Yes | Requirements Status based on [https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf](https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf) |
+| `requirementInformation` | RequirementInformationEntity | Yes | Actual Requirement information with text, type meta data, author etc. |
+| `requirementRelations` | RequirementRelationSet (List of RequirementIds and relationship type) | No | relationship of the requirement to other requirements |
 
 **Example**:
 

@@ -215,27 +215,73 @@ In the Engineering Context most data exchange is done bilateral, therefore the a
 
 ## Semantic Models
 
-[Brief explanation of semantic models used in this KIT]
+The core semantic model within the Requirements Engineering is the Requirements Model.
+It is used to describe a single Requirement.
+
+:::info Upcoming versions
+It is currently planned to refactor the Requirements Model such that it is easier to maintain the relationships between different requirements and make them better accessible and easier to register in a Digital Twin Registry.
+:::
 
 ### Core Semantic Models
 
 | Model Name | Version | Purpose | Link |
 |------------|---------|---------|------|
-| [Model 1] | X.Y.Z | [Model purpose] | [Link] |
-| [Model 2] | X.Y.Z | [Model purpose] | [Link] |
+| Requirement | 1.0.0 | Describe a single Requirement in the Requirement Engineering process | [Link][1] |
 
-### Model Example: [Model Name]
+[1]: https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.requirement/1.0.0
 
-**Description**: [Brief description]
+### Model Example: Requirement
 
-**Key Attributes**: [List key attributes]
+**Description**: This model describes a Requirement. It is based on ReqIF and thus uses some parameters in a common format. 
+
+**Key Attributes**: `requirementId`, `requirementStatus` (customer and supplier), `requirementInformation` (actual requirement content), `requirementRelations`
 
 **Example**:
 
 ```json
 {
-  "attribute1": "example-value",
-  "attribute2": 12345
+  "requirementRelations" : [ {
+    "requirementRelationshipType" : "RequirementSpecialismOfRequirement",
+    "relatedRequirementId" : "urn:uuid:e6b31BC2-8102-64AF-034D-C2DC35E37cEE"
+  } ],
+  "requirementId" : "urn:uuid:48878d48-6f1d-47f5-8ded-a441d0d879df",
+  "requirementInformation" : {
+    "foreignId" : "3.1.1",
+    "longname" : "Plastic deformation of the bogie",
+    "versionPredecessor" : {
+      "versionPredecessorNumber" : "1.4.5",
+      "versionPredecessorId" : "DaCfB4BD-15e7-edf0-77B6-Eb30De54aFbE"
+    },
+    "reqIfName" : "Plastic deformation of the bogie",
+    "reqIfType" : "Functional",
+    "metadata" : [ {
+      "value" : "2025-11-30T00:00:00.000+02:00",
+      "metadataDescription" : "Timestamp of the expected finalization of the requirement",
+      "key" : "ExpectedFinalization"
+    } ],
+    "author" : "Lisa Dräxlmaier GmbH",
+    "description" : "eOMtThyhVNLWUZNRcBaQKxI",
+    "specification" : [ "https://www.prostep.org/fileadmin/prod-pay-download-8c1d/Recommendation_ReqIF_V2.2.pdf" ],
+    "creationDate" : "2026-01-26T15:01:53.446Z",
+    "version" : {
+      "versionNumber" : "2.0.0",
+      "versionId" : "fA8Df9A9-3399-89AB-32eB-e7e61Bce8cFF"
+    }
+  },
+  "requirementStatus" : {
+    "customerStatus" : [ {
+      "customerStatusComment" : "Requirement needs to be evaluated",
+      "customerStatusValue" : "<empty>",
+      "customerStatusTimestamp" : "2026-01-26T15:01:53.449Z"
+    } ],
+    "supplierStatus" : [ {
+      "supplierStatusTimestamp" : "2026-01-26T15:01:53.449Z",
+      "supplierStatusValue" : "<empty>",
+      "supplierStatusComment" : "More information needed from customer"
+    } ],
+    "statusValue" : "transition status",
+    "statusTimestamp" : "2026-01-26T15:01:53.448Z"
+  }
 }
 ```
 
@@ -251,26 +297,18 @@ For industry-specific standards, refer to the [Industry Extensions](../industry-
 
 | Standard | Version | Description | Compliance Level | Link |
 |----------|---------|-------------|------------------|------|
-| [Standard 1] | X.Y | [Description] | Mandatory/Optional | [Link] |
-| [Standard 2] | X.Y | [Description] | Mandatory/Optional | [Link] |
+| CX-0154 | 1.0.1 | Standard describing how to handle Master Data in Engineering. This includes parameters of | Optional | [Link][CX-0154] |
+| CX-0155 | 1.0.1 | Describes the required data models and API usage for the Requirements Engineering Use Case | Mandatory | [Link][CX-0155]  |
 
+[CX-0154]: https://catenax-ev.github.io/docs/standards/CX-0154-MasterDataManagement
+[CX-0155]: https://catenax-ev.github.io/docs/standards/CX-0155-RequirementsEngineering
 ---
 
 ## Tutorials & Resources
 
-### Getting Started Tutorial
-
-[Link to tutorial or brief description]
-
-### Video Resources
-
-| Title | Duration | Link |
-|-------|----------|------|
-| [Video 1] | [X min] | [Link] |
-
 ### Whitepaper
 
-- *Link to Factory-X Engineering Whitepaper as soon as it is available*
+A Whitepaper was developed tother with the Manufacturing-X Topic Group Engineering, which should soon be available at: [https://mx-guidanceboard.org/downloads/](https://mx-guidanceboard.org/downloads/).
 
 ## Notice
 

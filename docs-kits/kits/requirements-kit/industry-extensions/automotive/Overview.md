@@ -42,7 +42,7 @@ KIT LOGO END
 
 ## Automotive Industry Extension
 
-This extension adapts the **[KIT_NAME] KIT** for the automotive industry with Catena-X standards compliance.
+This extension adapts the **Requirements KIT** for the automotive industry with Catena-X standards compliance.
 
 :::info Extension Purpose
 Adds: Catena-X standards, automotive semantic models, business processes, and policies.
@@ -57,8 +57,11 @@ Adds: Catena-X standards, automotive semantic models, business processes, and po
 | CX-0001 | 2.0.0 | EDC Discovery API | Mandatory |
 | CX-0002 | 2.0.0 | Digital Twins | Mandatory |
 | CX-0018 | 3.0.0 | Dataspace Connectivity | Mandatory |
+| CX-0126 | 3.0.0 | Industry Core: PartType 2.1.0 | Mandatory |
+| CX-0151 | 3.0.0 | Industry Core: Basics v1.0.0 | Mandatory |
+| CX-0152 | 3.0.0 | Policy Constraints for Data Exchange v1.0.0 | Mandatory |
 
-[Link to Catena-X Standard Library](https://catena-x.net/en/standard-library)
+[Link to Catena-X Standard Library](https://catenax-ev.github.io/docs/standards/overview)
 
 ---
 
@@ -94,99 +97,21 @@ Adds: Catena-X standards, automotive semantic models, business processes, and po
 }
 ```
 
-[Semantic Hub](https://semantics.catena-x.net/)
-
----
-
-## Business Processes
-
-### Supply Chain Traceability
-
-**Purpose**: End-to-end traceability of automotive parts
-
-**Actors**: OEM, Tier-1/Tier-N Suppliers, Traceability Service Provider
-
-**Process Flow**:
-
-```mermaid
-sequenceDiagram
-    participant OEM
-    participant Tier1 as Tier-1 Supplier
-    participant TraceSvc as Traceability Service
-    participant EDC
-    
-    OEM->>TraceSvc: Request part trace
-    TraceSvc->>EDC: Query digital twins
-    EDC->>Tier1: Request part data
-    Tier1-->>EDC: Provide relationships
-    EDC-->>TraceSvc: Return data
-    TraceSvc-->>OEM: Display chain
-```
-
----
-
-## Access & Usage Policies
-
-### Catena-X Framework Policy
-
-```json
-{
-  "@context": {"odrl": "http://www.w3.org/ns/odrl/2/"},
-  "@type": "PolicyDefinitionRequestDto",
-  "@id": "cx-policy",
-  "policy": {
-    "@type": "Policy",
-    "odrl:permission": [{
-      "odrl:action": "USE",
-      "odrl:constraint": {
-        "odrl:leftOperand": "BusinessPartnerNumber",
-        "odrl:operator": {"@id": "odrl:eq"},
-        "odrl:rightOperand": "BPNL00000003CRHK"
-      }
-    }]
-  }
-}
-```
-
----
-
-## Use Cases
-
-### Quality Alert Distribution
-
-**Description**: Rapidly distribute quality alerts across supply chain
-
-**Actors**: Alert Issuer, Supply Chain Partners, Catena-X Services
-
-**Process**: Issue detection → Alert creation → Digital twin query → Distribution → Acknowledgment
-
-**Benefits**: Faster response, reduced costs, improved safety
-
----
-
-## Compliance
-
-| Regulation | Region | Relevance |
-|------------|--------|----------|
-| GDPR | EU | Data protection |
-| Battery Regulation | EU | Battery passport |
-| Supply Chain Due Diligence | DE | ESG reporting |
-
-**Certifications**: ISO/TS 16949, VDA 6.3, TISAX
+[Semantic Hub](https://github.com/eclipse-tractusx/sldt-semantic-models)
 
 ---
 
 ## Getting Started
 
 1. Review [Core KIT Adoption View](../../adoption-view/adoption-view.md)
-2. Study [Catena-X Standards](https://catena-x.net/en/standard-library)
-3. Implement semantic models from [Semantic Hub](https://semantics.catena-x.net/)
+2. Study [Catena-X Standards](https://catenax-ev.github.io/docs/standards/overview)
+3. Implement semantic models from [Semantic Hub](https://github.com/eclipse-tractusx/sldt-semantic-models)
 
 ---
 
 ## Resources
 
-- [Catena-X Standard Library](https://catena-x.net/en/standard-library)
+- [Catena-X Standard Library](https://catenax-ev.github.io/docs/standards/overview)
 - [Tractus-X Open Source](https://eclipse-tractusx.github.io/)
 
 ## NOTICE
