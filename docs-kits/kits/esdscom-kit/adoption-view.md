@@ -124,53 +124,19 @@ More information can be found in the Policies in Catena-X of the Connector KIT.
 
 ## Semantic Models
 
-to be filled until 06.04.2026
-Brief explanation of semantic models used in this KIT
+The eSDScom ontology is based on the eSDScom XML schema definition version 5.6, available at https://esdscom.eu and converted to SAMM by a script to ensure consistency.
 
 ### Core Semantic Models
 
-to be filled until 06.04.2026
-
-Model Name	Version	Purpose	Link
-[Model 1]	X.Y.Z	[Model purpose]	[Link]
-[Model 2]	X.Y.Z	[Model purpose]	[Link]
+[io.catenax.esdscom]	1.0.0	[extended Safety Data Sheet communication]	[https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.esdscom/1.0.0]
 
 ### Model Example
 
-to be filled until 06.04.2026
-[Model Name]
-
-#### Description
-
-to be filled until 06.04.2026
-[Brief description]
-
-#### Key Attributes
-
-to be filled until 06.04.2026
-[List key attributes]
-
-#### Example
-
-to be filled until 06.04.2026
-
-{
-  "attribute1": "example-value",
-  "attribute2": 12345
-}
+Due to the model size, for further information please refer to https://esdscom.eu
 
 ## Standards
 
-to be filled until 06.04.2026
-
-### Supported Standards
-
-Should we reference here the CX-0143 for DPP?
-
-Standard	Version	Description	Compliance Level	Link
-[Standard 1]	X.Y	[Description]	Mandatory/Optional	[Link]
-[Standard 2]	X.Y	[Description]	Mandatory/Optional	[Link]
-
+For supported standards, please refer to the CX eSDScom standard description.
 
 ## Tutorials & Resources
 
