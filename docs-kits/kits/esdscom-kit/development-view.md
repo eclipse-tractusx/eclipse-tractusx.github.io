@@ -7,8 +7,7 @@ sidebar_position: 3
 
 ## Development View
 
-Content of this chapter to be filled unitl 06.04.2026 regarding technical documentation for developers, architects, and implementers.
-eSDScom is a data model, not a software. No API.
+eSDScom is a data model, not a software. No API other than the digital twin registry APIs.
 This document provides a developer-focused overview of the eSDScom KIT, including a technical breakdown of the architecture, and data exchange protocols and semantic models.
 
 ### Target Audience
@@ -23,8 +22,7 @@ Required contents in the following sub-chapters:
 
 ### Architecture Overview
 
-This section is non-normative
-To be filled until 06.04.2026
+This section is non-normative.
 
 The architecture of this KIT is based on Catena-X standards. 
 
@@ -100,55 +98,6 @@ Namespace: urn:samm:io.catenax.eSDScom:1.0.0
 
 Purpose: The SAMM defines the eSDScom data model used to exchange eSDScom-relevant SDS information between an OEM (customer) and a supplier.
 Request vs Response separation: The SAMM cleanly separates request and response concerns: the request model specifies what the OEM may ask for (scope, requested elements, identifiers), while the response model specifies what the supplier must provide the requested SDS data, enabling clear responsibilities and automated schema generation.
-
-#### Sample Data
-
-Sample Dataset: Request Payload
-Purpose: Sent a Safety Data Sheet (SDS) along the supply-chain.
-Structure highlights: requestedElements — exhaustive set of all required SDS data.
-Format: JSON
-Example Request Payload JSON:
-insert here: eSDScom Request Notification Payload Example JSON structure | click to expand
-Due to the fact that in Catena-X there is a Notification Payload standardized in CX-0151 Industry Core Basics the eSDScom REQUEST payload will follow it and be embedded in a notification payload inside the content key, additionally it will have a header which contains important metadata for the applications to parse. This payload is just an example from how it could look like, since there is yet no standard available:
-
-```{
-  "header" : {
-    "senderBpn" : "BPNL0000000002CD",
-    "senderFeedbackUrl": "https://domain.tld/path/to/api",
-    "context" : "CarbonBorderAdjustmentMechanism-CBAMAPI-Request:1.0.0",
-    "messageId" : "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
-    "receiverBpn" : "BPNL0000000001AB",
-    "sentDateTime" : "2025-05-04T00:00:00-07:00",
-    "version" : "0.1.0"
-  },
-  "content": {
-    "requestedElements": [here must follow the eSDScom data fields]
-```
-
-Sample Dataset: Response Payload
-Purpose: Returned by the supplier with all requested eSDScom data filled in. 
-Format: JSON
-Example Response Payload JSON:
-insert here: eSDScom Response Notification Payload Example JSON structure | click to expand
-Due to the fact that in Catena-X there is a Notification Payload standardized in CX-0151 Industry Core Basics the eSDScom RESPONSE payload will follow it and be embedded in a notification payload inside the content key, additionally it will have a header which contains important metadata for the applications to parse. This payload is just an example from how it could look like, since there is yet no standard available:
-
-```
-{
-  "header" : {
-    "senderBpn" : "BPNL0000000001AB",
-    "senderFeedbackUrl": "https://domain.tld/path/to/api",
-    "context" : "this field to be specified for eSDScom??????????:1.0.0",
-    "messageId" : "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
-    "receiverBpn" : "BPNL0000000002CD",
-    "sentDateTime" : "2025-05-04T00:00:00-07:00",
-    "version" : "0.1.0"
-  },
-  "content": {
-```
-
-#### API Specifications
-
-eSDScom is using the standard document infra structure and just rely on standard APIs. 
 
 #### Standards
 
