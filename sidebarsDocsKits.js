@@ -640,7 +640,7 @@ const sidebars = {
         'kits/eco-pass-kit/operations-view/operations-view',
         {
           type: 'category',
-          label: 'Industry-Extensions',
+          label: 'Industry Extensions',
           link: {
             type: 'generated-index'
           },
