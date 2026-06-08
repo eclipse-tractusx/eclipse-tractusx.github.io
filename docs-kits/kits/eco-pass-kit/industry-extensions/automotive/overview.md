@@ -4,6 +4,7 @@ title: Automotive Industry Extension
 sidebar_position: 1
 ---
 
+
 <!--
  ********************************************************************************* 
  * Copyright (c) 2025 Contributors to the Eclipse Foundation
