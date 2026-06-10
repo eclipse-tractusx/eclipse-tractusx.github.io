@@ -67,7 +67,7 @@ Software Developers, Solution Architects, Technical Leads, API Developers, Integ
 
 **Interfaces**: AAS API
 
-#### Component 4: Submodel Server
+### Component 4: Submodel Server
 
 **Purpose**: Handles submodel data and operations
 
