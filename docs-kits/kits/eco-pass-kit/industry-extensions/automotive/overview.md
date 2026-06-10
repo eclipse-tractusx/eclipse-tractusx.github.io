@@ -372,7 +372,6 @@ Adds: Catena-X standards, automotive semantic models
 1. Review [Core KIT Adoption View](../../adoption-view/adoption-view.md)
 2. Study [Catena-X Standards](https://catenax-ev.github.io/docs/standards/overview)
 3. Implement semantic models from [Semantic Hub](https://semantics.catena-x.net/)
-4. Follow [Operations View](../../operations-view/operations-view.md)
 
 ---
 
