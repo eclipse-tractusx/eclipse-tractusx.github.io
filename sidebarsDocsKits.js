@@ -637,7 +637,6 @@ const sidebars = {
         'kits/eco-pass-kit/changelog',
         'kits/eco-pass-kit/adoption-view/adoption-view',
         'kits/eco-pass-kit/development-view/development-view',
-        'kits/eco-pass-kit/operations-view/operations-view',
         {
           type: 'category',
           label: 'Industry Extensions',
