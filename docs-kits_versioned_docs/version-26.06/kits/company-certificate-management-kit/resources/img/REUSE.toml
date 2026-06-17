@@ -1,0 +1,19 @@
+version = 1
+
+[[annotations]]
+path = ["*.svg"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 BASF SE"
+SPDX-FileCopyrightText = "2026 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)"
+SPDX-FileCopyrightText = "2026 Cofinity-X GmbH"
+SPDX-FileCopyrightText = "2026 Data Space Solutions GmbH"
+SPDX-FileCopyrightText = "2026 DCCS GmbH"
+SPDX-FileCopyrightText = "2026 Mercedes Benz AG"
+SPDX-FileCopyrightText = "2026 Robert Bosch Manufacturing Solutions GmbH"
+SPDX-FileCopyrightText = "2026 SAP SE"
+SPDX-FileCopyrightText = "2026 sovity GmbH"
+SPDX-FileCopyrightText = "2026 T-Systems International GmbH"
+SPDX-FileCopyrightText = "2026 Volkswagen AG"
+SPDX-FileCopyrightText = "2026 ZF Friedrichshafen AG"
+SPDX-FileCopyrightText = "2026 Contributors to the Eclipse Foundation"
+SPDX-License-Identifier = "CC-BY-4.0"
