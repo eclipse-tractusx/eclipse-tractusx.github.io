@@ -1,0 +1,8 @@
+{
+  "label": "Manufacturing",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "industry-extensions/manufacturing/overview"
+  }
+}
