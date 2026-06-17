@@ -348,6 +348,10 @@ const config = {
                 value: '<b>Archived</b>',
               },
               {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.06/kits',
+                label: '25.06',
+              },
+              {
                 href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.03/kits',
                 label: '25.03',
               },
