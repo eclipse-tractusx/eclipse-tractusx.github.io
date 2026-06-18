@@ -5,64 +5,84 @@ description: Release Notes of the eSDScom KIT
 sidebar_position: 1
 ---
 
+<!--
+Copyright(c) 2025 Contributors to the Eclipse Foundation
+
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
+
+This work is made available under the terms of the
+Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+which is available at
+https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="esdscom" />
+
 All notable changes to this KIT will be documented in this file.
-The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.
 
-## History
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-2025-09-01: Work started based on https://eclipse-tractusx.github.io/documentation/kit-artifacts
-[1.0.0] - 2026-04-02
+## [1.0.0] - 2026-04-02
 
-## Added
+### Added
 
-### Initial release of KIT_esdscom KIT
+- Initial release of the eSDScom KIT
+- Complete adoption view documentation:
+  - Vision and mission statement
+  - Business value propositions
+  - Use case documentation
+  - Business process descriptions
+  - Semantic models
+  - Standards compliance documentation
+- Complete development view documentation:
+  - Architecture overview and diagrams
+  - API specifications (OpenAPI/Swagger)
+  - Component and sequence diagrams
+  - Logic and schema definitions
+  - Sample data and test cases
+  - Developer tutorials
+- Complete operations view documentation:
+  - Deployment guides and scripts
+  - Configuration management
+  - Monitoring and logging guidelines
+  - Security best practices
+  - Troubleshooting guides
+- Industry extensions for [INDUSTRY_NAME]:
+  - Reference implementation documentation
+  - Success stories and case studies
 
-### Complete adoption view documentation
-#### Vision and mission statement
-#### Business value propositions
-#### Use case documentation
-#### Business process descriptions
-#### Semantic models
-#### Standards compliance documentation
+### Changed
 
-### Complete development view documentation
-#### Architecture overview and diagrams
-#### API specifications (OpenAPI/Swagger)
-#### Component and sequence diagrams
-#### Logic and schema definitions
-#### Sample data and test cases
-#### Developer tutorials
+- Nothing yet
 
-### Complete operations view documentation
-#### Deployment guides and scripts
-#### Configuration management
-#### Monitoring and logging guidelines
-#### Security best practices
-#### Troubleshooting guides
+### Deprecated
 
-### Industry extensions for [INDUSTRY_NAME]
-#### Reference implementation documentation
-#### Success stories and case studies
+- Nothing yet
 
-## Changes
-no parts changed
+### Removed
 
-## Deprecated
-no parts judged to be deprecated
+- Nothing yet
 
-## Removed
-no parts removed
+### Fixed
 
-## Fixed
-no parts fixed
+- Nothing yet
 
-## Security
-no parts secured
+### Security
 
-## Notice
-This work is licensed under the [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/legalcode).
-- SPDX-License-Identifier: CC BY-ND 4.0
+- Nothing yet
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2025 [eSDScom Workgroup](https://esdscom.eu) and contributors
 - SPDX-FileCopyrightText: 2025 [Qualisys GmbH](https://qualisys.eu)
 - SPDX-FileCopyrightText: 2025 [Volkswagen AG](https://www.volkswagen.de)
 - SPDX-FileCopyrightText: 2025 Contributors to the [Eclipse Foundation](https://eclipse.org)
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

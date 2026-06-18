@@ -694,6 +694,20 @@ const sidebars = {
       ]
     },
     {
+      type: 'category',
+      label: 'eSDScom KIT',
+      link: {
+        type: 'doc',
+        id: 'kits/esdscom-kit/adoption-view/adoption-view'
+      },
+      collapsed: true,
+      items: [
+        'kits/esdscom-kit/changelog',
+        'kits/esdscom-kit/adoption-view/adoption-view',
+        'kits/esdscom-kit/development-view/development-view'
+      ]
+    },
+    {
       type: "category",
       label: "Geometry KIT",
       link: {

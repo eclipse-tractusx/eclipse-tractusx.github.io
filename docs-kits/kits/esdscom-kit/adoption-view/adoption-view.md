@@ -5,6 +5,24 @@ description: Data Model of the eSDScom KIT
 sidebar_position: 2
 ---
 
+<!--
+Copyright(c) 2025 Contributors to the Eclipse Foundation
+
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
+
+This work is made available under the terms of the
+Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+which is available at
+https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="esdscom" />
+
 Welcome to the [esdscom] KIT Adoption View. This view provides a high level business view on the eSDScom KIT with its vision, mission, benefits, and business value.
 
 ## Vision & Mission
@@ -31,9 +49,9 @@ Through the standardized maintenance of chemical safety information and the seam
 #### The eSDScom project in a nutshell
 
 eSDScom is the industry standard for sending safety data sheets, exposure scenarios and relevant compliance information in the global chemical supply chain. It is a comprehensive and efficient solution saving money and time, covering the following:
-•	Safety Data Sheets to assist with occupational safety and health
-•	Notification data to help customers with their legal obligations
-•	for Europe: Exposure Scenarios and ENES achievements for downstream users
+• Safety Data Sheets to assist with occupational safety and health
+• Notification data to help customers with their legal obligations
+• for Europe: Exposure Scenarios and ENES achievements for downstream users
 For more information, please consult the history.md file of this kit.
 
 ## Business Value
@@ -42,9 +60,10 @@ For more information, please consult the history.md file of this kit.
 
 eSDScom is a standardized exchange format defined by industry. It currently covers the regulatory regions of the EU, USA, China, Argentina, Mexico, and more.
 The data model covers:
-* Information for Safety Data Sheets and to work with management systems for hazardous chemicals
-* Notification data to help customers with their legal obligations
-* for Europe: Exposure Scenarios (for communication, as an annex to safety data sheets)
+
+- Information for Safety Data Sheets and to work with management systems for hazardous chemicals
+- Notification data to help customers with their legal obligations
+- for Europe: Exposure Scenarios (for communication, as an annex to safety data sheets)
 
 ### Easy to read and maintain
 
@@ -124,15 +143,15 @@ More information can be found in the Policies in Catena-X of the Connector KIT.
 
 ## Semantic Models
 
-The eSDScom ontology is based on the eSDScom XML schema definition version 5.6, available at https://esdscom.eu and converted to SAMM by a script to ensure consistency.
+The eSDScom ontology is based on the eSDScom XML schema definition version 5.6, available at [esdscom.eu](https://esdscom.eu) and converted to SAMM by a script to ensure consistency.
 
 ### Core Semantic Models
 
-[io.catenax.esdscom]	1.0.0	[extended Safety Data Sheet communication]	[https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.esdscom/1.0.0]
+[io.catenax.esdscom 1.0.0 extended Safety Data Sheet communication](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.esdscom/1.0.0)
 
 ### Model Example
 
-Due to the model size, for further information please refer to https://esdscom.eu
+Due to the model size, for further information please refer to [esdscom.eu](https://esdscom.eu)
 
 ## Standards
 
@@ -144,9 +163,12 @@ Not yet available.
 
 ## NOTICE
 
-This work is licensed under the [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/legalcode).
-- SPDX-License-Identifier: CC BY-ND 4.0
-- SPDX-FileCopyrightText: 2025 [eSDScom Workgroup](https://esdscom.eu) and contributors
-- SPDX-FileCopyrightText: 2025 [Qualisys GmbH](https://qualisys.eu)
-- SPDX-FileCopyrightText: 2025 [Volkswagen AG](https://www.volkswagen.de)
-- SPDX-FileCopyrightText: 2025 Contributors to the [Eclipse Foundation](https://eclipse.org)
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2026 [eSDScom Workgroup](https://esdscom.eu) and contributors
+- SPDX-FileCopyrightText: 2026 [Qualisys GmbH](https://qualisys.eu)
+- SPDX-FileCopyrightText: 2026 [Volkswagen AG](https://www.volkswagen.de)
+- SPDX-FileCopyrightText: 2026 Catena-X Automotive Network e.V.
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

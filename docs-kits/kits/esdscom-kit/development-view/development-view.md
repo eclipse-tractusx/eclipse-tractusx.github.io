@@ -5,6 +5,24 @@ description: Overview on the eSDScom KIT
 sidebar_position: 3
 ---
 
+<!--
+Copyright(c) 2025 Contributors to the Eclipse Foundation
+
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
+
+This work is made available under the terms of the
+Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
+which is available at
+https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="esdscom" />
+
 ## Development View
 
 eSDScom is a data model, not a software. No API other than the digital twin registry APIs.
@@ -24,16 +42,16 @@ Required contents in the following sub-chapters:
 
 This section is non-normative.
 
-The architecture of this KIT is based on Catena-X standards. 
+The architecture of this KIT is based on Catena-X standards.
 
-To participate in the eSDScom use case, the following single standards MUST be fulfilled by all participants for which the standard is relevant: 
+To participate in the eSDScom use case, the following single standards MUST be fulfilled by all participants for which the standard is relevant:
 
-* CX-0002 Digital Twins in Catena-X
-* CX–0018 Sovereign Data Exchange
+- CX-0002 Digital Twins in Catena-X
+- CX–0018 Sovereign Data Exchange
 
 To participate in the eSDScom use case, the following single standard MUST be fulfilled only by data providers:
 
-* CX-XXXX eSDScom In the Catena-X technical landscape, the standard assumes the use of CX-0126-IndustryCorePartType.
+- CX-XXXX eSDScom In the Catena-X technical landscape, the standard assumes the use of CX-0126-IndustryCorePartType.
 The architecture follows a pull-based pattern: data is pushed from supplier to consumer (or other way around) but made accessible by the data provider. This standard applies equally to Data Providers and Consumers. All parties involved in the exchange must implement the agreed data structure and access patterns to ensure interoperability within the Catena-X network.
 
 1. All Identification and Access Management (IAM) follows the CX-0015 IAM & Access Control Paradigm for users and Clients standard [https://catenax-ev.github.io/docs/standards/CX-0015-IAMandAccessControlParadigmForUsersAndClients] which lays out the principles for both, data providers and data consumers.
@@ -58,7 +76,7 @@ The Onboarding of the parties on the Catena-X Dataspace shall be effectuated fol
 
 Figure 1 shows the high-level architecture of the notification exchange in the Catena-X dataspace and the services that are involved. Both the notification sender and the notification recipient must be members of the Catena-X network in order to communicate with each other. With the help of the Identity Access Management (IAM) each participant can authenticate itself, verify the identity of the requesting party and decide whether to authorize the request.
 
-<img width="878" height="518" alt="image" src="https://github.com/esdscom/eclipse-tractusx.github.io/blob/main/docs-kits/kits/esdscom-kit/Resources/Architecture%20-%20eSDScom%20Use%20Case.drawio.svg" />
+![eSDScom Use Case Architecture](../resources/architecture-diagram.drawio.svg)
 
 The architecture is designed for a decentralized data exchange within the Catena-X network, leveraging core services and standardized components.
 Figure 1 shows how two companies, a Data Consumer (the importer requesting eSDScom data) and a Data Provider (the supplier providing it), exchange eSDScom data securely over the Catena-X network without connecting to each other's internal systems directly.
@@ -67,24 +85,26 @@ Each company operates the same two-component setup. The first is a eSDScom App, 
 There a two use cases for eSDScom data exchange:
 
 Use case 1: The provider (supplier) is sending a SDS
-Use case 2: The consumer (customer, cleint or recipient) is requesting a SDS 
+Use case 2: The consumer (customer, cleint or recipient) is requesting a SDS
 
 Before any data moves, both connectors perform an authorization handshake to confirm the identities of both parties and verify that the data sharing conditions are met. Once authorized, the notification is sent to the provider or consumer (depending on the above use cases) eSDScom App. It prepares the response, and sends it back in the opposite direction.
 The connectors act as trusted, policy-enforced gateways on both sides, ensuring that data is only shared with verified partners and under agreed terms.
 Each notification consists of a header and a body.
 
 The header contains the routing and identification information:
+
 - the BPNL (Business Partner Number Legal) of both the sending and receiving company
 - a unique message ID assigned to each individual message, and a related message ID that references the original request. The related message ID is particularly important when a supplier sends multiple separate responses to a single request, for example when emission data for different operators or goods is compiled and returned in stages. Each response can be matched back to the originating request via this identifier.
-- 
+
 The following data fields in the eSDScom data model allow an unique assignment of the documents:
--	Supplier DUNS number
--	Formulation (specification) number
--	Version number of the SDS (current and previous)
--	Date of compilation
--	Supplier product name
--	Country (legal area)
--	Language
+
+- Supplier DUNS number
+- Formulation (specification) number
+- Version number of the SDS (current and previous)
+- Date of compilation
+- Supplier product name
+- Country (legal area)
+- Language
 
 ### Data Schema
 
@@ -93,6 +113,10 @@ The following data fields in the eSDScom data model allow an unique assignment o
 Model: eSDScom
 Version: 1.0.0
 Namespace: urn:samm:io.catenax.eSDScom:1.0.0
+
+The following diagram shows the digital twin structure used to represent eSDScom data in the Catena-X dataspace.
+
+![eSDScom Digital Twin Structure](../resources/digital-twin-structure.svg)
 
 ##### Description
 
@@ -109,7 +133,8 @@ Developer quick-start guides and code examples are not yet available.
 
 ### Sample data in multiple formats (JSON, XML, CSV)
 
-eSDScom is not bound to the JSON format provided in Catena-X's eSDScom KIT. 
+eSDScom is not bound to the JSON format provided in Catena-X's eSDScom KIT.
+
 - An implementation of the eSDScom data model as an XML Schema Definition (XSD) can be found at [eSDScom's Github pages](https://github.com/esdscom/sdscom-xml)
 - Besides the data model, eSDScom delivers a curated library of Standard Phrases, i.e. expert approved wordings for all supported regulatory purposes. See the [eSDScom Phrase Browser and Proposal Tool](https://phrases.esdscom.eu/) to read and contribute.
 - For general information on this project, got to the [eSDScom Web Pages](https://www.esdscom.eu/)
@@ -125,9 +150,10 @@ eSDScom traces back to the 1990s and is the industry standard for sending safety
 The eSDScom project acts as a think tank for software companies, content and service providers and chemical companies in the field of hazardous chemicals / dangerous goods management and maintains contacts to other associations and authorities.
 eSDScom is established also within companies for systems integration. Many associations, i.a. the European Automotive industry (ACEA) as well as the European chemical industry (CEFIC) supports the digital data exchange via eSDScom. For more information:
 
-- https://cefic.org/guidance-and-management-frameworks/reach-clp/escom-package-guidance/
-- https://www.acea.auto/publication/position-paper-the-role-of-esdscom-in-the-electronic-exchange-of-safety-data-sheets-within-the-auto-industry/
-For general project information, please go to https://esdscom.eu.
+- [Cefic ESCom package guidance](https://cefic.org/guidance-and-management-frameworks/reach-clp/escom-package-guidance/)
+- [ACEA position paper on eSDScom](https://www.acea.auto/publication/position-paper-the-role-of-esdscom-in-the-electronic-exchange-of-safety-data-sheets-within-the-auto-industry/)
+
+For general project information, please go to [esdscom.eu](https://esdscom.eu).
 
 It integrates two types of deliverables:
 
@@ -139,11 +165,14 @@ With roots in a single company phrase cataloge, The Federation of German Industr
 
 With roots in EDAS and its XML flavour EDASx, the project decided to redefine the exchange format when the European chemicals law was redefining the requirements in today's form (REACH and CLP). When Cefic started the ESCom project (Exposure Scenario Communication), the new format SDScomXML was defined. Its version 5 allowed to cover information on all relevant legislative regions in one XML document (instead of focusing of one SDS document per XML document) to facilitate systems integration. Later, ESCom and SDScom were joined to eSDScom.
 
-## Notice
+## NOTICE
 
-This work is licensed under the [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/legalcode).
-- SPDX-License-Identifier: CC BY-ND 4.0
-- SPDX-FileCopyrightText: 2025 [eSDScom Workgroup](https://esdscom.eu) and contributors
-- SPDX-FileCopyrightText: 2025 [Qualisys GmbH](https://qualisys.eu)
-- SPDX-FileCopyrightText: 2025 [Volkswagen AG](https://www.volkswagen.de)
-- SPDX-FileCopyrightText: 2025 Contributors to the [Eclipse Foundation](https://eclipse.org)
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2026 [eSDScom Workgroup](https://esdscom.eu) and contributors
+- SPDX-FileCopyrightText: 2026 [Qualisys GmbH](https://qualisys.eu)
+- SPDX-FileCopyrightText: 2026 [Volkswagen AG](https://www.volkswagen.de)
+- SPDX-FileCopyrightText: 2026 Catena-X Automotive Network e.V.
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
