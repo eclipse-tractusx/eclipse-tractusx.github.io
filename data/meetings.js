@@ -69,7 +69,7 @@ export const meetings = [
     icon: 'forum',
     category: MEETING_CATEGORIES.GENERAL,
     priority: MEETING_PRIORITIES.FEATURED,
-    description: 'Open hour meeting for all interests. The goal of the meeting is to inform and share information about different topics.',
+    description: 'Open hour meeting for all interests. The goal of the meeting is to inform and share information about different topics. Additionally, we will discuss and share specific committer tasks/responsibilities at the end of the meeting.',
     contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.MATHIAS_MOSER, CONTACTS.MIKEL_GARCIA],
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDFiNDJjMmQtNjFkYi00ODdjLTk2NDgtZGMwNTRmYzg3NzM0%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx:matrix.eclipse.org',
@@ -96,29 +96,6 @@ export const meetings = [
     contact: CONTACTS.STEPHAN_BAUER,
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjAzYzVjZGEtZjEwNC00NDI5LWEwODEtN2RhNmI0NDEzNTI2%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
     recurrence: null, // On-demand, no fixed schedule
-  },
-  {
-    id: 'committer-meeting',
-    title: 'Committer Meeting',
-    icon: 'engineering',
-    category: MEETING_CATEGORIES.GENERAL,
-    priority: MEETING_PRIORITIES.FEATURED,
-    description: 'Open hour meeting for Eclipse Tractus-X committers. The goal of the meeting is to discuss and share specific committer tasks/responsibilities.',
-    contact: CONTACTS.STEPHAN_BAUER,
-    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-committers:matrix.eclipse.org',
-    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjlmNTc5MjMtN2Y2YS00YjliLTg3NTItNWE1MmMzMWUzNmYw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
-    additionalLinks: [
-      { title: 'Taskboard', url: 'https://github.com/orgs/eclipse-tractusx/projects/61/views/6' },
-      { title: 'Timelines', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35' },
-    ],
-    recurrence: {
-      frequency: 'weekly',
-      interval: 4,
-      daysOfWeek: ['friday'],
-      startTime: '14:05',
-      endTime: '15:00',
-      validFrom: '2026-04-24',
-    },
   },
   {
     id: 'kits-office-hour',
