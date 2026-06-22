@@ -1,0 +1,17 @@
+version = 1
+
+[[annotations]]
+path = "*.svg"
+precedence = "closest"
+SPDX-FileCopyrightText: 2026 SIEMENS AG
+SPDX-FileCopyrightText: 2026 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IOSB)
+SPDX-FileCopyrightText: 2026 TRUMPF SE + Co. KG
+SPDX-FileCopyrightText: 2026 Technologie-Initiative SmartFactory KL e. V. (SmartFactory-KL)
+SPDX-FileCopyrightText: 2026 DMG MORI Bielefeld GmbH
+SPDX-FileCopyrightText: 2026 Instawerk GmbH
+SPDX-FileCopyrightText: 2026 Matchory GmbH
+SPDX-FileCopyrightText: 2026 soffico GmbH
+SPDX-FileCopyrightText: 2026 Institut für Fertigungstechnik und Werkzeugmaschinen (IFW), Gottfried Wilhelm Leibniz Universität Hannover
+SPDX-FileCopyrightText: 2026 MT Analytics GmbH
+SPDX-FileCopyrightText: 2026 Werkzeugmaschininenlabor (WZL) der Fakultaet Maschinenwesen, Rheinisch-Westfaehlische Technische Hochschule (RWTH) Aachen
+SPDX-License-Identifier = "CC-BY-4.0"

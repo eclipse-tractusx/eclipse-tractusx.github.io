@@ -84,6 +84,9 @@ theresa_hilger:
   url: https://github.com/ther3sa
   image_url: https://github.com/ther3sa.png
   email: theresa.hilger@catena-x.net
+  socials:
+    github: ther3sa
+    linkedin: theresa-hilger
 
 ds-hzimmer:
   name: Harald Zimmer
