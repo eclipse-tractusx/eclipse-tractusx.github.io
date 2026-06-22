@@ -153,13 +153,6 @@ The eSDScom ontology is based on the eSDScom XML schema definition version 5.6, 
 
 Due to the model size, for further information please refer to [esdscom.eu](https://esdscom.eu)
 
-## Standards
-
-For supported standards, please refer to the CX eSDScom standard description.
-
-## Tutorials & Resources
-
-Not yet available.
 
 ## NOTICE
 
