@@ -1046,6 +1046,38 @@ export const kitsData = {
         latestVersion: '0.1.0',
         new: true
       }
+    },
+    {
+      id: 'pcfdataacquisition',
+      name: 'PCF data acquisition KIT',
+      logo: GeometryKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 Eclipse Tractus-X Contributors',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcfdataacquisition/pcfdataacquisition-kit-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcfdataacquisition/pcfdataacquisition-kit-logo.svg'
+      },
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/kits/pcf-data-aquisition-kit/adoption-view',
+      colors: {
+        primary: '#0a8d26',
+        gradient: 'linear-gradient(135deg, #aebfc4 0%, #8c9ea3 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Sustainability',
+      industries: ['manufacturing'],
+      description: 'Data acquisition for PCF calculation',
+      metadata: {
+        created: '2026-06-23',
+        lastUpdated: '2026-06-23',
+        latestVersion: '1.0.0',
+        new: true
+      }
     }
   ],
   // List here the industry-specific KITs (will not be shown in the cross-industry use cases gallery)

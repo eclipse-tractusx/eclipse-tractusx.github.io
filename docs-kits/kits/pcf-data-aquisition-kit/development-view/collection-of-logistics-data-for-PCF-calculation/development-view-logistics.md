@@ -27,10 +27,8 @@ Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
 Do not remove!
 This logo is only visible when compiled with Docusarus (final version of the hosted KIT)
 -->
-<!--
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
-<Kit3DLogo kitId="<kit-id>" />
--->
+<Kit3DLogo kitId="pcfdataacquisition"/>
 <!--
 KIT LOGO END
 -->

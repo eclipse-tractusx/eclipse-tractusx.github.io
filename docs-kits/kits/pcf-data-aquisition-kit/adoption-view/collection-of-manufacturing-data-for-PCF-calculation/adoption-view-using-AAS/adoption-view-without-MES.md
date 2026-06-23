@@ -28,8 +28,7 @@ This logo is only visible when compiled with Docusarus (final version of the hos
 -->
 
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
-<Kit3DLogo kitId="<kit-id>" />
-
+<Kit3DLogo kitId="pcfdataacquisition"/>
 <!--
 KIT LOGO END
 -->

@@ -26,11 +26,8 @@ Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
 Do not remove!
 > This logo is only visible when compiled with Docusaurus (final version of the hosted KIT)
 -->
-<!--
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
-<Kit3DLogo kitId="<kit-id>" />
-
--->
+<Kit3DLogo kitId="pcfdataacquisition"/>
 <!--
 KIT LOGO END
 -->
@@ -39,7 +36,7 @@ KIT LOGO END
 ## Architecture Overview
 
 
-![alt text](../../../resources/img/Architecture%20use%20case%20without%20MES.png)
+![alt text](../../../resources/img/Architecture_use_case_without_MES.png)
 
 This architecture addresses the challenge of collecting all necessary data from both shop floor systems and IT systems in order to calculate a PCF value in compliance with the Catena-X PCF Rule Book. The architecture overview also illustrates the components from TP 2.9 used to optimize electricity costs based on the given bill of process and the specified flexibility parameters. In addition, the overview includes all required external data sources needed for PCF calculation and process optimization.
 

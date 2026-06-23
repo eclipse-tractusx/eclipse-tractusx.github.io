@@ -461,3 +461,13 @@ The **WorkOrderCarbonFootprint** of `3.086 kg CO₂e` in CommonParameter aggrega
 | `xs:string` (ISO 8601) | Timestamp in ISO 8601 format | `"2026-01-22T23:00:00+00:00"` |
 | `xs:string` (UUID) | UUID string | `"0195f153-7b83-75d5-9d54-888c4567866d"` |
 | `xs:string` (JSON Array) | JSON array as string | `"[0.00571,0.00571]"` |
+
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0].
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: [2026] [Siemens]
+- SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
