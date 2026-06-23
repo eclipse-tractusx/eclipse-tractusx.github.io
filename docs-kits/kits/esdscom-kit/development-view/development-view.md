@@ -82,10 +82,10 @@ The architecture is designed for a decentralized data exchange within the Catena
 Figure 1 shows how two companies, a Data Consumer (the importer requesting eSDScom data) and a Data Provider (the supplier providing it), exchange eSDScom data securely over the Catena-X network without connecting to each other's internal systems directly.
 Each company operates the same two-component setup. The first is a eSDScom App, the business application where the importer composes requests and where the supplier prepares and calculates the eSDScom response data. The eSDScom app is a third-party business application required to manage and exchange eSDScom-relevant data that is compatible with Catena-X. The second is an EDC (Eclipse Dataspace Connector), a standardized secure gateway which manages who is allowed to connect and under what agreed conditions, and which is the actual channel through which the notification data travels.
 
-There a two use cases for eSDScom data exchange:
+There are two use cases for eSDScom data exchange:
 
 Use case 1: The provider (supplier) is sending a SDS
-Use case 2: The consumer (customer, cleint or recipient) is requesting a SDS
+Use case 2: The consumer (customer, client or recipient) is requesting an SDS
 
 Before any data moves, both connectors perform an authorization handshake to confirm the identities of both parties and verify that the data sharing conditions are met. Once authorized, the notification is sent to the provider or consumer (depending on the above use cases) eSDScom App. It prepares the response, and sends it back in the opposite direction.
 The connectors act as trusted, policy-enforced gateways on both sides, ensuring that data is only shared with verified partners and under agreed terms.
@@ -137,7 +137,7 @@ eSDScom is not bound to the JSON format provided in Catena-X's eSDScom KIT.
 
 - An implementation of the eSDScom data model as an XML Schema Definition (XSD) can be found at [eSDScom's Github pages](https://github.com/esdscom/sdscom-xml)
 - Besides the data model, eSDScom delivers a curated library of Standard Phrases, i.e. expert approved wordings for all supported regulatory purposes. See the [eSDScom Phrase Browser and Proposal Tool](https://phrases.esdscom.eu/) to read and contribute.
-- For general information on this project, got to the [eSDScom Web Pages](https://www.esdscom.eu/)
+- For general information on this project, go to the [eSDScom Web Pages](https://www.esdscom.eu/)
 
 ### History
 
@@ -159,7 +159,7 @@ It integrates two types of deliverables:
 
 #### Standard phrases
 
-With roots in a single company phrase cataloge, The Federation of German Industries (BDI) formed the BDI Standard Phrae Catalogue which later becaume EuPhraC (European Phrases Catalogue).
+With roots in a single company phrase catalogue, The Federation of German Industries (BDI) formed the BDI Standard Phrase Catalogue which later became EuPhraC (European Phrases Catalogue).
 
 #### Data Model and Exchange Format
 

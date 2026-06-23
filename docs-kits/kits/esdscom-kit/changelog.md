@@ -39,23 +39,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   - Business process descriptions
   - Semantic models
   - Standards compliance documentation
-- Complete development view documentation:
+- Added development view documentation:
   - Architecture overview and diagrams
-  - API specifications (OpenAPI/Swagger)
-  - Component and sequence diagrams
-  - Logic and schema definitions
-  - Sample data and test cases
-  - Developer tutorials
-- Complete operations view documentation:
-  - Deployment guides and scripts
-  - Configuration management
-  - Monitoring and logging guidelines
-  - Security best practices
-  - Troubleshooting guides
-- Industry extensions for [INDUSTRY_NAME]:
-  - Reference implementation documentation
-  - Success stories and case studies
-
+  - Data model and semantic model references
+- Added architecture diagrams and resources in `resources/`
 ### Changed
 
 - Nothing yet

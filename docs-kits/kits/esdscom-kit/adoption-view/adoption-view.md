@@ -23,7 +23,7 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 <Kit3DLogo kitId="esdscom" />
 
-Welcome to the [esdscom] KIT Adoption View. This view provides a high level business view on the eSDScom KIT with its vision, mission, benefits, and business value.
+Welcome to the eSDScom KIT Adoption View. This view provides a high level business view on the eSDScom KIT with its vision, mission, benefits, and business value.
 
 ## Vision & Mission
 
@@ -52,7 +52,7 @@ eSDScom is the industry standard for sending safety data sheets, exposure scenar
 • Safety Data Sheets to assist with occupational safety and health
 • Notification data to help customers with their legal obligations
 • for Europe: Exposure Scenarios and ENES achievements for downstream users
-For more information, please consult the history.md file of this kit.
+For more information, please consult the History section in the Development View of this KIT.
 
 ## Business Value
 
