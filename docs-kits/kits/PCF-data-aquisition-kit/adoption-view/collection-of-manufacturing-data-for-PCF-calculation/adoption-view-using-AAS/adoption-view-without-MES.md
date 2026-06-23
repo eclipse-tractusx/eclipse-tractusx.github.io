@@ -1,12 +1,12 @@
+
+---
+id: adoption-view-pcf-data-acquisition-using-AAS
+title: Adoption View - PCF data acquistion using AAS
+description: 'Adoption View - PCF data acquistion using AAS'
+sidebar_position: 4
+---
+
 <!--
----
-id: adoption-view
-title: Adoption View
-description: 'PCF data aquistion - Manufacturing - using AAS KIT'
-sidebar_position: 2
----
-
-
 Copyright(c) 2026 Contributors to the Eclipse Foundation
 
 See the NOTICE file(s) distributed with this work for additional
@@ -33,7 +33,7 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 <!--
 KIT LOGO END
 -->
-# Adoption View - PCF data aquistion using AAS
+# Adoption View - PCF data acquistion using AAS
 
 ## Introduction
 
@@ -155,14 +155,14 @@ sequenceDiagram
 | Name | Description | Link to standard |
 | ---- | ----------- | ---------------------- |
 | `Catena-X PCF Rulebook version 4` | Standardized guidelines for PCF calculation within the Catena-X network | [Catena-X Rulebook](https://catena-x.net/wp-content/uploads/2025/10/Catena-X-Product-Carbon-Footprint-Rulebook_v4-with-line-numbers.pdf) |
-| `AAS documentation for PCF calculation without MES` | Overview and detailed information about the used AAS submodel templates | [AAS documentation](https://factoryxorg.sharepoint.com/:t:/r/sites/TP2/Shared%20Documents/TP2.10/30_Results%20and%20Presentations/Securing-TP2.10/54_PCF%20Calculation%20without%20MES/AAS%20Sub-Model/AAS%20Documentation%20Use%20Case%20without%20MES.md?csf=1&web=1&e=qP1fpb) |
+| `AAS documentation for PCF calculation without MES` | Overview and detailed information about the used AAS submodel templates | [AAS documentation](../../../resources/mdfiles/AAS_Documentation_Use_Case_without_MES.md) |
 
 
 ## NOTICE
 
-This work is licensed under the [Apache-2.0].
+This work is licensed under the [CC-BY-4.0].
 
-- SPDX-License-Identifier: Apache-2.0
+- SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: [2026] [Siemens]
 - SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

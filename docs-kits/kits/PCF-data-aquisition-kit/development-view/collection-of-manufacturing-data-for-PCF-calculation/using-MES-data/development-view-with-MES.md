@@ -1,9 +1,8 @@
-<!--
 ---
-id: integration-of-shopfloor-PCF-relevant-data-using-batch-or-serial-number-tracking-with-AAS
-title: Development View
-description: 'Development View integration of shopfloor PCF relevant data using batch or serial number tracking with AAS KIT'
-sidebar_position: 3
+id: development-view-pcf-data-acquisition-using-mes-data
+title: Development View - PCF data aquistion using MES Data
+description: 'Development View - PCF data aquistion using MES Data KIT'
+sidebar_position: 4
 ---
 
 <!--
@@ -34,7 +33,7 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 KIT LOGO END
 -->
 
-# Development view - PCF data aquistion using AAS
+# Development view - PCF data aquistion using MES data
 
 ## Architecture Overview
 
@@ -50,7 +49,7 @@ KIT LOGO END
 
 The technical architecture for the Manufacturing Product Carbon Footprint (PCF) solution, as depicted in the accompanying architecture diagram below, is specifically designed to enable fully automated, instance-based PCF calculation directly within the manufacturing environment. This solution focuses on integrating operational technology (OT) with information technology (IT) to provide real-time, granular insights into the carbon footprint of manufactured products.
 
-![](Architecture_Overview_Use_Case_With_MES_.png)
+![](../../../resources/img/Architecture_Overview_Use_Case_With_MES_.png)
 
 
 
@@ -200,7 +199,7 @@ The following illustration describes the logical structure of the OPC-UA Extenti
   <summary>Data Model Overview - click to expand</summary>
 
 
-![Bild](UPC_UA_Model_Entity_Relation.png "UPC UA Model Entity Relation.png")
+![Bild](../../../resources/img/UPC_UA_Model_Entity_Relation.png "UPC UA Model Entity Relation.png")
 </details>
 
 The table below shows the details of each data field in the Factory-X OPC-UA data model:
@@ -294,10 +293,9 @@ The table below shows the details of each data field in the Factory-X OPC-UA dat
 -->
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [YYYY] [YOUR_COMPANY]
-- SPDX-FileCopyrightText: [YYYY] [ANOTHER_COMPANY]
-- SPDX-FileCopyrightText: [YYYY] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: [2026] [Siemens]
+- SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

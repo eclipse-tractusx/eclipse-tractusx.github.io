@@ -1,8 +1,8 @@
 ---
-id: adaption-view-logistic-platform-approach-to-obtain-the-logistic-carbon-footprint-(LCF)
-title: Adoption View
-description: 'Adaption View of the logistic platform approach to obtain the logistic carbon footprint (LCF) KIT'
-sidebar_position: 2
+id: adaption-view-collection-of-logistics-carbon-footprint-data-for-pcf-calculation
+title: Adoption View - collection of Logistics Carbon Footprint data for PCF calculation
+description: 'Adoption view - collection of Logistics Carbon Footprint data for PCF calculation'
+sidebar_position: 3
 ---
 
 <!--
@@ -45,7 +45,6 @@ This information asymmetry makes it impossible for any single party to accuratel
 
 ## Vision and Mission
 
-<!-- What is the long-term goal? What does the KIT deliver today? Problem statatement -->
 
 ## Vision
 
@@ -83,7 +82,7 @@ The logistics carbon footprint management process involves three primary actors:
 
 The logistics platform acts as a neutral intermediary that enables secure, standardized data exchange:
 
-![](./Architecture_Logistics_.png)
+![](../../resources/img/Architecture_Logistics_.png)
 
 The green box in the above reference architecture on the right, specifically encompassing the Logistics Platform, represents the core processes and systems for managing and calculating the Logistics Product Carbon Footprint (PCF). This system focuses on enabling transparent and efficient data exchange between companies to accurately determine the environmental impact of product transportation. Its primary purpose is to capture, process, and allocate logistics-related emission data to individual shipments and and ultimately to the products themselves.
 
@@ -142,10 +141,9 @@ The logistics platform implementation relies on the following industry standards
 
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [YYYY] [YOUR_COMPANY]
-- SPDX-FileCopyrightText: [YYYY] [ANOTHER_COMPANY]
-- SPDX-FileCopyrightText: [YYYY] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: [2026] [Siemens]
+- SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

@@ -1,11 +1,11 @@
-<!--
+
 ---
-id: integration-of-shopfloor-PCF-relevant-data-using-batch-or-serial-number-tracking-with-AAS
-title: Development View
-description: 'Development View integration of shopfloor PCF relevant data using batch or serial number tracking with AAS KIT'
-sidebar_position: 3
+id: development-view-pcf-data-acquisition-using-AAS
+title: Development View - PCF data acquistion using AAS
+description: 'Development View - PCF data acquistion using AAS'
+sidebar_position: 4
 ---
--->
+
 <!--
 Copyright(c) 2026 Contributors to the Eclipse Foundation
 
@@ -38,9 +38,8 @@ KIT LOGO END
 
 ## Architecture Overview
 
-<!-- High-level diagram of the technical approach. -->
 
-![alt text](Architecture%20use%20case%20without%20MES.png)
+![alt text](../../../resources/img/Architecture%20use%20case%20without%20MES.png)
 
 This architecture addresses the challenge of collecting all necessary data from both shop floor systems and IT systems in order to calculate a PCF value in compliance with the Catena-X PCF Rule Book. The architecture overview also illustrates the components from TP 2.9 used to optimize electricity costs based on the given bill of process and the specified flexibility parameters. In addition, the overview includes all required external data sources needed for PCF calculation and process optimization.
 
@@ -178,11 +177,6 @@ autonumber
 ```
 ## Application Programming Interfaces (API)
 
-> TODO: If applicable API specifications.
-> Detailed APIs can be included as swagger / open api specs
-> As described in TRG 1.08: https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-08
-> Will be hosted in API HUB: https://eclipse-tractusx.github.io/api-hub/
-
 
 ## Semantic Models / Data Model
 
@@ -252,7 +246,7 @@ This submodel represents the **detailed manufacturing processes**:
 -->
 #### Documentation
 
-**[AAS Documentation Use Case without_MES](https://factoryxorg.sharepoint.com/:t:/r/sites/TP2/Shared%20Documents/TP2.10/30_Results%20and%20Presentations/Securing-TP2.10/54_PCF%20Calculation%20without%20MES/AAS%20Sub-Model/AAS%20Documentation%20Use%20Case%20without%20MES.md?csf=1&web=1&e=qP1fpb)**
+**[AAS Documentation Use Case without_MES](../../../resources/mdfiles/AAS_Documentation_Use_Case_without_MES.md)**
 
 This documentation describes:
 - The complete structure of both submodels
@@ -276,9 +270,9 @@ This documentation describes:
 
 ## NOTICE
 
-This work is licensed under the [Apache-2.0].
+This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: [2026] [Siemens]
-- SPDX-FileCopyrightText: [2026] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
