@@ -1048,7 +1048,7 @@ export const kitsData = {
       }
     },
     {
-      id: 'pcfdataacquisition',
+      id: 'pcf-data-acquisition',
       name: 'PCF data acquisition KIT',
       logo: GeometryKitLogo,
       logoLicencse: {
