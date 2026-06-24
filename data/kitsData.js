@@ -1326,7 +1326,7 @@ export const industries = [
         url: "https://construct-x.org",
         gradient: 'linear-gradient(135deg, #002865, #FF6B35, #FFB74D)',
         logo: {
-          src: 'https://construct-x.org/wp-content/uploads/2025/11/CX-BM-RGB.png',
+          src: 'https://www.construct-x.org/sites/default/files/2026-05/cx-bm-rgb_0.png',
           alt: 'Construct-X Logo',
           width: 70,
           height: 70
