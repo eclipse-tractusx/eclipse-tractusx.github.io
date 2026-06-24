@@ -13,77 +13,40 @@ In this context, Catena-X offers a decentralized ecosystem supported by standard
 - Offer guidelines for industry stakeholders.
 - Provide a detailed description and offer tools to implement product passports.
 
-## Vision & Mission
-
-### Vision: Empowering Sustainability – One Product at a Time
-
-The EcoPass KIT envisions a future where sustainability is at the core of every product's lifecycle, from design and manufacturing to usage and end-of-life. By fostering transparency, traceability and informed decision-making, we aim to inspire solution and service providers to create innovative, eco-friendly products that reduce environmental impact and drive the global economy towards a circular model.
-
-### Mission: Unleashing Circularity Potential
-
-The EcoPass KIT enables the scalable usage of digital product passports in order to address the pressing issue of inefficient resource usage and lack of product transparency. With growing concerns over environmental impact, limited resources and waste generation, there is an urgent need for a comprehensive solution to drive sustainable practices across the value chain. The KIT offers unified data models, a reference application for passport utilization as well as the required API. Low entry barriers will allow you to adapt digital product passports rapidly and pay your contribution to a fully circular value chain without the necessity of vast expertise or resources. Designed for multiple products, the KIT offers scalability, high-quality product information and a set of tools for regulatory compliance. Our mission is to unlock the circular potential of every component and material, fostering a culture of sustainability, innovation, and shared responsibility among all stakeholders.
-
-All described specifications in the KIT are based on [Catena-X standards](https://catena-x.net/de/standard-library) such as the Asset Administration Shell, SSI and decentral Digital Twin Registry. They refer to other Catena-X KITs like the [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/connector-kit/adoption-view/) (EDC), [Data Chain KIT](https://eclipse-tractusx.github.io/docs-kits/category/data-chain-kit/) (Item Relationship Service = IRS) and [Business Partner KIT](https://eclipse-tractusx.github.io/docs-kits/category/business-partner-kit/) to ensure interoperability and data sovereignty according to IDSA and Gaia-X principles.
-
 ## Business Value
 
-Following this mission, the EcoPass KIT serves as an instrumental tool promoting sustainable and circular value chains. The improved transparency, traceability and accountability offered with digital product passports will facilitate informed decision-making for various stakeholders. This will bring ethical sourcing, efficient use of resources and reduction of environmental impacts to a new level. By making use of the Catena-X standards defined within the EcoPass KIT, product passports will ensure interoperability for stakeholders and systems to communicate seamlessly. This standardized language is crucial to improve efficiency, lower operational costs and create faster data processing. It ensures a consistent approach to data collection, storage and visualization to enhance the accuracy, reliability and comparability of information.
-The following section will highlight the five major advantages of the Catena-X EcoPass KIT, which are also displayed below.
+### Value of the KIT
+The Catena-X EcoPass KIT aims to empower participants to share product pass-related data in a secure and sovereign way while ensuring the interoperability of the different applications involved in the process.
+To achieve this, the relevant Catena-X standards and data modes are referenced, explained, and placed within a broader context of business processes.
 
-![AdoptionView Business Value](./resources/adoption-view/adoption-view-BusinessValue.svg)
+### Value of standardization
+Using Catena‑X data models and standards for the battery passport is particularly valuable because they create a consistent and verifiable foundation for battery-related data across the entire lifecycle.
 
-**Seamless Integration and Collaboration**: By leveraging the EcoPass KIT, service providers can easily integrate with the Catena-X marketplace, promoting efficient collaboration and exchange of information with other businesses in the network. The unified data model and API specification simplifies the process, reducing the time and resources needed for integration and fostering interoperability between various players.
+- **Consistency of battery data**: The battery passport requires comparable information (e.g., CO₂ footprint, material composition). Catena‑X provides harmonized data formats and calculation rules, ensuring that all partners deliver data in the same structure and logic.
+- **End-to-end traceability**: Standardized data models enable continuous tracking of battery information across all supply chain tiers, which is essential for documenting origin, production, and lifecycle data required by regulation.
+- **Reliable aggregation of data**: Battery passport data must be collected, aggregated, and validated across multiple contributors. With shared standards, this can be done without reformatting or recalculating data at each step.
+- **Regulatory readiness**: The battery passport will become mandatory (e.g., upcoming EU regulation), and standardized data models ensure that required information is structured, auditable, and compliant from the beginning.
+- **Cost Cost savings through standardization**: Catena‑X data models eliminate the need for individual data formats, conversions, and repeated validations when exchanging battery passport information between partners. In addition, battery ecosystems typically involve a large number of partners across multiple tiers. By using a common standard, companies can reuse the same data model and integration approach for all partners, instead of building separate solutions for each connection. This significantly reduces implementation and maintenance effort across the network.
 
-**Enhanced Consumer Trust and Brand Loyalty**: Utilizing the KIT to develop solutions for the Catena-X marketplace allows service providers to showcase their commitment to transparency and sustainability. This fosters consumer trust and brand loyalty, as increasingly conscious customers prefer products and services that align with their values and make a positive impact on the environment.
+In short: Catena‑X standards make battery passport data consistent, traceable, and regulation-ready across all partners, which is essential for implementing the battery passport efficiently.
 
-**Data-Driven Decision Making**: The EcoPass KIT enables service providers to harness the power of high-quality data sets from various sources in the Catena-X network. This wealth of information supports data-driven decision-making, helping businesses optimize their processes, reduce waste and identify opportunities for growth and innovation. Leveraging the dynamic data attributes within a passport, the product's evolving condition can be reflected, which offers a highly valuable increase of knowledge about the product’s behavior, quality and performance.
+### Benefits to suppliers and OEMs
+ - **Standardized structure for regulatory battery passport data**: Catena‑X defines a clear and agreed structure for all required battery passport data elements (e.g., carbon footprint, material composition, lifecycle data). This ensures that OEMs and battery suppliers can provide exactly the required information in a consistent format, without having to interpret regulatory requirements individually.
+ - **Efficient verification and auditability**: Battery passport data must be auditable and verifiable across multiple contributors. By using a shared standard, OEMs and suppliers ensure that data is structured in a way that supports validation, certification, and regulatory checks without additional rework at each step.
+ - **Cost reduction through reuse and scalability**: As outlined above, implementing battery passport requirements typically involves many partners across the supply chain. By using Catena‑X standards, OEMs and battery suppliers can apply the same data model and processes for all partners, avoiding individual solutions and repeated integration efforts.
 
-**Regulatory Compliance and Risk Mitigation**: By offering solutions based on the KIT, service providers can help businesses comply with evolving regulations and industry standards. The increased transparency and traceability provided by digital product passports facilitate compliance management, offer the creation of certificates, and reduce the risks associated with non-compliance, such as penalties and reputational damage.
-
-**Competitive Advantage through Innovation**: The KIT's foundation for value-added services and innovative solutions provides service providers with a unique competitive edge in the Catena-X marketplace. By developing and offering cutting-edge products and services that cater to the growing demand for sustainable and transparent solutions, service providers can differentiate themselves in a crowded market and seize new business opportunities.
-
-## Use Case Explanation
-
-### Today's Challenges
-
-Today's globalized supply chains often struggle with transparency, data fragmentation and inefficiencies through the lack of digitally available product information. Traceability becomes difficult, hindering the ability to track products' origins and ensure accountability. Risk management and compliance efforts are compromised, impacting product quality and sustainability. Customer expectations for transparency and sustainability information remain unmet, potentially leading to dissatisfaction and loss of market share. Moreover, supply chains lack the resilience and responsiveness needed to adapt to disruptions effectively.
-Embracing a digital product passport can address these challenges, enabling transparent, efficient and sustainable supply chains. Implementing the EcoPass KIT can enable companies to address these challenges by creating a comprehensive, accurate and up-to-date record of their products' lifecycles. This information can be used to improve resource efficiency, optimize recycling processes and reduce waste, ultimately driving the adoption of circular economy principles.
+### Beneftis to software vendors
+- **Reduced customer integration effort**: Catena‑X connects OEMs, suppliers, and service providers in a shared data space. Supporting its standards allows software vendors to integrate directly into this ecosystem and serve multiple customers with one solution, instead of building isolated, customer-specific implementations.
+- **Interoperability as a key differentiator**: Catena‑X enables standardized and interoperable data exchange across the entire value chain, allowing certified solutions to seamlessly exchange battery passport data with other systems. This makes solutions more attractive to customers.
 
 ### How can the EcoPass KIT help to address regulatory challenges?
-
 - Manufacturers are required to disclose information regarding the environmental impact of their products under the European Union's (EU) Ecodesign Directive. The EcoPass KIT can assist producers in adhering to this rule by offering a digital record of the environmental impact of their products.
 - Companies are required to provide information regarding their efforts to address forced labor and human trafficking in their supply chains under the California Transparency in Supply Chains Act (CTSCA). The EcoPass KIT's digital record of a company's supply chain operations can assist businesses to comply with this law.
 - Certain manufacturers of products are required to take back and recycle their products at the end of their functional lifespans under the German Waste Management Act (Kreislaufwirtschaftsgesetz). The EcoPass KIT, which offers a digital record of the goods that have been returned and recycled, can assist producers in adhering to this obligation.
 
-### Ecopass KIT benefits for value chain partners and solution providers
+## Use Cases covered by the EcoPass KIT
 
-Stakeholders along the value chain, as well as solution providers can reap the benefits of utilizing KITs in their organization. The Figure below shows an overview of these benefits, further explanation can be found below the illustration.
-
-![ValueChain Benefits](./resources/adoption-view/adoption-view-ValueChainBenefits.svg)
-
-**Value Chain Partners** can benefit from the EcoPass KIT especially by bringing the product transparency to a next level which will allow for several areas to increase the company’s value. Multiple risks (e.g. regulatory compliance) can be mitigated, cost and process efficiency may be improved, the strategic knowledge about products increases and the possibility for new business is being established.
-
-1. **Regulatory Compliance**: Improve compliance with regulations and industry standards by utilizing a digital product passport to demonstrate responsible sourcing, production and waste management practices.
-2. **Enhanced Transparency**: Visibility of the product's condition, origins and components will lead to better decision-making and higher resource efficiency.
-3. **Efficient Data Management**: Adopting a digital product passport will reduce administrative burdens and facilitate seamless data exchange between stakeholders.
-4. **Increased Accountability**: A clear chain of custody for products fosters accountability among value chain participants for product quality, safety and sustainability.
-5. **Risk Mitigation**: Comprehensive product data helps value chain participants to proactively identify and mitigate risks, ensuring higher product quality and safety standards.
-6. **Strengthened Customer Trust**: Offering transparency of business practices and sustainability efforts builds trust with customers and enhances brand loyalty.
-7. **Supply Chain Optimization**: Data-driven insights enable the optimization of supply chain processes to support the integration of sustainable approaches.
-8. **Foster Collaborations**: Connecting and sharing information across the value chain facilitates collaboration with other stakeholders to promote joint efforts towards sustainability challenges.
-
-**Solution Providers** will gain a head start in delivering comprehensive and efficient digital product passport solutions. The pre-built features accelerate time-to-market, reduce costs and ensure a reliable, scalable and compliant system. In addition, solution providers can leverage a KIT as the basis to build their own customized solutions and to offer their customers innovative and value-driven digital product passport services in an efficient and simplified way.
-
-1. **New Market & Customer Base**: The possibility of developing innovative solutions and providing them through the Catena-X marketplace fosters new market opportunities and scalability of the customer base.
-2. **Accelerated Time-to-Market**: The KIT provides the thematical and technical basis to build solutions, significantly reducing the time and resources required to develop digital product passport solutions.
-3. **Flexibility and Customization**: While the KIT offers a solid foundation, it is designed to allow solution providers for customizing and tailoring the platform to meet specific needs and preferences of the target market and value chain participants.
-4. **Risk Mitigation**: The predefined KIT tools support solution providers in reducing the risk of development errors and vulnerabilities.
-5. **Cost Efficiency**: The KIT's standardized data model and open interface simplify the process of connecting to the Catena-X network, reducing the investment needs for integration.
-6. **Competitive Advantage**: Adopting the KIT quickly positions solution providers in the market faster with cutting-edge services gaining a competitive advantage.
-7. **Alignment with Industry Standards**: The KITs adhere to industry standards, making it easier for solution providers to align with existing supply chain ecosystems and collaborate with other stakeholders.
-8. **Data Utilization**: The wealth of data available in the Catena-X network is leveraged to drive innovation and develop data-driven solutions tailored to the unique needs of various industries.
-
-#### Battery Pass: A real-world example
+### Battery Pass: A real-world example
 
 In the automotive industry, a Battery Passport or Digital Product Passport for batteries plays a crucial role in ensuring transparency, traceability, and sustainability in the battery supply chain. Here's a real-world example of how a digital product passport might be set up for a battery used in electric vehicles (EVs), including its benefits, illustrated below:
 
@@ -96,19 +59,20 @@ In the automotive industry, a Battery Passport or Digital Product Passport for b
 5. **End-of-Life Management**: When the battery reaches the end of its useful life, the Battery Passport provides detailed instructions for proper disposal and recycling, ensuring compliance with regulations and facilitating the recovery of valuable materials. The data stored in the Battery Passport helps recycling facilities to efficiently process the battery, reducing waste and promoting a circular economy.
 
 Throughout this process, the Battery Passport serves as a single, secure, and easily accessible source of information for various stakeholders, such as vehicle manufacturers, suppliers, service providers, regulators and vehicle owners. By implementing a digital product passport like the Battery Pass in the automotive industry, companies can promote transparency, traceability, and sustainability, ultimately contributing to a more eco-friendly and circular economy.
-For more information please read the [Battery Pass Viewer App Success Story](./success-stories/battery-pass-viewer-app.mdx)!
 
-### How the KIT can help
+### Battery Pass: Catena-X Standard explained
+The CX‑XXXX Battery Passport standard specifies how battery‑related information is modeled, provisioned, discovered and accessed within the Catena‑X dataspace for:
+- Traction, industrial and similar batteries that fall under the scope of the EU Battery Regulation or comparable regulatory schemes.
+- End‑to‑end lifecycle usage within the automotive battery value chain (manufacturing, use phase, second‑life, end‑of‑life and recycling).
+- Provisioning of both complete digital battery passports and partial, lifecycle‑specific data contributions, based on Catena‑X digital twins and the joint Catena‑X/IDTA Battery Passport aspect models.
 
-The EcoPass KIT addresses the real-world problem of battery traceability and sustainability in the automotive industry by providing a standardized, easy-to-implement solution for creating and managing digital product passports. Here's how the EcoPass KIT can help and scale in this context:
+The standard destinguishes three different use cases:
+- Use Case (1) - Provisioning of near-complete battery passport: Typically used in situations where the data provider manufactures the battery, but the battery passport will be published by the data consumer. This can happen depending on the contractual situation and depending on who is the economic operator of the battery and who is putting it onto the EU market.
+- Use Case (2) - component supplier integration (for example cells, housing, battery packs): Typically used to provide data from a component supplier to a battery manufacturer.
+- Use Case (3) - DPP-Service provider view: Complete exchange of DPPs to service provider, which provides it public.
 
-1. **Standardization and Interoperability**: The EcoPass KIT offers a unified data model and is planning an API specification, allowing for seamless integration across different stakeholders, including manufacturers, suppliers, service providers and regulatory bodies. This standardization promotes interoperability and streamlines communication throughout the battery lifecycle.
-2. **Simplified Adoption**: By providing a comprehensive and easy-to-use KIT, EcoPass can lower the barrier to entry for businesses of all sizes, enabling them to implement digital product passports without extensive technical expertise or resources. This can encourage widespread adoption of the solution, resulting in a larger-scale positive impact on sustainability and traceability.
-3. **Scalable Solution**: The EcoPass KIT is designed to accommodate various product types, sizes and applications, ensuring its relevance and adaptability to the evolving automotive industry. This scalability allows the KIT to be utilized for a wide range of battery technologies, facilitating its adoption across diverse sectors.
-4. **Enhanced Data Quality and Analysis**: The EcoPass KIT enables the collection and management of high-quality data throughout the product lifecycle. This wealth of information can be used by stakeholders to make data-driven decisions, optimize processes and identify opportunities for innovation and improvement in battery design, manufacturing and recycling.
-5. **Facilitated Regulatory Compliance**: With the EcoPass KIT in place, businesses can more easily comply with the evolving regulations and industry standards related to battery traceability and sustainability. The digital product passport provides a comprehensive record of the battery's lifecycle, supporting compliance management and reducing the risk of penalties and reputational damage.
+Please note that Use Case 2 is not available in the current version of the standard and will be added later.
 
-By providing a standardized, scalable and easy-to-adopt solution, the EcoPass KIT will play a significant role in addressing the challenges of product traceability and sustainability in the automotive industry, promoting a more transparent, environmentally friendly and circular economy.
 
 ## Semantic Models
 
@@ -1347,415 +1311,6 @@ The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-
 ```
 
 </details>
-
-### Electric Drive Passport
-
-#### Electric Drive Introduction
-
-In July 2023, the European Commission presented a proposal for a regulation addressing the whole life cycle of vehicles, from design to end-of-life, aimed at improving design and end-of-life management of vehicles for a more resource-efficient automotive sector. As preparation for the implementation of the proposed regulation and its requirements, manufacturers and OEMs within the Catena-X network decided on developing data models for the most commonly used products. As well as the transmission, the electric drive is one of such a component.
-
-The data model corresponds to the [digital product passport](#digital-product-passport) information required by the proposed Ecodesign Regulation and describes the data that is collected and available during the lifespan of a electric drive. The consumers can see at a glance the relevant data about the electric drive which is installed in the specified vehicle. The Electric Drive Passport model `v.2.0.0` includes the following product specific information:
-
-- General information
-- System and performance data
-- Inverter information
-- E-Machine information
-- Transmission information
-- Cooling and lubricants information
-- Specific documents
-
-Product unspecific information incudes following information:
-
-- Passport metadata
-- Product identification
-- Product operation
-- Product handling
-- Product characteristic
-- Sustainability information
-- Materials information
-- Commercial information
-- Sources (documents)
-
-References to shared aspects are the following:
-
-- urn:samm:io.catenax.generic.digital_product_passport:5.0.0
-- urn:samm:io.catenax.transmission.transmission_pass:3.0.0
-- urn:samm:io.catenax.shared.quantity:2.0.0
-- and indirect references from the above mentioned aspects
-
-It is important to note that the data model contains information/data fields, which are mandatory for the fulfillment of the regulation ([ESPR-2022](https://commission.europa.eu/energy-climate-change-environment/standards-tools-and-labels/products-labelling-rules-and-requirements/sustainable-products/ecodesign-sustainable-products_en)). It is also worth mentioning that sharing information within the network is based on decentralized technologies and is always based on the individual decision of each provider.
-
-#### Link to current Electric Drive model
-
-The semantic models are located [here](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.electric_drive.electric_drive_passport). For each version there is a separated directory containing the ttl-file and a generated samples.
-
-#### Example Electric Drive Payload
-
-<details>
-  <summary>Payload</summary>
-
-```json
-{
-  "specific" : {
-    "eMachine" : {
-      "ratedSpeed" : 8000.0,
-      "weight" : {
-        "value" : 20.0,
-        "unit" : "unit:gram"
-      },
-      "permanentMagnetType" : "Ceramic",
-      "statorDiameter" : 450.0,
-      "id" : "1785030A72B5752",
-      "technology" : "ESM"
-    },
-    "transmission" : {
-      "transmissionId" : "384502A54FC9",
-      "gearboxStructure" : "Planetary",
-      "oil" : {
-        "oilType" : [ "Transmission Oil XY" ],
-        "oilCapacity" : 8.9
-      }
-    },
-    "inverter" : {
-      "maximumPhaseCurrent" : 700.0,
-      "inverterCurrent" : 500.0,
-      "softwareVersion" : "2.525.b"
-    },
-    "generalInformation" : {
-      "compatibleVehicleTypes" : [ "battery-electric vehicle" ],
-      "service" : {
-        "history" : [ "2020-02-15" ],
-        "lastServiceDate" : "2022-03-03"
-      }
-    },
-    "systemAndPerformance" : {
-      "torque" : {
-        "maximum" : {
-          "value" : 300.0,
-          "maximumAvailability" : 10
-        },
-        "maxAxle" : {
-          "value" : 300.0,
-          "maximumAvailability" : 10
-        },
-        "continuous" : 178
-      },
-      "gearRatio" : 4.1567,
-      "power" : {
-        "maximum" : {
-          "value" : 200.0,
-          "ECER85" : 195.0,
-          "maximumAvailability" : 10
-        },
-        "continuousRegenerated" : 5.0,
-        "maxRegenerated" : {
-          "maxValue" : 200.0,
-          "maximumAvailability" : 10
-        },
-        "continuous" : 16
-      },
-      "voltage" : 400.0
-    },
-    "electricDriveDocuments" : {
-      "requiredToolsForDismantling" : [ {
-        "contentType" : "URL",
-        "header" : "Example Document XYZ",
-        "content" : "https://dummy.link"
-      } ],
-      "technicalDismantlingInstructions" : [ {
-        "contentType" : "URL",
-        "header" : "Example Document XYZ",
-        "content" : "https://dummy.link"
-      } ]
-    },
-    "coolingAndLubricants" : {
-      "maximumOilPressure" : 4.82633,
-      "oilCapacityEdrive" : 50.0,
-      "maximumOilTemperature" : 80.5,
-      "coolingTopology" : "air-cooled",
-      "oilTypeEdrive" : "5W-30",
-      "oilModule" : true,
-      "minimumOilPressure" : 2.068427
-    }
-  },
-  "generic" : {
-    "metadata" : {
-      "backupReference" : "https://dummy.link",
-      "registrationIdentifier" : "https://dummy.link/ID8283746239078",
-      "economicOperatorId" : "BPNL0123456789ZZ",
-      "lastModification" : "2000-01-01",
-      "predecessor" : "urn:uuid:00000000-0000-0000-0000-000000000000",
-      "issueDate" : "2000-01-01",
-      "version" : "1.0.0",
-      "passportIdentifier" : "urn:uuid:550e8400-e29b-41d4-a716-446655440000",
-      "status" : "draft",
-      "expirationDate" : "2030-01-01"
-    },
-    "characteristics" : {
-      "generalPerformanceClass" : "A",
-      "physicalState" : "solid",
-      "physicalDimension" : {
-        "volume" : {
-          "value" : 20.0,
-          "unit" : "unit:cubicMetre"
-        },
-        "grossWeight" : {
-          "value" : 20.0,
-          "unit" : "unit:gram"
-        },
-        "diameter" : {
-          "value" : 20.0,
-          "unit" : "unit:millimetre"
-        },
-        "grossVolume" : {
-          "value" : 20.0,
-          "unit" : "unit:cubicMetre"
-        },
-        "width" : {
-          "value" : 20.0,
-          "unit" : "unit:millimetre"
-        },
-        "length" : {
-          "value" : 20.0,
-          "unit" : "unit:millimetre"
-        },
-        "weight" : {
-          "value" : 20.0,
-          "unit" : "unit:gram"
-        },
-        "height" : {
-          "value" : 20.0,
-          "unit" : "unit:millimetre"
-        }
-      },
-      "lifespan" : [ {
-        "value" : 36,
-        "unit" : "unit:day",
-        "key" : "guaranteed lifetime"
-      } ]
-    },
-    "commercial" : {
-      "placedOnMarket" : "2000-01-01",
-      "purpose" : [ "automotive" ]
-    },
-    "identification" : {
-      "batch" : [ {
-        "value" : "BID12345678",
-        "key" : "batchId"
-      } ],
-      "codes" : [ {
-        "value" : "8703 24 10 00",
-        "key" : "TARIC"
-      } ],
-      "type" : {
-        "manufacturerPartId" : "123-0.740-3434-A",
-        "nameAtManufacturer" : "Mirror left"
-      },
-      "classification" : [ {
-        "classificationStandard" : "GIN 20510-21513",
-        "classificationID" : "1004712",
-        "classificationDescription" : "Generic standard for classification of parts in the automotive industry."
-      } ],
-      "serial" : [ {
-        "value" : "SN12345678",
-        "key" : "partInstanceId"
-      } ],
-      "dataCarrier" : {
-        "carrierType" : "QR",
-        "carrierLayout" : "upper-left side"
-      }
-    },
-    "sources" : [ {
-      "header" : "Example Document XYZ",
-      "category" : "Product Specifications",
-      "type" : "URL",
-      "content" : "https://dummy.link"
-    } ],
-    "materials" : {
-      "substancesOfConcern" : {
-        "applicable" : true,
-        "content" : [ {
-          "unit" : "unit:partPerMillion",
-          "hazardClassification" : {
-            "category" : "category 1A",
-            "statement" : "Causes severe skin burns and eye damage.",
-            "class" : "Skin corrosion"
-          },
-          "documentation" : [ {
-            "contentType" : "URL",
-            "header" : "Example Document XYZ",
-            "content" : "https://dummy.link"
-          } ],
-          "concentrationRange" : [ {
-            "max" : 2.6,
-            "min" : 2.1
-          } ],
-          "location" : "Housing",
-          "concentration" : 5.3,
-          "exemption" : "shall not apply to product x containing not more than 1,5 ml of liquid",
-          "id" : [ {
-            "type" : "CAS",
-            "name" : "phenolphthalein",
-            "id" : "201-004-7"
-          } ]
-        } ]
-      },
-      "materialComposition" : {
-        "applicable" : true,
-        "content" : [ {
-          "unit" : "unit:partPerMillion",
-          "recycled" : 12.5,
-          "critical" : true,
-          "renewable" : 23.5,
-          "documentation" : [ {
-            "contentType" : "URL",
-            "header" : "Example Document XYZ",
-            "content" : "https://dummy.link"
-          } ],
-          "concentration" : 5.3,
-          "id" : [ {
-            "type" : "CAS",
-            "name" : "phenolphthalein",
-            "id" : "201-004-7"
-          } ]
-        } ]
-      }
-    },
-    "handling" : {
-      "applicable" : true,
-      "content" : {
-        "producer" : [ {
-          "id" : "BPNL0123456789ZZ"
-        } ],
-        "sparePart" : [ {
-          "manufacturerPartId" : "123-0.740-3434-A",
-          "nameAtManufacturer" : "Mirror left"
-        } ]
-      }
-    },
-    "operation" : {
-      "import" : {
-        "applicable" : true,
-        "content" : {
-          "eori" : "GB123456789000",
-          "id" : "BPNL0123456789ZZ"
-        }
-      },
-      "other" : {
-        "id" : "BPNL0123456789XX",
-        "role" : "distributor"
-      },
-      "manufacturer" : {
-        "facility" : [ {
-          "facility" : "BPNA1234567890AA"
-        } ],
-        "manufacturingDate" : "2000-01-31",
-        "manufacturer" : "BPNLBfN4ucXtBZdg"
-      }
-    },
-    "sustainability" : {
-      "reparabilityScore" : "B",
-      "productFootprint" : {
-        "material" : [ {
-          "lifecycle" : "main product production",
-          "rulebook" : [ {
-            "contentType" : "URL",
-            "header" : "Example Document XYZ",
-            "content" : "https://dummy.link"
-          } ],
-          "unit" : "kg CO2 / kWh",
-          "performanceClass" : "A",
-          "manufacturingPlant" : [ {
-            "facility" : "BPNA1234567890AA"
-          } ],
-          "type" : "Climate Change Total",
-          "value" : 12.678,
-          "declaration" : [ {
-            "contentType" : "URL",
-            "header" : "Example Document XYZ",
-            "content" : "https://dummy.link"
-          } ]
-        } ],
-        "carbon" : [ {
-          "lifecycle" : "main product production",
-          "rulebook" : [ {
-            "contentType" : "URL",
-            "header" : "Example Document XYZ",
-            "content" : "https://dummy.link"
-          } ],
-          "unit" : "kg CO2 / kWh",
-          "performanceClass" : "A",
-          "manufacturingPlant" : [ {
-            "facility" : "BPNA1234567890AA"
-          } ],
-          "type" : "Climate Change Total",
-          "value" : 12.678,
-          "declaration" : [ {
-            "contentType" : "URL",
-            "header" : "Example Document XYZ",
-            "content" : "https://dummy.link"
-          } ]
-        } ],
-        "environmental" : [ {
-          "lifecycle" : "main product production",
-          "rulebook" : [ {
-            "contentType" : "URL",
-            "header" : "Example Document XYZ",
-            "content" : "https://dummy.link"
-          } ],
-          "unit" : "kg CO2 / kWh",
-          "performanceClass" : "A",
-          "manufacturingPlant" : [ {
-            "facility" : "BPNA1234567890AA"
-          } ],
-          "type" : "Climate Change Total",
-          "value" : 12.678,
-          "declaration" : [ {
-            "contentType" : "URL",
-            "header" : "Example Document XYZ",
-            "content" : "https://dummy.link"
-          } ]
-        } ]
-      },
-      "status" : "original",
-      "durabilityScore" : "A"
-    }
-  }
-}
-```
-
-</details>
-
-## Creation of new passports
-
-The process for the creation can be structured like following:
-
-- Preparation phase
-- Research phase
-- Documentation phase
-- Approval phase I.
-- Data modelling phase
-- Approval phase II.
-- Release phase
-- Communication & Standardization
-
-In case of a new proposal, the checking of the already existing passports or aspect models is necessary. If none of the already existing passports or aspect models comply with the proposed requirements a new passport must be requested.
-
-In case of request from one of the involved companies, the checking of the already existing passports or aspect models is necessary. If none of the already existing aspect models fulfil the request a new aspect model must be requested.
-
-Development teams should be formed and designated. The team members must be from at least two different companies, that has involvement in the production of the product which the aspect model was requested for. From each of the involved companies subject matter experts should get involved. Involvement of a legal expert is necessary. The lifecycle of the product and the related scenarios should be discovered and documented. Scenarios should be assigned to the responsible parties. All responsible parties should validate their data availability.
-
-Collection of possible data attributes must be documented in a shared file. The possible data attributes should be aligned with the already existing, related aspect models to avoid duplications. After the list of the possible attributes are agreed on by the responsible parties, for testing and validation purposes other companies should be involved.
-
-In case of a new or changed aspect model, the changes need to be submitted and requested from the association. The approval is dependent on many different factors.
-
-Linking with other already existing data models, if reasonable, is mandatory. The data model must be created with the catena-x conform modelling language.
-
-To get the approval, specific requirements have to be fulfilled. Several iterations between modelling adjustments and reviews can be made.
-
-Note: Data model creation and standardization will be supported in the association
-
-![Image: Passport Creation](./resources/adoption-view/passport_model_creation.svg)
 
 ## Business Architecture
 
