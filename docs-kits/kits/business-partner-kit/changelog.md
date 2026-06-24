@@ -11,6 +11,24 @@ sidebar_position: 1
 
 All notable changes to this KIT will be documented in this file.
 
+## [11.0.0] - 2026-06-11
+
+Compatible for **release 26.06**.
+
+### Added
+
+- Added an Administration section to the operation view covering metadata management, BPN request identifiers and direct golden record updates via the Pool API.
+
+### Changed
+
+- Aligned the Business Partner KIT with BPDM application version 7.4.0 and BPDM Helm Charts version 7.0.0.
+- Updated the API Hub hyperlinks for the Gate, Pool and Orchestrator services in the development view to use BPDM Application version 7.4.0.
+- Reworked the operation view Helm installation guide for the breaking BPDM Helm Charts 7.0.0 changes (Postgres 15→18 and Keycloak 25→26, both Bitnami→Cloudpirates), including the new `postgres.customUser`, `bpdmRealm.clients`, `springProfiles` and external dependency value structures, and added a migration guide reference.
+
+### Removed
+
+- ./.
+
 ## [10.1.0] - 2026-03-18
 
 Compatible for **release 26.03**.
