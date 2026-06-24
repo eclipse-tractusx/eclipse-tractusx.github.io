@@ -969,8 +969,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #e4a4de 0%, #ac23a7 100%)'
       },
       maturity: {
-        currentLevel: 'Sandbox',
-        graduationStatus: 'draft'
+        currentLevel: 'Incubating',
+        graduationStatus: 'in progress'
       },
       deprecated: false,
       domain: 'Engineering',
