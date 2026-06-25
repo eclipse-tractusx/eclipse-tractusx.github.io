@@ -1054,8 +1054,8 @@ export const kitsData = {
       logoLicencse: {
         type: 'CC-BY-4.0',
         authors: '2026 Eclipse Tractus-X Contributors',
-        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcfdataacquisition/pcfdataacquisition-kit-logo.svg.license',
-        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcfdataacquisition/pcfdataacquisition-kit-logo.svg'
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcfdataacquisition/pcfdataacquisition-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcfdataacquisition/pcfdataacquisition-kit-raw-logo.svg'
       },
       logoHeight: 100,
       logoWidth: 100,
