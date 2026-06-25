@@ -118,18 +118,6 @@ The following diagram shows the digital twin structure used to represent eSDScom
 
 ![eSDScom Digital Twin Structure](../resources/digital-twin-structure.svg)
 
-##### Description
-
-Purpose: The SAMM defines the eSDScom data model used to exchange eSDScom-relevant SDS information between an OEM (customer) and a supplier.
-Request vs Response separation: The SAMM cleanly separates request and response concerns: the request model specifies what the OEM may ask for (scope, requested elements, identifiers), while the response model specifies what the supplier must provide the requested SDS data, enabling clear responsibilities and automated schema generation.
-
-#### Standards
-
-Technical standards and protocol compliance are not applicable.
-
-#### Tutorials
-
-Developer quick-start guides and code examples are not yet available.
 
 ### Sample data in multiple formats (JSON, XML, CSV)
 

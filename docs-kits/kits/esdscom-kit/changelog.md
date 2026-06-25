@@ -43,25 +43,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   - Architecture overview and diagrams
   - Data model and semantic model references
 - Added architecture diagrams and resources in `resources/`
-### Changed
 
-- Nothing yet
-
-### Deprecated
-
-- Nothing yet
-
-### Removed
-
-- Nothing yet
-
-### Fixed
-
-- Nothing yet
-
-### Security
-
-- Nothing yet
 
 ## NOTICE
 

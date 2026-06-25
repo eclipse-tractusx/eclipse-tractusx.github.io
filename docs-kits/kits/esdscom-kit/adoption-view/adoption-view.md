@@ -147,7 +147,10 @@ The eSDScom ontology is based on the eSDScom XML schema definition version 5.6, 
 
 ### Core Semantic Models
 
-[io.catenax.esdscom 1.0.0 extended Safety Data Sheet communication](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.esdscom/1.0.0)
+<details>  
+<summary><strong>Catena-X Safety Datasheet Model Payload</summary>  
+
+Add your model here:  
 
 ### Model Example
 
