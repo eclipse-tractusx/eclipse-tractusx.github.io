@@ -84,7 +84,7 @@ Each company operates the same two-component setup. The first is a eSDScom App, 
 
 There are two use cases for eSDScom data exchange:
 
-Use case 1: The provider (supplier) is sending a SDS
+Use case 1: The provider (supplier) is sending an SDS
 Use case 2: The consumer (customer, client or recipient) is requesting an SDS
 
 Before any data moves, both connectors perform an authorization handshake to confirm the identities of both parties and verify that the data sharing conditions are met. Once authorized, the notification is sent to the provider or consumer (depending on the above use cases) eSDScom App. It prepares the response, and sends it back in the opposite direction.
