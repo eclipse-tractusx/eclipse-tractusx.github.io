@@ -24,7 +24,8 @@ All notable changes to this Kit will be documented in this file.
     - added version 3 to [open api documentation][connector data asset structure](./software-development-view/demandAndCapacityNotification.md#open-api-documentation)
 - standard maintenance in [adoption view][connector data asset structure](./adoption-view.md#standards)
   - replace puris standards with new summarized CX-0157
-  - remove CX-0001 EDC Discovery as its now part of CX-0018
+  - remove CX-0001 EDC Discovery as its now part of CX-0018 Dataspace Connectivity
+  - add CX-0152 Policy Constraints for Data Exchange and update [usage policy example](./software-development-view/policies.md#usage-policies)
 
 ### Deprecated
 

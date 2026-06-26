@@ -285,16 +285,17 @@ The relevant standards can be found in the [Catena-X Association Standard Librar
 
 ### Normative References
 
-| Standard | Standard Name                       |
-| -------- | ----------------------------------- |
-| CX-0003  | SAMM Aspect Meta Model              |
-| CX-0006  | Registration and initial onboarding |
-| CX-0010  | Business Partner Number (BPN)       |
-| CX-0015  | IAM and Access Control Paradigm     |
-| CX-0018  | Dataspace Connectivity              |
-| CX-0126  | Industry Core: Part Type            |
-| CX-0149  | Verified Company Identity           |
-| CX-0151  | Industry Core Basics                |
+| Standard | Standard Name                        |
+| -------- | ------------------------------------ |
+| CX-0003  | SAMM Aspect Meta Model               |
+| CX-0006  | Registration and initial onboarding  |
+| CX-0010  | Business Partner Number (BPN)        |
+| CX-0015  | IAM and Access Control Paradigm      |
+| CX-0018  | Dataspace Connectivity               |
+| CX-0126  | Industry Core: Part Type             |
+| CX-0149  | Verified Company Identity            |
+| CX-0151  | Industry Core Basics                 |
+| CX-0152  | Policy Constraings for Data Exchange |
 
 Table 3: _List of normative standards._
 
