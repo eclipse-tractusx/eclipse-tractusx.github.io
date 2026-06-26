@@ -74,3 +74,4 @@ openApiSpecs:
 
 # PURIS KIT
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/supply-chain-disruption-notification/kit_supply-chain-disruption-notification-demandAndCapacityNotification-openAPI_2.0.0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/supply-chain-disruption-notification/kit_supply-chain-disruption-notification-demandAndCapacityNotification-openAPI_3.0.0.yaml"

@@ -281,13 +281,12 @@ The notification Tier 1.2 to OEM 2 is ignored in this example for the sake of re
 
 The relevant standards can be found in the [Catena-X Association Standard Library](https://catenax-ev.github.io/docs/next/standards/overview):
 
-- [CX-0146 Supply Chain Disruption Notifications 2.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0146-SupplyChainDisruptionNotifications)
+- [CX-0146 Supply Chain Disruption Notifications 3.0.0](https://catenax-ev.github.io/docs/next/standards/CX-0146-SupplyChainDisruptionNotifications)
 
 ### Normative References
 
 | Standard | Standard Name                       |
-| -------- |-------------------------------------|
-| CX-0001  | EDC Discovery API                   |
+| -------- | ----------------------------------- |
 | CX-0003  | SAMM Aspect Meta Model              |
 | CX-0006  | Registration and initial onboarding |
 | CX-0010  | Business Partner Number (BPN)       |
@@ -301,14 +300,10 @@ Table 3: _List of normative standards._
 
 ### Non-Normative References
 
-| Context   | Link                                         |
-| --------- | -------------------------------------------- |
-| CX - 0118 | Delivery Information                         |
-| CX - 0120 | Short-Term Material Demand                   |
-| CX - 0121 | Planned Production Output                    |
-| CX - 0122 | Item Stock                                   |
-| CX - 0128 | Demand and Capacity Management Data Exchange |
-| CX - 0145 | Days of Supply                               |
+| Context   | Link                                                  |
+| --------- | ----------------------------------------------------- |
+| CX - 0128 | Demand and Capacity Management Data Exchange          |
+| CX - 0157 | Predictive Unit Real-Time Information Service (PURIS) |
 
 Table 4: _List of non-normative standards._
 
