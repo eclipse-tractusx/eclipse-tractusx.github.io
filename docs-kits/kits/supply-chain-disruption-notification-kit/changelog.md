@@ -7,9 +7,27 @@ sidebar_position: 1
 
 ![Supply Chain Disruption Notifications kit banner](@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-logo.svg)
 
-### Supply Chain Disruption Notifications
-
 All notable changes to this Kit will be documented in this file.
+
+## [3.0.0] - 2026-09-16
+
+### Changed
+
+- ensure that the scheme and examples don't use a property `demandAndCapacityNotification` in object `content`. A mistake has been made in version 2.0.0 removing it in the examples but not in the schema. As the schema is more leading, this is considered a major instead of a bugfix change. Thus, switch to [version 3.0.0 api scheme](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-supply-chain-disruption-notification-demandAndCapacityNotification-openAPI-v3/swagger-ui/)
+  - adoption view:
+    - bump standard version in [standards section](./adoption-view.md#standards)
+  - development view (demand and capacity notification):
+    - bump version in [connector data asset structure](./software-development-view/demandAndCapacityNotification.md#connector-data-asset-structure), [versioning](./software-development-view/demandAndCapacityNotification.md#versioning), [sample data](./software-development-view/demandAndCapacityNotification.md#sample-data)
+    - removed `demandAndCapacityNotification` property from object `content` in [sample data](./software-development-view/demandAndCapacityNotification.md#sample-data)
+    - added version 3 to [open api documentation](./software-development-view/demandAndCapacityNotification.md#open-api-documentation)
+- standard maintenance in [adoption view](./adoption-view.md#standards)
+  - replace puris standards with new summarized CX-0157
+  - remove CX-0001 EDC Discovery as its now part of CX-0018 Dataspace Connectivity
+  - add CX-0152 Policy Constraints for Data Exchange and update [usage policy example](./software-development-view/policies.md#usage-policies)
+
+### Deprecated
+
+- api version `2.0.0` is now deprecated and will be fully removed with 27.09.
 
 ## [2.0.0] - 2025-08-22
 

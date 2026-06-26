@@ -103,14 +103,14 @@ Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-m
     "http://www.w3.org/ns/odrl.jsonld",
     {
       "edc": "https://w3id.org/edc/v0.0.1/ns/",
-      "cx-policy": "https://w3id.org/catenax/policy/"
+      "cx-policy": "https://w3id.org/catenax/2025/9/policy/context.jsonld"
     }
   ],
   "@type": "PolicyDefinitionRequestDto",
   "@id": "<POLICY-ID>",
   "edc:policy": {
     "@type": "Set",
-    "profile": "cx-policy:profile2405",
+    "profile": "cx-policy:profile2509",
     "permission": [
       {
         "action": "use",
@@ -126,14 +126,18 @@ Policies are defined based on the [W3C ODRL format](https://www.w3.org/TR/odrl-m
             {
               "@type": "LogicalConstraint",
               "leftOperand": "cx-policy:UsagePurpose",
-              "operator": "eq",
-              "rightOperand": "<USAGE-PURPOSE>"
+              "operator": "isAnyOf",
+              "rightOperand": [
+                "<USAGE-PURPOSE>"
+              ]
             },
             {
               "@type": "LogicalConstraint",
               "leftOperand": "cx-policy:ContractReference",
-              "operator": "eq",
-              "rightOperand": "x12345"
+              "operator": "isAllOf",
+              "rightOperand": [
+                "x12345"
+              ]
             }
           ]
         }
@@ -150,7 +154,7 @@ It is recommended to use the following values for rightOperand of `FrameworkAgre
 | DCM      | `DataExchangeGovernance:1.0`   | `cx.dcm.base:1`          |
 | PURIS    | `DataExchangeGovernance:1.0`   | `cx.puris.base:1`        |
 
-More information can be found in the [Policies in Catena-X of the Connector KIT](./../../connector-kit/adoption-view/policies-in-catena.md).
+More information can be found in the [Policies in Catena-X of the Connector KIT](./../../connector-kit/adoption-view/policies-in-catena.md). You can additionally use the [policy builder](https://eclipse-tractusx.github.io/tractusx-edc-dashboard/policy-builder/).
 
 ## Notice
 
