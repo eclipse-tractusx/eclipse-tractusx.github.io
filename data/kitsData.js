@@ -103,6 +103,7 @@ import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.sv
 import CCMKitLogo from "@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg";
 import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
 import MaterialAccountingKitLogo from "@site/static/img/kits/material-accounting/material-accounting-kit-raw-logo.svg";
+import EsdscomKitLogo from "@site/static/img/kits/esdscom-kit/esdscom-kit-raw-logo.svg";
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
 import PrecisionManufacturing from '@mui/icons-material/PrecisionManufacturing';
@@ -469,6 +470,38 @@ export const kitsData = {
     },
   ],
   useCases: [
+    {
+      id: 'esdscom',
+      name: 'eSDS COMMUNICATION KIT',
+      logo: EsdscomKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 eSDScom Workgroup and contributors; 2026 Catena-X Automotive Network e.V.; 2026 Contributors to the Eclipse Foundation',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/esdscom-kit/esdscom-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/esdscom-kit/esdscom-kit-raw-logo.svg'
+      },
+      logoHeight: 90,
+      logoWidth: 90,
+      route: '/docs-kits/next/kits/esdscom-kit/adoption-view',
+      colors: {
+        primary: '#E8730C',
+        gradient: 'linear-gradient(135deg, #F5A623 0%, #E8730C 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Supply Chain',
+      industries: ['chemical','automotive'],
+      description: 'Standardized exchange of safety data sheets, exposure scenarios and compliance information in the global chemical supply chain.',
+      metadata: {
+        created: '2025-09-01',
+        lastUpdated: '2026-04-02',
+        latestVersion: '1.0.0',
+        new: true
+      }
+    },
     {
       id: 'ess',
       name: 'ESS KIT',
