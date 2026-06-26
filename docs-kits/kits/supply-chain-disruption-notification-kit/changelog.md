@@ -7,8 +7,6 @@ sidebar_position: 1
 
 ![Supply Chain Disruption Notifications kit banner](@site/static/img/kits/supply-chain-disruption-notification/supply-chain-disruption-notification-kit-logo.svg)
 
-### Supply Chain Disruption Notifications
-
 All notable changes to this Kit will be documented in this file.
 
 ## [3.0.0] - 2026-09-16
