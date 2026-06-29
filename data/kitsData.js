@@ -103,6 +103,7 @@ import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.sv
 import CCMKitLogo from "@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg";
 import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
 import MaterialAccountingKitLogo from "@site/static/img/kits/material-accounting/material-accounting-kit-raw-logo.svg";
+import UPaaSKitLogo from "@site/static/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg";
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
 import PrecisionManufacturing from '@mui/icons-material/PrecisionManufacturing';
@@ -1148,7 +1149,43 @@ export const kitsData = {
         }
       }
     ],
-    "semiconductor": [],
+    "semiconductor": [
+      {
+        id: 'unit-process-as-a-service',
+        name: 'Unit Process as a Service KIT',
+        logo: UPaaSKitLogo,
+        logoLicencse: {
+          type: 'CC-BY-4.0',
+          authors: '2026 Eclipse Tractus-X Contributors',
+          licenseUrl: '/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg.license',
+          sourceUrl: '/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg'
+        }
+        ,
+        logoHeight: 80,
+        logoWidth: 80,
+        route: '/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view',
+        /*
+        next included since docusaurus is routing to current versions otherwise; since UPaaS not yet featured it has to routed as unreleased "next" version to be dispalyed on local server
+        */
+        colors: {
+          primary: '#0a8276',
+          gradient: 'linear-gradient(135deg, #5fb4ab 0%, #0a8276 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Semiconductor Manufacturing',
+        description: 'Enabling the exchange of data and services related to unit processes in semiconductor production.',
+        metadata: {
+          created: '2026-06-29',
+          lastUpdated: '2026-06-29',
+          latestVersion: '1.0.0',
+          new: true
+        }
+      }
+    ],
     "construction": [],
     "automotive": [{
         id: 'modular-engineering',
@@ -1309,7 +1346,7 @@ export const industries = [
         },
         subtitle: 'Semiconductor Network',
         description: 'Contributing to a cross-sector international dataspace and digital twin standards for resilient semiconductor supply chains.',
-        kits: ['connector', 'digital-twin', 'industry-core', 'traceability', 'pcf', 'dcm']
+        kits: ['connector', 'digital-twin', 'industry-core', 'traceability', 'pcf', 'dcm', 'unit-process-as-a-service']
       }
     ]
   },
