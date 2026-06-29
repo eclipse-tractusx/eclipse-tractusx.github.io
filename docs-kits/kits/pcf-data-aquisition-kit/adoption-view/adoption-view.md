@@ -1,7 +1,6 @@
-
 ---
-id: data-acquisition-for-product-carbon-footprint-calculation-kit
-title: Adaption view - data acquisition for Product Carbon Footprint calculation
+id: adoption-view
+title: Adaption View
 description: 'Adoption view - Data acquisition for Product Carbon Footprint calculation KIT'
 sidebar_position: 1
 ---
@@ -35,7 +34,6 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 <!--
 KIT LOGO END
 -->
-# Data Acquisition for Product Carbon Footprint Calculation KIT (Adoption View)
 
 ## Introduction
 
@@ -43,34 +41,35 @@ Accurate Product Carbon Footprint (PCF) calculation depends on the quality and c
 
 This KIT addresses exactly this upstream challenge: how to acquire, structure, and provide the data inputs necessary for PCF calculation. It serves as a practical, reusable blueprint for software providers, solution developers, and factory operators who need to implement reliable data acquisition pipelines in real industrial environments.
 
-**Please note that the KIT only gives examples on how the data can be obtained - other methods can be as valid as the solutions described here.** 
+**Please note that the KIT only gives examples on how the data can be obtained - other methods can be as valid as the solutions described here.**
 
 Specifically this KIT describes, how PCF data can be collected on Instance or Batch level. This is only sensible if the IT Architecture in a given environment is already set up to collect data with this granularity or if the results are used for further purposes like PCF optimization. Methods that use averaged consumption data can be as valid as the approaches described here.
 
-For guidance on how the acquired data is subsequently exchanged and reported, refer to the **[PCF Exchange KIT](../../product-carbon-footprint-exchange-kit/)** . An overarching description of the end-to-end PCF process and methodology can be found in the **[Catena-X Rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf)** and in the _Manufacturing-X Guidelines_. Additional guidance on PCF calculations can be found in the _Factory-X PCF Guidance Document_.
+For guidance on how the acquired data is subsequently exchanged and reported, refer to the **[PCF Exchange KIT](../../product-carbon-footprint-exchange-kit/adoption-view)** . An overarching description of the end-to-end PCF process and methodology can be found in the **[Catena-X Rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf)** and in the _Manufacturing-X Guidelines_. Additional guidance on PCF calculations can be found in the _Factory-X PCF Guidance Document_.
 
 ## Vision and Mission
+
 ## Vision
 
 Our vision is to empower manufacturers and supply chain actors to:
 
 - Leverage primary data: Utilize actual energy consumption and transport emission data measured at the source, replacing generic emission factors with verifiable values
 - Enable digital integration: Facilitate seamless data exchange between shopfloor systems, production planning, logistics platforms, and PCF management tools
+
 ## Mission
 
 Our mission is to provide standardized, implementable blueprints for the accurate acquisition of Product Carbon Footprint (PCF)-relevant data. for this we provide blueprints, described along the following three examplary environments:
+
 - Collection of Manufacturing data for PCF calculation
   - Using Manufacturing Execution Systems
   - Using Asset Administration Shells
 - Collection of Logistics data for PCF calculation
 
-
 ## Business Context
 
 Calculating a product's carbon footprint requires data from multiple domains within and across company boundaries. The reference architecture below illustrates how suppliers, factory operators, and logistics companies interact to provide the data inputs for PCF calculation (PCF Exchange cross company is excluded here, as it is handled in the PCF Exchange KIT).
 
-![](../resources/img/Architektur_KIT.png)
-
+![PCF data acquisition reference architecture](../resources/img/Architektur_KIT.png)
 
 ## KIT Structure
 
@@ -78,24 +77,20 @@ This KIT is structured into three sub-sections, each addressing one data acquisi
 
 - Adoption view
   - Collection of Manufacturing data for PCF calculation
-    - Using Manufacturing Execution System
-    - Using Asset Administration Shell
-  - Collection of Logistics data for PCF calculation
+    - [Using Manufacturing Execution System (MES)](data-acquisition-with-mes.md)
+    - [Using Asset Administration Shell](data-acquisition-with-aas.md)
+  - [Collection of Logistics data for PCF calculation](data-acquisition-logistics.md)
 - Development view
   - Collection of Manufacturing data for PCF calculation
-    - Using Manufacturing Execution System
-    - Using Asset Administration Shell
-  - Collection of Logistics data for PCF calculation
-
+    - [Using Manufacturing Execution System (MES)](../development-view/development-with-MES.md)
+    - [Using Asset Administration Shell](../development-view/development-without-MES.md)
+  - [Collection of Logistics data for PCF calculation](../development-view/development-logistics.md)
 
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [ESTAINIUM]
-- SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 ESTAINIUM e.V.
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
-
-
-

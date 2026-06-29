@@ -5,18 +5,12 @@ description: Logistics KIT
 sidebar_position: 1
 ---
 
-![Logistics kit banner](@site/static/img/kits/logistics/logistics-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
-## [1.0.0] - 2025-02-12
+<Kit3DLogo kitId='pcf-data-acquisition'/>
+
+## [0.0.1] - 2026-06-29
 
 ### Added
 
 - Initial version of the KIT including the adoption views and development views
-
-### Changed
-
-- ./.
-
-### Removed
-
-- ./.

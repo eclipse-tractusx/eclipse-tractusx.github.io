@@ -1,7 +1,6 @@
 ---
-id: development-view-pcf-data-acquisition-using-mes-data
-title: Development View - PCF data aquistion using MES Data
-description: 'Development View - PCF data aquistion using MES Data KIT'
+id: development-with-MES
+title: MES Architecture Overview
 sidebar_position: 4
 ---
 
@@ -26,13 +25,14 @@ Do not remove!
 This logo is only visible when compiled with Docusarus (final version of the hosted KIT)
 -->
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
-<Kit3DLogo kitId="pcfdataacquisition"/>
+
+<Kit3DLogo kitId='pcf-data-acquisition'/>
 
 <!--
 KIT LOGO END
 -->
 
-# Development view - PCF data aquistion using MES data
+## PCF Data Acquisition - Using MES
 
 ## Architecture Overview
 
@@ -48,9 +48,7 @@ KIT LOGO END
 
 The technical architecture for the Manufacturing Product Carbon Footprint (PCF) solution, as depicted in the accompanying architecture diagram below, is specifically designed to enable fully automated, instance-based PCF calculation directly within the manufacturing environment. This solution focuses on integrating operational technology (OT) with information technology (IT) to provide real-time, granular insights into the carbon footprint of manufactured products.
 
-![](../../../resources/img/Architecture_Overview_Use_Case_With_MES_.png)
-
-
+![MES-based PCF technical architecture](../resources/img/Architecture_Overview_Use_Case_With_MES_.png)
 
 ## Core components
 
@@ -61,7 +59,7 @@ The technical architecture for the Manufacturing Product Carbon Footprint (PCF) 
 
 ## General data Exchange between components
 
-Source: [`1_MES_General_woMX_segmented.mmd`](1_MES_General_woMX_segmented.mmd)
+Source: `1_MES_General_woMX_segmented.mmd`
 
 ```mermaid
 sequenceDiagram
@@ -168,7 +166,6 @@ This diagram illustrates the sequential flow of data and the interactions betwee
 
 This visual blueprint aims to contribute significantly by clarifying complexity, enhancing accuracy, and facilitating integration within the PCF calculation process.
 
-
 ## Key design decisions
 
 1. Fully Automated, Instance-Based PCF Calculation: The central design decision is to achieve a fully automated, instance-based calculation of the PCF. This means that for every product manufactured, its specific carbon footprint can be determined without manual intervention. This is enabled by:
@@ -189,7 +186,6 @@ Data-Driven Optimization: By providing precise, instance-based PCF data, the sol
 
 ## Semantic Models / Data Model
 
-
 The Factory-X OPC-UA data model for data exchange between MES and automation systems was developed in alignment with the OPC-UA Foundation specifications. Our primary goal was to define an extension specifically tailored to the energy consumption information required by PCF management systems for calculating Product Carbon Footprints.
 
 The following illustration describes the logical structure of the OPC-UA Extention:
@@ -197,8 +193,7 @@ The following illustration describes the logical structure of the OPC-UA Extenti
 <details>
   <summary>Data Model Overview - click to expand</summary>
 
-
-![Bild](../../../resources/img/UPC_UA_Model_Entity_Relation.png "UPC UA Model Entity Relation.png")
+![OPC UA model entity relation](../resources/img/UPC_UA_Model_Entity_Relation.png "OPC UA Model Entity Relation.png")
 </details>
 
 The table below shows the details of each data field in the Factory-X OPC-UA data model:
@@ -207,7 +202,8 @@ The table below shows the details of each data field in the Factory-X OPC-UA dat
   <summary>PCF Data Model details - click to expand</summary>
 
 ---
-#### MachineType
+
+### MachineType
 
 | Attributes | Type | Values / Examples | Comment |
 |---|---|---|---|
@@ -224,7 +220,8 @@ The table below shows the details of each data field in the Factory-X OPC-UA dat
 | MESInterface | MESInterfaceType | “OpcenterInterface” | Optional |
 
 ---
-#### EnergyCounterType
+
+### EnergyCounterType
 
 | Attributes | Type | Values / Examples | Comment |
 |:---|:---:|---:|:---|
@@ -234,7 +231,8 @@ The table below shows the details of each data field in the Factory-X OPC-UA dat
 | EnergyCounterHistory | Array [1,1] | | Historical value collection. Includes array of value/timestamp pairs e.g. 30sec. This values will be taken for aggregation of consumptions per operation. |
 
 ---
-#### MESInterfaceType
+
+### MESInterfaceType
 
 | Attributes | Type | Values / Examples | Comment |
 |:---|:---:|---:|:---|
@@ -256,7 +254,9 @@ The table below shows the details of each data field in the Factory-X OPC-UA dat
 | … | | | |
 
 ---
+
 ### EnergyUsedType
+
 | Attributes | Type | Values / Examples | Comment |
 |:---|:---:|---:|:---|
 | EnergyType | Enumeration | „Electricity“, „CompressedAir“, „Gas“ „Water“, „Steam“, „Termal Energy“, „Fuel“ | Enumeration values are only an example |
@@ -266,6 +266,7 @@ The table below shows the details of each data field in the Factory-X OPC-UA dat
 | EnergyUsedAggregation | EnergyUsedAggregationType | | Optional object foreseen for provision of aggregated energy values: e.g. Electricity spent each 15 min |
 
 ---
+
 ### EnergyUsedAggregationType
 
 | Attributes | Type | Values / Examples | Comment |
@@ -295,6 +296,6 @@ The table below shows the details of each data field in the Factory-X OPC-UA dat
 This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Siemens]
-- SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Siemens AG
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

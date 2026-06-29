@@ -1,40 +1,13 @@
 ---
-id: adoption-view-collection-of-logistics-carbon-footprint-data-for-pcf-calculation
-title: Adoption View - collection of Logistics Carbon Footprint data for PCF calculation
+id: with-logicstics
+title: Data Acquisition via Logistics
 description: 'Adoption view - collection of Logistics Carbon Footprint data for PCF calculation'
 sidebar_position: 3
 ---
 
-<!--
-Copyright(c) 2026 Contributors to the Eclipse Foundation
-
-See the NOTICE file(s) distributed with this work for additional
-information regarding copyright ownership.
-
-This work is made available under the terms of the
-Creative Commons Attribution 4.0 International (CC-BY-4.0) license,
-which is available at
-https://creativecommons.org/licenses/by/4.0/legalcode.
-
-SPDX-License-Identifier: CC-BY-4.0
--->
-
-<!-- 
-KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
-Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
-Do not remove!
-This logo is only visible when compiled with Docusarus (final version of the hosted KIT)
--->
-
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
-<Kit3DLogo kitId="pcf-data-acquisition"/>
-
-<!--
-KIT LOGO END
--->
-
-# Adoption view - collection of Logistics Carbon Footprint data for PCF calculation
+<Kit3DLogo kitId='pcf-data-acquisition'/>
 
 ## Introduction
 
@@ -45,7 +18,6 @@ However, a fundamental challenge exists in the supply chain ecosystem: **each pa
 This information asymmetry makes it impossible for any single party to accurately calculate and report the logistics carbon footprint without collaboration. A dedicated platform is essential to bridge this gap and enable all three actors—supplier, customer, and logistics service provider—to securely exchange the relevant data needed for precise, standardized emission calculation.
 
 ## Vision and Mission
-
 
 ## Vision
 
@@ -83,15 +55,15 @@ The logistics carbon footprint management process involves three primary actors:
 
 The logistics platform acts as a neutral intermediary that enables secure, standardized data exchange:
 
-![](../../resources/img/Architecture_Logistics_.png)
+![Logistics PCF data flow architecture](../resources/img/Architecture_Logistics_.png)
 
 The green box in the above reference architecture on the right, specifically encompassing the Logistics Platform, represents the core processes and systems for managing and calculating the Logistics Product Carbon Footprint (PCF). This system focuses on enabling transparent and efficient data exchange between companies to accurately determine the environmental impact of product transportation. Its primary purpose is to capture, process, and allocate logistics-related emission data to individual shipments and and ultimately to the products themselves.
 
 To achieve this, the system interacts with several specialized business applications and **data exchange points**:
 
-* **Logistics Platform:** This central platform is crucial for the entire logistics PCF process. It serves as the hub where Suppliers/Customers upload Purchase Order (PO) and Dispatch Note (DN) information, including weight and routing details. It also receives confirmations of shipments (UCRs) and tracking data from logistics service providers regarding actual transport execution. Furthermore, logistics service providers submit actual, measured emissions data, calculated at the UCR level using primary data (fuel consumption, distance, mode of transport, load weight) or standardized emission factors. The platform then automatically allocates UCR-level emissions back to individual DNs based on weight distribution.
-* **ERP (Enterprise Resource Planning):** Integrated with the Logistics Platform, the ERP systems (both on the supplier and factory operator side) provide essential business data, such as purchase orders and dispatch notes, which are foundational for defining shipment scopes and initiating logistics processes.
-* **PCF Calculation Tool:** This tool receives the allocated logistics carbon footprints from the Logistics Platform. It then integrates these transport emissions with other relevant PCF data (e.g., from manufacturing, if applicable) to perform the final PCF calculation for the manufactured products.
+- **Logistics Platform:** This central platform is crucial for the entire logistics PCF process. It serves as the hub where Suppliers/Customers upload Purchase Order (PO) and Dispatch Note (DN) information, including weight and routing details. It also receives confirmations of shipments (UCRs) and tracking data from logistics service providers regarding actual transport execution. Furthermore, logistics service providers submit actual, measured emissions data, calculated at the UCR level using primary data (fuel consumption, distance, mode of transport, load weight) or standardized emission factors. The platform then automatically allocates UCR-level emissions back to individual DNs based on weight distribution.
+- **ERP (Enterprise Resource Planning):** Integrated with the Logistics Platform, the ERP systems (both on the supplier and factory operator side) provide essential business data, such as purchase orders and dispatch notes, which are foundational for defining shipment scopes and initiating logistics processes.
+- **PCF Calculation Tool:** This tool receives the allocated logistics carbon footprints from the Logistics Platform. It then integrates these transport emissions with other relevant PCF data (e.g., from manufacturing, if applicable) to perform the final PCF calculation for the manufactured products.
 
 <!--
 **Key Data Exchange Points:**
@@ -126,7 +98,6 @@ The logistics carbon footprint is a critical component of product carbon footpri
 4. **Cost Optimization** — Identify high-emission logistics routes and consolidation opportunities to reduce both carbon and transportation costs
 5. **Competitive Advantage** — Demonstrate environmental commitment and differentiate through transparent, science-based carbon accounting
 
-<!--
 ## Standards
 
 The logistics platform implementation relies on the following industry standards and frameworks to ensure interoperability, accuracy, and comparability:
@@ -138,13 +109,12 @@ The logistics platform implementation relies on the following industry standards
 | **ISO 14083:2023** | International Standard for quantification and reporting of greenhouse gas emissions arising from transport chain operations. | [ISO 14083:2023](https://www.iso.org/standard/70969.html) |
 | **Transport Carbon Calculator** | Siemens tool for calculating emissions based on standardized emission factors when primary transport data is unavailable. Implements GLEC framework methodology. | [Transport Carbon Calculator](https://developer.siemens.com/sdl/home.html) |
 | **PACT Data Exchange Protocol** | Pathfinder Accountability and Transparency Framework for exchanging carbon footprint data across the supply chain. | [PACT Framework](https://www.carbon-trust.org/our-work-and-impact/emerging-opportunities/pathfinder-framework/) |
---> 
 
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Siemens]
-- SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Siemens AG
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

@@ -1,8 +1,6 @@
-
 ---
-id: development-view-collection-of-logistics-carbon-footprint-data-for-pcf-calculation
-title: Development View - collection of Logistics Carbon Footprint data for PCF calculation
-description: 'Development view - collection of Logistics Carbon Footprint data for PCF calculation KIT'
+id: development-logistics
+title: Logistics Architecture Overview
 sidebar_position: 4
 ---
 
@@ -29,18 +27,18 @@ This logo is only visible when compiled with Docusarus (final version of the hos
 -->
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
-<Kit3DLogo kitId="pcf-data-acquisition"/>
+<Kit3DLogo kitId='pcf-data-acquisition'/>
 <!--
 KIT LOGO END
 -->
 
-# Development view - Collection of Logistics Carbon Footprint data for PCF calculation
+## PCF Data Acquisition - Via Logistics
 
 ## Architecture Overview
 
 The diagram illustrates an architecture that depicts the data flow and interactions between various systems and stakeholders for the calculation of the Logistics Product Carbon Footprint (PCF)
 
-![](../../resources/img/Architecture_Logistics_.png)
+![Logistics PCF technical architecture](../resources/img/Architecture_Logistics_.png)
 
 ### Core components
 
@@ -58,7 +56,7 @@ A fundamental challenge in supply chain carbon accounting is the **information a
 
 This information gap makes it impossible for any single party to accurately calculate the logistics carbon footprint independently. A logistics platform acts as a neutral intermediary that bridges this gap, enabling all three actors to exchange the relevant data needed for accurate, standardized emission calculation and reporting.
 
-### Key relationships between data entities:
+### Key relationships between data entities
 
 | Relationship | Cardinality | Description |
 |---|---|---|
@@ -68,17 +66,16 @@ This information gap makes it impossible for any single party to accurately calc
 
 While both the customer and the supplier have knowledge of the PO and DN, neither party knows how the transport was actually carried out or how the UCR is composed. As a consequence, **only the logistics service provider** can provide the emissions — the logistics carbon footprint — from primary data (as defined by the [GLEC framework](https://www.smartfreightcentre.org/en/our-programs/emissions-accounting/global-logistics-emissions-council/calculate-report-glec-framework/)), such as fuel consumption.
 
-### Data ownership and emission calculation:
+### Data ownership and emission calculation
 
 As a consequence of their operational roles, **only the logistics service provider** can provide the logistics carbon footprint based on primary data (as defined by the [GLEC framework](https://www.smartfreightcentre.org/en/our-programs/emissions-accounting/global-logistics-emissions-council/calculate-report-glec-framework/)), such as fuel consumption, actual distance traveled, transport mode, and load weight.
 
 Conversely, the logistics service provider has no knowledge of which dispatch notes were aggregated and transported under a given UCR. This makes it impossible to calculate a footprint at the DN level directly; it can only be calculated at the UCR level. The logistics service provider publishes this value to the logistics platform, which then automatically distributes the emission values back to the individual DNs on that UCR. The customer can subsequently query the footprint for a specific DN directly from the logistics platform via an interface within their PCF Management System.
 Conversely, the logistics service provider cannot calculate a footprint at the DN level directly because it has no knowledge of which dispatch notes were consolidated on any given shipment (UCR). Emission calculation is only possible at the UCR level. To resolve this, the logistics service provider publishes the UCR-level footprint to the logistics platform, which then automatically allocates and distributes the emission values back to each individual DN on that UCR based on weight distribution. This enables customers to query the footprint for specific dispatch notes directly from the logistics platform via an interface within their PCF Management System.
 
-### Step-by-step information flow:
+### Step-by-step information flow
 
-![LCF Data Flow](../../resources/img/LCF_Data_Flow.png)
-
+![LCF Data Flow](../resources/img/LCF_Data_Flow.png)
 
 1. The customer orders goods from the supplier — a Purchase Order (PO) is created.
 2. The supplier produces and packages the goods. A Dispatch Note (DN) is created, potentially consolidating multiple POs.
@@ -89,12 +86,12 @@ Conversely, the logistics service provider cannot calculate a footprint at the D
 7. The customer receives the goods along with the DN.
 8. Using the DN, the customer can query the corresponding logistics carbon footprint directly from the logistics platform via an API call within their PCF Management System, based on the [iLeap specifications](https://specs.ileap.global/).
 
-
 ## Application Programming Interfaces (API)
 
- As described above, there are two API calls used:
-* The [Transport Carbon Calculator](https://developer.siemens.com/sdl/home.html).
-* The API call from the PCF Management System based on the  [iLeap specifications](https://specs.ileap.global/).
+As described above, there are two API calls used:
+
+- The [Transport Carbon Calculator](https://developer.siemens.com/sdl/home.html).
+- The API call from the PCF Management System based on the  [iLeap specifications](https://specs.ileap.global/).
 
 ### Transport Carbon Calculator API
 
@@ -117,8 +114,6 @@ The [iLeap Specifications](https://specs.ileap.global/) define the technical int
 
 The iLeap API ensures data consistency, traceability, and compliance with international standards (ISO 14083:2023, GLEC framework).
 
-
-
 ## Semantic Models / Data Model
 
 <!-- Reference the relevant semantic models, APIs, or standards. -->
@@ -127,17 +122,20 @@ The iLeap API ensures data consistency, traceability, and compliance with intern
 The logistics platform's data model is flexible to accommodate different supply chain configurations but must always contain the following information to enable GLEC-compliant emission calculation and allocation:
 
 **Core Identifiers:**
+
 - **UCR IDs** — Unique Consignment References for shipments consolidated by the logistics provider
 - **HU IDs** — Handling Unit identifiers for physical units of goods
 - **DN IDs** — Dispatch Note identifiers from suppliers
 - **PO IDs** — Purchase Order identifiers from customers
 
 **Routing & Weight Information:**
+
 - **Sender and recipient information** — Complete addresses and identifiers needed for routing and traceability
 - **Weight for total UCR** — Total weight of goods on each shipment (needed for emission calculation)
 - **Weight for each DN** — Individual dispatch note weights (needed to redistribute UCR-level emissions back to DNs based on weight proportions)
 
 **Transport Information:**
+
 - **Transport mode** — Truck, rail, air, or sea (required for GLEC calculation)
 - **Distance** — Actual or planned distance (required for emission calculation)
 - **Fuel type/Energy source** — For primary data measurement or calculator selection
@@ -196,6 +194,6 @@ Place here the description of your semantic model.
 This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Siemens]
-- SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Siemens AG
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

@@ -1,4 +1,12 @@
-# AAS Documentation – Use Case without MES
+---
+id: development-using-aas
+title: Documentation AAS Data Acquisition
+sidebar_position: 4
+---
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId='pcf-data-acquisition'/>
 
 ## Overview
 
@@ -24,7 +32,7 @@ The **CommonParameter** submodel contains the general production data required f
 
 ### 1.2 Structure
 
-```
+```text
 CommonParameter (Submodel)
 ├── ScheduledProduction (SubmodelElementCollection)
 │   ├── PlannedProductionStart (Property, xs:string)
@@ -99,7 +107,7 @@ The **Bill_of_Process** submodel contains the detailed manufacturing process dat
 
 ### 2.2 Structure
 
-```
+```text
 Bill_of_Process (Submodel)
 ├── {ProcessName} (SubmodelElementCollection)       ← per manufacturing process
 │   ├── MachineDetails (SubmodelElementCollection)
@@ -238,7 +246,7 @@ The **TakenPlaceProduction** collection at process level contains the actual man
 
 The two submodels **CommonParameter** and **Bill_of_Process** are linked via the work order (**WorkOrder**):
 
-```
+```text
 ┌─────────────────────────────────────────────┐
 │           Asset Administration Shell        │
 │                                             │
@@ -462,12 +470,11 @@ The **WorkOrderCarbonFootprint** of `3.086 kg CO₂e` in CommonParameter aggrega
 | `xs:string` (UUID) | UUID string | `"0195f153-7b83-75d5-9d54-888c4567866d"` |
 | `xs:string` (JSON Array) | JSON array as string | `"[0.00571,0.00571]"` |
 
-
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Siemens]
-- SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Siemens AG
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

@@ -1,8 +1,6 @@
-
 ---
-id: development-view-pcf-data-acquisition-using-AAS
-title: Development View - PCF data acquistion using AAS
-description: 'Development View - PCF data acquistion using AAS'
+id: development-using-aas
+title: AAS Architecture Overview
 sidebar_position: 4
 ---
 
@@ -28,37 +26,37 @@ Do not remove!
 -->
 import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
-<Kit3DLogo kitId="pcf-data-acquisition"/>
+<Kit3DLogo kitId='pcf-data-acquisition'/>
 <!--
 KIT LOGO END
 -->
-# Development view - PCF data aquistion using AAS
+
+## PCF Data Acquisition - Using AAS
 
 ## Architecture Overview
 
-
-![alt text](../../../resources/img/Architecture_use_case_without_MES.png)
+![alt text](../resources/img/Architecture_use_case_without_MES.png)
 
 This architecture addresses the challenge of collecting all necessary data from both shop floor systems and IT systems in order to calculate a PCF value in compliance with the Catena-X PCF Rule Book. The architecture overview also illustrates the components from TP 2.9 used to optimize electricity costs based on the given bill of process and the specified flexibility parameters. In addition, the overview includes all required external data sources needed for PCF calculation and process optimization.
 
-**Shop Floor Layer**
+### Shop Floor Layer
 
 - Machines (A, B, C) and smart meters provide machine data as well as energy and material consumption
 - Data transmission is handled via OPC-UA and Modbus-TCP to the higher-level system
 
-**Industry Information Hub (IIH) & Aggregation App**
+### Industry Information Hub (IIH) & Aggregation App
 
 - Run on a Siemens Edge Device and is connected to IT and IOT environment
 - IIH collects machine data and status information
 - The Aggregation App receives this data (without MES integration) and forwards it via REST-API
 
-**AAS Server (AssetFox)**
+### AAS Server (AssetFox)
 
 - Central component for managing Asset Administration Shells (AAS)
 - Receives and processes time series data, energy, and material consumption
 - Serves as an interface to AssetFox SaaS and M-X Port Leo
 
-**ERP System**
+### ERP System
 
 - Central hub of the architecture
 - Exchanges data with the AAS Server (such as bills of materials and process data)
@@ -66,19 +64,21 @@ This architecture addresses the challenge of collecting all necessary data from 
 - Utilizes cloud components (ERP Cloud) for load profiles and process tables
 - Combines production and energy data for further analysis
 
-**AAS Creator Service**
+### AAS Creator Service
+
 - Creates new AAS files in the defined format using the previously specified submodels for the use case
 
-**EnFlex Optimizer**
+### EnFlex Optimizer
+
 - Optimizes electricity procurement costs based on the stored Bill Of Process (BOP) and the specified process flexibility
 - For this purpose, machine- and program-specific reference load profiles are required, which must be provided by the ERP system
 
-**External Interfaces**
+### External Interfaces
 
 - SiGreen Cloud: Receives production results via REST-API
 - Energy-Charts: Provides current electricity price data for the following day
 
-**Key Features**
+### Key Features
 
 - Energy optimization through EnFlex optimizer based on electricity prices
 - Real-time monitoring of machine states and production data
@@ -86,45 +86,44 @@ This architecture addresses the challenge of collecting all necessary data from 
 - Centralized data management via AAS Server
 - KPI tracking for energy efficiency and production performance
 
-
 ### Sequnece Diagram
 
-**Phase 1: Initial Setup & Optimization (Steps 1-5)**
+### Phase 1: Initial Setup & Optimization (Steps 1-5)
 
 1. Aggregation App reads ERP data to retrieve production information
 2. ERP data sends BOP to EnFlex optimizer for energy cost optimization
 3. EnFlex optimizer returns the energy price-optimized BOP back to ERP
-4. Aggregation App creates an AAS on the AAS Server and adds the optimized BOP plus metadata <br>
+4. Aggregation App creates an AAS on the AAS Server and adds the optimized BOP plus metadata <br/>
     `Note: Complete BOM is managed in SiGreen (referenced by Component ID, e.g. UUID: 019cbd44-0e76-721a-96c6-8d7ef8118762)`
 
-**Phase 2: Aggregate active power values of (Steps 6-11)**
+### Phase 2: Aggregate active power values of (Steps 6-11)
 
-6. Aggregation App checks machine state via IIH
-7. If machine status changes from "processing" to "finished":
+1. Aggregation App checks machine state via IIH
+2. If machine status changes from "processing" to "finished":
    - Aggregation App queries ERP for scrapped parts (requires user input)
-   - ERP adds scrapped parts data to AAS <br>
+   - ERP adds scrapped parts data to AAS <br/>
 `Note: User must manually enter the amount of scrapped parts`
    - Aggregation App retrieves time series data from IIH
    - Aggregation App adds process time series and consumption data to AAS
 
-**Phase 3: PCF Calculation (Steps 12-16)**
+### Phase 3: PCF Calculation (Steps 12-16)
 
-12. If SiGreen production process is finished:
+1. If SiGreen production process is finished:
     - PCF Creator App retrieves PCF-relevant data from AAS Server
-    - PCF Creator App calculates PCF values internally <br>
+    - PCF Creator App calculates PCF values internally <br/>
     `Note: Can calculate either own emissions or complete PCF for the entire product`
     - PCF Creator App pushes PCF data back to AAS Server
     - PCF Creator App transfers PCF data to SiGreen platform
 
-**Phase 4: KPI Calculation & Reporting (Steps 17-21)**
+### Phase 4: KPI Calculation & Reporting (Steps 17-21)
 
-17. ERP initiates KPI calculation by triggering EnFlex KPI calculator
-18. EnFlex KPI calculator queries BOP AAS data from AAS Server
-19. AAS Server returns BOP AAS data
-20. EnFlex KPI calculator processes and calculates KPIs internally
-21. EnFlex KPI calculator returns EnFlex KPIs to ERP data
+1. ERP initiates KPI calculation by triggering EnFlex KPI calculator
+2. EnFlex KPI calculator queries BOP AAS data from AAS Server
+3. AAS Server returns BOP AAS data
+4. EnFlex KPI calculator processes and calculates KPIs internally
+5. EnFlex KPI calculator returns EnFlex KPIs to ERP data
 
-<br><br>
+<br/><br/>
 
 ```Mermaid
 sequenceDiagram
@@ -173,8 +172,8 @@ autonumber
   %% EnFlex KPI calculator ->> ERP data: Return EnFlex KPIs
 
 ```
-## Application Programming Interfaces (API)
 
+## Application Programming Interfaces (API)
 
 ## Semantic Models / Data Model
 
@@ -182,7 +181,7 @@ autonumber
 
 #### Overview
 
-The **Asset Administration Shell (AAS) Data Model** for the Factory-X Use Case "without MES" is based on two custom submod: **CommonParameter** and **Bill_of_Process (ManufacturingProcess)**. 
+The **Asset Administration Shell (AAS) Data Model** for the Factory-X Use Case "without MES" is based on two custom submod: **CommonParameter** and **Bill_of_Process (ManufacturingProcess)**.
 
 Since no official AAS submodel templates were available at the time the concept was developed that met the specific requirements of this use case, custom submodel templates were modeled and implemented.
 
@@ -223,8 +222,7 @@ Since no official AAS submodel templates were available at the time the concept 
 | | MaterialConsumption | Material consumption per type (with time series) |
 | **Sustainability** | ProcessCarbonFootprint | Process-specific CO₂ footprint (in kg CO₂) |
 
-
-<!-->
+<!--
 ##### 1. **CommonParameter**
 This submodel contains **general production data at the work order level**:
 - **WorkOrder** (unique order identifier)
@@ -244,9 +242,10 @@ This submodel represents the **detailed manufacturing processes**:
 -->
 #### Documentation
 
-**[AAS Documentation Use Case without_MES](../../../resources/mdfiles/AAS_Documentation_Use_Case_without_MES.md)**
+**[AAS Documentation Use Case without MES](../documentation/AAS_Documentation_Use_Case_without_MES.md)**
 
 This documentation describes:
+
 - The complete structure of both submodels
 - All attributes with data types and required fields
 - ID generation logic for AAS and submodels
@@ -257,7 +256,6 @@ This documentation describes:
 
 <!-- Provide a minimal code snippet or step-by-step guide. -->
 
-
 | Name | Description | Link to Documentation |
 | ---- | ----------- | ----------------------|
 | `REST-API` | This protocol is the main communication method between cloud services and enterprise systems. It enables data exchange between ERP System, AAS Server, Energy-Charts, SiGreen, and other components for transferring manufacturing scenarios, flexibility scenarios, product IDs, production results, and energy data. | - |
@@ -265,12 +263,11 @@ This documentation describes:
 | `OPC-UA` | This protocol is essential for industrial machine communication on the shop floor layer. It enables the IIH to collect time series data, machine programs, and machine states from smart meters connected to machines A, B, and C. | - |
 | `Modbus-TCP` | This protocol is used for energy measurement data communication. It transmits energy consumption data from smart meters attached to the production machines to the IIH for monitoring and analysis. | - |
 
-
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Siemens]
-- SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Siemens AG
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
