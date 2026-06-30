@@ -33,6 +33,7 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 <!--
 KIT LOGO END
 -->
+
 # Adoption View - PCF data acquistion using AAS
 
 ## Introduction
@@ -163,6 +164,6 @@ sequenceDiagram
 This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Siemens]
+- SPDX-FileCopyrightText: [2026] [Siemens AG]
 - SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

@@ -40,7 +40,7 @@ KIT LOGO END
 
 The diagram illustrates an architecture that depicts the data flow and interactions between various systems and stakeholders for the calculation of the Logistics Product Carbon Footprint (PCF)
 
-![](../../resources/img/Architecture_Logistics_.png)
+<img src="../../resources/img/pcf_data_acquisition_architecture_logistics.svg" width="800" alt="PCF Data Acquisition Architecture">
 
 ### Core components
 
@@ -77,7 +77,7 @@ Conversely, the logistics service provider cannot calculate a footprint at the D
 
 ### Step-by-step information flow:
 
-![LCF Data Flow](../../resources/img/LCF_Data_Flow.png)
+![LCF Data Flow](../../resources/img/lcf_data_flow.svg)
 
 
 1. The customer orders goods from the supplier — a Purchase Order (PO) is created.
@@ -196,6 +196,6 @@ Place here the description of your semantic model.
 This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Siemens]
+- SPDX-FileCopyrightText: [2026] [Siemens AG]
 - SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

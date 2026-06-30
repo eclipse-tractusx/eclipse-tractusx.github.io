@@ -48,7 +48,7 @@ KIT LOGO END
 
 The technical architecture for the Manufacturing Product Carbon Footprint (PCF) solution, as depicted in the accompanying architecture diagram below, is specifically designed to enable fully automated, instance-based PCF calculation directly within the manufacturing environment. This solution focuses on integrating operational technology (OT) with information technology (IT) to provide real-time, granular insights into the carbon footprint of manufactured products.
 
-![](../../../resources/img/Architecture_Overview_Use_Case_With_MES_.png)
+<img src="../../../resources/img/pcf_data_acquisition_architecture_mes.svg" width="200" alt="PCF Data Acquisition Architecture Using MES">
 
 
 
@@ -198,7 +198,7 @@ The following illustration describes the logical structure of the OPC-UA Extenti
   <summary>Data Model Overview - click to expand</summary>
 
 
-![Bild](../../../resources/img/UPC_UA_Model_Entity_Relation.png "UPC UA Model Entity Relation.png")
+![Bild](../../../resources/img/opc_ua_pcf_data_acquisition.svg "UPC UA Model Entity Relation.png")
 </details>
 
 The table below shows the details of each data field in the Factory-X OPC-UA data model:
@@ -295,6 +295,6 @@ The table below shows the details of each data field in the Factory-X OPC-UA dat
 This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Siemens]
+- SPDX-FileCopyrightText: [2026] [Siemens AG]
 - SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

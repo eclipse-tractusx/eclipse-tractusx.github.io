@@ -32,12 +32,12 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 <!--
 KIT LOGO END
 -->
+
 # Development view - PCF data aquistion using AAS
 
 ## Architecture Overview
 
-
-![alt text](../../../resources/img/Architecture_use_case_without_MES.png)
+<img src="../../../resources/img/pcf_data_acquisition_architecture_aas.svg" width="800" alt="PCF Data Acquisition Architecture">
 
 This architecture addresses the challenge of collecting all necessary data from both shop floor systems and IT systems in order to calculate a PCF value in compliance with the Catena-X PCF Rule Book. The architecture overview also illustrates the components from TP 2.9 used to optimize electricity costs based on the given bill of process and the specified flexibility parameters. In addition, the overview includes all required external data sources needed for PCF calculation and process optimization.
 
@@ -271,6 +271,6 @@ This documentation describes:
 This work is licensed under the [CC-BY-4.0].
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Siemens]
+- SPDX-FileCopyrightText: [2026] [Siemens AG]
 - SPDX-FileCopyrightText:[2026] Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
