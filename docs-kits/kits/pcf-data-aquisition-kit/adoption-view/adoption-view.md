@@ -45,7 +45,7 @@ This KIT addresses exactly this upstream challenge: how to acquire, structure, a
 
 Specifically this KIT describes, how PCF data can be collected on Instance or Batch level. This is only sensible if the IT Architecture in a given environment is already set up to collect data with this granularity or if the results are used for further purposes like PCF optimization. Methods that use averaged consumption data can be as valid as the approaches described here.
 
-For guidance on how the acquired data is subsequently exchanged and reported, refer to the **[PCF Exchange KIT](../../product-carbon-footprint-exchange-kit/adoption-view)** . An overarching description of the end-to-end PCF process and methodology can be found in the **[Catena-X Rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf)** and in the _Manufacturing-X Guidelines_. Additional guidance on PCF calculations can be found in the _Factory-X PCF Guidance Document_.
+For guidance on how the acquired data is subsequently exchanged and reported, refer to the **[PCF Exchange KIT](../../product-carbon-footprint-exchange-kit/adoption-view)** . An overarching description of the end-to-end PCF process and methodology can be found in the **[Catena-X Rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf)** and in the _Manufacturing-X Guidelines_ (link will be added once published). Additional guidance on PCF calculations can be found in the _Factory-X PCF Guidance Document_ (link will be added once published).
 
 ## Vision and Mission
 
@@ -69,7 +69,7 @@ Our mission is to provide standardized, implementable blueprints for the accurat
 
 Calculating a product's carbon footprint requires data from multiple domains within and across company boundaries. The reference architecture below illustrates how suppliers, factory operators, and logistics companies interact to provide the data inputs for PCF calculation (PCF Exchange cross company is excluded here, as it is handled in the PCF Exchange KIT).
 
-![PCF data acquisition reference architecture](../resources/img/Architektur_KIT.png)
+<img src="../resources/img/pcf_data_acquisition_architecture.svg" width="800" alt="PCF Data Acquisition Architecture">
 
 ## KIT Structure
 

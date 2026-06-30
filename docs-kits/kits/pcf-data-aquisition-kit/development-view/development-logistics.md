@@ -38,7 +38,7 @@ KIT LOGO END
 
 The diagram illustrates an architecture that depicts the data flow and interactions between various systems and stakeholders for the calculation of the Logistics Product Carbon Footprint (PCF)
 
-![Logistics PCF technical architecture](../resources/img/Architecture_Logistics_.png)
+<img src="../resources/img/pcf_data_acquisition_architecture_logistics.svg" width="800" alt="PCF Data Acquisition Architecture">
 
 ### Core components
 
@@ -75,7 +75,7 @@ Conversely, the logistics service provider cannot calculate a footprint at the D
 
 ### Step-by-step information flow
 
-![LCF Data Flow](../resources/img/LCF_Data_Flow.png)
+![LCF Data Flow](../resources/img/lcf_data_flow.svg)
 
 1. The customer orders goods from the supplier — a Purchase Order (PO) is created.
 2. The supplier produces and packages the goods. A Dispatch Note (DN) is created, potentially consolidating multiple POs.

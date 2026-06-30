@@ -35,7 +35,7 @@ KIT LOGO END
 
 ## Architecture Overview
 
-![alt text](../resources/img/Architecture_use_case_without_MES.png)
+<img src="../resources/img/pcf_data_acquisition_architecture_aas.svg" width="800" alt="PCF Data Acquisition Architecture">
 
 This architecture addresses the challenge of collecting all necessary data from both shop floor systems and IT systems in order to calculate a PCF value in compliance with the Catena-X PCF Rule Book. The architecture overview also illustrates the components from TP 2.9 used to optimize electricity costs based on the given bill of process and the specified flexibility parameters. In addition, the overview includes all required external data sources needed for PCF calculation and process optimization.
 
