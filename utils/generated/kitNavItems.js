@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: b7a1f9f6f8c49a813077fb59000d0abfc6012e25687b897f84d66f04fa5d0bd7
+ * Content hash: a20427017ea1dd2230a224243f833fec3aae10654a799148c9a09f0bdd794a3e
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -214,6 +214,12 @@ const kitsByCategory = {
   ],
   "industryKits": {
     "manufacturing": [
+      {
+        "id": "pcf-data-acquisition",
+        "name": "PCF DATA ACQUISITION KIT",
+        "route": "/docs-kits/next/kits/pcf-data-aquisition-kit/adoption-view",
+        "deprecated": false
+      },
       {
         "id": "autonomous-operation",
         "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",
