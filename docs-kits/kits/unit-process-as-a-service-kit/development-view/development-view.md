@@ -255,13 +255,13 @@ The full technical implementation, including the QSD pipeline and full EDC data 
 
 ## Protocols
 
-<!-- Provide a minimal code snippet or step-by-step guide. -->
-
-> TODO: Add the protocols that you are using for the data exchange.
-
 | Name | Description | Link to Documentation |
 | ---- | ----------- | ----------------------|
-| `Protocol Name` | This protocol is important when doing the data exchange | [example-link](https://example.com) |
+| Dataspace Protocol (DSP) | Used by the EDC control planes for catalog requests, contract negotiation, and transfer process management between the exchange partners. | [Dataspace Protocol](https://eclipse-dataspace-protocol-base.github.io/DataspaceProtocol/) |
+| HTTPS | Used by the EDC data plane for the actual transfer of the AAS package once a contract agreement is established; assets are retrieved via token-authenticated Endpoint Data References (EDRs). | [Eclipse Dataspace Connector](https://github.com/eclipse-edc/Connector) |
+| ODRL | Policy language used within the EDC to define the permissions, obligations, and prohibitions governing the data exchange. | [ODRL Information Model 2.2](https://www.w3.org/TR/odrl-model/) |
+| AAS REST API / AASX | Interface and packaging format of the exchanged wafer-testing digital twin; EDRs reference assets served by the AAS server infrastructure. | [IDTA AAS Specifications](https://industrialdigitaltwin.org/en/content-hub/aasspecifications) |
+
 
 ## NOTICE
 

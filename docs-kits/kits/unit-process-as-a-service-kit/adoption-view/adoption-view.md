@@ -88,7 +88,7 @@ the barrier for introducing and spreading new technologies across sites. A new p
 integrated once into the UPaaS framework becomes immediately accessible to all marketplace
 participants.
 
-### Risks — and How to Turn Them Into Opportunities
+### Risks — and how to turn them into Opportunities
 
 **4 – Dependence on Data-Exchange Infrastructure (Dep):** Reliable UPaaS services require
 functioning, secure data-sharing platforms. This risk is best mitigated by building on proven,
@@ -257,6 +257,15 @@ For full technical details see the
 [UPaaS Technical Demo Repository](https://github.com/Abdelgafar-copilot/UPaaS-QSD-Code).
 
 
+## Relation to other KITs
+
+The UPaaS KIT builds on and complements several existing Tractus-X KITs:
+
+| KIT | Relation |
+| --- | -------- |
+| [Connector KIT](../../connector-kit/adoption-view/adoption-view.md) | Provides the EDC/Dataspace Protocol foundation used for the policy-controlled exchange of UPaaS assets. |
+| [Digital Twin KIT](../../digital-twin-kit/adoption-view.md) | Defines the AAS-based digital twin infrastructure; the UPaaS Wafer Testing Submodel follows these conventions. |
+| [MaaS KIT](../../manufacturing-as-a-service-kit/adoption-view.md) | Addresses marketplace-based offering of complete manufacturing services; UPaaS complements this at the granularity of individual semiconductor unit processes (e.g. wafer testing). |
 
 
 ## Standards
@@ -283,7 +292,7 @@ For full technical details see the
 - [Semiconductor-X project](https://semiconductor-x.com)
 - [Eclipse Dataspace Connector (EDC)](https://github.com/eclipse-edc/Connector)
 - [UPaaS Technical Demo Repository (QSD + EDC)](https://github.com/Abdelgafar-copilot/UPaaS-QSD-Code)
-- [UPaaS preprint – Winter Simulation Conference 2026](https://doi.org/XXXX) *(replace with actual DOI)*
+
 
 
 ## NOTICE
