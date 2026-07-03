@@ -2,16 +2,12 @@
 openapi: 3.0.3
 info:
   title: Demand and Capacity Notification
-  version: v2
+  version: v3
   x-samm-aspect-model-urn: urn:samm:io.catenax.demand_and_capacity_notification:3.0.0#DemandAndCapacityNotification
 paths:
   /receive:
     post:
-      summary: Receive notifications of your partners. Is responsible for the creation and update of demand and capacity notifications including closure. (Old Version)
-      deprecated: true
-      description: >
-        **DEPRECATED in release 26.09.** This endpoint will be fully out of service on 
-        **September 30, 2027**. Please migrate to the `v3` API.
+      summary: Receive notifications of your partners. Is responsible for the creation and update of demand and capacity notifications including closure.
       tags:
         - DemandAndCapacityNotification
       operationId: receiveDemandAndCapacityNotification
@@ -398,12 +394,12 @@ components:
           $ref: "#/components/schemas/UserInputTrait"
           example: "We buffered the disruption period with safety stock. Alternative transports have been arranged to replenish the safety stocks."
         text:
-          description:
+          description: 
             Free text to describe the disruption and its handling in the notification (max. 4000 characters).
             Ensure to not reveal third-party information. Provide information about the disruption, the context
             within your customer-supplier-relationship, already aligned and taken measures and updates on the
             progress and changes. MUST be set when creating, updating or forwarding notifications. CAN be set
-            when resolving (set status to “resolved”) a notification.
+            when resolving (set status to “resolved”) a notification.    
           x-samm-aspect-model-urn: urn:samm:io.catenax.demand_and_capacity_notification:3.0.0#text
           $ref: "#/components/schemas/UserInputTrait"
         contentChangedAt:
@@ -471,16 +467,6 @@ components:
         - startDateOfEffect
         - effect
         - leadingRootCause
-    ContentCharacteristic:
-      x-samm-aspect-model-urn: urn:samm:io.catenax.demand_and_capacity_notification:3.0.0#ContentCharacteristic
-      type: object
-      properties:
-        demandAndCapacityNotification:
-          description: Content representing the Demand and Capacity Notification.
-          x-samm-aspect-model-urn: urn:samm:io.catenax.demand_and_capacity_notification:3.0.0#demandAndCapacityNotification
-          $ref: "#/components/schemas/DemandAndCapacityNotificationCharacteristic"
-      required:
-        - demandAndCapacityNotification
     DemandAndCapacityNotification:
       description:
         This aspect model defines the standard for demand and capacity
@@ -499,7 +485,7 @@ components:
         content:
           description: Content of the notification
           x-samm-aspect-model-urn: urn:samm:io.catenax.demand_and_capacity_notification:3.0.0#content
-          $ref: "#/components/schemas/ContentCharacteristic"
+          $ref: "#/components/schemas/DemandAndCapacityNotificationCharacteristic"
       required:
         - header
         - content
