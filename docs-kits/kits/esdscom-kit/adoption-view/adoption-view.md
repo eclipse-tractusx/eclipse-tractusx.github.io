@@ -145,17 +145,7 @@ More information can be found in the Policies in Catena-X of the Connector KIT.
 
 The eSDScom ontology is based on the eSDScom XML schema definition version 5.6, available at [esdscom.eu](https://esdscom.eu) and converted to SAMM by a script to ensure consistency.
 
-### Core Semantic Models
-
-<details>  
-<summary><strong>Catena-X Safety Datasheet Model Payload</summary>  
-
-Add your model here:  
-
-### Model Example
-
-Due to the model size, for further information please refer to [esdscom.eu](https://esdscom.eu)
-
+The original eSDScom XML model, represented in several XML schema definitions (XSD files), is too large to be represented here. Please use https://www.esdscom.eu/downloads/version-5 or https://github.com/esdscom/sdscom-xml/releases/ to download the schema definition.
 
 ## NOTICE
 
