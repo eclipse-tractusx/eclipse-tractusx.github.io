@@ -46,7 +46,7 @@ a possibility to connect. Even if you don't have questions, it could be interest
 
 - **Date:** 30.07.2026
 - **Time:** 09:05 - 10:00
-- **Main Teams Link:** [Join the session](ADD_TEAMS_LINK_HERE)
+- **Main Teams Link:** [Join the session](https://teams.microsoft.com/meet/36303060836975?p=PDgS8VJ76ypbOFmcxY)
 
 ### Agenda
 
@@ -71,7 +71,7 @@ for the release.
 
 - **Date:** 13.08.2026
 - **Time:** 09:05 - 10:30
-- **Teams Link:** [Join the session](ADD_TEAMS_LINK_HERE)
+- **Teams Link:** [Join the session](https://teams.microsoft.com/meet/311292893589704?p=bOzDbp9v4O4CKRGTVE)
 
 **Who Should Attend**:
 
