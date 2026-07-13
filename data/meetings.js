@@ -36,16 +36,84 @@ export const MEETING_PRIORITIES = {
 // Contact persons — centralized to avoid duplication
 // country: ISO 3166-1 alpha-2 code — used for public holiday detection per meeting
 export const CONTACTS = {
-  STEPHAN_BAUER: { name: 'Stephan Bauer', title: 'Eclipse Tractus-X Project Lead', email: 'stephan.bauer@catena-x.net', github: 'stephanbcbauer', linkedin: 'stephan-bauer-7a3a22117', country: 'DE' },
-  MATHIAS_MOSER: { name: 'Mathias Moser', title: 'Eclipse Tractus-X Project Lead', email: 'mathias.moser@catena-x.net', github: 'matbmoser', linkedin: 'mathias-brunkow-moser', country: 'DE' },
-  LARS_BLAUMEISER: { name: 'Lars Geyer-Blaumeiser', title: 'EDC Responsible', email: 'lars.blaumeiser@cofinity-x.com', github: 'lgblaumeiser', country: 'DE' },
-  SAAD_RAFIQ: { name: 'Saad Rafiq', title: 'Portal Product Owner', email: 'saad.rafiq@cofinity-x.com', github: 'saadrafiq12', country: 'DE' },
-  MIKEL_GARCIA: { name: 'Mikel Garcia', title: 'Eclipse Tractus-X Project Lead', email: 'mgarcia@lksnext.com', github: 'mgarciaLKS', linkedin: 'mikel-garcia-bartolome-a3891b308', country: 'ES' },
-  JULIAN_STOLL: { name: 'Julian Stoll', title: 'BPDM Product Owner', email: 'julian.stoll@mercedes-benz.com', github: 'jstollmb', country: 'DE' },
-  JOHANN_SCHUETZ: { name: 'Johann Schütz', title: 'Semantic Modelling Lead', email: 'johann.schuetz@catena-x.net', country: 'DE' },
-  MONIKA_JACOBSEN: { name: 'Monika Jacobsen', title: 'Test Management', email: 'monika.jacobsen@catena-x.net', country: 'DE' },
-  CARLOS_RODRIGUEZ: { name: 'Carlos D. Rodriguez', title: 'Eclipse Tractus-X Committer', email: 'cdiez@lksnext.com', github: 'CDiezRodriguez', country: 'ES' },
-  ANGEL_YAO: { name: 'Angel Y. Zhan', title: 'Eclipse Tractus-X Contributor', email: 'ayao@lksnext.com', github: 'AYaoZhan', country: 'ES' },
+  STEPHAN_BAUER: {
+    name: 'Stephan Bauer',
+    title: 'Eclipse Tractus-X Project Lead',
+    email: 'stephan.bauer@catena-x.net',
+    github: 'stephanbcbauer',
+    linkedin: 'stephan-bauer-7a3a22117',
+    country: 'DE'
+  },
+  MATHIAS_MOSER: {
+    name: 'Mathias Moser',
+    title: 'Eclipse Tractus-X Project Lead',
+    email: 'mathias.moser@catena-x.net',
+    github: 'matbmoser',
+    linkedin: 'mathias-brunkow-moser',
+    country: 'DE'
+  },
+  LARS_BLAUMEISER: {
+    name: 'Lars Geyer-Blaumeiser',
+    title: 'EDC Responsible',
+    email: 'lars.blaumeiser@cofinity-x.com',
+    github: 'lgblaumeiser',
+    country: 'DE'
+  },
+  SAAD_RAFIQ: {
+    name: 'Saad Rafiq',
+    title: 'Portal Product Owner',
+    email: 'saad.rafiq@cofinity-x.com',
+    github: 'saadrafiq12',
+    country: 'DE'
+  },
+  MIKEL_GARCIA: {
+    name: 'Mikel Garcia',
+    title: 'Eclipse Tractus-X Project Lead',
+    email: 'mgarcia@lksnext.com',
+    github: 'mgarciaLKS',
+    linkedin: 'mikel-garcia-bartolome-a3891b308',
+    country: 'ES'
+  },
+  JULIAN_STOLL: {
+    name: 'Julian Stoll',
+    title: 'BPDM Product Owner',
+    email: 'julian.stoll@mercedes-benz.com',
+    github: 'jstollmb',
+    country: 'DE'
+  },
+  JOHANN_SCHUETZ: {
+    name: 'Johann Schütz',
+    title: 'Semantic Modelling Lead',
+    email: 'johann.schuetz@catena-x.net',
+    country: 'DE'
+  },
+  MONIKA_JACOBSEN: {
+    name: 'Monika Jacobsen',
+    title: 'Test Management',
+    email: 'monika.jacobsen@catena-x.net',
+    country: 'DE'
+  },
+  CARLOS_RODRIGUEZ: {
+    name: 'Carlos D. Rodriguez',
+    title: 'Eclipse Tractus-X Committer',
+    email: 'cdiez@lksnext.com',
+    github: 'CDiezRodriguez',
+    country: 'ES'
+  },
+  ANGEL_YAO: {
+    name: 'Angel Y. Zhan',
+    title: 'Eclipse Tractus-X Contributor',
+    email: 'ayao@lksnext.com',
+    github: 'AYaoZhan',
+    country: 'ES'
+  },
+  THERESA_HILGER: {
+    name: 'Theresa Hilger',
+    title: 'Releasemanagemnt',
+    email: 'theresa.hilger@catena-x.net',
+    github: 'ther3sa',
+    country: 'DE'
+  },
 };
 
 // Country labels for display — maps ISO code to readable name
@@ -74,9 +142,9 @@ export const meetings = [
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDFiNDJjMmQtNjFkYi00ODdjLTk2NDgtZGMwNTRmYzg3NzM0%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx:matrix.eclipse.org',
     additionalLinks: [
-      { title: 'Taskboard', url: 'https://github.com/orgs/eclipse-tractusx/projects/61/views/1' },
-      { title: 'Meeting minutes', url: '/community/meeting-minutes/tags/community' },
-      { title: 'Timelines', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35' },
+      {title: 'Taskboard', url: 'https://github.com/orgs/eclipse-tractusx/projects/61/views/1'},
+      {title: 'Meeting minutes', url: '/community/meeting-minutes/tags/community'},
+      {title: 'Timelines', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35'},
     ],
     recurrence: {
       frequency: 'weekly',
@@ -115,8 +183,8 @@ export const meetings = [
       endTime: '10:30',
     },
     additionalLinks: [
-      { title: "Kanban Board KIT Office Hour", url: "https://github.com/orgs/eclipse-tractusx/projects/92" },
-      { title: "KIT Getting Started", url: "https://eclipse-tractusx.github.io/documentation/kit-getting-started"}
+      {title: "Kanban Board KIT Office Hour", url: "https://github.com/orgs/eclipse-tractusx/projects/92"},
+      {title: "KIT Getting Started", url: "https://eclipse-tractusx.github.io/documentation/kit-getting-started"}
     ]
   },
   // Product Regular Meetings
@@ -130,10 +198,13 @@ export const meetings = [
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_MGJlYzgzMjktNWE4OS00NjcwLWIyOGYtZDgzYmMzODRiMTgy%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
     matrixChatUrl: 'https://matrix.to/#/#tractusx-industry-core-hub:matrix.eclipse.org',
     additionalLinks: [
-      { title: 'industry-core-hub Repository', url: 'https://github.com/eclipse-tractusx/industry-core-hub' },
-      { title: 'tractusx-sdk Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk' },
-      { title: 'Planning Board Project', url: 'https://github.com/orgs/eclipse-tractusx/projects/83' },
-      { title: 'Architecture Weekly - Thursday 01:00 pm to 02:00 pm', url: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzYyMDUyZjMtMmFlMy00ODMyLWFlZDQtNjMwYWZhOTc3YTVh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d' },
+      {title: 'industry-core-hub Repository', url: 'https://github.com/eclipse-tractusx/industry-core-hub'},
+      {title: 'tractusx-sdk Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk'},
+      {title: 'Planning Board Project', url: 'https://github.com/orgs/eclipse-tractusx/projects/83'},
+      {
+        title: 'Architecture Weekly - Thursday 01:00 pm to 02:00 pm',
+        url: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzYyMDUyZjMtMmFlMy00ODMyLWFlZDQtNjMwYWZhOTc3YTVh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d'
+      },
     ],
     recurrence: {
       frequency: 'weekly',
@@ -153,9 +224,12 @@ export const meetings = [
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_ODU0ZDk3MjUtNjkzMS00MzQzLWFmZGYtY2Q3YWEzZmVjNmMx%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
     matrixChatUrl: 'https://matrix.to/#/#tractusx-industry-core-hub:matrix.eclipse.org',
     additionalLinks: [
-      { title: 'tractusx-sdk Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk' },
-      { title: 'tractusx-sdk-services (Test Bed) Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk-services' },
-      { title: 'Planning Board Project (shared with IC-Hub', url: 'https://github.com/orgs/eclipse-tractusx/projects/83' }
+      {title: 'tractusx-sdk Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk'},
+      {
+        title: 'tractusx-sdk-services (Test Bed) Repository',
+        url: 'https://github.com/eclipse-tractusx/tractusx-sdk-services'
+      },
+      {title: 'Planning Board Project (shared with IC-Hub', url: 'https://github.com/orgs/eclipse-tractusx/projects/83'}
     ],
     recurrence: {
       frequency: 'weekly',
@@ -193,8 +267,8 @@ export const meetings = [
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTIxMmIyMmItYTk0NC00YjMxLWFiNDAtOTRlOWM1ZDUxYWRm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-identity-hub:matrix.eclipse.org',
     additionalLinks: [
-      { title: 'tractusx-identityhub Repository', url: 'https://github.com/eclipse-tractusx/tractusx-identityhub' },
-      { title: 'Planning Board', url: 'https://github.com/orgs/eclipse-tractusx/projects/87/views/1' },
+      {title: 'tractusx-identityhub Repository', url: 'https://github.com/eclipse-tractusx/tractusx-identityhub'},
+      {title: 'Planning Board', url: 'https://github.com/orgs/eclipse-tractusx/projects/87/views/1'},
     ],
     recurrence: {
       frequency: 'weekly',
@@ -214,7 +288,7 @@ export const meetings = [
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_YmIyYjgwOTQtZjI1Ny00YmM0LTlmOWQtODRjZWFmZWM1Y2E3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-portal:matrix.eclipse.org',
     additionalLinks: [
-      { title: 'Feature Board', url: 'https://github.com/orgs/eclipse-tractusx/projects/50/views/25' },
+      {title: 'Feature Board', url: 'https://github.com/orgs/eclipse-tractusx/projects/50/views/25'},
     ],
     recurrence: {
       frequency: 'weekly',
@@ -234,7 +308,7 @@ export const meetings = [
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19:meeting_ODMzMzMxY2MtMGI4ZC00MjJkLThjZjYtMzk3ZjBjMmEzYjZj@thread.v2/0?context=%7B%22Tid%22:%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22,%22Oid%22:%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7D',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-umbrella-chart:matrix.eclipse.org',
     additionalLinks: [
-      { title: 'Umbrella Repository', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella' },
+      {title: 'Umbrella Repository', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella'},
     ],
     recurrence: {
       frequency: 'weekly',
@@ -271,8 +345,8 @@ export const meetings = [
     contact: CONTACTS.JOHANN_SCHUETZ,
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2I5MjM1NzUtZmFmZS00MTI2LTgyMmEtOGZiMDMxNmRlYTA4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22bf6c04e8-bde4-4ca1-ac15-0f85f440ab48%22%7d',
     additionalLinks: [
-      { title: 'SLDT Semantic Models Repository', url: 'https://github.com/eclipse-tractusx/sldt-semantic-models' },
-      { title: 'SLDT Ontology Models Repository', url: 'https://github.com/eclipse-tractusx/sldt-ontology-model' },
+      {title: 'SLDT Semantic Models Repository', url: 'https://github.com/eclipse-tractusx/sldt-semantic-models'},
+      {title: 'SLDT Ontology Models Repository', url: 'https://github.com/eclipse-tractusx/sldt-ontology-model'},
     ],
     recurrence: {
       frequency: 'weekly',
@@ -312,7 +386,6 @@ export const meetings = [
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'The goal of the meeting is to prepare for the test phase and clarify the process of the release test phase. We also want to review the Release Check Issues and discuss the deployment process.',
     contact: CONTACTS.MONIKA_JACOBSEN,
-    contact: CONTACTS.MONIKA_JACOBSEN,
     sessionLink: 'https://teams.microsoft.com/meet/341698125994736?p=qJo0E8nAZq6BdyTo7N',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
     additionalLinks: [],
@@ -330,7 +403,6 @@ export const meetings = [
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'The purpose of this session is to provide you with the latest updates on the test phase and the deployment status. Additionally, this will be an opportunity for you to ask any questions regarding the upcoming test phase.',
     contact: CONTACTS.MONIKA_JACOBSEN,
-    contact: CONTACTS.MONIKA_JACOBSEN,
     sessionLink: 'https://teams.microsoft.com/meet/363850435614611?p=DsSrIvonUzetTYn4yc',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
     additionalLinks: [],
@@ -341,72 +413,62 @@ export const meetings = [
       endTime: '09:00',
     },
   },
-  // New entries for R26.06 - Alignment Day and Open Planning
+  // New entries for R26.12 - Alignment Day and Open Planning
   {
-    id: 'alignment-day-r26-09',
-    title: 'Alignment Day for R26.09',
+    id: 'alignment-day-r26-12',
+    title: 'Alignment Day for R26.12',
     icon: 'handshake',
     category: MEETING_CATEGORIES.ONE_TIME,
-    description: 'Address open questions and unresolved dependencies for features planned for Release 26.09. This session focuses on alignment and clarifying blockers before open planning.',
-    contact: CONTACTS.STEPHAN_BAUER,
-    sessionLink: 'https://teams.microsoft.com/meet/394805715638402?p=8B9edw4w9Lw87kWdro',
+    priority: MEETING_PRIORITIES.FEATURED,
+    description: 'Address open questions and unresolved dependencies for features planned for Release 26.12. This session focuses on alignment and clarifying blockers before open planning.',
+    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.THERESA_HILGER],
+    sessionLink: 'https://teams.microsoft.com/meet/36303060836975?p=PDgS8VJ76ypbOFmcxY',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-release-planning:matrix.eclipse.org',
     additionalLinks: [
-      { title: 'Release Planning Board - Open Question', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/43?filterQuery=-label%3Ametadata+label%3APrep-R26.09+label%3A%22open+question%22' },
-      { title: 'Timeline', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A26.09' },
-      { title: 'News Blog', url: '/blog/release-planning-R26.09' },
+      {
+        title: 'Release Planning Board - Open Question',
+        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/43?filterQuery=-label%3Ametadata+label%3APrep-R26.12+label%3A%22open+question%22'
+      },
+      {
+        title: 'Timeline',
+        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A26.12'
+      },
+      {title: 'News Blog', url: '/blog/release-planning-R26.12'},
     ],
     recurrence: {
       frequency: 'once',
-      startDate: '2026-05-13',
+      startDate: '2026-07-30',
       startTime: '09:05',
       endTime: '10:00',
     },
   },
   {
-    id: 'open-planning-r26-09',
-    title: 'Open Planning for R26.09',
+    id: 'open-planning-r26-12',
+    title: 'Open Planning for R26.12',
     icon: 'event_note',
     category: MEETING_CATEGORIES.ONE_TIME,
-    description: 'Finalize roadmap, prioritize features and align participants on deliverables for Release 26.09.',
-    contact: CONTACTS.STEPHAN_BAUER,
-    sessionLink: 'https://teams.microsoft.com/meet/342377231165448?p=Cmvp7xyFCC5kOWHskB',
+    priority: MEETING_PRIORITIES.FEATURED,
+    description: 'Finalize roadmap, prioritize features and align participants on deliverables for Release 26.12.',
+    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.THERESA_HILGER],
+    sessionLink: 'https://teams.microsoft.com/meet/311292893589704?p=bOzDbp9v4O4CKRGTVE',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-release-planning:matrix.eclipse.org',
     additionalLinks: [
-      { title: 'Release Planning Board - Topic/Product', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3A%22Prep-R26.09%22+status%3ABacklog' },
-      { title: 'Timeline', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A26.09' },
-      { title: 'News Blog', url: '/blog/release-planning-R26.09' },
-      { title: 'Detailed Agenda', url: '/blog/release-planning-R26.09#agenda-1' },
+      {
+        title: 'Release Planning Board - Topic/Product',
+        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3A%22Prep-R26.12%22+status%3ABacklog'
+      },
+      {
+        title: 'Timeline',
+        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A26.12'
+      },
+      {title: 'News Blog', url: '/blog/release-planning-R26.12'},
+      {title: 'Detailed Agenda', url: '/blog/release-planning-R26.12#agenda-1'},
     ],
     recurrence: {
       frequency: 'once',
-      startDate: '2026-05-28',
+      startDate: '2026-08-13',
       startTime: '09:05',
       endTime: '10:30',
-    },
-  },
-  {
-    id: 'sixth-community-days-2026',
-    title: 'Sixth Eclipse Tractus-X Community Days',
-    category: MEETING_CATEGORIES.ONE_TIME,
-    priority: MEETING_PRIORITIES.HIGHLIGHT,
-    onsite: true,
-    location: 'ARENA2036 e.V., Stuttgart, Germany',
-    description: 'Join us for the Sixth Eclipse Tractus-X Community Days at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany)! Two full days of keynotes, workshops, hands-on challenges, and networking with the global Tractus-X open-source community. Connect with contributors from Manufacturing-X initiatives (Factory-X, Chem-X, Aerospace-X and more), participate in technical coding challenges, and help shape the future of open-source data spaces.',
-    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.MATHIAS_MOSER, CONTACTS.MIKEL_GARCIA],
-    registrationLink: 'https://eveeno.com/159341884',
-    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-community-events:matrix.eclipse.org',
-    additionalLinks: [
-      { title: 'News Blog & Registration', url: '/blog/community-days-07-2026' },
-      { title: 'ARENA2036 Event Page', url: 'https://arena2036.de/reader/sixth-eclipse-tractus-x-community-days/' },
-      { title: 'Tractus-X Mailing List', url: 'https://accounts.eclipse.org/mailing-list/tractusx-dev' },
-    ],
-    recurrence: {
-      frequency: 'once',
-      startDate: '2026-07-02',
-      endDate: '2026-07-03',
-      startTime: '09:00',
-      endTime: '17:00',
     },
   },
 ];
