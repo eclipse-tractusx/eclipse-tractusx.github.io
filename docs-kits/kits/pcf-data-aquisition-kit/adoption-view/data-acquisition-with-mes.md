@@ -1,7 +1,7 @@
 ---
 id: with-mes
 title: Data Acquisition via MES
-description: 'Adoption View - PCF data aquistion KIT with MES'
+description: 'Adoption View - PCF data acquisition KIT with MES'
 sidebar_position: 4
 ---
 
