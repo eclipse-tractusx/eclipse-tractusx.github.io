@@ -38,7 +38,7 @@ KIT LOGO END
 
 <!-- Describe what problem this KIT solves and who benefits from it. -->
 
-The UPaaS KIT enables companies to outsource individual semiconductor manufacturing unit steps — from frontend processes like wafer testing to backend processes like packaging and assembly — in a standardized, data-sovereign way, without exposing confidential fab data. Unlike general manufacturing marketplaces, UPaaS operates at the granularity of a single unit process within the semiconductor value chain, combining physical material exchange with a structured digital twin handoff. It targets a broad range of stakeholders including semiconductor manufacturers, foundries, IDMs, OSATs, fabless companies, equipment providers, OEMs, startups, research institutions, and small pilot lines operating within the European semiconductor ecosystem.
+The Unit-Process-as-a-Service (UPaaS) KIT enables companies to outsource individual semiconductor manufacturing unit steps — from frontend processes like wafer testing to backend processes like packaging and assembly — in a standardized, data-sovereign way, without exposing confidential fab data. Unlike general manufacturing marketplaces, UPaaS operates at the granularity of a single unit process within the semiconductor value chain, combining physical material exchange with a structured digital twin handoff. In its current implementation, which focuses on wafer testing, the primary stakeholders are semiconductor manufacturers, foundries, integrated device manufacturers (IDMs), outsourced semiconductor assembly and test providers (OSATs), and equipment providers participating in outsourced wafer-testing workflows.
 
 ## Vision and Mission
 
@@ -46,15 +46,15 @@ The UPaaS KIT enables companies to outsource individual semiconductor manufactur
 
 ### Vision
 
-Semiconductor supply chains are uniquely fragile: long process times, around-the-clock fabs, short product life cycles, and extreme capital intensity mean a single disruption — geopolitical, pandemic, or natural — can propagate across the entire global value chain. The vision of this KIT is a European semiconductor ecosystem where individual unit processes — whether in wafer fabrication, wafer testing, packaging, or assembly — can be commercially exchanged as modular, trusted services between qualified partners, without lock-in, without exposing proprietary process data, and without requiring custom bilateral integration for each new partner relationship.
+Semiconductor supply chains are uniquely fragile: long process times, around-the-clock fabs, short product life cycles, and extreme capital intensity mean a single disruption — geopolitical, pandemic, or natural — can propagate across the entire global value chain. The vision of this KIT is a European semiconductor ecosystem where individual unit processes — whether in wafer fabrication, wafer testing, packaging, or assembly — can be commercially exchanged as modular, trusted services between qualified partners, without lock-in, without exposing proprietary process data, and without requiring custom bilateral integration for each new partner relationship. In this long-term vision, the ecosystem also includes startups, research institutions, and small pilot lines as additional process steps are standardized beyond wafer testing.
 
 ### Mission
 
 The UPaaS KIT delivers the building blocks for standardized, execution-level unit process exchange in semiconductor manufacturing. Concretely, it provides:
 
 - A semiconductor-specific semantic data model built on the Digital Reference ontology, covering technologies, workroutes, process groups, and unit processes across the full semiconductor value chain
-- BPMN 2.0 workflows formalizing the requester-provider interaction from offer to physical execution and digital data return
-- AAS submodel templates for wafer testing (Metadata + Electrical Testing) aligned with IDTA conventions, designed to be extensible to other unit processes such as packaging or final test
+- Business Process Model and Notation (BPMN) 2.0 workflows formalizing the requester-provider interaction from offer to physical execution and digital data return
+- Asset Administration Shell (AAS) submodel templates for wafer testing (Metadata + Electrical Testing) aligned with Industrial Digital Twin Association (IDTA) conventions, designed to be extensible to other unit processes such as packaging or final test
 - A Qualified Synthetic Data (QSD) pipeline to enable realistic but non-confidential exchange of wafer-testing data
 - Secure, policy-controlled data exchange via the Eclipse Dataspace Connector (EDC)
 
@@ -68,7 +68,7 @@ carries an inherent growth opportunity: addressing it not only removes a barrier
 the overall model. The following chances and risks are prioritized by their expected impact and
 the resources required to address them (see Figure 1).
 
-<img src={require('../resources/chances_risks.png').default} alt="chances-and-risks-matrix" style={{width: '45%'}} />
+<img src={require('../resources/chances_risks.png').default} alt="chances-and-risks-matrix" style={{width: '100%'}} />
 Figure 1: Chances and risks of UPaaS, plotted by impact and prioritization (resource allocation).
 
 ### Chances
@@ -97,7 +97,7 @@ a technical dependency into a shared, resilient foundation for the entire ecosys
 
 **5 – Legal Issues / Data Sovereignty (Legal):** Cross-company data transactions raise questions
 around data ownership, sovereignty, and liability. Proactively establishing clear data-sharing
-agreements and leveraging ODRL-based usage policies within the EDC transforms legal uncertainty
+agreements and leveraging Open Digital Rights Language (ODRL)-based usage policies within the EDC transforms legal uncertainty
 into a trust-building mechanism that lowers the entry barrier for new participants.
 
 **6 – Market Adoption Uncertainty (Adop):** If companies hesitate to join, the UPaaS model
@@ -110,7 +110,7 @@ into multipliers — each successful integration reduces uncertainty for the nex
 <!-- Describe the business process or domain this KIT addresses. If a use case describe the use case. -->
 
 
-The semiconductor value chain spans a sequence of highly specialized steps — from frontend processes like lithography, etching, and wafer testing to backend processes like dicing, packaging, and final assembly — each requiring specific equipment, certifications, and process know-how. In a UPaaS scenario, a semiconductor manufacturer (Requester) ships physical materials (e.g. wafers, dies, or partial assemblies) to a qualified external partner (Provider) to perform a specific unit process step, then receives both the processed materials and the corresponding digital results packaged as AAS digital twins. The marketplace orchestrates the service request, offer, contract, and data exchange lifecycle across company boundaries. The business process of UPaaS is illustrated in the swimlane diagram below (Figure 1).
+The semiconductor value chain spans a sequence of highly specialized steps — from frontend processes like lithography, etching, and wafer testing to backend processes like dicing, packaging, and final assembly — each requiring specific equipment, certifications, and process know-how. In a UPaaS scenario, a semiconductor manufacturer (Requester) ships physical materials (e.g. wafers, dies, or partial assemblies) to a qualified external partner (Provider) to perform a specific unit process step, then receives both the processed materials and the corresponding digital results packaged as AAS digital twins. The marketplace orchestrates the service request, offer, contract, and data exchange lifecycle across company boundaries. The business process of UPaaS is illustrated in the swimlane diagram below (Figure 2).
 
 Key stakeholders:
 
@@ -118,8 +118,8 @@ Key stakeholders:
 - **UPaaS Provider** — a qualified fab, OSAT, or equipment operator offering certified unit process capacity
 - **Marketplace operator** — governing the trust framework and the Semiconductor-X data space infrastructure
 
-![swimlane-diagram](../resources/swimlane.jpg)
-Figure 1: Business process of UPaaS, illustrating the main interactions between the UPaaS Requester and UPaaS Provider.
+![swimlane-diagram](../resources/swimlane.png)
+Figure 2: Business process of UPaaS, illustrating the main interactions between the UPaaS Requester and UPaaS Provider.
 
 ## Business Value
 
@@ -137,14 +137,14 @@ Unlike general-purpose manufacturing capability models, the UPaaS data model is 
 - **Production planning level** — products, technologies (e.g. IGBT, MOSFET, SiC), requester/provider interaction, UPaaS offers, process groups, and process module constraints
 - **Production execution level** — unit processes, parameters, interfaces (OPC UA, Semi SECS/GEM), and state machines
 
-A visual representation of the semantic data model is shown in Figure 2.
+A visual representation of the semantic data model is shown in Figure 3.
 
 The **Wafer Testing AAS submodel** is the first concrete instantiation of this model, organizing data into two blocks aligned with IDTA conventions:
 
 - **Metadata** — lot ID, wafer ID, facility, routing, timestamps, input/output quantities
 - **Electrical Testing** — die-level pass/fail, hard/soft bin classifications, yield metrics, wafer map images
 
-Primary attributes were derived from Infineon's synthetic wafer-testing datasets to ensure industrial relevance. The structure is designed to be extensible to other unit processes such as packaging or final test. The wafer Digital Twin is depicted in Figure 3.
+Primary attributes were derived from Infineon's synthetic wafer-testing datasets to ensure industrial relevance. The structure is designed to be extensible to other unit processes such as packaging or final test. The wafer Digital Twin is depicted in Figure 4.
 
 <!-- QSD maybe not relevant for the KIT as only for testing 
 
@@ -152,15 +152,15 @@ The **Qualified Synthetic Data (QSD)** pipeline generates realistic wafer-testin
 -->
 
 ![semantic-data-model](../resources/UPaaS_semantic_data_model.jpg)
-Figure 2: A visual representation of the UPaaS semantic data model.
+Figure 3: A visual representation of the UPaaS semantic data model.
 
 ![AAS-model](../resources/edited_complete_submodel_1.png)
-Figure 3: Wafer Digital Twin shown in the AASX Package Explorer, including the "Metadata" and "Electrical Testing" submodels.
+Figure 4: Wafer Digital Twin shown in the AASX Package Explorer, including the "Metadata" and "Electrical Testing" submodels.
 
 
 
 <details>
-  <summary>Wafer Testing AAS Submodel – top-level structure (click to expand) [incomplete]</summary>
+  <summary>Wafer Testing AAS Submodel – Metadata (click to expand)</summary>
 
 ```json
 {
@@ -169,6 +169,7 @@ Figure 3: Wafer Digital Twin shown in the AASX Package Explorer, including the "
     "BatchId": "string",
     "WaferId": "string",
     "LotPosition": "integer",
+    "BatchPosition": "integer",
     "Manufacturer": "string",
     "WaferSupplier": "string",
     "ProductionSite": "string",
@@ -176,25 +177,50 @@ Figure 3: Wafer Digital Twin shown in the AASX Package Explorer, including the "
     "FacilityId": "string",
     "Location": "string",
     "LocationId": "string",
-    "Operational": "integer",
-    "Equipid": "string",
+    "WorkRouteId": "string",
+    "OperationId": "string",
+    "EquipId": "string",
     "LastUpdate": "datetime",
     "GlobalRouteId": "string",
-    "WaferSpecifications": {...},
-    "ProductInformation": {...}
-  },
+    "WaferSpecifications": {
+      "Diameter": "float",
+      "BaseMaterial": "string",
+      "ThicknessRaw": "float",
+      "ThicknessFinished": "float",
+      "Dopant": "string",
+      "IngotPulling": "string",
+      "ResistivityClass": "float"
+    },
+    "ProductInformation": {
+      "ProductNumber": "string",
+      "Technology": "string",
+      "BasicType": "string",
+      "ChipsPerWafer": "integer",
+      "ChipSize": "string"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+  <summary>Wafer Testing AAS Submodel – Electrical Testing (click to expand)</summary>
+
+```json
+{
   "ElectricalTesting": {
     "WaferTestId": "integer",
-    "TestflowId": "string",
+    "TestFlowId": "string",
     "TimestampStart": "datetime",
     "TimestampEnd": "datetime",
     "QuantityIn": "integer",
     "QuantityOut": "integer",
     "FacilityId": "string",
     "LocationId": "string",
-    "TestRun": [{
+    "TestRun": {
       "TestRunId": "string",
-      "TestTypeId": "integer",
+      "TestTypeId": "string",
       "TimestampStart": "datetime",
       "TimestampEnd": "datetime",
       "TestEquipment": "string",
@@ -205,15 +231,21 @@ Figure 3: Wafer Digital Twin shown in the AASX Package Explorer, including the "
       "Passed": "integer",
       "YieldPassed": "float",
       "YieldFab": "float"
-    }],
-    "WaferTestResult": [{
+    },
+    "WaferTestResult": {
       "TestResultId": "integer",
-      "TestTypeId": "integer",
-      "Pass": "float",
+      "TestTypeId": "string",
+      "Pass": "integer",
       "YieldPassed": "float",
       "YieldFab": "float",
-      "WaferTestResultList": [...]
-    }]
+      "DieResults": [{
+        "DieId": "string",
+        "HBIN": "string",
+        "SBIN": "string",
+        "Pass": "string",
+        "DieLocation": "string"
+      }]
+    }
   }
 }
 ```

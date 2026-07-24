@@ -48,7 +48,7 @@ Figure 1: High-Level Architecture of the UPaaS marketplace platform
 
 **Requester infrastructure** consists of an SCM/ERP system that initiates service requests, an AAS Server hosting the Wafer AAS, consisting of metadata and electrical testing data submodels (Metadata block: lot, wafer specs, routing), an EDC instance that **acts as the EDC provider**: it creates and publishes the EDC asset referencing the AAS Server endpoint, defines ODRL-based access and usage policies, and creates the contract definition that the UPaaS Provider must agree to before retrieving the data, and a **Decentralized Wallet** that stores Verifiable Credentials used to prove the requester’s identity and membership within the dataspace. A QSD pipeline is provided for onboarding and integration testing, generating synthetic but structurally realistic wafer datasets without exposing confidential production data.
 
-**Provider infrastructure** mirrors this structure: a MES or fab system drives process execution and captures test results via equipment interfaces (OPC UA, Semi SECS/GEM), which are surfaced through an AAS Server hosting the Wafer AAS, consisting of metadata and electrical testing data submodels (die-level results, yield metrics, wafer maps). The provider’s EDC **acts as the EDC consumer**: it browses the UPaaS Requester’s catalog, initiates contract negotiation, and retrieves the resulting AAS package from the UPaaS Requester’s AAS Server once a contract is agreed. A **Decentralized Wallet** stores the provider’s Verifiable Credentials and supports token-based identity verification during dataspace interactions.
+**Provider infrastructure** mirrors this structure: a MES or fab system drives process execution and captures test results via equipment interfaces (OPC UA, Semi SECS/GEM), which are surfaced through an AAS Server hosting the Wafer AAS, consisting of metadata and electrical testing data submodels (die-level results, yield metrics, wafer maps). The provider’s EDC **acts as the EDC consumer**: it browses the UPaaS Requester’s catalog, initiates contract negotiation, and retrieves the resulting AAS package from the UPaaS Requester’s AAS Server once a contract has been agreed upon. A **Decentralized Wallet** stores the provider’s Verifiable Credentials and supports token-based identity verification during dataspace interactions.
 
 **Data exchange** between the two EDC instances follows two layers:
 - The **Control Plane** exchanges catalog, contract negotiation, and transfer initiation messages via the Dataspace Protocol (DSP).
@@ -102,11 +102,13 @@ contract can retrieve the underlying data.
 ### Step 4 – Data Transfer
 
 The UPaaS Provider’s (EDC consumer) Data Plane uses the EDR to retrieve the AAS package directly from the UPaaS Requester’s AAS 
-Server over HTTPS. The transferred package is an **AASX / JSON / XML file** containing:
+Server over HTTPS. Depending on the process phase, the transferred package is an **AASX / JSON / XML file** containing:
 
-- The **Metadata submodel** — lot ID, wafer ID, facility, routing, timestamps, and input/output quantities
-- The **Electrical Testing submodel** — die-level pass/fail results, hard and soft bin classifications, 
+- **Before unit-process execution**: the **Metadata submodel** — lot ID, wafer ID, facility, routing, timestamps, and input/output quantities
+- **After unit-process execution**: the **Metadata submodel** plus the **Electrical Testing submodel** — die-level pass/fail results, hard and soft bin classifications, 
   yield metrics, and wafer map image files (yield mode and HBIN mode)
+
+The detailed submodel structure can be found in the [Semantic Models / Data Model](../adoption-view/adoption-view.md#semantic-models--data-model) section of the Adoption View.
 
 The UPaaS Provider’s AAS Server ingests the received package, making it available for downstream quality 
 validation and in-house processing steps.
