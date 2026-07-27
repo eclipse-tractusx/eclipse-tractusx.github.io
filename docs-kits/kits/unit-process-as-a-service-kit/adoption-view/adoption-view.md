@@ -115,7 +115,7 @@ The semiconductor value chain spans a sequence of highly specialized steps — f
 Key stakeholders:
 
 - **UPaaS Requester** — a semiconductor manufacturer (e.g. IDM or fabless company) seeking flexible access to a specific unit process it cannot or does not want to perform in-house
-- **UPaaS Provider** — a qualified fab, OSAT, or equipment operator offering certified unit process capacity
+- **UPaaS Provider** — a qualified fab, OSAT, or equipment operator offering certified unit process capability
 - **Marketplace operator** — governing the trust framework and the Semiconductor-X data space infrastructure
 
 ![swimlane-diagram](../resources/swimlane.png)

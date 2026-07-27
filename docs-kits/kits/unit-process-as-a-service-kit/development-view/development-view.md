@@ -105,7 +105,7 @@ The UPaaS Provider’s (EDC consumer) Data Plane uses the EDR to retrieve the AA
 Server over HTTPS. Depending on the process phase, the transferred package is an **AASX / JSON / XML file** containing:
 
 - **Before unit-process execution**: the **Metadata submodel** — lot ID, wafer ID, facility, routing, timestamps, and input/output quantities
-- **After unit-process execution**: the **Metadata submodel** plus the **Electrical Testing submodel** — die-level pass/fail results, hard and soft bin classifications, 
+- **After unit-process execution**: the **Metadata submodel** plus the **Electrical Testing submodel** — lot ID, wafer ID, facility, routing, timestamps, and input/output quantities **+** die-level pass/fail results, hard and soft bin classifications, 
   yield metrics, and wafer map image files (yield mode and HBIN mode)
 
 The detailed submodel structure can be found in the [Semantic Models / Data Model](../adoption-view/adoption-view.md#semantic-models--data-model) section of the Adoption View.
@@ -245,14 +245,6 @@ The full technical implementation, including the QSD pipeline and full EDC data 
 
 
 
-## Application Programming Interfaces (API)
-
->APIs do not exist yet for UPaaS
->
-> TODO: If applicable API specifications.
-> Detailed APIs can be included as swagger / open api specs
-> As described in TRG 1.08: https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-08
-> Will be hosted in API HUB: https://eclipse-tractusx.github.io/api-hub/
 
 
 ## Protocols

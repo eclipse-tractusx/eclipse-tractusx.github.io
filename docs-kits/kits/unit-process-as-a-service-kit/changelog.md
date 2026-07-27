@@ -34,7 +34,7 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 KIT LOGO END
 -->
 
-## [0.1.0] - 2026-06-29
+## [0.1.0] - 2026-07-27
 
 ### Added
 
