@@ -28,7 +28,11 @@ To operationalize instance-based PCF calculation by combining MES-driven process
 
 ## Business Context
 
-<img src="../resources/img/Referenzarchitecture_Business_view.svg" width="800" alt="PCF Data Acquisition Architecture">
+<div style={{maxWidth: '800px'}}>
+
+![PCF Data Acquisition Architecture](../resources/img/Referenzarchitecture_Business_view.svg)
+
+</div>
 
 The green box in the reference arquitecture on the right represents the internal processes and systems of a company, typically a factory or a production site. This system focuses on the calculation and management of the Product Carbon Footprint (PCF) for the manufacturing share. Its purpose is to automatically capture, collect, and process product-specific consumption data, especially energy data. The goal is to determine CO2 emissions at the individual product instance level. By utilizing various business applications and integration layers, it supports the optimization of production processes to both improve internal efficiency and meet sustainability requirements, as well as to transparently provide PCF data.
 
@@ -46,7 +50,7 @@ This PCF management system offers significant opportunities for service provider
 
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0].
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2026 Siemens AG

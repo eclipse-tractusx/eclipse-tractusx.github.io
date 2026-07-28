@@ -69,7 +69,11 @@ Our mission is to provide standardized, implementable blueprints for the accurat
 
 Calculating a product's carbon footprint requires data from multiple domains within and across company boundaries. The reference architecture below illustrates how suppliers, factory operators, and logistics companies interact to provide the data inputs for PCF calculation (PCF Exchange cross company is excluded here, as it is handled in the PCF Exchange KIT).
 
-<img src="../resources/img/pcf_data_acquisition_architecture.svg" width="800" alt="PCF Data Acquisition Architecture">
+<div style={{maxWidth: '800px'}}>
+
+![PCF Data Acquisition Architecture](../resources/img/pcf_data_acquisition_architecture.svg)
+
+</div>
 
 ## KIT Structure
 
@@ -83,12 +87,12 @@ This KIT is structured into three sub-sections, each addressing one data acquisi
 - Development view
   - Collection of Manufacturing data for PCF calculation
     - [Using Manufacturing Execution System (MES)](../development-view/development-with-MES.md)
-    - [Using Asset Administration Shell](../development-view/development-without-MES.md)
+    - [Using Asset Administration Shell](../development-view/development-with-aas.md)
   - [Collection of Logistics data for PCF calculation](../development-view/development-logistics.md)
 
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0].
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2026 ESTAINIUM e.V.

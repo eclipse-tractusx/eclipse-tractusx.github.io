@@ -36,19 +36,13 @@ KIT LOGO END
 
 ## Architecture Overview
 
-<!-- High-level diagram of the technical approach. 
-
-> TODO: Describe the technical architecture and key design decisions.
-> We recommend diagrams in drawio (need to be stored in SVG), or you can use mermaid or plant uml
-> As described in TRG 1.04: https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-04.
-> Explain which components are involved in the KIT data exchange or use case.
-> Keep the source code so it can be included in the final KIT version in Markdown.
-> Example:
--->
-
 The technical architecture for the Manufacturing Product Carbon Footprint (PCF) solution, as depicted in the accompanying architecture diagram below, is specifically designed to enable fully automated, instance-based PCF calculation directly within the manufacturing environment. This solution focuses on integrating operational technology (OT) with information technology (IT) to provide real-time, granular insights into the carbon footprint of manufactured products.
 
-<img src="../resources/img/pcf_data_acquisition_architecture_mes.svg" width="200" alt="PCF Data Acquisition Architecture Using MES">
+<div style={{maxWidth: '200px'}}>
+
+![PCF Data Acquisition Architecture Using MES](../resources/img/pcf_data_acquisition_architecture_mes.svg)
+
+</div>
 
 ## Core components
 
@@ -175,15 +169,6 @@ Seamless IT/OT Integration with Standardized Communication: The architecture is 
 3. Modularity and Scalability: Each component is designed to be modular, allowing for flexible deployment, independent updates, and scalability. This ensures that the solution can adapt to varying production complexities and growing data volumes within different manufacturing environments.
 Data-Driven Optimization: By providing precise, instance-based PCF data, the solution empowers manufacturers to identify carbon hotspots within their production processes. This data-driven approach supports continuous improvement efforts, enabling targeted measures for reducing the environmental impact of manufacturing operations.
 
-<!--
-## Application Programming Interfaces (API)
-
-> TODO: If applicable API specifications.
-> Detailed APIs can be included as swagger / open api specs
-> As described in TRG 1.08: https://eclipse-tractusx.github.io/docs/release/trg-1/trg-1-08
-> Will be hosted in API HUB: https://eclipse-tractusx.github.io/api-hub/
--->
-
 ## Semantic Models / Data Model
 
 The Factory-X OPC-UA data model for data exchange between MES and automation systems was developed in alignment with the OPC-UA Foundation specifications. Our primary goal was to define an extension specifically tailored to the energy consumption information required by PCF management systems for calculating Product Carbon Footprints.
@@ -278,22 +263,9 @@ The table below shows the details of each data field in the Factory-X OPC-UA dat
 
 ---
 
-<!--
-## Protocols
-
-<!-- Provide a minimal code snippet or step-by-step guide. -->
-
-<!--
-> TODO: Add the protocols which you are using for the data exchange.
-
-| Name | Description | Link to Documentation |
-| ---- | ----------- | ----------------------|
-| `Protocol Na!` | This protocol is important when doing the data exchange | [example-link](https://example.com) |
-
--->
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0].
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2026 Siemens AG

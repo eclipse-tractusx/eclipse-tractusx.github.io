@@ -1064,7 +1064,7 @@ export const kitsData = {
         },
         logoHeight: 100,
         logoWidth: 100,
-        route: '/docs-kits/next/kits/pcf-data-aquisition-kit/adoption-view',
+        route: '/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view',
         colors: {
           primary: '#0a8d26',
           gradient: 'linear-gradient(135deg, #66C791 0%, #404040 100%)'
@@ -1079,8 +1079,8 @@ export const kitsData = {
         description: 'Data acquisition from shop floor and production systems for PCF calculation',
         metadata: {
           created: '2026-06-23',
-          lastUpdated: '2026-06-23',
-          latestVersion: '1.0.0',
+          lastUpdated: '2026-07-27',
+          latestVersion: '0.0.1',
           new: true
         }
       },

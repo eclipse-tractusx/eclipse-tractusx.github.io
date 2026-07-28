@@ -55,7 +55,11 @@ The logistics carbon footprint management process involves three primary actors:
 
 The logistics platform acts as a neutral intermediary that enables secure, standardized data exchange:
 
-<img src="../resources/img/pcf_data_acquisition_architecture_logistics.svg" width="800" alt="PCF Data Acquisition Architecture">
+<div style={{maxWidth: '800px'}}>
+
+![PCF Data Acquisition Architecture](../resources/img/pcf_data_acquisition_architecture_logistics.svg)
+
+</div>
 
 The green box in the above reference architecture on the right, specifically encompassing the Logistics Platform, represents the core processes and systems for managing and calculating the Logistics Product Carbon Footprint (PCF). This system focuses on enabling transparent and efficient data exchange between companies to accurately determine the environmental impact of product transportation. Its primary purpose is to capture, process, and allocate logistics-related emission data to individual shipments and and ultimately to the products themselves.
 
@@ -112,7 +116,7 @@ The logistics platform implementation relies on the following industry standards
 
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0].
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2026 Siemens AG

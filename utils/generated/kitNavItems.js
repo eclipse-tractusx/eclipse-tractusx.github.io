@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: a20427017ea1dd2230a224243f833fec3aae10654a799148c9a09f0bdd794a3e
+ * Content hash: 5227f2fff17cf4fe50a318536b4676e97189ed56cfdaa10ced4911290d3556ab
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -217,7 +217,7 @@ const kitsByCategory = {
       {
         "id": "pcf-data-acquisition",
         "name": "PCF DATA ACQUISITION KIT",
-        "route": "/docs-kits/next/kits/pcf-data-aquisition-kit/adoption-view",
+        "route": "/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view",
         "deprecated": false
       },
       {

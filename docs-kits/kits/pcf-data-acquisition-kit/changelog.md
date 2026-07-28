@@ -14,3 +14,4 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 ### Added
 
 - Initial version of the KIT including the adoption views and development views
+- Organized KIT to have three configurations, with MES, AAS and from Logistic.

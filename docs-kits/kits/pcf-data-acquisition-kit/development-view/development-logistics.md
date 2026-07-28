@@ -38,7 +38,11 @@ KIT LOGO END
 
 The diagram illustrates an architecture that depicts the data flow and interactions between various systems and stakeholders for the calculation of the Logistics Product Carbon Footprint (PCF)
 
-<img src="../resources/img/pcf_data_acquisition_architecture_logistics.svg" width="800" alt="PCF Data Acquisition Architecture">
+<div style={{maxWidth: '800px'}}>
+
+![PCF Data Acquisition Architecture](../resources/img/pcf_data_acquisition_architecture_logistics.svg)
+
+</div>
 
 ### Core components
 
@@ -191,7 +195,7 @@ Place here the description of your semantic model.
 
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0].
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2026 Siemens AG

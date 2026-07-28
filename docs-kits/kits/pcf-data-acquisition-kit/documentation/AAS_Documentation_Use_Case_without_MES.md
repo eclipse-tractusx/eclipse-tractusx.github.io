@@ -472,7 +472,7 @@ The **WorkOrderCarbonFootprint** of `3.086 kg CO₂e` in CommonParameter aggrega
 
 ## NOTICE
 
-This work is licensed under the [CC-BY-4.0].
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: 2026 Siemens AG
