@@ -1,5 +1,5 @@
 ---
-id: development-using-aas
+id: documentation-aas-data-acquisition
 title: Documentation AAS Data Acquisition
 sidebar_position: 4
 ---
