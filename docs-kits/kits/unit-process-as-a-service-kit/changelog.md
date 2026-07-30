@@ -60,6 +60,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 - SPDX-License-Identifier: CC-BY-4.0
 - SPDX-FileCopyrightText: [2026] [Infineon Technologies AG]
-- SPDX-FileCopyrightText: [2026] [Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. (Fraunhofer IWU)]
+- SPDX-FileCopyrightText: [2026] [Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V (Fraunhofer-Institut für Werkzeugmaschinen und Umformtechnik IWU)]
+- SPDX-FileCopyrightText: [2026] [EXPO21XX GmbH]
 - SPDX-FileCopyrightText: [2026] Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
