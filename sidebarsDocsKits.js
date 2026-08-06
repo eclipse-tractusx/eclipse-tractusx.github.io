@@ -34,6 +34,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const DOCS_KITS_ROOT = path.join(__dirname, 'docs-kits');
 
 const createGeneratedIndexKitCategory = (label, dirName) => ({
   type: 'category',
@@ -49,7 +50,7 @@ const createGeneratedIndexKitCategory = (label, dirName) => ({
 });
 
 const createOptionalGeneratedIndexKitCategory = (label, dirName) =>
-  fs.existsSync(path.join(__dirname, 'docs-kits', dirName))
+  fs.existsSync(path.join(DOCS_KITS_ROOT, dirName))
     ? [createGeneratedIndexKitCategory(label, dirName)]
     : [];
 
