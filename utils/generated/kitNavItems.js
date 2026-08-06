@@ -221,6 +221,12 @@ const kitsByCategory = {
   "industryKits": {
     "manufacturing": [
       {
+        "id": "pcf-data-acquisition",
+        "name": "PCF DATA ACQUISITION KIT",
+        "route": "/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view",
+        "deprecated": false
+      },
+      {
         "id": "autonomous-operation",
         "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",
         "route": "/docs-kits/next/kits/autonomous-operation-kit/adoption-view",
