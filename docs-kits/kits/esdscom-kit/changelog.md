@@ -50,8 +50,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2025 [eSDScom Workgroup](https://esdscom.eu) and contributors
-- SPDX-FileCopyrightText: 2025 [Qualisys GmbH](https://qualisys.eu)
-- SPDX-FileCopyrightText: 2025 [Volkswagen AG](https://www.volkswagen.de)
-- SPDX-FileCopyrightText: 2025 Contributors to the [Eclipse Foundation](https://eclipse.org)
+- SPDX-FileCopyrightText: 2026 [eSDScom Workgroup](https://esdscom.eu) and contributors
+- SPDX-FileCopyrightText: 2026 [Qualisys GmbH](https://qualisys.eu)
+- SPDX-FileCopyrightText: 2026 [Volkswagen AG](https://www.volkswagen.de)
+- SPDX-FileCopyrightText: 2026 Contributors to the [Eclipse Foundation](https://eclipse.org)
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
