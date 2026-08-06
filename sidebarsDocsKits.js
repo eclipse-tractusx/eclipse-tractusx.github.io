@@ -696,7 +696,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'eSDScom KIT',
-      link: { type: 'generated-index' }
+      link: { type: 'generated-index' },
       collapsed: true,
       items: [
       {
