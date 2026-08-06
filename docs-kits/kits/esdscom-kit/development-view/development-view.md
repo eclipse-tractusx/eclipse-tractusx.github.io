@@ -114,7 +114,7 @@ Model: eSDScom
 Version: 1.0.0
 SemanticId: `urn:samm:io.catenax.esdscom:1.0.0#eSDScom`
  
-
+[`https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.esdscom/1.0.0/eSDScom.ttl`](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.esdscom/1.0.0/eSDScom.ttl)
 The following diagram shows the digital twin structure used to represent eSDScom data in the Catena-X dataspace.
 
 ![eSDScom Digital Twin Structure](../resources/digital-twin-structure.svg)
