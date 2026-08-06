@@ -47,9 +47,112 @@
     z-index: -1;
     width: 100vw;
     height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
+    overflow: hidden;
+    // Deep near-black base so foreground text keeps strong contrast (dark theme default)
+    background-color: #050505;
+  }
+
+  // Each wave is an oversized, blurred radial glow of warm amber tones that
+  // slowly drifts around, so overlapping layers read like a moving wave of colour.
+  .wave {
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
+    border-radius: 45%;
+    filter: blur(60px);
+    mix-blend-mode: screen;
+    will-change: transform, opacity;
+  }
+
+  .wave:nth-child(1) {
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgb(249 178 50 / 85%) 0%,
+      rgb(224 122 20 / 45%) 35%,
+      rgb(120 55 10 / 0%) 70%
+    );
+    animation: waveDriftA 22s ease-in-out infinite alternate;
+  }
+
+  .wave:nth-child(2) {
+    top: -10%;
+    left: 10%;
+    background: radial-gradient(
+      circle at 70% 60%,
+      rgb(255 138 30 / 70%) 0%,
+      rgb(180 70 15 / 35%) 40%,
+      rgb(90 40 5 / 0%) 72%
+    );
+    animation: waveDriftB 30s ease-in-out infinite alternate;
+  }
+
+  @keyframes waveDriftA {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translate3d(8%, 6%, 0) scale(1.15) rotate(12deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(-6%, -4%, 0) scale(1.05) rotate(-8deg);
+      opacity: 0.85;
+    }
+  }
+
+  @keyframes waveDriftB {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1.1) rotate(0deg);
+      opacity: 0.75;
+    }
+    50% {
+      transform: translate3d(-10%, 8%, 0) scale(1.25) rotate(-14deg);
+      opacity: 0.95;
+    }
+    100% {
+      transform: translate3d(6%, -6%, 0) scale(1) rotate(10deg);
+      opacity: 0.7;
+    }
+  }
+
+  // Light theme: brighter, softer warm palette on a light base
+  :global([data-theme='light']) {
+    .hero_bg {
+      background-color: #fdf6ec;
+    }
+
+    .wave {
+      mix-blend-mode: multiply;
+    }
+
+    .wave:nth-child(1) {
+      background: radial-gradient(
+        circle at 30% 30%,
+        rgb(249 178 50 / 75%) 0%,
+        rgb(240 150 40 / 40%) 40%,
+        rgb(253 246 236 / 0%) 72%
+      );
+    }
+
+    .wave:nth-child(2) {
+      background: radial-gradient(
+        circle at 70% 60%,
+        rgb(255 170 60 / 65%) 0%,
+        rgb(245 160 45 / 35%) 42%,
+        rgb(253 246 236 / 0%) 74%
+      );
+    }
+  }
+
+  // Respect users who prefer reduced motion: keep the colours, drop the animation
+  @media (prefers-reduced-motion: reduce) {
+    .wave:nth-child(1),
+    .wave:nth-child(2) {
+      animation: none;
+    }
   }
       
   .container {
@@ -83,10 +186,6 @@
   }
   
   @media screen and (max-width: 996px) {
-    .hero_bg {
-      background-position: center right;
-    }
-  
     .title {
       font-size: 7vw;
       line-height: 7vw;

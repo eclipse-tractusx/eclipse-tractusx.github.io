@@ -21,7 +21,6 @@
 
 import React from "react";
 import Link from "@docusaurus/Link";
-import ThemedImage from '@theme/ThemedImage';
 import NewsTicker from "../NewsTicker";
 import LayersIcon from '@mui/icons-material/Layers';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -32,15 +31,11 @@ import classes from "../../scss/components/HomePageHeader.module.scss";
 export default function HomePageHeader() {
   return (
     <header className={classes.heroBanner}>
-    {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
-      <ThemedImage
-        // alt="Docusaurus themed image hero background"
-        sources={{
-          light: ('/img/main-bg-light.png'),
-          dark: ('/img/main-bg-new.png'),
-        }}
-        className={classes.hero_bg}
-      />
+    {/* Decorative CSS-animated "wave of colors" background (replaces the static image) */}
+      <div className={classes.hero_bg} aria-hidden="true">
+        <span className={classes.wave} />
+        <span className={classes.wave} />
+      </div>
 
     {/* Content of the component */}
       <div className={classes.container}>
