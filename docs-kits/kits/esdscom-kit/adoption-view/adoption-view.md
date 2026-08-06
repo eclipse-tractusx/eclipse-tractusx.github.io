@@ -145,7 +145,7 @@ More information can be found in the Policies in Catena-X of the Connector KIT.
 
 The eSDScom ontology is based on the eSDScom XML schema definition version 5.6, available at [esdscom.eu](https://esdscom.eu) and converted to SAMM by a script to ensure consistency.
 
-The original eSDScom XML model, represented in several XML schema definitions (XSD files), is too large to be represented here. Please use https://www.esdscom.eu/downloads/version-5 or https://github.com/esdscom/sdscom-xml/releases/ to download the schema definition.
+The original eSDScom XML model, represented in several XML schema definitions (XSD files), is too large to be represented here. Please use the [eSDScom version 5 downloads](https://www.esdscom.eu/downloads/version-5) or [sdscom-xml releases](https://github.com/esdscom/sdscom-xml/releases/) to download the schema definition.
 
 ## NOTICE
 

@@ -113,18 +113,16 @@ The following data fields in the eSDScom data model allow an unique assignment o
 Model: eSDScom
 Version: 1.0.0
 SemanticId: `urn:samm:io.catenax.esdscom:1.0.0#eSDScom`
- 
+
 | Model Type | Link |
 |-------------|-----|
 | urn:samm:io.catenax.esdscom:1.0.0#eSDScom (.ttl) | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.esdscom/1.0.0/eSDScom.ttl](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.esdscom/1.0.0/eSDScom.ttl) |
 | JSON Payload | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.esdscom/1.0.0/gen/eSDScom.json](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.esdscom/1.0.0/gen/eSDScom.json) |
 | JSON Schema | [https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.esdscom/1.0.0/gen/eSDScom-schema.json](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.esdscom/1.0.0/gen/eSDScom-schema.json) |
 
-
 The following diagram shows the digital twin structure used to represent eSDScom data in the Catena-X dataspace.
 
 ![eSDScom Digital Twin Structure](../resources/digital-twin-structure.svg)
-
 
 ### Sample data in multiple formats (JSON, XML, CSV)
 
