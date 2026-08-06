@@ -498,8 +498,8 @@ export const kitsData = {
       description: 'Standardized exchange of safety data sheets, exposure scenarios and compliance information in the global chemical supply chain.',
       metadata: {
         created: '2025-09-01',
-        lastUpdated: '2026-04-02',
-        latestVersion: '1.0.0',
+        lastUpdated: '2026-08-06',
+        latestVersion: '0.0.1',
         new: true
       }
     },
