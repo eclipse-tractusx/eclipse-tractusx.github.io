@@ -190,10 +190,10 @@ export const meetings = [
   // Product Regular Meetings
   {
     id: 'industry-core-hub-weekly',
-    title: 'Industry Core Hub Weekly',
+    title: 'Industry Core Hub + Tractus-X SDK and TestLab Weekly',
     icon: 'hub',
     category: MEETING_CATEGORIES.PRODUCT,
-    description: 'Open Meeting to align the development status of the Industry Core Hub [IC-Hub], the data provision & consumption orchestrator. This meeting also covers Tractus-X SDK (TX-SDK) topics, including the development of the TX-SDK library and TX-SDK Services (Tractus-X Test Bed). Additional Topic Groups (Backend, Frontend & Architecture) Weekly meetings are available in the additional links.',
+    description: 'Open Meeting to align the development status of the Industry Core Hub [IC-Hub], the data provision & consumption orchestrator. This meeting also covers Tractus-X SDK (TX-SDK) topics, including the development of the TX-SDK library and Tractus-X TestLab. Additional Topic Groups (Backend, Frontend & Architecture) Weekly meetings are available in the additional links.',
     contact: CONTACTS.MATHIAS_MOSER,
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_MGJlYzgzMjktNWE4OS00NjcwLWIyOGYtZDgzYmMzODRiMTgy%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
     matrixChatUrl: 'https://matrix.to/#/#tractusx-industry-core-hub:matrix.eclipse.org',
