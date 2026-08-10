@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 5227f2fff17cf4fe50a318536b4676e97189ed56cfdaa10ced4911290d3556ab
+ * Content hash: e1cb226daf92714e7dc44c0fec0a8c595f2ea902577251d8fef09cdbee910adb
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -103,6 +103,12 @@ const kitsByCategory = {
     }
   ],
   "useCases": [
+    {
+      "id": "esdscom",
+      "name": "eSDS COMMUNICATION KIT",
+      "route": "/docs-kits/next/kits/esdscom-kit/adoption-view",
+      "deprecated": false
+    },
     {
       "id": "ess",
       "name": "ESS KIT",
