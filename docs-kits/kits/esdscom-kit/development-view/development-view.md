@@ -51,7 +51,7 @@ To participate in the eSDScom use case, the following single standards MUST be f
 
 To participate in the eSDScom use case, the following single standard MUST be fulfilled only by data providers:
 
-- CX-XXXX eSDScom In the Catena-X technical landscape, the standard assumes the use of CX-0126-IndustryCorePartType.
+- CX-0162 eSDScom In the Catena-X technical landscape, the standard assumes the use of CX-0126-IndustryCorePartType.
 The architecture follows a pull-based pattern: data is pushed from supplier to consumer (or other way around) but made accessible by the data provider. This standard applies equally to Data Providers and Consumers. All parties involved in the exchange must implement the agreed data structure and access patterns to ensure interoperability within the Catena-X network.
 
 1. All Data Exchange Requirements follows the CX-0018 Dataspace Connectivity [https://catenax-ev.github.io/docs/standards/CX-0018-DataspaceConnectivity] and which lays out the principles for both, data providers and data consumers. More information can be found in the [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/connector-kit/adoption-view).
