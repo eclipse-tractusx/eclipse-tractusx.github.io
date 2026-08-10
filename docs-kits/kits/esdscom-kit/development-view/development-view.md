@@ -54,7 +54,7 @@ To participate in the eSDScom use case, the following single standard MUST be fu
 - CX-XXXX eSDScom In the Catena-X technical landscape, the standard assumes the use of CX-0126-IndustryCorePartType.
 The architecture follows a pull-based pattern: data is pushed from supplier to consumer (or other way around) but made accessible by the data provider. This standard applies equally to Data Providers and Consumers. All parties involved in the exchange must implement the agreed data structure and access patterns to ensure interoperability within the Catena-X network.
 
-1. All Identification and Access Management (IAM) follows the CX-0015 IAM & Access Control Paradigm for users and Clients standard [https://catenax-ev.github.io/docs/standards/CX-0015-IAMandAccessControlParadigmForUsersAndClients] which lays out the principles for both, data providers and data consumers.
+1. All Data Exchange Requirements follows the CX-0018 Dataspace Connectivity [https://catenax-ev.github.io/docs/standards/CX-0018-DataspaceConnectivity] and which lays out the principles for both, data providers and data consumers. More information can be found in the [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/connector-kit/adoption-view).
 2. Both, the data providers and consumers shall be identified in the Catena-X dataspace following the CX-0010 Business Partner Number Standard [https://catenax-ev.github.io/docs/standards/CX-0010-BusinessPartnerNumber] so that a clear identification of both parties enables automatic data exchange.
 The Onboarding of the parties on the Catena-X Dataspace shall be effectuated following the CX-0006 Registration and initial Onboarding standard [https://catenax-ev.github.io/docs/standards/CX-0006-RegistrationAndInitialOnboarding].
 
