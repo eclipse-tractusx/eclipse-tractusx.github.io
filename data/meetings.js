@@ -471,4 +471,33 @@ export const meetings = [
       endTime: '10:30',
     },
   },
+  {
+    id: 'open-planning-r27-03',
+    title: 'Open Planning for R27.03',
+    icon: 'event_note',
+    category: MEETING_CATEGORIES.ONE_TIME,
+    priority: MEETING_PRIORITIES.FEATURED,
+    description: 'Finalize roadmap, prioritize features and align participants on deliverables for Release 27.03.',
+    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.THERESA_HILGER],
+    sessionLink: 'https://teams.microsoft.com/meet/390787570757205?p=0jCKpPTyrjvhJYFmNz',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-release-planning:matrix.eclipse.org',
+    additionalLinks: [
+      {
+        title: 'Release Planning Board - Topic/Product',
+        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3A%22Prep-R27.03%22+status%3ABacklog'
+      },
+      {
+        title: 'Timeline',
+        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A27.03'
+      },
+      {title: 'News Blog', url: '/blog/release-planning-R27.03'},
+      {title: 'Detailed Agenda', url: '/blog/release-planning-R27.03#agenda-1'},
+    ],
+    recurrence: {
+      frequency: 'once',
+      startDate: '2026-11-11',
+      startTime: '09:05',
+      endTime: '10:30',
+    },
+  },
 ];
