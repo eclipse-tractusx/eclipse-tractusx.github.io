@@ -103,6 +103,8 @@ import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.sv
 import CCMKitLogo from "@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg";
 import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
 import MaterialAccountingKitLogo from "@site/static/img/kits/material-accounting/material-accounting-kit-raw-logo.svg";
+import EsdscomKitLogo from "@site/static/img/kits/esdscom-kit/esdscom-kit-raw-logo.svg";
+import PcfDataAcquisitionKitLogo from "@site/static/img/kits/pcf-data-acquisition/pcf-data-acquisition-kit-raw-logo.svg";
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
 import PrecisionManufacturing from '@mui/icons-material/PrecisionManufacturing';
@@ -469,6 +471,38 @@ export const kitsData = {
     },
   ],
   useCases: [
+    {
+      id: 'esdscom',
+      name: 'eSDS COMMUNICATION KIT',
+      logo: EsdscomKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 eSDScom Workgroup and contributors; 2026 Catena-X Automotive Network e.V.; 2026 Contributors to the Eclipse Foundation',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/esdscom-kit/esdscom-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/esdscom-kit/esdscom-kit-raw-logo.svg'
+      },
+      logoHeight: 90,
+      logoWidth: 90,
+      route: '/docs-kits/next/kits/esdscom-kit/adoption-view',
+      colors: {
+        primary: '#E8730C',
+        gradient: 'linear-gradient(135deg, #F5A623 0%, #E8730C 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Supply Chain',
+      industries: ['chemical','automotive'],
+      description: 'Standardized exchange of safety data sheets, exposure scenarios and compliance information in the global chemical supply chain.',
+      metadata: {
+        created: '2025-09-01',
+        lastUpdated: '2026-08-06',
+        latestVersion: '0.0.1',
+        new: true
+      }
+    },
     {
       id: 'ess',
       name: 'ESS KIT',
@@ -1052,6 +1086,38 @@ export const kitsData = {
   industryKits: {
     "manufacturing": [
       {
+        id: 'pcf-data-acquisition',
+        name: 'PCF DATA ACQUISITION KIT',
+        logo: PcfDataAcquisitionKitLogo,
+        logoLicencse: {
+          type: 'CC-BY-4.0',
+          authors: '2026 Eclipse Tractus-X Contributors',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcf-data-acquisition/pcf-data-acquisition-kit-raw-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcf-data-acquisition/pcf-data-acquisition-kit-raw-logo.svg'
+        },
+        logoHeight: 100,
+        logoWidth: 100,
+        route: '/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view',
+        colors: {
+          primary: '#0a8d26',
+          gradient: 'linear-gradient(135deg, #66C791 0%, #404040 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Sustainability',
+        industries: ['manufacturing'],
+        description: 'Data acquisition from shop floor and production systems for PCF calculation',
+        metadata: {
+          created: '2026-06-23',
+          lastUpdated: '2026-07-27',
+          latestVersion: '0.0.1',
+          new: true
+        }
+      },
+      {
         id: 'autonomous-operation',
         name: 'AUTONOMOUS OPERATION & REMOTE SERVICES KIT',
         logo: AutonomousOperationKitLogo,
@@ -1279,7 +1345,7 @@ export const industries = [
         },
         subtitle: 'The Digital Ecosystem',
         description: 'Project which aims to build an open and collaborative digital ecosystem for factory outfitters and operators, based on Catena-X and Platform Industry 4.0 concepts.',
-        kits: ['connector', 'digital-twin', 'autonomous-operation', 'maas', 'pcf', 'modular-production', 'eco-pass']
+        kits: ['connector', 'digital-twin', 'autonomous-operation', 'maas', 'pcf-data-acquisition', 'modular-production', 'eco-pass']
       }
     ]
   },
@@ -1326,7 +1392,7 @@ export const industries = [
         url: "https://construct-x.org",
         gradient: 'linear-gradient(135deg, #002865, #FF6B35, #FFB74D)',
         logo: {
-          src: 'https://construct-x.org/wp-content/uploads/2025/11/CX-BM-RGB.png',
+          src: 'https://www.construct-x.org/sites/default/files/2026-05/cx-bm-rgb_0.png',
           alt: 'Construct-X Logo',
           width: 70,
           height: 70

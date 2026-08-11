@@ -24,7 +24,7 @@ To enable notifications, the recipient has to register its notification API as a
     "dct:type": {
       "@id": "cx-taxo:DemandAndCapacityNotificationApi"
     },
-    "cx-common:version": "2.0",
+    "cx-common:version": "3.0",
     "description": "Demand and Capacity Notification API Endpoint"
   },
   "dataAddress": {
@@ -42,7 +42,13 @@ This asset can then be contracted by senders of notifications.
 
 ## Versioning
 
-The Catena-X versioning applies. For version `2.0.0` of the Demand and Capacity API, a new asset and backend notification receiver MUST be created as shown in Figure 4 below.
+:::warning
+
+Version `2.0.0` is now deprecated with Eclipse Tractus-X Release 26.09. It will be fully removed with Eclipse Tractus-X Release 27.09.
+
+:::
+
+The Catena-X versioning applies. For version `3.0.0` of the Demand and Capacity API, a new asset and backend notification receiver MUST be created as shown in Figure 4 below.
 
 ![figure 1 - API versioning of the Demand and Capacity Notification API](../resources/notifications_connector_versioning.drawio.svg)
 
@@ -66,7 +72,7 @@ The Demand and Capacity Notification consists of a header and a content, that ar
 The definition following aspect models are used for their respective properties following table 1.
 
 | Property | Aspect Model with Link                                                                                                                                                                                                                             |
-|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | header   | [urn:samm:io.catenax.shared.message_header:3.0.0#MessageHeader](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.shared.message_header/3.0.0/MessageHeaderAspect.ttl)                                                 |
 | content  | [urn:samm.io.catenax.demand_and_capacity_notification:3.0.0#DemandAndCapacityNotification](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/3.0.0/DemandAndCapacityNotification.ttl) |
 
@@ -79,10 +85,10 @@ In the following more detailed information will be provided on how to fill the r
 The following table lists all fields of the message header and how they are used.
 
 | **Field**        | **REQUIRED** | **Purpose**                                                                                                                                                                                                                                                   | **Datatype**                                                                                                  | **Example value**                                   |
-|------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| ---------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | messageId        | Yes          | Unique ID identifying the message. The purpose of the ID is to uniquely identify a single message, therefore it must not be reused. This ID must not be confused with the notification id within the payload and thus, should be different.                   | UUID v4 [RFC4122]                                                                                             | `urn:uuid:375e75f0-913e-4b71-a96c-366fc8f6bf8f`     |
 | relatedMessageId | No           | For the "Demand and Capacity Notification" this information must not be set. Correlations of notifications is handled within the payload as described in the [forwarding subchapter 5](#forward-a-notification).                                              | UUID v4 [RFC4122]                                                                                             |                                                     |
-| context          | Yes          | This field  must contain the namespace of the Demand and Capacity Notification API that is sent within the content section of the message. The version is not specified according to the SAMM version of the DemandAndCapacityNotification SAMM model in use. | URI                                                                                                           | `CX-DemandAndCapacityNotificationAPI-Receive:2.0.0` |
+| context          | Yes          | This field  must contain the namespace of the Demand and Capacity Notification API that is sent within the content section of the message. The version is not specified according to the SAMM version of the DemandAndCapacityNotification SAMM model in use. | URI                                                                                                           | `CX-DemandAndCapacityNotificationAPI-Receive:3.0.0` |
 | version          | Yes          | This field must specify the version of the header's aspect model that has been used to create the header.                                                                                                                                                     | Version of the shared aspect model MessageHeader                                                              | `3.0.0`                                             |
 | senderBpn        | Yes          | The business partner number (BPNL) of the responding party.                                                                                                                                                                                                   | BPNL according to [[CX-0010]](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber) | `BPNL7588787849VQ`                                  |
 | receiverBpn      | Yes          | The business partner number (BPNL) of the receiving party.                                                                                                                                                                                                    | BPNL according to [[CX-0010]](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber) | `BPNL6666787765VQ`                                  |
@@ -96,7 +102,7 @@ The following listing shows a valid json serialization of such a header within t
 {
   "header": {
     "messageId": "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
-    "context": "CX-DemandAndCapacityNotificationAPI-Receive:2.0.0",
+    "context": "CX-DemandAndCapacityNotificationAPI-Receive:3.0.0",
     "receiverBpn": "BPNL4444444444XX",
     "senderBpn": "BPNL000000000ZH5",
     "version": "3.0.0"
@@ -140,46 +146,45 @@ The following JSON provides an example with the same payload and additionally wi
 {
   "header": {
     "senderBpn": "BPNL7588787849VQ",
-    "context": "CX-DemandAndCapacityNotificationAPI-Receive:2.0.0",
+    "context": "CX-DemandAndCapacityNotificationAPI-Receive:3.0.0",
     "messageId": "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
     "receiverBpn": "BPNL6666787765VQ",
     "sentDateTime": "2023-12-01T21:24:00+07:00",
     "version": "3.0.0"
   },
   "content": {
-    "demandAndCapacityNotification": {
-      "affectedSitesSender": [
-        "BPNS7588787849VQ"
-      ],
-      "affectedSitesRecipient": [
-        "BPNS6666787765VQ"
-      ],
-      "contentChangedAt": "2023-12-13T15:00:00+01:00",
-      "startDateOfEffect": "2023-12-13T15:00:00+01:00",
-      "leadingRootCause": "strike",
-      "effect": "demand-reduction",
-      "notificationId": "urn:uuid:3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
-      "sourceDisruptionId": "urn:uuid:a494B2EA-b8DA-AD0d-9cBe-6cf192Df09ef",
-      "text": "Demand reduction due to ongoing strike.",
-      "expectedEndDateOfEffect": "2023-12-17T08:00:00+01:00",
-      "status": "open",
-      "materialsAffected": [
-        {
-          "customerMaterialNumber": "MNR-7307-AU340474.002",
-          "supplierMaterialNumber": "MNR-8101-ID146955.001",
-          "materialGlobalAssetId": "urn:uuid:b0ceacd8-78b0-391a-2B2D-aCB8cfAAA4AA"
-        }
-      ]
-    }
+    "affectedSitesSender": [
+      "BPNS7588787849VQ"
+    ],
+    "affectedSitesRecipient": [
+      "BPNS6666787765VQ"
+    ],
+    "contentChangedAt": "2023-12-13T15:00:00+01:00",
+    "startDateOfEffect": "2023-12-13T15:00:00+01:00",
+    "leadingRootCause": "strike",
+    "effect": "demand-reduction",
+    "notificationId": "urn:uuid:3b4edc05-e214-47a1-b0c2-1d831cdd9ba9",
+    "sourceDisruptionId": "urn:uuid:a494B2EA-b8DA-AD0d-9cBe-6cf192Df09ef",
+    "text": "Demand reduction due to ongoing strike.",
+    "expectedEndDateOfEffect": "2023-12-17T08:00:00+01:00",
+    "status": "open",
+    "materialsAffected": [
+      {
+        "customerMaterialNumber": "MNR-7307-AU340474.002",
+        "supplierMaterialNumber": "MNR-8101-ID146955.001",
+        "materialGlobalAssetId": "urn:uuid:b0ceacd8-78b0-391a-2B2D-aCB8cfAAA4AA"
+      }
+    ]
   }
 }
 ```
 
 ## Open API Documentation
 
-|API|Link|
-|-|-|
-|Demand and Capacity Notification|[Find here](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-supply-chain-disruption-notification-demandAndCapacityNotification-openAPI-v2/swagger-ui/)|
+| API (Version)                                                                                                                                                                                                 | Introduced with Release | Deprecated since Release | Removed with Release |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------ | -------------------- |
+| [Demand and Capacity Notification 3.0.0](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-supply-chain-disruption-notification-demandAndCapacityNotification-openAPI-v3/swagger-ui/) | 26.09                   | Active                   |                      |
+| [Demand and Capacity Notification 2.0.0](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-supply-chain-disruption-notification-demandAndCapacityNotification-openAPI-v2/swagger-ui/) | 25.09                   | **26.09**                | **27.09**            |
 
 For further details, please refer to [CX-0146 Supply Chain Disruption Notifications][StandardLibrary].
 
