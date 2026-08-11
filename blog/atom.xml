@@ -2,11 +2,93 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/blog</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2026-07-13T14:00:00.000Z</updated>
+    <updated>2026-08-11T10:30:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/blog"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release Planning for Release 27.03]]></title>
+        <id>https://eclipse-tractusx.github.io/blog/release-planning-R27.03</id>
+        <link href="https://eclipse-tractusx.github.io/blog/release-planning-R27.03"/>
+        <updated>2026-08-11T10:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Eclipse Tractus-X Community Update - Release Planning for Release 27.03]]></summary>
+        <content type="html"><![CDATA[<p><a href="https://eclipse-tractusx.github.io/assets/files/Tractus-X_openplanning-c022e22e9b50e26a8db4e32806e85d1f.png" target="_blank" class=""><img decoding="async" loading="lazy" alt="Eclipse Tractus-X Open Planning Banner" src="https://eclipse-tractusx.github.io/assets/images/Tractus-X_openplanning-c022e22e9b50e26a8db4e32806e85d1f.png" width="1880" height="940" class="img_ev3q"></a></p>
+<p>Hello, Eclipse Tractus-X Community!</p>
+<p>Collaboration drives the success of Eclipse Tractus-X, and we are excited to invite you to the <strong>Release Planning session for R27.03</strong>!
+This session is your chance to shape the roadmap, align with the community, and ensure a well-structured release.</p>
+<ul>
+<li class=""><strong>Matrix chat -&gt; <a href="https://matrix.to/#/#tractusx-release-planning:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Release Management</a></strong></li>
+<li class=""><strong>Matrix chat -&gt; <a href="https://matrix.to/#/#tractusx-test-management:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Test Management</a></strong></li>
+</ul>
+<p><strong>Key Information:</strong></p>
+<ul>
+<li class="">📅 <strong>Dates and Times</strong>: Listed for each session below.</li>
+<li class="">📂 <strong>Resources</strong>: Visit our <a class="" href="https://eclipse-tractusx.github.io/community/open-meetings"><strong>open meetings page</strong></a> for all session links and additional documentation.</li>
+<li class="">🔗 <strong>Preparation Materials</strong>: Ensure readiness by reviewing the provided templates, guidelines, and your own features.</li>
+</ul>
+<p>We look forward to seeing you there and working together to make R27.03 a success!</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-planning-for-r2703">Open Planning for R27.03<a href="https://eclipse-tractusx.github.io/blog/release-planning-R27.03#open-planning-for-r2703" class="hash-link" aria-label="Direct link to Open Planning for R27.03" title="Direct link to Open Planning for R27.03" translate="no">​</a></h2>
+<p>The Open Planning session finalizes the roadmap for R27.03, prioritizing features and aligning all participants on deliverables
+for the release.</p>
+<ul>
+<li class=""><strong>Date:</strong> 11.11.2026</li>
+<li class=""><strong>Time:</strong> 09:05 - 10:30</li>
+<li class=""><strong>Teams Link:</strong> <a href="https://teams.microsoft.com/meet/390787570757205?p=0jCKpPTyrjvhJYFmNz" target="_blank" rel="noopener noreferrer" class="">Join the session</a></li>
+</ul>
+<p><strong>Who Should Attend</strong>:</p>
+<ul>
+<li class="">Contributors and Committers from the open-source community</li>
+<li class="">Expert Group and Committee members</li>
+<li class="">Feature requesters and stakeholders</li>
+</ul>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Your participation is crucial to ensure the success of the release planning. Expert Groups, Committees, the open-source community
+(contributor and committer), feature requesters are encouraged to attend and actively engage in the discussions.</p></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="agenda">Agenda<a href="https://eclipse-tractusx.github.io/blog/release-planning-R27.03#agenda" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda" translate="no">​</a></h3>
+<p>Here's the plan for the day:</p>
+<ul>
+<li class=""><strong>09:05 - 09:20</strong>: Open Planning - Vision &amp; Introduction</li>
+<li class=""><strong>09:20 - 10:15</strong>: Joint Open Planning (all teams)</li>
+<li class=""><strong>10:15 - 10:30</strong>: Feedback Retro / Open Planning Wrap-up / Summary &amp; Next Steps</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="joint-open-planning">Joint Open Planning<a href="https://eclipse-tractusx.github.io/blog/release-planning-R27.03#joint-open-planning" class="hash-link" aria-label="Direct link to Joint Open Planning" title="Direct link to Joint Open Planning" translate="no">​</a></h4>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>The planning sessions will be driven by our <a href="https://github.com/orgs/eclipse-tractusx/projects/26" target="_blank" rel="noopener noreferrer" class="">Release Planning Board</a>, which organizes features based on their <strong>Topic/Product</strong> field. The current agenda is only an example and will be updated with the actual features that are planned for R27.03.</p></div></div>
+<table><thead><tr><th>Time</th><th>Topics</th><th>Features</th></tr></thead><tbody><tr><td>09:20 - 10:15</td><td>TBD</td><td></td></tr></tbody></table>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span><strong>Please note:</strong></div><div class="admonitionContent_BuS1"><ul>
+<li class="">The agenda provides a <strong>rough time structure</strong> to help guide the session. The <strong>timings are not fixed</strong> and can be adjusted</li>
+<li class="">depending on the flow of the discussion.</li>
+<li class="">Use the agenda as <strong>orientation</strong>, but we may deviate if needed based on progress.</li>
+</ul></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="prerequisites-for-features-to-be-considered-in-open-planning">Prerequisites for features to be considered in Open Planning<a href="https://eclipse-tractusx.github.io/blog/release-planning-R27.03#prerequisites-for-features-to-be-considered-in-open-planning" class="hash-link" aria-label="Direct link to Prerequisites for features to be considered in Open Planning" title="Direct link to Prerequisites for features to be considered in Open Planning" translate="no">​</a></h3>
+<p>For a feature to be included in the Open Planning, the following conditions must be met:</p>
+<ul>
+<li class=""><strong>Status must be 'Backlog'</strong> - Committers and Expert Groups can set this status after the feature is fully refined.</li>
+<li class=""><strong>All categories in the feature template must be filled</strong> - Do not delete any sections from the template.</li>
+<li class=""><strong>Milestone is NOT set</strong> - This will be assigned during the Open Planning session.</li>
+<li class=""><strong>Contributor and Committer must be assigned</strong>.</li>
+<li class=""><strong><code>Topic/Product</code> must be set</strong>.</li>
+</ul>
+<p>During the session, if there is a common alignment among the participants, the feature milestone can be set to <strong>27.03</strong>, meaning
+it will be developed in the upcoming release.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="important-notes-and-hints">Important Notes and Hints<a href="https://eclipse-tractusx.github.io/blog/release-planning-R27.03#important-notes-and-hints" class="hash-link" aria-label="Direct link to Important Notes and Hints" title="Direct link to Important Notes and Hints" translate="no">​</a></h3>
+<ul>
+<li class="">Keep the board clean - there are still features with older milestones that have not yet been completed.</li>
+<li class="">Do not delete any sections from the feature template, except for KITs.</li>
+<li class="">For KITs, only the Contributor, Committer, and Description fields need to be filled.</li>
+</ul>
+<p>For any questions or further information, feel free to reach out via our <a href="https://accounts.eclipse.org/mailing-list/tractusx-dev" target="_blank" rel="noopener noreferrer" class="">mailing list</a>
+or join us in the Tractus-X <a href="https://matrix.to/#/#automotive.tractusx:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Matrix channel</a>.</p>
+<p>We look forward to your participation and collaboration! 🚀</p>]]></content>
+        <author>
+            <name>Stephan Bauer</name>
+            <uri>https://catena-x.net/</uri>
+        </author>
+        <author>
+            <name>Theresa Hilger</name>
+            <email>theresa.hilger@catena-x.net</email>
+            <uri>https://github.com/ther3sa</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release Planning for Release 26.12]]></title>
         <id>https://eclipse-tractusx.github.io/blog/release-planning-R26.12</id>
@@ -1667,177 +1749,6 @@ data exchanges.</p>
             <name>Thibault Grandemenge</name>
             <email>thibault.grandemenge@catena-x.net</email>
             <uri>https://github.com/Grand-Thibault</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release Planning for Release 25.06]]></title>
-        <id>https://eclipse-tractusx.github.io/blog/release-planning-R25.06</id>
-        <link href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06"/>
-        <updated>2024-12-13T11:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Eclipse Tractus-X Community Update - Release Planning for Release 25.06]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/Tractus-X_openplanning-c022e22e9b50e26a8db4e32806e85d1f.png" width="1880" height="940" class="img_ev3q"></p>
-<p>Hello, Eclipse Tractus-X Community!</p>
-<p>Collaboration drives the success of Eclipse Tractus-X, and we are excited to invite you to the <strong>Release Planning sessions for R25.06</strong>! These sessions are your chance to shape the roadmap, align with the community, and ensure a well-structured release.</p>
-<p><strong>New room in our matrix chat -&gt; <a href="https://matrix.to/#/#tractusx-release-planning:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Release Planning</a></strong></p>
-<p><strong>Key Information:</strong></p>
-<ul>
-<li class="">📅 <strong>Dates and Times</strong>: Listed for each session below.</li>
-<li class="">📂 <strong>Resources</strong>: Visit our <a class="" href="https://eclipse-tractusx.github.io/community/open-meetings"><strong>open meetings page</strong></a> for all session links and additional documentation.</li>
-<li class="">🔗 <strong>Preparation Materials</strong>: Ensure readiness by reviewing the provided templates, guidelines and your own features.</li>
-</ul>
-<p>We look forward to seeing you there and working together to make R25.06 a success!</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="refinement-day-1-for-r2506">Refinement Day 1 for R25.06<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#refinement-day-1-for-r2506" class="hash-link" aria-label="Direct link to Refinement Day 1 for R25.06" title="Direct link to Refinement Day 1 for R25.06" translate="no">​</a></h2>
-<p>The first Refinement Day sets the foundation for R25.06. Expert groups will brainstorm, refine features, and identify key dependencies for roadmap alignment.</p>
-<ul>
-<li class=""><strong>Date:</strong> Wednesday, 22nd January 2025</li>
-<li class=""><strong>Time:</strong> 09:05 - 12:00</li>
-<li class=""><strong>Main Teams Link:</strong> <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ODVmYWM1OGYtNjdkYS00ODgxLWI1YWEtMjAwZGJjY2NjNGIw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Join the session</a></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="agenda">Agenda<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#agenda" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>09:05 - 09:30</strong>: Welcome, Introduction, and Expectations</li>
-<li class=""><strong>09:30 - 11:15</strong>: Refinement in dedicated groups</li>
-<li class=""><strong>11:15 - 11:45</strong>: Group presentations on progress</li>
-<li class=""><strong>11:45 - 12:00</strong>: Closing and Next Steps</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sessions">Sessions<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#sessions" class="hash-link" aria-label="Direct link to Sessions" title="Direct link to Sessions" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="reference-implementations">Reference Implementations<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#reference-implementations" class="hash-link" aria-label="Direct link to Reference Implementations" title="Direct link to Reference Implementations" translate="no">​</a></h4>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OGE1NjVjOGQtNjZkMi00OTcyLTlhNTAtZjU2NzAxMzdiNmRm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">bpdm (business partner data management)</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NzBlZTQwZTQtNjdlNS00NDY0LThhMDEtNDQ4NjFlMGQ4NzBj%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">bdrs (bpn-did-resolution-service)</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MGIzNmYzZjYtODUwMC00MWQ1LWE0NTItODQwNjg2OWE2ZDU4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">dpp (digital-product-pass)</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MWU3OWRlNzUtOWNhYy00MmU0LWJjMTItMzIxYzgzNGUzMGQ5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">industry-core-hub</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWE3YTg5MjEtNWFhMi00MmM1LTgwNDctYWY2NTVjMmJhNzIw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">irs (item-relationship-service)</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzAyNWNjNjMtNGVjZC00MTg0LWIyZDktOGQ4MTMzMWRiMGRk%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">ka (knowledge-agents)</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YTg4NmVlYzYtMzRjYS00NDZhLTk5ZGQtZDVjMTY3YmRiY2Vm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">mso (managed-service-orchestrator)</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NzEyYmQyYjEtMDNhNS00ZjAwLWI3MjEtNzgyOWUwZGEyYjQ4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">sde (managed-simple-data-excahnger)</a></li>
-<li class="">policy-hub (please join <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTViMzY4NmYtNDk1My00OTlkLWI5MzAtM2NiNWVmNGI0MjUw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">portal session</a> due to overlapping committers)</li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTViMzY4NmYtNDk1My00OTlkLWI5MzAtM2NiNWVmNGI0MjUw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">portal</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTI1NGYzYWUtNjEyYi00NmE2LTg4ZjUtOWYzYjJiZjY1MDI1%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">puris (predictive-unit-real-time-information-service)</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OWRmYmE5YWYtOGNkOC00NjdkLTgxYzEtMWE1YWJhNjE3Yjg0%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">sd-factory</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NmZjOTUwMjItNTRkNC00ZWVlLWE2YTEtMDUwYzZkYjRlOWZk%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">sldt (semantic-layer-and-digital-twin-registry) incl. modelling, discovery finder, registry</a></li>
-<li class="">ssi-authority-schema-registry (please join <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTViMzY4NmYtNDk1My00OTlkLWI5MzAtM2NiNWVmNGI0MjUw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">portal session</a> due to overlapping committers)</li>
-<li class="">ssi-credential-issuer (please join <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTViMzY4NmYtNDk1My00OTlkLWI5MzAtM2NiNWVmNGI0MjUw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">portal session</a> due to overlapping committers)</li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDczOWVlOWUtMDdiYi00NjdkLWJkMDktZTY4ZGM1Zjk5MmRk%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">ssi-dim-wallet-stub</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OTk2NmNmOWUtY2EzNS00OGE2LWE5NzUtZDk3ZDFkOGFjMjZl%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">traceability-foss</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjIwNzFhODEtYmYwZS00ZmI0LWFhNDgtZTg0YTg1MTcyNzFj%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">tractus-x-umbrella</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MjRkNmZiNjAtNGZiNi00NGQ2LTkzOGQtOWE4MzhkMDdhYzU2%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">tractusx-edc</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZWQxMDc2NjctMjM4MC00NWEyLWExNTAtZGViM2UwNzc0Y2Ux%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">identity-hub</a></li>
-</ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="kits">KITs<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#kits" class="hash-link" aria-label="Direct link to KITs" title="Direct link to KITs" translate="no">​</a></h4>
-<ul>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDlhZDdjM2YtNzgwOC00YTI5LTg0ZTctOWFjNGVkMjIxMTZm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Agents</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZmRlMTU1OGItYzMwMy00NTc5LTg4M2QtNmRhYmRkMDgzZjhl%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Behaviour Twin</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjIzM2MyMWEtMmNkMi00NTU3LWFlMmQtMDFiYjAxYmUxNzk0%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Business Partner</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzY2YmI5NjAtODcwOS00YzY5LWFmMWYtYTc0YTI5MWExNDNk%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Circularity</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NjlhNzViZGMtMGEzMi00NmI5LWFkYjAtNTE0MDUzM2VmMDgx%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Connector</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MWQyYmQwYjQtNTllNi00ZjkyLWEzNGQtMDFiNWJkMTcxYmM5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Data Chain</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_Y2U1Zjg0ZWItZTQyNy00YTc5LTg4NjctMzhlNWQyNGYyMzgy%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Data Governance</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OGVlOGUwNmUtMGVkNi00NWZiLWI1MGItN2ZlOTg1OTk4ZGQ5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Demand and Capacity Management</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YWFlNmZkNzAtMTJhNC00YTA1LWE5ZTEtOTQyNWZlODY0ZTYw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Digital Twin</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OTIyNmIwODUtNDhjNi00YzgwLTljMTktMzJhN2MwNDY2MmFh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Eco Pass</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDc1ZDNhNmEtNWU5Yy00ZjM0LWJmYTgtOTQyMjIwMjdkZGIx%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Environmental Social Standards</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTU4MDYyM2ItNTg1MS00ZDk4LTk4ZjYtZTlkZWY0MTU5MDE4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Industry Core</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2Y0NTgwYmItMDNhNC00MzBiLTk5MWMtMjUzMTUyYTM4ZWQ2%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Model Based Development</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzhkNzcxYzctZmI4ZS00NmI1LTg4YWUtMzk2NGFlNzVjOGU1%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Modular Production</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzlhNTJiNDQtYzkzZi00M2ZmLThkMDYtMzBlZmQxNDY0OTU1%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Online Simulation</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZmYwYmVlNjMtY2U0ZC00YmZiLWIwY2YtYzg0NjM3MmRkY2Vm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Manufacturing as a Service</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_M2U3NjE1OTMtMmZmMS00YTBkLWJjZDktN2YzN2ZiZGFlZjcz%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">PURIS</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDUyOTI1MWYtOWYxZS00YzkyLWJmZGMtZmY1NjNjYmM4MjJj%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Supply Chain Disruption Notifications</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGI3MjYwNDAtZjQ4My00YTIxLTlhOTItZmI4YmJjYWI3NmRm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">PCF Exchange</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MmNiM2I1NmMtOGNmOS00ZmNhLTlhMGYtMjI1YjI1ZjIzYjc5%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Quality</a></li>
-<li class=""><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZmQ2YWNhMWUtMTg0NS00NGM1LThiZmUtOTc4M2UxOTFkMzcx%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Traceability</a></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="preparation-checklist">Preparation Checklist<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#preparation-checklist" class="hash-link" aria-label="Direct link to Preparation Checklist" title="Direct link to Preparation Checklist" translate="no">​</a></h3>
-<ul>
-<li class="">Review the <a href="https://github.com/eclipse-tractusx/sig-release/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=1_feature_template.md" target="_blank" rel="noopener noreferrer" class="">feature template</a>.</li>
-<li class="">Prepare initial ideas for features.</li>
-<li class="">Identify potential dependencies with other groups or components.</li>
-<li class="">Familiarize yourself with related roadmap items.</li>
-<li class="">Use the supported-by field to map the feature with your expert group</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="group-and-teams-sessions">Group and Teams Sessions<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#group-and-teams-sessions" class="hash-link" aria-label="Direct link to Group and Teams Sessions" title="Direct link to Group and Teams Sessions" translate="no">​</a></h3>
-<p>During the refinement sessions, each group will focus on the first steps of skeleton-building for their features (based on the <a href="https://github.com/eclipse-tractusx/sig-release/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=1_feature_template.md" target="_blank" rel="noopener noreferrer" class="">feature template</a>,
-mapping them to the related roadmap items. Don’t worry about completing every section of the feature template just yet — this is a time for brainstorming and forming initial ideas.</p>
-<p>It's essential, however, to use the <strong>feature template</strong> and identify <strong>dependencies</strong> with other components or groups, which will help us add the correct labels to the features.
-You’re encouraged to collaborate across groups as needed, and we’ll provide <strong>Teams sessions</strong> for each group to work in.</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>The sessions for the different groups / components / dependencies can be used to sync within the underlying expert groups. Feel free to switch between groups if necessary!</p></div></div>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="refinement-day-2-for-r2506">Refinement Day 2 for R25.06<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#refinement-day-2-for-r2506" class="hash-link" aria-label="Direct link to Refinement Day 2 for R25.06" title="Direct link to Refinement Day 2 for R25.06" translate="no">​</a></h2>
-<p>The second Refinement Day focuses on resolving <strong>dependencies</strong> identified during Refinement Day 1. Groups will refine their features further, ensuring alignment across components.</p>
-<ul>
-<li class=""><strong>Date:</strong> Wednesday, 12th February 2025</li>
-<li class=""><strong>Time:</strong> 09:05 - 12:00</li>
-<li class=""><strong>Main Teams Link:</strong> <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_MWVjNTkwNTEtYTFiZS00ODI5LWE4MTgtMzE5MWM2ZGIwMzgw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Join the session</a></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="agenda-1">Agenda<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#agenda-1" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>09:05 - 09:30</strong>: Welcome and recap of Refinement Day 1 results</li>
-<li class=""><strong>09:30 - 11:15</strong>: Group work on resolving dependencies</li>
-<li class=""><strong>11:15 - 11:45</strong>: Group presentations on resolved dependencies</li>
-<li class=""><strong>11:45 - 12:00</strong>: Closing and Next Steps</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="key-focus-areas">Key Focus Areas<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#key-focus-areas" class="hash-link" aria-label="Direct link to Key Focus Areas" title="Direct link to Key Focus Areas" translate="no">​</a></h3>
-<ul>
-<li class="">Use the <a href="https://github.com/eclipse-tractusx/sig-release/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=1_feature_template.md" target="_blank" rel="noopener noreferrer" class="">feature template</a>.</li>
-<li class="">Add labels for identified dependencies.</li>
-<li class="">Collaborate across groups to resolve issues.</li>
-<li class="">Use the supported-by field to map the feature with your expert group.</li>
-<li class="">Status <code>Backlog</code>-&gt; this should be an alignment, between the requesting Expert Group/Committee and the open-source community.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="group-and-teams-sessions-1">Group and Teams Sessions<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#group-and-teams-sessions-1" class="hash-link" aria-label="Direct link to Group and Teams Sessions" title="Direct link to Group and Teams Sessions" translate="no">​</a></h3>
-<p>During the refinement sessions, each group will focus on resolving <strong>identified dependencies</strong> from Refinement Day 1, which are visible via the <strong>related labels</strong> on the features.
-While further feature refinement is allowed, the emphasis is on addressing and coordinating <strong>dependencies</strong> between groups and components.</p>
-<p>Our working Board for the day is the <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/36" target="_blank" rel="noopener noreferrer" class="">Release Planning - R25.06 - Preparation</a></p>
-<p>You’re encouraged to collaborate across groups as needed, and we’ll provide <strong>Teams sessions</strong> (we will use the same sessions from Refinement Day 1) for each group to work in.
-It might be the case for some experts to jump into different other groups to resolve dependencies.</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>The sessions for the different groups / components / dependencies can be used to sync within the underlying expert groups. Feel free to switch between groups if necessary!</p></div></div>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="dependency-session-for-ssi">Dependency session for SSI<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#dependency-session-for-ssi" class="hash-link" aria-label="Direct link to Dependency session for SSI" title="Direct link to Dependency session for SSI" translate="no">​</a></h4>
-<p>From <strong>10:15 - 11:15</strong> dependencies between the portal, identity-hub and ssi-credential-issuer in regards to Self Sovereign Identity (SSI) (see <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/36?sliceBy%5Bvalue%5D=NSC+-+SSI" target="_blank" rel="noopener noreferrer" class="">issues</a>) are clarified in the <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTViMzY4NmYtNDk1My00OTlkLWI5MzAtM2NiNWVmNGI0MjUw%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">portal session</a>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-planning-for-r2506">Open Planning for R25.06<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#open-planning-for-r2506" class="hash-link" aria-label="Direct link to Open Planning for R25.06" title="Direct link to Open Planning for R25.06" translate="no">​</a></h2>
-<p>The Open Planning session finalizes the roadmap for R25.06, prioritizing features and aligning all participants on deliverables for the release.</p>
-<ul>
-<li class=""><strong>Date:</strong> Wednesday, 19th February 2025</li>
-<li class=""><strong>Time:</strong> 09:05 - 17:00</li>
-<li class=""><strong>Teams Link:</strong> <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGRkMWIxOTctYTg3ZC00MWExLTk5NjYtMjBjZjYzYWFmZDMx%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d" target="_blank" rel="noopener noreferrer" class="">Join the session</a></li>
-</ul>
-<p><strong>Who Should Attend</strong>:</p>
-<ul>
-<li class="">Contributors and Committers from the open-source community</li>
-<li class="">Expert Group and Committee members</li>
-<li class="">Feature requesters and stakeholders</li>
-</ul>
-<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Your participation is crucial to ensure the success of the release planning. Expert Groups, Committees, the open-source community (contributor and committer),
-feature requesters are encouraged to attend and actively engage in the discussions.</p></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="agenda-2">Agenda<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#agenda-2" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda" translate="no">​</a></h3>
-<p>Here’s the plan for the day:</p>
-<ul>
-<li class=""><strong>09:05 - 09:30</strong>: Open Planning - Vision &amp; Introduction</li>
-<li class=""><strong>09:30 - 16:00</strong>: Joint Open Planning (all teams)</li>
-<li class=""><strong>16:00 - 16:30</strong>: Confidence Vote &amp; Feedback Retro</li>
-<li class=""><strong>16:30 - 17:00</strong>: Open Planning Wrap-Up / Summary &amp; Next Steps</li>
-</ul>
-<p>The planning sessions will be driven by our <a href="https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Asupported-by+label%3A%22Prep-R25.06%22+status%3ABacklog" target="_blank" rel="noopener noreferrer" class="">Release Planning Board</a>, which organizes features based on their <strong>supported-by</strong> field.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="prerequisites-for-features-to-be-considered-in-open-planning">Prerequisites for features to be considered in Open Planning<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#prerequisites-for-features-to-be-considered-in-open-planning" class="hash-link" aria-label="Direct link to Prerequisites for features to be considered in Open Planning" title="Direct link to Prerequisites for features to be considered in Open Planning" translate="no">​</a></h3>
-<p>For a feature to be included in the Open Planning, the following conditions must be met:</p>
-<ul>
-<li class=""><strong>Status must be 'Backlog'</strong> – Committers and Expert Groups can set this status after the feature is fully refined.</li>
-<li class=""><strong>All categories in the feature template must be filled</strong> – Do not delete any sections from the template.</li>
-<li class=""><strong>Milestone is NOT set</strong> – This will be assigned during the Open Planning session.</li>
-<li class=""><strong>Contributor and Committer must be assigned</strong>.</li>
-<li class=""><strong>Supported-by must be set</strong>.</li>
-</ul>
-<p>During the session, if there is a common alignment among the participants, the feature milestone can be set to <strong>25.06</strong>, meaning it will be developed in the upcoming release.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="important-notes-and-hints">Important Notes and Hints<a href="https://eclipse-tractusx.github.io/blog/release-planning-R25.06#important-notes-and-hints" class="hash-link" aria-label="Direct link to Important Notes and Hints" title="Direct link to Important Notes and Hints" translate="no">​</a></h3>
-<ul>
-<li class="">Keep the board clean – there are still features with older milestones that have not yet been completed.</li>
-<li class="">Do not delete any sections from the feature template, except for KITs.</li>
-<li class="">For KITs, only the Contributor, Committer, and Description fields need to be filled.</li>
-</ul>
-<p>For any questions or further information, feel free to reach out via our <a href="https://accounts.eclipse.org/mailing-list/tractusx-dev" target="_blank" rel="noopener noreferrer" class="">mailing list</a> or join us in the Tractus-X <a href="https://matrix.to/#/#automotive.tractusx:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Matrix channel</a>.</p>
-<p>We look forward to your participation and collaboration! 🚀</p>]]></content>
-        <author>
-            <name>Stephan Bauer</name>
-            <uri>https://catena-x.net/</uri>
         </author>
     </entry>
 </feed>
