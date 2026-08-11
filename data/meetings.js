@@ -409,8 +409,8 @@ export const meetings = [
     recurrence: {
       frequency: 'once',
       startDate: '2026-08-17',
-      startTime: '08:30',
-      endTime: '09:00',
+      startTime: '11:00',
+      endTime: '11:30',
     },
   },
   // New entries for R26.12 - Alignment Day and Open Planning
