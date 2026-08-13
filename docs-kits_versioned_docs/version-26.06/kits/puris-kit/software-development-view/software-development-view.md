@@ -254,7 +254,7 @@ This chapter contains data structures that are designed for providing data in th
 The PURIS KIT does not define its own protocol, as it is using the communication pattern described in
 the [Digital Twin KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/digital-twin-kit/software-development-view/interaction-patterns)
 and relies on
-the [Part Type Twin definitions of the Industry Core KIT](https://eclipse-tractusx.github.io/docs-kits_versioned_docs/version-26.06/kits/industry-core-kit/software-development-view/Digital%20Twins%20Development%20View%20Industry%20Core%20Kit).
+the [Part Type Twin definitions of the Industry Core KIT](hhttps://eclipse-tractusx.github.io/docs-kits/kits/industry-core-kit/software-development-view/Digital%20Twins%20Development%20View%20Industry%20Core%20Kit).
 
 Examples of how the required data structures for that pattern may look like for PURIS are described in this chapter.
 
@@ -300,7 +300,7 @@ Other fields are predetermined by the used standard and protocol.
 ### Connector Data Asset Structure for "Submodel"
 
 In order to allow partners to receive the actual aspect model data (e.g. Item Stock,
-see [all PURIS semantic models](https://eclipse-tractusx.github.io/docs-kits_versioned_docs/version-26.06/kits/puris-kit/adoption-view#semantic-models)),
+see [all PURIS semantic models](https://eclipse-tractusx.github.io/docs-kits/kits/puris-kit/adoption-view#semantic-models)),
 the provider has to register a connector data asset (
 see [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/next/category/connector-kit)) specifying the address of
 the submodel endpoint (
