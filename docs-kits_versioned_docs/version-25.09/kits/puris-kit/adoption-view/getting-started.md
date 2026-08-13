@@ -102,7 +102,7 @@ Figure 2: *Puris participation options*
 
 The PURIS-FOSS application is the most cost-effective option and can be adapted to individual needs. However, it offers only limited support via the community. In its basic version, data must be entered manually or can be provided in form of `.xlsx` spreadsheets (also possible via automation). As an open-source solution, it also allows for the development of customized, automated extensions.
 
-Further documentation is available [here](/docs-kits/kits/puris-kit/operations-view.md)
+Further documentation is available [here](/docs-kits/kits/puris-kit/operations-view)
 
 ##### Software as a Service
 
