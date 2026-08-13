@@ -1,0 +1,1639 @@
+---
+id: dpp-rulebook
+title: DPP Rulebook
+description: DPP Rulebook which allows attestation providers to provider trust to the digital product passports.
+sidebar_position: 1
+---
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="eco-pass" />
+
+## DPP Rulebook
+
+### Table of Contents
+
+1. [Introduction](#1-introduction)
+   - 1.1 [Goal of this Document](#11-goal-of-this-document)
+   - 1.2. [Target Audience](#12-target-audience)
+   - 1.3. [Scope and Applicability](#13-scope-and-applicability)
+   - 1.4. [Structure of this Rulebook](#14-structure-of-this-rulebook)
+2. [The Value of Validated Data](#2-the-value-of-validated-data)
+3. [Key Concepts and Definitions](#3-key-concepts-and-definitions)
+   - 3.1 [DPP Overview](#31-dpp-overview)
+   - 3.2 [Definition of Terms](#32-definition-of-terms)
+   - 3.3 [Key Stakeholders and their Roles](#33-key-stakeholders-and-their-roles)
+4. [Placement of DPP Rulebook within the Data Trust & Security KIT](#4-placement-of-dpp-rulebook-within-the-data-trust--security-kit)
+5. [General Principles for Data Handling in the DPP Model](#5-general-principles-for-data-handling-in-the-dpp-model)
+   - 5.1 [Data Ownership and Responsibility](#51-data-ownership-and-responsibility)
+   - 5.2 [Data Entry Guidelines (General Rules for Data Input)](#52-data-entry-guidelines-general-rules-for-data-input)
+   - 5.3 [Data Format and Standardization](#53-data-format-and-standardization)
+6. [The DPP Data Model: Overview of Data Points](#6-the-dpp-data-model-overview-of-data-points)
+   - 6.1 [Metadata](#61-metadata)
+   - 6.2 [Identification](#62-identification)
+   - 6.3 [Operation](#63-operation)
+   - 6.4 [Handling](#64-handling)
+   - 6.5 [Characteristics](#65-characteristics)
+   - 6.6 [Commercial](#66-commercial)
+   - 6.7 [Composition](#67-composition)
+   - 6.8 [Sustainability](#68-sustainability)
+   - 6.9 [Compliance](#69-compliance)
+   - 6.10 [Sources](#610-sources)
+   - 6.11 [Additional Data](#611-additional-data)
+7. [Appendix 1: DPP Example](#appendix-1-dpp-example-data)
+
+## 1. Introduction
+
+### 1.1 Goal of this Document
+
+The DPP Rulebook aims to simplify and clarify the validation and usability of data in Digital Product Passports, ensuring that product information is accessible, accurate, and trustworthy for all stakeholders. By establishing straightforward rules, this guide enhances understanding and consistency in data usage across sectors, beginning with the automotive industry.
+
+The main goal of this rulebook is twofold: it provides non-technical individuals with an easy-to-understand overview of the data model and offers actionable rules for data validation. For technical experts, the rulebook complements the existing data model by supporting effective implementation and compliance. Through user-friendly instructions and examples, the Data Trust Kit empowers diverse participants, fosters industry-wide trust, and makes adopting Digital Product Passports approachable and efficient for all involved parties.
+
+### 1.2 Target Audience
+
+This Rulebook is intended for professionals who are responsible for gathering, managing, or exchanging DPP data across the value chain (i.e., Data provider and data consumer) in Catena-X network : such as product managers, sustainability officers, and supply chain specialists. It is specifically crafted for users who may not have a deep technical or data modelling background but are tasked with utilizing the DPP data model. Technical details, schema structures, and integration specifics can be referenced in the data model, as needed.
+
+### 1.3 Scope and Applicability
+
+The DPP Rulebook covers the interpretation and application of the agreed generic DPP data model, as mandated by Regulation (EU) 2024/1781 of the European Parliament and of the Council of 13 June 2024 establishing a framework for the setting of ecodesign requirements for sustainable products, amending Directive (EU) 2020/1828 and Regulation (EU) 2023/1542 and repealing Directive 2009/125/EC  (ESPR). It provides general guidance, explains fundamental concepts, and sets out standardized procedures for managing product-related data. The Rulebook does not cover detailed technical implementation (e.g., IT system integration).
+
+This rulebook refers to and is based on the Generic DPP Data Model, released in version 7.0.0.
+
+### 1.4 Structure of this Rulebook
+
+The Rulebook is organized to provide:
+
+- Definitions and clarifications of key terms and concepts,
+- General principles for handling and entering DPP data,
+- Guidance and reference to standards to help with Data Validation
+
+The following sections present clear, actionable guidance and aggregate collective experience from multiple companies to help understand the data model.
+
+*Note: Please note that the descriptions provided in this rulebook may differ from the technical descriptions in the data model; they have been adapted to make the content easier to understand for all users.*
+
+Some data points are grouped and there is a choice, if these data points are applicable or not. These groups of data points are described with subgroups within each section of the data model. This means that if there is an applicable field, it determines the obligation to fill the fields for all data points that are marked in a subsection of this applicable field.
+
+## 2. The Value of Validated Data
+
+Data trust is the cornerstone of effective collaboration within the automotive sector. It ensures that every piece of information exchanged is genuine, complete, and accurate, thus eliminating ambiguity and reducing the risk of misinformation. Trustworthy data empowers stakeholders, including manufacturers, suppliers, consumers, and regulators to make informed decisions, thereby enhancing operational efficiency and compliance across the supply chain.
+
+The business value of validated data is substantial and multifaceted. Reliable data enhances decision-making, reduces operational risks, and elevates the credibility of companies within the industry. Validated data through DPPs enables:
+
+- Improved Regulatory Compliance: Ensuring that data is precise and verified minimizing the risk of regulatory infractions and associated penalties.
+- Enhanced Product Transparency: Providing clear, truthful information about product composition and sourcing builds consumer trust and strengthens brand reputation.
+- Operational Efficiency: Accurate data streamlines processes by reducing errors, improving inventory management, and facilitating seamless communication across the supply chain.
+- Strategic Advantage: Companies that embrace validated data can better forecast trends, optimize resource allocation, and innovate in product development.
+
+Ultimately, the validation rulebook supports assuring data reliability. This is particularly important given the undeniable value of exchanging trustworthy data to enable effective digitalization of data exchange processes. It equips automotive companies, regardless of size, with the tools necessary to leverage data effectively, nurturing growth and sustainability in an increasingly digitalized market landscape.
+
+## 3. Key Concepts and Definitions
+
+### 3.1 DPP Overview
+
+The Digital Product Passport (DPP) is a standardized digital record that travels with a product throughout its entire life cycle. It compiles and shares essential information—such as origin of materials, composition, repairability, and end-of-life options—across supply chains and with stakeholders (e.g., manufacturers, distributors, recyclers, and regulators).
+
+DPPs are required by the Ecodesign for Sustainable Products Regulation (ESPR) as a cornerstone for enhanced transparency, sustainability, and circularity in product value chains. By digitalizing this information, ESPR aims to facilitate data-driven decisions, improve resource efficiency, and enable compliance with legislative obligations.
+
+### 3.2 Definition of Terms
+
+#### 3.2.1 DID
+
+Globally unique identifiers that do not require a centralized registration authority. Designed for decentralized identity systems (e.g., blockchain-based identity).
+
+#### 3.2.2 GTIN
+
+The Global Trade Item Number (GTIN) is a unique identifier used internationally to identify trade items (products and services) in the supply chain. It is part of the GS1 system of standards, which ensures consistency and interoperability across industries and countries.
+
+#### 3.2.3 Sequential Numbering
+
+In ERP context it means Material numbers are assigned automatically in ascending order and hence it simplifies master data governance and avoids duplication.
+
+#### 3.2.4 Regular Based Expression
+
+A Regular-Based Expression Check refers to the process of validating or analyzing data against predefined patterns using regular expressions (regex). This technique ensures that data conforms to expected formats (e.g., email addresses, phone numbers, codes) by applying rule-based pattern matching. It is commonly used for data quality assurance, input validation, and automated error detection.
+
+#### 3.2.5 Verification vs. Validation
+
+Currently, within initiatives such as Catena-X, Together for Sustainability (TfS), and the Partnership for Carbon Transparency (PACT), there exists a significant divergence in the interpretation of the terms "verification" and "validation." The following sub section provides a brief overview of the differing definitions.
+
+> #### 3.2.5.1 TfS
+>
+> ##### Verification
+>
+> Process for evaluating an environmental information **statement based on historical data** and information to determine whether the statement conforms with the relevant criteria.
+>
+> ##### Validation
+>
+> Process for evaluating the plausibility of assumptions, limitations, and methods that support an environmental information **statement about the outcome of future activities**.
+Two situations:
+>
+> - Projection of PCFs for existing products into the future: Reflecting changes in material source, sourcing of purchased parts, technology, tooling, energy mix etc..
+> - Prediction of PCFs for new product developments not in serial production yet
+The term “environmental information validation” is shortened to “validation” in this document to reduce sentence complexity and aid understanding.<br/><br/>
+In the context of Together for Sustainability (TfS), "verification" refers to the evaluation of historical Product Carbon Footprints (PCFs), while "validation" pertains to the assessment of projected or future PCFs. These definitions are derived from ISO 14065:2020 and ISO 14066:2023. However, as these interpretations are highly specific to PCFs—and even within the PCF domain, definitions of verification and validation vary across initiatives such as PACT (as outlined below), a thorough evaluation has led to the conclusion that they are currently not well-suited for addressing "data plausibility" within Digital Product Passports
+>
+>#### 3.2.5.2 PACT
+>
+>##### Verification
+>
+> The process of independently assessing whether reported PCF **data is accurate, complete, and conforms to a defined methodology** or standard.
+Based on the definition provided above, a simplified interpretation would be: "Determining whether the data has been calculated in accordance with established guidelines and standards."
+>
+>##### Validation
+>
+> The process of confirming that the **methodology, assumptions, and data used** to estimate future or modelled PCFs are appropriate and reasonable.
+In simpler terms, this can be understood as evaluating whether the data appears logical and internally consistent in terms of its content.<br/><br/>
+This interpretation is consistent with the definitions found on Wikipedia and also closely reflects our own understanding of the terms "verification" and "validation."
+>
+>#### 3.2.5.3 Definition for Validation & Verification in Standards & Regulations
+>
+> The terms verification and validation are used in many standards and regulations, but their meanings can vary depending on the context. In general, verification is about checking whether something was done correctly, while validation is about making sure it meets the intended purpose or requirements. Below are selected definitions from key standards and regulations that illustrate how these terms are interpreted and applied in different domains.
+>
+> ##### Verification
+>
+> The act of determining whether an operation has been accomplished correctly (ISO/TC 97/SC 1 N759)
+>
+> ##### Validation
+>
+> - Validation confirmation, through the provision of objective evidence, that the requirements for a specific intended use or application have been fulfilled (ISO 9000:2015)
+> - "Validation data" means data used for providing an evaluation of the trained AI system and for tuning its non-learnable parameters and its learning process in order, inter alia, to prevent underfitting or overfitting; (Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence and amending Regulations (EC) No 300/2008, (EU) No 167/2013, (EU) No 168/2013, (EU) 2018/858, (EU) 2018/1139 and (EU) 2019/2144 and Directives 2014/90/EU, (EU) 2016/797 and (EU) 2020/1828 (Artificial Intelligence Act))
+> - "Validation" means the process of verifying and confirming that data in electronic form are valid in accordance with this Regulation. (Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC)
+
+#### 3.2.5.4 Conclusion
+
+After thorough research of these standards and guidelines, the Data Trust team drew two conclusions:
+
+- Verification refers to the process of assessing whether the submitted **data has been calculated in accordance with relevant guidelines and standards**. Validation, on the other hand, involves conducting plausibility checks to determine **whether the data is reasonable**, coherent, and suitable for exchange within supply chains
+- Given the varying definitions of "verification" and "validation" across different platforms and use cases, achieving consensus on a single, universally applicable definition—particularly between contexts such as Digital Product Passports (DPPs) and Product Carbon Footprints (PCFs) has proven challenging. This is especially true considering the differing levels of maturity between these use cases.
+
+### 3.3 Key Stakeholders and their Roles
+
+A DPP system provides value across multiple parties throughout the supply chain. Understanding the main stakeholders and their roles can clarify responsibilities and improve collaboration:
+
+- Economic Operators: Responsible for creating and updating the DPP with accurate product data (e.g., material content, production methods).
+- Product Manufacturers: Could be responsible for creating and updating the DPP or for providing upstream data.
+- Suppliers and Sub-suppliers: Provide upstream data (e.g., component/material details) for incorporation into finished product DPPs.
+- Distributors and Retailers: Utilize DPP data for product traceability, compliance, and communication with customers.
+- Recyclers and End-of-Life Facilities: Access DPP data to inform correct treatment and optimize resource recovery.
+- Regulators and Auditors: May review DPP data for compliance with legal and sustainability requirements.
+- Consumers and Business Customers: Can access selected DPP elements to make informed purchasing, usage, or recycling decisions.
+- Digital Product Passport Service Provider: Will provide services to issue DPPs.
+
+Having clear roles and responsibilities for each stakeholder helps promote accountability and streamlines the flow of data throughout the product life cycle.
+For further details on "Roles & responsibilities please read the [DIN EN 18239:2025-09 - Draft](https://www.dinmedia.de/en/draft-standard/din-en-18239/393949301)
+
+## 4. Placement of DPP Rulebook within the Data Trust & Security KIT
+
+As outlined in Section 3.2.4, the terms “Verification” and “Validation” are interpreted differently in different standards and guidelines, and harmonizing these definitions exceeds the scope of this working group. Hence, to avoid potential confusion associated with the terms "verification" and "validation,"  we have introduced a new term: “DPP Rulebook”. The Rulebook establishes a set of rules and criteria that enable both data providers and data consumers to assess the plausibility of data exchanged through DPPs.
+The Rulebook is a subset of the broader Data Trust and Security Kit, which is organized into three distinct pillars. Within this framework, the Rulebook represents the third layer, focusing on Data Content, as illustrated in the referenced diagram.
+
+<img width="377" height="169" alt="image" src="https://github.com/user-attachments/assets/41aa555a-793b-4597-9ad7-e28e3f219834" />
+
+This figure is taken from [Data Trust and Security Kit](https://eclipse-tractusx.github.io/docs-kits/kits/data-trust-and-security-kit/adoption-view/), where "Layer 3" references to this rulebook.
+
+## 5. General Principles for Data Handling in the DPP Model
+
+This section sets out the main rules and guiding principles for entering, managing, and sharing data within the Digital Product Passport (DPP) framework. Applying these principles ensures that DPP data is consistent, reliable, and useful throughout the entire value chain.
+
+### 5.1 Data Ownership and Responsibility
+
+- As usual in Catena-X, the data provider remains the data owner and is responsible for ensuring the correctness of the data.
+- Owners are accountable for the accuracy, completeness, and timely updating of their data.
+- Changes or updates to data should be tracked using the predecessor identifier field in generic DPP data model to ensure traceability.
+- Data in the DPPs must be updated under any of the following conditions:
+  - Changes in product characteristics (e.g. materials, design, certifications)
+  - Regulatory updates (e.g. new or revised delegated/implementing acts)
+  - Lifecycle events (e.g. manufacturing, repair, refurbishment, end-of-life)
+  - New relevant information (e.g. discovery of substances of concern)
+  - Service provider requirements (e.g. updates for data integrity and traceability)
+
+### 5.2 Data Entry Guidelines (General Rules for Data Input)
+
+- Provide the most accurate and up-to-date information available **at the time of DPP issuance**.
+- Some groups of data points include an "Applicable" field that determines whether the related data points must be completed.
+  - If "Applicable" is set to True, all related data points in that group are required and must be filled in.
+  - If "Applicable" is set to False, none of the related data points should be filled.
+    Separately, a data point marked as "Optional" means it can be filled in if relevant, but it is not mandatory to provide a value.
+- Use consistent naming conventions and units (refer to Section 4.3).
+- Do not use company-internal jargon, abbreviations, or codes unless these are defined in the DPP schema or Rulebook.
+
+#### 5.2.1 Granularity
+
+- Data can be provided on differnet levels; Model, batch and item.
+  - **Model Level**: Model-level information describes the characteristics of a product or material as defined by its general specification or design.
+  - **Batch Level**: Represents a specific production lot or group of items manufactured under the same conditions within a defined timeframe. Batch-level data typically includes details such as production date, process parameters, specific manufacturing plant and any other variations.
+  - **Item Level**: Denotes the individual product unit, uniquely identifiable (often via serial number). Item-level data provides the most granular information, refering to a specific unit of the product.
+- All data points that are reuirqed in this data model need to be provided on model level unless it is stated otherwise.
+- Precise levels of granularity will be laid out in the delegated acts for certain product groups and will be reflected in this rulebook, once they are available.
+
+#### 5.2.2 Open Data Points
+
+Some data points in the generic digital product passport are quite open-ended and allow for different types of information. Because of this, it’s not always possible to set strict rules for what can be entered. For these data points, you can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. While there aren’t rigid rules in these cases, it’s important to apply good judgement and ensure the information is relevant and clear.
+
+### 5.3 Data Format and Standardization
+
+- Enter all data according to the format specified in the DPP model
+  - When entering numerical data, the decimal separator should follow the language or regional conventions applied within the data system to ensure clarity and consistency.
+  - All dates should be entered using the YYYY-MM-DD format
+- For some data points, a value is paired with a unit. Usually, you have two data points: the first data point to describe the value and the second data point to describe the related unit.
+- **Apply standardized identifiers (e.g., product codes, material codes, company identifiers such as VAT or DUNS numbers) if required.**
+- For free text fields, keep entries clear and concise.
+
+## 6. The DPP Data Model: Overview of Data Points
+
+This section provides a detailed overview of each data point in the Digital Product Passport (DPP) data model. For every data point, you will find its status as mandatory or optional, the relevant regulatory references,  a clear definition, and the data plausibility rule that applies.
+
+### 6.1 Metadata
+
+Metadata encompasses the fundamental details of the digital product passport.
+
+| Rule ID | Data Attribute                   | Mandatory/ Optional | Regulatory Reference                                       |
+|---------|----------------------------------|---------------------|------------------------------------------------------------|
+| 6.1.1   | Passport Identifier              | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 6.1.2   | Version                          | Mandatory           | Regulation (EU) 2024/1781, Article 9                       |
+| 6.1.3   | Status                           | Optional            | Regulation (EU) 2023/1542                                  |
+| 6.1.4   | Language                         | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 6.1.5   | Predecessor Identifier           | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 6.1.6   | Registration Identifier          | Optional            | Regulation (EU) 2024/1781                                  |
+| 6.1.7   | Backup Reference                 | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 6.1.8   | Issue Date                       | Mandatory           |                                                            |
+| 6.1.9   | Expiration Date                  | Mandatory           | Regulation (EU) 2024/1781, Article 9 (2)(i) and Article 11 |
+| 6.1.10  | Last Modification                | Optional            |                                                            |
+| 6.1.11  | Economic Operator Identification | Mandatory           | Regulation (EU) 2024/1781, Annex III, section (k)          |
+| 6.1.12  | Economic Operator Names          | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 6.1.13  | Economic Operator Contact        | Mandatory           | Regulation (EU) 2024/1781                                  |
+| 6.1.14  | Economic Operator Address        | Mandatory           | Regulation (EU) 2024/1781                                  |
+
+#### 6.1.1 Passport Identifier
+
+Unique identifier of the product passport.
+
+> **Content Validation**<br/>Must contain an unique identifier according to [RFC 4122: A Universally Unique Identifier (UUID) URN Namespace](https://dl.acm.org/doi/book/10.17487/RFC4122)<br/><br/>
+Must fullfill the following regular expression: (^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)|(^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)
+
+#### 6.1.2 Version
+
+ The current version of the product passport.
+> **Syntax**<br/>The attribute must contain a version number of the passport in a string format & the updates must follow semantic versioning convention.
+
+#### 6.1.3 Status
+
+ The lifecycle stage of the product passport.
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.1.4 Language
+
+Specific language in which passport content is created.
+
+> **Content Validation**<br/>In accordance with [ISO 3166 - Country Codes](https://www.iso.org/iso-3166-country-codes.html) & [Code for individual languages and language groups](https://www.iso.org/standard/74575.html)
+
+#### 6.1.5 Predecessor Identifier
+
+> To be covered in next version
+
+#### 6.1.6 Registration Identifier
+
+> To be covered in next version
+
+#### 6.1.7 Backup Reference
+
+> To be covered in next version
+
+#### 6.1.8 IssueDate
+
+The date when the product passport is initially issued.
+
+> **Content Validation**<br/>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)<br/><br/>
+Must fullfill the following regular expression: ^\d{4}-\d{2}-\d{2}$
+
+#### 6.1.9 ExpirationDate
+
+The date until the product passport remains available.
+
+> **Content Validation**<br/>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html).<br/><br/>
+Must fullfill the following regular expression: ^\d{4}-\d{2}-\d{2}$
+
+#### 6.1.10 Last Modification
+
+> To be covered in next version
+
+#### 6.1.11 Economic Operator Identification
+
+Identification of the economic operator responsible for the passport.
+
+> **Syntax**<br/> To be checked via regular expression based checks.
+>
+> **Content Validation**<br/>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members. For companies that are not in the Catena-X network, another valid identification number could be used (for example, CIN in accordance with [ISO/ICE 15459-1:2014](https://www.iso.org/standard/54779.html), Tax Identification number, Commercial registration number or similar).
+
+#### 6.1.12 Economic Operator Names
+
+> To be covered in next version
+
+#### 6.1.13 Economic Operator Contact
+
+> To be covered in next version
+
+#### 6.1.14 Economic Operator Address
+
+> To be covered in next version
+
+### 6.2 Identification
+
+The Identification section includes attributes needed for uniquely identifying the product and its characteristics.
+
+| Rule ID | Data Attribute             | Mandatory/ Optional             | Regulatory Reference                                                      |
+|---------|----------------------------|---------------------------------|---------------------------------------------------------------------------|
+| 6.2.1   | Serial Key                 | Optional                        | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f) |
+| 6.2.2   | Serial Value               | Optional                        | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f) |
+| 6.2.3   | Batch Key                  | Optional                        | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f) |
+| 6.2.4   | Batch Value                | Optional                        | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f) |
+| 6.2.5   | Manufacturer Part ID       | Mandatory                       | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f) |
+| 6.2.6   | Name at Manufacturer       | Mandatory                       | Regulation (EU) 2024/1781, Recital (33) Annex III(b) and Article 10(1)(f) |
+| 6.2.7   | Code Key                   | Mandatory                       | Regulation (EU) 2024/1781, Annex III(b-d)                                 |
+| 6.2.8   | Code Value                 | Mandatory                       | Regulation (EU) 2024/1781                                                 |
+| 6.2.9   | Code Description           | Optional                        | Regulation (EU) 2024/1781                                                 |
+| 6.2.10  | Carrier Type               | Optional                        | Regulation (EU) 2024/1781, Article 2(29)                                  |
+| 6.2.11  | Carrier Position           | Optional                        | Regulation (EU) 2024/1781, Article 8(2)(c)                                |
+| 6.2.12  | Classification Standard    | Mandatory                       |                                                                           |
+| 6.2.13  | Classification ID          | Mandatory                       | Regulation (EU) 2024/1781                                                 |
+| 6.2.14  | Classification Description | Optional                        | Regulation (EU) 2024/1781                                                 |
+| 6.2.15  | Picture                    | *To be covered in next version* | Optional                                                                  | | | |
+
+#### 6.2.1 Serial Key
+
+The key for local identification of a serial part.
+
+At present, there is no universally recognized industry standard that can be referenced in this context. It is therefore recommended to follow the internal guidelines established by your organization.
+
+#### 6.2.2 Serial Value
+
+The value associated with the serial key.
+
+> **Syntax**
+>
+> If provided, the attribute must describe the unique serial key.
+
+#### 6.2.3 Batch Key
+
+The key for local identification of a batch information.
+
+> **Content Validation**<br/>The attribute must conform to one of the predefined identifier types or custom keys used by your company. There is currently no universally adopted standard across the industry. However, sectors such as chemicals and manufacturing commonly apply Sequential Material Numbering as a best practice. This approach has been validated by the 2021 industry rankings and benchmarking studies.
+
+#### 6.2.4 Batch Value
+
+The value associated with the batch key.
+
+> **Syntax**<br/>If provided, attribute must describe the associated batch key
+
+#### 6.2.5 Manufacturer Part ID
+
+ Unique identifier for the part model or type assigned by the manufacturer, defining version-specific part identification.
+
+> **Content Validation**<br/>The attribute must conform to one of the predefined identifier types or custom keys used by your company. There is currently no universally adopted standard across the industry. However, sectors such as chemicals and manufacturing commonly apply Sequential Material Numbering as a best practice. This approach has been validated by the 2021 industry rankings and benchmarking studies.
+
+#### 6.2.6 Name at Manufacturer
+
+The name of the part provided by the manufacturer.
+
+> **Content Validation**<br/>Must contain the Name of the Part as assigned by the manufacturer. At present, there is no universally recognized industry standard that can be referenced in this context. It is therefore recommended to follow the internal guidelines established by your organization.
+
+#### 6.2.7 Code Key
+
+The code key for product identification.
+
+> **Syntax**<br/>Must be a valid identifier code such as [Global Trade Item Number (GTIN)](https://ref.gs1.org/standards/gtin-management/), [Decentralized Identifier (DID)](https://www.w3.org/TR/did-1.0/), [International Standard Book Number (ISBN)](https://www.iso.org/standard/65483.html#:~:text=ISO%202108%3A2017%20establishes%20the%20specifications%20for%20the%20International,specific%20publisher%20that%20is%20available%20to%20the%20public.), Hash, TARIC, CN, HS, potential waste codes, internal company codes, etc.
+
+#### 6.2.8 Code Value
+
+The identifier value related to the code key.
+
+> **Syntax**<br/>Must be a valid identifier code as defined in [Global Trade Item Number (GTIN)](https://ref.gs1.org/standards/gtin-management/), [Decentralized Identifier (DID)](https://www.w3.org/TR/did-1.0/), [International Standard Book Number (ISBN)](https://www.iso.org/standard/65483.html#:~:text=ISO%202108%3A2017%20establishes%20the%20specifications%20for%20the%20International,specific%20publisher%20that%20is%20available%20to%20the%20public.), etc.
+
+#### 6.2.9 Code Description
+
+> To be covered in next version
+
+#### 6.2.10 Carrier Type
+
+The type of data carrier used for product identification. The format of a Product Passport is typically digital and can be implemented through various technologies to ensure accessibility and interoperability. "Data carrier" means a linear barcode symbol, a two-dimensional symbol or other automatic identification data capture medium that can be read by a device.
+
+> **Content Validation**<br/>Must align with recognizable  data carrier types like QR, barcode, etc. in accordance with [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746)
+
+#### 6.2.11 Carrier Position
+
+The spatial arrangement or position of the data carrier on the product.
+
+> **Content Validation**<br/>If specified, the attribute must describe the carrier's positioning in accordance with [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746)
+
+#### 6.2.12 Classification Standard
+
+Outlines classification standards for parts.
+
+> **Content Validation**<br/>Must refer to known standards in classification e.g., [ECLASS 15.0](https://eclass.eu/aktuelles/news/eclass-release-150-ab-sofort-verfuegbar) for automotive industry.
+
+#### 6.2.13 Classification ID
+
+The identifier for the part classification standard according to related key-value pairs.
+
+> **Content Validation**<br/>Must correspond with the classification standard used e.g., Vehicle Identification Number (VIN) defined in accordance with [ISO ISO 3779](https://www.iso.org/standard/52200.html) and [ISO 4030](https://www.iso.org/standard/9721.html)
+
+#### 6.2.14 Classification Description
+
+Optional property describing the classification standard.
+
+> **Content Validation**<br/>Must correspond with the classification standard used e.g., Vehicle Identification Number (VIN) defined in accordance with [ISO ISO 3779](https://www.iso.org/standard/52200.html) and [ISO 4030](https://www.iso.org/standard/9721.html)
+
+#### 6.2.15 Picture
+
+> To be covered in next version
+
+### 6.3 Operation
+
+The "Operations" category refers to a structured set of data that describes the activities, processes, and lifecycle events associated with a product.
+
+| Rule ID | Data Attribute                                                       | Mandatory/ Optional             | Regulatory Reference                          |
+|---------|----------------------------------------------------------------------|---------------------------------|-----------------------------------------------|
+| 6.3.1   | Facility Identification                                              | Mandatory                       | Regulation (EU) 2024/1781, Annex III(i)       |
+| 6.3.2   | Facility Address                                                     | *To be covered in next version* |                                               |
+| 6.3.3   | Manufacturer Identification                                          | Mandatory                       | Regulation (EU) 2024/1781, Annex III(h) & (k) |
+| 6.3.4   | Manufacturer Names                                                   | *To be covered in next version* |                                               |
+| 6.3.5   | Manufacturer Contact                                                 | *To be covered in next version* |                                               |
+| 6.3.6   | Manufacturer Address                                                 | *To be covered in next version* |                                               |
+| 6.3.7   | Manufacturing Date                                                   | Optional                        | Mandatory                                     | Regulation (EU) 2024/1781, Annex III |
+| 6.3.8   | Applicable                                                           | Mandatory                       | Regulation (EU) 2024/1781, Annex III          |
+| 6.3.8.1 | EORI                                                                 | Mandatory                       | Regulation (EU) 2024/1781, Annex III(j)       |
+| 6.3.8.2 | Importer Identification                                              | Mandatory                       | Regulation (EU) 2024/1781, Annex III(j)       |
+| 6.3.8.3 | Importer Names                                                       | *To be covered in next version* |                                               |
+| 6.3.8.4 | Importer Contact                                                     | *To be covered in next version* |                                               |
+| 6.3.8.5 | Importer Address                                                     | *To be covered in next version* |                                               |
+| 6.3.9   | Other Operator Identification                                        | Mandatory                       | Regulation (EU) 2024/1781 (h)                 |
+| 6.3.10  | Other Operator Names                                                 | *To be covered in next version* |                                               |
+| 6.3.11  | Other Operator Contact                                               | *To be covered in next version* |                                               |
+| 6.3.12  | Other Operator Address                                               | *To be covered in next version* |                                               |
+| 6.3.13  | Other Operator Role                                                  | Mandatory                       | Regulation (EU) 2024/1781, Annex III          |
+| 6.3.14  | Symbol of Extended Producer Responsibility Scheme                    | *To be covered in next version* |                                               |
+| 6.3.15  | Territory of Extended Producer Responsibility Scheme                 | *To be covered in next version* |                                               |
+| 6.3.16  | Collection Points of Extended Producer Responsibility Scheme ID      | *To be covered in next version* |                                               |
+| 6.3.17  | Collection Points of Extended Producer Responsibility Scheme Address | *To be covered in next version* |                                               |
+
+#### 6.3.1 Facility Identification
+
+The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
+
+> **Syntax**<br/>Validity should be verified using regular expression-based checks in case BPNS is provided.
+>
+> **Content Validation**<br/>The BPNS is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+
+#### 6.3.2 Facility Address
+
+> To be covered in next version
+
+#### 6.3.3 Manufacturer Identification
+
+ Manufacturer identification (The main manufacturer, if different from the passport owner, represented by an identification number) refers to the requirement for clear and traceable information about the manufacturer or responsible economic operator of a product placed on the EU market.
+
+> **Syntax**<br/>Validity should be verified using regular expression-based checks in case BPNL is provided.
+>
+> **Content Validation**<br/>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+
+#### 6.3.4 Manufacturer Name
+
+> To be covered in next version
+
+#### 6.3.5 Manufacturer Contact
+
+> To be covered in next version
+
+#### 6.3.6 Manufacturer Address
+
+> To be covered in next version
+
+#### 6.3.7 Manufacturing Date
+
+Represents the date of final product manufacturing (e.g. final quality check, ready-for-shipment event).
+
+> **Syntax**<br/>Validity should be verified using regular expression-based checks
+>
+> **Content Validation**<br/>Date representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
+
+#### 6.3.8 Applicable
+
+ Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.
+
+> **Syntax**<br/>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+
+#### 6.3.8.1 EORI
+
+An EORI number (Economic Operators Registration and Identification number) is a unique identification number assigned by a customs authority in the European Union to businesses and individuals involved in importing or exporting or transit goods into or out of the EU.
+
+> **Syntax**<br/>Validity should be verified using regular expression-based checks
+>
+> **Content Validation**<br/>The EORI number must be in accordance to [Regulation (EU) No 952/2013](https://eur-lex.europa.eu/eli/reg/2013/952/oj/eng) which provides the legal basis for the EORI system.
+
+#### 6.3.8.2 Importer Identification
+
+Importer identification (The importer of the product) refers to the requirement to clearly and reliably identify the importer of a product that is placed on the EU market, especially when the manufacturer is based outside the EU, ensuring product traceability.
+
+> **Syntax**<br/>Validity should be verified using regular expression-based checks in case BPNL is provided.
+>
+> **Content Validation**<br/>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+
+#### 6.3.8.3 Importer Name
+
+> To be covered in next version
+
+#### 6.3.8.4 Importer Contact
+
+> To be covered in next version
+
+#### 6.3.8.5 Importer Address
+
+> To be covered in next version
+
+#### 6.3.9 Other Operator Identification
+
+Other Operator Identification is a secondary or additional identifier used to uniquely reference an other operator for a product, for example: distributors/retailers/logistics/designers/smelters/recyclers/professional repairers/waste treatment facilities/remanufacturers/ etc.
+
+> **Content Validation**<br/>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
+
+#### 6.3.10 Other Operator Name
+
+> To be covered in next version
+
+#### 6.3.11 Other Operator Contact
+
+> To be covered in next version
+
+#### 6.3.12 Other Operator Address
+
+> To be covered in next version
+
+#### 6.3.13 Other Operator Role
+
+This field is used to specify the "Role" of the other operator (e.g., Distributor).
+
+> **Content Validation**<br/>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
+
+#### 6.3.14 Symbol of Extended Producer Responsibility Scheme
+
+> To be covered in next version
+
+#### 6.3.15 Territory of Extended Producer Responsibility Scheme
+
+> To be covered in next version
+
+#### 6.3.16 Collection Points of Extended Producer Responsibility Scheme ID
+
+> To be covered in next version
+
+#### 6.3.17 Collection Points of Extended Producer Responsibility Scheme Address
+
+> To be covered in next version
+
+### 6.4 Handling
+
+"Handling" refers to the information related to the safe, appropriate, and sustainable management of a product or component throughout its lifecycle.
+
+| Rule ID | Data Attribute         | Mandatory/ Optional             | Regulatory Reference |
+|---------|------------------------|---------------------------------|----------------------|
+| 6.4.1   | Applicable             | Mandatory                       |                      |
+| 6.4.1.1 | Sources Identification | Mandatory                       |                      |
+| 6.4.1.2 | Sources Contact        | *To be covered in next version* |                      |
+| 6.4.1.3 | Sources Address        | *To be covered in next version* |                      |
+| 6.4.1.4 | Manufacturer Part ID   | Mandatory                       |                      |
+| 6.4.1.5 | Name at Manufacturer   | Mandatory                       |                      |
+
+#### 6.4.1 Applicable
+
+Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.
+
+> **Syntax**<br/>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+
+#### 6.4.1.1 Sources Identification
+
+Identifies sources of spare parts for the product via unique identifiers of producers, important for traceability and supply chain management.
+
+> **Syntax**<br/>Validity should be verified using regular expression-based checks in case BPNL is provided.
+>
+> **Content Validation**<br/>The BPNL is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+
+#### 6.4.1.2 Sources Contact
+
+> To be covered in next version
+
+#### 6.4.1.3 Sources Address
+
+> To be covered in next version
+
+#### 6.4.1.4 Manufacturer Part ID
+
+Part ID as assigned by the manufacturer of the part. The Part ID identifies the part in the manufacturer`s dataspace. The Part ID references a specific version of a part. The version number must be included in the Part ID if it is available.
+
+> **Content Validation**<br/>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
+
+#### 6.4.1.5 Name at Manufacturer
+
+Name of the spare part as assigned by the manufacturer.
+
+> **Content Validation**<br/>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
+
+### 6.5 Characteristics
+
+The "Characteristics" category refers to a set of descriptive attributes that define the physical and functional properties of a product. These characteristics are essential for assessing a product’s sustainability performance and are typically included in the Digital Product Passport (DPP).
+
+Key elements under this category may include:
+
+1. Physical attributes: Size, weight, dimensions, and other.
+2. Lifecycle information link Expected lifespan.
+
+These characteristics enable comparability across products, and informed decision-making by stakeholders.
+
+| Rule ID | Data Attribute                 | Mandatory/ Optional             | Regulatory Reference                 |
+|---------|--------------------------------|---------------------------------|--------------------------------------|
+| 6.5.1   | Life Type                      | Mandatory                       | Regulation (EU) 2024/1781, Annex I   |
+| 6.5.2   | Life Description               | Optional                        | Regulation (EU) 2024/1781, Annex I   |
+| 6.5.3   | Life Value                     | Mandatory                       | Regulation (EU) 2024/1781, Annex I   |
+| 6.5.4   | Life Unit                      | Mandatory                       | Regulation (EU) 2024/1781, Annex I   |
+| 6.5.5   | Value (Width)                  | Optional                        | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.6   | Unit (Width)                   | Optional                        | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.7   | Value (Length)                 | Optional                        | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.8   | Unit (Length)                  | Optional                        | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.9   | Value (Diameter)               | Optional                        | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.10  | Unit (Diameter)                | Optional                        | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.11  | Value (Height)                 | Optional                        | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.12  | Unit (Height)                  | Optional                        | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.13  | Value (Gross Weight)           | Mandatory                       | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.14  | Unit (Gross Weight)            | Mandatory                       | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.15  | Value (Volume)                 | Mandatory                       | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.16  | Unit (Volume)                  | Mandatory                       | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.17  | Value (Gross Volume)           | Mandatory                       | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.18  | Unit (Gross Volume)            | Mandatory                       | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.19  | Value (Weight)                 | Mandatory                       | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.20  | Unit (Weight)                  | Mandatory                       | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.21  | Item quantity in package value | *To be covered in next version* |                                      | | | |
+| 6.5.22  | Item quantity in package unit  | *To be covered in next version* |                                      | | | |
+| 6.5.23  | Physical State                 | Optional                        |                                      |
+| 6.5.24  | General Performance Class      | Optional                        | Regulation (EU) 2024/1781, Article 7 |
+| 6.5.25  | Other Characteristic Name      | *To be covered in next version* |                                      | | | |
+| 6.5.26  | Other Characteristic Outcome   | *To be covered in next version* |                                      | | | |
+
+#### 6.5.1 Life Type
+
+"Lifetime" under the Ecodesign for Sustainable Products Regulation (ESPR) refers to the period during which a product or its components are expected to remain functional, safe, and fit for use, under normal or intended conditions, without excessive performance degradation. It is a key indicator of durability and reliability, and may be expressed through: <br/>1- Guaranteed lifetime (e.g., warranty or legal durability claim) <br/>2- Technical lifetime (based on product design and performance testing) <br/>3- Mean Time Between Failures (MTBF)
+
+> **Syntax**
+>
+> For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.2 Life Description
+
+> To be covered in next version
+
+#### 6.5.3 Life Value
+
+The numeric value describing the product’s lifespan in terms of the specified type.
+
+> **Syntax**<br/>Must be a valid integer for lifespan value and must be > 0.
+
+#### 6.5.4 Life Unit
+
+The unit corresponding to the respective lifespan, specified using one of the following standardized units: day, month, cycle, year, or running/operating hour.
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.5 Value (Width)
+
+Represents the width of the item.
+
+> **Syntax**<br/>Must be a valid float representing width and must be > 0.
+
+#### 6.5.6 Unit (Width)
+
+Specifies unit of measure for widths.
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.7 Value (Length)
+
+The length of the item.
+
+> **Syntax**<br/>Valid float for length value required and must be > 0.
+
+#### 6.5.8 Unit (Length)
+
+Defines unit used for measuring length.
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.9 Value (Diameter)
+
+Specifies diameter of the item.
+
+> **Syntax**<br/>Must be float for diameter and must be > 0.
+
+#### 6.5.10 Unit (Diameter)
+
+Indicates unit for diameter measurements.
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.11 Value (Height)
+
+Measures height of the item.
+
+> **Syntax**<br/>Requires a float value corresponding to height and must be > 0.
+
+#### 6.5.12 Unit (Height)
+
+Defines unit of height measure.
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.13 Value (Gross Weight)
+
+Specifies total weight of the item including packaging.
+
+> **Syntax**<br/>Must be valid float to reflect gross weight and must be > 0.
+
+#### 6.5.14 Unit (Gross Weight)
+
+Defines measurement unit for gross weight.
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.15 Value (Volume)
+
+Measures product’s volume.
+
+> **Syntax**<br/>Valid float required for volume and must be > 0.
+
+#### 6.5.16 Unit (Volume)
+
+Defines the unit to express volume measurements.
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.17 Value (Gross Volume)
+
+Represents gross volume of the product including packaging.
+
+> **Syntax**<br/>Must be valid float for gross volume and must be > 0.
+
+#### 6.5.18 Unit (Gross Volume)
+
+Specifies measurement unit for gross volume.
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.19 Value (Weight)
+
+Details the weight of the product.
+
+> **Syntax**<br/>Must be valid float representing weight and must be > 0.
+
+#### 6.5.20 Unit (Weight)
+
+Defines unit of weight measures.
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.5.21 Item quantity in package value
+
+> To be covered in next version
+
+#### 6.5.22 Item quantity in package unit
+
+> To be covered in next version
+
+#### 6.5.23 Physical State
+
+The physical state of a product refers to the form in which raw materials, intermediates, or finished goods exist during production, handling, and distribution. It determines how the product is processed, stored, and transported, and typically falls into one of the following categories: Solid, liquid, gas, powder/granular
+
+> **Syntax**<br/>For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options ("solid" "liquid" "gas" "plasma" "aerosol")
+
+#### 6.5.24 General Performance Class
+
+A general performance class refers to a standardized categorization of products based on their sustainability and performance characteristics, as defined in product‑specific delegated acts adopted under the ESPR framework, promoting consumer decision-making based on efficiency.
+
+> **Content Validation**<br/>Performance class must be defined in compliance to [ESPR, Article 7](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1781&qid=1719580391746) when made available by EU. The Commission may base the classes of performance on single parameters or on aggregated scores. Such classes of performance may be expressed in absolute terms or in any other form that enables potential customers to choose the best performing products. No specific validation rule can be applied here please refer to guidance in ESPR.
+
+#### 6.5.25 Other Characteristic Name
+
+> To be covered in next version
+
+#### 6.5.26 Other Characteristic Outcome
+
+> To be covered in next version
+
+### 6.6 Commercial
+
+| Rule ID | Data Attribute     | Mandatory/ Optional | Regulatory Reference     |
+|---------|--------------------|---------------------|--------------------------|
+| 6.6.1   | Placed On Market   | Optional            |                          |
+| 6.6.2   | Purpose            | Mandatory           |                          |
+| 6.6.3   | Purchase Order     | Optional            |                          |
+| 6.6.4   | Recall Information | Mandatory           | Regulation (EU) 2023/988 |
+
+#### 6.6.1 Placed On Market
+
+The timestamp in the format (yyyy-mm-dd) with or without time zone when the product was put in the market.
+
+> **Syntax**<br/>Its validity can be verified using regular expression-based checks
+> **Content Validation**<br/>Date and time representation for information interchange in accordance with [ISO 8601-1:2019](https://www.iso.org/standard/70907.html)
+
+#### 6.6.2 Purpose
+
+Specify one or more target industries for the product described in the Digital Product Passport. If exchanged via Catena-X, 'automotive ' is a must choice included in the list.
+
+> **Content Validation**<br/>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
+
+#### 6.6.3 Purchase Order
+
+A unique identifier assigned to the order of the product for tracking purposes between the supplier and customer.
+
+> **Content Validation**<br/>As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
+
+#### 6.6.4 Recall Information
+
+Recall information refers to the data and documentation associated with the process of removing a product from the market due to safety, quality, or compliance concerns.
+
+> **Content Validation**<br/>Information on dangerous products should, in general, be made available to the public via the [EU Safety Gate Portal](https://ec.europa.eu/safety-gate/#/screen/home)
+
+### 6.7 Composition
+
+"Composition" category refers to: The classification and specification of the substances and material types and components used in a product, with a focus on their environmental performance, circularity potential, and criticality.
+
+| Rule ID  | Data Attribute                                   | Mandatory/ Optional             | Regulatory Reference                        |
+|----------|--------------------------------------------------|---------------------------------|---------------------------------------------|
+| 6.7.1    | Applicable (Substances of Concern)               | Mandatory                       | Regulation (EU) 2024/1781                   |
+| 6.7.1.1  | Locations of Substances (Substances of Concern)  | Mandatory                       | Regulation (EU) 2024/1781                   |
+| 6.7.1.2  | Exemption for Substances (Substances of Concern) | Mandatory                       | Regulation (EU) 2024/1781 Article 7 (5) (c) |
+| 6.7.1.3  | Hazard Category (Substances of Concern)          | Mandatory                       | Regulation (EU) 2024/1781, Article 7        |
+| 6.7.1.4  | Hazard Class (Substances of Concern)             | Mandatory                       | Regulation (EU) 2024/1781, Article 7        |
+| 6.7.1.5  | Hazard Statement (Substances of Concern)         | Mandatory                       | Regulation (EU) 2024/1781, Article 7        |
+| 6.7.1.6  | Documentation                                    | *To be covered in next version* |                                             | | | |
+| 6.7.1.7  | Min Concentration Value (Substances of Concern)  | Optional                        | Regulation (EU) 2024/1781, Article 7        |
+| 6.7.1.8  | Min Concentration Unit (Substances of Concern)   | Optional                        | Regulation (EU) 2024/1781, Article 7        |
+| 6.7.1.9  | Max Concentration Value (Substances of Concern)  | Mandatory                       | Regulation (EU) 2024/1781, Article 7        |
+| 6.7.1.10 | Max Concentration Unit (Substances of Concern)   | Mandatory                       | Regulation (EU) 2024/1781, Article 7        |
+| 6.7.2    | Applicable (component Information)               | Mandatory                       | Regulation (EU) 2024/1781                   |
+| 6.7.2.1  | Component Name                                   | *To be covered in next version* |                                             | | | |
+| 6.7.2.2  | Component Code                                   | *To be covered in next version* |                                             | | | |
+| 6.7.2.3  | Component Description                            | *To be covered in next version* |                                             | | | |
+| 6.7.2.4  | Component Locations                              | *To be covered in next version* |                                             | | | |
+| 6.7.2.5  | Sorting Information                              | *To be covered in next version* |                                             | | | |
+| 6.7.2.6  | Component Passport Identifier                    | *To be covered in next version* |                                             | | | |
+| 6.7.2.7  | Material ID (Material Composition)               | Mandatory                       | Regulation (EU) 2024/1781, Article 7        |
+| 6.7.2.8  | Material List Type ID (Material Composition)     | Mandatory                       | Regulation (EU) 2024/1781, Article 7        |
+| 6.7.2.9  | Material Name (Material Composition)             | Mandatory                       | Regulation (EU) 2024/1781, Article 7        |
+| 6.7.2.10 | Material Type                                    | *To be covered in next version* |                                             | | | |
+| 6.7.2.11 | Material Origin                                  | *To be covered in next version* |                                             | | | |
+| 6.7.2.12 | Material Passport Identifier                     | *To be covered in next version* |                                             | | | |
+| 6.7.2.13 | Concentration Unit (Material)                    | *To be covered in next version* |                                             | | | |
+| 6.7.2.14 | Concentration Value (Material)                   | *To be covered in next version* |                                             | | | |
+| 6.7.2.15 | Min Concentration (Material)                     | *To be covered in next version* |                                             | | | |
+| 6.7.1.16 | Min Concentration Unit (Material)                | *To be covered in next version* |                                             | | | |
+| 6.7.2.17 | Max Concentration (Material)                     | *To be covered in next version* |                                             | | | |
+| 6.7.1.18 | Min Concentration Unit (Material)                | *To be covered in next version* |                                             | | | |
+| 6.7.2.19 | Locations                                        | *To be covered in next version* |                                             | | | |
+| 6.7.2.20 | Recycled                                         | *To be covered in next version* |                                             | | | |
+| 6.7.2.21 | Documentation                                    | *To be covered in next version* |                                             | | | |
+| 6.7.3    | List Name (Declarable Ingredient List)           | *To be covered in next version* |                                             | | | |
+| 6.7.4    | Document ID (Declarable Ingredient List)         | *To be covered in next version* |                                             | | | |
+| 6.7.5    | Documentation (Declarable Ingredient List)       | *To be covered in next version* |                                             | | | |
+
+#### 6.7.1 Applicable (Substances of Concern)
+
+ Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled.
+
+> **Syntax**<br/>If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+
+#### 6.7.1.1 Locations of Substances (Substances of Concern)
+
+The location of the substances of concern within the product <br/> Further description: <br/>This requires specifying the exact location of the substance of concern within the product—for example, whether it is contained in the packaging or integrated into the product itself
+
+> **Content Validation**
+>
+> As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
+
+#### 6.7.1.2 Exemption for Substances (Substances of Concern)
+
+Exemptions to the substance of concern: An exemption to the substance of concern refers to a formally recognized exception that permits the use or presence of a regulated or restricted chemical substance within a product or component, under specific conditions. The exemption must be documented and justified in accordance with applicable legal frameworks (e.g., REACH, RoHS), and may be subject to review, expiration, or renewal.
+
+> **Content Validation**
+>
+> As this data point is quite open-ended and allow for different types of information, it is not possible to set strict rules for what can be entered. You can provide a wide range of content—as long as it makes sense and fits the purpose of the data point. In case further clarity is received from consortium or regulation the rule can be revised in future.
+
+#### 6.7.1.3 Hazard Category (Substances of Concern)
+
+A hazard category is a classification level within a hazard class that indicates the severity or degree of risk associated with a chemical substance or mixture. It refers to the division of criteria within each hazard class, specifying hazard severity. Lower category numbers typically represent higher hazard severity (e.g., Category 1 is more hazardous than Category 2)
+
+> **Content Validation**<br/>Valid hazard category statement required. Hazard category defined in compliance with the EU standard as outlined in [Regulation (EC) No 1272/2008](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+
+#### 6.7.1.4 Hazard Class (Substances of Concern)
+
+Hazard class means the nature of the physical, health or environmental hazard.
+
+> **Content Validation**<br/>
+>
+> Hazard category defined in accordance to:
+>
+> 1. [Article 2 of Regulation (EC) No 1272/2008](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+> 2. [labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+> 3. [amending Regulation (EC) No 1907/2006](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1272-20231201)
+
+#### 6.7.1.5 Hazard Statement (Substances of Concern)
+
+"Hazard statement" means a phrase assigned to a hazard class and category that describes the nature of the hazards of a hazardous substance or mixture, including, where appropriate, the degree of hazard.
+
+> **Content Validation**
+>
+> Hazard category defined in accordance to:[Regulation (EC) No 1272/2008 of the European Parliament and of the Council of 16 December 2008 on classification, labelling and packaging of substances and mixtures, amending and repealing Directives 67/548/EEC and 1999/45/EC, and amending Regulation (EC) No 1907/2006](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02008R1272-20231201)
+
+#### 6.7.1.6 Documentation
+
+> To be covered in next version
+
+#### 6.7.1.7 Minimum Concentration Value (Substances of Concern)
+
+The minimum concentration of the substance of concern at the level of the product
+
+> **Syntax**
+>
+> The value must be > = 0
+
+#### 6.7.1.8 Minimum Concentration Value (Substances of Concern)
+
+This field defines the unit of minimum concentration, selected from a predefined enumeration. Permissible units include mass percent, volume percent, parts per thousand (ppt), parts per million (ppm), parts per billion (ppb), and parts per trillion (ppt)
+
+> **Syntax**
+>
+> For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.7.1.9 Max Concentration Value (Substances of Concern)
+
+The maximum concentration of the substance of concern at the level of the product
+
+> **Syntax**
+>
+> The value must be > = 0
+
+#### 6.7.1.10 Max Concentration Value (Substances of Concern)
+
+This field defines the unit of maximum concentration, selected from a predefined enumeration. Permissible units include mass percent, volume percent, parts per thousand (ppt), parts per million (ppm), parts per billion (ppb), and parts per trillion (ppt)
+
+> **Syntax**
+>
+> For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options
+
+#### 6.7.2 Applicable (Component Information)
+
+Check whether the connected attributes are applicable to the product. If it is not applicable (false), the corresponding fields may remain unfilled
+
+> **Syntax**
+>
+> If 'Applicability' is marked as 'Yes', the subsequent fields must be completed. If it is marked as 'No', leaving the fields blank is acceptable.
+
+#### 6.7.2.1 Component Name
+
+> To be covered in next version
+
+#### 6.7.2.2 Component Code
+
+> To be covered in next version
+
+#### 6.7.2.3 Component Description
+
+> To be covered in next version
+
+#### 6.7.2.4 Component Locations
+
+> To be covered in next version
+
+#### 6.7.2.5 Sorting Information
+
+> To be covered in next version
+
+#### 6.7.2.6 Component Passport Identifier
+
+> To be covered in next version
+
+#### 6.7.2.7 Material ID (Material Composition)
+
+A Material ID  is a unique identifier assigned to a material to ensure consistent reference, tracking, and management across databases, regulatory systems, and supply chains. It may correspond to standardized identifiers such as CAS Number (Chemical Abstracts Service), EC Number (European Community), or internal system-specific codes. The Material ID facilitates accurate identification, classification, and communication of information, including composition, hazards, and regulatory status.
+
+> **Content Validation**
+>
+> The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/). Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
+
+#### 6.7.2.8 Material List Type ID (Material Composition)
+
+This field specifies the classification system or standard employed for the identification of material composition. Acceptable standards may include, but are not limited to, the Chemical Abstracts Service (CAS) Registry Number, the International Union of Pure and Applied Chemistry (IUPAC) nomenclature, or the European Community (EC) number
+
+> **Syntax**
+>
+> For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options  ("IUPAC" "CAS" "EC" "InChI" "INCI" "SMILES")
+
+#### 6.7.2.9 Material Name (Material Composition)
+
+The name of the material which is present in the product.
+
+> **Content Validation**
+>
+> The chemical material ID and its identification (Chemical name) shall be provided in accordance with [International Union of Pure and Applied Chemistry (IUPAC) nomenclature standards](https://iupac.org/what-we-do/books/bluebook/).
+> Although IUPAC nomenclature is preferred, alternative naming conventions (e.g., [CAS](https://www.cas.org/cas-data/cas-registry), [EC](https://echa.europa.eu/about-ec-and-list-numbers)) are also acceptable.
+
+#### 6.7.2.10 Material Type
+
+> To be covered in next version
+
+#### 6.7.2.11 Material Origin
+
+> To be covered in next version
+
+#### 6.7.2.12 Material Passport Identifier
+
+> To be covered in next version
+
+#### 6.7.2.13 Concentration Unit (Material)
+
+> To be covered in next version
+
+#### 6.7.2.14 Concentration Value (Material)
+
+> To be covered in next version
+
+#### 6.7.2.15 Min Concentration Value
+
+> To be covered in next version
+
+#### 6.7.2.16 Min Concentration Unit
+
+> To be covered in next version
+
+#### 6.7.2.17 Max Concentration Value
+
+> To be covered in next version
+
+#### 6.7.2.18 Max Concentration Unit
+
+> To be covered in next version
+
+#### 6.7.2.19 Locations
+
+> To be covered in next version
+
+#### 6.7.2.20 Recycled
+
+> To be covered in next version
+
+#### 6.7.2.21 Documentation
+
+> To be covered in next version
+
+#### 6.7.3 List Name (Declarable Ingredient List)
+
+> To be covered in next version
+
+#### 6.7.4 Document ID (Declarable Ingredient List)
+
+> To be covered in next version
+
+#### 6.7.5 Documentation (Declarable Ingredient List)
+
+> To be covered in next version
+
+### 6.8 Sustainability
+
+| Rule ID | Data Attribute                                           | Mandatory/ Optional             | Regulatory Reference                                       |
+|---------|----------------------------------------------------------|---------------------------------|------------------------------------------------------------|
+| 6.8.1   | Product Status                                           | Mandatory                       | Regulation (EU) 2024/1781                                  |
+| 6.8.2   | footprintvalue (product carbon footprint)                | Mandatory                       | Regulation (EU) 2024/1781                                  |
+| 6.8.3   | footprintUnit(product carbon footprint)                  | Mandatory                       | ESPR provisional agreement from January 9th, 2024 Annex I  |
+| 6.8.4   | footprintType(product carbon footprint)                  | Mandatory                       | ESPR provisional agreement from January 9th 2024 Article 7 |
+| 6.8.5   | footprintLifecycle(product carbon footprint)             | Mandatory                       | ESPR provisional agreement from January 9th, 2024 Annex I  |
+| 6.8.6   | performanceClass(product carbon footprint)               | Optional                        | Battery Regulation                                         |
+| 6.8.7   | facilityIdentification(product carbon footprint)         | Mandatory                       | ESPR provisional agreement from January 9th 2024 Annex III |
+| 6.8.8   | Facility Address                                         | *To be covered in next version* |                                                            | | | |
+| 6.8.9   | Rulebook                                                 | *To be covered in next version* |                                                            | | | |
+| 6.8.10  | Declaration                                              | *To be covered in next version* |                                                            | | | |
+| 6.8.11  | footprintvalue (product environmental footprint)         | Optional                        | ESPR proposal from March 30th, 2022 Annex I                |
+| 6.8.12  | footprintUnit (product environmental footprint)          | Optional                        | ESPR provisional agreement from January 9th, 2024 Annex I  |
+| 6.8.13  | footprintType (product environmental footprint)          | Optional                        | ESPR provisional agreement from January 9th 2024 Article 7 |
+| 6.8.14  | footprintLifecycle (product environmental footprint)     | Optional                        | ESPR provisional agreement from January 9th, 2024 Annex I  |
+| 6.8.15  | performanceClass (product environmental footprint)       | Optional                        | Battery Regulation                                         |
+| 6.8.16  | facilityIdentification (product environmental footprint) | Optional                        | ESPR provisional agreement from January 9th 2024 Annex III |
+| 6.8.17  | Facility Address                                         | *To be covered in next version* |                                                            | | | |
+| 6.8.18  | Rulebook                                                 | *To be covered in next version* |                                                            | | | |
+| 6.8.19  | Declaration                                              | *To be covered in next version* |                                                            | | | |
+| 6.8.20  | footprintvalue (product material footprint)              | Optional                        | ESPR proposal from March 30th, 2022 Annex I                |
+| 6.8.21  | footprintUnit (product material footprint)               | Optional                        | ESPR provisional agreement from January 9th, 2024 Annex I  |
+| 6.8.22  | footprintType (product material footprint)               | Optional                        | ESPR provisional agreement from January 9th 2024 Article 7 |
+| 6.8.23  | footprintLifecycle (product material footprint)          | Optional                        | ESPR provisional agreement from January 9th, 2024 Annex I  |
+| 6.8.24  | performanceClass (product material footprint)            | Otional                         | Battery Regulation                                         |
+| 6.8.25  | facilityIdentification (product material footprint)      | Optional                        | ESPR provisional agreement from January 9th 2024 Annex III |
+| 6.8.26  | Facility Address                                         | *To be covered in next version* |                                                            | | | |
+| 6.8.27  | Rulebook                                                 | *To be covered in next version* |                                                            | | | |
+| 6.8.28  | Declaration                                              | *To be covered in next version* |                                                            | | | |
+| 6.8.29  | Reparability Score                                       | Optional                        | Regulation (EU) 2024/1781 Article 7                        |
+| 6.8.30  | Durability Score                                         | Optional                        | Regulation (EU) 2024/1781 Article 7                        |
+| 6.8.31  | Reuse Info                                               | *To be covered in next version* |                                                            | | | |
+| 6.8.32  | Reuse System Identification                              | *To be covered in next version* |                                                            | | | |
+| 6.8.33  | Rotation Calculation Key                                 | *To be covered in next version* |                                                            | | | |
+| 6.8.34  | Rotation Calculation Value                               | *To be covered in next version* |                                                            | | | |
+| 6.8.35  | Trip Calculation Key                                     | *To be covered in next version* |                                                            | | | |
+| 6.8.36  | Trip Calculation Value                                   | *To be covered in next version* |                                                            | | | |
+| 6.8.37  | Facilitates Tracking Reusable Product Address ID         | *To be covered in next version* |                                                            | | | |
+| 6.8.38  | Facilitates Tracking Reusable Product Address            | *To be covered in next version* |                                                            | | | |
+| 6.8.39  | Collection Points Reusable Product ID                    | *To be covered in next version* |                                                            | | | |
+| 6.8.40  | Collection Points Reusable Product Address               | *To be covered in next version* |                                                            | | | |
+| 6.8.41  | Recyclability Performance Grade                          | *To be covered in next version* |                                                            | | | |
+
+#### 6.8.1 Product Status
+
+The current condition or lifecycle phase of a product, as recorded in the Digital Product Passport, indicating whether the product is new, used, repaired, refurbished, remanufactured, or at end-of-life, in order to support traceability, circularity, and sustainability objectives.
+
+> **Syntax**
+>
+> For attributes with an 'Enumeration', the implementation of a validation rule is not necessary as the DPP provider has to select from one of the defined options ("original" "repurposed" "re-used" "remanufactured" "waste").
+
+#### 6.8.2 footprintvalue (product carbon footprint)
+
+"Carbon footprint" means the sum of greenhouse gas emissions and greenhouse gas removals in a product system, expressed as CO2 equivalents and based on a life cycle assessment using the single impact category of climate change;
+
+> **Content Validation**
+>
+> In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
+
+#### 6.8.3 footprintUnit(product carbon footprint)
+
+The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
+
+> **Content Validation**
+>
+> In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
+
+#### 6.8.4 footprintType(product carbon footprint)
+
+Specifies type of environmental footprint measured, aiding in detailed sustainability analysis.
+
+> **Content Validation**
+>
+> In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
+
+Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biogenic Removals and Emissions" "Climate Change Land Use and Land Use Change" "Ozone Depletion" "Acidification" "Eutrophication Aquatic Freshwater" "Eutrophication Fresh Marine" "Eutrophication Terrestrial" "Photochemical Ozone Formation" "Abiotic Depletion- Minerals and Metals" "Fossil Fuels" "Water Use" "Particulate Matter Emissions" "Ionizing Radiation, Human Health" "Eco-Toxicity" "Human Toxicity, Cancer Effects" "Human Toxicity, Non-Cancer Effects" "Land Use Related Impacts/Soil Quality").
+
+#### 6.8.5 footprintLifecycle(product carbon footprint)
+
+The specific phase within a product's life cycle to which the associated carbon footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'
+
+> **Content Validation**
+>
+> In accordance with the provisions outlined in the [Catena-X TfS PCF Verification Framework](https://www.tfs-initiative.com/app/uploads/2024/07/CX-NFR-PCF_TFS-verification-v1.pdf) and Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html)
+
+#### 6.8.6 performanceClass(product carbon footprint)
+
+Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. Classification into a carbon footprint performance class will be calculated in accordance with the methodology set out in the delegated acts adopted by the Commission.
+
+> **Content Validation**
+>
+> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
+
+#### 6.8.7 facilityIdentification(product carbon footprint)
+
+The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
+
+> **Syntax**<br/>Validity should be verified using regular expression-based checks in case BPNA is provided
+>
+> **Content Validation**
+>
+> The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members
+
+#### 6.8.8 Facility Address
+
+> To be covered in next version
+
+#### 6.8.9 Rulebook
+
+> To be covered in next version
+
+#### 6.8.10 Declaration
+
+> To be covered in next version
+
+#### 6.8.11 footprintvalue (product environmental footprint)
+
+"Environmental footprint" means a quantification of the environmental impacts resulting from a product throughout its life cycle, whether in relation to a single environmental impact category or an aggregated set of impact categories based on the Product Environmental Footprint method established by Recommendation (EU) 2021/2279 or other scientific methods developed by international organisations, widely tested in collaboration with different industry sectors and adopted or implemented by the Commission in other Union law.
+
+> **Content Validation**
+>
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
+
+#### 6.8.12 footprintUnit (product environmental footprint)
+
+The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
+
+> **Content Validation**
+>
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
+
+#### 6.8.13 footprintType (product environmental footprint)
+
+Categorizes type of environmental impact for depth in sustainability analysis.
+
+> **Content Validation**
+>
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
+
+Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biogenic Removals and Emissions" "Climate Change Land Use and Land Use Change" "Ozone Depletion" "Acidification" "Eutrophication Aquatic Freshwater" "Eutrophication Fresh Marine" "Eutrophication Terrestrial" "Photochemical Ozone Formation" "Abiotic Depletion- Minerals and Metals" "Fossil Fuels" "Water Use" "Particulate Matter Emissions" "Ionizing Radiation, Human Health" "Eco-Toxicity" "Human Toxicity, Cancer Effects" "Human Toxicity, Non-Cancer Effects" "Land Use Related Impacts/Soil Quality")
+
+#### 6.8.14 footprintLifecycle (product environmental footprint)
+
+The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'.
+
+> **Content Validation**
+>
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html). Furthermore, [Product Environmental Footprint (PEF)](https://green-forum.ec.europa.eu/green-business/environmental-footprint-methods/pef-method_en) can also be used as a guiding document.
+
+#### 6.8.15 performanceClass (product environmental footprint)
+
+Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
+
+> **Content Validation**
+>
+> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
+
+#### 6.8.16 facilityIdentification (product environmental footprint)
+
+The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
+
+> **Syntax**<br/>Validity should be verified using regular expression-based checks in case BPNA is provided
+>
+> **Content Validation**
+>
+> The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+
+#### 6.8.17 Facility Address
+
+> To be covered in next version
+
+#### 6.8.18 Rulebook
+
+> To be covered in next version
+
+#### 6.8.19 Declaration
+
+> To be covered in next version
+
+#### 6.8.20 footprintvalue (product material footprint)
+
+"Material footprint" refers to the total amount of raw materials extracted to meet final consumption demands.
+
+> **Content Validation**
+>
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
+
+#### 6.8.21 footprintUnit (product material footprint)
+
+The unit of measurement of the environmental impact category. For each impact category a specific unit is used. If an aggregation is used, utilize the normalization and weighting methods used in the referenced rulebook.
+
+> **Content Validation**
+>
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
+
+#### 6.8.22 footprintType (product material footprint)
+
+Impact categorization clarifies footprint implications within material contexts.
+
+> **Content Validation**
+>
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
+
+Enumeration ("Climate Change Total" "Climate Change Fossil" "Climate Change Biogenic Removals and Emissions" "Climate Change Land Use and Land Use Change" "Ozone Depletion" "Acidification" "Eutrophication Aquatic Freshwater" "Eutrophication Fresh Marine" "Eutrophication Terrestrial" "Photochemical Ozone Formation" "Abiotic Depletion- Minerals and Metals" "Fossil Fuels" "Water Use" "Particulate Matter Emissions" "Ionizing Radiation, Human Health" "Eco-Toxicity" "Human Toxicity, Cancer Effects" "Human Toxicity, Non-Cancer Effects" "Land Use Related Impacts/Soil Quality")
+
+#### 6.8.23 footprintLifecycle (product material footprint)
+
+The specific phase within a product's life cycle to which the associated environmental footprint is attributed. Typical stages include, but are not limited to, 'raw material acquisition and pre-processing', 'core product manufacturing', 'distribution and logistics', and 'end-of-life treatment and recycling'
+
+> **Content Validation**
+>
+> For methodology compliance, refer to standardized frameworks for Life Cyle Assessment (LCA) principles and framework [ISO 14040](https://www.iso.org/standard/37456.html) & [ISO 14044](https://www.iso.org/standard/38498.html) and the Product Carbon Footprint (PCF) calculated in compliance with [ISO 14067](https://www.iso.org/standard/71206.html).
+
+#### 6.8.24 performanceClass (product material footprint)
+
+Performance classification of a footprint refers to the categorization of a product’s quantified environmental impact—such as its carbon footprint—based on defined performance criteria, benchmarks, or reference values. In accordance with ISO standards, this classification supports comparability, consistency, and transparency in environmental performance evaluation, enabling stakeholders to assess whether a product meets specific environmental objectives or outperforms alternatives within the same functional category
+
+> **Content Validation**
+>
+> At this stage, no definitive rule can be specified, as the Battery Regulation currently only indicates that performance classes will be introduced in the future. The detailed definitions, classification criteria, and categories to be applied have not yet been specified.
+
+#### 6.8.25 facilityIdentification (product material footprint)
+
+The identifier used for a location. Unique facility identifier means a unique string of characters for the identification of locations or buildings involved in the value chain of a product or used by actors involved in the value chain of a product.
+
+> **Syntax**<br/>Validity should be verified using regular expression-based checks in case BPNA is provided
+>
+> **Content Validation**
+>
+> The BPNA is aligned with the Catena-X (Cofinity-X) 'Golden Record' [Catena-X BPN Standard](https://catenax-ev.github.io/docs/next/standards/CX-0010-BusinessPartnerNumber). Only applicable for Catena-X members.
+
+#### 6.8.26 Facility Address
+
+> To be covered in next version
+
+#### 6.8.27 Rulebook
+
+> To be covered in next version
+
+#### 6.8.28 Declaration
+
+> To be covered in next version
+
+#### 6.8.29 Reparability Score
+
+In the context of the ESPR, the reparability score is a quantified indicator that reflects the ease with which a product can be repaired. It assesses factors such as the availability of spare parts, accessibility of repair information, design for disassembly, required tools, and time needed for repair. The score is intended to promote product longevity, reduce environmental impact, and empower consumers and repair professionals by enabling informed choices and facilitating circular economy practices.
+
+> **Content Validation**
+>
+> Reparability score in accordance to Annex I of [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng)
+
+#### 6.8.30 Durability Score
+
+The durability score is an indicator established under the Ecodesign for Sustainable Products Regulation (ESPR) that measures a product’s ability to maintain its intended performance and functionality over time under normal usage conditions. It reflects the product’s resistance to aging, and failure, and is based on criteria such as tested lifespan, failure rates, warranty coverage, and availability of maintenance support. The score is designed to promote longer-lasting products, reduce premature obsolescence, and support sustainable consumption and production patterns.
+
+> **Content Validation**
+>
+> Durability score in accordance to Annex I of [Regulation (EU) 2024/1781](https://eur-lex.europa.eu/eli/reg/2024/1781/oj/eng)
+
+#### 6.8.31 Reuse Info
+
+> To be covered in next version
+
+#### 6.8.32 Reuse System Identification
+
+> To be covered in next version
+
+#### 6.8.33 Rotation Calculation Key
+
+> To be covered in next version
+
+#### 6.8.34 Rotation Calculation Value
+
+> To be covered in next version
+
+#### 6.8.35 Trip Calculation Key
+
+> To be covered in next version
+
+#### 6.8.36 Trip Calculation Value
+
+> To be covered in next version
+
+#### 6.8.37 Facilitates Tracking Reusable Product Address ID
+
+> To be covered in next version
+
+#### 6.8.38 Facilitates Tracking Reusable Product Address
+
+> To be covered in next version
+
+#### 6.8.39 Collection Points Reusable Product ID
+
+> To be covered in next version
+
+#### 6.8.40 Collection Points Reusable Product Address
+
+> To be covered in next version
+
+#### 6.8.41 Recyclability Performance Grade
+
+> To be covered in next version
+
+### 6.9 Compliance
+
+| Rule ID | Data Attribute                  | Mandatory/ Optional             | Regulatory Reference |
+|---------|---------------------------------|---------------------------------|----------------------|
+| 6.9.1   | Compliance Country              | *To be covered in next version* |                      |
+| 6.9.2   | Compliance Regulation Name      | *To be covered in next version* |                      |
+| 6.9.3   | Compliance Statement            | *To be covered in next version* |                      |
+| 6.9.4   | Compliance Reason for Exemption | *To be covered in next version* |                      |
+| 6.9.5   | Compliance Remark               | *To be covered in next version* |                      |
+| 6.9.6   | Compliance Documentation        | *To be covered in next version* |                      |
+
+### 6.10 Sources
+
+| Rule ID | Data Attribute | Mandatory/ Optional             | Regulatory Reference                                |
+|---------|----------------|---------------------------------|-----------------------------------------------------|
+| 6.10.1  | Sources        | *To be covered in next version* |                                                     |
+| 6.10.2  | Category       | Mandatory                       | Regulation (EU) 2024/1781, Annex III and Article 27 |
+
+### 6.11 Additional Data
+
+| Rule ID | Data Attribute | Mandatory/ Optional | Regulatory Reference                     |
+|---------|----------------|---------------------|------------------------------------------|
+| 6.11.1  | Description    | Mandatory           | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.2  | Label          | Mandatory           | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.3  | Type Unit      | Optional            | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.4  | Data Type      | Mandatory           | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.5  | Data           | Optional            | Regulation (EU) 2024/1781, Article 9 & 4 |
+| 6.11.6  | Children       | Optional            | Regulation (EU) 2024/1781, Article 9 & 4 |
+
+## Appendix 1: DPP Example Data
+
+| ID     | Section         | Data Attribute                                                       | Example Data                                                                                                                                                                                                |
+|--------|-----------------|----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1.1    | Metadata        | Passport Identifier                                                  | urn:uuid:550e8400-e29b-41d4-a716-446655440000                                                                                                                                                               |
+| 1.2    | Metadata        | Version                                                              | 1.0.0                                                                                                                                                                                                       |
+| 1.3    | Metadata        | Status                                                               | Released                                                                                                                                                                                                    |
+| 1.4    | Metadata        | Language                                                             | en-GB                                                                                                                                                                                                       |
+| 1.5    | Metadata        | Predecessor Identifier                                               | urn:uuid:00000000-0000-0000-0000-000000000000                                                                                                                                                               |
+| 1.6    | Metadata        | Registration Identifier                                              | [https://dummy.link/ID8283746239078](https://dummy.link/ID8283746239078)                                                                                                                                    |
+| 1.7    | Metadata        | Backup Reference                                                     | [https://dummy.link/ID8283746239078](https://dummy.link/ID8283746239078)                                                                                                                                    |
+| 1.8    | Metadata        | IssueDate                                                            | 2000-01-01                                                                                                                                                                                                  |
+| 1.9    | Metadata        | ExpirationDate                                                       | 22000-01-01                                                                                                                                                                                                 |
+| 1.10   | Metadata        | Last Modification                                                    | 2000-01-01                                                                                                                                                                                                  |
+| 1.11   | Metadata        | Economic Operator ID                                                 | BPNL0123456789ZZ                                                                                                                                                                                            |
+| 1.12   | Metadata        | Economic Operator Name                                               | ABC                                                                                                                                                                                                         |
+| 1.13   | Metadata        | Economic Operator Contact                                            | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``                                                                         |
+| 1.14   | Metadata        | Economic Operator Address                                            | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 2.1    | Identification  | Serial Key                                                           | partInstanceId                                                                                                                                                                                              |
+| 2.2    | Identification  | Serial Value                                                         | SN12345678                                                                                                                                                                                                  |
+| 2.3    | Identification  | Batch Key                                                            | batchId                                                                                                                                                                                                     |
+| 2.4    | Identification  | Batch Value                                                          | BID12345678                                                                                                                                                                                                 |
+| 2.5    | Identification  | Manufacturer Part ID                                                 | 123-0.740-3434-A                                                                                                                                                                                            |
+| 2.6    | Identification  | Name at Manufacturer                                                 | Mirror left for XXX123                                                                                                                                                                                      |
+| 2.7    | Identification  | Code Key                                                             | TARIC                                                                                                                                                                                                       |
+| 2.8    | Identification  | Code Value                                                           | 8703 24 10 00                                                                                                                                                                                               |
+| 2.9    | Identification  | Code Description                                                     | A 10th-digit customs nomenclature code.                                                                                                                                                                     |
+| 2.10   | Identification  | Carrier Type                                                         | QR                                                                                                                                                                                                          |
+| 2.11   | Identification  | Carrier Position                                                     | upper-left side                                                                                                                                                                                             |
+| 2.12   | Identification  | Classification Standard                                              | ECLASS 15.0                                                                                                                                                                                                 |
+| 2.13   | Identification  | Classification ID                                                    | 44-09-01                                                                                                                                                                                                    |
+| 2.14   | Identification  | Classification Description                                           | ECLASS is an international cross-industry master-data business standard for products and services information to be exchanged.                                                                              |
+| 2.15   | Identification  | Picture                                                              | Product front view                                                                                                                                                                                          |
+| 3.1    | Operation       | Facility ID                                                          | BPNS1234567890AA                                                                                                                                                                                            |
+| 3.2    | Operation       | Facility Address                                                     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 3.3    | Operation       | Manufacturer ID                                                      | BPNL0123456789ZZ                                                                                                                                                                                            |
+| 3.4    | Operation       | Manufacturer Name                                                    | ABC                                                                                                                                                                                                         |
+| 3.5    | Operation       | Manufacturer Contact                                                 | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``                                                                         |
+| 3.6    | Operation       | Manufacturer Address                                                 | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 4                                                                                                                                              |
+| 3.7    | Operation       | Manufacturing Date                                                   | 2000-01-01                                                                                                                                                                                                  |
+| 3.8    | Operation       | Applicable                                                           | true                                                                                                                                                                                                        |
+| 3.8.1  | Operation       | EORI                                                                 | GB123456789000                                                                                                                                                                                              |
+| 3.8.2  | Operation       | Importer Identification                                              | BPNL0123456789ZZ                                                                                                                                                                                            |
+| 3.8.3  | Operation       | Importer Name                                                        | ABC                                                                                                                                                                                                         |
+| 3.8.4  | Operation       | Importer Contact                                                     | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``                                                                         |
+| 3.8.5  | Operation       | Importer Address                                                     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 3.9    | Operation       | Other Operator ID                                                    | BPNL0123456789XX                                                                                                                                                                                            |
+| 3.10   | Operation       | Other Operator Name                                                  | ABC                                                                                                                                                                                                         |
+| 3.11   | Operation       | Other Operator Contact                                               | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``                                                                         |
+| 3.12   | Operation       | Other Operator Address                                               | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 3.13   | Operation       | Other Operator Role                                                  | distributor                                                                                                                                                                                                 |
+| 3.14   | Operation       | Symbol of Extended Producer Responsibility Scheme                    | true                                                                                                                                                                                                        |
+| 3.15   | Operation       | Territory of Extended Producer Responsibility Scheme                 | DE                                                                                                                                                                                                          |
+| 3.16   | Operation       | Collection Points of Extended Producer Responsibility Scheme ID      | BPNA1234567890AA                                                                                                                                                                                            |
+| 3.17   | Operation       | Collection Points of Extended Producer Responsibility Scheme Address | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 4.1    | Handling        | Applicable                                                           | true                                                                                                                                                                                                        |
+| 4.1.1  | Handling        | Sources Identification                                               | BPNL0123456789ZZ                                                                                                                                                                                            |
+| 4.1.2  | Handling        | Sources Contact                                                      | faxNumber:+49 89 0987654321, website: ``https://www.samsung.com``, phoneNumber: +49 89 1234567890, email: ``test.mail@example.com``                                                                         |
+| 4.1.3  | Handling        | Sources Address                                                      | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 4.1.4  | Handling        | Manufacturer Part ID                                                 | 123-0.740-3434-A                                                                                                                                                                                            |
+| 4.1.5  | Handling        | Name at Manufacturer                                                 | Mirror left from car XYZ                                                                                                                                                                                    |
+| 5.1    | Characteristics | Life Type                                                            | guaranteed lifetime                                                                                                                                                                                         |
+| 5.2    | Characteristics | Life Value                                                           | 36                                                                                                                                                                                                          |
+| 5.3    | Characteristics | Life Unit                                                            | unit:month                                                                                                                                                                                                  |
+| 5.4    | Characteristics | Value (Width)                                                        | 20.5                                                                                                                                                                                                        |
+| 5.5    | Characteristics | Unit (Width)                                                         | unit:millimetre                                                                                                                                                                                             |
+| 5.6    | Characteristics | Value (Length)                                                       | 20.5                                                                                                                                                                                                        |
+| 5.7    | Characteristics | Unit (Length)                                                        | unit:millimetre                                                                                                                                                                                             |
+| 5.8    | Characteristics | Value (Diameter)                                                     | 20.5                                                                                                                                                                                                        |
+| 5.9    | Characteristics | Unit (Diameter)                                                      | unit:millimetre                                                                                                                                                                                             |
+| 5.10   | Characteristics | Value (Height)                                                       | 20.5                                                                                                                                                                                                        |
+| 5.11   | Characteristics | Unit (Height)                                                        | unit:millimetre                                                                                                                                                                                             |
+| 5.12   | Characteristics | Value (Gross Weight)                                                 | 20.5                                                                                                                                                                                                        |
+| 5.13   | Characteristics | Unit (Gross Weight)                                                  | unit:kilogram                                                                                                                                                                                               |
+| 5.14   | Characteristics | Value (Volume)                                                       | 20.5                                                                                                                                                                                                        |
+| 5.15   | Characteristics | Unit (Volume)                                                        | unit:litre                                                                                                                                                                                                  |
+| 5.16   | Characteristics | Value (Gross Volume)                                                 | 20.5                                                                                                                                                                                                        |
+| 5.17   | Characteristics | Unit (Gross Volume)                                                  | unit:litre                                                                                                                                                                                                  |
+| 5.18   | Characteristics | Value (Weight)                                                       | 20.5                                                                                                                                                                                                        |
+| 5.19   | Characteristics | Unit (Weight)                                                        | unit:kilogram                                                                                                                                                                                               |
+| 5.20   | Characteristics | Value (Item Quantity)                                                | 20                                                                                                                                                                                                          |
+| 5.21   | Characteristics | Unit Item Quantity                                                   | unit:piece                                                                                                                                                                                                  |
+| 5.22   | Characteristics | Physical State                                                       | solid                                                                                                                                                                                                       |
+| 5.23   | Characteristics | General Performance Class                                            | A                                                                                                                                                                                                           |
+| 5.24   | Characteristics | Other Characteristic Name                                            | shape                                                                                                                                                                                                       |
+| 5.25   | Characteristics | Other Characteristic Outcome                                         | cubic                                                                                                                                                                                                       |
+| 6.1    | Commercial      | Placed On Market                                                     | 2000-01-01                                                                                                                                                                                                  |
+| 6.2    | Commercial      | Purpose                                                              | automotive                                                                                                                                                                                                  |
+| 6.3    | Commercial      | Purchase Order                                                       | XXX                                                                                                                                                                                                         |
+| 6.4    | Commercial      | Recall Information                                                   | Product safety recall                                                                                                                                                                                       |
+| 7.1    | Composition     | Applicable (Substances of Concern)                                   | true                                                                                                                                                                                                        |
+| 7.1.1  | Composition     | Chemical ID (Substances of Concern)                                  | 201-004-7                                                                                                                                                                                                   |
+| 7.1.2  | Composition     | List Type ID (Substances of Concern)                                 | CAS                                                                                                                                                                                                         |
+| 7.1.3  | Composition     | Chemical Name (Substances of Concern)                                | phenolphthalein                                                                                                                                                                                             |
+| 7.1.4  | Composition     | Material Unit (Substances of Concern)                                | unit:percent                                                                                                                                                                                                |
+| 7.1.5  | Composition     | Concentration (Substances of Concern)                                | 2.6                                                                                                                                                                                                         |
+| 7.1.6  | Composition     | Min Concentration (Substances of Concern)                            | 2.1                                                                                                                                                                                                         |
+| 7.1.7  | Composition     | Max Concentration (Substances of Concern)                            | 5.3                                                                                                                                                                                                         |
+| 7.1.8  | Composition     | Location of Substances (Substances of Concern)                       | Housing                                                                                                                                                                                                     |
+| 7.1.9  | Composition     | Exemption for Substances (Substances of Concern)                     | shall not apply to product x containing not more than 1,5 ml of liquid                                                                                                                                      |
+| 7.1.10 | Composition     | Hazard Category (Substances of Concern)                              | category 1A                                                                                                                                                                                                 |
+| 7.1.11 | Composition     | Hazard Class (Substances of Concern)                                 | Skin corrosion                                                                                                                                                                                              |
+| 7.1.12 | Composition     | Hazard Statement (Substances of Concern)                             | Causes severe skin burns and eye damage.                                                                                                                                                                    |
+| 7.1.13 | Composition     | Documentation                                                        | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 7.2    | Composition     | Applicable (Material Composition)                                    | true                                                                                                                                                                                                        |
+| 7.2.1  | Composition     | Component Name                                                       | Top lid                                                                                                                                                                                                     |
+| 7.2.2  | Composition     | Component Code                                                       | ABC123                                                                                                                                                                                                      |
+| 7.2.3  | Composition     | Component Description                                                | Yellow bin                                                                                                                                                                                                  |
+| 7.2.4  | Composition     | Component Location                                                   | The screw cap is located at the top of the container.                                                                                                                                                       |
+| 7.2.5  | Composition     | Sorting Information                                                  | Yellow waste bin is appropriate for discard this component. Group component by diameter for efficient storage. Rinse and remove food residues to ensure cleanliness.                                        |
+| 7.2.6  | Composition     | Component Passport Identifier                                        | urn:uuid:550e8400-e29b-41d4-a716-446655440000                                                                                                                                                               |
+| 7.2.7  | Composition     | Chemical ID (Material Composition)                                   | 201-004-7                                                                                                                                                                                                   |
+| 7.2.8  | Composition     | List Type ID (Material Composition)                                  | CAS                                                                                                                                                                                                         |
+| 7.2.9  | Composition     | Chemical Name (Material Composition)                                 | phenolphthalein                                                                                                                                                                                             |
+| 7.2.10 | Composition     | Material Type                                                        | impurity                                                                                                                                                                                                    |
+| 7.2.11 | Composition     | Material Origin                                                      | CN                                                                                                                                                                                                          |
+| 7.2.12 | Composition     | Material Passport Identifier                                         | urn:uuid:550e8400-e29b-41d4-a716-446655440000                                                                                                                                                               |
+| 7.2.13 | Composition     | Material Unit                                                        | kg                                                                                                                                                                                                          |
+| 7.2.14 | Composition     | Concentration                                                        | 2.6                                                                                                                                                                                                         |
+| 7.2.15 | Composition     | Min Concentration                                                    | 2.1                                                                                                                                                                                                         |
+| 7.2.16 | Composition     | Max Concentration                                                    | 5.3                                                                                                                                                                                                         |
+| 7.2.17 | Composition     | Location                                                             | handle                                                                                                                                                                                                      |
+| 7.2.18 | Composition     | Recycled                                                             | 12.5                                                                                                                                                                                                        |
+| 7.2.19 | Composition     | Documentation                                                        | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 7.3.1  | Composition     | List Name (Declarable Ingredient List)                               | Critical Raw Materials                                                                                                                                                                                      |
+| 7.3.2  | Composition     | Document ID (Declarable Ingredient List)                             | XXX                                                                                                                                                                                                         |
+| 7.3.3  | Composition     | Documentation (Declarable Ingredient List)                           | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.1    | Sustainability  | State                                                                | Original                                                                                                                                                                                                    |
+| 8.2    | Sustainability  | value (product carbon footprint)                                     | 12.678                                                                                                                                                                                                      |
+| 8.3    | Sustainability  | footprintUnit(product carbon footprint)                              | kg CO2 / kWh                                                                                                                                                                                                |
+| 8.4    | Sustainability  | footprintType(product carbon footprint)                              | Climate Change                                                                                                                                                                                              |
+| 8.5    | Sustainability  | footprintLifecycle(product carbon footprint)                         | main product production                                                                                                                                                                                     |
+| 8.6    | Sustainability  | performanceClass(product carbon footprint)                           | A                                                                                                                                                                                                           |
+| 8.7    | Sustainability  | facility(product carbon footprint)                                   | BPNA1234567890AA                                                                                                                                                                                            |
+| 8.8    | Sustainability  | Facility Address                                                     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 8.9    | Sustainability  | Rulebook                                                             | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.10   | Sustainability  | Declaration                                                          | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.11   | Sustainability  | value (product environmental footprint)                              | 12.678                                                                                                                                                                                                      |
+| 8.12   | Sustainability  | footprintUnit (product environmental footprint)                      | kg CO2 / kWh                                                                                                                                                                                                |
+| 8.13   | Sustainability  | footprintType (product environmental footprint)                      | Climate Change (Could be any other environmental impact category, Cliamte change is just an example here)                                                                                                   |
+| 8.14   | Sustainability  | footprintLifecycle (product environmental footprint)                 | main product production                                                                                                                                                                                     |
+| 8.15   | Sustainability  | performanceClass (product environmental footprint)                   | A                                                                                                                                                                                                           |
+| 8.16   | Sustainability  | facility (product environmental footprint)                           | BPNA1234567890AA                                                                                                                                                                                            |
+| 8.17   | Sustainability  | Facility Address                                                     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 8.18   | Sustainability  | Rulebook                                                             | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.19   | Sustainability  | Declaration                                                          | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.20   | Sustainability  | value (product material footprint)                                   | 12.678                                                                                                                                                                                                      |
+| 8.21   | Sustainability  | footprintUnit (product material footprint)                           | kg CO2 / kWh                                                                                                                                                                                                |
+| 8.22   | Sustainability  | footprintType (product material footprint)                           | Climate Change (Could be any other environmental impact category, Cliamte change is just an example here)                                                                                                   |
+| 8.23   | Sustainability  | footprintLifecycle (product material footprint)                      | main product production                                                                                                                                                                                     |
+| 8.24   | Sustainability  | performanceClass (product material footprint)                        | A                                                                                                                                                                                                           |
+| 8.25   | Sustainability  | facility (product material footprint)                                | BPNA1234567890AA                                                                                                                                                                                            |
+| 8.26   | Sustainability  | Facility Address                                                     | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 8.27   | Sustainability  | Rulebook                                                             | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.28   | Sustainability  | Declaration                                                          | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 8.29   | Sustainability  | Reparability Score                                                   | B                                                                                                                                                                                                           |
+| 8.30   | Sustainability  | Durability Score                                                     | A                                                                                                                                                                                                           |
+| 8.31   | Sustainability  | Reuse Info                                                           | Product can be extracted from obsolete machinery and use in wind turbines or other renewable energy systems, contributing to sustainable energy solutions. Product can serve as components in DIY projects. |
+| 8.32   | Sustainability  | Reuse System Identification                                          | XXX                                                                                                                                                                                                         |
+| 8.33   | Sustainability  | Rotation Calculation Key                                             | cycles calculated                                                                                                                                                                                           |
+| 8.34   | Sustainability  | Rotation Calculation Value                                           | 100                                                                                                                                                                                                         |
+| 8.35   | Sustainability  | Trip Calculation Key                                                 | trips calculated                                                                                                                                                                                            |
+| 8.36   | Sustainability  | Trip Calculation Value                                               | 100                                                                                                                                                                                                         |
+| 8.37   | Sustainability  | Facilitates Tracking Reusable Product Address ID                     | BPNA1234567890AA                                                                                                                                                                                            |
+| 8.38   | Sustainability  | Facilitates Tracking Reusable Product Address                        | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 8.39   | Sustainability  | Collection Points Reusable Product ID                                |                                                                                                                                                                                                             |
+| 8.40   | Sustainability  | Collection Points Reusable Product Address                           | BLOCK Mannheim,  XW-HNC, CEDEX 98765-4321,STREET Bernstrasse 45                                                                                                                                             |
+| 8.41   | Sustainability  | Recyclability Performance Grade                                      | C                                                                                                                                                                                                           |
+| 9.1    | Compliance      | Compliance Country                                                   | UK                                                                                                                                                                                                          |
+| 9.2    | Compliance      | Compliance Regulation Name                                           | REACH regulation                                                                                                                                                                                            |
+| 9.3    | Compliance      | Compliance Statement                                                 | Hereby we declare under our sole responsibility that the product:XXX is in conformity with the provisions of the EU directives and regulations.                                                             |
+| 9.4    | Compliance      | Compliance Reason for Exemption                                      | Radioactive substance                                                                                                                                                                                       |
+| 9.5    | Compliance      | Compliance Remark                                                    | If you need more information about the (pre-)registration status, please get in contact with our experts from the Compliance Team: ``www.xyz.com``                                                          |
+| 9.6    | Compliance      | Compliance Documentation                                             | ``https://dummy.link`` , URL, Example Document XYZ                                                                                                                                                          |
+| 10.1   | Sources         | Sources                                                              |                                                                                                                                                                                                             |
+| 10.2   | Sources         | Category                                                             |                                                                                                                                                                                                             |
+| 11.1   | Additional Data | Description                                                          | Description of an attribute                                                                                                                                                                                 |
+| 11.2   | Additional Data | Label                                                                | Maximum permitted battery power                                                                                                                                                                             |
+| 11.3   | Additional Data | Type Unit                                                            | unit:volume                                                                                                                                                                                                 |
+| 11.4   | Additional Data | Data Type                                                            | xsd:integer                                                                                                                                                                                                 |
+| 11.5   | Additional Data | Data                                                                 | 23                                                                                                                                                                                                          |
+| 11.6   | Additional Data | Children                                                             |                                                                                                                                                                                                             |
+
+### NOTICE
+
+This work is licensed under the CC-BY-4.0.<br/>
+
+• SPDX-License-Identifier: CC-BY-4.0<br/>
+• SPDX-FileCopyrightText: 2025 Henkel AG & Co. KGaA<br/>
+• SPDX-FileCopyrightText: 2025 Schaeffler AG<br/>
+• SPDX-FileCopyrightText: 2025 SIEMENS AG<br/>
+• SPDX-FileCopyrightText: 2025 Lisa Dräxlmaier GmbH<br/>
+• SPDX-FileCopyrightText: 2025 BASF SE<br/>
+• SPDX-FileCopyrightText: 2025 ZF Friedrichshafen AG<br/>
+• SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation<br/>
+• SPDX-FileCopyrightText: 2025 Fraunhofer-Gesellschaft zur Foerderung der angewandten Forschung e.V. (represented by Fraunhofer IPK)<br/>
+• Source URL: [https://github.com/eclipse-tractusx/digital-product-pass](https://github.com/eclipse-tractusx/digital-product-pass)

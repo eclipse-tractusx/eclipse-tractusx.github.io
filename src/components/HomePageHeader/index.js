@@ -26,6 +26,7 @@ import NewsTicker from "../NewsTicker";
 import LayersIcon from '@mui/icons-material/Layers';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import classes from "../../scss/components/HomePageHeader.module.scss";
 
 export default function HomePageHeader() {
@@ -58,6 +59,9 @@ export default function HomePageHeader() {
           </Link>
           <Link className={classes.btn} to="https://github.com/eclipse-tractusx">
             <GitHubIcon className={classes.icon}/><span>Our Code</span>
+          </Link>
+          <Link className={classes.btn} to="/community/open-meetings">
+            <CalendarMonthIcon className={classes.icon}/><span>Open Meetings</span>
           </Link>
         </div>
       </div>

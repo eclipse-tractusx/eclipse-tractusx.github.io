@@ -5,7 +5,9 @@ description: 'Changelog Requirements Kit'
 sidebar_position: 1
 ---
 
-![requirement kit logo](@site/static/img/kits/requirements/requirements-kit-logo.svg)
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="requirements" />
 
 ## [0.1.0] - 2025-09-29
 

@@ -1,0 +1,8 @@
+{
+  "label": "Development View",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "The Development View contains technical documentation, architecture diagrams, API specifications, and implementation details for developers building with this KIT."
+  }
+}

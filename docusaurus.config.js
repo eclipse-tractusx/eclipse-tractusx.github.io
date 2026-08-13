@@ -3,6 +3,7 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -45,7 +46,7 @@ const config = {
       // see https://docusaurus.io/blog/releases/3.8#css-cascade-layers
       useCssCascadeLayers: true
     },
-    experimental_faster: {
+    faster: {
       lightningCssMinimizer: true,
       mdxCrossCompilerCache: true,
       rspackBundler: true,
@@ -115,6 +116,7 @@ const config = {
         path: 'docs-kits',
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
+        exclude: ['**/kit-template/**'],
       },
     ],
     // -- documentation-kits --
@@ -155,7 +157,7 @@ const config = {
         blogDescription: 'This blog hosts Tractus-X release changelogs.',
         blogSidebarCount: 'ALL',
         blogSidebarTitle: 'Release Changelogs',
-        onUntruncatedBlogPosts: 'ignore', 
+        onUntruncatedBlogPosts: 'ignore',
       },
     ],
     [
@@ -253,7 +255,7 @@ const config = {
       },
       announcementBar: {
         id: `announcementBar-v25.09`,
-        content: `🎉️ <b><a href="/blog-changelog/release-25-09">Eclipse Tractus-X 25.09</a> is out!</b> 🥳️`,
+        content: `🎉️ New <b><a href="/Kits">KITs 2.0 (Multi-Industry & Multi-Dataspace)</a></b> Webpage & <b><a href="/documentation/kit-getting-started">Documentation</a></b> 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',
@@ -276,108 +278,41 @@ const config = {
             items: [
               {
                 to: 'Kits',
-                label: 'Kits General',
+                label: 'KITs HOMEPAGE',
+                className: 'kit-category-header kit-home-icon'
               },
               {
-                to: '/docs-kits/kits/behaviour-twin-kit/overview',
-                label: 'Behaviour Twin',
+                to: '/documentation/kit-getting-started',
+                label: 'KIT Getting Started',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/business-partner-kit/adoption-view',
-                label: 'Business Partner',
+                to: '/documentation/kit-lifecycle',
+                label: 'KIT Lifecycle',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/circularity-kit/adoption-view',
-                label: 'Circularity',
+                to: '/documentation/kit-framework',
+                label: 'KIT Framework',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/connector-kit/adoption-view',
-                label: 'Connector',
+                to: '/documentation/kit-statistics',
+                label: 'KIT Statistics',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/customs-kit/adoption-view',
-                label: 'Customs',
+                to: '/documentation/kit-master-data-overview',
+                label: 'KIT Master Data',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
-                label: 'Data Trust & Security',
+                to: '/documentation/kit-3d-logo-library',
+                label: 'KIT Assets',
+                className: 'kit-nav-item'
               },
-              {
-                to: '/docs-kits/kits/data-chain-kit/adoption-view',
-                label: 'Data Chain',
-              },
-              {
-                to: '/docs-kits/kits/data-driven-quality-management-kit/adoption-view',
-                label: 'Data Driven Quality Management',
-              },
-              {
-                to: '/docs-kits/kits/data-governance-kit/adoption-view',
-                label: 'Data Governance',
-              },
-              {
-                to: '/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview',
-                label: 'Demand and Capacity Management',
-              },
-              {
-                to: '/docs-kits/kits/digital-twin-kit/adoption-view',
-                label: 'Digital Twin',
-              },
-              {
-                to: '/docs-kits/kits/eco-pass-kit/adoption-view',
-                label: 'Eco Pass',
-              },
-              {
-                to: '/docs-kits/kits/environmental-and-social-standards-kit/adoption-view',
-                label: 'Environmental and Social Standards',
-              },
-              {
-                to: '/docs-kits/kits/industry-core-kit/adoption-view',
-                label: 'Industry Core',
-              },
-              {
-                to: '/docs-kits/kits/knowledge-agents-kit/adoption-view/intro',
-                label: 'Knowledge Agents',
-              },
-              {
-                to: '/docs-kits/kits/logistics-kit/adoption-view',
-                label: 'Logistics',
-              },
-              {
-                to: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
-                label: 'Manufacturing as a Service',
-              },
-              {
-                to: '/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view',
-                label: 'Model Based Development and Data Processing',
-              },
-              {
-                to: '/docs-kits/kits/modular-production-kit/adoption-view',
-                label: 'Modular Production',
-              },
-              {
-                to: '/docs-kits/kits/online-simulation-kit/adoption-view',
-                label: 'Online Simulation',
-              },
-              {
-                to: '/docs-kits/kits/puris-kit/adoption-view',
-                label: 'Predictive Unit Real-Time Information Service',
-              },
-              {
-                to: '/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view',
-                label: 'Product Carbon Footprint Exchange',
-              },
-                            {
-                to: '/docs-kits/kits/requirements-kit/adoption-view',
-                label: 'Requirements',
-              },
-              {
-                to: '/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view',
-                label: 'Supply Chain Disruption Notification',
-              },
-              {
-                to: '/docs-kits/kits/traceability-kit/adoption-view',
-                label: 'Traceability',
-              },
+              // Dynamically generated from kitsData
+              ...generateKitNavItems(),
             ],
           },
           {
@@ -393,7 +328,7 @@ const config = {
             label: 'Tutorials',
           },
           {
-            to: '/community/intro',
+            to: '/community/open-meetings',
             label: 'Community',
             position: 'left',
           },
@@ -413,15 +348,34 @@ const config = {
                 value: '<b>Archived</b>',
               },
               {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.06/kits',
+                label: '25.06',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.03/kits',
+                label: '25.03',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-24.12/kits',
+                label: '24.12',
+              },
+              {
                 href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-24.08/kits',
                 label: '24.08',
               },
             ],
           },
           {
-            href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
-            label: 'GitHub',
+            to: '/community/open-meetings',
             position: 'right',
+            'aria-label': 'Open meetings',
+            className: 'navbar-icon-link header-open-meetings',
+          },
+          {
+            href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
+            position: 'right',
+            'aria-label': 'GitHub',
+            className: 'navbar-icon-link header-github-link',
           },
         ],
       },
@@ -469,16 +423,16 @@ const config = {
                 href: "https://github.com/eclipse-tractusx",
               },
               {
-                label: "Catena-X Automotive Network",
-                href: "https://catena-x.net/",
-              },
-              {
                 label: "Mailing List",
                 href: "https://accounts.eclipse.org/mailing-list/tractusx-dev",
               },
               {
                 label: "Report a Bug",
                 href: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues",
+              },
+              {
+                label: "Eclipse Dataspace Working Group",
+                href: "https://dataspace.eclipse.org",
               },
             ],
           },
@@ -508,16 +462,47 @@ const config = {
             ],
           },
           {
+            title: 'Collaboration',
             items: [
               {
-                html: `
-                  <img alt='' src='/img/EF_registered_wht_png.png'/>
-                `
-              }
-            ]
+                label: "Catena-X Automotive Network e.V.",
+                href: "https://catena-x.net/",
+              },
+              {
+                label: "Factory-X",
+                href: "https://factory-x.org",
+              },
+              {
+                label: "Manufacturing-X",
+                href: "https://www.plattform-i40.de/IP/Navigation/EN/Manufacturing-X/Manufacturing-X.html",
+              },
+              {
+                label: "Construct-X",
+                href: "https://construct-x.org",
+              },
+              {
+                label: "Semiconductor-X",
+                href: "https://semiconductor-x.com/",
+              },
+            ],
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.`,
+        copyright: `
+          <div style="display:flex;align-items:stretch;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:24px;">
+            <a href="https://www.eclipse.org" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-decoration:none;">
+              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">A project under the governance of the: </span>
+              <img alt="Eclipse Foundation" src="/img/EF_registered_wht_svg.svg" style="height:200px;"/>
+            </a>
+            <div class="footer-logo-divider"></div>
+            <a href="https://dataspace.eclipse.org" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-decoration:none;">
+              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">Built in collaboration with:</span>
+              <div style="display:flex;align-items:center;justify-content:center;flex:1;">
+                <img alt="Eclipse Dataspace Working Group" src="/img/edwg-logo-white.svg" style="height:200px;max-width:300px;"/>
+              </div>
+            </a>
+          </div>
+          <div>Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.</div>
+        `,
       },
       prism: {
         theme: lightCodeTheme,

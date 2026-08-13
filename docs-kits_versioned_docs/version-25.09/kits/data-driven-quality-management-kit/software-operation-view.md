@@ -5,7 +5,7 @@ description: Quality KIT
 sidebar_position: 4
 ---
 
-![Quality kit banner](@site/static/img/kits\data-driven-quality-management\ddqm-kit-logo.svg)
+![Quality kit banner](@site/static/img/kits/data-driven-quality-management/ddqm-kit-logo.svg)
 
 ## Quality Data Offers at EDC
 

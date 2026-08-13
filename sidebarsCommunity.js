@@ -19,8 +19,8 @@
 
 const sidebars = {
     community: [
-        'intro',
         'open-meetings',
+        'intro',
         {
             type: 'category',
             label: 'Special Interest Groups (SIGs)',

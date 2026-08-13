@@ -1,0 +1,1046 @@
+---
+title: KIT Master Data Overview
+---
+
+{/********************************************************************************* 
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+ }
+
+import { kitsData, industries } from '../data/kitsData.js';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import SchoolIcon from '@mui/icons-material/School';
+import CachedIcon from '@mui/icons-material/Cached';
+import ScienceIcon from '@mui/icons-material/Science';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import PublicIcon from '@mui/icons-material/Public';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import LinkIcon from '@mui/icons-material/Link';
+
+| Status     | Created      | Post-History                           |
+|------------|--------------|----------------------------------------|
+| Active     | 07-Nov-2025  | Initial creation of master data overview |
+
+export const KitCard = ({ kit }) => (
+  <a href={kit.route} style={{ textDecoration: 'none', color: 'inherit' }}>
+    <div style={{
+      border: '1px solid var(--ifm-color-emphasis-300)',
+      borderRadius: '12px',
+      padding: '16px',
+      marginBottom: '16px',
+      backgroundColor: 'var(--ifm-color-emphasis-100)',
+      transition: 'all 0.2s ease',
+      cursor: 'pointer'
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-2px)';
+      e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = 'none';
+    }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+        <div style={{
+          width: '60px',
+          height: '60px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '8px',
+          background: kit.colors?.gradient || '#f3f4f6',
+          flexShrink: 0
+        }}>
+          {kit.logo && (
+            <kit.logo 
+              style={{ 
+                width: kit.logoWidth ? `${Math.min(kit.logoWidth, 40)}px` : '40px',
+                height: kit.logoHeight ? `${Math.min(kit.logoHeight, 40)}px` : '40px'
+              }} 
+            />
+          )}
+        </div>
+        <div style={{ flex: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+            <h4 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold' }}>
+              {kit.name}
+            </h4>
+          <span style={{
+            backgroundColor: kit.maturity?.currentLevel === 'Graduated' ? '#10b981' : 
+                           kit.maturity?.currentLevel === 'Incubation' ? '#f59e0b' : '#6b7280',
+            color: 'white',
+            padding: '2px 8px',
+            borderRadius: '12px',
+            fontSize: '11px',
+            fontWeight: '500'
+          }}>
+            {kit.maturity?.currentLevel || 'Unknown'}
+          </span>
+          {kit.deprecated && (
+            <span style={{
+              backgroundColor: '#ef4444',
+              color: 'white',
+              padding: '2px 8px',
+              borderRadius: '12px',
+              fontSize: '11px',
+              fontWeight: '500'
+            }}>
+              Deprecated
+            </span>
+          )}
+          {kit.metadata?.new && (
+            <span style={{
+              backgroundColor: '#3b82f6',
+              color: 'white',
+              padding: '2px 8px',
+              borderRadius: '12px',
+              fontSize: '11px',
+              fontWeight: '500'
+            }}>
+              New
+            </span>
+          )}
+          </div>
+          <p style={{ margin: 0, fontSize: '14px', color: 'var(--ifm-color-content-secondary)', lineHeight: '1.4' }}>
+            {kit.description}
+          </p>
+          <div style={{ marginTop: '8px', display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+            {kit.dataspaces?.map((dataspace, index) => (
+              <span key={index} style={{
+                backgroundColor: 'var(--ifm-color-primary)',
+                color: 'white',
+                padding: '2px 6px',
+                borderRadius: '8px',
+                fontSize: '10px',
+                fontWeight: '500'
+              }}>
+                {dataspace}
+              </span>
+            ))}
+          </div>
+          {kit.metadata && (
+            <div style={{ marginTop: '8px', fontSize: '12px', color: 'var(--ifm-color-content-secondary)' }}>
+              Last Updated: {kit.metadata.lastUpdated} | Version: {kit.metadata.latestVersion}
+              {kit.maturity?.graduatedAt && (
+                <span style={{ 
+                  marginLeft: '8px', 
+                  color: '#10b981', 
+                  fontWeight: '500' 
+                }}>
+                  | Graduated: {kit.maturity.graduatedAt}
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </a>
+);
+
+export const KitStatsCard = ({ title, count, color, IconComponent }) => (
+  <div style={{
+    backgroundColor: 'var(--ifm-color-emphasis-100)',
+    border: '1px solid var(--ifm-color-emphasis-300)',
+    borderRadius: '12px',
+    padding: '20px',
+    textAlign: 'center',
+    minWidth: '120px'
+  }}>
+    <div style={{ fontSize: '24px', marginBottom: '8px', color: color }}>
+      <IconComponent sx={{ fontSize: 32 }} />
+    </div>
+    <div style={{ fontSize: '24px', fontWeight: 'bold', color: color, marginBottom: '4px' }}>
+      {count}
+    </div>
+    <div style={{ fontSize: '14px', color: 'var(--ifm-color-content-secondary)' }}>
+      {title}
+    </div>
+  </div>
+);
+
+export const CategorySection = ({ title, kits, color }) => (
+  <div style={{ marginBottom: '40px' }}>
+    <h3 style={{ 
+      color: color, 
+      borderBottom: `2px solid ${color}`, 
+      paddingBottom: '8px',
+      marginBottom: '20px'
+    }}>
+      {title} ({kits.length})
+    </h3>
+    <div>
+      {kits.map((kit, index) => (
+        <KitCard key={index} kit={kit} />
+      ))}
+    </div>
+  </div>
+);
+
+export const IndustryCard = ({ industry }) => {
+  const IconComponent = industry.icon;
+  return (
+    <div style={{
+      border: '1px solid var(--ifm-color-emphasis-300)',
+      borderRadius: '16px',
+      overflow: 'hidden',
+      marginBottom: '24px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      {/* Industry Header */}
+      <div style={{
+        background: industry.gradient || 'var(--ifm-color-emphasis-100)',
+        color: 'white',
+        padding: '24px'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+          <div style={{
+            width: '70px',
+            height: '70px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '12px',
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            flexShrink: 0,
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+          }}>
+            {IconComponent && (
+              <IconComponent 
+                sx={{ 
+                  fontSize: 44,
+                  color: industry.colors?.layer4 || '#3b82f6'
+                }} 
+              />
+            )}
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
+              <h4 style={{ margin: 0, fontSize: '26px', fontWeight: '700', color: 'white' }}>
+                {industry.name}
+              </h4>
+              <span style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                color: 'white',
+                padding: '3px 10px',
+                borderRadius: '12px',
+                fontSize: '11px',
+                fontWeight: '600',
+                backdropFilter: 'blur(5px)',
+                border: '1px solid rgba(255, 255, 255, 0.3)'
+              }}>
+                INDUSTRY
+              </span>
+            </div>
+            <p style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: '500', opacity: 0.95 }}>
+              {industry.subtitle}
+            </p>
+            <p style={{ margin: 0, fontSize: '13px', lineHeight: '1.5', opacity: 0.9 }}>
+              {industry.description}
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      {/* Dataspaces Section */}
+      {industry.dataspaces && industry.dataspaces.length > 0 && (
+        <div style={{ 
+          backgroundColor: 'var(--ifm-background-color)',
+          padding: '24px'
+        }}>
+          <h5 style={{ 
+            margin: '0 0 16px 0', 
+            fontSize: '16px', 
+            fontWeight: '600', 
+            color: 'var(--ifm-font-color-base)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}>
+            <span>Dataspaces in this Industry</span>
+            <span style={{
+              backgroundColor: 'var(--ifm-color-primary)',
+              color: 'white',
+              padding: '2px 8px',
+              borderRadius: '10px',
+              fontSize: '12px',
+              fontWeight: '600'
+            }}>
+              {industry.dataspaces.length}
+            </span>
+          </h5>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: industry.dataspaces.length === 1 ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))',
+            gap: '16px'
+          }}>
+            {industry.dataspaces.map((dataspace, index) => (
+              <div 
+                key={index}
+                onClick={() => window.open(dataspace.url, '_blank')}
+                style={{
+                  backgroundColor: 'var(--ifm-color-emphasis-100)',
+                  border: '1px solid var(--ifm-color-emphasis-300)',
+                  borderRadius: '12px',
+                  padding: industry.dataspaces.length === 1 ? '24px' : '16px',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  display: 'flex',
+                  flexDirection: industry.dataspaces.length === 1 ? 'row' : 'column',
+                  alignItems: industry.dataspaces.length === 1 ? 'center' : 'stretch',
+                  gap: industry.dataspaces.length === 1 ? '24px' : '0',
+                  height: '100%'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.15)';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-primary)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-300)';
+                }}
+              >
+                {dataspace.logo && (
+                  <div style={{ 
+                    marginBottom: industry.dataspaces.length === 1 ? '0' : '12px',
+                    display: 'flex', 
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    minHeight: industry.dataspaces.length === 1 ? 'auto' : '60px',
+                    flexShrink: 0
+                  }}>
+                    <img 
+                      src={dataspace.logo.src} 
+                      alt={dataspace.logo.alt}
+                      style={{ 
+                        width: dataspace.logo.width ? `${dataspace.logo.width}px` : (industry.dataspaces.length === 1 ? '100px' : '70px'),
+                        height: dataspace.logo.height || 'auto',
+                        objectFit: 'contain',
+                        maxHeight: industry.dataspaces.length === 1 ? '80px' : '60px'
+                      }}
+                    />
+                  </div>
+                )}
+                <div style={{ 
+                  flex: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  textAlign: industry.dataspaces.length === 1 ? 'left' : 'center'
+                }}>
+                  <h6 style={{ 
+                    margin: '0 0 6px 0', 
+                    fontSize: industry.dataspaces.length === 1 ? '22px' : '16px',
+                    fontWeight: '700',
+                    color: 'var(--ifm-font-color-base)'
+                  }}>
+                    {dataspace.name}
+                  </h6>
+                  {dataspace.subtitle && (
+                    <p style={{ 
+                      margin: '0 0 10px 0', 
+                      fontSize: industry.dataspaces.length === 1 ? '14px' : '12px',
+                      color: 'var(--ifm-color-primary)',
+                      fontWeight: '600'
+                    }}>
+                      {dataspace.subtitle}
+                    </p>
+                  )}
+                  <p style={{ 
+                    margin: 0, 
+                    fontSize: industry.dataspaces.length === 1 ? '15px' : '13px',
+                    lineHeight: '1.5',
+                    color: 'var(--ifm-color-content-secondary)',
+                    flex: 1
+                  }}>
+                    {dataspace.description}
+                  </p>
+                  <div style={{
+                    marginTop: '12px',
+                    paddingTop: '12px',
+                    borderTop: '1px solid var(--ifm-color-emphasis-300)',
+                    display: 'flex',
+                    justifyContent: industry.dataspaces.length === 1 ? 'flex-start' : 'center',
+                    alignItems: 'center',
+                    gap: '6px',
+                    color: 'var(--ifm-color-primary)',
+                    fontSize: industry.dataspaces.length === 1 ? '14px' : '12px',
+                    fontWeight: '600'
+                  }}>
+                    <span>Visit Website</span>
+                    <LinkIcon sx={{ fontSize: industry.dataspaces.length === 1 ? 16 : 14 }} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const IndustrySection = ({ title, industries, color }) => (
+  <div style={{ marginBottom: '40px' }}>
+    <h3 style={{ 
+      color: color, 
+      borderBottom: `2px solid ${color}`, 
+      paddingBottom: '8px',
+      marginBottom: '20px'
+    }}>
+      {title} ({industries.length})
+    </h3>
+    <div>
+      {industries.map((industry, index) => (
+        <IndustryCard key={index} industry={industry} />
+      ))}
+    </div>
+  </div>
+);
+
+export const MasterDataOverview = () => {
+  // Collect all KITs from different sections
+  const foundationKits = [...(kitsData.dataspaceFoundation || [])];
+  const industryCoreKits = [...(kitsData.industryCoreFoundation || [])];
+  const useCaseKits = [...(kitsData.useCases || [])];
+  
+  // Collect all industry-specific KITs
+  const industrySpecificKits = [];
+  if (kitsData.industryKits) {
+    Object.values(kitsData.industryKits).forEach(kitsArray => {
+      if (Array.isArray(kitsArray)) {
+        industrySpecificKits.push(...kitsArray);
+      }
+    });
+  }
+
+  const allKits = [...foundationKits, ...industryCoreKits, ...useCaseKits, ...industrySpecificKits];
+
+  const totalKits = allKits.length;
+  const graduatedKits = allKits.filter(kit => kit.maturity?.currentLevel === 'Graduated').length;
+  const incubationKits = allKits.filter(kit => kit.maturity?.currentLevel === 'Incubating').length;
+  const sandboxKits = allKits.filter(kit => kit.maturity?.currentLevel === 'Sandbox').length;
+  const deprecatedKits = allKits.filter(kit => kit.deprecated).length;
+  const newKits = allKits.filter(kit => kit.metadata?.new).length;
+
+  // Get unique industries
+  const allIndustries = [...new Set(allKits.flatMap(kit => kit.industries || []))];
+  
+  // Get industry names that have specific KITs
+  const industryNames = kitsData.industryKits ? Object.keys(kitsData.industryKits) : [];
+  
+  return (
+    <div>
+      {/* Statistics Overview */}
+      <div style={{ 
+        display: 'flex', 
+        gap: '16px', 
+        marginBottom: '40px',
+        flexWrap: 'wrap',
+        justifyContent: 'center'
+      }}>
+        <KitStatsCard title="Total KITs" count={totalKits} color="#3b82f6" IconComponent={InventoryIcon} />
+        <KitStatsCard title="Graduated" count={graduatedKits} color="#10b981" IconComponent={SchoolIcon} />
+        <KitStatsCard title="Incubation" count={incubationKits} color="#f59e0b" IconComponent={CachedIcon} />
+        <KitStatsCard title="Sandbox" count={sandboxKits} color="#6b7280" IconComponent={ScienceIcon} />
+        <KitStatsCard title="New KITs" count={newKits} color="#8b5cf6" IconComponent={AutoAwesomeIcon} />
+        <KitStatsCard title="Industries" count={allIndustries.length} color="#ec4899" IconComponent={PublicIcon} />
+      </div>
+
+      {/* Industry Master Data */}
+      {industries && industries.length > 0 && (
+        <IndustrySection 
+          title="Industries"
+          industries={industries}
+          color="#ec4899"
+        />
+      )}
+
+      {/* Categories */}
+      {kitsData.dataspaceFoundation && (
+        <CategorySection 
+          title="Dataspace Foundation KITs"
+          kits={kitsData.dataspaceFoundation}
+          color="#3b82f6"
+        />
+      )}
+      
+      {kitsData.industryCoreFoundation && (
+        <CategorySection 
+          title="Industry Core Foundation KITs"
+          kits={kitsData.industryCoreFoundation}
+          color="#3b82f6"
+        />
+      )}
+      
+      {kitsData.useCases && (
+        <CategorySection 
+          title="Cross Dataspace Use Cases KITs"
+          kits={kitsData.useCases}
+          color="#10b981"
+        />
+      )}
+
+      {/* Industry Specific KITs */}
+      {kitsData.industryKits && Object.entries(kitsData.industryKits).some(([_, kits]) => kits && kits.length > 0) && (
+        <div style={{ marginTop: '40px' }}>
+          <h2 style={{ 
+            paddingBottom: '12px',
+            marginBottom: '30px',
+            fontSize: '28px'
+          }}>
+            Industry Specifics
+          </h2>
+          {Object.entries(kitsData.industryKits).map(([industryName, kits]) => (
+            kits && kits.length > 0 && (
+              <CategorySection 
+                key={industryName}
+                title={`${industryName.charAt(0).toUpperCase() + industryName.slice(1)} Specific KITs`}
+                kits={kits}
+                color="#f59e0b"
+              />
+            )
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+## Master Data Overview
+
+This page provides a comprehensive overview of all KITs, industries and dataspaces in the Eclipse Tractus-X ecosystem. The master data is maintained in the [`kitsData.js`](https://github.com/eclipse-tractusx/tractusx-website/blob/main/data/kitsData.js) file and serves as the foundation for organizing KITs and dataspace implementations for the dynamic website generation.
+In this documentation you will find the different data models that are needed to be followed in order for the webpage to render correctly the different KITs, sections and industries.
+
+## KIT Master Data File Location
+
+The master data is located at the [kit master data file](https://github.com/eclipse-tractusx/tractusx-website/blob/main/data/kitsData.js):
+
+```
+/data/kitsData.js
+```
+
+
+### What is Master Data?
+
+The master data includes two primary components that structure the entire ecosystem, it is there to automatizate the website visualization of the KITs and allows the tracking of the [KIT Lifecycle](kit-lifecycle.mdx) on a **single source of truth.**
+It also allows to easily add new industries, dataspaces, and KITs without modifying the website codebase.
+
+#### Industry Master Data
+Core information about each industry vertical:
+- Unique ID, name, and subtitle
+- Icon component, colors, and gradient styling
+- Description and purpose within the ecosystem
+- Array of dataspace implementations within this industry (content is optional)
+
+#### Dataspace Master Data  
+Essential information about each dataspace implementation:
+- Unique ID, name, and subtitle
+- Logo (SVG/PNG) (transparent background and no claims & **MUST** be hosted by the dataspace owner)
+- Dataspace Layers colors, and gradient styling 
+- Detailed description and subtitle
+- Official website URL for the dataspace
+- Which industry vertical this dataspace belongs to
+
+#### KIT Master Data
+Includes the essential details for each KIT, such as:
+- Unique identifier, name, logo, and route to documentation
+- Branding colors and gradients
+- Maturity level and status
+- Domain categorization and deprecation status
+
+
+## Industry Data Model
+
+To add an industry a object with the semantic described in this section must be added to the master data at the `industries` key.
+
+### Field Descriptions
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | Yes | Unique identifier for the industry (lowercase, hyphenated) |
+| `name` | string | Yes | Display name of the industry |
+| `subtitle` | string | Yes | Descriptive subtitle for the industry |
+| `description` | string | Yes | Comprehensive description of the industry's scope and KIT applications |
+| `icon` | Component | Yes | Material-UI icon component representing the industry |
+| `gradient` | string | Yes | CSS gradient definition for visual branding |
+| `dataspaces` | array | Yes (can be empty) | Array of dataspace objects associated with this industry |
+
+### Structure
+
+```javascript
+import MaterialUIIcon from '@mui/icons-material/MaterialUIIcon';
+
+industries: [
+  {
+    id: 'industry-id',
+    name: 'Industry Name',
+    subtitle: 'Industry Subtitle',
+    description: 'Detailed description of the industry...',
+    icon: MaterialUIIcon,
+    gradient: 'linear-gradient(135deg, #color1, #color2)',
+    dataspaces: [
+      // Array of dataspace objects (with the dataspace data model)
+    ]
+  },
+  ...
+]
+```
+
+<details>
+<summary><strong>Example: Automotive Industry</strong></summary>
+
+```javascript
+{
+  id: 'automotive',
+  name: 'Automotive',
+  subtitle: 'Automotive Industry',
+  description: 'Industry Specific KITs for the automotive industry, ...',
+  icon: DirectionsCar,
+  gradient: 'linear-gradient(135deg, #ffa600, #b3cb2d)',
+  dataspaces: [
+    {
+      name: "Catena-X",
+      url: "https://catena-x.net/",
+      gradient: 'linear-gradient(135deg, #ffa600, #b3cb2d)',
+      logo: {
+        src: 'https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png',
+        alt: 'Catena-X Logo',
+        width: 70,
+        height: 70
+      },
+      colors: {
+        layer1: 'rgb(110, 200, 105)',
+        layer2: 'rgb(179, 203, 45)',
+        layer3: 'rgb(230, 163, 38)',
+        layer4: 'rgb(250, 160, 35)'
+      },
+      subtitle: 'Your Automotive Network',
+      description: 'The first open and collaborative data ecosystem for the automotive industry...',
+      kits: ['connector', 'data-governance', 'business-partner', /* ... */]
+    }
+  ]
+}
+```
+
+</details>
+
+## Dataspace Data Model
+
+To add an dataspace it must be added as an item in the `dataspaces` key at the indudstry master data.
+
+### Field Descriptions
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `name` | string | Yes | Display name of the dataspace |
+| `url` | string | Yes | Official website URL of the dataspace |
+| `gradient` | string | Yes | CSS gradient definition for the dataspace's visual identity |
+| `logo.src` | string | Yes | URL to the dataspace logo image |
+| `logo.alt` | string | Yes | Alt text for the logo image (accessibility) |
+| `logo.width` | number | Yes | Logo width in pixels |
+| `logo.height` | number | Yes | Logo height in pixels |
+| `colors.layer1` | string | Yes | First layer color for hover effects (hex or rgb) |
+| `colors.layer2` | string | Yes | Second layer color for hover effects (hex or rgb) |
+| `colors.layer3` | string | Yes | Third layer color for hover effects (hex or rgb) |
+| `colors.layer4` | string | Yes | Fourth layer color for hover effects (hex or rgb) |
+| `subtitle` | string | Yes | Short tagline for the dataspace |
+| `description` | string | Yes | Comprehensive description of the dataspace's purpose and capabilities |
+| `kits` | array | Yes | Array of KIT IDs that are available in this dataspace |
+
+### Structure
+
+```javascript
+{
+  name: 'Dataspace Name',
+  url: 'https://dataspace-website.com',
+  gradient: 'linear-gradient(135deg, #color1, #color2)',
+  logo: {
+    src: 'https://example.com/logo.svg',
+    alt: 'Logo Alt Text',
+    width: 80,
+    height: 80
+  },
+  colors: {
+    layer1: '#color1',
+    layer2: '#color2',
+    layer3: '#color3',
+    layer4: '#color4'
+  },
+  subtitle: 'Dataspace Tagline',
+  description: 'Comprehensive description of the dataspace...',
+  kits: ['kit-id-1', 'kit-id-2', 'kit-id-3']
+}
+```
+
+<details>
+<summary><strong>Example: Catena-X Dataspace</strong></summary>
+
+```javascript
+{
+  name: "Catena-X",
+  url: "https://catena-x.net/",
+  gradient: 'linear-gradient(135deg, #ffa600, #b3cb2d)',
+  logo: {
+    src: 'https://catena-x.net/wp-content/uploads/2025/10/CX_Figurative_mark_RGB_pos.png',
+    alt: 'Catena-X Logo',
+    width: 70,
+    height: 70
+  },
+  colors: {
+    layer1: 'rgb(110, 200, 105)',
+    layer2: 'rgb(179, 203, 45)',
+    layer3: 'rgb(230, 163, 38)',
+    layer4: 'rgb(250, 160, 35)'
+  },
+  subtitle: 'Your Automotive Network',
+  description: 'The first open and collaborative data ecosystem for the automotive industry...',
+  kits: ['connector', 'data-governance', 'business-partner', ...]
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Example: Semiconductor-X Dataspace</strong></summary>
+
+```javascript
+{
+  name: "Semiconductor-X",
+  url: "https://semiconductor-x.com/",
+  gradient: 'linear-gradient(135deg, #c1cb01, #e67900)',
+  logo: {
+    src: 'https://www.semiconductor-x.com/wp-content/uploads/semicon-x_bildmarke.svg',
+    alt: 'Semiconductor-X Logo',
+    width: 100,
+    height: 80
+  },
+  colors: {
+    layer1: '#c1cb01',
+    layer2: '#d4b501',
+    layer3: '#e69f00',
+    layer4: '#e67900'
+  },
+  subtitle: 'Semiconductor Network',
+  description: 'Contributing to a cross-sector international dataspace...',
+  kits: ['connector', 'digital-twin', 'industry-core', 'traceability', 'pcf', 'dcm']
+}
+```
+
+</details>
+
+
+
+
+### Ecosystem Hierarchy
+
+The master data follows this organizational hierarchy:
+
+```
+Dataspace Foundation
+└── Industry Core KITs
+  └── Cross-Dataspace Use Cases
+  └── Industry-Specific KITs
+    ├── Automotive Industry
+    │   └── Dataspaces
+    │       └── Catena-X
+    ├── Shop Floor Industry
+    │   └── Dataspaces
+    │       └── <Future Implementations>
+    └── ... (other industries)
+``` 
+
+The complete architecture of the KITs is documented at the [KIT Framework](kit-framework.mdx) page.
+
+
+
+## KIT Data Model
+
+### Field Descriptions
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | Yes | Unique identifier for the KIT (lowercase, hyphenated) |
+| `name` | string | Yes | Display name of the KIT (UPPERCASE) |
+| `logo` | Component | Yes | React SVG component for the KIT logo |
+| `logoHeight` | number | Yes | Height of the logo in pixels |
+| `logoWidth` | number | Yes | Width of the logo in pixels |
+| `route` | string | Yes | Path to the KIT's adoption view documentation |
+| `colors.primary` | string | Yes | Primary brand color in hex format |
+| `colors.gradient` | string | Yes | CSS gradient definition for visual effects |
+| `maturity.currentLevel` | string | Yes | Current maturity level: `Sandbox`, `Incubating`, or `Graduated` |
+| `maturity.graduationStatus` | string | Conditional | Required for Incubating KITs: `draft`, `in progress`, or `in review` |
+| `maturity.graduatedAt` | string | Conditional | Date when KIT graduated (YYYY-MM-DD format). Required for Graduated KITs |
+| `maturity.deprecatedAt` | string | Conditional | Date when KIT was deprecated (YYYY-MM-DD format). Required if deprecated |
+| `deprecated` | boolean | Yes | Indicates if the KIT is deprecated (`true` or `false`) |
+| `domain` | string | Yes | Domain category (e.g., 'Sustainability', 'Engineering', 'Supply Chain', 'Enablement Service') |
+| `industries` | array | No | Array of industry IDs where the KIT applies. Optional for foundation KITs |
+| `description` | string | Yes | Short description of the KIT's purpose and functionality |
+| `metadata.created` | string | Yes | Creation date of the KIT (YYYY-MM-DD format) |
+| `metadata.lastUpdated` | string | Yes | Date of the last update (YYYY-MM-DD format) |
+| `metadata.latestVersion` | string | Yes | Current version using semantic versioning (e.g., '3.0.0') |
+| `metadata.new` | boolean | Yes | Indicates if the KIT is newly added (`true` or `false`) |
+
+### Structure
+
+Each KIT in the master data follows this structure:
+
+```javascript
+{
+  id: '<unique-kit-id>',                    // Unique identifier for the KIT
+  name: '<KIT NAME IN UPPERCASE>',          // Display name
+  logo: <KitLogoComponent>,                 // React SVG component
+  logoHeight: <number>,                     // Logo height in pixels
+  logoWidth: <number>,                      // Logo width in pixels
+  route: '<route-to-kit-adoption-view>',    // Path to KIT documentation
+  colors: {
+    primary: '<hex-color>',                 // Primary brand color
+    gradient: 'linear-gradient(...)'        // CSS gradient definition
+  },
+  maturity: {
+    currentLevel: '<level>',                // 'Sandbox' | 'Incubating' | 'Graduated'
+    graduationStatus: '<status>',           // 'draft' | 'in progress' | 'in review' (for Incubating only)
+    graduatedAt: '<YYYY-MM-DD>',           // Date when graduated (only if Graduated)
+    deprecatedAt: '<YYYY-MM-DD>'           // Date when deprecated (only if deprecated)
+  },
+  deprecated: <boolean>,                    // true | false
+  domain: '<domain-category>',              // e.g., 'Sustainability', 'Engineering', 'Supply Chain'
+  industries: ['<industry-id>', ...],       // Array of industry IDs (optional for foundation KITs)
+  description: '<kit-description>',         // Short description of the KIT
+  metadata: {
+    created: '<YYYY-MM-DD>',               // Creation date
+    lastUpdated: '<YYYY-MM-DD>',           // Last update date
+    latestVersion: '<version>',            // Current version (semantic versioning)
+    new: <boolean>                         // true if recently added
+  }
+}
+```
+
+<details>
+<summary><strong>Real Example: Connector KIT</strong></summary>
+
+Here's the actual master data for the Connector KIT:
+
+```javascript
+{
+  id: 'connector',
+  name: 'CONNECTOR KIT',
+  logo: ConnectorKitLogo,
+  logoHeight: 80,
+  logoWidth: 80,
+  route: '/docs-kits/kits/connector-kit/adoption-view',
+  colors: {
+    primary: '#2316E3',
+    gradient: 'linear-gradient(135deg, #3372CC 0%, #2316E3 100%)'
+  },
+  maturity: {
+    currentLevel: 'Graduated',
+    graduatedAt: '2024-06-07'
+  },
+  deprecated: false,
+  domain: "Enablement Service",
+  description: 'The EDC as a connector implements a framework agreement for sovereign, cross-organizational data exchange.',
+  metadata: {
+    created: '2022-08-01',
+    lastUpdated: '2024-06-07',
+    latestVersion: '3.0.0',
+    new: false
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Example: Incubating KIT with Graduation Status</strong></summary>
+
+```javascript
+{
+  id: 'data-trust-security',
+  name: 'DATA TRUST & SECURITY KIT',
+  logo: DataTrustSecurityLogo,
+  logoHeight: 120,
+  logoWidth: 120,
+  route: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
+  colors: {
+    primary: '#2A1FB3',
+    gradient: 'linear-gradient(135deg, #3372CC 0%, #2A1FB3 100%)'
+  },
+  maturity: {
+    currentLevel: 'Incubating',
+    graduationStatus: 'in progress'
+  },
+  deprecated: false,
+  domain: "Security",
+  description: 'Enable content validation, certification and verification for any use case semantic data.',
+  metadata: {
+    created: '2025-09-30',
+    lastUpdated: '2025-09-30',
+    latestVersion: '0.0.1',
+    new: true
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Example: Deprecated KIT</strong></summary>
+
+```javascript
+{
+  id: 'data-governance',
+  name: 'DATA GOVERNANCE KIT',
+  logo: DataGovernanceLogo,
+  logoHeight: 90,
+  logoWidth: 90,
+  route: '/docs-kits/kits/data-governance-kit/adoption-view',
+  colors: {
+    primary: '#1E13C2',
+    gradient: 'linear-gradient(135deg, #3372CC 0%, #1E13C2 100%)'
+  },
+  maturity: {
+    currentLevel: 'Sandbox',
+    graduationStatus: 'draft',
+    deprecatedAt: '2025-11-13'
+  },
+  deprecated: true,
+  domain: "Governance",
+  description: 'Enable and simplify data governance.',
+  metadata: {
+    created: '2024-03-08',
+    lastUpdated: '2024-03-08',
+    latestVersion: '0.1.0',
+    new: false
+  }
+}
+```
+
+</details>
+
+## Industry-Specific KITs
+
+Industry-specific KITs are KITs that are tailored to meet the unique requirements and use cases of particular industries. Unlike foundation KITs that provide generic capabilities across all dataspaces, industry-specific KITs address specialized needs within a vertical market.
+They are not displayed in the cross-industry KITs section, but only in the industry specific view.
+
+### Organizing Industry-Specific KITs
+
+Industry-specific KITs are organized in the master data under the `industryKits` object, grouped by industry (using the industry ids from the [industry master data](#industry-data-model) as keys):
+
+```javascript
+industryKits: {
+  "automotive": [
+    // Automotive-specific KITs
+  ],
+  "shop-floor": [
+    // Shopfloor-specific KITs
+  ],
+  // ... other industries
+}
+```
+
+### Adding an Industry-Specific KIT
+
+
+Here is an example on how to add a industry specific KIT:
+
+<details>
+<summary><strong>Example: Industry-Specific KIT Structure</strong></summary>
+
+```javascript
+// In kitsData.js
+export const kitsData = {
+  // ... other sections
+  
+  industryKits: {
+    "automotive": [
+      {
+        id: 'industry-specific-kit',
+        name: 'INDUSTRY SPECIFIC KIT',
+        logo: IndustryKitLogo,
+        logoHeight: 80,
+        logoWidth: 80,
+        route: '/docs-kits/kits/industry-specific-kit/adoption-view',
+        colors: {
+          primary: '#FF5733',
+          gradient: 'linear-gradient(135deg, #FF5733 0%, #C70039 100%)'
+        },
+        maturity: {
+          currentLevel: 'Incubating',
+          graduationStatus: 'in progress'
+        },
+        deprecated: false,
+        domain: 'Engineering',
+        description: 'Specialized KIT for automotive industry processes...',
+        metadata: {
+          created: '2025-01-15',
+          lastUpdated: '2025-01-15',
+          latestVersion: '1.0.0',
+          new: true
+        }
+      }
+    ],
+    "shop-floor": [
+      // Shopfloor-specific KITs
+    ]
+  }
+}
+```
+
+</details>
+
+### Relationship to Industries and Dataspaces
+
+Industry-specific KITs create a hierarchical relationship:
+
+```
+Industry (e.g., Automotive)
+  └── Dataspace (e.g., Catena-X)
+      └── Industry-Specific KITs (e.g., Requirements KIT, MaaS KIT)
+```
+
+Each industry can have multiple dataspaces, and each dataspace can implement multiple industry-specific KITs that are relevant to their use cases.
+
+## Master Data
+
+<MasterDataOverview />
+
+## Additional Resources
+
+### KIT Documentation
+
+- [KIT Framework](./kit-framework) - Complete guide to KIT structure, artifacts, and requirements
+- [KIT Lifecycle](./kit-lifecycle) - KIT maturity levels, graduation, and maintenance processes
+- [KIT Getting Started](./kit-getting-started) - How to create a KIT
+- [KIT Statistics](./kit-statistics) - Analytics dashboard for KIT ecosystem metrics
+
+### Documentation References
+
+#### KIT-Specific TRGs (Tractus-X Release Guidelines)
+
+- [TRG 10.01 - KIT Architecture](/docs/release/trg-10/trg-10-01) - KIT framework categories and classification
+- [TRG 10.02 - KIT Content Structure](/docs/release/trg-10/trg-10-02) - Required content and structure
+- [TRG 10.03 - KIT Lifecycle](/docs/release/trg-10/trg-10-03) - Maturity levels and lifecycle management
+- [TRG 10.04 - KIT Graduation Process](/docs/release/trg-10/trg-10-04) - Graduation requirements and process
+- [TRG 10.05 - KIT Deprecation Process](/docs/release/trg-10/trg-10-05) - Deprecation criteria and procedures
+
+#### Legal & Licensing
+
+- [TRG 7.07 - Legal notice for non-code](/docs/release/trg-7/trg-7-07) - Image and media licensing requirements
+- [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08) - Documentation licensing
