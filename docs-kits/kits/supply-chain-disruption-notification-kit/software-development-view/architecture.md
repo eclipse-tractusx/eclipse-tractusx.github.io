@@ -45,4 +45,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH
 - SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/supply-chain-disruption-notification-kit/software-development-view/architecture.md
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/supply-chain-disruption-notification-kit/software-development-view/architecture.md](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits/kits/supply-chain-disruption-notification-kit/software-development-view/architecture.md)

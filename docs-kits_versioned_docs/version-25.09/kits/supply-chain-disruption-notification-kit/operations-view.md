@@ -39,4 +39,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
-- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-25.09/kits/supply-chain-disruption-notification-kit/operations-view.md
+- Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-25.09/kits/supply-chain-disruption-notification-kit/operations-view.md](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-25.09/kits/supply-chain-disruption-notification-kit/operations-view.md)
