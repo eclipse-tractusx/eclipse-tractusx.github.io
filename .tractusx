@@ -26,6 +26,7 @@ skipReleaseChecks:
     - "docs/getting-started.md"
     - "docs/release.md"
     - "docs/tutorials.md"
+    - "src/components/2.0/Kit3DLogo/README.md"
     - "**/kit-template/"
     # Exclude the following KITs from current, and old versions
     - "**/ai-service-kit/"

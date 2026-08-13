@@ -134,7 +134,7 @@ use case:
 | PURIS    | `Puris:1.0`                  | `cx.puris.base:1`      |
 
 More information can be found in
-the [Policies in Catena-X of the Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/connector-kit/adoption-view_policies_cx/).
+the [Policies in Catena-X of the Connector KIT](https://eclipse-tractusx.github.io/docs-kits_versioned_docs/version-25.06/kits/connector-kit/adoption-view_policies_cx/).
 
 ### Contract Definitions
 

@@ -9,7 +9,7 @@ sidebar_position: 4
 
 ## Reference Implementation
 
-The [PURIS FOSS reference implementation](https://github.com/eclipse-tractusx/puris/tree/main/docs) serves as an application allowing to send and receive [Demand and Capacity Notifications](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/3.0.0/DemandAndCapacityNotification.ttl) among other data objects that are described in the [PURIS KIT](https://eclipse-tractusx.github.io/docs-kits/kits/puris-kit/software-development-view/Software%20Development%20PURIS%20Kit).
+The [PURIS FOSS reference implementation](https://github.com/eclipse-tractusx/puris/tree/main/docs) serves as an application allowing to send and receive [Demand and Capacity Notifications](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.demand_and_capacity_notification/3.0.0/DemandAndCapacityNotification.ttl) among other data objects that are described in the [PURIS KIT](https://eclipse-tractusx.github.io/docs-kits_versioned_docs/version-26.06/kits/puris-kit/software-development-view/Software%20Development%20PURIS%20Kit).
 
 Arc42 of the implementation is found [here](https://github.com/eclipse-tractusx/puris/blob/main/docs/architecture/Index.md).
 
@@ -21,7 +21,7 @@ To run a test scenario locally, follow the [local testing and development guide]
 
 A guide to run the integration tests is found [here](https://github.com/eclipse-tractusx/puris/blob/29a20f9ea38e1eb54a9d9c938b94b57dfc898c32/local/postman/README.md).
 
-## Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -39,3 +39,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2024 TRUMPF Werkzeugmaschinen SE + Co. KG
 - SPDX-FileCopyrightText: 2024 Volkswagen AG
 - SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-26.06/kits/supply-chain-disruption-notification-kit/operations-view.md

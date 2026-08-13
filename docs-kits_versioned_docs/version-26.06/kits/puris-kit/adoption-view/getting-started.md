@@ -50,7 +50,7 @@ Table 2: *Standards that are recommended to be used for PURIS implementation. Pl
 
 For implementation, it is recommended to align these standards with the existing IT architecture and business processes. Special attention should be given to multi-sourcing and multi-customer scenarios, which are common in complex supply chains.
 
-Further technical guidance and documentation can be found [here](/docs-kits/kits/puris-kit/software-development-view/).
+Further technical guidance and documentation can be found [here](/docs-kits_versioned_docs/version-26.06/kits/puris-kit/software-development-view/).
 
 #### Use Case Definition (Business Side)
 
@@ -102,7 +102,7 @@ Figure 2: *Puris participation options*
 
 The PURIS-FOSS application is the most cost-effective option and can be adapted to individual needs. However, it offers only limited support via the community. In its basic version, data must be entered manually or can be provided in form of `.xlsx` spreadsheets (also possible via automation). As an open-source solution, it also allows for the development of customized, automated extensions.
 
-Further documentation is available [here](/docs-kits/kits/puris-kit/operations-view)
+Further documentation is available [here](/docs-kits_versioned_docs/version-26.06/kits/puris-kit/operations-view)
 
 ##### Software as a Service
 
@@ -118,7 +118,7 @@ For internal integration and communication - especially in complex supply chain 
 
 Further documentation is available [here](/docs-kits/category/business-partner-kit).
 
-### Notice
+## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
@@ -130,3 +130,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2025 Ford Werke GmbH  
 - SPDX-FileCopyrightText: 2025 Robert Bosch Manufacturing Solutions GmbH  
 - SPDX-FileCopyrightText: 2025 IBM Deutschland GmbH
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/docs-kits_versioned_docs/version-26.06/kits/puris-kit/adoption-view/getting-started.md
