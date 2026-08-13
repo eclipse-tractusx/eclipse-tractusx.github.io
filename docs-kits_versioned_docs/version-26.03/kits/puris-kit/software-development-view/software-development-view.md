@@ -216,7 +216,7 @@ other sources and/or collecting information to facilitate sound decision making,
 predictive unit real-time information relating to production and/or logistics._"
 
 More information can be found in
-the [Policies in Catena-X of the Connector KIT](https://eclipse-tractusx.github.io/docs-kits_versioned_docs/version-26.03/kits/connector-kit/adoption-view_policies_cx/).
+the [Policies in Catena-X of the Connector KIT](https://eclipse-tractusx.github.io/docs-kits/kits/connector-kit/adoption-view_policies_cx/).
 
 ### Contract Definitions
 
