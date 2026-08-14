@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: b7a1f9f6f8c49a813077fb59000d0abfc6012e25687b897f84d66f04fa5d0bd7
+ * Content hash: e1cb226daf92714e7dc44c0fec0a8c595f2ea902577251d8fef09cdbee910adb
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -103,6 +103,12 @@ const kitsByCategory = {
     }
   ],
   "useCases": [
+    {
+      "id": "esdscom",
+      "name": "eSDS COMMUNICATION KIT",
+      "route": "/docs-kits/next/kits/esdscom-kit/adoption-view",
+      "deprecated": false
+    },
     {
       "id": "ess",
       "name": "ESS KIT",
@@ -214,6 +220,12 @@ const kitsByCategory = {
   ],
   "industryKits": {
     "manufacturing": [
+      {
+        "id": "pcf-data-acquisition",
+        "name": "PCF DATA ACQUISITION KIT",
+        "route": "/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view",
+        "deprecated": false
+      },
       {
         "id": "autonomous-operation",
         "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",

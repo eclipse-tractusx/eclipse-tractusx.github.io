@@ -43,7 +43,7 @@ jobs:
       # about the dash actions and possible config
       - name: Run dash
         id: run-dash
-        uses: eclipse-tractusx/sig-infra/.github/actions/run-dash@main
+        uses: eclipse-tractusx/sig-infra/.github/actions/run-dash@a14f3f86c536d9314d1821a8375d7aa879bf1099 # main
         with:
           dash_input: "package-lock.json"
           fail_on_restricted: "true"

@@ -5,6 +5,66 @@ repositories:
 - name: "eclipse-tractusx.github.io"
   usage: "Eclipse-tractusx website repository"
   url: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io"
+
+skipReleaseChecks:
+  legalNoticesNonCode:
+    # Exclude gitignore items
+    - "build/"
+    # Exclude aligned items
+    - "CONTRIBUTING.md"
+    - "blog/"
+    - "blog-changelog/"
+    - "blog-meeting-minutes/"
+    # Exclude the following docs
+    - "docs/release/"
+    - "docs/oss/"
+    - "docs/website-guidelines/"
+    - "docs/tutorials/"
+    - "docs/dev_faq.md"
+    - "docs/dev_links.md"
+    - "docs/developer.md"
+    - "docs/getting-started.md"
+    - "docs/release.md"
+    - "docs/tutorials.md"
+    - "src/components/2.0/Kit3DLogo/README.md"
+    - "**/kit-template/"
+    # Exclude the following KITs from current, and old versions
+    - "**/ai-service-kit/"
+    - "**/behaviour-twin-kit/"
+    - "**/business-partner-kit/"
+    - "**/cbam-kit/"
+    - "**/circularity-kit/"
+    - "**/connector-kit/"
+    - "**/customs-kit/"
+    - "**/data-chain-kit/"
+    - "**/data-driven-quality-management-kit/"
+    - "**/data-governance-kit/"
+    - "**/data-trust-and-security-kit/"
+    - "**/demand-and-capacity-management-kit/"
+    - "**/digital-twin-kit/"
+    - "**/due-diligence-check-kit/"
+    - "**/eco-pass-kit/"
+    - "**/engineering-as-a-service-kit/"
+    - "**/environmental-and-social-standards-kit/"
+    - "**/geometry-kit/"
+    - "**/industry-core-kit/"
+    - "**/knowledge-agents-kit/"
+    - "**/logistics-kit/"
+    - "**/manufacturing-as-a-service-kit/"
+    - "**/material-accounting-kit/"
+    - "**/model-based-development-and-data-processing-kit/"
+    - "**/modular-engineering-kit/"
+    - "**/modular-production-kit/"
+    - "**/online-simulation-kit/"
+    - "**/pcf-data-acquisition-kit/"
+    - "**/product-carbon-footprint-exchange-kit/"
+    - "**/requirements-kit/"
+    - "**/traceability-kit/"
+    # Already included
+    # - "**/puris-kit/"
+    # - "**/supply-chain-disruption-notification-kit/"
+
+
 openApiSpecs:
 
 # Agents KIT
@@ -74,3 +134,4 @@ openApiSpecs:
 
 # PURIS KIT
 - "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/supply-chain-disruption-notification/kit_supply-chain-disruption-notification-demandAndCapacityNotification-openAPI_2.0.0.yaml"
+- "https://raw.githubusercontent.com/eclipse-tractusx/eclipse-tractusx.github.io/main/openApi/supply-chain-disruption-notification/kit_supply-chain-disruption-notification-demandAndCapacityNotification-openAPI_3.0.0.yaml"
