@@ -139,7 +139,7 @@ SPDX-License-Identifier: CC-BY-4.0
         "name": "wafer_2OC6UZHR_17_asset",
         "id": "wafer_2OC6UZHR_17",
         "contenttype": "application/json",
-        "myProperty": "myPrpertyValue"
+        "myProperty": "myPropertyValue"
     },
     "dcat:catalog": [],
     "dcat:distribution": [],

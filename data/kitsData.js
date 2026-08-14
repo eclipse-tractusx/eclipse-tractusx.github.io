@@ -1156,16 +1156,15 @@ export const kitsData = {
         logo: UPaaSKitLogo,
         logoLicencse: {
           type: 'CC-BY-4.0',
-          authors: '2026 Eclipse Tractus-X Contributors',
-          licenseUrl: '/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg.license',
-          sourceUrl: '/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg'
-        }
-        ,
+          authors: '2026 Contributors to the Eclipse Foundation',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg',
+        },
         logoHeight: 80,
         logoWidth: 80,
         route: '/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view',
         /*
-        next included since docusaurus is routing to current versions otherwise; since UPaaS not yet featured it has to routed as unreleased "next" version to be dispalyed on local server
+        next included since docusaurus is routing to current versions otherwise; since UPaaS is not yet featured it has to be routed as unreleased "next" version to be displayed on local server
         */
         colors: {
           primary: '#0a8276',
@@ -1180,8 +1179,8 @@ export const kitsData = {
         description: 'Enabling the exchange of data and services related to unit processes in semiconductor production.',
         metadata: {
           created: '2026-06-29',
-          lastUpdated: '2026-06-29',
-          latestVersion: '1.0.0',
+          lastUpdated: '2026-07-27',
+          latestVersion: '0.1.0',
           new: true
         }
       }
