@@ -1,3 +1,10 @@
+---
+id: documentation
+title: Documentation - Exchange Log
+description: 'EDC Data Exchange Logs from Unit Process as a Service KIT'
+sidebar_position: 3
+---
+
 <!--
 Copyright(c) 2026 Contributors to the Eclipse Foundation
 
@@ -11,6 +18,10 @@ https://creativecommons.org/licenses/by/4.0/legalcode.
 
 SPDX-License-Identifier: CC-BY-4.0
 -->
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="unit-process-as-a-service" />
 
 ## Create Asset (Provider)
 
@@ -234,16 +245,16 @@ SPDX-License-Identifier: CC-BY-4.0
     }
 }
 ```
-The data can be downloaded using the data address retrieved by the Consumer.
 
+The data can be downloaded using the data address retrieved by the Consumer.
 
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Infineon Technologies AG]
-- SPDX-FileCopyrightText: [2026] [Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. (Fraunhofer-Institut für Werkzeugmaschinen und Umformtechnik IWU)]
-- SPDX-FileCopyrightText: [2026] [EXPO21XX GmbH]
-- SPDX-FileCopyrightText: [2026] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Infineon Technologies AG
+- SPDX-FileCopyrightText: 2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. (Fraunhofer-Institut für Werkzeugmaschinen und Umformtechnik IWU)
+- SPDX-FileCopyrightText: 2026 EXPO21XX GmbH
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

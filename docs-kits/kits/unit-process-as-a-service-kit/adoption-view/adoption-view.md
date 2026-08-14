@@ -109,7 +109,6 @@ into multipliers — each successful integration reduces uncertainty for the nex
 
 <!-- Describe the business process or domain this KIT addresses. If a use case describe the use case. -->
 
-
 The semiconductor value chain spans a sequence of highly specialized steps — from frontend processes like lithography, etching, and wafer testing to backend processes like dicing, packaging, and final assembly — each requiring specific equipment, certifications, and process know-how. In a UPaaS scenario, a semiconductor manufacturer (Requester) ships physical materials (e.g. wafers, dies, or partial assemblies) to a qualified external partner (Provider) to perform a specific unit process step, then receives both the processed materials and the corresponding digital results packaged as AAS digital twins. The marketplace orchestrates the service request, offer, contract, and data exchange lifecycle across company boundaries. The business process of UPaaS is illustrated in the swimlane diagram below (Figure 2).
 
 Key stakeholders:
@@ -156,8 +155,6 @@ Figure 3: A visual representation of the UPaaS semantic data model.
 
 ![AAS-model](../resources/edited_complete_submodel_1.png)
 Figure 4: Wafer Digital Twin shown in the AASX Package Explorer, including the "Metadata" and "Electrical Testing" submodels.
-
-
 
 <details>
   <summary>Wafer Testing AAS Submodel – Metadata (click to expand)</summary>
@@ -278,16 +275,15 @@ Both sub-use cases are served by the same UPaaS semantic model and business proc
 
 ## Reference Implementation
 
-The UPaaS concept has been validated through a technical demonstration 
-between Infineon Technologies AG and OPAIX. The demonstration covers 
-end-to-end exchange of wafer-testing data between a UPaaS requester 
-and provider via a policy-controlled dataspace connection, confirming 
+The UPaaS concept has been validated through a technical demonstration
+between Infineon Technologies AG and OPAIX. The demonstration covers
+end-to-end exchange of wafer-testing data between a UPaaS requester
+and provider via a policy-controlled dataspace connection, confirming
 the feasibility of the proposed marketplace model.
 
-For full technical details see the 
-[Development View](../development-view/development-view.md) and the 
+For full technical details see the
+[Development View](../development-view/development-view.md) and the
 [UPaaS Technical Demo Repository](https://github.com/Abdelgafar-copilot/UPaaS-QSD-Code).
-
 
 ## Relation to other KITs
 
@@ -299,24 +295,21 @@ The UPaaS KIT builds on and complements several existing Tractus-X KITs:
 | [Digital Twin KIT](../../digital-twin-kit/adoption-view.md) | Defines the AAS-based digital twin infrastructure; the UPaaS Wafer Testing Submodel follows these conventions. |
 | [MaaS KIT](../../manufacturing-as-a-service-kit/adoption-view.md) | Addresses marketplace-based offering of complete manufacturing services; UPaaS complements this at the granularity of individual semiconductor unit processes (e.g. wafer testing). |
 
-
 ## Standards
 
 <!-- Provide a list of standards this KIT. -->
-
 
 | Name | Description | Link to standard |
 | ---- | ----------- | ---------------- |
 | `Digital Reference (DR)` | Semiconductor-specific semantic vocabulary (from EU Productive4.0 / SC³) used as the ontological foundation; covers products, unit processes, tool groups, and facilities | [ifx-dr.github.io](https://ifx-dr.github.io/DigitalReference/) |
 | `IDTA AAS Submodel Templates` | AAS meta-model conventions used to structure the wafer testing digital twin with IDTA-compliant IdShorts, cardinality, and data types | [industrialdigitaltwin.org](https://industrialdigitaltwin.org) |
 | `BPMN 2.0` | Used to formalize the UPaaS requester-provider workflow as a swimlane model covering service request, offer, contract, execution, and data return | [omg.org](https://www.omg.org/bpmn/) |
-| `Eclipse Dataspace Connector (EDC)` | Open-source framework for ODRL policy-controlled, sovereign data exchange; used to transfer AAS packages between requester and provider | [eclipse.org/edc](https://projects.eclipse.org/projects/technology.edc) |
+| `Eclipse Dataspace Connector (EDC)` | Open-source framework for ODRL policy-controlled, sovereign data exchange; used to transfer AAS packages between requester and provider | [eclipse.org/edc](https://projects.eclipse.org/projects/technology.edc) [eclipse-tractusx/tractusx-edc](https://github.com/eclipse-tractusx/tractusx-edc) |
 | `SEMIKONG` | Open-source semiconductor domain foundation model used alongside the DR for common semantics in process and technology description | [arxiv.org](https://arxiv.org/abs/2411.13802) |
 | `ECLASS` | Economic Classification System used for cross-vendor semantic interoperability in AAS-based machine identification | [eclass.eu](https://eclass.eu) |
 | `OPC UA` | Industrial communication standard used as a unit process interface specification within the AAS execution model | [opcfoundation.org](https://opcfoundation.org) |
 | `Semi SECS/GEM (SEMI E5/E30)` | Semiconductor equipment communication standard used as the primary fab-floor interface for unit process execution and monitoring | [semi.org](https://www.semi.org) |
 | `ODRL` | Open Digital Rights Language used by the EDC to define and enforce access and usage policies during data exchange | [w3.org](https://www.w3.org/TR/odrl-model/) |
-
 
 ## Further Resources
 
@@ -325,15 +318,13 @@ The UPaaS KIT builds on and complements several existing Tractus-X KITs:
 - [Eclipse Dataspace Connector (EDC)](https://github.com/eclipse-edc/Connector)
 - [UPaaS Technical Demo Repository (QSD + EDC)](https://github.com/Abdelgafar-copilot/UPaaS-QSD-Code)
 
-
-
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: [2026] [Infineon Technologies AG]
-- SPDX-FileCopyrightText: [2026] [Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. (Fraunhofer-Institut für Werkzeugmaschinen und Umformtechnik IWU)]
-- SPDX-FileCopyrightText: [2026] [EXPO21XX GmbH]
-- SPDX-FileCopyrightText: [2026] Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Infineon Technologies AG
+- SPDX-FileCopyrightText: 2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. (Fraunhofer-Institut für Werkzeugmaschinen und Umformtechnik IWU)
+- SPDX-FileCopyrightText: 2026 EXPO21XX GmbH
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)

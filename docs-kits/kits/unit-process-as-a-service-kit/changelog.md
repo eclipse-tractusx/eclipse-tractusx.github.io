@@ -46,14 +46,6 @@ KIT LOGO END
 - Qualified Synthetic Data (QSD) pipeline for generating realistic but non-confidential wafer-testing data, with yield- and HBIN-mode wafer-map visualizations
 - Policy-controlled data-exchange demonstration via the Eclipse Dataspace Connector (EDC) between Infineon Technologies AG and OPAIX
 
-### Changed
-
-- ./.
-
-### Removed
-
-- ./.
-
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
