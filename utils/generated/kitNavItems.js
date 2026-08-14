@@ -104,6 +104,12 @@ const kitsByCategory = {
   ],
   "useCases": [
     {
+      "id": "esdscom",
+      "name": "eSDS COMMUNICATION KIT",
+      "route": "/docs-kits/next/kits/esdscom-kit/adoption-view",
+      "deprecated": false
+    },
+    {
       "id": "ess",
       "name": "ESS KIT",
       "route": "/docs-kits/kits/environmental-and-social-standards-kit/adoption-view",
@@ -214,6 +220,12 @@ const kitsByCategory = {
   ],
   "industryKits": {
     "manufacturing": [
+      {
+        "id": "pcf-data-acquisition",
+        "name": "PCF DATA ACQUISITION KIT",
+        "route": "/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view",
+        "deprecated": false
+      },
       {
         "id": "autonomous-operation",
         "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",
