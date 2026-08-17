@@ -119,25 +119,50 @@ independently, meaning neither party needs to trust the other's internal systems
 contractually agreed ODRL terms are enforced at the connector level. This mechanism was validated in
 the reference implementation between Infineon Technologies AG and OPAIX.
 
+The illustrative usage policy below restricts data use to the UPaaS core purpose and requires acceptance of the Data Exchange Governance framework agreement before the wafer-testing asset may be consumed.
+
 <details>
   <summary>ODRL snippet (click to expand)</summary>
 
 ```json
 {
-  "permission": [
+  "@context": {
+    "@vocab": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "PolicyDefinition",
+  "@id": "policy-id-placeholder",
+  "policy": {
+    "@type": "Set",
+    "@context": [
+      "https://w3id.org/catenax/2025/9/policy/odrl.jsonld",
+      "https://w3id.org/catenax/2025/9/policy/context.jsonld"
+    ],
+    "permission": [
       {
         "action": "use",
         "constraint": [
           {
-            "leftOperand": "tx:BusinessPartnerNumber",
-            "operator": "eq",
-            "rightOperand": "BPNL000000000QNE"
+            "and": [
+              {
+                "leftOperand": "UsagePurpose",
+                "operator": "isAnyOf",
+                "rightOperand": [
+                  "sx.upaas.core:1"
+                ]
+              },
+              {
+                "leftOperand": "FrameworkAgreement",
+                "operator": "eq",
+                "rightOperand": "DataExchangeGovernance:1.0"
+              }
+            ]
           }
         ]
       }
     ],
-    "prohibition": [],
-    "obligation": []
+    "obligation": [],
+    "prohibition": []
+  }
 }
 ```
 
