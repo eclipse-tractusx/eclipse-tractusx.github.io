@@ -40,6 +40,7 @@ import {
   formatTimeRange,
   getTimezoneAbbreviation,
 } from '@site/src/utils/meetingUtils';
+import { detectTimezone, foldICSLine, VTIMEZONE_EUROPE_BERLIN } from '@site/src/utils/calendarUtils';
 import { addDays, format, startOfDay, endOfDay, addMonths, startOfMonth, endOfMonth, isSameDay, differenceInDays, differenceInHours, differenceInMinutes, isAfter, isBefore, startOfWeek, getDay } from 'date-fns';
 import { formatInTimeZone, toZonedTime, fromZonedTime } from 'date-fns-tz';
 import styles from './MeetingsHub.module.css';
@@ -89,14 +90,6 @@ const VIEW_ICONS = {
 };
 
 // ──────────────────────────── Helpers ────────────────────────────
-
-function detectTimezone() {
-  try {
-    return Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/Berlin';
-  } catch {
-    return 'Europe/Berlin';
-  }
-}
 
 /** Start of day in the given timezone, returned as a UTC Date */
 function zonedStartOfDay(date, tz) {
@@ -244,6 +237,31 @@ function PlatformBadge({ link }) {
   );
 }
 
+// Registration call-to-action.
+// Renders the register button when a registration link exists. While registration is
+// not open yet (registrationComingSoon), it renders a non-clickable notice instead —
+// never a button that leads nowhere.
+function RegistrationAction({ meeting, variant = 'primary', label = 'Register', comingSoonLabel = 'Registration Coming Soon', style }) {
+  if (meeting?.registrationLink) {
+    const variantClass = variant === 'highlight' ? styles.btnHighlight
+      : variant === 'secondary' ? styles.btnSecondary
+      : styles.btnPrimary;
+    return (
+      <a href={meeting.registrationLink} target="_blank" rel="noopener noreferrer"
+         className={`${styles.btn} ${variantClass}`} style={style} onClick={e => e.stopPropagation()}>
+        <Icon name="how_to_reg" size={16} /> {label}
+      </a>
+    );
+  }
+  if (!meeting?.registrationComingSoon) return null;
+  return (
+    <span className={`${styles.btn} ${styles.btnComingSoon}`} style={style}
+          title="Registration is not open yet — stay tuned">
+      <Icon name="hourglass_top" size={16} /> {comingSoonLabel}
+    </span>
+  );
+}
+
 function OnsiteBadge({ meeting }) {
   if (!meeting?.onsite) return null;
   return (
@@ -313,16 +331,6 @@ const DAY_MAP_RRULE = {
   thursday: 'TH', friday: 'FR', saturday: 'SA', sunday: 'SU',
 };
 
-function foldICSLine(line) {
-  const parts = [];
-  while (line.length > 75) {
-    parts.push(line.substring(0, 75));
-    line = ' ' + line.substring(75);
-  }
-  parts.push(line);
-  return parts.join('\r\n');
-}
-
 function generateICSBlob(meeting, timezone, recurring) {
   const SOURCE_TZ = 'Europe/Berlin';
   const rec = meeting.recurrence;
@@ -338,25 +346,7 @@ function generateICSBlob(meeting, timezone, recurring) {
   ];
 
   // Add VTIMEZONE for source timezone (Europe/Berlin covers CET/CEST)
-  lines.push(
-    'BEGIN:VTIMEZONE',
-    'TZID:Europe/Berlin',
-    'BEGIN:STANDARD',
-    'DTSTART:19701025T030000',
-    'RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=10',
-    'TZOFFSETFROM:+0200',
-    'TZOFFSETTO:+0100',
-    'TZNAME:CET',
-    'END:STANDARD',
-    'BEGIN:DAYLIGHT',
-    'DTSTART:19700329T020000',
-    'RRULE:FREQ=YEARLY;BYDAY=-1SU;BYMONTH=3',
-    'TZOFFSETFROM:+0100',
-    'TZOFFSETTO:+0200',
-    'TZNAME:CEST',
-    'END:DAYLIGHT',
-    'END:VTIMEZONE',
-  );
+  lines.push(...VTIMEZONE_EUROPE_BERLIN);
 
   lines.push('BEGIN:VEVENT');
   lines.push(`UID:${meeting.id}@eclipse-tractusx.github.io`);
@@ -422,6 +412,8 @@ function generateICSBlob(meeting, timezone, recurring) {
   }
   if (meeting.registrationLink) {
     descParts.push(`\\n\\nRegister: ${meeting.registrationLink}`);
+  } else if (meeting.registrationComingSoon) {
+    descParts.push('\\n\\nRegistration: coming soon — the link will be announced on eclipse-tractusx.github.io');
   }
   if (meeting.contact) {
     descParts.push(`\\nContact: ${getContactEmail(meeting.contact)}`);
@@ -461,13 +453,14 @@ function generateICSBlob(meeting, timezone, recurring) {
       ].filter(Boolean).join('');
     }
     lines.push(foldICSLine(`X-ALT-DESC;FMTTYPE=text/html:${htmlDesc}`));
-  } else if (meeting.registrationLink || meeting.description) {
+  } else if (meeting.registrationLink || meeting.registrationComingSoon || meeting.description) {
     const escapedDesc = meeting.description ? meeting.description.replace(/&/g, '&amp;').replace(/</g, '&lt;') : '';
     const htmlDesc = [
       '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">',
       '<HTML><BODY>',
       escapedDesc ? `<p>${escapedDesc}</p>` : '',
       meeting.registrationLink ? `<p><b>Registration</b></p><p><a href="${meeting.registrationLink.replace(/&/g, '&amp;')}">Register for this event</a></p>` : '',
+      !meeting.registrationLink && meeting.registrationComingSoon ? '<p><b>Registration</b></p><p>Coming soon &mdash; the registration link will be announced.</p>' : '',
       meeting.contact ? `<p>Contact: ${getContactEmail(meeting.contact)}</p>` : '',
       '</BODY></HTML>',
     ].filter(Boolean).join('');
@@ -663,12 +656,7 @@ function HighlightHero({ meeting, timezone, onSelect, onDownload }) {
           </div>
         )}
         <div className={styles.hlActions}>
-          {meeting.registrationLink && (
-            <a href={meeting.registrationLink} target="_blank" rel="noopener noreferrer"
-               className={`${styles.btn} ${styles.btnHighlight}`} onClick={e => e.stopPropagation()}>
-              <Icon name="how_to_reg" size={16} /> Register Now
-            </a>
-          )}
+          <RegistrationAction meeting={meeting} variant="highlight" label="Register Now" />
           {meeting.sessionLink && (
             <a href={meeting.sessionLink} target="_blank" rel="noopener noreferrer"
                className={`${styles.btn} ${meeting.registrationLink ? styles.btnSecondary : styles.btnHighlight}`} onClick={e => e.stopPropagation()}>
@@ -770,12 +758,7 @@ function FeaturedCard({ meeting, timezone, onSelect, onDownload }) {
             <Icon name="videocam" size={16} /> {getPlatformShort(detectPlatform(meeting.sessionLink)) ? `Join ${getPlatformShort(detectPlatform(meeting.sessionLink))}` : 'Join Meeting'}
           </a>
         )}
-        {meeting.registrationLink && (
-          <a href={meeting.registrationLink} target="_blank" rel="noopener noreferrer"
-             className={`${styles.btn} ${meeting.sessionLink ? styles.btnSecondary : styles.btnPrimary}`} onClick={e => e.stopPropagation()}>
-            <Icon name="how_to_reg" size={16} /> Register
-          </a>
-        )}
+        <RegistrationAction meeting={meeting} variant={meeting.sessionLink ? 'secondary' : 'primary'} />
         {next && (
           <button
              className={`${styles.btn} ${styles.btnSecondary}`} onClick={e => { e.stopPropagation(); onDownload(meeting); }}>
@@ -957,12 +940,7 @@ function TodaySection({ timezone, onSelect, onDownload }) {
               </div>
               {!isEnded && (
                 <div className={styles.cardActions}>
-                  {ev.registrationLink && !ev.sessionLink && (
-                    <a href={ev.registrationLink} target="_blank" rel="noopener noreferrer"
-                       className={`${styles.btn} ${styles.btnPrimary}`} onClick={e => e.stopPropagation()}>
-                      <Icon name="how_to_reg" size={16} /> Register
-                    </a>
-                  )}
+                  {!ev.sessionLink && <RegistrationAction meeting={ev} />}
                   {ev.sessionLink && (
                     <a href={ev.sessionLink} target="_blank" rel="noopener noreferrer"
                        className={`${styles.btn} ${isLive ? styles.btnPrimary : styles.btnSecondary}`} onClick={e => e.stopPropagation()}>
@@ -1158,13 +1136,9 @@ function AgendaView({ timezone, meetingsList, onSelect, onDownload }) {
                     <HolidayBadge event={ev} />
                   </span>
                   <div className={styles.rowActions}>
-                    {ev.registrationLink && !ev.sessionLink && !isEnded && (
-                      <a href={ev.registrationLink} target="_blank" rel="noopener noreferrer"
-                         className={`${styles.btn} ${styles.btnPrimary}`}
-                         style={{ fontSize: 12, padding: '5px 14px' }}
-                         onClick={e => e.stopPropagation()}>
-                        <Icon name="how_to_reg" size={16} /> Register
-                      </a>
+                    {!ev.sessionLink && !isEnded && (
+                      <RegistrationAction meeting={ev} comingSoonLabel="Registration Soon"
+                                          style={{ fontSize: 12, padding: '5px 14px' }} />
                     )}
                     {ev.sessionLink && !isEnded && (
                       <a href={ev.sessionLink} target="_blank" rel="noopener noreferrer"
@@ -1314,12 +1288,7 @@ function AllMeetingsView({ timezone, meetingsList, onSelect, onDownload }) {
                   <Icon name="videocam" size={16} /> {getPlatformShort(detectPlatform(meeting.sessionLink)) ? `Join ${getPlatformShort(detectPlatform(meeting.sessionLink))}` : 'Join Meeting'}
                 </a>
               )}
-              {meeting.registrationLink && (
-                <a href={meeting.registrationLink} target="_blank" rel="noopener noreferrer"
-                   className={`${styles.btn} ${meeting.sessionLink ? styles.btnSecondary : styles.btnPrimary}`} onClick={e => e.stopPropagation()}>
-                  <Icon name="how_to_reg" size={16} /> Register
-                </a>
-              )}
+              <RegistrationAction meeting={meeting} variant={meeting.sessionLink ? 'secondary' : 'primary'} />
               {!isOnDemand(meeting) && next && (
                 <button
                    className={`${styles.btn} ${styles.btnSecondary}`} onClick={e => { e.stopPropagation(); onDownload(meeting); }}>
@@ -1744,6 +1713,23 @@ function CalendarConfigurator({ meeting, timezone: hubTimezone, allMeetings, onC
               </div>
             )}
 
+            {!selected?.registrationLink && selected?.registrationComingSoon && (
+              <div className={styles.ccField}>
+                <div className={styles.ccFieldLabel}>
+                  <Icon name="hourglass_top" size={15} /> Registration
+                </div>
+                <div className={styles.ccLinkPreview}>
+                  <div className={`${styles.ccLinkIconBox}`} style={{ background: 'rgba(250, 160, 35, 0.10)', color: 'var(--om-orange)' }}>
+                    <Icon name="hourglass_top" size={18} />
+                  </div>
+                  <div className={styles.ccLinkInfo}>
+                    <div className={styles.ccLinkPlatform}>Registration Coming Soon</div>
+                    <div className={styles.ccLinkUrl}>The registration link will be announced</div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className={styles.ccDivider} />
 
             {/* 6. Add to calendar */}
@@ -1952,12 +1938,8 @@ function MeetingDrawer({ meeting, timezone, onClose, onDownload }) {
                   <Icon name="videocam" size={16} /> {getPlatformShort(detectPlatform(meeting.sessionLink)) ? `Join ${getPlatformShort(detectPlatform(meeting.sessionLink))}` : 'Join Meeting'}
                 </a>
               )}
-              {meeting.registrationLink && (
-                <a href={meeting.registrationLink} target="_blank" rel="noopener noreferrer"
-                   className={`${styles.btn} ${meeting.sessionLink ? styles.btnSecondary : styles.btnPrimary}`} style={{ justifyContent: 'center' }}>
-                  <Icon name="how_to_reg" size={16} /> Register
-                </a>
-              )}
+              <RegistrationAction meeting={meeting} variant={meeting.sessionLink ? 'secondary' : 'primary'}
+                                  style={{ justifyContent: 'center' }} />
               {!isOnDemand(meeting) && next && (
                 <button
                    className={`${styles.btn} ${styles.btnSecondary}`} style={{ justifyContent: 'center' }}

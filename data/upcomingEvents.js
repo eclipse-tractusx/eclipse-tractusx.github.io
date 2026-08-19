@@ -28,9 +28,19 @@
  * @property {string} title - Event title
  * @property {string} date - Event start date in YYYY-MM-DD format
  * @property {string} [endDate] - Optional event end date in YYYY-MM-DD format
+ * @property {string} [startTime] - Optional start time in HH:mm, in `timezone`. Together with
+ *                                  endTime it turns the "Save the Date" download into a timed
+ *                                  entry; without them it becomes an all-day blocker.
+ * @property {string} [endTime] - Optional end time in HH:mm, in `timezone`
+ * @property {string} [timezone] - IANA timezone the times are given in (default: Europe/Berlin)
  * @property {string} location - Event location (city, country, or "Virtual")
+ * @property {string} [address] - Full venue address written into the calendar entry
+ *                                (falls back to `location`)
  * @property {string} description - Brief description of the event
- * @property {string} registrationUrl - URL to the event registration page
+ * @property {string} [registrationUrl] - URL to the event registration page. Leave it out (or set
+ *                                        it to null) while registration is not open yet — the event
+ *                                        card then shows a "Registration Coming Soon" notice instead
+ *                                        of a button that leads nowhere.
  * @property {string} [blogSlug] - Optional blog post slug (e.g., 'community-days-05-2026')
  * @property {string} eventType - Type of event ('community-days', 'hackathon', 'open-planning')
  * @property {boolean} featured - Whether this event should be featured prominently
@@ -43,6 +53,24 @@
  */
 export const upcomingEvents = [
   {
+    id: 'community-days-12-2026',
+    title: 'Seventh Eclipse Tractus-X Community Days',
+    date: '2026-12-03',
+    endDate: '2026-12-04',
+    startTime: '09:00',
+    endTime: '17:00',
+    timezone: 'Europe/Berlin',
+    location: 'ARENA2036 e.V., Stuttgart, Germany',
+    address: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
+    description: 'Join us for the Seventh Eclipse Tractus-X Community Days at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart)! Two days of exchange, innovation, and collaboration within the Tractus-X and Manufacturing-X ecosystems — technical deep dives, open workshops, coding challenges, and strategic discussions for everyone building open, interoperable, and trustworthy data spaces.',
+    // Registration is not open yet — the card shows a "Registration Coming Soon" notice instead.
+    registrationUrl: null,
+    blogSlug: 'community-days-12-2026',
+    eventType: 'community-days',
+    featured: true,
+    image: '/img/events/VII-tractus-x-community-days-banner.png'
+  },
+  {
     id: 'community-days-07-2026',
     title: 'Sixth Eclipse Tractus-X Community Days',
     date: '2026-07-02',
@@ -52,7 +80,7 @@ export const upcomingEvents = [
     registrationUrl: 'https://eveeno.com/159341884',
     blogSlug: 'community-days-07-2026',
     eventType: 'community-days',
-    featured: true,
+    featured: false,
     image: '/img/events/VI-tractus-x-community-days-banner.png'
   },
 ];
