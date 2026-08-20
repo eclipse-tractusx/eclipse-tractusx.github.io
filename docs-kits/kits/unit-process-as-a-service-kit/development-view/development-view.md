@@ -60,7 +60,7 @@ Figure 1: High-Level Architecture of the UPaaS marketplace platform
 The UPaaS data exchange is implemented using the Eclipse Dataspace Connector (EDC) and follows a four-step
 interaction sequence between the UPaaS Requester (acting as **EDC provider**) and the UPaaS Provider (acting as **EDC consumer**), illustrated in Figure 2.
 
-![EDC interaction flow](../resources/edc.png)
+![EDC interaction flow](../resources/edc.PNG)
 
 Figure 2: Basic interaction flow in the EDC between provider (UPaaS Requester) and consumer (UPaaS Provider).
 
