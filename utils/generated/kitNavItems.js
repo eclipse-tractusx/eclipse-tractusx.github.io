@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: e1cb226daf92714e7dc44c0fec0a8c595f2ea902577251d8fef09cdbee910adb
+ * Content hash: da8535c734b19e871b339f4fcc24af32b5f4969ed56628e9643f6650fe824d7c
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -242,6 +242,14 @@ const kitsByCategory = {
         "id": "modular-production",
         "name": "MODULAR PRODUCTION KIT",
         "route": "/docs-kits/kits/modular-production-kit/adoption-view",
+        "deprecated": false
+      }
+    ],
+    "semiconductor": [
+      {
+        "id": "unit-process-as-a-service",
+        "name": "Unit Process as a Service KIT",
+        "route": "/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view",
         "deprecated": false
       }
     ],

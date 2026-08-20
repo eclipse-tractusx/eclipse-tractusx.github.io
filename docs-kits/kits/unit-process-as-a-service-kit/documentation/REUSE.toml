@@ -1,0 +1,11 @@
+version = 1
+
+[[annotations]]
+path = ["*.png", "*.json"]
+precedence = "closest"
+SPDX-FileCopyrightText = [
+    "2026 Infineon Technologies AG",
+    "2026 Fraunhofer-Gesellschaft zur Förderung der angewandten Forschung e.V. (Fraunhofer-Institut für Werkzeugmaschinen und Umformtechnik IWU)",
+    "2026 Contributors to the Eclipse Foundation",
+]
+SPDX-License-Identifier = "CC-BY-4.0"
