@@ -163,9 +163,11 @@ With roots in EDAS and its XML flavour EDASx, the project decided to redefine th
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2026 [eSDScom Workgroup](https://esdscom.eu) and contributors
 - SPDX-FileCopyrightText: 2026 [Qualisys GmbH](https://qualisys.eu)
 - SPDX-FileCopyrightText: 2026 [Volkswagen AG](https://www.volkswagen.de)
+- SPDX-FileCopyrightText: 2026 [BASF SE](https://www.basf.com)
+- SPDX-FileCopyrightText: 2026 [Henkel AG & Co KGaA](https://www.henkel.de/)
+- SPDX-FileCopyrightText: 2026 [Gestamp](https://gestamp.com)
 - SPDX-FileCopyrightText: 2026 Catena-X Automotive Network e.V.
 - SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
