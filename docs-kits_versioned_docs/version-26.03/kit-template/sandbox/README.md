@@ -52,7 +52,7 @@ Once all placeholders are replaced and TODOs are addressed, delete this `README.
 
 ## Happy KIT Building!
 
-For questions, reach out via [Matrix Chat](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) or [KIT Office Hours](https://eclipse-tractusx.github.io/community/open-meetings).
+For questions, reach out via [Matrix Chat](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) or [KIT Office Hours](https://eclipse-tractusx.github.io/community/open-meetings#kits-office-hour).
 
 ## NOTICE
 

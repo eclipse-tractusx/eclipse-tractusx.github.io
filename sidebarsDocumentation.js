@@ -57,6 +57,7 @@ const sidebars = {
         {
             type: 'category',
             label: 'KIT Assets',
+            collapsed: false,
             link: {
                 type: 'doc',
                 id: 'kit-3d-logo-library'

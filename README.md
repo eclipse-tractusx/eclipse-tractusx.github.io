@@ -41,3 +41,11 @@ Follow these steps if your PR's workflow fails on the action `3rd Party dependen
   Adjust the version of the jar if necessary. You should see logs saying `[main] INFO Querying X for license data for Y items.`
   and`[main] INFO Found Z items.`
 7. Commit the changed `DEPENDENCIES` file and push to your branch again.
+
+## NOTICE
+
+This work is licensed under the CC-BY-4.0
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2022 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/README.md

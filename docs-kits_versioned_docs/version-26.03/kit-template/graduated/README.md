@@ -321,7 +321,7 @@ Browse existing KITs for reference:
 
 ### Get Help
 
-- **KIT Community Office Hours**: Weekly alignment meetings - [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour)
+- **KIT Community Office Hours**: Weekly alignment meetings - [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings#kits-office-hour)
 - **Matrix Chat**: Daily discussions and support - [#tractusx-kits:matrix.eclipse.org](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org)
 - **GitHub Issues**: Report bugs or request features - [Create Issue](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues)
 
@@ -331,7 +331,7 @@ Browse existing KITs for reference:
 |---------|---------|-----------|------|
 | Alignment Day | Quarterly refinement sessions | Quarterly | [Release Process](https://eclipse-tractusx.github.io/docs/oss/release-process#alignment-day) |
 | Open Planning Day | Open planning sessions | Quarterly | [Release Process](https://eclipse-tractusx.github.io/docs/oss/release-process#open-planning-day) |
-| KIT Office Hours | Community alignment | Weekly | [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings) |
+| KIT Office Hours | Community alignment | Weekly | [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings#kits-office-hour) |
 | Matrix Chat | Daily support | Ongoing | [Join Chat](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) |
 
 ### Contributing
@@ -378,7 +378,7 @@ For detailed contribution guidelines, see [KIT Getting Started Guide](https://ec
 
 **Happy KIT Building!**
 
-For questions, reach out via [Matrix Chat](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) or [KIT Office Hours](https://eclipse-tractusx.github.io/community/open-meetings).
+For questions, reach out via [Matrix Chat](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) or [KIT Office Hours](https://eclipse-tractusx.github.io/community/open-meetings#kits-office-hour).
 
 ## NOTICE
 

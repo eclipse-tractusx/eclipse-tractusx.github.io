@@ -69,6 +69,7 @@ Depending on the logic category from the KIT feel free to place it under one of 
 */
 
 // Import the raw logos
+import AutonomousOperationKitLogo from "@site/static/img/kits/autonomous-operation/autonomous-operation-kit-raw-logo.svg"
 import ConnectorKitLogo from "@site/static/img/kits/connector/connector-kit-raw-logo.svg";
 import DataGovernanceLogo from "@site/static/img/kits/data-governance/data-governance-kit-raw-logo.svg";
 import DataTrustSecurityLogo from "@site/static/img/kits/data-trust-and-security/data-trust-and-security-kit-raw-logo.svg";
@@ -101,7 +102,10 @@ import CustomsKitLogo from "@site/static/img/kits/customs/customs-kit-raw-logo.s
 import GeometryKitLogo from "@site/static/img/kits/geometry/geometry-kit-logo.svg";
 import CCMKitLogo from "@site/static/img/kits/company-certificate-management/ccm-kit-raw-logo.svg";
 import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-raw-logo.svg";
-
+import MaterialAccountingKitLogo from "@site/static/img/kits/material-accounting/material-accounting-kit-raw-logo.svg";
+import UPaaSKitLogo from "@site/static/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg";
+import EsdscomKitLogo from "@site/static/img/kits/esdscom-kit/esdscom-kit-raw-logo.svg";
+import PcfDataAcquisitionKitLogo from "@site/static/img/kits/pcf-data-acquisition/pcf-data-acquisition-kit-raw-logo.svg";
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
 import PrecisionManufacturing from '@mui/icons-material/PrecisionManufacturing';
@@ -260,8 +264,8 @@ export const kitsData = {
         licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-trust-and-security/data-trust-and-security-kit-raw-logo.svg.license',
         sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/data-trust-and-security/data-trust-and-security-kit-raw-logo.svg'
       },
-      logoHeight: 120,
-      logoWidth: 120,
+      logoHeight: 110,
+      logoWidth: 110,
       route: '/docs-kits/kits/data-trust-and-security-kit/adoption-view',
       colors: {
         primary: '#2A1FB3',
@@ -309,8 +313,8 @@ export const kitsData = {
       description: 'Get high-quality data business partner data records including the unique identifier.',
       metadata: {
         created: '2023-03-01',
-        lastUpdated: '2025-09-08',
-        latestVersion: '10.0.0',
+        lastUpdated: '2026-06-11',
+        latestVersion: '11.0.0',
         new: false
       }
     },
@@ -544,6 +548,38 @@ export const kitsData = {
   ],
   useCases: [
     {
+      id: 'esdscom',
+      name: 'eSDS COMMUNICATION KIT',
+      logo: EsdscomKitLogo,
+      logoLicencse: {
+        type: 'CC-BY-4.0',
+        authors: '2026 eSDScom Workgroup and contributors; 2026 Catena-X Automotive Network e.V.; 2026 Contributors to the Eclipse Foundation',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/esdscom-kit/esdscom-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/esdscom-kit/esdscom-kit-raw-logo.svg'
+      },
+      logoHeight: 90,
+      logoWidth: 90,
+      route: '/docs-kits/next/kits/esdscom-kit/adoption-view',
+      colors: {
+        primary: '#E8730C',
+        gradient: 'linear-gradient(135deg, #F5A623 0%, #E8730C 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Supply Chain',
+      industries: ['chemical','automotive'],
+      description: 'Standardized exchange of safety data sheets, exposure scenarios and compliance information in the global chemical supply chain.',
+      metadata: {
+        created: '2025-09-01',
+        lastUpdated: '2026-08-06',
+        latestVersion: '0.0.1',
+        new: true
+      }
+    },
+    {
       id: 'ess',
       name: 'ESS KIT',
       logo: ESSKitLogo,
@@ -706,6 +742,39 @@ export const kitsData = {
         lastUpdated: '2024-09-17',
         latestVersion: '1.3.0',
         new: false
+      }
+    },
+    {
+      id: 'material-accounting',
+      name: 'MATERIAL ACCOUNTING KIT',
+      logo: MaterialAccountingKitLogo,
+      logoLicencse: {
+        type: 'Apache-2.0',
+        authors: '2026 Bytedance;2026 Catena-X Automotive Network e.V.;2026 Contributors to the Eclipse Foundation',
+        licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/material-accounting/material-accounting-kit-raw-logo.svg.license',
+        sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/material-accounting/material-accounting-kit-raw-logo.svg',
+        originalSourceUrl: 'https://www.svgrepo.com/svg/388392/recycling'
+      },
+      logoHeight: 100,
+      logoWidth: 100,
+      route: '/docs-kits/next/kits/material-accounting-kit/adoption-view',
+      colors: {
+        primary: '#1cb60e',
+        gradient: 'linear-gradient(135deg, #6cd162 0%, #1cb60e 100%)'
+      },
+      maturity: {
+        currentLevel: 'Sandbox',
+        graduationStatus: 'draft'
+      },
+      deprecated: false,
+      domain: 'Sustainability',
+      industries: ['automotive', 'manufacturing', 'chemical'],
+      description: 'Enable circular economy through end-of-life transparency and data exchange in after market supply chains.',
+      metadata: {
+        created: '2026-05-21',
+        lastUpdated: '2026-05-28',
+        latestVersion: '0.0.1',
+        new: true
       }
     },
     {
@@ -1024,8 +1093,8 @@ export const kitsData = {
         gradient: 'linear-gradient(135deg, #e4a4de 0%, #ac23a7 100%)'
       },
       maturity: {
-        currentLevel: 'Sandbox',
-        graduationStatus: 'draft'
+        currentLevel: 'Incubating',
+        graduationStatus: 'in progress'
       },
       deprecated: false,
       domain: 'Engineering',
@@ -1110,6 +1179,70 @@ export const kitsData = {
   industryKits: {
     "manufacturing": [
       {
+        id: 'pcf-data-acquisition',
+        name: 'PCF DATA ACQUISITION KIT',
+        logo: PcfDataAcquisitionKitLogo,
+        logoLicencse: {
+          type: 'CC-BY-4.0',
+          authors: '2026 Eclipse Tractus-X Contributors',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcf-data-acquisition/pcf-data-acquisition-kit-raw-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/pcf-data-acquisition/pcf-data-acquisition-kit-raw-logo.svg'
+        },
+        logoHeight: 100,
+        logoWidth: 100,
+        route: '/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view',
+        colors: {
+          primary: '#0a8d26',
+          gradient: 'linear-gradient(135deg, #66C791 0%, #404040 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Sustainability',
+        industries: ['manufacturing'],
+        description: 'Data acquisition from shop floor and production systems for PCF calculation',
+        metadata: {
+          created: '2026-06-23',
+          lastUpdated: '2026-07-27',
+          latestVersion: '0.0.1',
+          new: true
+        }
+      },
+      {
+        id: 'autonomous-operation',
+        name: 'AUTONOMOUS OPERATION & REMOTE SERVICES KIT',
+        logo: AutonomousOperationKitLogo,
+        logoLicencse: {
+          type: 'CC0 1.0 Universal',
+          authors: '2026 Eclipse Tractus-X Contributors',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/autonomous-operation/autonomous-operation-kit-raw-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/autonomous-operation/autonomous-operation-kit-raw-logo.svg'
+        },
+        logoHeight: 100,
+        logoWidth: 100,
+        route: '/docs-kits/next/kits/autonomous-operation-kit/adoption-view',
+        colors: {
+          primary: '#A098A4',
+          gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Production',
+        industries: ['manufacturing'],
+        description: 'Enable remote, assisted and autonomous operation of highly automated manufacturing equipment',
+        metadata: {
+          created: '2026-01-15',
+          lastUpdated: '2026-04-15',
+          latestVersion: '0.0.1',
+          new: true
+        }
+      },
+      {
         id: 'maas',
         name: 'MANUFACTURING AS A SERVICE KIT',
         logo: MaaSKitLogo,
@@ -1121,7 +1254,7 @@ export const kitsData = {
         },
         logoHeight: 100,
         logoWidth: 100,
-        route: '/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view',
+        route: '/docs-kits/next/kits/manufacturing-as-a-service-kit/adoption-view',
         colors: {
           primary: '#A098A4',
           gradient: 'linear-gradient(135deg, rgba(160, 152, 164, 1) 0%, rgba(64, 64, 64, 1) 100%)'
@@ -1137,9 +1270,9 @@ export const kitsData = {
         description: 'Create a federated network of networks to connect manufacturing supply and demand.',
         metadata: {
           created: '2024-03-29',
-          lastUpdated: '2024-05-27',
-          latestVersion: '1.0.0',
-          new: false
+          lastUpdated: '2026-04-16',
+          latestVersion: '0.2.0',
+          new: true
         }
       },
       {
@@ -1176,7 +1309,42 @@ export const kitsData = {
         }
       }
     ],
-    "semiconductor": [],
+    "semiconductor": [
+      {
+        id: 'unit-process-as-a-service',
+        name: 'Unit Process as a Service KIT',
+        logo: UPaaSKitLogo,
+        logoLicencse: {
+          type: 'CC-BY-4.0',
+          authors: '2026 Contributors to the Eclipse Foundation',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg',
+        },
+        logoHeight: 80,
+        logoWidth: 80,
+        route: '/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view',
+        /*
+        next included since docusaurus is routing to current versions otherwise; since UPaaS is not yet featured it has to be routed as unreleased "next" version to be displayed on local server
+        */
+        colors: {
+          primary: '#0a8276',
+          gradient: 'linear-gradient(135deg, #5fb4ab 0%, #0a8276 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Semiconductor Manufacturing',
+        description: 'Enabling the exchange of data and services related to unit processes in semiconductor production.',
+        metadata: {
+          created: '2026-06-29',
+          lastUpdated: '2026-07-27',
+          latestVersion: '0.1.0',
+          new: true
+        }
+      }
+    ],
     "construction": [],
     "automotive": [{
         id: 'modular-engineering',
@@ -1309,7 +1477,7 @@ export const industries = [
         },
         subtitle: 'The Digital Ecosystem',
         description: 'Project which aims to build an open and collaborative digital ecosystem for factory outfitters and operators, based on Catena-X and Platform Industry 4.0 concepts.',
-        kits: ['connector', 'digital-twin', 'maas', 'pcf', 'modular-production', 'eco-pass']
+        kits: ['connector', 'digital-twin', 'autonomous-operation', 'maas', 'pcf-data-acquisition', 'modular-production', 'eco-pass']
       }
     ]
   },
@@ -1339,7 +1507,7 @@ export const industries = [
         },
         subtitle: 'Semiconductor Network',
         description: 'Contributing to a cross-sector international dataspace and digital twin standards for resilient semiconductor supply chains.',
-        kits: ['connector', 'digital-twin', 'industry-core', 'traceability', 'pcf', 'dcm']
+        kits: ['connector', 'digital-twin', 'industry-core', 'traceability', 'pcf', 'dcm', 'unit-process-as-a-service']
       }
     ]
   },
@@ -1356,7 +1524,7 @@ export const industries = [
         url: "https://construct-x.org",
         gradient: 'linear-gradient(135deg, #002865, #FF6B35, #FFB74D)',
         logo: {
-          src: 'https://construct-x.org/wp-content/uploads/2025/11/CX-BM-RGB.png',
+          src: 'https://www.construct-x.org/sites/default/files/2026-05/cx-bm-rgb_0.png',
           alt: 'Construct-X Logo',
           width: 70,
           height: 70

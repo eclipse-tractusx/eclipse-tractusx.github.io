@@ -8,12 +8,7 @@ description: >
   legal compliance requirements, and can scaffold complete KITs from scratch, review PRs,
   and guide you through graduation.
 icon: kit-master-builder.jpg
-tools:
-  - codebase
-  - editFiles
-  - fetch
-  - githubRepo
-  - runCommands
+tools: [read, edit, vscode, search, execute, web, agent, todo, browser, sonarsource.sonarlint-vscode/sonarqube_analyzeFile]
 samplePrompts:
   - "I want to create a new Sandbox KIT — scaffold everything for me"
   - "Review my PR for KIT compliance — what am I missing?"

@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 03be2282acf83595ce68c5c5d497cd74ef2cf413b2ea6cda9b0ab0ba6d0b87fc
+ * Content hash: da8535c734b19e871b339f4fcc24af32b5f4969ed56628e9643f6650fe824d7c
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -104,6 +104,12 @@ const kitsByCategory = {
   ],
   "useCases": [
     {
+      "id": "esdscom",
+      "name": "eSDS COMMUNICATION KIT",
+      "route": "/docs-kits/next/kits/esdscom-kit/adoption-view",
+      "deprecated": false
+    },
+    {
       "id": "ess",
       "name": "ESS KIT",
       "route": "/docs-kits/kits/environmental-and-social-standards-kit/adoption-view",
@@ -131,6 +137,12 @@ const kitsByCategory = {
       "id": "circularity",
       "name": "CIRCULARITY KIT",
       "route": "/docs-kits/kits/circularity-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "material-accounting",
+      "name": "MATERIAL ACCOUNTING KIT",
+      "route": "/docs-kits/next/kits/material-accounting-kit/adoption-view",
       "deprecated": false
     },
     {
@@ -209,15 +221,35 @@ const kitsByCategory = {
   "industryKits": {
     "manufacturing": [
       {
+        "id": "pcf-data-acquisition",
+        "name": "PCF DATA ACQUISITION KIT",
+        "route": "/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view",
+        "deprecated": false
+      },
+      {
+        "id": "autonomous-operation",
+        "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",
+        "route": "/docs-kits/next/kits/autonomous-operation-kit/adoption-view",
+        "deprecated": false
+      },
+      {
         "id": "maas",
         "name": "MANUFACTURING AS A SERVICE KIT",
-        "route": "/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view",
+        "route": "/docs-kits/next/kits/manufacturing-as-a-service-kit/adoption-view",
         "deprecated": false
       },
       {
         "id": "modular-production",
         "name": "MODULAR PRODUCTION KIT",
         "route": "/docs-kits/kits/modular-production-kit/adoption-view",
+        "deprecated": false
+      }
+    ],
+    "semiconductor": [
+      {
+        "id": "unit-process-as-a-service",
+        "name": "Unit Process as a Service KIT",
+        "route": "/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view",
         "deprecated": false
       }
     ],
@@ -311,7 +343,7 @@ function generateKitNavItems() {
     });
     items.push({
       to: '/Kits/cross-industry',
-      label: 'USE CASES',
+      label: 'CROSS-INDUSTRY USE CASES',
       className: 'kit-category-header'
     });
     

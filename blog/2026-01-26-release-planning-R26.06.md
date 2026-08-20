@@ -22,7 +22,7 @@ Rooms for Discussion and Planning:
 Key Information:
 
 - Dates and Times: Listed for each session below.
-- Resources: Visit our [open meetings page](/community/open-meetings#one-time-meetings) for all session links and additional documentation.
+- Resources: Visit our [open meetings page](/community/open-meetings) for all session links and additional documentation.
 - Preparation Materials: Ensure readiness by reviewing the provided templates, guidelines, and your own features.
 - Overall process description: [Release Planning Process](/docs/oss/release-process)
 
@@ -42,7 +42,7 @@ Even if you don't have questions, it could be interesting anyway.
 
 - Date: 12.02.2026
 - Time: 09:05 - 10:00
-- Main Teams Link: See the Open Meetings page (One-time meetings) for the join link and local-time conversion: [Open Meetings](/community/open-meetings#one-time-meetings)
+- Main Teams Link: See the Open Meetings page for the join link and local-time conversion: [Open Meetings](/community/open-meetings)
 
 ### Agenda
 
@@ -68,7 +68,7 @@ The Open Planning session finalizes the roadmap for **R26.06**, prioritizing fea
 
 - Date: 26.02.2026
 - Time: 09:05 - 10:15 (end time can vary based on discussion and features)
-- Teams Link: See the Open Meetings page (One-time meetings) for the join link and local-time conversion: [Open Meetings](/community/open-meetings#one-time-meetings)
+- Teams Link: See the Open Meetings page for the join link and local-time conversion: [Open Meetings](/community/open-meetings)
 
 Who Should Attend:
 

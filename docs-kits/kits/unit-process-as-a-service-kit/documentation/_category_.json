@@ -1,0 +1,8 @@
+{
+  "label": "Documentation",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Sample wafer-testing data, visualizations, and EDC exchange logs for this KIT."
+  }
+}

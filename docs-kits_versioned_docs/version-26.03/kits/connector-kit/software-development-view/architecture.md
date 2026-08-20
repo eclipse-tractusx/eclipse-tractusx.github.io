@@ -309,7 +309,7 @@ The referenced endpoint is actually pointing to a specific version metadata endp
       "binding": "HTTPS"
     },
     {
-      "version": "0.8",
+      "version": "v0.8",
       "path": "",
       "binding": "HTTPS"
     }
