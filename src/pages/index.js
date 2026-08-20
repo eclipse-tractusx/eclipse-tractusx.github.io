@@ -40,6 +40,7 @@ import GetStartedSection from "@site/src/components/2.0/GetStartedSection";
 import UpcomingEvents from "@site/src/components/UpcomingEvents";
 import SectionDivider from "@site/src/components/SectionDivider";
 import ProductSelection from "@site/src/components/ProductSelection";
+import CommunityMap from "@site/src/components/CommunityMap";
 import CategoryIcon from '@mui/icons-material/Category';
 import ExtensionIcon from '@mui/icons-material/Extension';
 
@@ -63,6 +64,7 @@ export default function Home() {
       <main>
         <AboutUsCard {...aboutInput} />
         <UpcomingEvents />
+        <CommunityMap />
         <SectionDivider title="Our Products" icon={CategoryIcon} />
         <ProductSelection />
         <SectionDivider title="KITs" icon={ExtensionIcon} color="#f5576c" disableAnimation />
