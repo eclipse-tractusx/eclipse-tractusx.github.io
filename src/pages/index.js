@@ -38,6 +38,7 @@ import { kitsData, getAllKits, industries } from "@site/data/kitsData";
 import ContributionSection from "@site/src/components/2.0/ContributionSection";
 import GetStartedSection from "@site/src/components/2.0/GetStartedSection";
 import UpcomingEvents from "@site/src/components/UpcomingEvents";
+import CommunitySneakPeek from "@site/src/components/CommunitySneakPeek";
 import SectionDivider from "@site/src/components/SectionDivider";
 import ProductSelection from "@site/src/components/ProductSelection";
 import CategoryIcon from '@mui/icons-material/Category';
@@ -62,6 +63,7 @@ export default function Home() {
       <HomePageHeader />
       <main>
         <AboutUsCard {...aboutInput} />
+        <CommunitySneakPeek />
         <UpcomingEvents />
         <SectionDivider title="Our Products" icon={CategoryIcon} />
         <ProductSelection />

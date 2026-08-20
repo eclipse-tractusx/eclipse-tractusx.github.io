@@ -1,0 +1,401 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+// Community Sneak Peek Section
+// Deliberately dark in both themes — a cinema strip around the community video.
+
+.sneakPeekSection {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(250, 160, 35, 0.22) 0%, rgba(250, 160, 35, 0) 45%),
+    radial-gradient(circle at 88% 82%, rgba(14, 165, 233, 0.18) 0%, rgba(14, 165, 233, 0) 50%),
+    linear-gradient(135deg, #0b0e14 0%, #141922 60%, #1d1508 100%);
+
+  @media screen and (max-width: 996px) {
+    padding: 60px 0;
+  }
+}
+
+// Wider than the regular 1200px sections on purpose: the video owns the whole
+// right-hand side, while the text column stays narrow and flat on the left.
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  @media screen and (max-width: 996px) {
+    padding: 0 20px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+
+  @media screen and (max-width: 1280px) {
+    grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  @media screen and (max-width: 996px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.content {
+  color: #ffffff;
+}
+
+// Video first on narrow screens — it is what hooks the visitor.
+.videoColumn {
+  @media screen and (max-width: 996px) {
+    order: -1;
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px 6px 10px;
+  border-radius: 50px;
+  background: rgba(250, 160, 35, 0.16);
+  border: 1px solid rgba(250, 160, 35, 0.45);
+  color: #faa023;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+
+  svg {
+    font-size: 20px;
+  }
+}
+
+.title {
+  font-size: 44px;
+  font-weight: 300;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 996px) {
+    font-size: 34px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 28px;
+  }
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 24px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+  }
+}
+
+.highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 20px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+
+    svg {
+      font-size: 20px;
+      color: #faa023;
+      flex-shrink: 0;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+
+  svg {
+    font-size: 20px;
+  }
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    padding: 14px 20px;
+  }
+}
+
+.primaryButton {
+  background: #faa023;
+  color: #10131a;
+
+  &:hover {
+    background: #ffb445;
+    color: #10131a;
+    box-shadow: 0 6px 18px rgba(250, 160, 35, 0.45);
+  }
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+}
+
+// Stay-tuned / call-for-contributions notices — a full-width band under the
+// grid, so they do not stretch the text column next to the video.
+.notices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 36px;
+  margin-top: 44px;
+  padding: 22px 28px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 4px solid #faa023;
+
+  @media screen and (max-width: 996px) {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 32px;
+    padding: 20px;
+  }
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+
+  strong {
+    color: #ffffff;
+  }
+
+  svg {
+    font-size: 22px;
+    color: #faa023;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+  }
+}
+
+// Video: click-to-play facade, swapped for the real player on click
+.videoFacade,
+.videoFrame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+.videoFacade {
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  background: #10131a;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: saturate(1.05) brightness(0.86);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.65) 100%);
+    pointer-events: none;
+  }
+
+  &:hover img,
+  &:focus-visible img {
+    transform: scale(1.04);
+    filter: saturate(1.1) brightness(1);
+  }
+
+  &:hover .playButton,
+  &:focus-visible .playButton {
+    transform: translate(-50%, -50%) scale(1.07);
+    background: rgba(250, 160, 35, 0.82);
+    border-color: rgba(255, 255, 255, 0.85);
+    box-shadow:
+      0 0 0 10px rgba(255, 255, 255, 0.08),
+      0 14px 40px rgba(250, 160, 35, 0.35);
+  }
+}
+
+// Glass play button: translucent over the still instead of a solid disc, with a
+// slow breathing ring. Turns orange only on hover/focus.
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  box-shadow:
+    0 10px 36px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    animation: playPulse 3s ease-out infinite;
+  }
+
+  svg {
+    font-size: 32px;
+    margin-left: 2px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+  }
+
+  // Decoration only — nothing is lost by holding it still.
+  @media (prefers-reduced-motion: reduce) {
+    &::before {
+      animation: none;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 52px;
+    height: 52px;
+
+    svg {
+      font-size: 26px;
+    }
+  }
+}
+
+@keyframes playPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70%,
+  100% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+}
+
+.videoLabel {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+
+  @media screen and (max-width: 600px) {
+    left: 14px;
+    bottom: 12px;
+    font-size: 12px;
+  }
+}

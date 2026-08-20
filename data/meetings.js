@@ -33,6 +33,14 @@ export const MEETING_PRIORITIES = {
   FEATURED: 'featured',
 };
 
+// Optional event fields (mainly for one-time, on-site events such as Community Days):
+// location:                venue address, also written into the .ics LOCATION field
+// onsite:                  true for on-site events — renders the "Onsite" badge
+// registrationLink:        URL of the registration page — renders the "Register" button
+// registrationComingSoon:  true while registration is not open yet — renders a
+//                          non-clickable "Registration Coming Soon" notice instead of a
+//                          button that leads nowhere. Remove it once registrationLink is set.
+
 // Contact persons — centralized to avoid duplication
 // country: ISO 3166-1 alpha-2 code — used for public holiday detection per meeting
 export const CONTACTS = {
@@ -474,6 +482,35 @@ export const meetings = [
       startDate: '2026-11-11',
       startTime: '09:05',
       endTime: '10:30',
+    },
+  },
+  // Community Days — on-site event at ARENA2036, no online session link.
+  // registrationComingSoon shows a "Registration Coming Soon" notice instead of a
+  // register button; replace it with registrationLink once registration opens.
+  {
+    id: 'seventh-community-days-2026',
+    title: 'Seventh Eclipse Tractus-X Community Days',
+    icon: 'groups',
+    category: MEETING_CATEGORIES.ONE_TIME,
+    priority: MEETING_PRIORITIES.HIGHLIGHT,
+    description: 'Join us for the Seventh Eclipse Tractus-X Community Days at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany)! Two full days of exchange, innovation, and collaboration within the Tractus-X and Manufacturing-X ecosystems — technical deep dives, open workshops, coding challenges, keynotes, and networking with the global open-source community.',
+    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.MATHIAS_MOSER, CONTACTS.MIKEL_GARCIA],
+    location: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
+    onsite: true,
+    registrationComingSoon: true,
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-dev:matrix.eclipse.org',
+    additionalLinks: [
+      { title: 'News Blog', url: '/blog/community-days-12-2026' },
+      { title: 'ARENA2036 Event Page', url: 'https://arena2036.de/en/reader/seventh-eclipse-tractus-x-community-days/' },
+      { title: 'Aftermovie of the Sixth Community Days', url: 'https://www.youtube.com/watch?v=pXpXXMuLmJ8' },
+      { title: 'Tractus-X Mailing List', url: 'https://accounts.eclipse.org/mailing-list/tractusx-dev' },
+    ],
+    recurrence: {
+      frequency: 'once',
+      startDate: '2026-12-03',
+      endDate: '2026-12-04',
+      startTime: '09:00',
+      endTime: '17:00',
     },
   },
 ];

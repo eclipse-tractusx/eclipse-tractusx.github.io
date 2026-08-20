@@ -427,7 +427,7 @@
 // Event Actions
 .eventActions {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
 
   @media screen and (max-width: 600px) {
@@ -493,6 +493,63 @@
     background: var(--ifm-color-primary);
     color: #ffffff;
     transform: translateY(-2px);
+  }
+}
+
+// Local-time hint under the "Save the Date" button. Takes a full row of its own
+// inside the flex-wrapped actions instead of sitting next to the buttons.
+.timezoneNote {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+  color: var(--ifm-font-color-base);
+  opacity: 0.7;
+
+  svg {
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+// Shown in place of a "Register Now" button while registration is not open yet.
+// Sits above the action row and is deliberately not a link — a status, not a button.
+.comingSoonNotice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  border: 1px dashed rgba(250, 160, 35, 0.5);
+  border-radius: 8px;
+  background: rgba(250, 160, 35, 0.1);
+  color: var(--ifm-color-primary);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  svg {
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  [data-theme='dark'] & {
+    background: rgba(250, 160, 35, 0.16);
+    border-color: rgba(250, 160, 35, 0.55);
+  }
+
+  @media screen and (max-width: 600px) {
+    align-self: stretch;
+    justify-content: center;
+    margin-bottom: 16px;
   }
 }
 
