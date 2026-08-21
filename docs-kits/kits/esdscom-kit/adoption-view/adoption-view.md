@@ -152,6 +152,7 @@ The original eSDScom XML model, represented in several XML schema definitions (X
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2026 [eSDScom Workgroup](https://esdscom.eu) and contributors
 - SPDX-FileCopyrightText: 2026 [Qualisys GmbH](https://qualisys.eu)
 - SPDX-FileCopyrightText: 2026 [Volkswagen AG](https://www.volkswagen.de)
 - SPDX-FileCopyrightText: 2026 [BASF SE](https://www.basf.com)
