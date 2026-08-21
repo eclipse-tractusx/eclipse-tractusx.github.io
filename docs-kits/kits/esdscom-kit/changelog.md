@@ -27,6 +27,12 @@ All notable changes to this KIT will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.2] - 2026-08-20
+
+### Added
+
+- Updated the companies and links of contributing companies in adoption, development view and changelog
+
 ## [0.0.1] - 2026-08-06
 
 ### Added
@@ -49,8 +55,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2026 [eSDScom Workgroup](https://esdscom.eu) and contributors
+- SPDX-FileCopyrightText: 2026 [eSDScom Workgroup](https://www.esdscom.eu) and contributors
 - SPDX-FileCopyrightText: 2026 [Qualisys GmbH](https://qualisys.eu)
 - SPDX-FileCopyrightText: 2026 [Volkswagen AG](https://www.volkswagen.de)
-- SPDX-FileCopyrightText: 2026 Contributors to the [Eclipse Foundation](https://eclipse.org)
+- SPDX-FileCopyrightText: 2026 [BASF SE](https://www.basf.com)
+- SPDX-FileCopyrightText: 2026 [Henkel AG & Co KGaA](https://www.henkel.de/)
+- SPDX-FileCopyrightText: 2026 [Gestamp](https://gestamp.com)
+- SPDX-FileCopyrightText: 2026 Catena-X Automotive Network e.V.
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
