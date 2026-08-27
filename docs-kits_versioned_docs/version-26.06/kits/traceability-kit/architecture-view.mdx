@@ -71,6 +71,7 @@ Data provisioning of Traceability is built on the data provisioning of the [Indu
   - Aspect model ["SoftwareInformation"](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main)
   - Aspect model ["CertificateSigningRequests"](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main)
   - Aspect model ["ZeroKmFailure"](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main)
+  - Aspect model ["SpecialCharacteristicsMeasurement"](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main)
 
 - Digital Twin "qualityTask"
   - Aspect model ["ZeroKmFailure"](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main)
@@ -135,24 +136,12 @@ Catena-X is to be used to transfer this information in a standardized manner and
 
 #### Block Notification Interaction
 
-The interaction of block notifications is based on events that can be triggered by both the sender and the recipient. These events are represented by a status model and are used to track the progress of the parts that need to be blocked or respectively sorted out by the customer. Details about these status model and the Open API specification for Block Notifications are available in the [Developer View](software-development-view/data-provider.mdx).
+Block Notifications follow a lifecycle-based interaction model consisting of Create, Update, Remove and Feedback operations.
 
-> :raised_hand: Note that (from the current 25.09 release on) the Block Notification has always to be referred to the initial problem/defect via a problem ID. The initial problem/defect is the problem the Block Notification, as delemitation, was requested for. The infomation has to be provided via the data field "problemID" in the relevant notification. In this way, the Block Notification for a part can always be assigned to the correct defect, in the event of multiple defects for one particular part. This assignment is particularly also important in the event of an update.
+This allows business partners to exchange containment information, provide updates throughout an ongoing quality incident and communicate relevant feedback where required.
 
-**Scenario 1:** In this case, it is assumed that the sender sends a list of parts with the associated block information to the recipient. The block status of each part is set to ACTIVE by default.
+> :raised_hand: Detailed lifecycle rules, message structures and implementation requirements are described in the Development View and the corresponding Block Notification standard.
 
-When all block information has been received by the recipient, checked internally, further processed and finally all affected parts were blocked or sorted out, this information is sent back to the sender through a status update (PART_BLOCKED).
-
-> :raised_hand: Note that the update notification whether one or more parts have been blocked and therefore sorted out by the customer is **not mandatory**. The decision to provide suppliers with this information through a feedback notification **MUST** have been negotiated and accepted by both business partners before implemented.
-
-**Scenario 2:**
-In this case, the sender identified that the block information sent from Scenario 1 was sent incorrectly or unintentionally.
-
-In order to inform the recipient of this error, the block status of the affected parts is set to CANCELED via an update notification, so that these parts cannot be sorted out and used to be installed by the recipient.
-
-> :raised_hand: The CANCELED status can also be updated by the recipient if it has been determined that the part(s) are faultless and therefore does not need to be sorted out.
-
-![Block State Model Interaction](./assets/block-notification-state-model-interaction.svg)
 
 ## Runtime View
 
@@ -204,19 +193,17 @@ Below, the UML sequence diagram to update a quality alert is depicted.
 
 ### Processes for Sending, Updating and Resolving Block Notifications
 
-#### Sending and Receiving of Block Information
-Below, the UML sequence diagram to send and receive a block information is depicted.
+Block Notifications are exchanged between business partners using a lifecycle-based interaction model.
 
-![BlockNotificationSendReceive](./diagrams/block-notification-send-receive.svg)
+The lifecycle consists of the following operations:
+- Create
+- Update
+- Remove
+- Feedback
 
-#### Update of Block Information
-Below, the UML sequence diagram to update a block information is depicted.
-> :raised_hand: The process for sending update notifications regarding an ongoing blocking process must be carried out in the same way as sending block information for the first time. The differences are limited to the following changes:
-> - Another data asset “BlockNotificationStatusUpdate” is used for the update
-> - The data model of the notification is limited to the ID and block status of a part and therefore does not include full block information
-> - Both 'CANCELED' and 'PART_BLOCKED' can be set for the status depending on which case applies to the notification
+These operations allow business partners to communicate containment information, provide updates during an ongoing quality incident and exchange relevant feedback where required.
 
-![BlockNotificationUpdateStatus](./diagrams/block-notification-update-status.svg)
+> :raised_hand: Detailed lifecycle rules, message structures and implementation requirements are described in the Development View and the corresponding Block Notification standard.
 
 ## Standards
 

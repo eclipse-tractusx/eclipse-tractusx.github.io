@@ -15,7 +15,7 @@ The following section shows an overview of all aspect models of the Traceability
 | PartInstance | TractionBatteryCode | 2.0.0 | | Traceability |  CX-0125 Traceability Use Case |
 | | SoftwareInformation | 1.0.0 | | Traceability | N/A |
 | | CertificateSigningRequests | 1.0.0 | | Traceability | N/A |
-| | SpecialCharacteristics | 1.0.0 | | Traceability | N/A |
+| | SpecialCharacteristics | 3.0.0 | | Traceability | CX-0163 Special Characteristics |
 | qualityTask | ZeroKmFailure | 1.0.0 | | Traceability |  CX-0125 Traceability Use Case |
 
 ### TractionBatteryCode
@@ -158,7 +158,7 @@ To ensure manufactured components meet defined quality standards and specificati
 
 #### Aspect Model in GitHub
 
-- **Version 2.0.0**: [GitHub Repository](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.special_characteristics.measurement/2.0.0/)
+- **Version 3.0.0**: [GitHub Repository](https://github.com/eclipse-tractusx/sldt-semantic-models/blob/main/io.catenax.special_characteristics.measurement/3.0.0/)
 
 #### Data Model
 
@@ -174,7 +174,7 @@ Below is the detailed description of the attributes used in the `SpecialCharacte
   ],
   "customerPartId": "PRT-12345",
   "revisionIndex": "01",
-  "manufacturerId": "BPNL000000000000",
+  "manufacturerBpn": "BPNL000000000000",
   "measurementType": "quantitativeMeasurement",
   "characteristicId": "F1",
   "results": [
@@ -194,7 +194,7 @@ Below is the detailed description of the attributes used in the `SpecialCharacte
 | `localIdentifiers`    | An array of local identifiers used to uniquely identify the part instance.  | –     | –          | –                  |
 | `customerPartId`      | The identifier of the part assigned by the customer.                        | String                                                                    | Mandatory          | "PRT-12345"                                                           |
 | `revisionIndex`       | The revision index of the part.                                             | String                                                                    | Mandatory          | "01"                                                                   |
-| `manufacturerId`      | The identifier of the manufacturer.                                         | String                                                                    | Mandatory          | "BPNL000000000000"                                                    |
+| `manufacturerBpn`     | Business Partner Number (BPNL, BPNS or BPNA) of the manufacturer            | String                                                                    | Mandatory          | "BPNL000000000000"                                                    |
 | `measurementType`     | The type of measurement being performed (e.g., quantitative, qualitative).  | String                                                                    | Optional          | "quantitativeMeasurement"                                            |
 | `characteristicId`    | The identifier of the characteristic being measured. Normally defined within the blueprint. | String                                                                    | Mandatory          | "F1"                                                                |
 | `results`             | An array of measurement results.                                            | –                                                          | –          | –                                                                                         |
