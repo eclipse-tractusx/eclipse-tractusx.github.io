@@ -32,11 +32,13 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 
+const BASE_URL = process.env.BASE_URL || '/';
+
 const sidebars = {
   kits: [
     {
       type: 'html',
-      value: '<div class="kit-sidebar-section-header"><a href="/Kits/dataspace-foundation">DATASPACE FOUNDATION</a></div>',
+      value: `<div class="kit-sidebar-section-header"><a href="${BASE_URL}Kits/dataspace-foundation">DATASPACE FOUNDATION</a></div>`,
     },
     {
       type: 'category',
@@ -224,7 +226,7 @@ const sidebars = {
     },
     {
       type: 'html',
-      value: '<div class="kit-sidebar-section-header"><a href="/Kits/industry-core">INDUSTRY CORE FOUNDATION</a></div>',
+      value: `<div class="kit-sidebar-section-header"><a href="${BASE_URL}Kits/industry-core">INDUSTRY CORE FOUNDATION</a></div>`,
     },
     {
       type: 'category',
@@ -399,11 +401,11 @@ const sidebars = {
     },
     {
       type: 'html',
-      value: '<div class="kit-sidebar-section-header"><a href="/Kits/cross-industry">CROSS-INDUSTRY USE CASES</a></div>',
+      value: `<div class="kit-sidebar-section-header"><a href="${BASE_URL}Kits/cross-industry">CROSS-INDUSTRY USE CASES</a></div>`,
     },
     {
       type: 'html',
-      value: '<div class="kit-sidebar-domain-subheader"><a href="/Kits/cross-industry/engineering">ENGINEERING</a></div>',
+      value: `<div class="kit-sidebar-domain-subheader"><a href="${BASE_URL}Kits/cross-industry/engineering">ENGINEERING</a></div>`,
     },
     {
       type: "category",
@@ -930,7 +932,7 @@ const sidebars = {
     },
     {
       type: 'html',
-      value: '<div class="kit-sidebar-section-header"><a href="/Kits/industry?id=manufacturing">MANUFACTURING</a></div>',
+      value: `<div class="kit-sidebar-section-header"><a href="${BASE_URL}Kits/industry?id=manufacturing">MANUFACTURING</a></div>`,
     },
     {
       type: 'category',
@@ -1063,7 +1065,7 @@ const sidebars = {
     },
     {
       type: 'html',
-      value: '<div class="kit-sidebar-section-header"><a href="/Kits/industry?id=semiconductor">SEMICONDUCTOR</a></div>',
+      value: `<div class="kit-sidebar-section-header"><a href="${BASE_URL}Kits/industry?id=semiconductor">SEMICONDUCTOR</a></div>`,
     },
     {
       type: 'category',
@@ -1083,7 +1085,7 @@ const sidebars = {
     },
     {
       type: 'html',
-      value: '<div class="kit-sidebar-section-header"><a href="/Kits/industry?id=automotive">AUTOMOTIVE</a></div>',
+      value: `<div class="kit-sidebar-section-header"><a href="${BASE_URL}Kits/industry?id=automotive">AUTOMOTIVE</a></div>`,
     },
     {
       type: 'category',
