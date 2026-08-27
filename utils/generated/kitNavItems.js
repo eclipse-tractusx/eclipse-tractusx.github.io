@@ -405,9 +405,13 @@ function generateKitNavItems() {
     });
     
     sortedDomains.forEach(domain => {
+      const domainTo = domain === 'Engineering'
+        ? '/Kits/cross-industry/engineering'
+        : '/Kits/cross-industry';
       items.push({
-        type: 'html',
-        value: '<div class="kit-domain-subheader">' + domain.toUpperCase() + '</div>'
+        to: domainTo,
+        label: domain.toUpperCase(),
+        className: 'kit-domain-subheader'
       });
       
       const sortedKits = domainGroups.get(domain)
