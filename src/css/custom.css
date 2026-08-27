@@ -619,6 +619,18 @@ div[class*="blogPostPage"],
   border-top-color: var(--ifm-color-emphasis-700) !important;
 }
 
+/* Per-domain page title color override (e.g. Engineering domain page) */
+.kit-domain-page-title {
+  background: none !important;
+  -webkit-text-fill-color: #afc72d !important;
+  color: #afc72d !important;
+}
+
+[data-theme='dark'] .kit-domain-page-title {
+  -webkit-text-fill-color: #c3d94e !important;
+  color: #c3d94e !important;
+}
+
 /* Add home icon to KITs HOMEPAGE using pseudo-element */
 .kit-home-icon::before {
   content: '';
