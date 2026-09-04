@@ -47,7 +47,7 @@ To establish a standardized, risk-based and interoperable Due Diligence Check fo
 The vision is a harmonized industry framework in which:
 
 - All participants rely on a shared country and sector-specific risk register. 
-- Risk-based decision tree determines when and how deeper analysis is required. 
+- A risk-based decision tree determines when and how deeper analysis is required.
 - Existing Due Diligence instruments, such as Codes of Conduct (CoCs), Self-Assessment Questionnaires (SAQs) and Audits, are comparable and interoperable. 
 - SMEs can perform a Due Diligence Check and securely share its results within the network, while allowing for reassessment when new or changed risk information requires it. 
 - Regulatory expectations and practical feasibility are aligned through transparent governance. 
