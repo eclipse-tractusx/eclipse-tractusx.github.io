@@ -37,7 +37,8 @@ export default function KitGalleryHeader({
   dataspaces,
   backButtonLink = "/Kits",
   backButtonText = "Back to All KITs",
-  industryLayout = false
+  industryLayout = false,
+  titleClassName
 }) {
   return (
     <div className={styles.header}>
@@ -64,7 +65,7 @@ export default function KitGalleryHeader({
           )}
           
           {/* Debug: Show if categoryData exists */}
-          {!categoryData?.icon && categoryData && (
+          {!titleClassName && !categoryData?.icon && categoryData && (
             <div style={{ color: 'red', fontSize: '12px' }}>
               Debug: categoryData exists but no icon found
             </div>
@@ -87,7 +88,7 @@ export default function KitGalleryHeader({
           
           {!industryLayout && (
             <div className={styles.category_content}>
-              <h1 className={styles.category_title}>
+              <h1 className={`${styles.category_title} ${titleClassName || ''}`}>
                 {title || categoryData?.title}
               </h1>
               
