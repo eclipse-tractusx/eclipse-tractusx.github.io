@@ -53,6 +53,7 @@ const HIGHLIGHTS = [
 const CommunityVideo = () => {
   const [playing, setPlaying] = useState(false);
   const [posterIndex, setPosterIndex] = useState(0);
+  const [posterFailed, setPosterFailed] = useState(false);
 
   if (playing) {
     return (
@@ -70,17 +71,27 @@ const CommunityVideo = () => {
   return (
     <button
       type="button"
-      className={styles.videoFacade}
+      className={`${styles.videoFacade} ${posterFailed ? styles.videoFacadeFallback : ''}`}
       onClick={() => setPlaying(true)}
       aria-label={`Play the aftermovie: ${VIDEO_TITLE}`}
     >
-      <img
-        src={POSTERS[posterIndex]}
-        alt=""
-        loading="lazy"
-        // Fall back to the next-best still; stops at the last candidate.
-        onError={() => setPosterIndex(index => Math.min(index + 1, POSTERS.length - 1))}
-      />
+      {!posterFailed && (
+        <img
+          src={POSTERS[posterIndex]}
+          alt=""
+          loading="lazy"
+          // Fall back to the next-best still; once every candidate failed (offline,
+          // blocked third-party images, …) the branded backdrop takes over instead
+          // of leaving an empty box behind.
+          onError={() => {
+            if (posterIndex < POSTERS.length - 1) {
+              setPosterIndex(index => index + 1);
+            } else {
+              setPosterFailed(true);
+            }
+          }}
+        />
+      )}
       <span className={styles.playButton}>
         <PlayArrowRounded />
       </span>

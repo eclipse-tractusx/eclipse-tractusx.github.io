@@ -311,6 +311,15 @@
   }
 }
 
+// No YouTube still available (offline, blocked third-party images): keep a
+// branded backdrop instead of an empty black box.
+.videoFacadeFallback {
+  background:
+    radial-gradient(circle at 30% 25%, rgba(250, 160, 35, 0.35) 0%, rgba(250, 160, 35, 0) 55%),
+    radial-gradient(circle at 75% 80%, rgba(14, 165, 233, 0.3) 0%, rgba(14, 165, 233, 0) 55%),
+    linear-gradient(135deg, #161b25 0%, #10131a 55%, #241a09 100%);
+}
+
 // Glass play button: translucent over the still instead of a solid disc, with a
 // slow breathing ring. Turns orange only on hover/focus.
 .playButton {
