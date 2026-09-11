@@ -484,6 +484,33 @@ export const meetings = [
       endTime: '10:30',
     },
   },
+  // Hackathon II — on-site, full-day developer event at ARENA2036, no online session link.
+  // Participation is by email, so the register button opens a pre-filled mail to the organizer.
+  // Times are preliminary (full day); adjust once the agenda is published.
+  {
+    id: 'hackathon-ii-2026',
+    title: 'Second International Eclipse Tractus-X Hackathon',
+    icon: 'code',
+    category: MEETING_CATEGORIES.ONE_TIME,
+    priority: MEETING_PRIORITIES.HIGHLIGHT,
+    description: 'The Second International Eclipse Tractus-X Hackathon at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany) — a free, full-day, hands-on developer event. Bring your laptop and solve real challenges on the open-source Tractus-X components together with the community. Interested in joining? Send an email to mathias.moser@catena-x.net.',
+    contact: [CONTACTS.MATHIAS_MOSER],
+    location: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
+    onsite: true,
+    registrationLink: 'mailto:mathias.moser@catena-x.net?subject=Eclipse%20Tractus-X%20Hackathon%20II%20%E2%80%94%20November%206%2C%202026',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-dev:matrix.eclipse.org',
+    additionalLinks: [
+      { title: 'News Blog', url: '/blog/hackathon-ii-11-2026' },
+      { title: 'Looking Back: Hackathon I in Bilbao', url: '/blog/first-international-hackathon' },
+      { title: 'Tractus-X Mailing List', url: 'https://accounts.eclipse.org/mailing-list/tractusx-dev' },
+    ],
+    recurrence: {
+      frequency: 'once',
+      startDate: '2026-11-06',
+      startTime: '09:00',
+      endTime: '17:00',
+    },
+  },
   // Community Days — on-site event at ARENA2036, no online session link.
   // registrationComingSoon shows a "Registration Coming Soon" notice instead of a
   // register button; replace it with registrationLink once registration opens.
