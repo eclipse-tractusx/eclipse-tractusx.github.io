@@ -493,7 +493,7 @@ export const meetings = [
     icon: 'code',
     category: MEETING_CATEGORIES.ONE_TIME,
     priority: MEETING_PRIORITIES.HIGHLIGHT,
-    description: 'The Second International Eclipse Tractus-X Hackathon at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany) — a free, full-day, hands-on developer event. Bring your laptop and solve real challenges on the open-source Tractus-X components together with the community. Interested in joining? Send an email to mathias.moser@catena-x.net.',
+    description: 'The Second International Eclipse Tractus-X Hackathon at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany) — a free, full-day design thinking and programming hackathon, with the option to join online. The mission: re-architecting the Eclipse Tractus-X Portal — simpler, easier to maintain, more performant, and easier to use for data space onboardings with Tractus-X technology. Interested in joining? Send an email to mathias.moser@catena-x.net.',
     contact: [CONTACTS.MATHIAS_MOSER],
     location: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
     onsite: true,

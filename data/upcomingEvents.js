@@ -59,7 +59,7 @@ export const upcomingEvents = [
     timezone: 'Europe/Berlin',
     location: 'ARENA2036 e.V., Stuttgart, Germany',
     address: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
-    description: 'The Second International Eclipse Tractus-X Hackathon — a free, full-day, hands-on developer event at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart). Bring your laptop and solve real challenges on the open-source Tractus-X components together with the community. Interested? Send an email to mathias.moser@catena-x.net.',
+    description: 'The Second International Eclipse Tractus-X Hackathon — a free, full-day design thinking and programming hackathon at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart), with the option to join online. The mission: re-architecting the Eclipse Tractus-X Portal — simpler, easier to maintain, more performant, and easier to use for data space onboardings. Interested? Send an email to mathias.moser@catena-x.net.',
     // Participation is by email — the button opens a pre-filled mail to the organizer.
     registrationUrl: 'mailto:mathias.moser@catena-x.net?subject=Eclipse%20Tractus-X%20Hackathon%20II%20%E2%80%94%20November%206%2C%202026',
     blogSlug: 'hackathon-ii-11-2026',
@@ -67,7 +67,7 @@ export const upcomingEvents = [
     // Featured as the next event on the calendar. Only one event is featured at a
     // time — hand the spot back to the Community Days once the hackathon is over.
     featured: true,
-    image: '/img/events/II-tractus-x-hackathon-banner.png'
+    image: '/img/events/II-tractus-x-hackathon-banner.jpg'
   },
   {
     id: 'community-days-12-2026',
