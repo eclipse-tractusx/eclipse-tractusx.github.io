@@ -21,7 +21,6 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "@docusaurus/Link";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
@@ -82,12 +81,12 @@ export default function NewsTicker() {
           News
         </Link>
 
+        <span className={styles.date}>{date}</span>
+
         <div className={styles.viewport} aria-live="polite" aria-atomic="true">
           {/* Keyed by index so each entry re-mounts and replays the enter animation. */}
           <Link key={index} className={styles.item} to={blogLink}>
-            <span className={styles.date}>{date}</span>
             <span className={styles.title}>{title}</span>
-            <ArrowForwardIcon className={styles.arrow} fontSize="inherit" aria-hidden="true" />
           </Link>
         </div>
 
