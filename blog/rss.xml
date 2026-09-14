@@ -4,10 +4,146 @@
         <title>Eclipse Tractus-X Blog</title>
         <link>https://eclipse-tractusx.github.io/blog</link>
         <description>Eclipse Tractus-X Blog</description>
-        <lastBuildDate>Tue, 11 Aug 2026 10:30:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 11 Sep 2026 10:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Save the Date — Second International Eclipse Tractus-X Hackathon at ARENA2036!]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026</link>
+            <guid>https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026</guid>
+            <pubDate>Fri, 11 Sep 2026 10:00:00 GMT</pubDate>
+            <description><![CDATA[The Second International Eclipse Tractus-X Hackathon — November 6, 2026 at ARENA2036 e.V. in Stuttgart, Germany. Interested? Send us an email!]]></description>
+            <content:encoded><![CDATA[
+<div style="max-width:520px;margin:0 auto 24px;border-radius:16px;overflow:hidden"><p><img decoding="async" loading="lazy" alt="Second International Eclipse Tractus-X Hackathon — 06 Nov 2026, Stuttgart, Germany" src="https://eclipse-tractusx.github.io/assets/images/II-tractus-x-hackathon-banner-b640b7cb054408599cc0b058bcbdc479.jpg" width="1335" height="1400" class="img_ev3q"></p></div>
+<p>Hi Everyone 👋,</p>
+<p>After the great energy of our <strong>first international Open Source Hackathon</strong> in Bilbao this February, it is time for round two: we are happy to invite you to the <strong>Second International Eclipse Tractus-X Hackathon</strong>, taking place on <strong>November 6, 2026 at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany)</strong>! 🚀</p>
+<p>This time we have one big mission: <strong>re-architecting the Eclipse Tractus-X Portal</strong> — and we want to do it together with you, in a <strong>design thinking <em>and</em> programming hackathon</strong>. On-site in Stuttgart, or optionally online.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="event-details">Event Details<a href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026#event-details" class="hash-link" aria-label="Direct link to Event Details" title="Direct link to Event Details" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>💸 Cost:</strong> FREE 🆓</li>
+<li class=""><strong>📅 Date:</strong> 6th of November 2026</li>
+<li class=""><strong>📍 Location:</strong> ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany
+<em><a href="https://www.google.com/maps/search/?api=1&amp;query=ARENA2036+Pfaffenwaldring+19+70569+Stuttgart" target="_blank" rel="noopener noreferrer" class="">ARENA2036 on Google Maps</a></em></li>
+<li class=""><strong>⏰ Duration:</strong> Full Day Event</li>
+<li class=""><strong>🧠 Format:</strong> Design thinking <strong>and</strong> programming — we shape the target architecture together and start building it on the same day</li>
+<li class=""><strong>💻 Participation:</strong> On-site at ARENA2036 — <strong>joining online is optionally possible</strong>, just mention it in your email</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="️-interested-let-us-know">✉️ Interested? Let Us Know<a href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026#%EF%B8%8F-interested-let-us-know" class="hash-link" aria-label="Direct link to ✉️ Interested? Let Us Know" title="Direct link to ✉️ Interested? Let Us Know" translate="no">​</a></h2>
+<p>There is no registration form this time — <strong>if you are interested in joining, simply send an email to <a href="mailto:mathias.moser@catena-x.net?subject=Eclipse%20Tractus-X%20Hackathon%20II%20%E2%80%94%20November%206%2C%202026" target="_blank" rel="noopener noreferrer" class="">mathias.moser@catena-x.net</a></strong> with your name, your organization, and a short note on what you would like to work on. We will get back to you with all further details. 📬</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Please reserve the date!</div><div class="admonitionContent_BuS1"><p>Places are limited and the hackathon is a hands-on developer event — so if you are planning to come, let us know as early as possible so we can plan the challenges and the room accordingly.</p></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="️-important">‼️ IMPORTANT<a href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026#%EF%B8%8F-important" class="hash-link" aria-label="Direct link to ‼️ IMPORTANT" title="Direct link to ‼️ IMPORTANT" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Please reserve this date if you're willing to come!</strong> 🗓️</li>
+<li class="">This is a <strong>"WORKING/DEVELOPING" hands-on event</strong> — send this to your developers!</li>
+<li class="">It is meant to be <strong>technical</strong> and we will be solving challenges together</li>
+<li class="">This is <strong>NOT a "business oriented"</strong> event</li>
+<li class=""><strong>SO BRING YOUR LAPTOPS!</strong> 💻 And lots of motivation to code and learn! You can use your favorite IDE (we recommend visual studio code!)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-the-mission-re-architecting-the-eclipse-tractus-x-portal">🎯 The Mission: Re-architecting the Eclipse Tractus-X Portal<a href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026#-the-mission-re-architecting-the-eclipse-tractus-x-portal" class="hash-link" aria-label="Direct link to 🎯 The Mission: Re-architecting the Eclipse Tractus-X Portal" title="Direct link to 🎯 The Mission: Re-architecting the Eclipse Tractus-X Portal" translate="no">​</a></h2>
+<p>The main reason for this hackathon is the <strong>re-architecture of the <a href="https://github.com/eclipse-tractusx/portal" target="_blank" rel="noopener noreferrer" class="">Eclipse Tractus-X Portal</a></strong>. The Portal is the front door of every data space built on Tractus-X technology — it is where companies get onboarded, register, and start participating. We want to make it:</p>
+<ul>
+<li class="">✨ <strong>Simpler</strong> — a leaner architecture with fewer moving parts</li>
+<li class="">🔧 <strong>Easier to maintain</strong> — so the community can keep it evolving without a steep learning curve</li>
+<li class="">⚡ <strong>More performant</strong> — fast where it matters, from the first login to the last onboarding step</li>
+<li class="">🚀 <strong>Easier to use for data space onboardings</strong> — so onboarding into a data space with Tractus-X tech becomes straightforward, for operators and participants alike</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-design-thinking---programming">🧠 Design Thinking + 💻 Programming<a href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026#-design-thinking---programming" class="hash-link" aria-label="Direct link to 🧠 Design Thinking + 💻 Programming" title="Direct link to 🧠 Design Thinking + 💻 Programming" translate="no">​</a></h3>
+<p>This is not a "code first, think later" hackathon. We will start with <strong>design thinking</strong>: together we look at how onboardings work today, where the friction is, and what a simpler Portal architecture should look like. Then we switch into <strong>programming mode</strong> and start building the first pieces of that architecture — hands-on, in the open, in the Tractus-X repositories.</p>
+<p>Whether you are an architect, a developer, a product person, or someone who has onboarded companies into a data space and knows the pain points first-hand — <strong>your perspective is needed</strong> at the table.</p>
+<p>The detailed agenda and the concrete working tracks will be announced closer to the event. Do you have ideas, requirements, or war stories about the Portal and onboarding? <strong>Tell us in your email!</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-official-communications">📢 Official Communications<a href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026#-official-communications" class="hash-link" aria-label="Direct link to 📢 Official Communications" title="Direct link to 📢 Official Communications" translate="no">​</a></h2>
+<p>The official agenda, the challenges, and all further updates will be shared via:</p>
+<ul>
+<li class="">📧 <a href="https://accounts.eclipse.org/mailing-list/tractusx-dev" target="_blank" rel="noopener noreferrer" class="">Tractus-X Mailing List</a></li>
+<li class="">💬 <a href="https://matrix.to/#/#tractusx-dev:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Matrix Community Channel</a></li>
+<li class="">📰 <a href="https://eclipse-tractusx.github.io/blog" target="_blank" rel="noopener noreferrer" class="">TX News Blog</a></li>
+<li class="">🗓️ Our weekly <strong><a href="https://eclipse-tractusx.github.io/community/open-meetings#community-office-hour" target="_blank" rel="noopener noreferrer" class="">Community Office Hour</a></strong> — every Friday, 10:05–11:00 (Europe/Berlin), open to everyone</li>
+</ul>
+<p>Keep tuned for the latest updates!</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-looking-back--hackathon-i-in-bilbao">🔙 Looking Back — Hackathon I in Bilbao<a href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026#-looking-back--hackathon-i-in-bilbao" class="hash-link" aria-label="Direct link to 🔙 Looking Back — Hackathon I in Bilbao" title="Direct link to 🔙 Looking Back — Hackathon I in Bilbao" translate="no">​</a></h2>
+<p>In February 2026, the Eclipse Tractus-X community met for its <strong><a class="" href="https://eclipse-tractusx.github.io/blog/first-international-hackathon">first international hackathon</a></strong> in Bilbao, Spain — a full day of coding on the Tractus-X Identity Hub Wallet and the Industry Core Hub, hosted by our Project Lead Mikel Garcia and LKS Next. It showed what a room full of motivated developers can achieve in a single day, and it is exactly that spirit we want to bring to ARENA2036 in November.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-impressions">📸 Impressions<a href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026#-impressions" class="hash-link" aria-label="Direct link to 📸 Impressions" title="Direct link to 📸 Impressions" translate="no">​</a></h3>
+<p>Click on a photo to see it in full screen.</p>
+<div class="gallery_zhOJ"><figure class="lead_yTQe"><button type="button" class="thumbButton_QVvP" aria-label="Open photo full-screen: Group photo of all participants of the First Eclipse Tractus-X Hackathon in front of the event screen"><img src="https://eclipse-tractusx.github.io/assets/images/main-foto-24e0f122f173735c4fcdd58f71a9b938.jpeg" alt="Group photo of all participants of the First Eclipse Tractus-X Hackathon in front of the event screen" loading="eager"></button><figcaption class="caption_euZC">The whole crew — participants of the First Eclipse Tractus-X Hackathon, Bilbao, February 17, 2026.</figcaption></figure><div class="grid_umSV"><figure class="item_FC5a"><button type="button" class="thumbButton_QVvP" aria-label="Open photo full-screen: A full room following the opening presentation of the hackathon"><img src="https://eclipse-tractusx.github.io/assets/images/IMG_5773-3ca767e09c7a38801e6f85d6eeb1691b.jpeg" alt="A full room following the opening presentation of the hackathon" loading="lazy"></button><figcaption class="caption_euZC">Kick-off: a full house for the opening session and the challenge briefing.</figcaption></figure><figure class="item_FC5a"><button type="button" class="thumbButton_QVvP" aria-label="Open photo full-screen: The organizing team in front of the First Eclipse Tractus-X Hackathon screen"><img src="https://eclipse-tractusx.github.io/assets/images/IMG_5809-687332dc2d0af185a3c6d0b9bc80d00d.jpeg" alt="The organizing team in front of the First Eclipse Tractus-X Hackathon screen" loading="lazy"></button><figcaption class="caption_euZC">The organizing team, ready to go.</figcaption></figure><figure class="item_FC5a"><button type="button" class="thumbButton_QVvP" aria-label="Open photo full-screen: Participants coding on their laptops with terminals and editors open"><img src="https://eclipse-tractusx.github.io/assets/images/IMG_5821-2357e52d61ca06b4162398a6e4ffd747.jpeg" alt="Participants coding on their laptops with terminals and editors open" loading="lazy"></button><figcaption class="caption_euZC">Heads down: terminals, editors, and the Umbrella running on every laptop.</figcaption></figure><figure class="item_FC5a"><button type="button" class="thumbButton_QVvP" aria-label="Open photo full-screen: Three participants discussing an architecture sketch on a whiteboard next to the Tractus-X banner"><img src="https://eclipse-tractusx.github.io/assets/images/IMG_5871-1c259685de33b6bf41681f71298ca1f4.jpeg" alt="Three participants discussing an architecture sketch on a whiteboard next to the Tractus-X banner" loading="lazy"></button><figcaption class="caption_euZC">Whiteboard time — talking through the flow before writing the code.</figcaption></figure><figure class="item_FC5a"><button type="button" class="thumbButton_QVvP" aria-label="Open photo full-screen: Two participants smiling in front of the Eclipse Tractus-X roll-up banner"><img src="https://eclipse-tractusx.github.io/assets/images/IMG_5834-65422e6f0a0b6602487cc636ba580b50.jpeg" alt="Two participants smiling in front of the Eclipse Tractus-X roll-up banner" loading="lazy"></button><figcaption class="caption_euZC">Greetings from the Tractus-X banner.</figcaption></figure><figure class="item_FC5a"><button type="button" class="thumbButton_QVvP" aria-label="Open photo full-screen: Participants cheering during the evening quiz projected on the screen"><img src="https://eclipse-tractusx.github.io/assets/images/IMG_5926-b75f69a33cb6d0537e29de9cdbbb9424.jpeg" alt="Participants cheering during the evening quiz projected on the screen" loading="lazy"></button><figcaption class="caption_euZC">And after the code: the evening quiz. Yes, the answer was "Antonio".</figcaption></figure></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-one-month-before-the-community-days">📍 One Month Before the Community Days<a href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026#-one-month-before-the-community-days" class="hash-link" aria-label="Direct link to 📍 One Month Before the Community Days" title="Direct link to 📍 One Month Before the Community Days" translate="no">​</a></h2>
+<p>The hackathon takes place just a few weeks before the <strong><a class="" href="https://eclipse-tractusx.github.io/blog/community-days-12-2026">Seventh Eclipse Tractus-X Community Days</a></strong> (December 3–4, 2026), also at ARENA2036. What we build together in November is a perfect warm-up — and a great story to share with the whole community in December.</p>
+<hr>
+<p><strong>Let's build dataspaces!</strong> 🚀</p>]]></content:encoded>
+            <category>community</category>
+            <category>event</category>
+            <category>hackathon</category>
+            <category>tractus-x</category>
+            <category>collaboration</category>
+            <category>open-source</category>
+        </item>
+        <item>
+            <title><![CDATA[Save the Date — Seventh Eclipse Tractus-X Community Days!]]></title>
+            <link>https://eclipse-tractusx.github.io/blog/community-days-12-2026</link>
+            <guid>https://eclipse-tractusx.github.io/blog/community-days-12-2026</guid>
+            <pubDate>Wed, 19 Aug 2026 10:00:00 GMT</pubDate>
+            <description><![CDATA[The Seventh Eclipse Tractus-X Community Days — December 3–4, 2026 at ARENA2036 e.V. in Stuttgart, Germany.]]></description>
+            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="Seventh Eclipse Tractus-X Community Days Banner" src="https://eclipse-tractusx.github.io/assets/images/tractus-x-community-days-26-12-14de1369fd9a1c5db490c01764e1a734.png" width="1000" height="300" class="img_ev3q"></p>
+<p>Dear Eclipse Tractus-X - and Dataspace-Community,</p>
+<p>It is with great joy and renewed enthusiasm that we invite you to the <strong>Seventh Eclipse Tractus-X Community Days</strong>, taking place on <strong>December 3–4, 2026 at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany)</strong>! 🎉</p>
+<p>Building on the success of our previous six editions, the Community Days once again offer a unique platform for <strong>exchange, innovation, and collaboration</strong> within the Eclipse Tractus-X and Manufacturing-X/Industrie 4.0 ecosystems. Whether it's technical deep dives, open workshops, or strategic discussions — the program is designed for everyone working together on <strong>open, interoperable, and trustworthy data spaces</strong> and looking to drive their implementation in Manufacturing-X projects.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="aftermovie-sixth-eclipse-tractus-x-community-days">Aftermovie: Sixth Eclipse Tractus-X Community Days<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2026#aftermovie-sixth-eclipse-tractus-x-community-days" class="hash-link" aria-label="Direct link to Aftermovie: Sixth Eclipse Tractus-X Community Days" title="Direct link to Aftermovie: Sixth Eclipse Tractus-X Community Days" translate="no">​</a></h3>
+<p>Curious what awaits you in December? Take a look back at the <strong>Sixth Eclipse Tractus-X Community Days</strong> (July 2026) at ARENA2036 — two days of keynotes, workshops, coding challenges, and a community that keeps growing:</p>
+<iframe width="100%" height="550" src="https://www.youtube.com/embed/pXpXXMuLmJ8" title="Sixth Tractus-X Community Days at ARENA2036 – Aftermovie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<p>That's the spirit we want to bring back to Stuttgart in December — and this time, with you in the room.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-attend">Why Attend?<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2026#why-attend" class="hash-link" aria-label="Direct link to Why Attend?" title="Direct link to Why Attend?" translate="no">​</a></h3>
+<p>The Eclipse Tractus-X Community Days are the heartbeat of our open-source ecosystem. Every edition brings together a growing, global community to share knowledge, build connections, and shape the future of the Catena-X data space together.</p>
+<ul>
+<li class="">🌍 <strong>Global Community:</strong> Connect with contributors from across the world — including participants from Manufacturing-X initiatives such as Factory-X, Chem-X, Aerospace-X, Semiconductor-X, Construction-X, and more.</li>
+<li class="">🛠️ <strong>Hands-On Workshops:</strong> Dive deep into technical sessions, practical tutorials, and real-world challenges using the latest Eclipse Tractus-X components and KITs.</li>
+<li class="">💡 <strong>Innovation &amp; Use Cases:</strong> Learn about the latest advancements, new use cases, and release highlights from the Tractus-X ecosystem.</li>
+<li class="">🤝 <strong>Networking:</strong> Forge meaningful connections with fellow contributors, solution providers, and industry leaders in the Catena-X ecosystem.</li>
+<li class="">🎤 <strong>Keynotes &amp; Presentations:</strong> Hear from thought leaders, open-source pioneers, and decision-makers shaping the future of data-driven industries.</li>
+<li class="">🧩 <strong>Coding Challenges:</strong> Take part in exciting coding challenges and hackathon-style sessions that let you contribute directly to the Tractus-X ecosystem.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="would-you-like-to-get-actively-involved">Would You Like to Get Actively Involved?<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2026#would-you-like-to-get-actively-involved" class="hash-link" aria-label="Direct link to Would You Like to Get Actively Involved?" title="Direct link to Would You Like to Get Actively Involved?" translate="no">​</a></h3>
+<p>We are looking for <strong>speakers, workshop facilitators, challenge leaders — and sponsors</strong>. If you would like to share your own story with the community, or accompany the event as a supporter, we would love to hear from you:</p>
+<ul>
+<li class="">🎤 <strong>Give a talk</strong> — present your use case, your product, or the lessons you learned while building data spaces.</li>
+<li class="">🛠️ <strong>Host a workshop</strong> — bring a hands-on session on a Tractus-X component, a KIT, or an integration topic.</li>
+<li class="">🧩 <strong>Run a challenge</strong> — propose a coding challenge or hackathon-style task for the community to solve together.</li>
+<li class="">🤝 <strong>Become a sponsor</strong> — support the event and give your organization visibility across the Tractus-X and Manufacturing-X ecosystems.</li>
+</ul>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Stay tuned — and bring your idea to our Office Hour</div><div class="admonitionContent_BuS1"><p>The fastest way to get your <strong>talk, workshop, challenge, or sponsorship</strong> on the table is to join our <strong><a href="https://eclipse-tractusx.github.io/community/open-meetings#community-office-hour" target="_blank" rel="noopener noreferrer" class="">Community Office Hour</a></strong> — every <strong>Friday, 10:05–11:00 (Europe/Berlin)</strong>, open to everyone, no registration required.</p><p>That is also where we share <strong>all updates about the Community Days first</strong> — including the moment <strong>registration opens</strong>. So: stay tuned, drop by, and say hello! 👋</p></div></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Prefer to write? Reach out via the <a href="https://accounts.eclipse.org/mailing-list/tractusx-dev" target="_blank" rel="noopener noreferrer" class="">Tractus-X mailing list</a>, our <a href="https://matrix.to/#/#tractusx-dev:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Matrix community channel</a>, or contact <strong>Bahaa Ziadah</strong> (Research Coordinator, ARENA2036 e.V.) directly through the <a href="https://arena2036.de/en/reader/seventh-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">ARENA2036 event page</a>.</p></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="temporary-agenda-subject-to-change">Temporary Agenda <em>(subject to change)</em><a href="https://eclipse-tractusx.github.io/blog/community-days-12-2026#temporary-agenda-subject-to-change" class="hash-link" aria-label="Direct link to temporary-agenda-subject-to-change" title="Direct link to temporary-agenda-subject-to-change" translate="no">​</a></h3>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>The final agenda will be published closer to the event. The structure below is a preliminary outline based on our established format. We will update this as speakers and sessions are confirmed.</p></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="day-1">Day 1<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2026#day-1" class="hash-link" aria-label="Direct link to Day 1" title="Direct link to Day 1" translate="no">​</a></h4>
+<table><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td>09:00 – 09:30</td><td>Registration &amp; Welcome Coffee</td></tr><tr><td>09:30 – 10:00</td><td><strong>Opening &amp; Welcome</strong></td></tr><tr><td>10:00 – 10:45</td><td><strong>Keynote: State of Eclipse Tractus-X</strong></td></tr><tr><td>10:45 – 12:00</td><td><strong>Developer Panel &amp; Open Discussion</strong></td></tr><tr><td>12:00 – 13:00</td><td>Lunch</td></tr><tr><td>13:00 – 13:30</td><td>Streams Presentations</td></tr><tr><td>13:30 – 15:30</td><td><strong>Parallel Streams: Presentations · Workshops · Challenges</strong></td></tr><tr><td>15:30 – 16:00</td><td>Coffee Break</td></tr><tr><td>16:00 – 18:00</td><td><strong>Parallel Streams: Presentations · Workshops · Challenges</strong></td></tr><tr><td>18:00 – open end</td><td><strong>Networking Evening Event</strong></td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="day-2">Day 2<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2026#day-2" class="hash-link" aria-label="Direct link to Day 2" title="Direct link to Day 2" translate="no">​</a></h4>
+<table><thead><tr><th>Time</th><th>Session</th></tr></thead><tbody><tr><td>09:00 – 09:30</td><td>Welcome Back &amp; Tech Talk</td></tr><tr><td>09:30 – 12:00</td><td><strong>Continuation of Streams: Workshops · Challenges</strong></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="registration">Registration<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2026#registration" class="hash-link" aria-label="Direct link to Registration" title="Direct link to Registration" translate="no">​</a></h3>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Registration Coming Soon</div><div class="admonitionContent_BuS1"><p>Registration for the Seventh Eclipse Tractus-X Community Days is <strong>not open yet</strong>. There is no registration link available at this time — we will publish it here, on the <a href="https://arena2036.de/en/reader/seventh-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">ARENA2036 event page</a>, and in our community channels as soon as it goes live.</p><p><strong>Save the date: December 3–4, 2026</strong> at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart) — places are limited, so keep an eye out for the announcement!</p><p>👉 <strong>Want to be the first to know?</strong> Join our <strong><a href="https://eclipse-tractusx.github.io/community/open-meetings#community-office-hour" target="_blank" rel="noopener noreferrer" class="">Community Office Hour</a></strong> every Friday at 10:05 (Europe/Berlin) — we announce the registration start, the agenda, and the confirmed speakers there before anywhere else.</p></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="looking-back--our-community-days-journey">Looking Back — Our Community Days Journey<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2026#looking-back--our-community-days-journey" class="hash-link" aria-label="Direct link to Looking Back — Our Community Days Journey" title="Direct link to Looking Back — Our Community Days Journey" translate="no">​</a></h3>
+<p>The Tractus-X Community Days have grown from a small inaugural gathering into a globally recognized open-source event. Here's a look back at our journey so far:</p>
+<ul>
+<li class="">🥇 <strong><a href="https://arena2036.de/en/de/catena-x/tractus-x-community-days" target="_blank" rel="noopener noreferrer" class="">First Eclipse Tractus-X Community Days</a></strong> <em>(December 2023)</em> — The inaugural event that launched our community tradition at ARENA2036</li>
+<li class="">🥈 <strong><a href="https://arena2036.de/en/reader/second-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">Second Eclipse Tractus-X Community Days</a></strong> <em>(May 2024)</em> — Expanded participation, deeper technical sessions, and the first international wave of attendees</li>
+<li class="">🥉 <strong><a href="https://arena2036.de/en/reader/third-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">Third Eclipse Tractus-X Community Days</a></strong> <em>(December 2024)</em> — Over 220 participants from Japan, Spain, the USA, and India — a truly global event</li>
+<li class="">4️⃣ <strong><a href="https://arena2036.de/en/reader/fourth-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">Fourth Eclipse Tractus-X Community Days</a></strong> <em>(May 2025)</em> — International collaboration, exciting use case sharing, and growing Manufacturing-X involvement</li>
+<li class="">5️⃣ <strong><a href="https://arena2036.de/en/reader/fifth-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">Fifth Eclipse Tractus-X Community Days</a></strong> <em>(December 2025)</em> — Another milestone edition bringing the community even closer together</li>
+<li class="">6️⃣ <strong><a href="https://arena2036.de/en/reader/sixth-eclipse-tractus-x-community-days/" target="_blank" rel="noopener noreferrer" class="">Sixth Eclipse Tractus-X Community Days</a></strong> <em>(July 2026)</em> — The "Making Data Spaces Work – Together" special edition — <a class="" href="https://eclipse-tractusx.github.io/blog/community-days-07-2026">read the announcement</a></li>
+</ul>
+<p>Each event has strengthened our community and accelerated open-source innovation in the automotive and manufacturing sectors. We're proud of how far we've come — and excited about what's next!</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="be-part-of-the-future">Be Part of the Future<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2026#be-part-of-the-future" class="hash-link" aria-label="Direct link to Be Part of the Future" title="Direct link to Be Part of the Future" translate="no">​</a></h3>
+<p>The Eclipse Tractus-X Community Days are more than just an event — they are where the open-source community comes together to <strong>build, learn, and collaborate</strong>. Your participation, your ideas, and your contributions are what make this ecosystem thrive.</p>
+<p>Whether you're a <strong>first-time attendee</strong> or a <strong>long-time contributor</strong>, we look forward to welcoming you to Stuttgart on <strong>December 3–4, 2026</strong> for the seventh edition of this remarkable community gathering.</p>
+<p>Let's continue driving open-source innovation together! 🚀</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="about-the-event">About the Event<a href="https://eclipse-tractusx.github.io/blog/community-days-12-2026#about-the-event" class="hash-link" aria-label="Direct link to About the Event" title="Direct link to About the Event" translate="no">​</a></h3>
+<p>The Seventh Eclipse Tractus-X Community Days are an Eclipse Tractus-X event held as part of the <strong>Transformationshub</strong> project (Grant ID: 16THB0003A) and organized by the <strong>Catena-X Automotive Network e.V.</strong> <strong>ARENA2036 e.V.</strong> is hosting the event at its premises and contributing its data space activities (ARENA2036-X).</p>
+<hr>
+<p><em>Stay tuned for updates on registration, the detailed agenda, and confirmed speakers — and join our <a href="https://eclipse-tractusx.github.io/community/open-meetings#community-office-hour" target="_blank" rel="noopener noreferrer" class="">Community Office Hour</a> every Friday to hear them first. Follow us on <a href="https://github.com/eclipse-tractusx" target="_blank" rel="noopener noreferrer" class="">GitHub</a>, <a href="https://matrix.to/#/#tractusx-dev:matrix.eclipse.org" target="_blank" rel="noopener noreferrer" class="">Matrix</a>, and subscribe to the <a href="https://accounts.eclipse.org/mailing-list/tractusx-dev" target="_blank" rel="noopener noreferrer" class="">Tractus-X mailing list</a>.</em></p>]]></content:encoded>
+            <category>community</category>
+            <category>event</category>
+            <category>tractus-x</category>
+            <category>collaboration</category>
+            <category>open-source</category>
+        </item>
         <item>
             <title><![CDATA[Release Planning for Release 27.03]]></title>
             <link>https://eclipse-tractusx.github.io/blog/release-planning-R27.03</link>
@@ -1429,173 +1565,6 @@ expanded range of workshops, challenges and opportunities to collaborate on shap
 to the future of data spaces.</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p><strong>Save the date: May 22-23, 2025</strong> and register <a href="https://eveeno.com/272304835" target="_blank" rel="noopener noreferrer" class="">here</a></p></div></div>
 <p>Let's continue driving open-source innovation together!</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Third Eclipse Tractus-X Community Days Recap]]></title>
-            <link>https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024</link>
-            <guid>https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024</guid>
-            <pubDate>Mon, 16 Dec 2024 11:00:00 GMT</pubDate>
-            <description><![CDATA[A comprehensive overview of the Third Eclipse Tractus-X Community Days held on December 5 and 6, 2024, at ARENA2036 in Stuttgart.]]></description>
-            <content:encoded><![CDATA[<p><a href="https://eclipse-tractusx.github.io/assets/files/tractus-x-community-days-24-12-group-eb17b5f5736773917625a05b87a725de.png" target="_blank" class=""><img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/tractus-x-community-days-24-12-group-eb17b5f5736773917625a05b87a725de.png" width="5448" height="3065" class="img_ev3q"></a></p>
-<p>Dear Tractus-X- and Dataspace-Community,</p>
-<p>The Third Eclipse Tractus-X Community Days, held on December 5 and 6, 2024, at ARENA2036 in Stuttgart, marked a significant milestone in our journey towards fostering
-open-source collaboration within the automotive and manufacturing sectors. Building upon the successes of previous events, this edition attracted over 220 participants
-from diverse regions, including Japan, Spain, the USA, and India, underscoring the growing global interest in the Tractus-X initiative.</p>
-<p>A notable highlight was the increased participation from representatives of Manufacturing-X projects such as Factory-X, Aerospace-X, Semiconductor-X, Chem-X, and Construction-X.
-Their involvement enriched the discussions with fresh perspectives, fostering a broader ecosystem for networking and collaborative development.</p>
-<p>This year's event introduced an updated format tailored to various interests and experience levels, featuring multiple streams, presentations, workshops and challenges.
-This setup provided a comprehensive Tractus-X environment with federated services and use cases, enhancing the hands-on experience for attendees.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="day-1-highlights">Day 1 Highlights<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#day-1-highlights" class="hash-link" aria-label="Direct link to Day 1 Highlights" title="Direct link to Day 1 Highlights" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="welcome-and-keynote">Welcome and Keynote<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#welcome-and-keynote" class="hash-link" aria-label="Direct link to Welcome and Keynote" title="Direct link to Welcome and Keynote" translate="no">​</a></h3>
-<ul>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241205-opening.pdf" target="_blank" rel="noopener noreferrer" class="">Opening</a></strong>
-<ul>
-<li class=""><em>Claus Cremers, Siemens AG and member of the Management Board of Catena-X Automotive Network e.V.</em></li>
-</ul>
-</li>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241205-keynote-stateof-eclipse-tractus-x.pdf" target="_blank" rel="noopener noreferrer" class="">Keynote: State of Eclipse Tractus-X</a></strong>
-<ul>
-<li class=""><em>Evelyn Gurschler, BMW AG and Member of the Self-Sovereign Identity Expert Group</em></li>
-<li class=""><em>Mathias Brunkow Moser, Catena-X Automotive Network e.V.</em></li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stream-1---business-perspective-presentations">Stream #1 - Business Perspective Presentations<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#stream-1---business-perspective-presentations" class="hash-link" aria-label="Direct link to Stream #1 - Business Perspective Presentations" title="Direct link to Stream #1 - Business Perspective Presentations" translate="no">​</a></h3>
-<ul>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241205-catena-x-ecosystem.pdf" target="_blank" rel="noopener noreferrer" class="">Introduction of Catena-X and its Ecosystem</a></strong>
-<ul>
-<li class=""><em>Michael Hahn, Catena-X Automotive Network e.V.</em></li>
-</ul>
-</li>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241205-technical-features-of-catena-x-implementation-in-tractus-x.pdf" target="_blank" rel="noopener noreferrer" class="">Catena-X and Tractus-X - The technical features of Catena-X and its implmentation with Tractus-X</a></strong>
-<ul>
-<li class=""><em>Johannes Diemer, ARENA2036 e.V.</em></li>
-</ul>
-</li>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241205-industry-core.pdf" target="_blank" rel="noopener noreferrer" class="">Introduction to Industry Core - Building data chains for vehicles</a></strong>
-<ul>
-<li class=""><em>Gabriele Eckardt, BASF Digital Solutions GmbH and Lead of the Industry Core Committee</em></li>
-</ul>
-</li>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241205-customer-involvement-why-feedback-matters.pdf" target="_blank" rel="noopener noreferrer" class="">Customer Involvement: Why Feedback Matters</a></strong>
-<ul>
-<li class=""><em>Heiko Musa, BMW AG and Lead of the Customer Involvement Expert Group</em></li>
-</ul>
-</li>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241205-build-features-on-top-of-open-source.pdf" target="_blank" rel="noopener noreferrer" class="">How Sovity Builds Features on Top of Eclipse Tractus-X</a></strong>
-<ul>
-<li class=""><em>Sebastian Opriel, Sovity GmbH and Member of the Dataspace Connectivity Expert Group</em></li>
-</ul>
-</li>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241205-realize-value-dataspace-os-nova.pdf" target="_blank" rel="noopener noreferrer" class="">Realize Instant Value for SMEs with Dataspace OS NOVA</a></strong>
-<ul>
-<li class=""><em>Niklas Midolo, Cofinity-X</em></li>
-</ul>
-</li>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241206-aas-tractus-x-meets-wiring-harness.pdf" target="_blank" rel="noopener noreferrer" class="">Tractus-X Meets Wiring Harness</a></strong>
-<ul>
-<li class=""><em>Christian Kosel, ARENA2036 e.V.</em></li>
-</ul>
-</li>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241205-catena-x-pcf-data-exchange-usecase-ford.pdf" target="_blank" rel="noopener noreferrer" class="">Catena-X PCF Data Exchange Use Case : FORD - Flex Success Story</a></strong>
-<ul>
-<li class=""><em>Stan Faldin, Catena-X Automotive Network e.V</em></li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stream-2---workshopstutorials">Stream #2 - Workshops/Tutorials<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#stream-2---workshopstutorials" class="hash-link" aria-label="Direct link to Stream #2 - Workshops/Tutorials" title="Direct link to Stream #2 - Workshops/Tutorials" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>EDC Tutorial / Dataspace Connectivity</strong>
-<ul>
-<li class=""><em>led by Stephan Bauer, Catena-X Automotive Network e.V.</em></li>
-</ul>
-</li>
-<li class=""><strong>Digital Product Passport 2.0</strong>
-<ul>
-<li class=""><em>led by Mathias Brunkow Moser, Catena-X Automotive Network e.V.</em></li>
-</ul>
-</li>
-<li class=""><strong>Successful Test Automation with Open-Source Methods</strong>
-<ul>
-<li class=""><em>led by Harald Zimmer, doubleSlash and Test Manager</em></li>
-</ul>
-</li>
-<li class=""><strong>Modelling for SAMM and AAS with ESMF Editor and AASX Package Explorer</strong>
-<ul>
-<li class=""><em>led by Dr. Birgit Boss, Robert Bosch GmbH and Lead of the Technical Committee for Modelling</em></li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stream-3---challenges-coding">Stream #3 - Challenges: Coding<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#stream-3---challenges-coding" class="hash-link" aria-label="Direct link to Stream #3 - Challenges: Coding" title="Direct link to Stream #3 - Challenges: Coding" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>Challenge #1: Industry Core - FOSS IRS App</strong>
-<ul>
-<li class=""><em>led by Gabriele Eckardt, BASF Digital Solutions GmbH and Lead of the Industry Core Committee</em></li>
-</ul>
-</li>
-<li class=""><strong>Challenge #2: Hackathon - Develop a Tutorial for an EDC-based Chat App</strong>
-<ul>
-<li class=""><em>led by Sebastian Opriel, Sovity GmbH and Member of the Dataspace Connectivity Expert Group</em></li>
-</ul>
-</li>
-<li class=""><strong>Challenge #3: BaSyx as Digital Twin Registry</strong>
-<ul>
-<li class=""><em>led by Frank Schnicke, Fraunhofer IESE</em></li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="developer-panel">Developer Panel<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#developer-panel" class="hash-link" aria-label="Direct link to Developer Panel" title="Direct link to Developer Panel" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>Tractus-X, The Place to Come Together</strong>
-<ul>
-<li class=""><em>Daniel Miehle, BMW AG</em></li>
-<li class=""><em>Maximilian Ong, Mercedes-Benz AG</em></li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="evening-event">Evening Event<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#evening-event" class="hash-link" aria-label="Direct link to Evening Event" title="Direct link to Evening Event" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>Networking and discussions continued</strong> at the ARENA2036, fostering community building and collaboration.</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="day-2-highlights">Day 2 Highlights<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#day-2-highlights" class="hash-link" aria-label="Direct link to Day 2 Highlights" title="Direct link to Day 2 Highlights" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tech-talk">Tech Talk<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#tech-talk" class="hash-link" aria-label="Direct link to Tech Talk" title="Direct link to Tech Talk" translate="no">​</a></h3>
-<ul>
-<li class=""><strong><a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles/raw/refs/heads/main/presentations/24-12-community-days/241206-tech-talk-the-dataspace-future.pdf" target="_blank" rel="noopener noreferrer" class="">The Future of the EDC, decentral Wallets and other Domain Topics</a></strong> - <em>by Lars Geyer-Blaumeiser, Senior Software Architect Cofinity-X.</em></li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="continuation-of-streams">Continuation of Streams<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#continuation-of-streams" class="hash-link" aria-label="Direct link to Continuation of Streams" title="Direct link to Continuation of Streams" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>Participants engaged in advanced workshops</strong>, tutorials, and coding challenges, deepening their understanding and application of Tractus-X tools and concepts.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="closing-session">Closing Session<a href="https://eclipse-tractusx.github.io/blog/community-days-recap-12-2024#closing-session" class="hash-link" aria-label="Direct link to Closing Session" title="Direct link to Closing Session" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>Summarization of key takeaways</strong> and discussions on future directions for the Tractus-X community.</li>
-</ul>
-<p>The Third Eclipse Tractus-X Community Days not only showcased the rapid advancements in open-source solutions for the automotive industry but also highlighted the importance
-of community engagement in driving innovation. The collaborative spirit and shared vision exhibited during the event set a promising trajectory for the future of Tractus-X and its expanding ecosystem.</p>
-<p>As the community continues to grow, the insights and connections made during these days will undoubtedly play a pivotal role in shaping the next generation of digital ecosystems and collaborative
-data exchanges.</p>
-<p><em>Stay tuned for announcements regarding future events and opportunities to engage with the Eclipse Tractus-X community.</em></p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Unified Design and Color Scheme for KIT Icons]]></title>
-            <link>https://eclipse-tractusx.github.io/blog/unified-design-color-kits</link>
-            <guid>https://eclipse-tractusx.github.io/blog/unified-design-color-kits</guid>
-            <pubDate>Mon, 16 Dec 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[Unified Design and Color Scheme for All KIT Icons]]></description>
-            <content:encoded><![CDATA[<p><img decoding="async" loading="lazy" alt="KITs landscape" src="https://eclipse-tractusx.github.io/assets/images/KIT_landscape.drawio-66c73011fc11ae062eee5e8333b00267.svg" class="img_ev3q"></p>
-<p>Hello Tractus-X community,</p>
-<p>We are excited to announce a major update to the design of our KIT icons! We have implemented a new, unified design and color scheme that improves consistency, readability, and visual cohesion across all KITs. With this update, all icons now follow a standardized layout that visually connects them while still allowing room for individuality. The new layout enhances the overall user experience and ensures a more polished look in the gallery and beyond.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-unified-layout-for-a-unified-experience">A Unified Layout for a Unified Experience<a href="https://eclipse-tractusx.github.io/blog/unified-design-color-kits#a-unified-layout-for-a-unified-experience" class="hash-link" aria-label="Direct link to A Unified Layout for a Unified Experience" title="Direct link to A Unified Layout for a Unified Experience" translate="no">​</a></h2>
-<p>Color plays a critical role in differentiating KITs and making them visually accessible. To achieve this, we have updated the color scheme to strike a balance between shared identity and unique representation:</p>
-<ul>
-<li class="">KITs within the same domain now share a common base color to symbolize their connection,</li>
-<li class="">Each KIT retains its own accent color to emphasize its unique scope.</li>
-</ul>
-<p>This ensures that each KIT is still easily identifiable while reinforcing its association with the broader domain. We have also adjusted the primary color for certain KIT to improve readability and contrast. These changes are particularly noticeable in the KIT gallery, where some older color choices made text and icons harder to read.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-these-changes-matter">Why These Changes Matter<a href="https://eclipse-tractusx.github.io/blog/unified-design-color-kits#why-these-changes-matter" class="hash-link" aria-label="Direct link to Why These Changes Matter" title="Direct link to Why These Changes Matter" translate="no">​</a></h2>
-<p>Consistency and clarity are key to making our open source project accessible and enjoyable for everyone. By unifying the design and refining the color scheme, we’re making navigation easier, improving accessibility and creating a cohesive identity.</p>
-<p>All color codes can he found <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/kit-colors.md" target="_blank" rel="noopener noreferrer" class="">here</a>.</p>]]></content:encoded>
-            <author>thibault.grandemenge@catena-x.net (Thibault Grandemenge)</author>
         </item>
     </channel>
 </rss>
