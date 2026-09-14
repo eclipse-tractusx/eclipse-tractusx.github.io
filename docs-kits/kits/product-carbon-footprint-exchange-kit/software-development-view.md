@@ -150,34 +150,11 @@ For Synchronous PCF Data Exchange, the Data Provider must register a PCF submode
 
 The Material Twin can be resolved using `manufacturerPartId` or `customerPartId` and `digitalTwinType=PartType`.
 
-<details>
-    <summary>PCF v10 submodel descriptor on a Digital Twin (JSON) missing!</summary>
-
-```json
-{
-    missing
-}
-```
-
-
-</details>
-
 #### Payloads for EDC Asset
 
 ##### PCF Exchange API Data Asset
 
 The asynchronous PCF Exchange API v1.3.0 must be offered as a connector data asset with an associated contract offer according to CX-0018. Its asset properties must include `cx-common:version` set to `"1.3.0"` and `dct:type` set to `{"@id":"cx-taxo:PcfExchange"}`.
-
-<details>
-    <summary>PCF Exchange API v1.3.0 asset definition (JSON) </summary>
-
-```json
-{
-   missing
-}
-```
-
-</details>
 
 #### Connector Policy and Contract Definition
 
