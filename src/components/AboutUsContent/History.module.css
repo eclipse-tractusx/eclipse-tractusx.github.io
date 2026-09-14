@@ -137,6 +137,11 @@
   box-shadow: 0 0 0 5px var(--ifm-background-color), 0 0 0 9px #faa02355;
 }
 
+/* Leave room below the card for the funding-amount popover of the badge. */
+.highlight {
+  margin-bottom: 3.5rem;
+}
+
 .highlight .card {
   border-color: var(--ifm-color-primary);
   background:
