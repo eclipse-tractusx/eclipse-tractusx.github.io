@@ -1,123 +1,419 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+/* Copyright (c) 2026 Contributors to the Eclipse Foundation
+ * SPDX-License-Identifier: Apache-2.0
  */
 
- .about_content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: var(--ifm-background-color);
+.about_content {
+  --about-surface: #f6f7f9;
+  --about-border: #dce0e5;
+  --about-muted: #505a68;
+  --about-orange: #925200;
+  --about-pink: #b01970;
+  --about-green: #25733f;
+  --about-purple: #7341ba;
+  --about-blue: #1f5fbf;
+  background: var(--ifm-background-color);
+}
+
+:global([data-theme='dark']) .about_content {
+  --about-surface: #12151a;
+  --about-border: #323944;
+  --about-muted: #b6beca;
+  --about-orange: #ffba56;
+  --about-pink: #f18cc7;
+  --about-green: #80d69a;
+  --about-purple: #be9aef;
+  --about-blue: #8fb4f5;
 }
 
 .container {
-  width: 50vw;
-  height: auto;
+  width: min(1200px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 4.5rem 0;
+}
+
+.intro {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--about-orange);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.intro h2,
+.sectionHeading h2 {
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.intro > p:last-child {
+  color: var(--about-muted);
+  line-height: 1.8;
+}
+
+.section {
+  margin-top: 5rem;
+}
+
+.dataspaceNetwork {
+  margin-top: 3rem;
+  min-width: 0;
+}
+
+.organizationSource {
+  margin-top: 1rem;
+  color: var(--about-muted);
+  font-size: 0.8rem;
+}
+
+.sectionHeading {
+  max-width: 780px;
+  margin-bottom: 2rem;
+}
+
+.sectionHeading > p:last-child {
+  color: var(--about-muted);
+}
+
+.ecosystem {
+  margin: 0;
+  padding: 2rem;
+  border: 1px solid var(--about-border);
+  border-radius: 24px;
+  background: var(--about-surface);
+}
+
+.ecosystemContext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--about-border);
+  font-size: 0.9rem;
+}
+
+.contextDot {
+  flex: 0 0 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #729deb;
+}
+
+.ecosystemMap {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-areas: '. projects .' 'association hub industries' '. companies .';
+  gap: 2.25rem;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.node {
+  position: relative;
+  min-width: 0;
+  padding: 1.3rem;
+  border: 1px solid var(--about-border);
+  border-top: 3px solid var(--node-accent);
+  border-radius: 12px;
+  background: var(--ifm-background-color);
+}
+
+.nodeType {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: var(--node-accent, var(--about-orange));
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.node h3 {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin-bottom: 0.55rem;
+}
+
+.node p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--about-muted);
+  margin: 0;
+}
+
+.projects {
+  --node-accent: var(--about-pink);
+  grid-area: projects;
+  align-self: end;
+}
+
+.associations {
+  grid-area: association;
   display: flex;
   flex-direction: column;
+  gap: 2.25rem;
+  min-width: 0;
+}
+
+.association {
+  --node-accent: var(--about-orange);
+}
+
+.idsa {
+  --node-accent: var(--about-blue);
+}
+
+.industries {
+  --node-accent: var(--about-green);
+  grid-area: industries;
+}
+
+.companies {
+  --node-accent: var(--about-purple);
+  grid-area: companies;
+  align-self: start;
+}
+
+.hub {
+  grid-area: hub;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem 1rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 20px;
+  background: radial-gradient(ellipse at top, #faa02320, transparent 75%), var(--ifm-background-color);
+  text-align: center;
+  box-shadow: 0 8px 32px #faa02310;
+}
+
+.hubLogo {
+  width: 130px;
+  height: 75px;
+  margin-bottom: 1rem;
+}
+
+.hub h3 {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  margin-bottom: 0.8rem;
+}
+
+.hub p {
+  font-size: 0.95rem;
+  color: var(--about-muted);
+}
+
+.hubTags,
+.initiativeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hubTags {
+  justify-content: center;
+}
+
+.hubTags li,
+.initiativeList li {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--about-border);
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.initiativeList {
+  margin: 1rem 0;
+}
+
+.initiativeList li {
+  color: var(--about-green);
+}
+
+.horizontalConnector,
+.verticalConnector {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--about-muted);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.horizontalConnector {
+  width: 2.25rem;
+  right: -2.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.industries .horizontalConnector {
+  right: auto;
+  left: -2.25rem;
+}
+
+.verticalConnector {
+  height: 2.25rem;
+  bottom: -2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.companies .verticalConnector {
+  bottom: auto;
+  top: -2.25rem;
+}
+
+.ecosystem figcaption {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--about-muted);
+  font-size: 0.8rem;
+}
+
+.contributions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contribution,
+.infoCard {
+  padding: 1.75rem;
+  border: 1px solid var(--about-border);
+  border-radius: 16px;
+}
+
+.stepHeader {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem; 
-  padding-bottom: 6rem;
+  margin-bottom: 1.5rem;
+  color: var(--about-orange);
 }
 
-.title_container {
-  width: 100%;
-  height: auto;
-  padding-top: 4rem;
+.stepHeader svg {
+  font-size: 2rem;
 }
 
-.box_container {
-  margin: auto;
+.stepNumber {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--about-muted);
 }
 
-.box_container div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.contribution h3,
+.infoCard h3 {
+  font-size: 1.15rem;
 }
 
-.text {
-  flex-direction: column;
-  align-items: flex-start !important;
-  margin-left: 20px;
+.contribution p,
+.infoCard p {
+  line-height: 1.8;
+  color: var(--about-muted);
 }
 
-.logo {
-  padding: 25px;
-  width: 120px;
+.contribution p {
+  margin-bottom: 0;
 }
 
-.text p {
-  display: block;
-  text-align: left;
-  padding-bottom: 0px !important;
-  margin-bottom: 0px !important;
-  width: 600px;
+.twoColumns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
 }
 
-.img_container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 2rem 0;
+.infoCard {
+  background: var(--about-surface);
 }
 
-.img_container:last-of-type {
-  justify-content: flex-start;
+.infoCard a {
+  color: var(--about-orange);
+  font-weight: 700;
 }
 
-.img {
-  width: 75%;
-  height: auto;
+.workingGroup {
+  border-top: 3px solid #729deb;
 }
 
 .licenses {
-  width: 65%;
+  margin: 1.5rem 0 0;
+  color: var(--about-muted);
+  font-size: 0.9rem;
 }
 
-@media screen and (max-width: 996px) {
-  .container {
-    width: 80vw;
-    height: auto;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 2rem;
-    gap: 3rem;
+@media (max-width: 996px) {
+  .ecosystemMap {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'hub hub' 'projects association' 'industries companies';
+    gap: 1rem;
+    align-items: stretch;
   }
 
-  .title_container {
-    padding-top: 3rem;
+  .projects,
+  .companies {
+    align-self: stretch;
   }
 
-  .img {
-    width: 80%;
+  .associations {
+    gap: 1rem;
   }
 
-  .licenses {
-    width: 80%;
+  .horizontalConnector,
+  .verticalConnector {
+    display: none;
   }
 
-  .text p {
-    width: 300px;
+  .contributions {
+    grid-template-columns: 1fr;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .container {
-    width: 70vw;
+    width: calc(100% - 2rem);
+    padding: 3rem 0;
   }
 
-  .img {
-    width: 100%;
+  .section {
+    margin-top: 3rem;
   }
 
-  .licenses {
-    width: 100%;
+  .ecosystem {
+    padding: 1rem;
+    border-radius: 16px;
   }
 
-  .text p {
-    width: 300px;
+  .ecosystemMap {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'hub' 'association' 'projects' 'industries' 'companies';
   }
+
+  .twoColumns {
+    grid-template-columns: 1fr;
+  }
+
 }

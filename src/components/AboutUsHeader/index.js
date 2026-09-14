@@ -30,7 +30,7 @@ export default function AboutUsHeader() {
       <header className={styles.about_header}>
       {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
         <ThemedImage
-          // alt="Docusaurus themed image hero background"
+          alt=""
           sources={{
             light: ('/img/main-bg-light.png'),
             dark: ('/img/main_bg-min.png'),
@@ -41,12 +41,14 @@ export default function AboutUsHeader() {
       {/* Content of the component */}
         <div className={styles.container}>
           <div className={styles.svg_container}>
-            <TractusXSvg className={styles.svg}/>
+            <TractusXSvg className={styles.svg} aria-hidden="true"/>
           </div>
           <div className={styles.information_container}>
-            <h1 className="headers-title-h1">About Tractus X</h1>
+            <h1 className="headers-title-h1">About Eclipse Tractus-X</h1>
             <p className={styles.subtitle}>
-              Eclipse Tractus-X™ — Where we build dataspaces! A collaborative, open-source project aimed at driving the digital transformation of various industries, enabling secure, self-sovereign and efficient data exchange across the supply chain.
+              Many organizations. One open-source community. We bring together
+              industry initiatives, technology projects, and companies to build
+              dataspaces that work across industries.
             </p>
           </div>
         </div>

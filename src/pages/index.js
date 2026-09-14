@@ -41,6 +41,7 @@ import UpcomingEvents from "@site/src/components/UpcomingEvents";
 import CommunitySneakPeek from "@site/src/components/CommunitySneakPeek";
 import SectionDivider from "@site/src/components/SectionDivider";
 import ProductSelection from "@site/src/components/ProductSelection";
+import OrganizationCarousel from "@site/src/components/OrganizationCarousel";
 import CategoryIcon from '@mui/icons-material/Category';
 import ExtensionIcon from '@mui/icons-material/Extension';
 
@@ -63,6 +64,7 @@ export default function Home() {
       <HomePageHeader />
       <main>
         <AboutUsCard {...aboutInput} />
+        <OrganizationCarousel title="Our Community Partners" subtitle="Organizations that contribute to our open source code" />
         <CommunitySneakPeek />
         <UpcomingEvents />
         <SectionDivider title="Our Products" icon={CategoryIcon} />

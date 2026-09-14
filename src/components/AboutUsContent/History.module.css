@@ -1,0 +1,258 @@
+/* Copyright (c) 2026 Contributors to the Eclipse Foundation
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+.timeline {
+  --spine: linear-gradient(180deg, transparent, #3a2a17 4%, #b86e14 55%, #faa023 92%, transparent);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  list-style: none;
+}
+
+:global([data-theme='dark']) .timeline {
+  --spine: linear-gradient(180deg, transparent, #6b7280 4%, #c07a28 55%, #ffba56 92%, transparent);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--spine);
+}
+
+.milestone {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4rem minmax(0, 1fr);
+  align-items: start;
+}
+
+.dot {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  width: 16px;
+  height: 16px;
+  margin-top: 1.6rem;
+  border-radius: 50%;
+  background: var(--about-orange);
+  box-shadow: 0 0 0 5px var(--ifm-background-color), 0 0 0 7px color-mix(in srgb, var(--about-orange) 35%, transparent);
+}
+
+.date {
+  grid-row: 1;
+  padding-top: 1.15rem;
+  color: var(--about-orange);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.card {
+  grid-row: 1;
+  position: relative;
+  padding: 1.5rem 1.6rem;
+  border: 1px solid var(--about-border);
+  border-radius: 20px;
+  background: var(--about-surface);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--about-orange) 45%, var(--about-border));
+  box-shadow: 0 14px 36px rgb(0 0 0 / 8%);
+}
+
+/* Cards alternate sides of the spine. */
+.milestone:nth-child(odd) .date {
+  grid-column: 1;
+  text-align: right;
+}
+
+.milestone:nth-child(odd) .card {
+  grid-column: 3;
+}
+
+.milestone:nth-child(even) .date {
+  grid-column: 3;
+}
+
+.milestone:nth-child(even) .card {
+  grid-column: 1;
+}
+
+.card h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.card p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--about-muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--about-orange) 12%, transparent);
+  color: var(--about-orange);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.highlight .dot {
+  width: 20px;
+  height: 20px;
+  margin-top: 1.45rem;
+  background: var(--ifm-color-primary);
+  box-shadow: 0 0 0 5px var(--ifm-background-color), 0 0 0 9px #faa02355;
+}
+
+.highlight .card {
+  border-color: var(--ifm-color-primary);
+  background:
+    radial-gradient(ellipse at top right, #faa02324, transparent 65%),
+    var(--about-surface);
+  box-shadow: 0 12px 40px #faa02318;
+}
+
+.highlight .card h3 {
+  font-size: 1.35rem;
+}
+
+.future .dot {
+  background: var(--ifm-background-color);
+  box-shadow: 0 0 0 5px var(--ifm-background-color), 0 0 0 7px var(--about-orange);
+}
+
+.future .date {
+  color: var(--about-muted);
+}
+
+.future .card {
+  border-style: dashed;
+  background: transparent;
+}
+
+.accelerator {
+  display: flex;
+  flex-direction: column;
+}
+
+.partnersLabel {
+  margin: 1.25rem 0 0.6rem;
+  color: var(--about-orange);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.partners {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.partners a {
+  display: grid;
+  place-items: center;
+  height: 64px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--about-border);
+  border-radius: 12px;
+  /* Logos are designed for light backgrounds, so keep the tile white in both themes. */
+  background: #fff;
+  transition: border-color 200ms ease;
+}
+
+.partners a:hover,
+.partners a:focus-visible {
+  border-color: var(--ifm-color-primary);
+}
+
+.partners img {
+  max-width: 100%;
+  max-height: 40px;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 996px) {
+  .timeline {
+    gap: 1.75rem;
+  }
+
+  .timeline::before {
+    left: 9px;
+    transform: none;
+  }
+
+  .milestone {
+    grid-template-columns: 20px minmax(0, 1fr);
+    column-gap: 1.25rem;
+  }
+
+  .dot {
+    grid-column: 1;
+    margin-top: 0.35rem;
+  }
+
+  .highlight .dot {
+    margin-top: 0.25rem;
+  }
+
+  .milestone:nth-child(n) .date {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0 0 0.6rem;
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+  .milestone:nth-child(n) .card {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 1.25rem;
+  }
+
+}
