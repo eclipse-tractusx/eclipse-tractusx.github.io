@@ -106,9 +106,17 @@
   }
   
   @media screen and (max-width: 600px) {
+    /* Let the hero shrink to its content so the news ticker sits right under
+       the buttons instead of being pushed to the bottom of a 71vh box. */
+    .heroBanner {
+      min-height: 0;
+    }
+
     .container {
+      flex: 0 0 auto;
       justify-content: flex-start;
       padding-top: 30%;
+      padding-bottom: 1.5rem;
     }
   
     .title {
