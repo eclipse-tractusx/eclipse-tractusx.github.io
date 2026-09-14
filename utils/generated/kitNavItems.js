@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: da8535c734b19e871b339f4fcc24af32b5f4969ed56628e9643f6650fe824d7c
+ * Content hash: cc2c9357a897d9a05729bc9f871460547353797bd5d67f209e8f2f170c6c3663
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -37,31 +37,36 @@ const kitsByCategory = {
       "id": "connector",
       "name": "CONNECTOR KIT",
       "route": "/docs-kits/kits/connector-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Enablement Service"
     },
     {
       "id": "data-governance",
       "name": "DATA GOVERNANCE KIT",
       "route": "/docs-kits/kits/data-governance-kit/adoption-view",
-      "deprecated": true
+      "deprecated": true,
+      "domain": "Governance"
     },
     {
       "id": "data-trust-security",
       "name": "DATA TRUST & SECURITY KIT",
       "route": "/docs-kits/kits/data-trust-and-security-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Security"
     },
     {
       "id": "business-partner",
       "name": "BUSINESS PARTNER KIT",
       "route": "/docs-kits/kits/business-partner-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Participant Management"
     },
     {
       "id": "digital-twin",
       "name": "DIGITAL TWIN KIT",
       "route": "/docs-kits/kits/digital-twin-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Enablement Service"
     }
   ],
   "industryCoreFoundation": [
@@ -69,37 +74,43 @@ const kitsByCategory = {
       "id": "industry-core",
       "name": "INDUSTRY CORE KIT",
       "route": "/docs-kits/kits/industry-core-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Use Case Platform"
     },
     {
       "id": "data-chain",
       "name": "DATA CHAIN KIT",
       "route": "/docs-kits/kits/data-chain-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Traceability"
     },
     {
       "id": "traceability",
       "name": "TRACEABILITY KIT",
       "route": "/docs-kits/kits/traceability-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Traceability"
     },
     {
       "id": "supply-chain-disruption",
       "name": "SUPPLY CHAIN DISRUPTION NOTIFICATION KIT",
       "route": "/docs-kits/kits/supply-chain-disruption-notification-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Supply Chain"
     },
     {
       "id": "agents",
       "name": "KNOWLEDGE AGENTS KIT",
       "route": "/docs-kits/kits/knowledge-agents-kit/adoption-view/intro",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Enablement Service"
     },
     {
       "id": "ai-service",
       "name": "AI SERVICE KIT",
       "route": "/docs-kits/kits/ai-service-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Artificial Intelligence (AI)"
     }
   ],
   "useCases": [
@@ -107,115 +118,134 @@ const kitsByCategory = {
       "id": "esdscom",
       "name": "eSDS COMMUNICATION KIT",
       "route": "/docs-kits/next/kits/esdscom-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Supply Chain"
     },
     {
       "id": "ess",
       "name": "ESS KIT",
       "route": "/docs-kits/kits/environmental-and-social-standards-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Sustainability"
     },
     {
       "id": "pcf",
       "name": "PRODUCT CARBON FOOTPRINT KIT",
       "route": "/docs-kits/kits/product-carbon-footprint-exchange-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Sustainability"
     },
     {
       "id": "cbam",
       "name": "CBAM KIT",
       "route": "/docs-kits/kits/cbam-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Sustainability"
     },
     {
       "id": "eco-pass",
       "name": "ECO PASS KIT",
       "route": "/docs-kits/kits/eco-pass-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Sustainability"
     },
     {
       "id": "circularity",
       "name": "CIRCULARITY KIT",
       "route": "/docs-kits/kits/circularity-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Sustainability"
     },
     {
       "id": "material-accounting",
       "name": "MATERIAL ACCOUNTING KIT",
       "route": "/docs-kits/next/kits/material-accounting-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Sustainability"
     },
     {
       "id": "due-diligence",
       "name": "DUE DILIGENCE CHECK KIT",
       "route": "/docs-kits/kits/due-diligence-check-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Sustainability"
     },
     {
       "id": "dcm",
       "name": "DEMAND & CAPACITY MANAGEMENT KIT",
       "route": "/docs-kits/kits/demand-and-capacity-management-kit/adoption-view/overview",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Supply Chain"
     },
     {
       "id": "logistics",
       "name": "LOGISTICS KIT",
       "route": "/docs-kits/kits/logistics-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Supply Chain"
     },
     {
       "id": "customs",
       "name": "CUSTOMS KIT",
       "route": "/docs-kits/kits/customs-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Supply Chain"
     },
     {
       "id": "osim",
       "name": "ONLINE SIMULATION KIT",
       "route": "/docs-kits/kits/online-simulation-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Supply Chain"
     },
     {
       "id": "puris",
       "name": "PURIS KIT",
       "route": "/docs-kits/kits/puris-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Supply Chain"
     },
     {
       "id": "model-based-production",
       "name": "MODEL BASED PRODUCTION KIT",
       "route": "/docs-kits/kits/model-based-development-and-data-processing-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Engineering"
     },
     {
       "id": "behavior-twin",
       "name": "BEHAVIOUR TWIN KIT",
       "route": "/docs-kits/kits/behaviour-twin-kit/overview",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Simulations"
     },
     {
       "id": "data-driven-quality",
       "name": "DATA DRIVEN QUALITY KIT",
       "route": "/docs-kits/kits/data-driven-quality-management-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Quality"
     },
     {
       "id": "requirements",
       "name": "REQUIREMENTS KIT",
       "route": "/docs-kits/kits/requirements-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Engineering"
     },
     {
       "id": "geometry",
       "name": "GEOMETRY KIT",
       "route": "/docs-kits/kits/geometry-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Engineering"
     },
     {
       "id": "ccm",
       "name": "COMPANY CERTIFICATE MANAGEMENT KIT",
       "route": "/docs-kits/kits/company-certificate-management-kit/adoption-view",
-      "deprecated": false
+      "deprecated": false,
+      "domain": "Master Data Management"
     }
   ],
   "industryKits": {
@@ -224,25 +254,29 @@ const kitsByCategory = {
         "id": "pcf-data-acquisition",
         "name": "PCF DATA ACQUISITION KIT",
         "route": "/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view",
-        "deprecated": false
+        "deprecated": false,
+        "domain": "Sustainability"
       },
       {
         "id": "autonomous-operation",
         "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",
         "route": "/docs-kits/next/kits/autonomous-operation-kit/adoption-view",
-        "deprecated": false
+        "deprecated": false,
+        "domain": "Production"
       },
       {
         "id": "maas",
         "name": "MANUFACTURING AS A SERVICE KIT",
         "route": "/docs-kits/next/kits/manufacturing-as-a-service-kit/adoption-view",
-        "deprecated": false
+        "deprecated": false,
+        "domain": "Production"
       },
       {
         "id": "modular-production",
         "name": "MODULAR PRODUCTION KIT",
         "route": "/docs-kits/kits/modular-production-kit/adoption-view",
-        "deprecated": false
+        "deprecated": false,
+        "domain": "Production"
       }
     ],
     "semiconductor": [
@@ -250,7 +284,8 @@ const kitsByCategory = {
         "id": "unit-process-as-a-service",
         "name": "Unit Process as a Service KIT",
         "route": "/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view",
-        "deprecated": false
+        "deprecated": false,
+        "domain": "Semiconductor Manufacturing"
       }
     ],
     "automotive": [
@@ -258,13 +293,15 @@ const kitsByCategory = {
         "id": "modular-engineering",
         "name": "MODULAR ENGINEERING KIT",
         "route": "/docs-kits/kits/modular-engineering-kit/adoption-view",
-        "deprecated": false
+        "deprecated": false,
+        "domain": "Engineering"
       },
       {
         "id": "engineering-as-a-service",
         "name": "ENGINEERING AS A SERVICE KIT",
         "route": "/docs-kits/kits/engineering-as-a-service-kit/adoption-view",
-        "deprecated": false
+        "deprecated": false,
+        "domain": "Engineering"
       }
     ]
   }
@@ -347,14 +384,45 @@ function generateKitNavItems() {
       className: 'kit-category-header'
     });
     
-    const sortedKits = kitsByCategory.useCases
-      .sort((a, b) => a.name.localeCompare(b.name));
+    const domainOrder = ['Engineering', 'Sustainability', 'Supply Chain', 'Quality', 'Master Data Management', 'Simulations'];
+    const domainGroups = new Map();
     
-    sortedKits.forEach(kit => {
+    kitsByCategory.useCases.forEach(kit => {
+      const domain = kit.domain || 'Other';
+      if (!domainGroups.has(domain)) {
+        domainGroups.set(domain, []);
+      }
+      domainGroups.get(domain).push(kit);
+    });
+    
+    const sortedDomains = [...domainGroups.keys()].sort((a, b) => {
+      const aIndex = domainOrder.indexOf(a);
+      const bIndex = domainOrder.indexOf(b);
+      if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+      if (aIndex !== -1) return -1;
+      if (bIndex !== -1) return 1;
+      return a.localeCompare(b);
+    });
+    
+    sortedDomains.forEach(domain => {
+      const domainTo = domain === 'Engineering'
+        ? '/Kits/cross-industry/engineering'
+        : '/Kits/cross-industry';
       items.push({
-        to: kit.route,
-        label: '  ' + formatKitLabel(kit.name),
-        className: 'kit-nav-item'
+        to: domainTo,
+        label: domain.toUpperCase(),
+        className: 'kit-domain-subheader'
+      });
+      
+      const sortedKits = domainGroups.get(domain)
+        .sort((a, b) => a.name.localeCompare(b.name));
+      
+      sortedKits.forEach(kit => {
+        items.push({
+          to: kit.route,
+          label: '    ' + formatKitLabel(kit.name),
+          className: 'kit-nav-item'
+        });
       });
     });
   }

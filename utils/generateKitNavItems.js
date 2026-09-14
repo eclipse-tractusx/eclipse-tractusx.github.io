@@ -40,7 +40,7 @@ const relevantContent = kitsDataContent.substring(dataStartIndex);
 
 // Extract kit objects using regex with their section context
 // This looks for objects with id, name, and route properties
-const kitMatches = relevantContent.matchAll(/{\s*id:\s*['"]([^'"<]+)['"]\s*,\s*name:\s*['"]([^'"<]+)['"]\s*,[\s\S]*?route:\s*['"]([^'"<]+)['"]\s*,[\s\S]*?deprecated:\s*(true|false)/g);
+const kitMatches = relevantContent.matchAll(/{\s*id:\s*['"]([^'"<]+)['"]\s*,\s*name:\s*['"]([^'"<]+)['"]\s*,[\s\S]*?route:\s*['"]([^'"<]+)['"]\s*,[\s\S]*?deprecated:\s*(true|false)(?:,\s*domain:\s*['"]([^'"]*)['"])?/g);
 
 // Organize KITs by category
 const kitsByCategory = {
@@ -62,6 +62,7 @@ for (const match of kitMatches) {
     name: match[2],
     route: match[3],
     deprecated: match[4] === 'true',
+    domain: match[5] || '',
     position: match.index
   });
 }
@@ -222,14 +223,45 @@ function generateKitNavItems() {
       className: 'kit-category-header'
     });
     
-    const sortedKits = kitsByCategory.useCases
-      .sort((a, b) => a.name.localeCompare(b.name));
+    const domainOrder = ['Engineering', 'Sustainability', 'Supply Chain', 'Quality', 'Master Data Management', 'Simulations'];
+    const domainGroups = new Map();
     
-    sortedKits.forEach(kit => {
+    kitsByCategory.useCases.forEach(kit => {
+      const domain = kit.domain || 'Other';
+      if (!domainGroups.has(domain)) {
+        domainGroups.set(domain, []);
+      }
+      domainGroups.get(domain).push(kit);
+    });
+    
+    const sortedDomains = [...domainGroups.keys()].sort((a, b) => {
+      const aIndex = domainOrder.indexOf(a);
+      const bIndex = domainOrder.indexOf(b);
+      if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+      if (aIndex !== -1) return -1;
+      if (bIndex !== -1) return 1;
+      return a.localeCompare(b);
+    });
+    
+    sortedDomains.forEach(domain => {
+      const domainTo = domain === 'Engineering'
+        ? '/Kits/cross-industry/engineering'
+        : '/Kits/cross-industry';
       items.push({
-        to: kit.route,
-        label: '  ' + formatKitLabel(kit.name),
-        className: 'kit-nav-item'
+        to: domainTo,
+        label: domain.toUpperCase(),
+        className: 'kit-domain-subheader'
+      });
+      
+      const sortedKits = domainGroups.get(domain)
+        .sort((a, b) => a.name.localeCompare(b.name));
+      
+      sortedKits.forEach(kit => {
+        items.push({
+          to: kit.route,
+          label: '    ' + formatKitLabel(kit.name),
+          className: 'kit-nav-item'
+        });
       });
     });
   }

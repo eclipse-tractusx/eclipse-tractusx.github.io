@@ -546,6 +546,91 @@ div[class*="blogPostPage"],
   padding-left: 24px!important;
 }
 
+.kit-domain-subheader {
+  font-weight: 600 !important;
+  font-size: 0.65rem !important;
+  color: #5f7018 !important;
+  letter-spacing: 0.05em !important;
+  padding-left: 24px !important;
+}
+
+[data-theme='dark'] .kit-domain-subheader {
+  color: #afc72d !important;
+}
+
+/* KIT sidebar section headers (flat, clickable) */
+.kit-sidebar-section-header {
+  font-weight: 700 !important;
+  font-size: 0.7rem !important;
+  color: #faa023 !important;
+  letter-spacing: 0.05em !important;
+  margin-top: 0.5rem !important;
+  padding: 0.4rem 0.75rem !important;
+}
+
+.kit-sidebar-section-header a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.kit-sidebar-section-header a:hover {
+  color: #f99407 !important;
+  text-decoration: underline !important;
+}
+
+/* KIT sidebar domain sub-headers (within Cross-Industry Use Cases) */
+.kit-sidebar-domain-subheader {
+  font-weight: 600 !important;
+  font-size: 0.65rem !important;
+  color: #afc72d !important;
+  letter-spacing: 0.05em !important;
+  padding: 0.25rem 0.75rem 0.15rem 1.25rem !important;
+}
+
+.kit-sidebar-domain-subheader a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.kit-sidebar-domain-subheader a:hover {
+  text-decoration: underline !important;
+}
+
+/* KIT sidebar separators between sections */
+.kit-sidebar-separator {
+  margin: 0.5rem 0.75rem !important;
+  border: none !important;
+  border-top: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+[data-theme='dark'] .kit-sidebar-section-header {
+  color: #fbb24d !important;
+}
+
+[data-theme='dark'] .kit-sidebar-section-header a:hover {
+  color: #fcc477 !important;
+}
+
+[data-theme='dark'] .kit-sidebar-domain-subheader {
+  color: #c3d94e !important;
+}
+
+[data-theme='dark'] .kit-sidebar-separator {
+  border-top-color: var(--ifm-color-emphasis-700) !important;
+}
+
+/* Per-domain page title color override (e.g. Engineering domain page) */
+.kit-domain-page-title {
+  background: none !important;
+  -webkit-text-fill-color: #afc72d !important;
+  color: #afc72d !important;
+}
+
+[data-theme='dark'] .kit-domain-page-title {
+  -webkit-text-fill-color: #c3d94e !important;
+  color: #c3d94e !important;
+}
+
 /* Add home icon to KITs HOMEPAGE using pseudo-element */
 .kit-home-icon::before {
   content: '';

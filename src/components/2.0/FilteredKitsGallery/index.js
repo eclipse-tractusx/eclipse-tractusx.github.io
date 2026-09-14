@@ -35,11 +35,16 @@ export default function FilteredKitsGallery({
   title,
   description,
   backRef,
-  noResultsMessage
+  backButtonLink,
+  backButtonText,
+  noResultsMessage,
+  initialDomain = 'All Domains',
+  lockDomain = false,
+  titleClassName
 }) {
   const [selectedIndustry, setSelectedIndustry] = useState('all'); // Store industry ID
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
-  const [selectedDomain, setSelectedDomain] = useState('All Domains');
+  const [selectedDomain, setSelectedDomain] = useState(initialDomain);
   const [selectedScope, setSelectedScope] = useState('All KITs');
   const [sortOrder, setSortOrder] = useState('default');
 
@@ -112,7 +117,7 @@ export default function FilteredKitsGallery({
     }
     
     // Filter by domain
-    if (selectedDomain !== 'All Domains' && showDomainFilter) {
+    if (selectedDomain !== 'All Domains' && (showDomainFilter || lockDomain)) {
       filtered = filtered.filter(kit => kit.domain === selectedDomain);
     }
     
@@ -163,7 +168,9 @@ export default function FilteredKitsGallery({
           kitCount={filteredKits.length}
           statistics={statistics}
           gradient={categoryData?.gradient}
-          backButtonLink={backRef ? `/Kits?scrollTo=${backRef}` : `/Kits`}
+          backButtonLink={backButtonLink || (backRef ? `/Kits?scrollTo=${backRef}` : `/Kits`)}
+          backButtonText={backButtonText}
+          titleClassName={titleClassName}
         />
       )}
 
