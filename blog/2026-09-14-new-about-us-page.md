@@ -41,6 +41,8 @@ The newest milestone on the timeline is the **Tractus-X Accelerator**, a cohort-
 - Further development of governance, release and quality processes
 - Sustainable community and exchange formats
 
+More information is about to come soon!
+
 Our upcoming **[Second International Eclipse Tractus-X Hackathon](/blog/hackathon-ii-11-2026)** on November 6, 2026 at ARENA2036 is organized as part of the Accelerator.
 
 ### 🛠️ How We Work and What We Create

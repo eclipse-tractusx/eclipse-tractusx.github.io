@@ -66,6 +66,9 @@ export default function TractusXAccelerator() {
           </li>
         ))}
       </ul>
+      <p className={styles.acceleratorIntro}>
+        More information is about to come soon!
+      </p>
       <span className={styles.partnersLabel}>Funding</span>
       <FundingBadge className={styles.funding} />
     </div>

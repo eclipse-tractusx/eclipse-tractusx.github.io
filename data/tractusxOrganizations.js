@@ -26,14 +26,14 @@
 export const tractusxOrganizations = [
   {
     "id": "arena2036",
-    "name": "ARENA2036",
+    "name": "ARENA 2036",
     "logo": "https://arena2036.de/files/FinaleBilder/09_WeitereLogos/ARENA2036_combinationmark_orange_black.png",
     "logoScale": 1.1,
     "url": "https://arena2036.de/"
   },
   {
     "id": "catena-x",
-    "name": "Catena-X e.V.",
+    "name": "Catena-X Automotive Network e.V.",
     "logo": "https://catena-x.academy/wp-content/uploads/2023/07/CX_Logo_mit_Claim_RGB_pos.svg",
     "logoScale": 0.95,
     "url": "https://catena-x.net/en/"

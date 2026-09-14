@@ -50,7 +50,7 @@ export default function Ecosystem() {
         <div className={styles.associations}>
           <div className={`${styles.node} ${styles.association}`}>
             <span className={styles.nodeType}>Industry association</span>
-            <h3>Catena-X e.V.</h3>
+            <h3>Catena-X Association</h3>
             <p>Industry requirements, standards alignment, and the Catena-X use-case ecosystem</p>
             <span className={`${styles.trace} ${styles.traceRight}`} aria-hidden="true" />
           </div>
