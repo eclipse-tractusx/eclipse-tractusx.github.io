@@ -110,22 +110,7 @@ The resulting connected subfab ecosystem also unlocks concrete economic benefits
 
 <!-- Reference the relevant semantic models, APIs, or standards. -->
 
-> TODO: Link or describe the data model, when using big payloads or json-schemas use expandable sections like below:
-
-<details>
-  <summary>Semantic Model Example - click to expand</summary>
-
-Place here the description of your semantic model.
-
-```json
-{
-  "key": "value",
-  "object": {...},
-  "array": [...]
-}
-```
-
-</details>
+As part of the Semiconductor-X project's use case, the AAS Submodel Template `Maintenance Logbook` was developed. It is currently being reviewed by the IDTA.
 
 ## Standards
 
