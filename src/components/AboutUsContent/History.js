@@ -22,7 +22,7 @@ import TractusXAccelerator from "./TractusXAccelerator";
 import styles from "./History.module.css";
 
 // Project milestones in chronological order. To add a milestone, append an
-// entry; the timeline grows vertically. Use `content` to render a component
+// entry; the timeline renders newest first. Use `content` to render a component
 // inside the card, `highlight` to emphasize it, and `future` for what is ahead.
 const milestones = [
   {
@@ -66,7 +66,7 @@ const milestones = [
 export default function History() {
   return (
     <ol className={styles.timeline}>
-      {milestones.map(({ date, title, description, tags, content, highlight, future }) => (
+      {[...milestones].reverse().map(({ date, title, description, tags, content, highlight, future }) => (
         <li
           key={`${date}-${title}`}
           className={[

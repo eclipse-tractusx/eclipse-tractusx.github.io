@@ -3,7 +3,7 @@
  */
 
 .timeline {
-  --spine: linear-gradient(180deg, transparent, #3a2a17 4%, #b86e14 55%, #faa023 92%, transparent);
+  --spine: linear-gradient(0deg, transparent, #3a2a17 4%, #b86e14 55%, #faa023 92%, transparent);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@
 }
 
 :global([data-theme='dark']) .timeline {
-  --spine: linear-gradient(180deg, transparent, #6b7280 4%, #c07a28 55%, #ffba56 92%, transparent);
+  --spine: linear-gradient(0deg, transparent, #6b7280 4%, #c07a28 55%, #ffba56 92%, transparent);
 }
 
 .timeline::before {
