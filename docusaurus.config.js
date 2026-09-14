@@ -255,7 +255,7 @@ const config = {
       },
       announcementBar: {
         id: `announcementBar-v26.09`,
-        content: `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/Kits">KITs 2.0</a></b> Webpage & <b><a href="/documentation/kit-getting-started">Documentation</a></b> 🥳️`,
+        content: `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',

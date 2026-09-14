@@ -19,69 +19,110 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Link from "@docusaurus/Link";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 import { newsTitles } from "../../../utils/newsTitles";
 
 import styles from "./styles.module.css";
 
+// Time each news item stays visible before the ticker advances.
+const ROTATION_MS = 6000;
+
+/**
+ * Rotating "latest news" bar shown at the bottom of the home page hero.
+ * Shows one entry of `newsTitles` at a time, advances automatically, and
+ * pauses while hovered, focused, or while the tab is in the background.
+ */
 export default function NewsTicker() {
-  let settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-    speed: 3000,
-    autoplaySpeed: 6000,
-  };
+  const items = newsTitles;
+  const count = items.length;
+  const hasMultiple = count > 1;
 
-  // NewsTickerCard component that is been returned for each item in the { newsTitles } array
-  const NewsTickerCard = ({date, title, blogLink}) => {
-    return (
-      <Link className={styles.slider_item} to={blogLink}>
-        <div className={styles.date}>
-          {date}
-        </div>
+  const [index, setIndex] = useState(0);
+  const [engaged, setEngaged] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
-        <div className={styles.introduction}>
-          <strong>{title}</strong>
-        </div>
+  const goTo = useCallback(
+    (next) => setIndex(((next % count) + count) % count),
+    [count],
+  );
 
-        <div className={styles.arrow_container}>
-          <div className={styles.arrow}>
-            -&gt;
-          </div>
-        </div>
-      </Link>
-    )
-  }
+  useEffect(() => {
+    if (!hasMultiple || engaged || hidden) return undefined;
+    const id = window.setInterval(() => setIndex((i) => (i + 1) % count), ROTATION_MS);
+    return () => window.clearInterval(id);
+  }, [hasMultiple, engaged, hidden, count]);
+
+  // Pause while the tab is in the background so nothing jumps on return.
+  useEffect(() => {
+    const onVisibility = () => setHidden(document.hidden);
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  if (count === 0) return null;
+
+  const { date, title, blogLink } = items[index];
 
   return (
-    <section className={styles.news_ticker}>
-      <div className={styles.container}>
-        <div className={styles.button_container}>
-          <Link className={styles.button} to="/blog">
-            News
+    <section
+      className={styles.news_ticker}
+      aria-label="Latest news"
+      onMouseEnter={() => setEngaged(true)}
+      onMouseLeave={() => setEngaged(false)}
+      onFocus={() => setEngaged(true)}
+      onBlur={() => setEngaged(false)}
+    >
+      <div className={styles.bar}>
+        <Link className={styles.button} to="/blog">
+          News
+        </Link>
+
+        <div className={styles.viewport} aria-live="polite" aria-atomic="true">
+          {/* Keyed by index so each entry re-mounts and replays the enter animation. */}
+          <Link key={index} className={styles.item} to={blogLink}>
+            <span className={styles.date}>{date}</span>
+            <span className={styles.title}>{title}</span>
+            <ArrowForwardIcon className={styles.arrow} fontSize="inherit" aria-hidden="true" />
           </Link>
         </div>
 
-        <div className={styles.carousel_container}>
-          <Slider {...settings} className={styles.slider}>
-            {
-              newsTitles.map((newPost, index)=> {
-                return (
-                  <NewsTickerCard key={index} {...newPost}/>
-                )
-              })
-            }
-          </Slider>
-        </div>
+        {hasMultiple && (
+          <div className={styles.controls}>
+            <button
+              type="button"
+              className={styles.navButton}
+              onClick={() => goTo(index - 1)}
+              aria-label="Previous news"
+            >
+              <ChevronLeftIcon fontSize="inherit" aria-hidden="true" />
+            </button>
+            <div className={styles.dots}>
+              {items.map((item, i) => (
+                <button
+                  key={`${item.blogLink}-${i}`}
+                  type="button"
+                  className={`${styles.dot} ${i === index ? styles.dotActive : ""}`}
+                  onClick={() => goTo(i)}
+                  aria-label={`Show news ${i + 1} of ${count}: ${item.title}`}
+                  aria-current={i === index ? "true" : undefined}
+                />
+              ))}
+            </div>
+            <button
+              type="button"
+              className={styles.navButton}
+              onClick={() => goTo(index + 1)}
+              aria-label="Next news"
+            >
+              <ChevronRightIcon fontSize="inherit" aria-hidden="true" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
