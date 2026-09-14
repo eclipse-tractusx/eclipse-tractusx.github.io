@@ -360,6 +360,20 @@
   text-decoration: none;
 }
 
+/* Shown instead of the register button while registration is not open yet.
+   Deliberately not a link — it must not look clickable. */
+.btnComingSoon {
+  background: var(--om-orange-dim);
+  color: var(--om-orange);
+  border: 1px dashed var(--om-orange);
+  cursor: default;
+}
+
+.btnComingSoon:hover {
+  transform: none;
+  filter: none;
+}
+
 .btnGhost {
   background: none;
   color: var(--om-muted);
