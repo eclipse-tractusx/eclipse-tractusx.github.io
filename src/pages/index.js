@@ -51,7 +51,7 @@ export default function Home() {
     highlightText: "Welcome to the community",
     title: "The magic behind Eclipse Tractus-X",
     descriptionHighlight: "Eclipse Tractus-X™",
-    description: " — Where we build dataspaces! A collaborative, open-source project driving the digital transformation of various industries. We enable secure, self-sovereign and efficient data exchange, powered by seamless collaboration across the supply chain and built on trusted open standards.",
+    description: " We are a collaborative, open-source project driving the digital transformation of various industries. We enable secure, self-sovereign and efficient data exchange, powered by seamless collaboration across the supply chain and built on trusted open standards.",
     buttonText: "About Us",
     link: "/AboutUs"
   }
@@ -64,7 +64,7 @@ export default function Home() {
       <HomePageHeader />
       <main>
         <AboutUsCard {...aboutInput} />
-        <OrganizationCarousel title="Our Community Partners" subtitle="Organizations that contribute to our open source project" />
+        <OrganizationCarousel title="Our Community Partners" subtitle="Leading organizations that support and contribute to our open source project" />
         <CommunitySneakPeek />
         <UpcomingEvents />
         <SectionDivider title="Our Products" icon={CategoryIcon} />

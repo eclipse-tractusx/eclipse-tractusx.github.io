@@ -7,6 +7,7 @@ hide_table_of_contents: false
 authors:
   - matbmoser
 tags: [community, event, tractus-x, collaboration, open-source]
+funding: bmwe
 ---
 
 ![Seventh Eclipse Tractus-X Community Days Banner](@site/static/img/events/tractus-x-community-days-26-12.png)

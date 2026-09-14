@@ -57,7 +57,7 @@ export default function AboutUsContent() {
       <div className={styles.container}>
         <section className={styles.intro} aria-labelledby="community-title">
           <p className={styles.eyebrow}>Where we build dataspaces</p>
-          <h2 id="community-title">Built by many. Open to everyone.</h2>
+          <h2 id="community-title">Community Built. Open to everyone.</h2>
           <p className={styles.lead}>
             Eclipse Tractus-X™ brings together contributors from different
             organizations, open-source projects, industry initiatives, and

@@ -28,7 +28,8 @@ function OrganizationCard({ organization, duplicate = false }) {
     <li className={styles.card} aria-hidden={duplicate ? true : undefined}>
       <a href={organization.url} className={styles.cardLink} tabIndex={duplicate ? -1 : undefined}>
         <div className={styles.logoPanel}>
-          <img src={logo} alt={duplicate ? "" : `${organization.name} logo`} width="200" height="100" />
+          <img src={logo} alt={duplicate ? "" : `${organization.name} logo`} width="200" height="100"
+            style={organization.logoScale ? { "--logo-scale": organization.logoScale } : undefined} />
         </div>
         <span className={styles.name}>{organization.name}</span>
       </a>
