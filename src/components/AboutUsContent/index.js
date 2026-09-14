@@ -21,6 +21,7 @@
 
 import React from "react";
 import Link from "@docusaurus/Link";
+import useBrokenLinks from "@docusaurus/useBrokenLinks";
 import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
 import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
@@ -51,7 +52,18 @@ const contributions = [
   },
 ];
 
+// Section anchors that other pages link to (e.g. /AboutUs#history-title).
+// Sections are plain JSX rather than Markdown headings, so the anchors are
+// registered here for the broken-anchor check to find them.
+const anchors = [
+  "community-title", "ecosystem-title", "organizations-title", "history-title",
+  "dataspaces", "contribution-title", "technology-title", "governance-title",
+];
+
 export default function AboutUsContent() {
+  const brokenLinks = useBrokenLinks();
+  anchors.forEach((id) => brokenLinks.collectAnchor(id));
+
   return (
     <div className={styles.about_content}>
       <div className={styles.container}>
