@@ -62,6 +62,7 @@ This part depends on the technology being used. At this time of writing, several
 |[AICat](https://delaramglp.github.io/aicat/)|Proposed Draft for AI Catalogue Application Profile(AICAT), mentioned in this [paper](https://arxiv.org/html/2501.04014v1)|
 
 Note: The above syntax is in JSON format, so you can incorporate it into DCAT, which is also JSON. (AICat is indeed a special extension to DCAT). For non-JSON formats, you can encode it into BASE64.
+
 ### Example
 
 The following examples are the parts that define serviceOffering below. You can include this in the property when registering an Asset on the provider.
