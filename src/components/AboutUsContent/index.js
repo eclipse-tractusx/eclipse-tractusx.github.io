@@ -100,7 +100,8 @@ export default function AboutUsContent() {
             <h2 id="history-title">From innovative automotive roots to global core for dataspaces</h2>
             <p>
               Eclipse Tractus-X started with the automotive industry and has grown
-              into an open-source home for dataspace initiatives across industries.
+              into an open-source home for dataspace initiatives across industries globally. 
+              We build the core for interoperable and secure data exchange across industries.
             </p>
           </div>
           <History />
