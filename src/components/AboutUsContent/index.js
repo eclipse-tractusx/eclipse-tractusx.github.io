@@ -97,7 +97,7 @@ export default function AboutUsContent() {
         <section className={styles.section} aria-labelledby="history-title">
           <div className={styles.sectionHeading}>
             <p className={styles.eyebrow}>Our history</p>
-            <h2 id="history-title">From automotive roots to cross-industry dataspaces</h2>
+            <h2 id="history-title">From innovative automotive roots to global core for dataspaces</h2>
             <p>
               Eclipse Tractus-X started with the automotive industry and has grown
               into an open-source home for dataspace initiatives across industries.
