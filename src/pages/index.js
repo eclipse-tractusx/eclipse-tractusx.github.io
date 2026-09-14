@@ -64,7 +64,7 @@ export default function Home() {
       <HomePageHeader />
       <main>
         <AboutUsCard {...aboutInput} />
-        <OrganizationCarousel title="Our Community Partners" subtitle="Organizations that contribute to our open source code" />
+        <OrganizationCarousel title="Our Community Partners" subtitle="Organizations that contribute to our open source project" />
         <CommunitySneakPeek />
         <UpcomingEvents />
         <SectionDivider title="Our Products" icon={CategoryIcon} />
