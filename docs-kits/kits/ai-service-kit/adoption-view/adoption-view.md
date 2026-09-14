@@ -11,60 +11,60 @@ import KitMetadataBadges from '@site/src/components/2.0/KitMetadataBadges';
 <KitMetadataBadges kitId="ai-service" />
 <Kit3DLogo kitId="ai-service" />
 
+## Abstracts
+
+Data Spaces and AI system work at different layers and for different purposes. Data Spaces provide the governance that AI system need. Please refer to the IDSA paper [Data Spaces and AI Trustworthy Agentic Participation in Data Spaces]() for more details.
+
+Data Spaces technology implementation mainly focuses on the Connector, where you exchange data in a sovereign way. It includes asset/catalog registry management, policies for asset/catalog access, and policies for data usage. It also includes verifiable, certificate-based trust for participant identity and negotiation based on the asset registries, participant identity, and policies.
+
+AI system ares are still evolving rapidly. This KIT includes artificial intelligence technologies ranging from traditional machine learning to recent Agentic AI.
+
+The AI Service KIT integrates both technologies so users can benefit from both.
+
 ## Vision & Mission
 
 ### Vision
 
-The AI Service KIT envisions a future where business processes are optimized through the collaboration of diversely specialized AI systems across various inter-company collaborations.
-For achieving this vision, an ecosystem is needed where AI systems can collaborate while trusting each other.
-
-The purpose of this KIT is to seamlessly integrate AI systems with Catena-X, a globally trusted collaborative data ecosystem.
-This KIT provides a unified approach for publishing AI systems while maintaining data sovereignty and trust among participants, and ensuring compliance with legal and regulatory requirements.
+In combining both technologies, the vision for AI Service KIT is:
+1. Not to reinvent the wheel. We use the current technologies, OSS projects, and/or any Standard or de facto standard as much as possible.
+2. Make it easy for developers to integrate current or future technology, especially for AI system that are still evolving.
+3. IT Vendor can still add and offer their own technology accordingly, while maintaining interoperability. One possibility is to provide security within the AI Agent itself.
 
 ### Mission
 
-The mission of this KIT is to make the AI system bundled with participants' *EDC Connector* (Based on [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/connector-kit/adoption-view/)) discoverable and usable within the Catena-X ecosystem.
+1. Define any interoperability requirements to combine Data Spaces and the AI system.
+2. Some technologies might overlap between Data Spaces and the AI system. Provide a sample integration solution without changing the current technologies.
+3. Provide easy-to-understand documentation.
+4. Provide a working demo with any AI technology, which includes but is not limited to A2A Protocol, MCP, etc. Integrate the demo and any tools into the Tractus-X SDK so users can use them easily.
 
-[![Topology of KIT](../resources/img/topology-small.png)](../resources/img/topology.png)
+AI Service KIT make AI system bundled with *EDC Connector* (Based on [Connector KIT](https://eclipse-tractusx.github.io/docs-kits/next/kits/connector-kit/adoption-view/)) discoverable and usable within the Data Spaces ecosystem.
 
-The AI service in this document is defined as a service that provides users with functionalities and/or value through the use of AI systems.
+AI system exist in diverse forms, including LLMs (public and local), RAG applications that interact with LLMs, multi-agent systems connected via A2A, tools provided as MCP servers, etc.
+To recognize AI system with such diverse forms, a unified notation method to express AI system as *Assets* is necessary.
+This KIT provides notation rules and vocabulary to serve as guidelines for participants when registering their AI system as *Assets* while still using available technology format.
 
-While there are a variety of ways to use AI systems in conjunction with dataspace, we discuss "AI agents", "Agentic System" that are connected **directly** to the EDC Connector.
+Furthermore, AI system involve numerous considerations for use due to their nature, such as AI-specific legal regulations and liability for damages resulting from judgment errors.
+This KIT provides notation rules and semantics for expressing these considerations as *Usage Policy*.
 
-AI systems, a part of AI service, directly connected to EDC Connectors can offer capabilities both **within** and **outside** automotive Use cases.
-
-In either way, AI systems will be connected and be accessible via EDC Connectors.
-
-AI systems exist in diverse forms, including LLMs (public and local), RAG applications that interact with LLMs, and AI agents that oversee them.
-For enabling participants to recognize AI systems with such diverse forms, a unified notation method to express AI systems as *Assets* is necessary.
-This KIT provides notation rules and vocabulary to serve as guidelines for participants when registering their AI systems as *Assets*.
-This is similar to concepts found in existing AI frameworks, such as the A2A agent card and MCP registry. In fact, the KIT adopts these concepts and incorporates them into the dataspace framework.
-
-Furthermore, AI systems involve numerous considerations for use due to their nature, such as AI-specific legal regulations and liability for damages resulting from judgment errors.
-This KIT provides comprehensive notation rules and semantics for expressing these considerations as *Usage Policy*.
-
-These contributions bring interoperability and governance to participants' AI systems in inter-company collaboration.
+These contributions bring interoperability and governance to participants' AI system in inter-company collaboration.
 
 ## Business Value
 
 ### Trust
 
-The integration of Catena-X, a globally trusted collaborative data ecosystem, with AI systems brings trust to AI systems.
-*EDC Connectors* robust participant identity verification mechanism makes it difficult for malicious actors to engage with the ecosystem surrounding the AI system.
-It reduces the cost for business as well as academic organizations to verify the trustworthiness of AI system providers when considering the use of external AI systems.
-It also reduces the security measures costs for business as well as academic organizations when exposing AI systems externally.
+Integrating the Data Spaces ecosystem with AI system builds trust, especially by adding a data-governance layer on top of AI system.
+*EDC Connectors* robust participant identity verification mechanism makes it difficult for malicious actors to engage with the ecosystem surrounding the AI system. The policy mechanism adds access control for the asset/catalog and usage governance for data utilized in the AI system.
+It reduces the cost for organizations to verify the trustworthiness of AI system providers when considering external AI system.
 
 ### Interoperability
 
-*EDC Connectors* *Asset* representation capabilities possess sufficient flexibility to express AI systems with diverse forms.
-While this flexibility enables acceptance of various systems, it also permits multiple representations for AI systems of the same form. This can sometimes make it difficult for business as well as academic organizations searching for external AI systems to correctly identify them.
-Standardizing the notation of AI systems enables interoperability, allowing business as well as academic organizations to quickly discover suitable AI systems from the vast and diverse array of external AI systems.
+*EDC Connectors* *Asset* representation capabilities possess sufficient flexibility to express AI system with diverse forms.
+While this enables interoperability for discovery, it also benefits from leveraging existing AI service technology. This means the participant does not need to build another costly AI system.
 
 ### Risk Avoidance
 
-Business as well as academic organizations considering AI system adoption must address AI-specific considerations, including compliance with AI-related laws, regulations, and guidelines such as the EU AI Act.
-While thoroughly researching all relevant laws and guidelines is essential for risk mitigation, it represents a significant cost for business as well as academic organizations.
-Standardizing *Usage policy* for AI systems reduces the cost for each business as well as academic organizations to research AI-specific considerations and facilitates the adoption of AI systems in business use cases involving multiple companies, such as supply chains.
+Any inter-organizational entity considering AI system adoption must address AI-specific considerations, including compliance with AI-related laws, regulations, and guidelines such as the EU AI Act. This also applies to cross-border interchange.
+Standardizing *Usage policy* for AI system reduces the cost for each organization to make sure the counterpart is in comply with these laws, regulation and guideline.
 
 ## Notice
 
