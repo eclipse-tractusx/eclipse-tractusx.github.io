@@ -18,6 +18,7 @@
  ********************************************************************************/
 
 import React from "react";
+import Link from "@docusaurus/Link";
 import TractusXAccelerator from "./TractusXAccelerator";
 import styles from "./History.module.css";
 
@@ -36,6 +37,17 @@ const milestones = [
     title: "A growing community",
     description: "Members of the Catena-X Association and independent open-source contributors continue to evolve the software, documentation, and releases together.",
     tags: ["Catena-X Association", "Open-source contributors"],
+  },
+  {
+    date: "Nov 2025",
+    title: "KIT 2.0 Architecture",
+    description: "KITs are reorganized into modular, reusable layers so multiple dataspaces and industries can share the same foundations while adding their own use cases.",
+    content: (
+      <Link className={styles.link} to="/blog/kit-2.0-architecture">
+        Read the announcement →
+      </Link>
+    ),
+    tags: ["Dataspace Foundation", "Industry Core Foundation", "Cross-Industry Use Cases", "Industry-Specific Use Cases"],
   },
   {
     date: "End of 2025",

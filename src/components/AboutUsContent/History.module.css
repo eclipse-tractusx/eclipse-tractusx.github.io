@@ -104,6 +104,13 @@
   color: var(--about-muted);
 }
 
+.link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
