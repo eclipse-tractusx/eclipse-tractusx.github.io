@@ -307,6 +307,11 @@ const config = {
                 className: 'kit-nav-item'
               },
               {
+                to: '/Kits-Role-Overview',
+                label: 'KITs by Role',
+                className: 'kit-nav-item'
+              },
+              {
                 to: '/documentation/kit-3d-logo-library',
                 label: 'KIT Assets',
                 className: 'kit-nav-item'
