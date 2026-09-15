@@ -2,11 +2,54 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/blog</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2026-09-11T10:00:00.000Z</updated>
+    <updated>2026-09-14T10:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/blog"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Get to Know Us — The New Eclipse Tractus-X About Us Page]]></title>
+        <id>https://eclipse-tractusx.github.io/blog/new-about-us-page</id>
+        <link href="https://eclipse-tractusx.github.io/blog/new-about-us-page"/>
+        <updated>2026-09-14T10:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Our new About Us page shows who builds Eclipse Tractus-X, how the community works together, where the project comes from, and what is ahead with the Tractus-X Accelerator.]]></summary>
+        <content type="html"><![CDATA[<p>Hi Everyone 👋,</p>
+<p>Who is behind Eclipse Tractus-X? How do so many organizations build one open-source project together? And where is the project heading? Until now, the answers were spread across blog posts, meeting minutes and presentations. That changes today: we are happy to present our <strong>brand-new <a class="" href="https://eclipse-tractusx.github.io/AboutUs">About Us page</a></strong>! 🎉</p>
+<p><strong>Community Built. Open to everyone.</strong> — that is the message at the heart of the page. Eclipse Tractus-X brings together contributors from different organizations, open-source projects, industry initiatives and independent companies, and the new page tells that story in one place.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-what-you-will-find">🧭 What You Will Find<a href="https://eclipse-tractusx.github.io/blog/new-about-us-page#-what-you-will-find" class="hash-link" aria-label="Direct link to 🧭 What You Will Find" title="Direct link to 🧭 What You Will Find" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-our-ecosystem">🌐 Our Ecosystem<a href="https://eclipse-tractusx.github.io/blog/new-about-us-page#-our-ecosystem" class="hash-link" aria-label="Direct link to 🌐 Our Ecosystem" title="Direct link to 🌐 Our Ecosystem" translate="no">​</a></h3>
+<p>Industry initiatives, open-source projects, companies and individual developers all play a different role in the project. A new diagram shows how these groups connect and how their knowledge flows into shared building blocks.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-organizations-engaged-in-eclipse-tractus-x">🤝 Organizations Engaged in Eclipse Tractus-X<a href="https://eclipse-tractusx.github.io/blog/new-about-us-page#-organizations-engaged-in-eclipse-tractus-x" class="hash-link" aria-label="Direct link to 🤝 Organizations Engaged in Eclipse Tractus-X" title="Direct link to 🤝 Organizations Engaged in Eclipse Tractus-X" translate="no">​</a></h3>
+<p>A logo carousel introduces organizations whose teams help build and support the project, from industry associations and research institutes to OEMs, suppliers and service providers.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-our-history">📜 Our History<a href="https://eclipse-tractusx.github.io/blog/new-about-us-page#-our-history" class="hash-link" aria-label="Direct link to 📜 Our History" title="Direct link to 📜 Our History" translate="no">​</a></h3>
+<p>A timeline takes you from the <strong>initial contribution by the Catena-X consortia in 2023</strong>, through the <strong>KIT 2.0 architecture</strong>, the extension <strong>beyond automotive</strong> and the <strong>cross-industry collaboration with Factory-X and the Eclipse Dataspace Working Group</strong>, all the way to what is ahead.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-the-tractus-x-accelerator-2026--2029">🚀 The Tractus-X Accelerator (2026 – 2029)<a href="https://eclipse-tractusx.github.io/blog/new-about-us-page#-the-tractus-x-accelerator-2026--2029" class="hash-link" aria-label="Direct link to 🚀 The Tractus-X Accelerator (2026 – 2029)" title="Direct link to 🚀 The Tractus-X Accelerator (2026 – 2029)" translate="no">​</a></h3>
+<p>The newest milestone on the timeline is the <strong>Tractus-X Accelerator</strong>, a cohort-based support program for projects, developers and organizations, supported by the German Federal Ministry for Economic Affairs and Energy (BMWE). It lowers the technical and organizational barriers to entry and focuses on:</p>
+<ul>
+<li class="">Structured onboarding and qualification of new projects and developers</li>
+<li class="">Test and development infrastructure</li>
+<li class="">Targeted mentoring by experienced community members</li>
+<li class="">Further development of governance, release and quality processes</li>
+<li class="">Sustainable community and exchange formats</li>
+</ul>
+<p>More information is about to come soon!</p>
+<p>Our upcoming <strong><a class="" href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026">Second International Eclipse Tractus-X Hackathon</a></strong> on November 6, 2026 at ARENA2036 is organized as part of the Accelerator.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="️-how-we-work-and-what-we-create">🛠️ How We Work and What We Create<a href="https://eclipse-tractusx.github.io/blog/new-about-us-page#%EF%B8%8F-how-we-work-and-what-we-create" class="hash-link" aria-label="Direct link to 🛠️ How We Work and What We Create" title="Direct link to 🛠️ How We Work and What We Create" translate="no">​</a></h3>
+<p>The page also explains how we get <strong>from shared needs to shared solutions</strong>, gives an overview of our <strong>open-source software</strong> and <strong>KITs</strong>, and shows how we collaborate under the <strong>Eclipse Foundation</strong> and together with the <strong>Eclipse Dataspace Working Group</strong>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="-take-a-look">👉 Take a Look<a href="https://eclipse-tractusx.github.io/blog/new-about-us-page#-take-a-look" class="hash-link" aria-label="Direct link to 👉 Take a Look" title="Direct link to 👉 Take a Look" translate="no">​</a></h2>
+<p><strong><a class="" href="https://eclipse-tractusx.github.io/AboutUs">Visit the new About Us page</a></strong> and share it with colleagues who want to understand what Eclipse Tractus-X is all about.</p>
+<p>Is your organization contributing to Eclipse Tractus-X and missing from the page? Or do you have ideas on how to improve it? Open an issue or a pull request in our <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io" target="_blank" rel="noopener noreferrer" class="">website repository</a> — like everything we do, this page is open source too. 💙</p>
+<p>See you in the community!</p>]]></content>
+        <author>
+            <name>Mathias Brunkow Moser</name>
+            <uri>https://github.com/matbmoser</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="tractus-x" term="tractus-x"/>
+        <category label="website" term="website"/>
+        <category label="open-source" term="open-source"/>
+        <category label="collaboration" term="collaboration"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Save the Date — Second International Eclipse Tractus-X Hackathon at ARENA2036!]]></title>
         <id>https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026</id>
@@ -14,10 +57,11 @@
         <updated>2026-09-11T10:00:00.000Z</updated>
         <summary type="html"><![CDATA[The Second International Eclipse Tractus-X Hackathon — November 6, 2026 at ARENA2036 e.V. in Stuttgart, Germany. Interested? Send us an email!]]></summary>
         <content type="html"><![CDATA[
-<div style="max-width:520px;margin:0 auto 24px;border-radius:16px;overflow:hidden"><p><img decoding="async" loading="lazy" alt="Second International Eclipse Tractus-X Hackathon — 06 Nov 2026, Stuttgart, Germany" src="https://eclipse-tractusx.github.io/assets/images/II-tractus-x-hackathon-banner-b640b7cb054408599cc0b058bcbdc479.jpg" width="1335" height="1400" class="img_ev3q"></p></div>
+<div style="max-width:520px;margin:0 auto 24px;border-radius:16px;overflow:hidden"><p><img decoding="async" loading="lazy" alt="Second International Eclipse Tractus-X Hackathon — 06 Nov 2026, Stuttgart, Germany" src="https://eclipse-tractusx.github.io/assets/images/II-tractus-x-hackathon-banner-d12128998498e20dc8fdaff198e91562.jpg" width="2162" height="2266" class="img_ev3q"></p></div>
 <p>Hi Everyone 👋,</p>
 <p>After the great energy of our <strong>first international Open Source Hackathon</strong> in Bilbao this February, it is time for round two: we are happy to invite you to the <strong>Second International Eclipse Tractus-X Hackathon</strong>, taking place on <strong>November 6, 2026 at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany)</strong>! 🚀</p>
 <p>This time we have one big mission: <strong>re-architecting the Eclipse Tractus-X Portal</strong> — and we want to do it together with you, in a <strong>design thinking <em>and</em> programming hackathon</strong>. On-site in Stuttgart, or optionally online.</p>
+<p>The hackathon is organized as part of the <strong><a class="" href="https://eclipse-tractusx.github.io/AboutUs#history-title">Eclipse Tractus-X Accelerator</a></strong>, our cohort-based program that lowers the barriers to joining and actively contributing to the Eclipse Tractus-X open-source community.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="event-details">Event Details<a href="https://eclipse-tractusx.github.io/blog/hackathon-ii-11-2026#event-details" class="hash-link" aria-label="Direct link to Event Details" title="Direct link to Event Details" translate="no">​</a></h2>
 <ul>
 <li class=""><strong>💸 Cost:</strong> FREE 🆓</li>
@@ -1686,38 +1730,6 @@ feature requesters are encouraged to attend and actively engage in the discussio
             <name>Michaela Kleynhans</name>
             <email>michaela.kleynhans@mercedes-benz.com</email>
             <uri>https://github.com/michaelakleynhans</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Join us in May 2025 for the Fourth Eclipse Tractus-X Community Days!]]></title>
-        <id>https://eclipse-tractusx.github.io/blog/community-days-05-2025</id>
-        <link href="https://eclipse-tractusx.github.io/blog/community-days-05-2025"/>
-        <updated>2025-01-30T08:00:00.000Z</updated>
-        <summary type="html"><![CDATA[The Eclipse Tractus-X Community Days - Empowering the Catena-X Data Space]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="eclipse tractus x logo" src="https://eclipse-tractusx.github.io/assets/images/tractus-x-community-days-25-05-40b20c489d1d33875b468cc451199def.png" width="1000" height="300" class="img_ev3q"></p>
-<p>Dear Eclipse Tractus-X- and Dataspace-Community,</p>
-<p>Following the overwhelming positivity of the third Eclipse Tractus-X Community Days, we are pleased to announce the fourth edition, scheduled for May 22-23, 2025,
-at ARENA2036 in Stuttgart, Germany. Because of the high demand we have expanded our capacity, this year's event will welcome even more participants and feature an
-expanded range of workshops, challenges and opportunities to collaborate on shaping the future of open-source development in manufacturing and beyond.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-attend">Why Attend?<a href="https://eclipse-tractusx.github.io/blog/community-days-05-2025#why-attend" class="hash-link" aria-label="Direct link to Why Attend?" title="Direct link to Why Attend?" translate="no">​</a></h3>
-<ul>
-<li class=""><strong>Global Collaboration:</strong> Connect with participants from across the world, including contributors to Manufacturing-X initiatives like Factory-X, Chem-X, Aerospace-X and more.</li>
-<li class=""><strong>Hands-On Innovation:</strong> Participate in interactive workshops and challenges using the latest tools and services from Eclipse Tractus-X.</li>
-<li class=""><strong>Expanded Opportunities:</strong> With more space and sessions, this year promises unparalleled opportunities to learn, network, and contribute.</li>
-<li class=""><strong>Inspiring Insights:</strong> Hear from industry leaders and pioneers in open-source collaboration and data ecosystems like Boris Otto, Director at Fraunhofer ISST.</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="recap-third-eclipse-tractus-x-community-days">Recap Third Eclipse Tractus-X Community Days<a href="https://eclipse-tractusx.github.io/blog/community-days-05-2025#recap-third-eclipse-tractus-x-community-days" class="hash-link" aria-label="Direct link to Recap Third Eclipse Tractus-X Community Days" title="Direct link to Recap Third Eclipse Tractus-X Community Days" translate="no">​</a></h3>
-<iframe width="100%" height="550" src="https://www.youtube.com/embed/IBv8PsCS0E8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="agenda">Agenda<a href="https://eclipse-tractusx.github.io/blog/community-days-05-2025#agenda" class="hash-link" aria-label="Direct link to Agenda" title="Direct link to Agenda" translate="no">​</a></h4>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>The agenda for both days is available <a href="https://arena2036.de/files/FinaleBilder/05_Veranstaltungen/ARENA-X/Fourth_Eclipse_Tractus-X_Community_Days/CDs_AGENDA.pdf" target="_blank" rel="noopener noreferrer" class="">here</a>.</p></div></div>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="be-part-of-the-future">Be Part of the Future<a href="https://eclipse-tractusx.github.io/blog/community-days-05-2025#be-part-of-the-future" class="hash-link" aria-label="Direct link to Be Part of the Future" title="Direct link to Be Part of the Future" translate="no">​</a></h3>
-<p>Whether you're a developer, project manager or solution provider, the Eclipse Tractus-X Community Days offer an unparalleled forum for collaboration, creativity and contribution
-to the future of data spaces.</p>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p><strong>Save the date: May 22-23, 2025</strong> and register <a href="https://eveeno.com/272304835" target="_blank" rel="noopener noreferrer" class="">here</a></p></div></div>
-<p>Let's continue driving open-source innovation together!</p>]]></content>
-        <author>
-            <name>Stephan Bauer</name>
-            <uri>https://catena-x.net/</uri>
         </author>
     </entry>
 </feed>
