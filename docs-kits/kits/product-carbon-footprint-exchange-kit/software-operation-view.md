@@ -7,6 +7,6 @@ sidebar_position: 4
 
 ![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
 
-Further informaiton can be found in the [PCF Guidance Documents](https://catena-x.net/further-guidance-documents-for-pcf/).
+Further information can be found in the [PCF Guidance Documents](https://catena-x.net/further-guidance-documents-for-pcf/).
 
 
