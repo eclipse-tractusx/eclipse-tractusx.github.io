@@ -1,0 +1,266 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+// Home page teaser section wrapped around the community bases world map.
+
+$brand-orange: #faa023;
+$brand-green: #afc72d;
+
+.section {
+  position: relative;
+  padding: 64px 0 72px;
+  background:
+    radial-gradient(90% 60% at 50% 0%, rgba(250, 160, 35, 0.09) 0%, rgba(250, 160, 35, 0) 70%),
+    linear-gradient(180deg, #0b0d12 0%, #070809 100%);
+  color: #ffffff;
+  overflow: hidden;
+
+  @media screen and (max-width: 996px) {
+    padding: 48px 0 56px;
+  }
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @media screen and (max-width: 600px) {
+    padding: 0 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 26px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 160, 35, 0.35);
+  background: rgba(250, 160, 35, 0.08);
+  color: $brand-orange;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.eyebrowIcon {
+  font-size: 16px !important;
+}
+
+.title {
+  margin: 20px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+
+  @media screen and (max-width: 996px) {
+    font-size: 32px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 26px;
+  }
+}
+
+.titleAccent {
+  background: linear-gradient(120deg, $brand-orange 0%, $brand-green 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.subtitle {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.68);
+
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Map
+   -------------------------------------------------------------------------- */
+
+.map {
+  margin: 0 auto;
+}
+
+
+/* --------------------------------------------------------------------------
+   Country chips
+   -------------------------------------------------------------------------- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #ffffff;
+    text-decoration: none;
+    border-color: rgba(250, 160, 35, 0.6);
+    background: rgba(250, 160, 35, 0.12);
+    transform: translateY(-2px);
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+.chipActive {
+  color: #ffffff;
+  border-color: rgba(250, 160, 35, 0.6);
+  background: rgba(250, 160, 35, 0.12);
+}
+
+.chipHome {
+  border-color: rgba(250, 160, 35, 0.4);
+}
+
+.chipSymbol {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Stats + call to action
+   -------------------------------------------------------------------------- */
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px 48px;
+  margin-top: 32px;
+}
+
+// Sits between the heading and the map, so it reads as part of the intro.
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 48px;
+  margin: 0 0 28px;
+
+  @media screen and (max-width: 600px) {
+    gap: 20px 32px;
+    margin-bottom: 22px;
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 2px;
+}
+
+.statValue {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(120deg, $brand-orange 0%, $brand-green 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  @media screen and (max-width: 600px) {
+    font-size: 26px;
+  }
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, $brand-orange 0%, #f08a12 100%);
+  color: #10120f;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(250, 160, 35, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #10120f;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(250, 160, 35, 0.4);
+  }
+}
+
+.ctaIcon {
+  font-size: 18px !important;
+}
