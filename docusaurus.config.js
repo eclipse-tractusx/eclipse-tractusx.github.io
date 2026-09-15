@@ -5,6 +5,9 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
 
+// Change this id to show the announcement bar again to everyone who closed it.
+const announcementBarId = 'announcementBar-v26.09';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Eclipse Tractus-X',
@@ -14,6 +17,17 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
+
+  // Docusaurus hides the announcement bar before React loads if the visitor closed
+  // any previous one, so a new id only appeared on their second visit. Clear the
+  // "closed" flag first when the id changed, so the new bar is open until closed.
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `(function(){try{if(localStorage.getItem('docusaurus.announcement.id')!=='${announcementBarId}'){localStorage.setItem('docusaurus.announcement.dismiss','false');}}catch(e){}})();`,
+    },
+  ],
 
   markdown: {
     mermaid: true,
@@ -254,8 +268,8 @@ const config = {
         appId: '5EEK7E23IM',
       },
       announcementBar: {
-        id: `announcementBar-v25.09`,
-        content: `🎉️ New <b><a href="/Kits">KITs 2.0 (Multi-Industry & Multi-Dataspace)</a></b> Webpage & <b><a href="/documentation/kit-getting-started">Documentation</a></b> 🥳️`,
+        id: announcementBarId,
+        content: `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',
@@ -505,6 +519,13 @@ const config = {
                 <img alt="Eclipse Dataspace Working Group" src="/img/edwg-logo-white.svg" style="height:200px;max-width:300px;"/>
               </div>
             </a>
+            <div class="footer-logo-divider"></div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;">
+              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">Project supported by:</span>
+              <div style="display:flex;align-items:center;justify-content:center;flex:1;">
+                <img alt="Gefördert durch: Bundesministerium für Wirtschaft und Energie, aufgrund eines Beschlusses des Deutschen Bundestages" src="/img/funding/bmwe-gefoerdert.png" style="height:200px;padding:10px;border-radius:8px;background:#fff;"/>
+              </div>
+            </div>
           </div>
           <div>Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.</div>
         `,
