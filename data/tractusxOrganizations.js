@@ -24,6 +24,13 @@
 // Optional `logoScale` (e.g. 1.2 or 0.8) evens out how large each logo looks in the carousel.
 // Optional `acceleratorLogoScale` does the same for the Tractus-X Accelerator partner tiles.
 export const tractusxOrganizations = [
+    {
+    "id": "eclipse-foundation",
+    "name": "Eclipse Foundation",
+    "logo": "https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-grey-orange.svg",
+    "logoScale": 1.1,
+    "url": "https://www.eclipse.org/"
+  },
   {
     "id": "arena2036",
     "name": "ARENA 2036",
@@ -65,6 +72,13 @@ export const tractusxOrganizations = [
     "logo": "https://www.isst.fraunhofer.de/content/dam/isst/images/Fraunhofer%20ISST-Logo_Internet.svg",
     "logoScale": 0.9,
     "url": "https://www.isst.fraunhofer.de/"
+  },
+  {
+    "id": "eclipse-dataspace-working-group",
+    "name": "Eclipse Dataspace Working Group (EDWG)",
+    "logo": "https://dataspace.eclipse.org/public/images/dataspace-logo.svg",
+    "logoScale": 1.1,
+    "url": "https://dataspace.eclipse.org/"
   },
   {
     "id": "bmw-group",

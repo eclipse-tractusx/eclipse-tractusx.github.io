@@ -5,6 +5,9 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
 
+// Change this id to show the announcement bar again to everyone who closed it.
+const announcementBarId = 'announcementBar-v26.09';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Eclipse Tractus-X',
@@ -14,6 +17,17 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
+
+  // Docusaurus hides the announcement bar before React loads if the visitor closed
+  // any previous one, so a new id only appeared on their second visit. Clear the
+  // "closed" flag first when the id changed, so the new bar is open until closed.
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `(function(){try{if(localStorage.getItem('docusaurus.announcement.id')!=='${announcementBarId}'){localStorage.setItem('docusaurus.announcement.dismiss','false');}}catch(e){}})();`,
+    },
+  ],
 
   markdown: {
     mermaid: true,
@@ -254,7 +268,7 @@ const config = {
         appId: '5EEK7E23IM',
       },
       announcementBar: {
-        id: `announcementBar-v26.09`,
+        id: announcementBarId,
         content: `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
       },
       navbar: {
