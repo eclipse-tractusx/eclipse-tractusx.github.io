@@ -5,108 +5,184 @@ description: Business Partner KIT
 sidebar_position: 5
 ---
 
-Here in this section, we have provided use cases along with how end to end tests can be performed on local machine.
+This section shows how to run the BPDM services locally and execute the end-to-end tests against them.
 
 ## 1 - Execute automated end to end test
 
-To perform end-to-end test of all Business Partner Data Management (BPDM) services using the `bpdm-system-tester` module, follow the detailed steps below.
-This guide will help you set up your local environment, configure necessary services, and execute tests to ensure the BPDM services function as expected.
+The steps below set up a local stack of all Business Partner Data Management (BPDM) services and run the `bpdm-system-tester` module against it.
 
 ### Local environment setup
 
-To run BPDM services and tester module, BPDM offers multiple ways like using Helm Charts or using Dockerfiles depending upon different scenarios.
-For more details on how can you run services on different environment, you can follow instructions mentioned in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md) file.
+Other ways to run the services - Helm Charts, Dockerfiles - are described in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md).
 
 #### Prerequisites
 
 - JAVA 21
 - Maven (3.9 supported)
-- Docker Engine
-- Docker Compose
+- Docker Engine (tested on 29.5.3)
+- Docker Compose (tested on 5.1.4)
 
 #### Installation Steps
 
-##### 1.1 Start BPDM Api Services
+##### 1.1 Check out the code
 
-1. Clone the repository:
-    - Go to the following GitHub repository: [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm)
-    - Clone the repository to your local system using Git. You can use the following command:
-
-    ```bash
-    git clone https://github.com/eclipse-tractusx/bpdm
-    ```
-
-    - Choose an IDE: You can use any IDE of your preference to view the code. One recommended IDE is IntelliJ IDEA as application is based on Kotlin springBoot framework.
-
-2. Configure local service:
-
-    On default, the BPDM Gate supports a simple multi-tenancy feature. Each company, identified by the BPNL of the accessing user, has a separate tenant of business partner data in one Gate.
-
-    Alternatively, a BPDM Gate can be configured to be single tenant only. This allows access for users only from a single company identified by its BPNL.
-
-    ```bash
-    bpdm:
-        bpn:
-            owner-bpn-l: BPNLXXXXXXXXXX01
-    ```
-
-    If it is set with a BPNL only users belonging to that company can access the Gate. If it is not set or set to null a user from any company can use the Gate, albeit the user can only see its own company shared business partner data.
-
-3. Start BPDM services sequentially:
-
-    BPDM services require a PostgreSQL database and Keycloak server to run. Navigate to the root folder of the BPDM repository. Then set up the necessary dependencies by using the provided Docker Compose file:
-
-    ```bash
-    docker compose -f docker/compose/dependencies/docker-compose.yml up -d
-    ```
-
-    This will run a Postgres and Keycloak with an initial realm already configured to be used by the BPDM services. After this step, we can build and install the BPDM applications.
-
-    ```bash
-    mvn clean install
-    ```
-
-    Each BPDM application can now be run separately. We will run each application after another. For this, we navigate into the application's subfolder and run the application with the spring-boot run goal.
-
-    ```bash
-    cd bpdm-orchestrator
-    mvn spring-boot:run
-    cd ../bpdm-cleaning-service-dummy
-    mvn spring-boot:run
-    cd ../bpdm-pool
-    mvn spring-boot:run
-    cd ../bpdm-gate
-    mvn spring-boot:run
-    ```
-
-### Start Automated E2E Test
-
-The `bpdm-system-tester` module is responsible for performing automated end to end test. To get more details about test data and scenarios which are running under automated test,
-you can visit [feature](https://github.com/eclipse-tractusx/bpdm/tree/main/bpdm-system-tester/src/main/resources/cucumber) file folder.
-
-now you can run the `bpdm-system-tester` application with the spring-boot run goal.
+Clone the repository:
 
 ```bash
-cd bpdm-system-tester
+git clone https://github.com/eclipse-tractusx/bpdm
+```
+
+The applications are Kotlin Spring Boot projects, so IntelliJ IDEA is a good fit for browsing them.
+
+##### 1.2 Start the dependencies
+
+BPDM services require a PostgreSQL database and a Keycloak server.
+From the root folder of the repository, write the Keycloak admin password into the `.env` file the Compose file expects (it is not part of the repository; without it only the admin console is unusable):
+
+```bash
+echo "KEYCLOAK_ADMIN_PASSWORD=admin" > docker/compose/dependencies/.env
+```
+
+Then start both dependencies:
+
+```bash
+docker compose -f docker/compose/dependencies/docker-compose.yml up -d
+```
+
+Keycloak is reachable on [http://localhost:8180](http://localhost:8180) and serves an already configured `BPDM` realm.
+
+##### 1.3 Build and start the BPDM services
+
+Build the applications:
+
+```bash
+mvn clean install
+```
+
+Then start them in this order - the Pool refuses to start while the Orchestrator is unreachable, and the Gate while either the Pool or the Orchestrator is:
+
+```bash
+cd bpdm-orchestrator
+mvn spring-boot:run
+cd ../bpdm-cleaning-service-dummy
+mvn spring-boot:run
+cd ../bpdm-pool
+mvn spring-boot:run
+cd ../bpdm-gate
 mvn spring-boot:run
 ```
 
-This will execute all the test scenarios in parallel and will finish within three to four minutes.
+The applications serve their APIs on:
+
+| Application                 | URL                                              |
+|-----------------------------|--------------------------------------------------|
+| BPDM Pool                   | [http://localhost:8080](http://localhost:8080)   |
+| BPDM Gate                   | [http://localhost:8081](http://localhost:8081)   |
+| BPDM Cleaning Service Dummy | [http://localhost:8084](http://localhost:8084)   |
+| BPDM Orchestrator           | [http://localhost:8085](http://localhost:8085)   |
+
+##### 1.4 Start the further Gates
+
+Scenarios in which two or three sharing members share one golden record need further Gates: each member reflecting the other's master data changes, the sharing member count, and the confidence level, which the count raises from three members on.
+The `gate-2` and `gate-3` profiles provide them. Start them once the rest of the stack is up:
+
+```bash
+cd bpdm-gate
+mvn spring-boot:run -Dspring-boot.run.profiles=gate-2
+mvn spring-boot:run -Dspring-boot.run.profiles=gate-3
+```
+
+They run on ports 8082 and 8083 against their own `bpdm_gate_2` and `bpdm_gate_3` databases (created by the Docker Compose file above), owned by `BPNL000000000002` and `BPNL000000000003`.
+
+:::caution
+
+The system tester names all three Gates in its default configuration.
+A stack running only the first Gate **fails** the scenarios that need the others rather than skipping them; see [Start Automated E2E Test](#start-automated-e2e-test) for how to act for fewer sharing members.
+
+:::
+
+##### 1.5 Gate configuration (optional)
+
+On default a Gate is multi-tenant: each company, identified by the BPNL of the accessing user, has its own tenant of business partner data and only ever sees that.
+
+Setting an owner BPNL makes the Gate single-tenant, so only users of that company can access it:
+
+```yaml
+bpdm:
+  bpn:
+    owner-bpn-l: BPNLXXXXXXXXXX01
+```
+
+### Start Automated E2E Test
+
+The `bpdm-system-tester` module runs the automated end-to-end tests. It is a Cucumber suite packaged as an executable JAR, built once and then run against the running stack.
+Its test data and scenarios are in the [feature](https://github.com/eclipse-tractusx/bpdm/tree/main/bpdm-system-tester/src/main/resources/cucumber) file folder.
+
+Build the JAR from the project root:
+
+```bash
+mvn -B -U clean package -pl bpdm-system-tester -am -DskipTests
+```
+
+Then run it:
+
+```bash
+java -jar bpdm-system-tester/target/bpdm-system-tester.jar
+```
+
+A local run needs no configuration: the base URLs and technical users of all three Gates, the Pool and the Orchestrator are the tester's checked-in defaults and match the imported realm.
+Scenarios run in parallel with 32 threads unless `--threads` is passed.
+
+Clearing the base URL of a Gate takes that sharing member out of the run; its scenarios are then skipped instead of failed:
+
+```bash
+BPDM_CLIENT_GATE_3_INPUT_BASE_URL= java -jar bpdm-system-tester/target/bpdm-system-tester.jar
+```
+
+Filter by tag to run only the fast round-trip smoke scenarios:
+
+```bash
+java -jar bpdm-system-tester/target/bpdm-system-tester.jar --tags @Smoke
+```
+
+A JSON report is not written by default; pass the plugin to enable it:
+
+```bash
+java -jar bpdm-system-tester/target/bpdm-system-tester.jar --plugin json:target/cucumber-report.json
+```
+
+Running the suite against a deployed environment is described in the [system tester README](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-system-tester/README.md).
 
 ## 2 - Request Business Partner Changelogs
 
-Similarly based on use case 1, if you have executed automated end to end test successfully on your local machine then you can easily search for input and output changelogs of involved business partners during tests.
+After a successful test run, the input and output changelogs of the business partners involved can be searched on the Gate.
 
-example, you can have below request from BPDM-GATE service after execution of automated tests
+### Obtain an access token
+
+The Gate API is an OAuth2 resource server, so a request needs a bearer token.
+Request one over the client credentials flow from the local `BPDM` realm, where every service account client uses `**********` as its secret:
+
+```bash
+TOKEN=$(curl -s -X POST 'http://localhost:8180/realms/BPDM/protocol/openid-connect/token' \
+  --data-urlencode 'grant_type=client_credentials' \
+  --data-urlencode 'client_id=BPDM_GATE' \
+  --data-urlencode 'client_secret=**********' | jq -r '.access_token')
+```
+
+:::note
+
+`BPDM_GATE` covers the whole Gate API. The realm also holds `BPDM_GATE_INPUT_CONSUMER`, `BPDM_GATE_INPUT_MANAGER` and `BPDM_GATE_OUTPUT_CONSUMER`, which hold one permission group each, like a Portal-managed technical user.
+
+:::
 
 ### Input Changelogs
 
-Request -
+Request:
 
 ```bash
-curl --location 'http://localhost:8081/v6/input/changelog/search?page=0&size=5' \
+curl --location 'http://localhost:8081/v7/input/business-partners/changelog/search?page=0&size=5' \
 --header 'Content-Type: application/json' \
---header 'Authorization: ••••••' \
+--header "Authorization: Bearer $TOKEN" \
 --data '{
   "timestampAfter": "2023-03-20T10:23:28.194Z",
   "externalIds": [
@@ -114,9 +190,9 @@ curl --location 'http://localhost:8081/v6/input/changelog/search?page=0&size=5' 
 }'
 ```
 
-Response - will be something like below.
+Response:
 
-```bash
+```json
 {
     "totalElements": 28,
     "totalPages": 6,
@@ -124,28 +200,28 @@ Response - will be something like below.
     "contentSize": 5,
     "content": [
         {
-            "externalId": "CC_SHG_WATT_4_2025-02-05T07:39:31.981320Z",
-            "timestamp": "2025-02-05T07:39:33.607852Z",
+            "externalId": "acme-record-1-2026-09-08T07:39:31Z",
+            "timestamp": "2026-09-08T07:39:33.607852Z",
             "changelogType": "CREATE"
         },
         {
-            "externalId": "CC_SHG_WATT_5_2025-02-05T07:39:31.981320Z",
-            "timestamp": "2025-02-05T07:39:33.607866Z",
+            "externalId": "acme-record-2-2026-09-08T07:39:31Z",
+            "timestamp": "2026-09-08T07:39:33.607866Z",
             "changelogType": "CREATE"
         },
         {
-            "externalId": "CC_SHG_WAT_1_2025-02-05T07:39:31.981320Z",
-            "timestamp": "2025-02-05T07:39:33.607866Z",
+            "externalId": "predecessor-address-record-2026-09-08T07:39:31Z",
+            "timestamp": "2026-09-08T07:39:33.607866Z",
             "changelogType": "CREATE"
         },
         {
-            "externalId": "CC_SHG_WATT_7_2025-02-05T07:39:31.981320Z",
-            "timestamp": "2025-02-05T07:39:33.607852Z",
+            "externalId": "successor-address-record-2026-09-08T07:39:31Z",
+            "timestamp": "2026-09-08T07:39:33.607852Z",
             "changelogType": "CREATE"
         },
         {
-            "externalId": "CC_SHG_WAT_2_2025-02-05T07:39:31.981320Z",
-            "timestamp": "2025-02-05T07:39:33.607866Z",
+            "externalId": "site-record-1-2026-09-08T07:39:31Z",
+            "timestamp": "2026-09-08T07:39:33.607866Z",
             "changelogType": "CREATE"
         }
     ],
@@ -154,14 +230,16 @@ Response - will be something like below.
 }
 ```
 
+The tester composes the external IDs from the record name, the scenario and the start time of the run, so the values differ with every run.
+
 ### Output Changelogs
 
-Request -
+Request:
 
 ```bash
-curl --location 'http://localhost:8081/v6/output/changelog/search?page=0&size=3' \
+curl --location 'http://localhost:8081/v7/output/business-partners/changelog/search?page=0&size=3' \
 --header 'Content-Type: application/json' \
---header 'Authorization: ••••••' \
+--header "Authorization: Bearer $TOKEN" \
 --data '{
   "timestampAfter": "2023-03-20T10:23:28.194Z",
   "externalIds": [
@@ -170,9 +248,9 @@ curl --location 'http://localhost:8081/v6/output/changelog/search?page=0&size=3'
 }'
 ```
 
-Response - will be something like below.
+Response:
 
-```bash
+```json
 {
     "totalElements": 14,
     "totalPages": 5,
@@ -180,18 +258,18 @@ Response - will be something like below.
     "contentSize": 3,
     "content": [
         {
-            "externalId": "CC_SHG_WAT_0_2025-02-05T07:39:31.981320Z",
-            "timestamp": "2025-02-05T07:41:30.715125Z",
+            "externalId": "acme-record-1-2026-09-08T07:39:31Z",
+            "timestamp": "2026-09-08T07:41:30.715125Z",
             "changelogType": "CREATE"
         },
         {
-            "externalId": "CC_SHG_WAT_2_2025-02-05T07:39:31.981320Z",
-            "timestamp": "2025-02-05T07:41:30.718923Z",
+            "externalId": "acme-record-2-2026-09-08T07:39:31Z",
+            "timestamp": "2026-09-08T07:41:30.718923Z",
             "changelogType": "CREATE"
         },
         {
-            "externalId": "CC_SHG_WAT_1_2025-02-05T07:39:31.981320Z",
-            "timestamp": "2025-02-05T07:41:30.722869Z",
+            "externalId": "site-record-1-2026-09-08T07:39:31Z",
+            "timestamp": "2026-09-08T07:41:30.722869Z",
             "changelogType": "CREATE"
         }
     ],
@@ -199,3 +277,26 @@ Response - will be something like below.
     "errors": []
 }
 ```
+
+:::note
+
+Relations have their own changelog under `/v7/input/relations/changelog/search` and `/v7/output/relations/changelog/search`, with the same request and response shape.
+The deprecated v6 API uses different paths; the full endpoint documentation is in [docs/api](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/README.md).
+
+:::
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023-2026 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023-2026 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023-2026 SAP SE
+- SPDX-FileCopyrightText: 2023-2026 Volkswagen AG
+- SPDX-FileCopyrightText: 2023-2026 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023-2026 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023-2026 BASF SE
+- SPDX-FileCopyrightText: 2023-2026 Schaeffler AG
+- SPDX-FileCopyrightText: 2023-2026 Contributors to the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm)

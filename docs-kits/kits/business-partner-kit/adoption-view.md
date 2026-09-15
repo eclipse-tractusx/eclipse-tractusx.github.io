@@ -17,10 +17,19 @@ The BusinessPartner KIT provides high-quality data records of business partners 
 
 - **Legal Entity Level (BPN L)**: Search for a legal entity and get the high-quality data set.
 - **Site Level (BPN S)**: Get the site information of a legal entity. A legal entity can have one or more sites.
-- **Address Level (BPN A)**: Each legal entity and site has an address to find the company.
+- **Address Level (BPN A)**: Each legal entity and site has an address to find the company. One address can belong to several sites.
 
 **The KIT provides a homogeneous semantic with an open data model, enables the access to high quality data and provides one access point to the business partner data sets.**
 <br/>
+
+### What a Golden Record Carries
+
+Beyond the data of a single business partner, a golden record carries:
+
+- **Relations**: a legal entity can be managed by, majority-owned by, the alternative headquarter of, or succeeded by another legal entity; sites and addresses can be succeeded by another site or address. Every relation has a validity period and a reason code.
+- **The ultimate owner**: the top of an ownership chain, resolved from the shared ownership relations and readable directly.
+- **Confidence criteria**: how many sharing members share the record, whether its owner shared it, whether an external data source checked it, and when it was last and will next be checked. A confidence level is derived from these.
+- **Script variants**: names and addresses in further scripts alongside the invariant data.
 
 ![BuildApps](@site/static/img/BPKITBuildApps.png)
 
@@ -51,14 +60,13 @@ Most of today’s automotive companies have to invest a significant amount of re
 For this, cutting individual company costs by offering the golden master data record as a shared service is the mission. And proactively reduce Business Partner risk via collaborative value-add services.
 More insights to the business partner data management use case here: [Catena-X | Business Partner Use Case](https://catena-x.net/use-case-cluster/next-level-master-data-management/)
 
-This will become the industry’s largest golden record collection as a shared and cost-optimized service (quality tested by the biggest players).
-
 OEMs and small-medium enterprises:
 
 - Reduce today’s individual investments in master data management
 - Re-allocate freed-up resources to differentiating / critical tasks
 - Time to value within 6 months, due to standard interfaces and mapping tools (e.g. SAP)
 - Increase data quality and use industry collective wisdom to act pro-actively (e.g. fraud alerts)
+- Take part without a master data management system: the Gate also accepts a business partner data set as a CSV file and offers a template for it
 
 Solution Provider:
 
@@ -70,27 +78,40 @@ Solution Provider:
 
 Our relevant standards can be downloaded from the official web page [Catena-X Standard Library](https://catenax-ev.github.io/docs/standards/overview).
 
+The standards the golden record process itself implements:
+
 - CX-0010-BusinessPartnerNumber
 - CX-0012-BusinessPartnerDataPoolAPI
 - CX-0074-BusinessPartnerGateAPI
 - CX-0076-GoldenRecordEndtoEndRequirementsStandard
 
-```note
-Note: Please be aware to choose the correct release version on Catena-X Standard Library
-```
+Standards for value-added services built on business partner data:
+
+- CX-0077-DataQualityDashboard
+- CX-0078-BankDataVerificationDashboard
+- CX-0079-NaturalPersonScreeningDashboard
+- CX-0080-BPDMFraudPreventionService
+- CX-0081-BPDMCountryRisk
+- CX-0116-SanctionWatchlistDashboard
+
+:::note
+
+Please be aware to choose the correct release version on Catena-X Standard Library.
+
+:::
 
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023,2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023,2024 SAP SE
-- SPDX-FileCopyrightText: 2023,2024 Volkswagen AG
-- SPDX-FileCopyrightText: 2023,2024 Robert Bosch GmbH
-- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group
-- SPDX-FileCopyrightText: 2023,2024 BASF SE
-- SPDX-FileCopyrightText: 2023,2024 Schaeffler AG
-- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023-2026 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023-2026 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023-2026 SAP SE
+- SPDX-FileCopyrightText: 2023-2026 Volkswagen AG
+- SPDX-FileCopyrightText: 2023-2026 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023-2026 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023-2026 BASF SE
+- SPDX-FileCopyrightText: 2023-2026 Schaeffler AG
+- SPDX-FileCopyrightText: 2023-2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm)
