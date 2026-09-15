@@ -37,7 +37,9 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    height: 71vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 71vh;
   }
   
   .hero_bg {
@@ -54,9 +56,10 @@
       
   .container {
     @include mixins.center-flex;
-    height: 100%;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
+    padding-bottom: 2rem;
   }
   
   .title,
@@ -136,16 +139,6 @@
     .heroBanner {
       width: 100%;
       margin: auto;
-      display: flex;
-    }
-  }
-  
-  
-  @media screen and (min-width: 3200px) {
-    .heroBanner {
-      width: 100%;
-      margin: auto;
-      display: flex;
     }
   }
   
