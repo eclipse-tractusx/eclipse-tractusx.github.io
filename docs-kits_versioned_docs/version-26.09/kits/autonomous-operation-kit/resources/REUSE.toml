@@ -1,0 +1,18 @@
+version = 1
+
+[[annotations]]
+path = ["*.svg", "*.jpg", "*.png"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 DMG MORI AG"
+SPDX-FileCopyrightText = "2026 Empolis Information Management GmbH"
+SPDX-FileCopyrightText = "2026 IFW Leibniz Universität Hannover"
+SPDX-FileCopyrightText = "2026 inovex GmbH"
+SPDX-FileCopyrightText = "2026 prenode GmbH"
+SPDX-FileCopyrightText = "2026 proALPHA GmbH"
+SPDX-FileCopyrightText = "2026 Siemens AG"
+SPDX-FileCopyrightText = "2026 Technologie-Initiative SmartFactory KL e. V."
+SPDX-FileCopyrightText = "2026 TRUMPF Werkzeugmaschinen SE + Co. KG"
+SPDX-FileCopyrightText = "2026 VDMA e. V."
+SPDX-FileCopyrightText = "2026 WITTENSTEIN SE"
+SPDX-FileCopyrightText = "2026 Contributors of the Eclipse Foundation"
+SPDX-License-Identifier = "CC-BY-4.0"
