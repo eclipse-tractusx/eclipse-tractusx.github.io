@@ -17,7 +17,7 @@ Data Spaces and AI system work at different layers and for different purposes. D
 
 Data Spaces technology implementation mainly focuses on the Connector, where you exchange data in a sovereign way. It includes asset/catalog registry management, policies for asset/catalog access, and policies for data usage. It also includes verifiable, certificate-based trust for participant identity and negotiation based on the asset registries, participant identity, and policies.
 
-AI system ares are still evolving rapidly. This KIT includes artificial intelligence technologies ranging from traditional machine learning to recent Agentic AI.
+AI systems are still evolving rapidly. This KIT includes artificial intelligence technologies ranging from traditional machine learning to recent Agentic AI.
 
 The AI Service KIT integrates both technologies so users can benefit from both.
 
