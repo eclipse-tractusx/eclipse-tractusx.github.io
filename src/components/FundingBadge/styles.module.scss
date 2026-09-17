@@ -1,0 +1,148 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+// Funding badge — official funder logo plus an English caption.
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 24px;
+  padding: 12px 16px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+}
+
+// The official logo is designed for a white background — keep it there in dark mode too.
+.logoPlate {
+  flex-shrink: 0;
+  display: flex;
+  padding: 4px;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.logo {
+  display: block;
+  width: 120px;
+  height: auto;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ifm-font-color-base);
+}
+
+.compact {
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 6px 10px 6px 6px;
+  border-radius: 8px;
+  align-self: flex-start;
+
+  .logo {
+    width: 72px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+}
+
+// Trigger variant — the badge is a button that reveals the funding amount.
+.wrapper {
+  position: relative;
+  margin: 0 0 24px;
+
+  .badge {
+    margin: 0;
+  }
+}
+
+.compactWrapper {
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+.trigger {
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+
+  &:hover,
+  &[aria-expanded='true'] {
+    border-color: var(--ifm-color-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ifm-color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 180px;
+  padding: 10px 14px;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 10px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.amountLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.amount {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ifm-color-primary);
+}
+
+@media screen and (max-width: 600px) {
+  .popover {
+    right: auto;
+    left: 0;
+    align-items: flex-start;
+  }
+
+  .badge:not(.compact) .logo {
+    width: 96px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+}

@@ -20,105 +20,200 @@
  ********************************************************************************/
 
 import React from "react";
-import LicensesImg from "@site/static/img/licenses-minified.png";
-import IFrameComponent from "../../components/IFrameComponent";
+import Link from "@docusaurus/Link";
+import useBrokenLinks from "@docusaurus/useBrokenLinks";
+import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
+import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
+import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
+import IFrameComponent from "../IFrameComponent";
+import Ecosystem from "./Ecosystem";
+import History from "./History";
+import DataspaceComponent from "../2.0/DataspaceComponent";
+import OrganizationCarousel from "../OrganizationCarousel";
+import ContributionSection from "../2.0/ContributionSection";
+import GetStartedSection from "../2.0/GetStartedSection";
 import styles from "./styles.module.css";
-import ThemedImage from '@theme/ThemedImage';
+
+const contributions = [
+  {
+    title: "Bring real-world needs",
+    Icon: GroupsOutlinedIcon,
+    description: "Industry initiatives and associations bring use cases, requirements, and domain knowledge. Companies and users contribute feedback from putting dataspaces into practice.",
+  },
+  {
+    title: "Build shared technology",
+    Icon: CodeOutlinedIcon,
+    description: "Developers across organizations contribute code, documentation, tests, and features. Collaboration with other Eclipse projects connects reusable components with industry needs.",
+  },
+  {
+    title: "Reuse across industries",
+    Icon: AccountTreeOutlinedIcon,
+    description: "Shared software and KITs help teams build solutions for different dataspaces. Improvements can flow back into the project and benefit the wider community.",
+  },
+];
+
+// Section anchors that other pages link to (e.g. /AboutUs#history-title).
+// Sections are plain JSX rather than Markdown headings, so the anchors are
+// registered here for the broken-anchor check to find them.
+const anchors = [
+  "community-title", "ecosystem-title", "organizations-title", "history-title",
+  "dataspaces", "contribution-title", "technology-title", "governance-title",
+];
 
 export default function AboutUsContent() {
+  const brokenLinks = useBrokenLinks();
+  anchors.forEach((id) => brokenLinks.collectAnchor(id));
+
   return (
-    <section className={styles.about_content}>
+    <div className={styles.about_content}>
       <div className={styles.container}>
-
-        <div className={styles.title_container}>
-          <h2 className="title-h2">Background</h2>
-
-          <p className="description-p">
-            The Eclipse Tractus-X™ project is the official open-source project in the Catena-X ecosystem and several other Manufacturing-X ecosystems under the umbrella of the Eclipse Foundation. The Eclipse Foundation is a not-for-profit corporation that is supported by over 320 members, and represents the worlds largest sponsored collection of Open Source projects and developers.
+        <section className={styles.intro} aria-labelledby="community-title">
+          <p className={styles.eyebrow}>Where we build dataspaces</p>
+          <h2 id="community-title">Community Built. Open to everyone.</h2>
+          <p className={styles.lead}>
+            Eclipse Tractus-X™ brings together contributors from different
+            organizations, open-source projects, industry initiatives, and
+            independent companies. Together, we develop the software and knowledge
+            needed for secure, sovereign, and interoperable data exchange.
           </p>
+        </section>
 
-          <div className={styles.img_container}>
-            <ThemedImage
-              // alt="About image"
-              sources={{
-                light: ('/img/tractus-x_bg-updated_light.png'),
-                dark: ('/img/tractus-x_bg-updated.svg'),
-              }}
-              className={styles.img}
-            />
+        <section className={styles.section} aria-labelledby="ecosystem-title">
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>Our ecosystem</p>
+            <h2 id="ecosystem-title">Different contributors. Shared building blocks.</h2>
+            <p>
+              The community connects industry knowledge, open-source technology,
+              and practical experience. This is how the different groups come together.
+            </p>
           </div>
+          <Ecosystem />
+        </section>
 
-          <p className="description-p">
-            The Catena-X ecosystem consists of the following three areas, which are connected by the Tractus-X project:
+        <section className={styles.section} aria-labelledby="organizations-title">
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>Our contributing community</p>
+            <h2 id="organizations-title">Organizations engaged in Eclipse Tractus-X</h2>
+            <p>
+              Meet organizations whose teams help build and support the project.
+              Their contributions bring different perspectives, expertise, and
+              experience into our shared open-source community.
+            </p>
+          </div>
+          <OrganizationCarousel />
+          <p className={styles.organizationSource}>
+            Organization names and logos are the property of their respective owners.
           </p>
+        </section>
 
-          <p className="description-p">
-            (1) The <strong>Catena-X Automotive Network e.V.</strong> (in the following called ‘association’) is responsible for standardization, certifications, and governance of the Catena-X ecosystem and is managing the Eclipse Tractus-X project. Association members can participate in working groups to actively shape the Catena-X ecosystem.
-          </p>
+        <section className={styles.section} aria-labelledby="history-title">
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>Our history</p>
+            <h2 id="history-title">From innovative automotive roots to global core for dataspaces</h2>
+            <p>
+              Eclipse Tractus-X started with the automotive industry and has grown
+              into an open-source home for dataspace initiatives across industries globally. 
+              We build the core for interoperable and secure data exchange across industries.
+            </p>
+          </div>
+          <History />
+        </section>
 
-          <p className="description-p">
-            (2) The <strong>development environment</strong> is responsible for the development of the initial reference implementations of the core and enabling services. The reference implementations are managed in the Tractus-X repositories, that contain, among other things, source code, technical documentation, and deployment instructions.
-          </p>
-
-          <p className="description-p">
-            (3) In the <strong>operating environment</strong>, the open-source reference implementations can be freely used, modified, and operated by providers - including core service provider (e.g., marketplace), enablement service provider (e.g., Eclipse Dataspace Connector), and business application provider (e.g., traceability applications).
-          </p>
-
-          <p className="description-p">
-            Tractus-X supports developers to accelerate the development and operation of services / applications and to contribute significantly to the rapid scaling of the ecosystem. Therefore Tractus-X provides reference implementations of core and enabling services as well as KITs to accelerate the development of interoperable and innovative applications and the on-boarding to the Catena-X ecosystem.
-          </p>
-
-          <p className="description-p">
-            Reference implementations are free and open-source software (FOSS) components, which are managed in the associated Eclipse Tractus-X project. Other reference implementations (e.g., DAPS) used by the Catena-X ecosystem but developed by other projects such as Gaia-X or IDSA can also be found in the Eclipse Tractus-X project.
-          </p>
-
-          <p className="description-p">
-            Reference implementations are released under the Apache 2.0 license. According to the Apache 2.0 license, anyone can freely use, modify, and distribute the reference implementations in any environment. Reference implementations are usually not market-ready solutions and require a certain industrialization effort, which can vary depending on the software component. As part of the development environment, the Catena-X consortium provides the first open-source Catena-X reference implementations for core and enabling services.
-          </p>
+        <div id="dataspaces" className={styles.dataspaceNetwork} role="region" aria-label="Our dataspace network">
+          <DataspaceComponent />
         </div>
 
-        <div className={styles.box_container}>
-          <div>
-            <ThemedImage
-              // alt="About image"
-              sources={{
-                light: ('/img/Bild.png'),
-                dark: ('/img/Bild.png'),
-              }}
-              className={styles.logo}
-            />
-            <div className={styles.text}>
-              <p className="description-p">Licenses</p>
-              <p className="subtitle-h3">Apache License Version 2.0 (Code)</p>
-              <p className="subtitle-h3">CC BY 4.0 (Non-Code)</p>
-            </div>
+        <section className={styles.section} aria-labelledby="contribution-title">
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>How we work together</p>
+            <h2 id="contribution-title">From shared needs to shared solutions</h2>
           </div>
-          <div>
-            <ThemedImage
-              // alt="About image"
-              sources={{
-                light: ('/img/logo_tractus-x.svg'),
-                dark: ('/img/logo_tractus-x.svg'),
-              }}
-              className={styles.logo}
-            />
-            <div className={styles.text}>
-              <p className="description-p">Legal</p>
-              <p className="subtitle-h3">For this Eclipse Project we use Tractus-X instead of Catena-X as a name because the Catena-X Association wants to
-                keep it’s name as a trademark
+          <ol className={styles.contributions}>
+            {contributions.map(({ title, Icon, description }, index) => (
+              <li key={title} className={styles.contribution}>
+                <div className={styles.stepHeader}>
+                  <Icon aria-hidden="true" />
+                  <span className={styles.stepNumber}>0{index + 1}</span>
+                </div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className={styles.section} aria-labelledby="technology-title">
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>What we create</p>
+            <h2 id="technology-title">Open technology for connected industries</h2>
+          </div>
+          <div className={styles.twoColumns}>
+            <article className={styles.infoCard}>
+              <h3>Open-source software</h3>
+              <p>
+                We build reference implementations, libraries, demonstrators, and
+                services for dataspaces. These include connectors, identity
+                components, the Digital Twin Registry, Portal, Industry Core Hub,
+                and the Tractus-X SDK, alongside solutions for traceability,
+                sustainability, and supply chains.
               </p>
-            </div>
+              <Link to="/community/products">Explore our software →</Link>
+            </article>
+            <article className={styles.infoCard}>
+              <h3>KITs — Keep It Together</h3>
+              <p>
+                KITs combine architecture blueprints, documentation, and guidance
+                co-created by multiple stakeholders. They help business teams,
+                developers, and service providers understand use cases and adopt
+                interoperable dataspace technologies across industries.
+              </p>
+              <Link to="/Kits">Explore the KITs →</Link>
+            </article>
           </div>
-        </div>
+        </section>
+
+        <section className={styles.section} aria-labelledby="governance-title">
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>Our open-source home</p>
+            <h2 id="governance-title">Collaboration under the Eclipse Foundation</h2>
+          </div>
+          <div className={styles.twoColumns}>
+            <article className={styles.infoCard}>
+              <h3>Eclipse Foundation</h3>
+              <p>
+                Eclipse Tractus-X operates under the Eclipse Foundation’s
+                development process and intellectual property policies. This
+                provides a common framework for people from different
+                organizations to develop and maintain the project together.
+              </p>
+              <a href="https://projects.eclipse.org/projects/automotive.tractusx">
+                Eclipse Tractus-X project profile →
+              </a>
+            </article>
+            <article className={`${styles.infoCard} ${styles.workingGroup}`}>
+              <h3>Eclipse Dataspace Working Group</h3>
+              <p>
+                The EDWG brings organizations and projects together to promote
+                open-source dataspace technology, support standards alignment,
+                and encourage adoption. Tractus-X participates in this wider
+                Eclipse dataspace ecosystem.
+              </p>
+              <a href="https://dataspace.eclipse.org/about/">About the EDWG →</a>
+            </article>
+          </div>
+          <p className={styles.licenses}>
+            <strong>Open to use and build upon.</strong> Our project uses
+            Apache-2.0 for code and CC-BY-4.0 for non-code content.
+          </p>
+        </section>
 
         <IFrameComponent
-          link={'https://www.youtube.com/embed/iIaH71z7ENg'}
-          description={''}
-          title={''}
-          headerDescription={''}
+          link="https://www.youtube.com/embed/pXpXXMuLmJ8"
+          title="Get to know Eclipse Tractus-X"
         />
-
       </div>
-    </section>
+      <ContributionSection title="Ways to Contribute, Start Your Journey" />
+      <GetStartedSection />
+    </div>
   );
 }
