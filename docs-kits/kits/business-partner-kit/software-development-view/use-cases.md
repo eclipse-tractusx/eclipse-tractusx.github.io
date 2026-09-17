@@ -13,7 +13,7 @@ The steps below set up a local stack of all Business Partner Data Management (BP
 
 ### Local environment setup
 
-Other ways to run the services - Helm Charts, Dockerfiles - are described in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md).
+Other ways to run the services - Helm Charts, Dockerfiles - are described in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/INSTALL.md).
 
 #### Prerequisites
 
@@ -21,6 +21,7 @@ Other ways to run the services - Helm Charts, Dockerfiles - are described in [IN
 - Maven (3.9 supported)
 - Docker Engine (tested on 29.5.3)
 - Docker Compose (tested on 5.1.4)
+- `curl` and [`jq`](https://jqlang.org/) for the API requests in use case 2
 
 #### Installation Steps
 
@@ -62,15 +63,35 @@ mvn clean install
 Then start them in this order - the Pool refuses to start while the Orchestrator is unreachable, and the Gate while either the Pool or the Orchestrator is:
 
 ```bash
+# terminal 1
 cd bpdm-orchestrator
 mvn spring-boot:run
-cd ../bpdm-cleaning-service-dummy
-mvn spring-boot:run
-cd ../bpdm-pool
-mvn spring-boot:run
-cd ../bpdm-gate
+```
+
+```bash
+# terminal 2
+cd bpdm-cleaning-service-dummy
 mvn spring-boot:run
 ```
+
+```bash
+# terminal 3
+cd bpdm-pool
+mvn spring-boot:run
+```
+
+```bash
+# terminal 4
+cd bpdm-gate
+mvn spring-boot:run
+```
+
+:::note
+
+Each command keeps running in the foreground until the service is stopped, so every service needs its own terminal.
+Wait for a service to report that it has started before running the next command.
+
+:::
 
 The applications serve their APIs on:
 
@@ -84,11 +105,17 @@ The applications serve their APIs on:
 ##### 1.4 Start the further Gates
 
 Scenarios in which two or three sharing members share one golden record need further Gates: each member reflecting the other's master data changes, the sharing member count, and the confidence level, which the count raises from three members on.
-The `gate-2` and `gate-3` profiles provide them. Start them once the rest of the stack is up:
+The `gate-2` and `gate-3` profiles provide them. Start them once the rest of the stack is up, again each in its own terminal:
 
 ```bash
+# terminal 5
 cd bpdm-gate
 mvn spring-boot:run -Dspring-boot.run.profiles=gate-2
+```
+
+```bash
+# terminal 6
+cd bpdm-gate
 mvn spring-boot:run -Dspring-boot.run.profiles=gate-3
 ```
 
@@ -116,7 +143,7 @@ bpdm:
 ### Start Automated E2E Test
 
 The `bpdm-system-tester` module runs the automated end-to-end tests. It is a Cucumber suite packaged as an executable JAR, built once and then run against the running stack.
-Its test data and scenarios are in the [feature](https://github.com/eclipse-tractusx/bpdm/tree/main/bpdm-system-tester/src/main/resources/cucumber) file folder.
+Its test data and scenarios are in the [feature](https://github.com/eclipse-tractusx/bpdm/tree/release/7.5.x/bpdm-system-tester/src/main/resources/cucumber) file folder.
 
 Build the JAR from the project root:
 
@@ -151,7 +178,7 @@ A JSON report is not written by default; pass the plugin to enable it:
 java -jar bpdm-system-tester/target/bpdm-system-tester.jar --plugin json:target/cucumber-report.json
 ```
 
-Running the suite against a deployed environment is described in the [system tester README](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-system-tester/README.md).
+Running the suite against a deployed environment is described in the [system tester README](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/bpdm-system-tester/README.md).
 
 ## 2 - Request Business Partner Changelogs
 
@@ -281,7 +308,7 @@ Response:
 :::note
 
 Relations have their own changelog under `/v7/input/relations/changelog/search` and `/v7/output/relations/changelog/search`, with the same request and response shape.
-The deprecated v6 API uses different paths; the full endpoint documentation is in [docs/api](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/README.md).
+The deprecated v6 API uses different paths; the full endpoint documentation is in [docs/api](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/README.md).
 
 :::
 
