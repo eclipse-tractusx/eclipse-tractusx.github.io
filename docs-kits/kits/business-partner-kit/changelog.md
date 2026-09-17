@@ -58,21 +58,27 @@ Compatible for **release 26.09**.
 - Architecture view: runtime views for sharing a relation, for counting the sharing members of a golden record and for picking up finished tasks.
 - Architecture view: a "Dummy Golden Record Process Restrictions" chapter.
 - Architecture view: the architecture decision "Realize multi-tenancy within one Gate deployment".
+- Architecture view: the tool, the version and the modification process of the diagrams.
 - Development view: the four BPDM services, the role-scoped Open-API documents, the integration guides per role and access over EDC.
 - Use cases: starting the Gates of the second and third sharing member, and obtaining an access token for the Gate API.
+- Use cases: `curl` and `jq` in the prerequisites.
 - Operation view: the bundled `helm test` smoke test and the Keycloak admin console.
 - Operation view: the optional `bpnSites` on `PUT addresses`.
-- CC BY 4.0 notice on the changelog, development view, use cases and operation view pages.
+- CC BY 4.0 notice on the changelog, development view, use cases and operation view pages, and a CC BY 4.0 header on every page.
+- The KIT logo on the use cases page, the only page that did not carry one.
 
 ### Changed
 
 - Aligned the KIT with BPDM application 7.5.0 and BPDM Helm Charts 7.1.0.
 - API Hub links for Gate, Pool and Orchestrator point to 7.5.0, which requires the 7.5.0 specifications to be published there.
+- Links into the BPDM repository point to its `release/7.5.x` branch instead of `main`, so they follow this KIT version instead of the next BPDM release.
 - Regenerated the architecture view from the BPDM repository: corrected deployment view, v7 API paths in all runtime views, complete permission tables, Pool permission group "Cx Member" renamed to "Dataspace Participant", and the actual logging levels.
 - Architecture view: the Gate serves several sharing members at once and resolves the tenant from the caller's token.
 - Adoption view: an address can belong to several sites.
+- Adoption view: every listed standard is linked and carries the version valid in the current Catena-X release CX-Titan.
 - Development view: rewrote the specification page.
 - Use cases: the end-to-end suite is built and run as an executable JAR, and the changelog examples use v7 endpoints.
+- Use cases: each BPDM service is started in its own terminal, as `mvn spring-boot:run` does not return.
 - Operation view: prerequisite tool versions, supported external Keycloak version, workload names, port forwarding, and the notes on upgrading an existing deployment and on the bundled dependencies.
 
 ### Removed

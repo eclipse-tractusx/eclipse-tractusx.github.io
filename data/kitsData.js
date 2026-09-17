@@ -245,8 +245,8 @@ export const kitsData = {
       description: 'Get high-quality data business partner data records including the unique identifier.',
       metadata: {
         created: '2023-03-01',
-        lastUpdated: '2026-06-11',
-        latestVersion: '11.0.0',
+        lastUpdated: '2026-09-08',
+        latestVersion: '12.0.0',
         new: false
       }
     },
