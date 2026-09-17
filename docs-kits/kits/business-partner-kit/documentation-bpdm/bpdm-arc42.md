@@ -9,6 +9,7 @@ sidebar_position: 1
 
 ## Business Partner Data Management Application for Golden Record (BPDM)
 
+- [Diagrams in This Document](#diagrams-in-this-document)
 - [Introduction and Goals](#introduction-and-goals)
   - [Goals Overview](#goals-overview)
   - [Requirements Overview](#requirements-overview)
@@ -42,6 +43,13 @@ sidebar_position: 1
   - [Risks](#risks)
   - [Technical Debts](#technical-debts)
 - [NOTICE](#notice)
+
+## Diagrams in This Document
+
+The diagrams come in two forms, both editable and both kept in the [BPDM repository](https://github.com/eclipse-tractusx/bpdm/tree/release/7.5.x/docs/architecture):
+
+- Sequence, flow and state diagrams are written as [Mermaid](https://mermaid.js.org/) code directly in the Markdown source and rendered by Docusaurus (`@docusaurus/theme-mermaid`, Mermaid 11). To change one, edit the fenced ` ```mermaid ` block in the Markdown file; the [Mermaid Live Editor](https://mermaid.live/edit) is a convenient way to try a change out first.
+- Context, deployment and EDC usage diagrams are static `.svg` files created with [draw.io](https://app.diagrams.net/) and stored under `docs/architecture/assets/` in the BPDM repository. To change one, open the `.drawio.svg` file with draw.io, edit it, and save it again as an editable `.svg`.
 
 ## Introduction and Goals
 
@@ -108,9 +116,9 @@ The following Usecases together with its requirements exist for this system:
 ### Stakeholders
 
 The API documentation describes the same roles from an integrator's perspective, each with its own
-guide: [sharing member](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/sharing-member-guide.md),
-[dataspace participant](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/dataspace-participant-guide.md) and
-[refinement service provider](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/refinement-service-guide.md).
+guide: [sharing member](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/sharing-member-guide.md),
+[dataspace participant](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/dataspace-participant-guide.md) and
+[refinement service provider](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/refinement-service-guide.md).
 
 | Role/Name                              | Expectations                                                                                                       | Example                                                                                                                                    |
 |----------------------------------------|--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -159,7 +167,7 @@ The following are the various components of the business context setup:
 
 - **Curation & Enrichment Services**
   - To offer the BPDM and Golden Record Services, Catena-X uses services from external third party service providers. These can either be operated by the operator itself or external companies that have a contract with the operator.
-  - The API documentation calls this role a refinement service provider, or golden record processing service provider; see the [Refinement Service Provider Guide](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/refinement-service-guide.md).
+  - The API documentation calls this role a refinement service provider, or golden record processing service provider; see the [Refinement Service Provider Guide](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/refinement-service-guide.md).
 
 ### Technical Context
 
@@ -192,7 +200,7 @@ The following high level view gives a basic overview about the BPDM Components:
 
 - **BPDM Pool**
   - The BPDM Pool is the central instance for business partner data within Catena-X.
-  - The BPDM Pool provides the interface and persistance for accessing Golden Record Data and the unique Business Partner Number.
+  - The BPDM Pool provides the interface and persistence for accessing Golden Record Data and the unique Business Partner Number.
   - In comparison to the BPDM Gate, there is only one central instance of the BPDM Pool.
 
 - **BPN Issuer**
@@ -282,7 +290,7 @@ response models of an integration are the ones the API documentation publishes.
 
 The paths in this section are the current v7 API paths. The Gate, Pool and Orchestrator also still
 serve a deprecated v6 API whose paths differ; the full endpoint documentation is in
-[docs/api](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/README.md).
+[docs/api](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/README.md).
 
 ### Sharing A Business Partner
 
@@ -690,9 +698,9 @@ UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
 ```
 
 The chart versions named here are the ones the umbrella currently depends on; the authoritative
-list is the `dependencies` section of [charts/bpdm/Chart.yaml](https://github.com/eclipse-tractusx/bpdm/blob/main/charts/bpdm/Chart.yaml).
+list is the `dependencies` section of [charts/bpdm/Chart.yaml](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/charts/bpdm/Chart.yaml).
 Installation and configuration are described in the [Operation View](../software-operation-view.md)
-and in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md).
+and in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/INSTALL.md).
 
 ## Crosscutting Concepts
 
@@ -940,7 +948,7 @@ Description: BPDM Gate
 
 This example configuration includes the roles, clients and client scopes that BPDM currently expects.
 The actual client IDs are subject to change depending on the name they receive in the Portal Keycloak configuration.
-[BPDM-realm.json](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-common-test/src/main/resources/keycloak/BPDM-realm.json)
+[BPDM-realm.json](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/bpdm-common-test/src/main/resources/keycloak/BPDM-realm.json)
 
 :::note
 
@@ -962,7 +970,7 @@ Communication with BPDM application must be via EDC. The standards for EDC Asset
 - [BPDM Pool API Asset Structure](https://catenax-ev.github.io/docs/standards/CX-0012-BusinessPartnerDataPoolAPI)
 - [BPDM Gate API Asset Structure](https://catenax-ev.github.io/docs/standards/CX-0074-BusinessPartnerGateAPI)
 
-An example postman collection for Asset definition you can find [here](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/admin/EDC%20Provider%20Setup.postman_collection.json)
+An example postman collection for Asset definition you can find [here](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/admin/EDC%20Provider%20Setup.postman_collection.json)
 
 #### Verified Credentials
 
@@ -1012,7 +1020,7 @@ We enhance the default log entries with user request information including the d
 Not all logs belong to an ongoing user request in which case these entries are empty.
 
 What belongs on which level is binding for the code and is defined in the
-[logging guide](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/developer/logging-guide.md). In short:
+[logging guide](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/developer/logging-guide.md). In short:
 
 - INFO is reserved for three things: a change that was persisted, the effective configuration at
   startup, and a process lifecycle transition. A persisted-change entry is an outcome and names its
@@ -1080,7 +1088,7 @@ Chosen option: "Use multiple Gates so that every member will have its own Gate w
 
 ##### Implications on SMEs
 
-- To exchange business partner data accross legal entities and enabling contract negotiation, each SME needs to have its own EDC
+- To exchange business partner data across legal entities and enabling contract negotiation, each SME needs to have its own EDC
 - The EDC itself can be provided as offer by the operator or other "EDC as a Service" Service Provider
 
 ##### Implications on Value-Added-Services
