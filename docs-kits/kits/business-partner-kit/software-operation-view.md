@@ -5,7 +5,42 @@ description: Business Partner KIT
 sidebar_position: 3
 ---
 
+<!--
+Copyright (c) 2023-2026 ZF Friedrichshafen AG
+Copyright (c) 2023-2026 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+Copyright (c) 2023-2026 SAP SE
+Copyright (c) 2023-2026 Volkswagen AG
+Copyright (c) 2023-2026 Robert Bosch GmbH
+Copyright (c) 2023-2026 Mercedes Benz Group
+Copyright (c) 2023-2026 BASF SE
+Copyright (c) 2023-2026 Schaeffler AG
+Copyright (c) 2023-2026 Contributors to the Eclipse Foundation
+
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
+
+This documentation and the accompanying materials are made available under
+the terms of the Creative Commons Attribution 4.0 International License,
+which is available at https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+<!--
+KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
+Do not remove!
+This logo is only visible when compiled with Docusaurus (final version of the hosted KIT)
+-->
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="business-partner" />
+
 ![Business partner kit banner](@site/static/img/kits/business-partner/business-partner-logo.svg)
+
+<!--
+KIT LOGO END
+-->
 
 ## Local Deployment
 
