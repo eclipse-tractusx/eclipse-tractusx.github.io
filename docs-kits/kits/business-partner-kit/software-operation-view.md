@@ -13,13 +13,13 @@ BPDM (business partner data management) provides the core services for querying,
 It is a Spring Boot Kotlin project managed by Maven, consisting of four microservices: Gate, Pool, Orchestrator and Cleaning Service Dummy.
 
 This section installs them on a Kubernetes cluster with the Helm Charts - the quickest way to a running system.
-A deployment without Helm, including the `no-auth` profile for a setup without security, is described in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md#local-installation).
+A deployment without Helm, including the `no-auth` profile for a setup without security, is described in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/INSTALL.md#local-installation).
 
 :::caution Upgrading an existing deployment
 
 Most BPDM releases need operator action before the upgrade: data to remediate first, migrations that delete data or fail the deployment when the data does not fit, and changed configuration or infrastructure requirements.
 
-The [BPDM Migration Guide](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/admin/MIGRATION_GUIDE.md) states them per version step.
+The [BPDM Migration Guide](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/admin/MIGRATION_GUIDE.md) states them per version step.
 Work through every step between your deployed version and the target version before upgrading.
 
 :::
@@ -191,7 +191,7 @@ bpdmRealm:
       secret: $CLEANING_DUMMY_SECRET
 ```
 
-Each application is wired to its client automatically. The full list of client keys is in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/main/INSTALL.md#overriding-oauth-client-secrets).
+Each application is wired to its client automatically. The full list of client keys is in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/INSTALL.md#overriding-oauth-client-secrets).
 
 ### Step 5: Installation without authentication
 
@@ -215,7 +215,7 @@ bpdm-orchestrator:
     - no-auth
 ```
 
-Authentication can also be removed more selectively; the profile configurations, for example the [Gate's](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-gate/src/main/resources/application-no-auth.yml), show which properties are involved.
+Authentication can also be removed more selectively; the profile configurations, for example the [Gate's](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/bpdm-gate/src/main/resources/application-no-auth.yml), show which properties are involved.
 
 ### Use External Dependencies
 
@@ -314,10 +314,10 @@ This configuration can be combined with the examples for overriding passwords an
 Values under `applicationConfig` and `applicationSecrets` are injected directly as application properties into the deployed containers.
 The application properties files list what can be set:
 
-1. [BPDM Gate](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-gate/src/main/resources/application.yml)
-2. [BPDM Pool](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-pool/src/main/resources/application.yml)
-3. [BPDM Orchestrator](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-orchestrator/src/main/resources/application.yml)
-4. [BPDM Cleaning Service Dummy](https://github.com/eclipse-tractusx/bpdm/blob/main/bpdm-cleaning-service-dummy/src/main/resources/application.yml)
+1. [BPDM Gate](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/bpdm-gate/src/main/resources/application.yml)
+2. [BPDM Pool](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/bpdm-pool/src/main/resources/application.yml)
+3. [BPDM Orchestrator](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/bpdm-orchestrator/src/main/resources/application.yml)
+4. [BPDM Cleaning Service Dummy](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/bpdm-cleaning-service-dummy/src/main/resources/application.yml)
 
 ## Stopping the cluster
 
@@ -342,7 +342,7 @@ Then forward port 8000 of that deployment to your host machine and connect your 
 
 ## Administration
 
-The BPDM Pool offers a set of endpoints for administration purposes. The full reference is the [BPDM Admin Guide](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/admin/README.md).
+The BPDM Pool offers a set of endpoints for administration purposes. The full reference is the [BPDM Admin Guide](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/admin/README.md).
 
 ### Managing Metadata
 

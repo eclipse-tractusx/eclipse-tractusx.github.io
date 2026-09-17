@@ -77,28 +77,23 @@ Solution Provider:
 ## Standards
 
 Our relevant standards can be downloaded from the official web page [Catena-X Standard Library](https://catenax-ev.github.io/docs/standards/overview).
+The versions below are those valid in the current Catena-X release **CX-Titan**, which this KIT release targets.
 
 The standards the golden record process itself implements:
 
-- CX-0010-BusinessPartnerNumber
-- CX-0012-BusinessPartnerDataPoolAPI
-- CX-0074-BusinessPartnerGateAPI
-- CX-0076-GoldenRecordEndtoEndRequirementsStandard
+- [CX-0010 Business Partner Number v3.0.1](https://catenax-ev.github.io/docs/standards/CX-0010-BusinessPartnerNumber)
+- [CX-0012 Business Partner Data Pool API v5.1.1](https://catenax-ev.github.io/docs/standards/CX-0012-BusinessPartnerDataPoolAPI)
+- [CX-0074 Business Partner Gate API v4.1.1](https://catenax-ev.github.io/docs/standards/CX-0074-BusinessPartnerGateAPI)
+- [CX-0076 Golden Record End-to-End Requirements v1.5.0](https://catenax-ev.github.io/docs/standards/CX-0076-GoldenRecordEndtoEndRequirementsStandard)
 
 Standards for value-added services built on business partner data:
 
-- CX-0077-DataQualityDashboard
-- CX-0078-BankDataVerificationDashboard
-- CX-0079-NaturalPersonScreeningDashboard
-- CX-0080-BPDMFraudPreventionService
-- CX-0081-BPDMCountryRisk
-- CX-0116-SanctionWatchlistDashboard
-
-:::note
-
-Please be aware to choose the correct release version on Catena-X Standard Library.
-
-:::
+- [CX-0077 Data Quality Dashboard v1.2.2](https://catenax-ev.github.io/docs/standards/CX-0077-DataQualityDashboard)
+- [CX-0078 Bank Data Verification Dashboard v1.2.2](https://catenax-ev.github.io/docs/standards/CX-0078-BankDataVerificationDashboard)
+- [CX-0079 Natural Person Screening Dashboard v1.2.2](https://catenax-ev.github.io/docs/standards/CX-0079-NaturalPersonScreeningDashboard)
+- [CX-0080 BPDM Fraud Prevention Service v1.1.1](https://catenax-ev.github.io/docs/standards/CX-0080-BPDMFraudPreventionService)
+- [CX-0081 Country Risk API v1.2.1](https://catenax-ev.github.io/docs/standards/CX-0081-BPDMCountryRisk)
+- [CX-0116 Sanction Party Watchlist Dashboard v1.2.2](https://catenax-ev.github.io/docs/standards/CX-0116-SanctionWatchlistDashboard)
 
 ## NOTICE
 

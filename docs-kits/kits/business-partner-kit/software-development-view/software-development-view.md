@@ -42,17 +42,17 @@ Select it from the definition dropdown in the Swagger UI:
 The permission groups are described in the [Architecture documentation](../documentation-bpdm/bpdm-arc42.md#roles-rights-permissions).
 
 Importing such a document into Postman with *Import → Link* - for example `https://<host>/pool/docs/api-docs/v7-participant` - yields a collection scoped to that permission group.
-[Setting up an imported collection](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/README.md#setting-up-an-imported-collection) lists the document paths and the authorization to set.
+[Setting up an imported collection](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/README.md#setting-up-an-imported-collection) lists the document paths and the authorization to set.
 
 ## Integration Guides
 
 Which API you integrate against follows from your role in the golden record process. One guide per role:
 
-- [Sharing Member Guide](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/sharing-member-guide.md) - the generic business partner format, the two data stages, the sharing state and the changelog.
-- [Dataspace Participant Guide](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/dataspace-participant-guide.md) - the golden record levels and the metadata lists.
-- [Refinement Service Provider Guide](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/refinement-service-guide.md) - the golden record task, its business partner data and its step results.
+- [Sharing Member Guide](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/sharing-member-guide.md) - the generic business partner format, the two data stages, the sharing state and the changelog.
+- [Dataspace Participant Guide](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/dataspace-participant-guide.md) - the golden record levels and the metadata lists.
+- [Refinement Service Provider Guide](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/refinement-service-guide.md) - the golden record task, its business partner data and its step results.
 
-The full API documentation and the machine-readable specifications are in [docs/api](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/README.md).
+The full API documentation and the machine-readable specifications are in [docs/api](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/README.md).
 
 :::note
 
@@ -69,8 +69,8 @@ Which communication needs an EDC is stated in the [Architecture documentation](.
 
 Two Postman collections document both sides of that setup:
 
-- [EDC BPDM Consumer](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/EDC%20BPDM%20Consumer.postman_collection.json) - negotiating for an offer and calling the APIs with the transfer token, described in [Access BPDM over EDC](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/api/README.md#access-bpdm-over-edc).
-- [EDC Provider Setup](https://github.com/eclipse-tractusx/bpdm/blob/main/docs/admin/EDC%20Provider%20Setup.postman_collection.json) - defining the BPDM assets, policies and contract definitions on the provider side.
+- [EDC BPDM Consumer](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/EDC%20BPDM%20Consumer.postman_collection.json) - negotiating for an offer and calling the APIs with the transfer token, described in [Access BPDM over EDC](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/api/README.md#access-bpdm-over-edc).
+- [EDC Provider Setup](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/docs/admin/EDC%20Provider%20Setup.postman_collection.json) - defining the BPDM assets, policies and contract definitions on the provider side.
 
 ## NOTICE
 
