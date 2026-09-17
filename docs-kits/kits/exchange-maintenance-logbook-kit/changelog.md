@@ -1,5 +1,5 @@
 ---
-id: changelog-sandbox-kit-template
+id: changelog
 title: Changelog
 description: 'Changelog exchange-maintenance-logbook KIT'
 sidebar_position: 1

@@ -1,5 +1,5 @@
 ---
-id: development-view-sandbox-kit-template
+id: development-view
 title: Development View
 description: 'Development View exchange-maintenance-logbook KIT'
 sidebar_position: 3
@@ -62,6 +62,8 @@ On the **manufacturer/fab** side, the abatement equipment is connected to the pr
 The **equipment supplier/service partner** side mirrors this setup: its EDC receives the entries, the service `EDC to AAS` writes them into its own AAS server, where the Maintenance Logbook keeps the received entries 1..X, and the same `GUI Maintenance Logbook` makes them available to the service partner - for example as the basis for cost billing. The supplier therefore never gains access to the fab's systems; it holds its own copy of exactly those entries that were released for it.
 
 The key design decision is this mirroring instead of a shared or centrally hosted logbook: both parties keep their data in their own AAS environment, and every entry crosses the company border only as an explicit, contract-governed transfer between the two EDCs. The sequence of such a transfer is described in the next diagram.
+
+ Both diagrams in this document are maintained as inline Mermaid source and rendered by Docusaurus using Mermaid 11.15.0; edit the fenced `mermaid` blocks and rebuild the site to regenerate them.
 
 ```mermaid
 flowchart TB
@@ -128,7 +130,7 @@ sequenceDiagram
     autonumber
 
     box Manufacturer
-        actor manufacturer_guy as Maintenance Personal
+        actor manufacturer_guy as Maintenance Personnel
         participant manufacturer_web_ui as Web UI
         participant manufacturer_backend as Backend
         participant manufacturer_aas_repository as AAS Repository
@@ -181,7 +183,7 @@ sequenceDiagram
 
 ## Application Programming Interfaces (API)
 
-To communicate with the AAS Repository and the Submodel Repository in the use case used the IDTA Application Programming Interfaces in version 3.2. The used implementation framework is BaSyx.
+The use case communicates with the AAS Repository and Submodel Repository through version 3.2 of the IDTA Application Programming Interfaces, implemented using Eclipse BaSyx.
 
 ## Protocols
 

@@ -1241,7 +1241,7 @@ export const kitsData = {
         deprecated: false,
         domain: 'Semiconductor Manufacturing',
         industries: ['semiconductor'],
-        description: 'Standardized exchange of safety data sheets, exposure scenarios and compliance information in the global chemical supply chain.',
+        description: 'Standardized, sovereign exchange of digital maintenance logbook entries between equipment suppliers, service partners, and semiconductor manufacturers via AAS and EDC.',
         metadata: {
           created: '2026-09-14',
           lastUpdated: '2026-09-14',
