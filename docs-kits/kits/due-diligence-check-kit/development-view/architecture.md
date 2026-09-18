@@ -40,10 +40,10 @@ The **Golden Record Service** at the Operating Company manages the master data o
 
 This information is provided by the **Data Providers** via the **DDC Application** used by the company that has due diligence information to share with other Catena-X participants, especially OEMs and Tier 1 suppliers.
 
-**Data Consumers** are normally the OEMs and Tier1 suppliers, that want to do a due diligence check on the suppliers in their global supply chain. They have access to limited due diligence information via the BPDM/Golden Record of a Catena-X participant. More due diligence relevant information can be consumed directly from the supplier (Data Providers) that are connected to the Catena-X data space.
+**Data Consumers** are normally the OEMs and Tier1 suppliers, that want to perform a due diligence check on the suppliers in their global supply chain. They have access to limited due diligence information via the BPDM/Golden Record of a Catena-X participant. More due diligence relevant information can be consumed directly from the supplier (Data Providers) that are connected to the Catena-X data space.
 
-The Data Provider (supplier) determines which Data Consumers (OEM and Tier1) are allowed to see which due diligence information managed by its instance of the DDC Application.
-A specific supplier in the supply chain can be Data Provider for OEMs and Tier 1 suppliers, as well as a Data Consumer from supplier further down in the supply chain.
+The Data Provider (supplier) determines what Data Consumers (OEM and Tier1) are allowed to see which due diligence information. 
+A specific supplier can be a Data Provider for OEMs and Tier 1 suppliers, as well as a Data Consumer from suppliers further down in the supply chain.
 
 The **EDC Control Planes** handles authentication and authorization between parties.
 
