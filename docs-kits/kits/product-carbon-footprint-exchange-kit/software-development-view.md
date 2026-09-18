@@ -186,17 +186,17 @@ CX-0136 v3.0.0 requires backward compatibility. Applications must be able to ret
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023, 2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023, 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 T-Systems International GmbH
-- SPDX-FileCopyrightText: 2023, 2024 SAP SE
-- SPDX-FileCopyrightText: 2023, 2024 SIEMENS AG
-- SPDX-FileCopyrightText: 2023, 2024 SUPPLY ON AG
-- SPDX-FileCopyrightText: 2023, 2024 Volkswagen AG
-- SPDX-FileCopyrightText: 2023, 2024 Robert Bosch GmbH
-- SPDX-FileCopyrightText: 2023, 2024 Mercedes Benz Group
-- SPDX-FileCopyrightText: 2023, 2024 BASF SE
-- SPDX-FileCopyrightText: 2023, 2024 CCT
-- SPDX-FileCopyrightText: 2023, 2024 Gris Group
-- SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023 SIEMENS AG
+- SPDX-FileCopyrightText: 2023 SUPPLY ON AG
+- SPDX-FileCopyrightText: 2023 Volkswagen AG
+- SPDX-FileCopyrightText: 2023 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023 BASF SE
+- SPDX-FileCopyrightText: 2023 CCT
+- SPDX-FileCopyrightText: 2023 Gris Group
+- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
 - [Source URL](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/product-carbon-footprint-exchange-kit)
