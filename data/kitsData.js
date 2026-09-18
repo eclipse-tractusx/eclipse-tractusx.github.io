@@ -563,8 +563,8 @@ export const kitsData = {
       description: 'Product-specific CO2 footprint.',
       metadata: {
         created: '2023-08-23',
-        lastUpdated: '2025-12-19',
-        latestVersion: '1.4.0',
+        lastUpdated: '2026-09-18',
+        latestVersion: '1.5.0',
         new: false
       }
     },

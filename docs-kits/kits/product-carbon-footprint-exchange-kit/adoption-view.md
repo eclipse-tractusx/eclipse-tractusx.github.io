@@ -210,7 +210,7 @@ M - Mandatory, D - Defaultet, O - Optional, Mif - Mandatory under conditions, Oi
 |  Nr | Label                                                                                       | Technical field names                               | M/O/..If | Condition                                                          | Type                                                         | Functional description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Default / Examples                                                                                                                                                                                                                                                    |
 |----:|---------------------------------------------------------------------------------------------|-----------------------------------------------------|----------|--------------------------------------------------------------------|--------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   1 | **(Scope of PCF Form)**                                                                     |                                                     |          |                                                                    |                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                       |
-|   2 | Data model and version                                                                      | specVersion                                         | M        |                                                                    | string array (According URN:name and version of data model)  | Specification of the PCF format/data model (name and version number), which is used. The required data input fields will be tailored accordingly. Multiple entries are possible. The data model and version can be selected independently of the standard or guidance document, you followed during the assessment of the PCF. Always select latest data model, if your data supports it.                                                                                                                                                                                                                                                                                                | urn:io.catenax.pcf:datamodel:version:9.0.0                                                                                                                                                                                                                            |
+|   2 | Data model and version                                                                      | specVersion                                         | M        |                                                                    | string (According URN:name and version of data model)  | Specification of the PCF format/data model (name and version number), which is used. The required data input fields will be tailored accordingly. Only one entry is possible. The data model and version can be selected independently of the standard or guidance document, you followed during the assessment of the PCF. Always select latest data model, if your data supports it.                                                                                                                                                                                                                                                                                                | urn:io.catenax.pcf:datamodel:version:10.0.0                                                                                                                                                                                                                            |
 |   3 | Partial or a full PCF declaration                                                           | partialFullPcf                                      | D        |                                                                    | string (value list)                                          | This attribute is an indicator for partial or full PCF (Product Carbon Footprint) declaration.<br/>A partial PCF (cradle-to-gate) is covering the emissions from resource extraction until the product leaves the gate of your organization (optionally including the distribution stage).<br/>This is defaulted for PACT, Catena-X or TFS. A full PCF (cradle-to-grave) is covering the complete life cycle of the product from resource extraction all the way to end-of-life stage.                                                                                                                                                                                                   | cradle-to-gate                                                                                                                                                                                                                                                        |
 |   4 | **(Company and Product Information)**                                                       |                                                     |          |                                                                    |                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                       |
 |   5 | ***(Company Information)***                                                                 |                                                     |          |                                                                    |                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                       |
@@ -221,7 +221,7 @@ M - Mandatory, D - Defaultet, O - Optional, Mif - Mandatory under conditions, Oi
 |  10 | Product identifiers                                                                         | productIds                                          | M        |                                                                    | string array (According URN:as defined by TfS and WBCSD)     | A set of several relevant product identifiers can be provided including e.g. manufacturerPartID, customerPartID, GTIN, ISPN-number or any product specific identifier. For prospective PCFs, this may be a preliminary product id.                                                                                                                                                                                                                                                                                                                                                                                                                                                       | urn:mycompany.com: product-id:401765, urn:mysupplier.com: SupplierComponent-id:ABCD1234, urn:registry.cas.org:cas-number:71-43-2                                                                                                                                      |
 |  11 | Product description                                                                         | productDescription                                  | O        |                                                                    | string (free text)                                           | A brief description of the product (for example functions and technical parameters) to help identifying the correct product. Product IDs are not always unique accross organizations or at times insufficient to identify the correct product. This information can provide additional context to secure a correct match between the purches product and its PCF declaration.                                                                                                                                                                                                                                                                                                            | Ethanol, 95% solution                                                                                                                                                                                                                                                 |
 |  12 | Product classification                                                                      | productClassifications                              | O        |                                                                    | array: urn (string)                                          | A list of classification or category identifiers in URN format. Use well known urn's here, or adhere to recommended urn:pact: format. For example UN CPC, CAS Number, CN-Code etc. <br/>For communication us URN fromat (e.g. urn:gtin:4712345060507)                                                                                                                                                                                                                                                                                                                                                                                                                                    | urn:gtin:4712345060507                                                                                                                                                                                                                                                |
-|  13 | Declared unit                                                                               | declaredUnitOfMeasurement                           | M        |                                                                    | string (value list; Unit ISOCODE + "piece")                  | "The declared unit serves as reference to which the inputs and outputs in the PCF calculation are related (e.g. kg of product, piece of component, MJ electrical energy).  In Catena-X, possible values are: piece; kg (see Catena-X PCF Rulebook v4, chapter 4.4). The PCF is declared per declared unit amount of the product.<br/>Example BEV (same product as Example1):<br/>-Declared unit amount: 1<br/>Declared unit: Piece<br/>Total PCF including bio uptake: 15000kg CO2e<br/><br/>Example BEV (same product as Example2):<br/>Declared unit amount: 2300<br/>Declared unit: kilogram<br/>Total PCF including bio uptake: 15000kg CO2e<br/>"                                   | piece                                                                                                                                                                                                                                                                 |
+|  13 | Declared unit                                                                               | declaredUnitOfMeasurement                           | M        |                                                                    | string (closed value list; Unit ISOCODE + "piece")                  | "The declared unit serves as reference to which the inputs and outputs in the PCF calculation are related (e.g. kg of product, piece of component, MJ electrical energy).  In Catena-X, possible values are: piece; kilogram; liter; cubic meter; kilowatt hour; megajoule; ton kilometer; square meter; hour; megabit second (see Catena-X PCF Rulebook v4, chapter 4.4). The PCF is declared per declared unit amount of the product.<br/>Example BEV (same product as Example1):<br/>-Declared unit amount: 1<br/>Declared unit: Piece<br/>Total PCF including bio uptake: 15000kg CO2e<br/><br/>Example BEV (same product as Example2):<br/>Declared unit amount: 2300<br/>Declared unit: kilogram<br/>Total PCF including bio uptake: 15000kg CO2e<br/>"                                   | piece                                                                                                                                                                                                                                                                 |
 |  14 | Quantity (of declared unit)                                                                 | declaredUnitAmount                                  | M        |                                                                    | decimal                                                      | The quantity (amount) of the declared unit as numerical value. The PCF refers to this declared unit amount, not to one unit by default.<br/><br/>The PCF is declared per declared unit amount of the product:<br/>Example BEV (same product as Example2):<br/>Declare unit amount: 1<br/>Declared unit: Piece<br/>Total PCF including bio uptake: 15000kg CO2e<br/><br/>Example BEV (same product as Example1):<br/>Declare unit amount: 2300<br/>Declared unit: kg<br/>Total PCF including bio uptake: 15000kg CO2e                                                                                                                                                                     | 1                                                                                                                                                                                                                                                                     |
 |  15 | Product mass [kg] per declared unit amount                                                  | productMassPerDeclaredUnit                          | M        |                                                                    | decimal                                                      | The mass of the product per declared unit amount in kilogram, (e.g., the declared unit of a circuitboard is one piece; one piece represents 0.123 kg). Product mass excluding packaging.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 0.123 kg                                                                                                                                                                                                                                                              |
 |  16 | **(PCF Assessment and Methodology)**                                                        |                                                     |          |                                                                    |                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                       |
@@ -330,7 +330,9 @@ M - Mandatory, D - Defaultet, O - Optional, Mif - Mandatory under conditions, Oi
 >**Note**
 >Optional fields for emission values must not be interpreted as 0 when not available in the payload because this would lead to wrong assumptions about the Product Carbon Footprint.
 
-The complete description of the Catena-X PCF Data Model can be downloaded [here](resources/adoption-view/cx-pcf-data-model-V3.0.0.xlsx).
+The complete PCF data model guidance with description and explanatory notes of the Catena-X PCF Data Model (V9) can be downloaded [here](https://catena-x.net/wp-content/uploads/2026/08/pcf-data-model-guidance_v1.0.pdf).
+
+For the specific case of dataset migrating from PCF data model V7 to V9, a guidance can be downloaded [here](https://catena-x.net/wp-content/uploads/2026/09/PCF-Data-Migration-Guidance_Final.pdf).
 
 #### Example Payload
 
@@ -341,6 +343,17 @@ The following json shows an exemplary payload for a requested PCF value containi
 
 ```json
 {
+  "general" : [ {
+    "pcfLegalStatement" : "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
+    "comment" : "Additional explanatory information not reflected by other attributes"
+  } ],
+  "carbonContent" : [ {
+    "biogenicCarbonContent" : 0,
+    "packagingBiogenicCarbonContent" : 0,
+    "recycledCarbonContent" : 0,
+    "carbonContentTotal" : 0.52,
+    "fossilCarbonContent" : 0.1
+  } ],
   "attestationOfConformance" : [ {
     "attestationOfConformanceLink" : "www.Certifierrepository_example.com/Certificate 123456",
     "standardName" : "Catena-X Product Carbon Footprint Rulebook v4",
@@ -351,62 +364,44 @@ The following json shows an exemplary payload for a requested PCF value containi
     "attestationStandard" : "PCF Verification and PCF Program Certification Framework V2",
     "providerName" : "TÜV-X"
   } ],
-  "general" : [ {
-    "pcfLegalStatement" : "This PCF (Product Carbon Footprint) is for information purposes only. It is based upon the standards mentioned above.",
-    "comment" : "Additional explanatory information not reflected by other attributes"
-  } ],
-  "carbonContent" : [ {
-    "biogenicCarbonContent" : 0.0,
-    "packagingBiogenicCarbonContent" : 0.00,
-    "recycledCarbonContent" : 0.00,
-    "carbonContentTotal" : 0.52,
-    "fossilCarbonContent" : 0.1
-  } ],
   "productLifeCycleStagesAndEmissions" : [ {
     "productionStage" : [ {
-      "biogenicNonCO2Emissions" : 1.0,
-      "landUseChangeGhgEmissions" : 1.40,
-      "landManagementBiogenicCO2Removals" : 0.00,
-      "aircraftGhgEmissions" : 0.0,
-      "packagingLandManagementBiogenicCO2Emissions" : 0.00,
-      "pcfExcludingBiogenicUptake" : 2.90,
+      "biogenicNonCO2Emissions" : 1,
+      "landUseChangeGhgEmissions" : 1.4,
+      "landManagementBiogenicCO2Removals" : 0,
+      "aircraftGhgEmissions" : 0,
+      "landManagementBiogenicCO2Emissions" : 1.4,
+      "pcfExcludingBiogenicUptake" : 2.9,
       "fossilGhgEmissions" : 0.5,
-      "biogenicCO2Uptake" : -1.00,
-      "pcfIncludingBiogenicUptake" : 1.90
+      "biogenicCO2Uptake" : -1,
+      "pcfIncludingBiogenicUptake" : 1.9
     } ],
     "packagingStage" : [ {
       "packagingEmissionsIncluded" : true,
       "packagingPcfIncludingBiogenicUptake" : 0.2,
-      "packagingBiogenicNonCO2Emissions" : 0.20,
-      "packagingLandManagementBiogenicCO2Emissions" : 0.00,
-      "packagingFossilGhgEmissions" : 0.20,
+      "packagingBiogenicNonCO2Emissions" : 0.2,
+      "packagingLandManagementBiogenicCO2Emissions" : 0,
+      "packagingFossilGhgEmissions" : 0.2,
       "packagingPcfExcludingBiogenicUptake" : 0,
-      "packagingBiogenicCO2Uptake" : 0.00,
-      "packagingLandUseChangeGhgEmissions" : 0.00,
+      "packagingBiogenicCO2Uptake" : 0,
+      "packagingLandUseChangeGhgEmissions" : 0,
       "packagingAircraftGhgEmissions" : 0.2,
-      "packagingLandManagementBiogenicCO2Removals" : 0.00
+      "packagingLandManagementBiogenicCO2Removals" : 0
     } ],
     "distributionStage" : [ {
-      "distributionStageLandUseChangeGhgEmissions" : 0.00,
-      "distributionStageLandManagementBiogenicCO2Emissions" : 0.00,
+      "distributionStageLandUseChangeGhgEmissions" : 0,
+      "distributionStageLandManagementBiogenicCO2Emissions" : 0,
       "distributionStagePcfIncludingBiogenicUptake" : 0.15,
-      "distributionStageBiogenicCO2Uptake" : 0.00,
+      "distributionStageBiogenicCO2Uptake" : 0,
       "distributionStagePcfExcludingBiogenicUptake" : 0.15,
       "distributionStageFossilGhgEmissions" : 0.15,
-      "distributionStageAircraftGhgEmissions" : 0.00,
-      "distributionStageLandManagementBiogenicCO2Removals" : 0.00,
+      "distributionStageAircraftGhgEmissions" : 0,
+      "distributionStageLandManagementBiogenicCO2Removals" : 0,
       "distributionStageIncluded" : false,
-      "distributionStageBiogenicNonCO2Emissions" : 0.00
+      "distributionStageBiogenicNonCO2Emissions" : 0
     } ]
   } ],
   "pcfAssessmentAndMethodology" : [ {
-    "dataSourcesAndQuality" : [ {
-      "secondaryEmissionFactorSources" : [ "ecoinvent 3.8" ],
-      "primaryDataShare" : 56.12,
-      "technologicalDQR" : 2.0,
-      "geographicalDQR" : 2.0,
-      "temporalDQR" : 2.0
-    } ],
     "pcfMethodology" : [ {
       "standards" : [ {
         "crossSectoralStandards" : [ "ISO 14067" ],
@@ -418,7 +413,7 @@ The following json shows an exemplary payload for a requested PCF value containi
       "massBalancingInformation" : [ {
         "massBalancingCertificateScheme" : "ISCC+",
         "massBalancingUsed" : true,
-        "freeAttributionInMassBalancing" : "true"
+        "freeAttributionInMassBalancing" : false
       } ],
       "allocationInForeground" : [ {
         "allocationRulesDescription" : "In accordance with Catena-X PCF Rulebook",
@@ -426,14 +421,21 @@ The following json shows an exemplary payload for a requested PCF value containi
         "allocationWasteIncineration" : "cut-off"
       } ]
     } ],
+    "dataSourcesAndQuality" : [ {
+      "secondaryEmissionFactorSources" : [ "ecoinvent 3.8" ],
+      "primaryDataShare" : 56.12,
+      "technologicalDQR" : 2,
+      "geographicalDQR" : 2,
+      "temporalDQR" : 2
+    } ],
     "pcfAssessmentInformation" : [ {
+      "boundarySpecifications" : [ {
+        "exemptedEmissionsPercent" : 0,
+        "exemptedEmissionsDescription" : "No exemption"
+      } ],
       "technology" : [ {
         "ccsTechnologicalCO2CaptureIncluded" : false,
         "boundaryProcessesDescription" : "Electricity consumption included as an input in the production phase"
-      } ],
-      "boundarySpecifications" : [ {
-        "exemptedEmissionsPercent" : 0.0,
-        "exemptedEmissionsDescription" : "No exemption"
       } ],
       "time" : [ {
         "referencePeriodEnd" : "2022-12-31T23:59:59Z",
@@ -443,28 +445,28 @@ The following json shows an exemplary payload for a requested PCF value containi
         "referencePeriodStart" : "2022-01-01T00:00:01Z"
       } ],
       "geography" : [ {
-        "geographyCountrySubdivision" : "US-NY",
         "geographyRegionOrSubregion" : "Africa",
+        "geographyCountrySubdivision" : "US-NY",
         "geographyCountry" : "DE"
       } ],
       "idAndVersion" : [ {
         "retroOrProspectivePcfType" : "Retrospective PCF",
         "id" : "3893bb5d-da16-4dc1-9185-11d97476c254",
         "version" : 0,
-        "precedingPfIds" : [ { } ],
+        "precedingPfIds" : [ "eOMtThyhVNLWUZNRcBaQKxI" ],
         "status" : "Active"
       } ]
     } ],
     "verificationAndCertificationShares" : [ {
-      "programCertificationShare" : 95.99327374152946,
-      "productVerificationShare2ndParty" : 0.00,
-      "productVerificationShare3rdParty" : 0.00,
-      "productVerificationShare1stParty" : 0.00
+      "programCertificationShare" : 55.328881140217604,
+      "productVerificationShare2ndParty" : 0,
+      "productVerificationShare3rdParty" : 0,
+      "productVerificationShare1stParty" : 0
     } ]
   } ],
   "scopeOfPcfForm" : [ {
     "partialFullPcf" : "Cradle-to-gate",
-    "specVersion" : [ "urn:io.catenax.pcf:datamodel:version:9.0.0" ]
+    "specVersion" : "urn:io.catenax.pcf:datamodel:version:10.0.0"
   } ],
   "companyAndProductInformation" : [ {
     "productInformation" : [ {
@@ -487,7 +489,7 @@ The following json shows an exemplary payload for a requested PCF value containi
 </details>
 
 The entire PCF data model is available as open source through the following link:
-[Catena-X PCF Datamodel](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.pcf/9.0.0)
+[Catena-X PCF Datamodel](https://github.com/eclipse-tractusx/sldt-semantic-models/tree/main/io.catenax.pcf/10.0.0)
 
 ## Business Architecture
 
@@ -505,8 +507,10 @@ The diagram shown here illustrates the interaction between the PCF KIT and the o
 The relevant standards can be downloaded from the official [Catena-X Standard Library](https://catenax-ev.github.io/docs/next/standards/overview):
 
 - CX-0002 Digital Twins in Catena-X
-- CX-0136 Product Carbon Footprint
-- CX-0151 Industry Core: Basics
+- CX-0003 SAMM Aspect Meta Model
+- CX-0018 Dataspace Connectivity
+- CX-0126 Industry Core: Part Type
+- CX-0152 Policy Constraints For Data Exchange
 
 ### Non-technical requirement
 
@@ -516,7 +520,7 @@ The relevant standards can be downloaded from the official [Catena-X Standard Li
 
 Currently there is no reference FOSS (Free and Open-Source Software) implementation. Several COTS (Commercial Of-The-Shelf) solutions are available, e.g. offered by the following providers:
 
-- [SiGREEN (Siemens)](https://www.siemens.com/de/de/unternehmen/themenfelder/product-carbon-footprint.html)
+- [Mattermaps (Makersite)](https://support.makersite.io/mattermaps)
 - [SDX (SAP)](https://www.sap.com/sustainability/climate-action.html)
 - [SDE (T-Systems)](https://dih.telekom.com/de/catena-x)
 - [PACIFIC (BASF)](https://basf.com/pacific)
@@ -526,17 +530,17 @@ Currently there is no reference FOSS (Free and Open-Source Software) implementat
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2023,2024 ZF Friedrichshafen AG
-- SPDX-FileCopyrightText: 2023,2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
-- SPDX-FileCopyrightText: 2023,2024 T-Systems International GmbH
-- SPDX-FileCopyrightText: 2023,2024 SAP SE
-- SPDX-FileCopyrightText: 2023,2024 SIEMENS AG
-- SPDX-FileCopyrightText: 2023,2024 SUPPLY ON AG
-- SPDX-FileCopyrightText: 2023,2024 Volkswagen AG
-- SPDX-FileCopyrightText: 2023,2024 Robert Bosch GmbH
-- SPDX-FileCopyrightText: 2023,2024 Mercedes Benz Group
-- SPDX-FileCopyrightText: 2023,2024 BASF SE
-- SPDX-FileCopyrightText: 2023,2024 CCT
-- SPDX-FileCopyrightText: 2023,2024 Gris Group
-- SPDX-FileCopyrightText: 2023,2024 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023 SIEMENS AG
+- SPDX-FileCopyrightText: 2023 SUPPLY ON AG
+- SPDX-FileCopyrightText: 2023 Volkswagen AG
+- SPDX-FileCopyrightText: 2023 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023 BASF SE
+- SPDX-FileCopyrightText: 2023 CCT
+- SPDX-FileCopyrightText: 2023 Gris Group
+- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
 - [Source URL](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/product-carbon-footprint-exchange-kit)
