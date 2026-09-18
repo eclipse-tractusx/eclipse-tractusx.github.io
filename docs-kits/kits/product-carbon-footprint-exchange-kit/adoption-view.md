@@ -330,7 +330,7 @@ M - Mandatory, D - Defaultet, O - Optional, Mif - Mandatory under conditions, Oi
 >**Note**
 >Optional fields for emission values must not be interpreted as 0 when not available in the payload because this would lead to wrong assumptions about the Product Carbon Footprint.
 
-The complete PCF data model guidance with description and explainatory notes of the Catena-X PCF Data Model (V9) can be downloaded [here](https://catena-x.net/wp-content/uploads/2026/08/pcf-data-model-guidance_v1.0.pdf).
+The complete PCF data model guidance with description and explanatory notes of the Catena-X PCF Data Model (V9) can be downloaded [here](https://catena-x.net/wp-content/uploads/2026/08/pcf-data-model-guidance_v1.0.pdf).
 
 For the specific case of dataset migrating from PCF data model V7 to V9, a guidance can be downloaded [here](https://catena-x.net/wp-content/uploads/2026/09/PCF-Data-Migration-Guidance_Final.pdf).
 
