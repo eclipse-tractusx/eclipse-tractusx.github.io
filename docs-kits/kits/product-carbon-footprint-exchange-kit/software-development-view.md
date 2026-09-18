@@ -18,7 +18,6 @@ IT-administrators will learn how they need to provide PCF data and which compone
 
 This KIT covers various aspects, starting from how to utilize the available API endpoints, the used data models and how to make them available to the Catena-X network.
 
-
 ## Building Block View
 
 The following figure shows the high-level architecture of the PCF Exchange use case. It supports synchronous data pull and asynchronous data push.
@@ -134,11 +133,9 @@ sequenceDiagram
   PCon-->>CConnector: PUT /footprintExchange/{{requestId}} =...<br/> Header: Connector-bpn: <BPN> <br/> Body: { ... PCF... }
 ```
 
-
 ### PCF Update
 
 An update uses the same `PUT /footprintExchange/{requestId}` endpoint and sets the optional `update=true` query parameter. Updates refer to a previously requested PCF by its `requestId`; a new request is not required.
-
 
 #### API Calls
 
@@ -183,7 +180,6 @@ CX-0136 v3.0.0 requires backward compatibility. Applications must be able to ret
 - [CX-0018 Dataspace Connectivity](https://catenax-ev.github.io/docs/standards/CX-0018-DataspaceConnectivity)
 - [CX-0126 Industry Core: Part Type](https://catenax-ev.github.io/docs/standards/CX-0126-IndustryCorePartType)
 - [CX-0152 Policy Constraints For Data Exchange](https://catenax-ev.github.io/docs/next/standards/CX-0152-PolicyConstrainsForDataExchange)
-
 
 ## NOTICE
 

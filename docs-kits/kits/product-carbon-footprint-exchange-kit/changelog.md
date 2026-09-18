@@ -22,7 +22,6 @@ All notable changes to this Kit will be documented in this file.
 - New sequence diagrams for sync and async exchange
 - Backward compatibility section (v10/v9 data models, API v1.3.0/v1.2.0)
 
-
 ### Changed
 
 - Update `declaredUnitOfMeasurement` in the PCF Data Model details to use a closed value list
@@ -35,7 +34,7 @@ All notable changes to this Kit will be documented in this file.
 - PCF Update simplified to PUT /footprintExchange/{requestId}?update=true
 - Removed inline JSON payload examples in favor of references to CX-0152/CX-0018
 - Standards list reorganized; T-Systems copyright extended to 2025–2026
-- Updated FAQs and added new 
+- Updated FAQs and added new
 
 ## [1.4.0] - 2025-12-19
 
@@ -165,3 +164,23 @@ N/A
 ### Removed
 
 N/A
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023, 2024 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023, 2024 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2023, 2024 SAP SE
+- SPDX-FileCopyrightText: 2023, 2024 SIEMENS AG
+- SPDX-FileCopyrightText: 2023, 2024 SUPPLY ON AG
+- SPDX-FileCopyrightText: 2023, 2024 Volkswagen AG
+- SPDX-FileCopyrightText: 2023, 2024 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023, 2024 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023, 2024 BASF SE
+- SPDX-FileCopyrightText: 2023, 2024 CCT
+- SPDX-FileCopyrightText: 2023, 2024 Gris Group
+- SPDX-FileCopyrightText: 2023, 2024 Contributors to the Eclipse Foundation
+- [Source URL](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/product-carbon-footprint-exchange-kit)
