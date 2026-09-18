@@ -407,7 +407,7 @@ The following json shows an exemplary payload for a requested PCF value containi
         "crossSectoralStandards" : [ "ISO 14067" ],
         "productOrSectorSpecificRules" : [ "urn:tfs-initiative.com:PCR:The Product Carbon Footprint Guideline for the Chemical Industry:version:v2.0" ]
       } ],
-      "GwpCharacterizationFactorDetails" : [ {
+      "gwpCharacterizationFactorDetails" : [ {
         "ipccCharacterizationFactors" : "AR5"
       } ],
       "massBalancingInformation" : [ {
