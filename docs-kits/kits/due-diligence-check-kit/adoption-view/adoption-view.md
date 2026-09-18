@@ -108,7 +108,7 @@ The automotive industry is particularly affected due to:
 - highly fragmented multi-tier supply chains 
 - global sourcing across varying countries and sector risk levels 
 - increasing regulatory scrutiny at the product and company level 
-- growing expectations from stakeholders (e.g. public authorities, customers, investors)  )
+- growing expectations from stakeholders (e.g. public authorities, customers, investors)
 
 While companies within the scope of the CSDDD bear the legal Due Diligence obligations, effective Due Diligence requires close cooperation across the value chain. Suppliers at different tiers may therefore be asked to provide relevant information and contribute to Scoping Analysis processes. SMEs, while generally outside the direct scope of the CSDDD, face multiple, overlapping, and sometimes inconsistent due diligence-related requests from different business partners.  
 
@@ -142,7 +142,7 @@ Beyond inefficiency, further structural challenges exist:
 - Insufficient mechanisms for continuous reevaluation and incident management
 - Legal and competition law sensitivities requiring strict governance
 
-In addition, SMEs face organizational and financial constraints. They often serve customers from multiple industry sectors, each imposing different Due Diligence expectations. In addition, SMEs face organizational and financial constraints. They often serve customers from multiple industry sectors, such as aerospace and mechanical engineering, each imposing different Due Diligence expectations. Without a harmonized framework, this complexity risks overburdening SMEs and undermining the effectiveness of regulatory objectives. 
+In addition, SMEs face organizational and financial constraints. They often serve customers from multiple industry sectors, such as aerospace and mechanical engineering, each imposing different Due Diligence expectations. Without a harmonized framework, this complexity risks overburdening SMEs and undermining the effectiveness of regulatory objectives. 
 
 The industry therefore requires:
 
