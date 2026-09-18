@@ -57,7 +57,7 @@ Currently, this process is carried out manually. A maintenance employee document
 
 The solution breaks up the paper-based structure described in [State of the Art](#state-of-the-art): the maintenance documentation is digitalised, but under the two guiding requirements of the use case - self-determined and secure. The component landscape shown below is deliberately mirrored: manufacturer/fab and equipment supplier/service partner operate the same building blocks, and the only connection between them runs through the two EDCs.
 
-On the **manufacturer/fab** side, the abatement equipment is connected to the process control software `Subfab360 ATC`. The AAS infrastructure hosts the digital twin of that equipment: `DAS Environmental Expert GmbH`, as manufacturer of the abatements, provided the base AAS for the selected products with the submodel templates Nameplate, Technical Data and Handover Documentation; the Maintenance Logbook submodel is added on top of it and holds the maintenance logbook entries. The `GUI Maintenance Logbook`, developed by `algorismic GmbH`, is the entry point for the maintenance personnel. Because it is coupled to the process control software, machine parameters can be read directly from the equipment and taken over into an entry instead of being transcribed on paper - the parameters themselves stay inside the fab and only the released entry is shared. The service `AAS to EDC` exposes the AAS infrastructure as EDC assets, so that the connector remains the single controlled egress point of the company. `Robert Bosch Semiconductor Manufacturing Dresden GmbH` provided the internal infrastructure and the implementation of the AAS environment.
+On the **manufacturer/fab** side, the abatement equipment is connected to the process control software. The AAS infrastructure hosts the digital twin of that equipment:  manufacturer of the abatements, provided the base AAS for the selected products with the submodel templates Nameplate, Technical Data and Handover Documentation; the Maintenance Logbook submodel is added on top of it and holds the maintenance logbook entries. The `GUI Maintenance Logbook` is the entry point for the maintenance personnel. Because it is coupled to the process control software, machine parameters can be read directly from the equipment and taken over into an entry instead of being transcribed on paper - the parameters themselves stay inside the fab and only the released entry is shared. The service `AAS to EDC` exposes the AAS infrastructure as EDC assets, so that the connector remains the single controlled egress point of the company. 
 
 The **equipment supplier/service partner** side mirrors this setup: its EDC receives the entries, the service `EDC to AAS` writes them into its own AAS server, where the Maintenance Logbook keeps the received entries 1..X, and the same `GUI Maintenance Logbook` makes them available to the service partner - for example as the basis for cost billing. The supplier therefore never gains access to the fab's systems; it holds its own copy of exactly those entries that were released for it.
 
@@ -98,7 +98,7 @@ flowchart TB
         end
 
         GUI1["GUI\nMaintenance Logbook"]
-        Subfab["Subfab360 ATC"]
+        Subfab["Process Control Software (e.g. Subfab360 ATC)"]
         Abatement["Abatement"]
 
         ServiceAAS <--> AASInfra

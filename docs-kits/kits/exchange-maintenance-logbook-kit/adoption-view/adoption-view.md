@@ -121,6 +121,14 @@ As part of the Semiconductor-X project's use case, the AAS Submodel Template `Ma
 | `IDTA Metamodel Version 3.2` | Defines the structure, attributes, relationships, and constraints of Asset Administration Shells and their submodels. | [https://industrialdigitaltwin.org/content-hub/aasspecifications/specification-of-the-asset-administration-shell-part-1-metamodel-idta-number-01001](https://industrialdigitaltwin.org/content-hub/aasspecifications/specification-of-the-asset-administration-shell-part-1-metamodel-idta-number-01001) |
 | `IDTA Application Programming Interfaces Version 3.2` | Defines interfaces for discovering and operating Asset Administration Shells, submodels, and their elements. | [https://industrialdigitaltwin.org/content-hub/aasspecifications/specification-of-the-asset-administration-shell-part-2-application-programming-interfaces-idta-number-01002](https://industrialdigitaltwin.org/content-hub/aasspecifications/specification-of-the-asset-administration-shell-part-2-application-programming-interfaces-idta-number-01002) |
 | `IDTA Package File Format Version 3.2` | Defines how AAS data and supplementary files are serialized and packaged in AASX files. | [https://industrialdigitaltwin.org/content-hub/aasspecifications/specification-of-the-asset-administration-shell-part-5-package-file-format-aasx-idta-number-01005](https://industrialdigitaltwin.org/content-hub/aasspecifications/specification-of-the-asset-administration-shell-part-5-package-file-format-aasx-idta-number-01005) |
+
+
+## KITs
+
+<!-- Provide a list of standards this KIT. -->
+
+| Name | Description | Link to KIT |
+| ---- | ----------- | ---------------------- |
 | `Connector KIT 4.0.0` | Provides guidance for contract-governed data exchange through EDC connectors. | [https://eclipse-tractusx.github.io/docs-kits/category/connector-kit](https://eclipse-tractusx.github.io/docs-kits/category/connector-kit) |
 
 ## NOTICE
