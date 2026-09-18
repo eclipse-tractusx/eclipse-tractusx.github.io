@@ -247,6 +247,12 @@ const kitsByCategory = {
     ],
     "semiconductor": [
       {
+        "id": "exchange-maintenance-logbook",
+        "name": "Exchange of Maintenance Logbook",
+        "route": "/docs-kits/next/kits/exchange-maintenance-logbook-kit/adoption-view",
+        "deprecated": false
+      },
+      {
         "id": "unit-process-as-a-service",
         "name": "Unit Process as a Service KIT",
         "route": "/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view",

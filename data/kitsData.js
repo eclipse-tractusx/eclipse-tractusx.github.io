@@ -105,6 +105,7 @@ import AiServiceKitLogo from "@site/static/img/kits/ai-service/ai-service-kit-ra
 import MaterialAccountingKitLogo from "@site/static/img/kits/material-accounting/material-accounting-kit-raw-logo.svg";
 import UPaaSKitLogo from "@site/static/img/kits/unit-process-as-a-service/unit-process-as-a-service-kit-raw-logo.svg";
 import EsdscomKitLogo from "@site/static/img/kits/esdscom-kit/esdscom-kit-raw-logo.svg";
+import ExchangeMaintenanceLogbookKitLogo from "@site/static/img/kits/exchange-maintenance-logbook/exchange-maintenance-logbook-kit-raw-logo.svg";
 import PcfDataAcquisitionKitLogo from "@site/static/img/kits/pcf-data-acquisition/pcf-data-acquisition-kit-raw-logo.svg";
 // Import Material-UI icons for industries
 import DirectionsCar from '@mui/icons-material/DirectionsCar';
@@ -1216,6 +1217,38 @@ export const kitsData = {
       }
     ],
     "semiconductor": [
+      {
+        id: 'exchange-maintenance-logbook',
+        name: 'Exchange of Maintenance Logbook',
+        logo: ExchangeMaintenanceLogbookKitLogo,
+        logoLicencse: {
+          type: 'CC-BY-4.0',
+          authors: '2026 Contributors to the Eclipse Foundation',
+          licenseUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/exchange-maintenance-logbook/exchange-maintenance-logbook-kit-raw-logo.svg.license',
+          sourceUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/static/img/kits/exchange-maintenance-logbook/exchange-maintenance-logbook-kit-raw-logo.svg'
+        },
+        logoHeight: 90,
+        logoWidth: 90,
+        route: '/docs-kits/next/kits/exchange-maintenance-logbook-kit/adoption-view',
+        colors: {
+          primary: '#0a8276',
+          gradient: 'linear-gradient(135deg, #5fb4ab 0%, #0a8276 100%)'
+        },
+        maturity: {
+          currentLevel: 'Sandbox',
+          graduationStatus: 'draft'
+        },
+        deprecated: false,
+        domain: 'Semiconductor Manufacturing',
+        industries: ['semiconductor'],
+        description: 'Standardized, sovereign exchange of digital maintenance logbook entries between equipment suppliers, service partners, and semiconductor manufacturers via AAS and EDC.',
+        metadata: {
+          created: '2026-09-14',
+          lastUpdated: '2026-09-14',
+          latestVersion: '0.1.0',
+          new: true
+        }
+      },
       {
         id: 'unit-process-as-a-service',
         name: 'Unit Process as a Service KIT',
