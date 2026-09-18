@@ -31,7 +31,7 @@ All notable changes to this Kit will be documented in this file.
   - SiGreen → Mattermaps
 - Replace Operation View open source references with guidance-oriented documentation links
 - Architecture description updated to sync pull / async push
-- PCF Update simplified to PUT /footprintExchange/{requestId}?update=true
+- PCF Update simplified to PUT /footprintExchange/`{requestId}`?update=true
 - Removed inline JSON payload examples in favor of references to CX-0152/CX-0018
 - Standards list reorganized; T-Systems copyright extended to 2025–2026
 - Updated FAQs and added new
