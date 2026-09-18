@@ -11,6 +11,18 @@ toc_max_heading_level: 2
 
 All notable changes to this KIT will be documented in this file.
 
+## [0.0.2] - R26.09 - 2026-09-17
+
+
+### Added
+
+- Glossary in Adoption View
+
+### Changed
+
+- Adoption View content update
+- Updated architecture diagram in Development View
+
 ## [0.0.1] - R26.03 - 2026-03-09
 
 ### Added
@@ -18,3 +30,4 @@ All notable changes to this KIT will be documented in this file.
 - Initial KIT Structure
 
 ### Changed
+
