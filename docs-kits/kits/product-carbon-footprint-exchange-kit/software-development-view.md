@@ -158,7 +158,7 @@ The asynchronous PCF Exchange API v1.3.0 must be offered as a connector data ass
 
 #### Connector Policy and Contract Definition
 
-Connector policies and contract definitions for both asynchronous PCF Exchange API offers and synchronous PCF submodel offers must follow [CX-0152 Policy Constraints for Data Exchange](https://catenax-ev.github.io/docs/Neptune/standards/CX-0152-PolicyConstrainsForDataExchange) and [CX-0018 Dataspace Connectivity](https://catenax-ev.github.io/docs/next/standards/CX-0018-DataspaceConnectivity). The usage policy must use the usage purpose `cx.pcf.base:1`. The usage policy for the PCF Exchange API v1.3.0 must contain the `MembershipConstraint`. A bilateral contract reference may be added where required by the business relationship.
+Connector policies and contract definitions for both asynchronous PCF Exchange API offers and synchronous PCF submodel offers must follow [CX-0152 Policy Constraints for Data Exchange](https://catenax-ev.github.io/docs/next/standards/CX-0152-PolicyConstrainsForDataExchange) and [CX-0018 Dataspace Connectivity](https://catenax-ev.github.io/docs/next/standards/CX-0018-DataspaceConnectivity). The usage policy must use the usage purpose `cx.pcf.base:1`. The usage policy for the PCF Exchange API v1.3.0 must contain the `MembershipConstraint`. A bilateral contract reference may be added where required by the business relationship.
 
 Inside the contract definition, an access policy and a usage policy must be referenced. Their constraints must conform to CX-0152.
 
@@ -182,7 +182,7 @@ CX-0136 v3.0.0 requires backward compatibility. Applications must be able to ret
 - [CX-0002 Digital Twins in Catena-X](https://catenax-ev.github.io/docs/standards/CX-0002-DigitalTwinsInCatenaX)
 - [CX-0018 Dataspace Connectivity](https://catenax-ev.github.io/docs/standards/CX-0018-DataspaceConnectivity)
 - [CX-0126 Industry Core: Part Type](https://catenax-ev.github.io/docs/standards/CX-0126-IndustryCorePartType)
-- [CX-0152 Policy Constraints For Data Exchange](https://catenax-ev.github.io/docs/Neptune/standards/CX-0152-PolicyConstrainsForDataExchange)
+- [CX-0152 Policy Constraints For Data Exchange](https://catenax-ev.github.io/docs/next/standards/CX-0152-PolicyConstrainsForDataExchange)
 
 
 ## NOTICE
