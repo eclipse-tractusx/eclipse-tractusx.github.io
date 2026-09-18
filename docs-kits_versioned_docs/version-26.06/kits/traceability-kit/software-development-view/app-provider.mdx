@@ -38,28 +38,27 @@ Meanwhile, this notification API shall only be accessible after successful contr
 
 ## Block Notifications
 
-While quality notifications are primarily aimed at (first) contact between business partners, block notifications represent an extended form of data exchange in order to actively initiate an immediate measure to block or sort out the produced parts at the customer's production or logistics. As the quality notifications, block notifications take place between traceability applications or other application stacks, so that this functionality must be implemented by both business partners application.
+Block Notifications extend quality-related collaboration between business partners by enabling the standardized exchange of containment information.
 
-In this case, block notifications include a **notification status similar to quality notifications** to track communication, but **also include a new status model** for each individual part of the block notification to provide additional information. For example, whether the part was blocked or whether the process to block a part was canceled.
+They support time-critical actions by allowing suppliers and customers to exchange information about potentially non-conforming parts and related containment activities in a structured and machine-readable way.
 
-> :raised_hand: Since the Catena-x unique ID is used for the individually listed (damaged) parts in the block notification, the app provider should also provide functions for the standardized creation of digital twins of vehicles, parts and materials, as already mentioned in the quality notifications section.
+> :raised_hand: Since Catena-X IDs are used to identify the affected parts, applications supporting Block Notifications should also support the standardized creation and management of the corresponding Digital Twins.
 
 ### Block Status Model
 
-In order to track the blocking process in the Catena X network, a defined status model is used for each part of the block notification:
-![Block Status Model](../assets/block-notification-state-model.svg)
+Block Notifications follow a lifecycle-based interaction model consisting of:
 
-- ACTIVE means that the part has been identified as a damaged and safety-critical part and must therefore be blocked on the customer side.
-- PART_BLOCKED is used when the recipient has received the block notification and actually blocks / sorts out the damaged parts as a measure.
-- CANCELED serves as the update status of the component originally identified to be blocked if the supplier subsequently determines that the original part does meet safety requirements, is not damaged or that the information was sent by mistake. This status can also be set by the manufacturer if, after an (initial) analysis, the part does not require a block.
+- **Create** initiates a new Block Notification.
+- **Update** provides additional or corrected information for an existing Block Notification.
+- **Remove** cancels previously communicated containment information.
+
+This allows business partners to exchange containment information and provide updates throughout an ongoing quality incident.
 
 ### Block Notification API
 
-A standardized API and corresponding payloads are specified for block notification to enable and ensure the exchange of information that is critical to the blocking process in a standardized way. At this point, the notification API is focused on sending and receiving notifications with a full stack of block information and on updating a previously sent notification by changing the block status. The implemented endpoints shall be able to process the defined request body and respond with the HTTP status codes and - if required - reply with the defined response body. Meanwhile, the Block Notification API shall only be accessible after successful contract negotiation via Connector based on [Dataspace Protocol (DSP)](https://docs.internationaldataspaces.org/dataspace-protocol/), since the API is made available as part of an EDC data asset with usage policy attached. Please refer to the corresponding Block Notification API specification for more details:
+A standardized API enables the exchange of Block Notifications between business partners through the Catena-X data space.
 
-- [Block Notification API (v2.0.0)](https://eclipse-tractusx.github.io/api-hub/eclipse-tractusx.github.io/kit-traceability-block-notifications-openAPI-2.0.0/swagger-ui/) 
-
-> :raised_hand: From current release on (R25.09), **version 2.0.0 is mandatory** and must be supported by every App provider using block notification. The older version 1.0.0 will not be compatible anymore.
+> :raised_hand: Detailed API definitions, payload structures, lifecycle rules, versioning requirements and implementation details are described in the corresponding Block Notification standard.
 
 ## Asset Registration via Connector
 
@@ -122,7 +121,7 @@ As for usage policy, participants and related services must restrict the data us
 - Data Exchange Governance (leftOperand: “FrameworkAgreement”) – The official "Data Exchange Governance" is published on [Catena-X website](https://catena-x.net/en/catena-x-introduce-implement/governance-framework-for-data-space-operations)
 - at least one use case purpose (“UsagePurpose”) from the [ODRL policy repository](https://github.com/catenax-eV/cx-odrl-profile)
   - for quality notifications, the corresponding usage policy MUST be used (leftOperand: “qualityNotifications”)
-  - for block notifications, the same usage policy as quality notifications MUST be used (leftOperand: “qualityNotifications”)
+  - for block notifications, the Quality Notification usage purpose MUST be used until a dedicated Block Notification usage purpose becomes available (leftOperand: “qualityNotifications”)
 
 Additionally, respective usage policies MAY include the following policy rule:
 
