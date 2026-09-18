@@ -84,4 +84,4 @@ Simply type keywords related to your question, and you will be taken directly to
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
