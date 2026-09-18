@@ -4,7 +4,7 @@ version = 1
 path = ["*.svg", "*.jpg", "*.png"]
 precedence = "closest"
 SPDX-FileCopyrightText = [
-    "2026 University of Applied Sciences Dresden",
+    "2026 Hochschule für Technik und Wirtschaft Dresden",
     "2026 Robert Bosch Semiconductor Manufacturing Dresden GmbH",
     "2026 DAS Environmental Expert GmbH",
     "2026 algorismic gmbh",

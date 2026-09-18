@@ -128,7 +128,7 @@ As part of the Semiconductor-X project's use case, the AAS Submodel Template `Ma
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 - SPDX-License-Identifier: CC-BY-4.0
-- SPDX-FileCopyrightText: 2026 University of Applied Sciences Dresden
+- SPDX-FileCopyrightText: 2026 Hochschule für Technik und Wirtschaft Dresden
 - SPDX-FileCopyrightText: 2026 Robert Bosch Semiconductor Manufacturing Dresden GmbH
 - SPDX-FileCopyrightText: 2026 DAS Environmental Expert GmbH
 - SPDX-FileCopyrightText: 2026 algorismic gmbh
