@@ -63,7 +63,7 @@ The **equipment supplier/service partner** side mirrors this setup: its EDC rece
 
 The key design decision is this mirroring instead of a shared or centrally hosted logbook: both parties keep their data in their own AAS environment, and every entry crosses the company border only as an explicit, contract-governed transfer between the two EDCs. The sequence of such a transfer is described in the next diagram.
 
- Both diagrams in this document are maintained as inline Mermaid source and rendered by Docusaurus using Mermaid 11.15.0; edit the fenced `mermaid` blocks and rebuild the site to regenerate them.
+Both diagrams in this document are maintained as inline Mermaid source and rendered by Docusaurus using Mermaid 11.15.0; edit the fenced `mermaid` blocks and rebuild the site to regenerate them.
 
 ```mermaid
 flowchart TB
