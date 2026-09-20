@@ -1219,7 +1219,7 @@ export const kitsData = {
     "semiconductor": [
       {
         id: 'exchange-maintenance-logbook',
-        name: 'Exchange of Maintenance Logbook',
+        name: 'EXCHANGE OF MAINTENANCE LOGBOOK KIT',
         logo: ExchangeMaintenanceLogbookKitLogo,
         logoLicencse: {
           type: 'CC-BY-4.0',
@@ -1232,7 +1232,7 @@ export const kitsData = {
         route: '/docs-kits/next/kits/exchange-maintenance-logbook-kit/adoption-view',
         colors: {
           primary: '#0a8276',
-          gradient: 'linear-gradient(135deg, #5fb4ab 0%, #0a8276 100%)'
+          gradient: 'linear-gradient(135deg, #7efff2 0%, #004346 100%)'
         },
         maturity: {
           currentLevel: 'Sandbox',
@@ -1251,7 +1251,7 @@ export const kitsData = {
       },
       {
         id: 'unit-process-as-a-service',
-        name: 'Unit Process as a Service KIT',
+        name: 'UNIT PROCESS AS A SERVICE KIT',
         logo: UPaaSKitLogo,
         logoLicencse: {
           type: 'CC-BY-4.0',
@@ -1444,7 +1444,7 @@ export const industries = [
         },
         subtitle: 'Semiconductor Network',
         description: 'Contributing to a cross-sector international dataspace and digital twin standards for resilient semiconductor supply chains.',
-        kits: ['connector', 'digital-twin', 'industry-core', 'traceability', 'pcf', 'dcm', 'unit-process-as-a-service']
+        kits: ['connector', 'digital-twin', 'industry-core', 'traceability', 'pcf', 'dcm', 'exchange-maintenance-logbook', 'unit-process-as-a-service']
       }
     ]
   },
