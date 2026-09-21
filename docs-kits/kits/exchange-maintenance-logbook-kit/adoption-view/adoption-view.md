@@ -108,9 +108,21 @@ The resulting connected subfab ecosystem also unlocks concrete economic benefits
 
 ## Semantic Models / Data Model
 
-<!-- Reference the relevant semantic models, APIs, or standards. -->
+As part of the Semiconductor-X project's use case, the AAS Submodel Template 
+`Maintenance Logbook` was developed. It is intended to be submitted for 
+standardization to the Industrial Digital Twin Association (IDTA).
 
-As part of the Semiconductor-X project's use case, the AAS Submodel Template `Maintenance Logbook` was developed. It is currently being reviewed by the IDTA.
+**Standardization Status**
+
+The IDTA review process is currently **on hold**, consequently, no canonical 
+semanticId (IRI) has been assigned to the template yet. This section will be 
+updated with the assigned IDTA specification number and semanticId as soon as 
+the review resumes and the template is published.
+
+**Template Artefact**
+
+The machine-readable template is available as JSON in the KIT repository: 
+[see smt_maintenancelogbook.json](../resources/smt_maintenancelogbook.json)
 
 ## Standards
 
