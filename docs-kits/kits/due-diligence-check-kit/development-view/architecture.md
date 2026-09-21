@@ -42,7 +42,7 @@ This information is provided by the **Data Providers** via the **DDC Application
 
 **Data Consumers** are normally the OEMs and Tier1 suppliers, that want to perform a due diligence check on the suppliers in their global supply chain. They have access to limited due diligence information via the BPDM/Golden Record of a Catena-X participant. More due diligence relevant information can be consumed directly from the supplier (Data Providers) that are connected to the Catena-X data space.
 
-The Data Provider (supplier) determines what Data Consumers (OEM and Tier1) are allowed to see which due diligence information. 
+The Data Provider (supplier) determines what Data Consumers (OEM and Tier1) are allowed to see which due diligence information.
 A specific supplier can be a Data Provider for OEMs and Tier 1 suppliers, as well as a Data Consumer from suppliers further down in the supply chain.
 
 The **EDC Control Planes** handles authentication and authorization between parties.

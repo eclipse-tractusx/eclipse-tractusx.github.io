@@ -13,7 +13,6 @@ All notable changes to this KIT will be documented in this file.
 
 ## [0.0.2] - R26.09 - 2026-09-17
 
-
 ### Added
 
 - Glossary in Adoption View
@@ -30,4 +29,3 @@ All notable changes to this KIT will be documented in this file.
 - Initial KIT Structure
 
 ### Changed
-
