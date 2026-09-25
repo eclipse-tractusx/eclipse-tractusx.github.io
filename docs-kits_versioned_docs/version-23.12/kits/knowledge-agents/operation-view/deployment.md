@@ -111,12 +111,12 @@ Knowledge Agents on Stable is deployed on the following two tenants
 
 ### 1. Prepare the Two Tenants
 
-As a first step, we installed two technical users for the dataspace connectors using the https://portal.stable.demo.catena-x.net
+As a first step, we installed two technical users for the dataspace connectors using the 'https://portal.stable'
 - App Provider 1: sa4
 - App Consumer 4: sa5
 
 
-The generated secrets have been installed under https://vault.demo.catena-x.net/ui/vault/secrets/knowledge
+The generated secrets have been installed under 'https://vault.stable/ui/vault/secrets/knowledge'
 - stable-provider-miw
 - stable-consumer-miw
 
@@ -132,7 +132,7 @@ Finally an access token has been generated.
 
 ### 2. Deploy Agent-Enabled Connector's
 
-Using https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge the following two applications have been installed.
+Using 'https://argo.stable/settings/projects/project-knowledge' the following two applications have been installed.
 
 We give the complete manifests but hide the secrets.
 
@@ -154,7 +154,7 @@ source:
           vault: 
             hashicorp: 
               enabled: true
-              url: https://vault.demo.catena-x.net
+              url: https://vault.stable
               token: ****
               healthCheck:
                 enabled: false
@@ -173,12 +173,12 @@ source:
             ssi: 
               miw:
                 # -- MIW URL
-                url: "https://managed-identity-wallets-new.stable.demo.catena-x.net"
+                url: "https://managed-identity-wallets-new.stable"
                 # -- The BPN of the issuer authority
                 authorityId: "BPNL00000003CRHK"
               oauth:
                 # -- The URL (of KeyCloak), where access tokens can be obtained
-                tokenurl: "https://centralidp.stable.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
+                tokenurl: "https://centralidp.stable/auth/realms/CX-Central/protocol/openid-connect/token"
                 client:
                   # -- The client ID for KeyCloak
                   id: "sa4"
@@ -191,7 +191,7 @@ source:
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-                hostname: "agent-provider-cp.stable.demo.catena-x.net"
+                hostname: "agent-provider-cp.stable"
                 # -- EDC endpoints exposed by this ingress resource
                 endpoints:
                   - protocol
@@ -220,21 +220,21 @@ source:
                   @base <GraphAsset?local=Dataspace> .
 
                   bpnl:BPNL000000000001 cx:hasBusinessPartnerNumber "BPNL000000000001"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>;
-                                        cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>.
+                                        cx:hasConnector <edcs://agent-provider-cp.stable>;
+                                        cx-common:hasConnector <edcs://agent-provider-cp.stable>.
 
                   bpnl:BPNL0000000005VV cx:hasBusinessPartnerNumber "BPNL0000000005VV"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>;
-                                        cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
+                                        cx:hasConnector <edcs://agent-consumer-cp.stable>;
+                                        cx-common:hasConnector <edcs://agent-consumer-cp.stable>.
               agent:
                 #synchronization: 360000
                 connectors:
-                  - https://agent-provider-cp.stable.demo.catena-x.net
+                  - https://agent-provider-cp.stable
 
               ## Ingress declaration to expose the network service.
               ingresses:
                 - enabled: true
-                  hostname: "agent-provider-dp.stable.demo.catena-x.net"
+                  hostname: "agent-provider-dp.stable"
                   # -- EDC endpoints exposed by this ingress resource
                   endpoints:
                     - public
@@ -268,7 +268,7 @@ source:
           vault: 
             hashicorp: 
               enabled: true
-              url: https://vault.demo.catena-x.net
+              url: https://vault.stable
               token: ****
               healthCheck:
                 enabled: false
@@ -287,12 +287,12 @@ source:
             ssi: 
               miw:
                 # -- MIW URL
-                url: "https://managed-identity-wallets-new.stable.demo.catena-x.net"
+                url: "https://managed-identity-wallets-new.stable"
                 # -- The BPN of the issuer authority
                 authorityId: "BPNL00000003CRHK"
               oauth:
                 # -- The URL (of KeyCloak), where access tokens can be obtained
-                tokenurl: "https://centralidp.stable.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token"
+                tokenurl: "https://centralidp.stable/auth/realms/CX-Central/protocol/openid-connect/token"
                 client:
                   # -- The client ID for KeyCloak
                   id: "sa5"
@@ -305,7 +305,7 @@ source:
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-                hostname: "agent-consumer-cp.stable.demo.catena-x.net"
+                hostname: "agent-consumer-cp.stable"
                 # -- EDC endpoints exposed by this ingress resource
                 endpoints:
                   - protocol
@@ -334,21 +334,21 @@ source:
                   @base <GraphAsset?local=Dataspace> .
 
                   bpnl:BPNL000000000001 cx:hasBusinessPartnerNumber "BPNL000000000001"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>;
-                                        cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.net>.
+                                        cx:hasConnector <edcs://agent-provider-cp.stable>;
+                                        cx-common:hasConnector <edcs://agent-provider-cp.stable>.
 
                   bpnl:BPNL0000000005VV cx:hasBusinessPartnerNumber "BPNL0000000005VV"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>;
-                                        cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
+                                        cx:hasConnector <edcs://agent-consumer-cp.stable>;
+                                        cx-common:hasConnector <edcs://agent-consumer-cp.stable>.
               agent:
                 # synchronization: 360000
                 connectors:
-                  - https://agent-provider-cp.stable.demo.catena-x.net
+                  - https://agent-provider-cp.stable
 
               ## Ingress declaration to expose the network service.
               ingresses:
                 - enabled: true
-                  hostname: "agent-consumer-dp.stable.demo.catena-x.net"
+                  hostname: "agent-consumer-dp.stable"
                   # -- EDC endpoints exposed by this ingress resource
                   endpoints:
                     - public
@@ -366,7 +366,7 @@ destination:
 
 ### 3. Deploy App Provider 1 Provisioning Agent
 
-Using https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge the following application has been installed.
+Using 'https://argo.stable/settings/projects/project-knowledge' the following application has been installed.
 
 For simplicity, the provisioning agent exposes a builtin sample H2 database as a graph and therefore needs to write the file system with its non-root account.
 Therefore, some of the following settings are specific to stable and will not be used under productive settings.
@@ -442,7 +442,7 @@ destination:
 
 ### 4. Deploy App Provider 1 Remoting Agent
 
-Using https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge the following application has been installed.
+Using 'https://argo.stable/settings/projects/project-knowledge' the following application has been installed.
 
 For simplicity, the remoting agent exposes a simply public API as a graph.
 
