@@ -1,0 +1,96 @@
+#********************************************************************************
+# Copyright (c) 2022 Mercedes-Benz Tech Innovation GmbH
+# Copyright (c) 2022 Contributors to the Eclipse Foundation
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+#*******************************************************************************/
+
+name: Remove pull request preview
+
+# Runs in the context of the base repository so that previews of pull requests
+# from a fork can be removed as well. No pull request code is checked out or
+# executed here, only the gh-pages branch is modified.
+on:
+  pull_request_target:
+    types:
+      - closed
+
+# Shared with the other workflows writing to gh-pages to avoid concurrent pushes.
+concurrency:
+  group: gh-pages-write
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup:
+    name: Remove preview from GitHub Pages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out gh-pages branch
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          ref: gh-pages
+          fetch-depth: 1
+
+      - name: Remove the preview folder
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          if [ ! -d "pr/${PR_NUMBER}" ]; then
+            echo "No preview found for pull request ${PR_NUMBER}, nothing to do."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm -r --quiet "pr/${PR_NUMBER}"
+          git commit -m "Remove preview of pull request ${PR_NUMBER}"
+          git push origin gh-pages
+
+      - name: Update the preview comment
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const marker = '<!-- pr-preview-comment -->';
+            const prNumber = context.payload.pull_request.number;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              per_page: 100,
+            });
+            const existing = comments.find((comment) => comment.body?.startsWith(marker));
+            if (!existing) {
+              return;
+            }
+
+            await github.rest.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: existing.id,
+              body: [
+                marker,
+                '## 🔍 Pull request preview',
+                '',
+                'This pull request is closed, so the preview has been removed.',
+              ].join('\n'),
+            });
