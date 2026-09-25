@@ -8,12 +8,21 @@ const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
 // Change this id to show the announcement bar again to everyone who closed it.
 const announcementBarId = 'announcementBar-v26.09';
 
+// The site is normally served from the root of https://eclipse-tractusx.github.io.
+// Pull request previews are deployed into a subfolder of the same GitHub Pages
+// site (for example /pr/1234/), so both values can be overridden via environment
+// variables. Defaults keep the production configuration unchanged.
+const siteUrl = process.env.SITE_URL || 'https://eclipse-tractusx.github.io';
+// Docusaurus requires a baseUrl with leading and trailing slashes.
+const rawBaseUrl = (process.env.BASE_URL || '/').replace(/^\/+|\/+$/g, '');
+const baseUrl = rawBaseUrl ? `/${rawBaseUrl}/` : '/';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
-  url: 'https://eclipse-tractusx.github.io',
-  baseUrl: '/',
+  url: siteUrl,
+  baseUrl,
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
