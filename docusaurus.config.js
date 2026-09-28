@@ -347,6 +347,11 @@ const config = {
             position: 'left',
           },
           {
+            to: '/CommunityBases',
+            label: 'Bases',
+            position: 'left',
+          },
+          {
             to: '/blog-changelog',
             label: 'Changelog',
             position: 'left',
