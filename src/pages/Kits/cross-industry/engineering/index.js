@@ -1,5 +1,5 @@
 /********************************************************************************* 
- * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
  * 
  * See the NOTICE file(s) distributed with this work for additional
  * information regarding copyright ownership.
@@ -28,8 +28,8 @@ export default function EngineeringDomainPage() {
   const { siteConfig } = useDocusaurusContext();
 
   const categoryData = {
-    title: 'Engineering',
-    description: 'Explore Engineering Use Cases KITs that provide solutions and patterns for engineering-related dataspaces across the value chain.',
+    title: 'Collaborative Engineering',
+    description: 'Collaborative Engineering focuses on use cases in the early realization of assets. The KITs listed below focus specifically on Collaborative Engineering in Data Ecosystems. The foundation for these are often existing KITs already present in Tractus-X and are only referenced when applicable. Refer to them for further details: Behavior Twin  KIT and Model Based Development and Data Processing KIT for simulation inputs, Knowledge Agent KIT as a useful approach for MBSE, Industry Core KIT as foundation for Digital Twins (which is extended with the PartRole concept in Engineering) and the Data Trust and Security KIT for Credible Simulations.',
     gradient: 'linear-gradient(135deg, #afc72d, #8ba61f)',
     // TODO: Replace this placeholder text with the final explanatory copy.
   };
