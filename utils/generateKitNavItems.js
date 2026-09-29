@@ -246,7 +246,7 @@ function generateKitNavItems() {
     sortedDomains.forEach(domain => {
       const domainTo = domain === 'Engineering'
         ? '/Kits/cross-industry/engineering'
-        : '/Kits/cross-industry';
+        : '#';
       items.push({
         to: domainTo,
         label: domain.toUpperCase(),
