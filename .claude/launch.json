@@ -1,0 +1,32 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "oss-products-clean",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd /Users/matbmoser/catenax-eV/workstreams/eclipse-tractusx.github.io/oss-products-clean && npx docusaurus start --port 3020 --no-open"
+      ],
+      "port": 3020
+    },
+    {
+      "name": "pr-1645-ai-related-projects",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd /Users/matbmoser/catenax-eV/workstreams/eclipse-tractusx.github.io/pr-1645-ai-related-projects && npm start -- --port 3045 --no-open"
+      ],
+      "port": 3045
+    },
+    {
+      "name": "news-ticker-radius",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd /Users/matbmoser/catenax-eV/workstreams/eclipse-tractusx.github.io/news-ticker-radius && npm start -- --port 3046 --no-open"
+      ],
+      "port": 3046
+    }
+  ]
+}
