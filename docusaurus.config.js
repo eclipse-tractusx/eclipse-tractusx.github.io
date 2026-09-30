@@ -523,13 +523,6 @@ const config = {
                 <img alt="Eclipse Dataspace Working Group" src="/img/edwg-logo-white.svg" style="height:200px;max-width:300px;"/>
               </div>
             </a>
-            <div class="footer-logo-divider"></div>
-            <div style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;">
-              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">Project supported by:</span>
-              <div style="display:flex;align-items:center;justify-content:center;flex:1;">
-                <img alt="Gefördert durch: Bundesministerium für Wirtschaft und Energie, aufgrund eines Beschlusses des Deutschen Bundestages" src="/img/funding/bmwe-gefoerdert.png" style="height:200px;padding:10px;border-radius:8px;background:#fff;"/>
-              </div>
-            </div>
           </div>
           <div>Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.</div>
         `,
