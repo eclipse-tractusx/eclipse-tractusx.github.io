@@ -26,6 +26,11 @@ $brand-green: #afc72d;
 $marker-size: 34px;
 $marker-size-compact: 28px;
 
+// Relative claim size per community size.
+$scale-large: 1.35;
+$scale-medium: 1;
+$scale-small: 0.72;
+
 /* ---------------------------------------------------------------------------
    Map canvas
    --------------------------------------------------------------------------- */
@@ -104,8 +109,8 @@ $marker-size-compact: 28px;
 
 .connection {
   fill: none;
-  stroke: rgba(250, 160, 35, 0.3);
-  stroke-width: 0.8;
+  stroke: rgba(250, 160, 35, 0.45);
+  stroke-width: 0.9;
   stroke-dasharray: 3 5;
   vector-effect: non-scaling-stroke;
   animation: dashFlow 12s linear infinite;
@@ -171,13 +176,36 @@ $marker-size-compact: 28px;
   transition: filter 0.25s ease;
 }
 
-.markerHome {
-  width: $marker-size * 1.5;
-  height: $marker-size * 1.5;
+.markerLarge {
+  width: $marker-size * $scale-large;
+  height: $marker-size * $scale-large;
   z-index: 2;
+}
 
-  .markerSymbol {
-    filter: drop-shadow(0 0 10px rgba(250, 160, 35, 0.55));
+.markerMedium {
+  width: $marker-size * $scale-medium;
+  height: $marker-size * $scale-medium;
+}
+
+.markerSmall {
+  width: $marker-size * $scale-small;
+  height: $marker-size * $scale-small;
+}
+
+.markerEstablished .markerSymbol {
+  filter: drop-shadow(0 0 10px rgba(250, 160, 35, 0.55));
+}
+
+// A community we are looking forward to growing: dimmed claim, dashed ring.
+.markerPending {
+  color: rgba(255, 255, 255, 0.55);
+
+  .markerPulse {
+    inset: -25%;
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    animation: none;
   }
 }
 
@@ -190,7 +218,7 @@ $marker-size-compact: 28px;
   animation: markerPulse 3.2s ease-out infinite;
 }
 
-.markerHome .markerPulse {
+.markerEstablished .markerPulse {
   border-color: rgba(250, 160, 35, 0.7);
   animation-duration: 2.6s;
 }
@@ -316,6 +344,69 @@ $marker-size-compact: 28px;
 }
 
 /* ---------------------------------------------------------------------------
+   Legend
+   --------------------------------------------------------------------------- */
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  margin: 16px 0 0;
+  padding: 0 16px;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legendSymbol {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ifm-color-emphasis-600);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.legendSymbollarge {
+  width: 22px;
+  height: 22px;
+}
+
+.legendSymbolmedium {
+  width: 16px;
+  height: 16px;
+}
+
+.legendSymbolsmall {
+  width: 12px;
+  height: 12px;
+}
+
+.legendPending {
+  opacity: 0.6;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -40%;
+    border: 1px dashed currentColor;
+    border-radius: 50%;
+  }
+}
+
+/* ---------------------------------------------------------------------------
    Compact / responsive
    --------------------------------------------------------------------------- */
 
@@ -325,21 +416,36 @@ $marker-size-compact: 28px;
     height: $marker-size-compact;
   }
 
-  .markerHome {
-    width: $marker-size-compact * 1.5;
-    height: $marker-size-compact * 1.5;
+  .markerLarge {
+    width: $marker-size-compact * $scale-large;
+    height: $marker-size-compact * $scale-large;
+  }
+
+  .markerMedium {
+    width: $marker-size-compact * $scale-medium;
+    height: $marker-size-compact * $scale-medium;
+  }
+
+  .markerSmall {
+    width: $marker-size-compact * $scale-small;
+    height: $marker-size-compact * $scale-small;
   }
 }
 
 @media screen and (max-width: 996px) {
-  .map .marker {
+  .map .markerLarge {
+    width: 30px;
+    height: 30px;
+  }
+
+  .map .markerMedium {
     width: 22px;
     height: 22px;
   }
 
-  .map .markerHome {
-    width: 32px;
-    height: 32px;
+  .map .markerSmall {
+    width: 16px;
+    height: 16px;
   }
 
   .markerLabel {
@@ -375,14 +481,19 @@ $marker-size-compact: 28px;
     border-radius: 12px;
   }
 
-  .map .marker {
+  .map .markerLarge {
+    width: 26px;
+    height: 26px;
+  }
+
+  .map .markerMedium {
     width: 18px;
     height: 18px;
   }
 
-  .map .markerHome {
-    width: 26px;
-    height: 26px;
+  .map .markerSmall {
+    width: 14px;
+    height: 14px;
   }
 
   .tooltip {

@@ -26,6 +26,13 @@ import {
   MAP_HEIGHT,
   projectCoordinates,
 } from '@site/data/worldMapGeometry';
+import {
+  COMMUNITY_SIZES,
+  COMMUNITY_SIZE_LABELS,
+  COMMUNITY_STATUS,
+  isEstablishedBase,
+  isPendingBase,
+} from '@site/data/communityBases';
 import ClaimSymbol from './ClaimSymbol';
 import styles from './styles.module.scss';
 
@@ -48,6 +55,57 @@ function connectorPath(from, to) {
   return `M${from.x} ${from.y}Q${controlX} ${controlY} ${to.x} ${to.y}`;
 }
 
+/** Marker class per community size, so bigger communities get a bigger claim. */
+const SIZE_CLASSES = {
+  [COMMUNITY_SIZES.LARGE]: styles.markerLarge,
+  [COMMUNITY_SIZES.MEDIUM]: styles.markerMedium,
+  [COMMUNITY_SIZES.SMALL]: styles.markerSmall,
+};
+
+/** How many nearest neighbours each base links to, on top of the spanning tree. */
+const NEIGHBOUR_LINKS = 2;
+
+/**
+ * Links the bases into a decentralised network instead of a hub-and-spoke
+ * layout: a minimum spanning tree keeps every base connected, and each base is
+ * additionally tied to its nearest neighbours so the mesh has no single centre.
+ */
+function buildNetwork(points) {
+  const distance = (a, b) =>
+    Math.hypot(a.position.x - b.position.x, a.position.y - b.position.y);
+  const links = new Map();
+  const addLink = (a, b) => {
+    const [first, second] = [a, b].sort((x, y) => x.base.id.localeCompare(y.base.id));
+    const id = `${first.base.id}--${second.base.id}`;
+    if (!links.has(id)) links.set(id, { id, from: first, to: second });
+  };
+
+  // Prim's algorithm for the minimum spanning tree.
+  const connected = new Set(points.slice(0, 1));
+  while (connected.size < points.length) {
+    let best = null;
+    connected.forEach((inside) => {
+      points.forEach((outside) => {
+        if (connected.has(outside)) return;
+        const length = distance(inside, outside);
+        if (!best || length < best.length) best = { inside, outside, length };
+      });
+    });
+    addLink(best.inside, best.outside);
+    connected.add(best.outside);
+  }
+
+  points.forEach((point) => {
+    points
+      .filter((other) => other !== point)
+      .sort((a, b) => distance(point, a) - distance(point, b))
+      .slice(0, NEIGHBOUR_LINKS)
+      .forEach((other) => addLink(point, other));
+  });
+
+  return Array.from(links.values());
+}
+
 /**
  * Interactive world map showing the Eclipse Tractus-X community bases.
  *
@@ -64,8 +122,9 @@ function connectorPath(from, to) {
  * @param {string} [props.activeId] - Id of the base currently highlighted.
  * @param {(id: string|null) => void} [props.onHover]
  * @param {(base: object) => void} [props.onSelect]
- * @param {boolean} [props.showConnections] - Draw arcs from the home base outwards.
+ * @param {boolean} [props.showConnections] - Draw the network of arcs linking the bases.
  * @param {boolean} [props.showLabels] - Print the country name next to each marker.
+ * @param {boolean} [props.showLegend] - Explain the marker sizes below the map.
  * @param {boolean} [props.compact] - Smaller markers, for the home page teaser.
  * @param {boolean} [props.fullBleed] - Edge-to-edge rendering, without the framing border.
  * @param {string} [props.className]
@@ -77,6 +136,7 @@ export default function WorldMap({
   onSelect,
   showConnections = true,
   showLabels = false,
+  showLegend = false,
   compact = false,
   fullBleed = false,
   className,
@@ -101,15 +161,12 @@ export default function WorldMap({
   );
 
   const connections = useMemo(() => {
-    if (!showConnections) return [];
-    const origin = points.find(({ base }) => base.homeBase) || points[0];
-    if (!origin) return [];
-    return points
-      .filter((point) => point !== origin)
-      .map((point) => ({
-        id: point.base.id,
-        d: connectorPath(origin.position, point.position),
-      }));
+    if (!showConnections || points.length < 2) return [];
+    return buildNetwork(points).map(({ id, from, to }) => ({
+      id,
+      ends: [from.base.id, to.base.id],
+      d: connectorPath(from.position, to.position),
+    }));
   }, [points, showConnections]);
 
   const interactive = Boolean(onSelect);
@@ -170,7 +227,7 @@ export default function WorldMap({
                 key={connection.id}
                 className={clsx(
                   styles.connection,
-                  activeId === connection.id && styles.connectionActive,
+                  connection.ends.includes(activeId) && styles.connectionActive,
                 )}
                 d={connection.d}
               />
@@ -180,6 +237,7 @@ export default function WorldMap({
           <div className={styles.markerLayer}>
             {points.map(({ base, position }) => {
               const isActive = activeId === base.id;
+              const established = isEstablishedBase(base);
               const Marker = interactive ? 'button' : 'div';
               return (
                 <Marker
@@ -187,7 +245,9 @@ export default function WorldMap({
                   type={interactive ? 'button' : undefined}
                   className={clsx(
                     styles.marker,
-                    base.homeBase && styles.markerHome,
+                    SIZE_CLASSES[base.size] || styles.markerSmall,
+                    established && styles.markerEstablished,
+                    isPendingBase(base) && styles.markerPending,
                     isActive && styles.markerActive,
                   )}
                   style={{ left: `${position.left}%`, top: `${position.top}%` }}
@@ -203,7 +263,7 @@ export default function WorldMap({
                   onBlur={onHover ? () => onHover(null) : undefined}
                 >
                   <span className={styles.markerPulse} aria-hidden="true" />
-                  <ClaimSymbol brand={base.homeBase} className={styles.markerSymbol} />
+                  <ClaimSymbol brand={established} className={styles.markerSymbol} />
                   {showLabels && (
                     <span
                       className={clsx(
@@ -218,11 +278,7 @@ export default function WorldMap({
                     <span className={styles.tooltipCountry}>{base.country}</span>
                     {base.city && <span className={styles.tooltipCity}>{base.city}</span>}
                     <span className={styles.tooltipMeta}>
-                      {base.homeBase
-                        ? 'Home base'
-                        : base.partners.length > 0
-                          ? `${base.partners.length} partner${base.partners.length === 1 ? '' : 's'}`
-                          : base.region}
+                      {base.status}
                     </span>
                   </span>
                 </Marker>
@@ -231,6 +287,26 @@ export default function WorldMap({
           </div>
         </div>
       </div>
+      {showLegend && (
+        <ul className={styles.legend} aria-label="Map legend">
+          {Object.values(COMMUNITY_SIZES).map((size) => (
+            <li key={size} className={styles.legendItem}>
+              <span className={clsx(styles.legendSymbol, styles[`legendSymbol${size}`])}>
+                <ClaimSymbol brand={size === COMMUNITY_SIZES.LARGE} />
+              </span>
+              {COMMUNITY_SIZE_LABELS[size]}
+            </li>
+          ))}
+          <li className={styles.legendItem}>
+            <span
+              className={clsx(styles.legendSymbol, styles.legendSymbolsmall, styles.legendPending)}
+            >
+              <ClaimSymbol />
+            </span>
+            {COMMUNITY_STATUS.GROWTH_PENDING}
+          </li>
+        </ul>
+      )}
       <p className={styles.scrollHint} aria-hidden="true">
         Swipe the map to explore
       </p>
