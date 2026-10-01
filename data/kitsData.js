@@ -912,7 +912,7 @@ export const kitsData = {
         graduationStatus: 'draft'
       },
       deprecated: false,
-      domain: 'Engineering',
+      domain: 'Simulations',
       industries: ['automotive'],
       description: 'Federated simulation and data processing.',
       metadata: {
