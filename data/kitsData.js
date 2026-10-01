@@ -465,8 +465,8 @@ export const kitsData = {
       description: 'Defines standard ways to expose and use AI Services.',
       metadata: {
         created: '2025-12-19',
-        lastUpdated: '2026-01-29',
-        latestVersion: '0.0.1',
+        lastUpdated: '2026-09-16',
+        latestVersion: '0.1.0',
         new: true
       }
     },
