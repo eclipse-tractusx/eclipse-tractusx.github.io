@@ -23,7 +23,11 @@ import { useHistory } from '@docusaurus/router';
 import clsx from 'clsx';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import PublicIcon from '@mui/icons-material/Public';
-import { communityBases, getBaseStatistics } from '@site/data/communityBases';
+import {
+  communityBases,
+  getBaseStatistics,
+  isEstablishedBase,
+} from '@site/data/communityBases';
 import WorldMap from './WorldMap';
 import ClaimSymbol from './ClaimSymbol';
 import styles from './section.module.scss';
@@ -55,9 +59,9 @@ export default function CommunityMap() {
             Our community <span className={styles.titleAccent}>bases</span> around the world
           </h2>
           <p className={styles.subtitle}>
-            Eclipse Tractus-X is built by people on every continent we reach. Each claim on the map
-            marks a base - a place where contributors, committers and partner organizations build,
-            run and grow the dataspace together.
+            Eclipse Tractus-X is a global community without a single centre. Each claim on the map
+            marks a country where our community is present, and the bigger the claim, the bigger the
+            community there.
           </p>
         </header>
 
@@ -95,7 +99,7 @@ export default function CommunityMap() {
               to={`${COMMUNITY_BASES_ROUTE}#${base.id}`}
               className={clsx(
                 styles.chip,
-                base.homeBase && styles.chipHome,
+                isEstablishedBase(base) && styles.chipHome,
                 activeId === base.id && styles.chipActive,
               )}
               onMouseEnter={() => setActiveId(base.id)}
@@ -103,7 +107,7 @@ export default function CommunityMap() {
               onFocus={() => setActiveId(base.id)}
               onBlur={() => setActiveId(null)}
             >
-              <ClaimSymbol brand={base.homeBase} className={styles.chipSymbol} />
+              <ClaimSymbol brand={isEstablishedBase(base)} className={styles.chipSymbol} />
               {base.country}
             </Link>
           ))}
