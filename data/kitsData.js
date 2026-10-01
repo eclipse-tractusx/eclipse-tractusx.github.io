@@ -725,8 +725,8 @@ export const kitsData = {
       description: 'Facilitate due diligence processes by providing standardized data exchange for risk assessment and compliance check.',
       metadata: {
         created: '2026-02-23',
-        lastUpdated: '2026-03-09',
-        latestVersion: '0.0.1',
+        lastUpdated: '2026-09-17',
+        latestVersion: '0.0.2',
         new: true
       }
     },
