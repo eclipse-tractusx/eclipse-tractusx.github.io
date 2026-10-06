@@ -1,0 +1,230 @@
+/*********************************************************************************
+ * Eclipse Tractus-X - eclipse-tractusx.github.io
+ *
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+.architectureWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.architectureDiagram {
+  display: flex;
+  gap: 1rem;
+  border: 2px solid var(--ifm-color-card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: var(--ifm-background-color);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.kitsReference {
+  display: flex;
+  align-items: stretch;
+  min-width: 80px;
+
+  .kitsLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 1rem 0.75rem;
+    border: 2px solid var(--ifm-color-card-border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--ifm-font-color-base);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+
+    &:hover {
+      border-color: var(--ifm-color-primary);
+      background: rgba(250, 160, 35, 0.08);
+      color: var(--ifm-color-primary);
+      text-decoration: none;
+    }
+  }
+
+  .kitsSubtext {
+    font-size: 0.7rem;
+    font-weight: 400;
+    opacity: 0.7;
+  }
+}
+
+.diagramContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.layer {
+  border: 2px solid var(--ifm-color-card-border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.layerTitleLink {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+    color: var(--ifm-color-primary);
+  }
+}
+
+.layerTitle {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+  color: var(--ifm-font-color-base);
+  transition: color 0.2s ease;
+
+  .layerTitleLink:hover & {
+    color: var(--ifm-color-primary);
+  }
+}
+
+.layerContent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.foundationsRow {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 1rem;
+
+  .foundationSection {
+    border: 2px solid var(--ifm-color-card-border);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.productBlock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  line-height: 1.2;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    color: #333;
+  }
+}
+
+.productIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.productName {
+  white-space: nowrap;
+}
+
+.tbd {
+  font-weight: 700;
+  color: #c00;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--ifm-font-color-base);
+}
+
+.legendSwatch {
+  display: inline-block;
+  width: 20px;
+  height: 14px;
+  border-radius: 3px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.tdbNote {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ifm-font-color-base);
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 968px) {
+  .architectureDiagram {
+    flex-direction: column;
+  }
+
+  .kitsReference {
+    min-width: auto;
+
+    .kitsLink {
+      writing-mode: horizontal-tb;
+      text-orientation: initial;
+      flex-direction: row;
+    }
+  }
+
+  .foundationsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .productBlock {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
