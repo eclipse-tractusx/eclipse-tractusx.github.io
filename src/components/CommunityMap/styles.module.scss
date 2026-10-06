@@ -30,6 +30,7 @@ $marker-size-compact: 28px;
 $scale-large: 1.35;
 $scale-medium: 1;
 $scale-small: 0.72;
+$scale-xsmall: 0.5;
 
 /* ---------------------------------------------------------------------------
    Map canvas
@@ -190,6 +191,11 @@ $scale-small: 0.72;
 .markerSmall {
   width: $marker-size * $scale-small;
   height: $marker-size * $scale-small;
+}
+
+.markerXsmall {
+  width: $marker-size * $scale-xsmall;
+  height: $marker-size * $scale-xsmall;
 }
 
 .markerEstablished .markerSymbol {
@@ -394,6 +400,11 @@ $scale-small: 0.72;
   height: 12px;
 }
 
+.legendSymbolxsmall {
+  width: 9px;
+  height: 9px;
+}
+
 .legendPending {
   opacity: 0.6;
 
@@ -430,6 +441,11 @@ $scale-small: 0.72;
     width: $marker-size-compact * $scale-small;
     height: $marker-size-compact * $scale-small;
   }
+
+  .markerXsmall {
+    width: $marker-size-compact * $scale-xsmall;
+    height: $marker-size-compact * $scale-xsmall;
+  }
 }
 
 @media screen and (max-width: 996px) {
@@ -446,6 +462,11 @@ $scale-small: 0.72;
   .map .markerSmall {
     width: 16px;
     height: 16px;
+  }
+
+  .map .markerXsmall {
+    width: 12px;
+    height: 12px;
   }
 
   .markerLabel {
@@ -494,6 +515,11 @@ $scale-small: 0.72;
   .map .markerSmall {
     width: 14px;
     height: 14px;
+  }
+
+  .map .markerXsmall {
+    width: 10px;
+    height: 10px;
   }
 
   .tooltip {

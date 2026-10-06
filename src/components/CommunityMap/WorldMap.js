@@ -60,6 +60,7 @@ const SIZE_CLASSES = {
   [COMMUNITY_SIZES.LARGE]: styles.markerLarge,
   [COMMUNITY_SIZES.MEDIUM]: styles.markerMedium,
   [COMMUNITY_SIZES.SMALL]: styles.markerSmall,
+  [COMMUNITY_SIZES.EXTRA_SMALL]: styles.markerXsmall,
 };
 
 /** How many nearest neighbours each base links to, on top of the spanning tree. */

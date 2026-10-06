@@ -68,6 +68,7 @@ export const COMMUNITY_SIZES = {
   LARGE: 'large',
   MEDIUM: 'medium',
   SMALL: 'small',
+  EXTRA_SMALL: 'xsmall',
 };
 
 /** Human readable names for COMMUNITY_SIZES. */
@@ -75,6 +76,7 @@ export const COMMUNITY_SIZE_LABELS = {
   [COMMUNITY_SIZES.LARGE]: 'Large community',
   [COMMUNITY_SIZES.MEDIUM]: 'Medium community',
   [COMMUNITY_SIZES.SMALL]: 'Small community',
+  [COMMUNITY_SIZES.EXTRA_SMALL]: 'Extra small community',
 };
 
 /** Where the local community stands on its way to becoming an established base. */
@@ -167,7 +169,7 @@ export const communityBases = [
     // Placed in southern Italy so the claim stays clear of Germany's.
     latitude: 41.2,
     longitude: 15.0,
-    size: COMMUNITY_SIZES.SMALL,
+    size: COMMUNITY_SIZES.EXTRA_SMALL,
     status: COMMUNITY_STATUS.CONTRIBUTORS,
     labelPlacement: 'bottom',
     partners: [],
