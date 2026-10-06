@@ -31,6 +31,8 @@ import PeopleIcon from '@mui/icons-material/People';
 import LinkIcon from '@mui/icons-material/Link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ExtensionIcon from '@mui/icons-material/Extension';
+import GroupsIcon from '@mui/icons-material/Groups';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 
 const relevanceLabels = {
   'catena-x-operative': 'Relevant for Catena-X Operative',
@@ -138,6 +140,37 @@ export default function ProductDetailView({ product }) {
               </div>
             </section>
           )}
+
+          {/* AI Agents */}
+          {product.agents?.length > 0 && (
+            <section className={styles.section}>
+              <h2><SmartToyIcon style={{ fontSize: 22, marginRight: 6, verticalAlign: 'text-bottom' }} /> AI Agents</h2>
+              <div className={styles.agentGrid}>
+                {product.agents.map(agent => (
+                  <a
+                    key={`${agent.repository}/${agent.id}`}
+                    href={agent.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.agentCard}
+                  >
+                    {agent.avatar ? (
+                      <img src={agent.avatar} alt={agent.name} className={styles.agentAvatar} loading="lazy" />
+                    ) : (
+                      <span className={styles.agentAvatar} aria-hidden="true">
+                        <SmartToyIcon style={{ fontSize: 30 }} />
+                      </span>
+                    )}
+                    <div className={styles.agentInfo}>
+                      <strong>{agent.name}</strong>
+                      <p>{agent.description}</p>
+                      <span className={styles.agentRepo}>{agent.repository}</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
 
         {/* Sidebar */}
@@ -154,6 +187,38 @@ export default function ProductDetailView({ product }) {
                         <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
                       </svg>
                       {repo.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Committers */}
+          {product.committers?.length > 0 && (
+            <div className={styles.sidebarSection}>
+              <h3><GroupsIcon style={{ fontSize: 18, marginRight: 6, verticalAlign: 'text-bottom' }} /> Committers</h3>
+              <ul className={styles.committerList}>
+                {product.committers.map(committer => (
+                  <li key={committer.github}>
+                    <a
+                      href={`https://github.com/${committer.github}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.committerLink}
+                    >
+                      <img
+                        src={`https://github.com/${committer.github}.png?size=80`}
+                        alt={committer.name || committer.github}
+                        className={styles.committerAvatar}
+                        loading="lazy"
+                        width={36}
+                        height={36}
+                      />
+                      <span className={styles.committerInfo}>
+                        <strong>{committer.name || committer.github}</strong>
+                        <span className={styles.githubHandle}>@{committer.github}</span>
+                      </span>
                     </a>
                   </li>
                 ))}

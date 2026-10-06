@@ -32,6 +32,9 @@
  *   status: 'active' | 'phase-out' | 'tbd',
  *   repositories: { name: string, url: string }[],
  *   contacts: { name: string, role: string, github: string }[],
+ *   committers: { github: string, name?: string }[] (Eclipse Tractus-X committers behind the repositories),
+ *   agents: { id: string, name: string, description: string, repository: string, url: string, avatar?: string }[]
+ *           (AI agents defined in the repositories under .github/agents),
  *   details: string (longer description / overview),
  *   icon: string (MUI icon name from @mui/icons-material),
  * }
@@ -84,9 +87,15 @@ const products = [
     status: 'active',
     icon: 'DesktopWindows',
     repositories: [
-      { name: 'industry-core-hub-frontend', url: 'https://github.com/eclipse-tractusx/industry-core-hub-frontend' },
+      { name: 'industry-core-hub', url: 'https://github.com/eclipse-tractusx/industry-core-hub' },
     ],
     contacts: [],
+    committers: [
+      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
+      { github: 'mgarciaLKS', name: 'Mikel Garcia' },
+    ],
+    agents: [],
     details: 'The Industry Core Hub Frontend provides a unified user interface for accessing various industry core functionalities, including Digital Product Passports (DPP) and Company Certificate Management (CCM).',
   },
   {
@@ -101,6 +110,12 @@ const products = [
       { name: 'puris', url: 'https://github.com/eclipse-tractusx/puris' },
     ],
     contacts: [],
+    committers: [
+      { github: 'tom-rm-meyer-ISST', name: 'Tom Meyer' },
+      { github: 'ReneSchroederLJ', name: 'René Schröder' },
+      { github: 'mhellmeier', name: 'Malte Hellmeier' },
+    ],
+    agents: [],
     details: 'PURIS enables real-time supply chain visibility by providing predictive information about demand, capacity, and delivery status across the automotive supply chain.',
   },
   {
@@ -115,6 +130,10 @@ const products = [
       { name: 'traceability-foss', url: 'https://github.com/eclipse-tractusx/traceability-foss' },
     ],
     contacts: [],
+    committers: [
+      { github: 'ds-jhartmann', name: 'Jaro Hartmann' },
+    ],
+    agents: [],
     details: 'Trace-X is a FOSS traceability application that enables companies to track and trace parts and materials across the automotive supply chain, supporting quality investigations and recall management.',
   },
   {
@@ -127,8 +146,12 @@ const products = [
     icon: 'Psychology',
     repositories: [
       { name: 'knowledge-agents', url: 'https://github.com/eclipse-tractusx/knowledge-agents' },
+      { name: 'knowledge-agents-edc', url: 'https://github.com/eclipse-tractusx/knowledge-agents-edc' },
+      { name: 'knowledge-agents-aas-bridge', url: 'https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge' },
     ],
     contacts: [],
+    committers: [],
+    agents: [],
     details: 'Knowledge Agents enable federated queries and reasoning across distributed data sources within the Catena-X dataspace, supporting complex analytics and decision-making scenarios.',
   },
 
@@ -143,8 +166,20 @@ const products = [
     icon: 'Cable',
     repositories: [
       { name: 'tractusx-edc', url: 'https://github.com/eclipse-tractusx/tractusx-edc' },
+      { name: 'tractusx-edc-dashboard', url: 'https://github.com/eclipse-tractusx/tractusx-edc-dashboard' },
+      { name: 'tractusx-edc-kafka-extension', url: 'https://github.com/eclipse-tractusx/tractusx-edc-kafka-extension' },
+      { name: 'tractusx-virtual-connector', url: 'https://github.com/eclipse-tractusx/tractusx-virtual-connector' },
     ],
     contacts: [],
+    committers: [
+      { github: 'lgblaumeiser', name: 'Lars Geyer-Blaumeiser' },
+      { github: 'AndrYurk', name: 'Andrii Yurkevych' },
+      { github: 'bmg13' },
+      { github: 'ndr-brt', name: 'Andrea Bertagnolli' },
+      { github: 'rafaelmag110', name: 'Rafael Magalhães' },
+      { github: 'Phil91', name: 'Phil Schneider' },
+    ],
+    agents: [],
     details: 'The Tractus-X EDC is the Eclipse Dataspace Connector adapted for Catena-X. It provides secure, sovereign data exchange capabilities following IDS and Gaia-X principles.',
   },
   {
@@ -155,8 +190,19 @@ const products = [
     relevance: ['development-testing'],
     status: 'active',
     icon: 'VerifiedUser',
-    repositories: [],
+    repositories: [
+      { name: 'tractusx-identityhub', url: 'https://github.com/eclipse-tractusx/tractusx-identityhub' },
+    ],
     contacts: [],
+    committers: [
+      { github: 'AYaoZhan' },
+      { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
+      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'saudkhan116', name: 'Saud Khan' },
+      { github: 'mgarciaLKS', name: 'Mikel Garcia' },
+      { github: 'stephanbcbauer', name: 'Stephan Bauer' },
+    ],
+    agents: [],
     details: 'The Identity Hub Issuer Service handles the issuance of verifiable credentials, enabling decentralized identity management across the dataspace.',
   },
   {
@@ -167,8 +213,19 @@ const products = [
     relevance: ['development-testing'],
     status: 'tbd',
     icon: 'AccountBalanceWallet',
-    repositories: [],
+    repositories: [
+      { name: 'tractusx-identityhub', url: 'https://github.com/eclipse-tractusx/tractusx-identityhub' },
+    ],
     contacts: [],
+    committers: [
+      { github: 'AYaoZhan' },
+      { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
+      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'saudkhan116', name: 'Saud Khan' },
+      { github: 'mgarciaLKS', name: 'Mikel Garcia' },
+      { github: 'stephanbcbauer', name: 'Stephan Bauer' },
+    ],
+    agents: [],
     details: 'The Identity Hub Holder Wallet enables participants to securely store and present their verifiable credentials when interacting within the dataspace.',
   },
   {
@@ -183,6 +240,10 @@ const products = [
       { name: 'sd-factory', url: 'https://github.com/eclipse-tractusx/sd-factory' },
     ],
     contacts: [],
+    committers: [
+      { github: 'typecastcloud', name: 'Karsten Thiems' },
+    ],
+    agents: [],
     details: 'The SD-Factory creates and manages Gaia-X compliant self-descriptions for dataspace participants, enabling trust and transparency.',
   },
   {
@@ -197,6 +258,13 @@ const products = [
       { name: 'sldt-digital-twin-registry', url: 'https://github.com/eclipse-tractusx/sldt-digital-twin-registry' },
     ],
     contacts: [],
+    committers: [
+      { github: 'agg3fe', name: 'Sahil Aggarwal' },
+      { github: 'tom-rm-meyer-ISST', name: 'Tom Meyer' },
+      { github: 'AndrYurk', name: 'Andrii Yurkevych' },
+      { github: 'stephanbcbauer', name: 'Stephan Bauer' },
+    ],
+    agents: [],
     details: 'The Digital Twin Registry (DTR) provides a central registry for managing and discovering digital twins within the dataspace ecosystem.',
   },
   {
@@ -208,10 +276,24 @@ const products = [
     status: 'phase-out',
     icon: 'Language',
     repositories: [
+      { name: 'portal', url: 'https://github.com/eclipse-tractusx/portal' },
       { name: 'portal-frontend', url: 'https://github.com/eclipse-tractusx/portal-frontend' },
+      { name: 'portal-frontend-registration', url: 'https://github.com/eclipse-tractusx/portal-frontend-registration' },
       { name: 'portal-backend', url: 'https://github.com/eclipse-tractusx/portal-backend' },
+      { name: 'portal-iam', url: 'https://github.com/eclipse-tractusx/portal-iam' },
+      { name: 'portal-shared-components', url: 'https://github.com/eclipse-tractusx/portal-shared-components' },
+      { name: 'portal-assets', url: 'https://github.com/eclipse-tractusx/portal-assets' },
     ],
     contacts: [],
+    committers: [
+      { github: 'Phil91', name: 'Phil Schneider' },
+      { github: 'manojava-gk', name: 'Manojava Koushik' },
+      { github: 'ntruchsess', name: 'Norbert Truchsess' },
+      { github: 'typecastcloud', name: 'Karsten Thiems' },
+      { github: 'dhiren-singh-007', name: 'Dhiren Singh' },
+      { github: 'saadanzari', name: 'Saad Bin Rafiq' },
+    ],
+    agents: [],
     details: 'The Portal provides onboarding, registration, and management capabilities for Catena-X dataspace participants.',
   },
   {
@@ -226,6 +308,11 @@ const products = [
       { name: 'bpdm', url: 'https://github.com/eclipse-tractusx/bpdm' },
     ],
     contacts: [],
+    committers: [
+      { github: 'nicoprow', name: 'Nico Koprowski' },
+      { github: 'SujitMBRDI', name: 'Karne Sujit' },
+    ],
+    agents: [],
     details: 'BPDM provides the golden record process for cleansing, deduplicating, and enriching business partner data across the Catena-X ecosystem.',
   },
   {
@@ -240,6 +327,15 @@ const products = [
       { name: 'bpn-did-resolution-service', url: 'https://github.com/eclipse-tractusx/bpn-did-resolution-service' },
     ],
     contacts: [],
+    committers: [
+      { github: 'lgblaumeiser', name: 'Lars Geyer-Blaumeiser' },
+      { github: 'AndrYurk', name: 'Andrii Yurkevych' },
+      { github: 'bmg13' },
+      { github: 'nitin-vavdiya', name: 'Nitin Vavdiya' },
+      { github: 'ndr-brt', name: 'Andrea Bertagnolli' },
+      { github: 'rafaelmag110', name: 'Rafael Magalhães' },
+    ],
+    agents: [],
     details: 'The BPN Discovery Resolution Service resolves Business Partner Numbers (BPN) to their corresponding EDC endpoints in the dataspace.',
   },
   {
@@ -254,6 +350,10 @@ const products = [
       { name: 'sldt-bpn-discovery', url: 'https://github.com/eclipse-tractusx/sldt-bpn-discovery' },
     ],
     contacts: [],
+    committers: [
+      { github: 'agg3fe', name: 'Sahil Aggarwal' },
+    ],
+    agents: [],
     details: 'BPN Discovery allows discovering Business Partner Numbers associated with specific identifiers like serial numbers or batch IDs.',
   },
   {
@@ -268,6 +368,10 @@ const products = [
       { name: 'sldt-discovery-finder', url: 'https://github.com/eclipse-tractusx/sldt-discovery-finder' },
     ],
     contacts: [],
+    committers: [
+      { github: 'agg3fe', name: 'Sahil Aggarwal' },
+    ],
+    agents: [],
     details: 'The Discovery Finder is a meta-discovery service that helps locate the correct discovery service endpoint for a given type of identifier.',
   },
   {
@@ -278,8 +382,14 @@ const products = [
     relevance: ['dataspace-participants'],
     status: 'active',
     icon: 'ViewInAr',
-    repositories: [],
+    repositories: [
+      { name: 'aas-suite', url: 'https://github.com/eclipse-tractusx/aas-suite' },
+    ],
     contacts: [],
+    committers: [
+      { github: 'matbmoser', name: 'Mathias Moser' },
+    ],
+    agents: [],
     details: 'The AAS Suite provides a standardized digital representation of assets following the Asset Administration Shell specification from the Industrial Digital Twin Association (IDTA).',
   },
 
@@ -293,9 +403,15 @@ const products = [
     status: 'active',
     icon: 'Settings',
     repositories: [
-      { name: 'industry-core-hub-backend', url: 'https://github.com/eclipse-tractusx/industry-core-hub-backend' },
+      { name: 'industry-core-hub', url: 'https://github.com/eclipse-tractusx/industry-core-hub' },
     ],
     contacts: [],
+    committers: [
+      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
+      { github: 'mgarciaLKS', name: 'Mikel Garcia' },
+    ],
+    agents: [],
     details: 'The Industry Core Hub Backend provides the server-side logic and data processing for the Industry Core Hub, supporting Digital Product Passports and other industry core use cases.',
   },
   {
@@ -308,8 +424,13 @@ const products = [
     icon: 'SyncAlt',
     repositories: [
       { name: 'managed-simple-data-exchanger-backend', url: 'https://github.com/eclipse-tractusx/managed-simple-data-exchanger-backend' },
+      { name: 'managed-simple-data-exchanger-frontend', url: 'https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend' },
     ],
     contacts: [],
+    committers: [
+      { github: 'saudkhan116', name: 'Saud Khan' },
+    ],
+    agents: [],
     details: 'The Simple Data Exchanger provides a simplified way for companies to participate in data exchange within the Catena-X ecosystem, lowering the barrier to entry.',
   },
   {
@@ -324,6 +445,11 @@ const products = [
       { name: 'item-relationship-service', url: 'https://github.com/eclipse-tractusx/item-relationship-service' },
     ],
     contacts: [],
+    committers: [
+      { github: 'ds-jhartmann', name: 'Jaro Hartmann' },
+      { github: 'tom-rm-meyer-ISST', name: 'Tom Meyer' },
+    ],
+    agents: [],
     details: 'The Item Relationship Service (IRS) manages and traverses item relationships across the supply chain, enabling bill-of-material (BoM) traversal and data chain capabilities.',
   },
   {
@@ -338,6 +464,10 @@ const products = [
       { name: 'sldt-semantic-hub', url: 'https://github.com/eclipse-tractusx/sldt-semantic-hub' },
     ],
     contacts: [],
+    committers: [
+      { github: 'agg3fe', name: 'Sahil Aggarwal' },
+    ],
+    agents: [],
     details: 'The Semantic Hub provides a central repository for semantic models and SAMM aspect model definitions used across the Catena-X dataspace.',
   },
 
@@ -354,6 +484,23 @@ const products = [
       { name: 'tractus-x-umbrella', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella' },
     ],
     contacts: [],
+    committers: [
+      { github: 'ds-jhartmann', name: 'Jaro Hartmann' },
+      { github: 'mgarciaLKS', name: 'Mikel Garcia' },
+      { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
+      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'stephanbcbauer', name: 'Stephan Bauer' },
+      { github: 'saudkhan116', name: 'Saud Khan' },
+    ],
+    agents: [
+      {
+        id: 'umbrella-guardian',
+        name: 'Umbrella Guardian',
+        description: 'Veteran guide and reviewer for the tractus-x-umbrella Helm chart. Helps installing and debugging the umbrella on Minikube/KinD, choosing values-adopter profiles and changing charts and bundles.',
+        repository: 'tractus-x-umbrella',
+        url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/.github/agents/umbrella-guardian.agent.md',
+      },
+    ],
     details: 'The Umbrella chart provides a one-click deployment of a complete Catena-X environment, enabling developers and testers to run end-to-end scenarios locally or in CI/CD pipelines.',
   },
   {
@@ -364,8 +511,17 @@ const products = [
     relevance: ['catena-x-demo'],
     status: 'active',
     icon: 'Science',
-    repositories: [],
+    repositories: [
+      { name: 'ssi-dim-wallet-stub', url: 'https://github.com/eclipse-tractusx/ssi-dim-wallet-stub' },
+    ],
     contacts: [],
+    committers: [
+      { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
+      { github: 'nitin-vavdiya', name: 'Nitin Vavdiya' },
+      { github: 'AYaoZhan' },
+      { github: 'mgarciaLKS', name: 'Mikel Garcia' },
+    ],
+    agents: [],
     details: 'The DIM Wallet Stub provides a mock implementation of the Decentralized Identity Management wallet, enabling testing without requiring the full wallet infrastructure.',
   },
   {
@@ -380,6 +536,12 @@ const products = [
       { name: 'tractusx-sdk', url: 'https://github.com/eclipse-tractusx/tractusx-sdk' },
     ],
     contacts: [],
+    committers: [
+      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
+      { github: 'mgarciaLKS', name: 'Mikel Garcia' },
+    ],
+    agents: [],
     details: 'The Tractus-X SDK provides libraries, utilities, and tools for developers building applications and services compatible with the Tractus-X ecosystem.',
   },
   {
@@ -390,8 +552,52 @@ const products = [
     relevance: ['development-testing'],
     status: 'active',
     icon: 'Biotech',
-    repositories: [],
+    repositories: [
+      { name: 'tractusx-testlab', url: 'https://github.com/eclipse-tractusx/tractusx-testlab' },
+    ],
     contacts: [],
+    committers: [
+      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'AYaoZhan' },
+      { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
+    ],
+    agents: [
+      {
+        id: 'testlab-ai-master',
+        name: 'Testlab AI Master',
+        description: 'Chief AI agent and orchestrator of tractusx-testlab. Receives feature requirements and delegates the work to the domain specialist agents.',
+        repository: 'tractusx-testlab',
+        url: 'https://github.com/eclipse-tractusx/tractusx-testlab/blob/main/.github/agents/testlab-ai-master.agent.md',
+      },
+      {
+        id: 'testlab-architect',
+        name: 'Testlab Architect',
+        description: 'Software architect and project manager. Plans features, breaks down epics into work packages, analyzes architecture impacts and identifies risks.',
+        repository: 'tractusx-testlab',
+        url: 'https://github.com/eclipse-tractusx/tractusx-testlab/blob/main/.github/agents/testlab-architect.agent.md',
+      },
+      {
+        id: 'testlab-master',
+        name: 'Testlab Master',
+        description: 'Senior Python backend architect for tractusx-testlab and tractusx-sdk expert, writing simple, readable and maintainable code.',
+        repository: 'tractusx-testlab',
+        url: 'https://github.com/eclipse-tractusx/tractusx-testlab/blob/main/.github/agents/testlab-master.agent.md',
+      },
+      {
+        id: 'testlab-test-master',
+        name: 'Testlab Test Master',
+        description: 'Senior test engineer and quality assurance architect. Writes unit and integration tests, fixtures and improves test coverage.',
+        repository: 'tractusx-testlab',
+        url: 'https://github.com/eclipse-tractusx/tractusx-testlab/blob/main/.github/agents/testlab-test-master.agent.md',
+      },
+      {
+        id: 'testlab-docs-master',
+        name: 'Testlab Docs Master',
+        description: 'Senior technical writer and documentation architect. Writes mkdocs pages, tutorials, developer guides and API reference documentation.',
+        repository: 'tractusx-testlab',
+        url: 'https://github.com/eclipse-tractusx/tractusx-testlab/blob/main/.github/agents/testlab-docs-master.agent.md',
+      },
+    ],
     details: 'The Tractus-X Testlab provides a controlled environment for validating component integrations, running conformance tests, and ensuring interoperability.',
   },
   {
@@ -402,8 +608,12 @@ const products = [
     relevance: ['development-testing'],
     status: 'active',
     icon: 'Engineering',
-    repositories: [],
+    repositories: [
+      { name: 'tractus-x-umbrella-iac', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella-iac' },
+    ],
     contacts: [],
+    committers: [],
+    agents: [],
     details: 'Umbrella Infrastructure as Code provides Terraform/Pulumi definitions for provisioning cloud infrastructure needed for Tractus-X Umbrella deployments.',
   },
   {
@@ -414,9 +624,46 @@ const products = [
     relevance: ['catena-x-demo'],
     status: 'phase-out',
     icon: 'Build',
-    repositories: [],
+    repositories: [
+      { name: 'tractusx-sdk-services', url: 'https://github.com/eclipse-tractusx/tractusx-sdk-services' },
+    ],
     contacts: [],
+    committers: [
+      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'saudkhan116', name: 'Saud Khan' },
+      { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
+    ],
+    agents: [],
     details: 'Tractus-X SDK Services provides shared middleware and service components that support the Tractus-X SDK development framework.',
+  },
+  {
+    id: 'tractusx-website',
+    name: 'Eclipse Tractus-X Website',
+    description: 'Official Eclipse Tractus-X website hosting the KITs, the Tractus-X Release Guidelines (TRGs) and the community documentation.',
+    category: 'qa-testing-tools',
+    relevance: ['development-testing', 'dataspace-participants'],
+    status: 'active',
+    icon: 'Language',
+    repositories: [
+      { name: 'eclipse-tractusx.github.io', url: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io' },
+    ],
+    contacts: [],
+    committers: [
+      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'sb3nz' },
+      { github: 'seb-l0' },
+      { github: 'lgblaumeiser', name: 'Lars Geyer-Blaumeiser' },
+    ],
+    agents: [
+      {
+        id: 'kit-master-builder',
+        name: 'KIT Master Builder',
+        description: 'Expert Eclipse Tractus-X KIT architect that helps you create, review, and maintain KITs following the Tractus-X Release Guidelines (TRGs).',
+        repository: 'eclipse-tractusx.github.io',
+        url: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/.github/agents/kit-master-builder.agent.md',
+      },
+    ],
+    details: 'The Eclipse Tractus-X website is the central entry point to the project. It publishes the KITs, the Tractus-X Release Guidelines (TRGs), tutorials and community information.',
   },
 ];
 
