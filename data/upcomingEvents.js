@@ -80,8 +80,7 @@ export const upcomingEvents = [
     location: 'ARENA2036 e.V., Stuttgart, Germany',
     address: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
     description: 'Join us for the Seventh Eclipse Tractus-X Community Days at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart)! Two days of exchange, innovation, and collaboration within the Tractus-X and Manufacturing-X ecosystems — technical deep dives, open workshops, coding challenges, and strategic discussions for everyone building open, interoperable, and trustworthy data spaces.',
-    // Registration is not open yet — the card shows a "Registration Coming Soon" notice instead.
-    registrationUrl: null,
+    registrationUrl: 'https://eveeno.com/146855101',
     blogSlug: 'community-days-12-2026',
     eventType: 'community-days',
     // Hackathon II (Nov 6) holds the featured spot until it has taken place.
