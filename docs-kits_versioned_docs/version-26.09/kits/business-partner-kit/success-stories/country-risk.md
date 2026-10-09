@@ -20,7 +20,7 @@ The open source solution is developed according to the Catena-X consortia and ec
 - [https://github.com/eclipse-tractusx/vas-country-risk-frontend](https://github.com/eclipse-tractusx/vas-country-risk-frontend)
 - [https://github.com/eclipse-tractusx/vas-country-risk-backend](https://github.com/eclipse-tractusx/vas-country-risk-backend)
 
-There is one main interface used from the Golden Record Product which is the GATE API in order to retrieve company specific business partners to be displayed in the dashboard. [https://github.com/eclipse-tractusx/bpdm/tree/main/docs/api](https://github.com/eclipse-tractusx/bpdm/tree/main/docs/api).
+There is one main interface used from the Golden Record Product which is the GATE API in order to retrieve company specific business partners to be displayed in the dashboard. [https://github.com/eclipse-tractusx/bpdm/tree/release/7.5.x/docs/api](https://github.com/eclipse-tractusx/bpdm/tree/release/7.5.x/docs/api).
 
 While currently the country risk service is a dashboard without the possibility to share data, in the future there shall be the functionality to request a country risk score from our application for a provided BPN Number. This functionality can then be used by other use cases like traceability or by the sharing member itself to integrate the data into their own proprietary systems. For this a separate API will be developed which will be extended by an EDC in order to take care of the access and usage policy of the data.
 
