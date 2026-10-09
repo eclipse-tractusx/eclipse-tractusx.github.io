@@ -25,6 +25,7 @@ name: Deploy pull request preview
 # out or execute code from the pull request. Everything it consumes comes from
 # the artifact uploaded by "Verify website build", which runs unprivileged.
 on:
+  workflow_dispatch:
   workflow_run:
     workflows:
       - Verify website build
