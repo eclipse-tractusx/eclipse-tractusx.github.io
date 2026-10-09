@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 075992798cd23e0ee0eb2302ebb90d622de55fe373daf1e6f30b1a9d7160606c
+ * Content hash: 24d852bcbcef809e9a505aa1331893fd2d5716f0d88d2e8c24bc6d4418d0ba3f
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -104,9 +104,9 @@ const kitsByCategory = {
   ],
   "useCases": [
     {
-      "id": "coffee",
-      "name": "COFFEE KIT",
-      "route": "/docs-kits/kits/coffee-kit/adoption-view",
+      "id": "esdscom",
+      "name": "eSDS COMMUNICATION KIT",
+      "route": "/docs-kits/next/kits/esdscom-kit/adoption-view",
       "deprecated": false
     },
     {
@@ -137,6 +137,12 @@ const kitsByCategory = {
       "id": "circularity",
       "name": "CIRCULARITY KIT",
       "route": "/docs-kits/kits/circularity-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "material-accounting",
+      "name": "MATERIAL ACCOUNTING KIT",
+      "route": "/docs-kits/next/kits/material-accounting-kit/adoption-view",
       "deprecated": false
     },
     {
@@ -215,6 +221,12 @@ const kitsByCategory = {
   "industryKits": {
     "manufacturing": [
       {
+        "id": "pcf-data-acquisition",
+        "name": "PCF DATA ACQUISITION KIT",
+        "route": "/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view",
+        "deprecated": false
+      },
+      {
         "id": "autonomous-operation",
         "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",
         "route": "/docs-kits/next/kits/autonomous-operation-kit/adoption-view",
@@ -230,6 +242,14 @@ const kitsByCategory = {
         "id": "modular-production",
         "name": "MODULAR PRODUCTION KIT",
         "route": "/docs-kits/kits/modular-production-kit/adoption-view",
+        "deprecated": false
+      }
+    ],
+    "semiconductor": [
+      {
+        "id": "unit-process-as-a-service",
+        "name": "Unit Process as a Service KIT",
+        "route": "/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view",
         "deprecated": false
       }
     ],

@@ -1,123 +1,767 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+/* Copyright (c) 2026 Contributors to the Eclipse Foundation
+ * SPDX-License-Identifier: Apache-2.0
  */
 
- .about_content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: var(--ifm-background-color);
+.about_content {
+  --about-surface: #f6f7f9;
+  --about-border: #dce0e5;
+  --about-muted: #505a68;
+  --about-orange: #925200;
+  --about-pink: #b01970;
+  --about-green: #25733f;
+  --about-purple: #7341ba;
+  --about-blue: #1f5fbf;
+  --about-teal: #0e6e75;
+  background: var(--ifm-background-color);
+}
+
+:global([data-theme='dark']) .about_content {
+  --about-surface: #12151a;
+  --about-border: #323944;
+  --about-muted: #b6beca;
+  --about-orange: #ffba56;
+  --about-pink: #f18cc7;
+  --about-green: #80d69a;
+  --about-purple: #be9aef;
+  --about-blue: #8fb4f5;
+  --about-teal: #6fd3dc;
 }
 
 .container {
-  width: 50vw;
-  height: auto;
+  width: min(1200px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 4.5rem 0;
+}
+
+.intro {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--about-orange);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.intro h2,
+.sectionHeading h2 {
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.intro > p:last-child {
+  color: var(--about-muted);
+  line-height: 1.8;
+}
+
+.section {
+  margin-top: 5rem;
+}
+
+.dataspaceNetwork {
+  margin-top: 3rem;
+  min-width: 0;
+}
+
+.organizationSource {
+  margin-top: 1rem;
+  color: var(--about-muted);
+  font-size: 0.8rem;
+}
+
+.sectionHeading {
+  max-width: 780px;
+  margin-bottom: 2rem;
+}
+
+.sectionHeading > p:last-child {
+  color: var(--about-muted);
+}
+
+.ecosystem {
+  --pcb-trace: #7d848e38;
+  --pcb-silk: #7d848e59;
+  --pcb-pad: #aeb4bc;
+  --pcb-clearance: 7px;
+  --pcb-power: #3f75d6;
+  position: relative;
+  margin: 0;
+  padding: 2rem;
+  border: 1px solid var(--about-border);
+  border-radius: 24px;
+  background: var(--about-surface);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+:global([data-theme='dark']) .ecosystem {
+  --pcb-trace: #9aa1ab29;
+  --pcb-silk: #9aa1ab3d;
+  --pcb-pad: #6b727c;
+  --pcb-power: #729deb;
+}
+
+/*
+ * Printed circuit board: traces, vias and pads behind the whole diagram.
+ * The copper is powered from the Eclipse Foundation plate at the top: the
+ * traces nearest to it stay lit, and a wave of current sweeps down the board
+ * every few seconds.
+ */
+.ecosystem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, transparent, color-mix(in srgb, var(--pcb-power) 85%, transparent) 45%, color-mix(in srgb, var(--pcb-power) 85%, transparent) 55%, transparent) 0 -150% / 100% 45% no-repeat,
+    radial-gradient(ellipse 70% 30% at 50% 0, color-mix(in srgb, var(--pcb-power) 60%, transparent), transparent),
+    var(--pcb-trace);
+  animation: boardCurrent 6s cubic-bezier(0.3, 0, 0.5, 1) infinite;
+  -webkit-mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.2'%3E%3Cpath d='M0 20h36l16 16h20l16-16h32M0 80h24l16-16h28l12 12h40M20 120v-16l12-12M20 0v10M72 0v24l10 10v14M72 120v-8M100 120v-20l-12-12v-4M100 0v6M120 56h-8'/%3E%3Ccircle cx='32' cy='92' r='3'/%3E%3Ccircle cx='20' cy='13' r='3'/%3E%3Ccircle cx='82' cy='51' r='3'/%3E%3Ccircle cx='72' cy='109' r='3'/%3E%3Ccircle cx='88' cy='81' r='3'/%3E%3Ccircle cx='100' cy='9' r='3'/%3E%3Ccircle cx='109' cy='56' r='3'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Crect x='46' y='96' width='12' height='6' rx='1'/%3E%3Crect x='6' y='40' width='6' height='12' rx='1'/%3E%3Crect x='96' y='30' width='4' height='4'/%3E%3Crect x='104' y='30' width='4' height='4'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 120px 120px,
+    radial-gradient(ellipse at center, #000 35%, #00000059 100%);
+  -webkit-mask-composite: source-in;
+  mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.2'%3E%3Cpath d='M0 20h36l16 16h20l16-16h32M0 80h24l16-16h28l12 12h40M20 120v-16l12-12M20 0v10M72 0v24l10 10v14M72 120v-8M100 120v-20l-12-12v-4M100 0v6M120 56h-8'/%3E%3Ccircle cx='32' cy='92' r='3'/%3E%3Ccircle cx='20' cy='13' r='3'/%3E%3Ccircle cx='82' cy='51' r='3'/%3E%3Ccircle cx='72' cy='109' r='3'/%3E%3Ccircle cx='88' cy='81' r='3'/%3E%3Ccircle cx='100' cy='9' r='3'/%3E%3Ccircle cx='109' cy='56' r='3'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Crect x='46' y='96' width='12' height='6' rx='1'/%3E%3Crect x='6' y='40' width='6' height='12' rx='1'/%3E%3Crect x='96' y='30' width='4' height='4'/%3E%3Crect x='104' y='30' width='4' height='4'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 120px 120px,
+    radial-gradient(ellipse at center, #000 35%, #00000059 100%);
+  mask-composite: intersect;
+  pointer-events: none;
+}
+
+@keyframes boardCurrent {
+  0%   { background-position: 0 -150%, 0 0, 0 0; }
+  75%, 100% { background-position: 0 250%, 0 0, 0 0; }
+}
+
+/*
+ * The Eclipse Foundation label is mounted on the board like the components,
+ * as a solid plate across the top with a small status LED.
+ */
+.ecosystemContext {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border: 1px solid var(--about-border);
+  border-top: 3px solid var(--pcb-power);
+  border-radius: 12px;
+  background: var(--ifm-background-color);
+  font-size: 0.9rem;
+  text-align: center;
+  box-shadow:
+    0 0 0 var(--pcb-clearance) var(--about-surface),
+    0 6px 16px -10px #0000004d,
+    0 0 0 0 transparent;
+  outline: 1px solid var(--pcb-silk);
+  outline-offset: var(--pcb-clearance);
+  animation: powerSource 6s cubic-bezier(0.3, 0, 0.5, 1) infinite;
+}
+
+/* Current running along the plate's power rail */
+.ecosystemContext::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 12px 12px 0 0;
+  background: linear-gradient(90deg, transparent 35%, #ffffffd9 50%, transparent 65%) 100% 0 / 200% 100% no-repeat;
+  animation: railCurrent 6s cubic-bezier(0.3, 0, 0.5, 1) infinite;
+  pointer-events: none;
+}
+
+.ecosystemContext .nodeType {
+  --node-accent: var(--pcb-power);
+  margin-bottom: 0;
+}
+
+.contextText {
+  display: inline-block;
+}
+
+/* The plate flares as each wave of current leaves it */
+@keyframes powerSource {
+  0%, 100% {
+    box-shadow:
+      0 0 0 var(--pcb-clearance) var(--about-surface),
+      0 6px 16px -10px #0000004d,
+      0 0 22px 2px color-mix(in srgb, var(--pcb-power) 40%, transparent);
+  }
+  35%, 70% {
+    box-shadow:
+      0 0 0 var(--pcb-clearance) var(--about-surface),
+      0 6px 16px -10px #0000004d,
+      0 0 0 0 transparent;
+  }
+}
+
+@keyframes railCurrent {
+  0%       { background-position: 100% 0; }
+  40%, 100% { background-position: 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecosystem::before,
+  .ecosystemContext,
+  .ecosystemContext::before {
+    animation: none;
+  }
+}
+
+.ecosystemMap {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-areas: '. projects .' 'association hub industries' '. companies .';
+  gap: 2.25rem;
+  align-items: center;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.ecosystemMap > * {
+  z-index: 2;
+}
+
+/* The chip footprint sits below the cards so their connectors stay visible */
+.ecosystemMap > .hub {
+  z-index: 1;
+}
+
+.node {
+  position: relative;
+  min-width: 0;
+  padding: 1.3rem;
+  border: 1px solid var(--about-border);
+  border-top: 3px solid var(--node-accent);
+  border-radius: 12px;
+  background: var(--ifm-background-color);
+  /* Mounted on the board: solder-mask clearance plus a silkscreen footprint outline */
+  box-shadow:
+    0 0 0 var(--pcb-clearance) var(--about-surface),
+    0 6px 16px -10px #0000004d;
+  outline: 1px solid var(--pcb-silk);
+  outline-offset: var(--pcb-clearance);
+}
+
+.nodeType {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: var(--node-accent, var(--about-orange));
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.node h3 {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin-bottom: 0.55rem;
+}
+
+.node p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--about-muted);
+  margin: 0;
+}
+
+.projects {
+  --node-accent: var(--about-pink);
+  grid-area: projects;
+  align-self: end;
+}
+
+.associations {
+  grid-area: association;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  min-width: 0;
+}
+
+.association {
+  --node-accent: var(--about-orange);
+}
+
+.idsa {
+  --node-accent: var(--about-blue);
+}
+
+.supporters {
+  grid-area: industries;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  min-width: 0;
+}
+
+.industries {
+  --node-accent: var(--about-green);
+}
+
+.funding {
+  --node-accent: var(--about-teal);
+}
+
+.companies {
+  --node-accent: var(--about-purple);
+  grid-area: companies;
+  align-self: start;
+}
+
+/*
+ * Hub is drawn as a microchip seen at an angle (oblique projection): the
+ * package's bottom and right side faces are visible, with their pins slanting
+ * away diagonally; the top and left edges face away from the viewer.
+ */
+.hub {
+  --chip-depth: 12px;
+  --chip-side-band: 4px;
+  --chip-pin-pitch: 22px;
+  --chip-pin: #c6cad0;
+  --chip-side: #d5d9de;
+  --chip-side-dark: #c9cdd3;
+  --chip-frame: #c3c8cf;
+  --chip-die-bg: url("/static/img/main-bg-light.png");
+  --chip-die-overlay: linear-gradient(160deg, #ffffffe6 10%, #ffffff99 60%, #ffffff40);
+  --chip-glass: #ffffffb3;
+  --chip-etch: #7d848e40;
+  grid-area: hub;
+  align-self: stretch;
+  position: relative;
+  display: flex;
+  padding: 0 var(--chip-depth) var(--chip-depth) 0;
+  text-align: center;
+  isolation: isolate;
+  /* Chip footprint on the board, with solder pads under the pin tips */
+  background: var(--about-surface);
+  box-shadow: 0 0 0 calc(var(--pcb-clearance) + 3px) var(--about-surface);
+  outline: 1px dashed var(--pcb-silk);
+  outline-offset: calc(var(--pcb-clearance) + 3px);
+}
+
+:global([data-theme='dark']) .hub {
+  --chip-pin: #4d535c;
+  --chip-side: #2a2e34;
+  --chip-side-dark: #24282d;
+  --chip-frame: #4a5059;
+  --chip-die-bg: url("/static/img/main-bg-new.png");
+  --chip-die-overlay: linear-gradient(160deg, #000000d9 10%, #0000008c 60%, #00000033);
+  --chip-glass: #ffffff0f;
+  --chip-etch: #c3c8cf2e;
+}
+
+.hub::before,
+.hub::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  box-sizing: border-box;
+  pointer-events: none;
+  background-origin: border-box, content-box, content-box;
+  background-clip: border-box, content-box, content-box;
+}
+
+/* Bottom side face: package edge plus pins, skewed so the pins run diagonally */
+.hub::before {
+  left: 0;
+  bottom: 0;
+  width: calc(100% - var(--chip-depth));
+  height: var(--chip-depth);
+  padding: var(--chip-side-band) 18px 0;
+  background:
+    linear-gradient(var(--chip-side), var(--chip-side)) top / 100% var(--chip-side-band) no-repeat,
+    linear-gradient(90deg, transparent 9px, var(--pcb-pad) 9px 14px, transparent 14px) 0 100% / var(--chip-pin-pitch) 3px space no-repeat,
+    linear-gradient(90deg, transparent 10px, var(--chip-pin) 10px 13px, transparent 13px) 0 0 / var(--chip-pin-pitch) 100% space no-repeat;
+  transform: skewX(45deg);
+  transform-origin: top left;
+}
+
+/* Right side face */
+.hub::after {
+  top: 0;
+  right: 0;
+  width: var(--chip-depth);
+  height: calc(100% - var(--chip-depth));
+  padding: 18px 0 0 var(--chip-side-band);
+  padding-bottom: 18px;
+  background:
+    linear-gradient(var(--chip-side-dark), var(--chip-side-dark)) left / var(--chip-side-band) 100% no-repeat,
+    linear-gradient(180deg, transparent 9px, var(--pcb-pad) 9px 14px, transparent 14px) 100% 0 / 3px var(--chip-pin-pitch) no-repeat space,
+    linear-gradient(180deg, transparent 10px, var(--chip-pin) 10px 13px, transparent 13px) 0 0 / 100% var(--chip-pin-pitch) no-repeat space;
+  transform: skewY(45deg);
+  transform-origin: top left;
+}
+
+.hubDie {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.25rem 1.5rem;
+  border: 1px solid var(--chip-frame);
+  border-radius: 4px;
+  background: var(--chip-die-overlay), var(--chip-die-bg) right center / cover no-repeat;
+  box-shadow: 6px 10px 24px -14px #00000033;
+}
+
+.hubDie > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Nano transistor layout etched into the die: gates, vias and traces */
+.hubDie::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--chip-etch);
+  -webkit-mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Cg fill='none' stroke='%23fff' stroke-width='.5'%3E%3Cpath d='M0 6h7M11 6h6v10h5M26 16h10M9 8v10h-9M18 26h18M13 22v14M30 0v6M3 26v10M22 30h4'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Crect x='7' y='4.5' width='4' height='3' rx='.3'/%3E%3Crect x='22' y='14.5' width='4' height='3' rx='.3'/%3E%3Crect x='11.5' y='18' width='3' height='4' rx='.3'/%3E%3Crect x='26' y='28.5' width='4' height='3' rx='.3'/%3E%3Crect x='1.5' y='22' width='3' height='4' rx='.3'/%3E%3Ccircle cx='30' cy='6' r='.8'/%3E%3Ccircle cx='0' cy='18' r='.8'/%3E%3Ccircle cx='36' cy='18' r='.8'/%3E%3Ccircle cx='18' cy='26' r='.8'/%3E%3Ccircle cx='22' cy='30' r='.8'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 18px 18px,
+    radial-gradient(ellipse at center, #0000004d 25%, #000 85%);
+  -webkit-mask-composite: source-in;
+  mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Cg fill='none' stroke='%23fff' stroke-width='.5'%3E%3Cpath d='M0 6h7M11 6h6v10h5M26 16h10M9 8v10h-9M18 26h18M13 22v14M30 0v6M3 26v10M22 30h4'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Crect x='7' y='4.5' width='4' height='3' rx='.3'/%3E%3Crect x='22' y='14.5' width='4' height='3' rx='.3'/%3E%3Crect x='11.5' y='18' width='3' height='4' rx='.3'/%3E%3Crect x='26' y='28.5' width='4' height='3' rx='.3'/%3E%3Crect x='1.5' y='22' width='3' height='4' rx='.3'/%3E%3Ccircle cx='30' cy='6' r='.8'/%3E%3Ccircle cx='0' cy='18' r='.8'/%3E%3Ccircle cx='36' cy='18' r='.8'/%3E%3Ccircle cx='18' cy='26' r='.8'/%3E%3Ccircle cx='22' cy='30' r='.8'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 18px 18px,
+    radial-gradient(ellipse at center, #0000004d 25%, #000 85%);
+  mask-composite: intersect;
+  pointer-events: none;
+}
+
+.hub .hubTags li {
+  border-color: var(--chip-frame);
+  background: var(--chip-glass);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+}
+
+.hubLogo {
+  width: 130px;
+  height: 75px;
+  margin-bottom: 1rem;
+}
+
+.hub h3 {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  margin-bottom: 0.8rem;
+}
+
+.hub p {
+  font-size: 0.95rem;
+  color: var(--about-muted);
+}
+
+.hubTags,
+.initiativeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hubTags {
+  justify-content: center;
+}
+
+.hubTags li,
+.initiativeList li {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--about-border);
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.initiativeList {
+  margin: 1rem 0;
+}
+
+.initiativeList li {
+  color: var(--node-accent, var(--about-green));
+}
+
+/*
+ * Copper traces route every component into the chip. Each trace takes the
+ * colour of its card, starts at a via on the card and ends on a solder pad at
+ * the chip edge. A light pulse travels along it towards Tractus-X.
+ */
+.trace {
+  --trace-color: var(--node-accent);
+  --trace-size: 3px;
+  --trace-pulse: #ffffffd9;
+  position: absolute;
+  border-radius: 2px;
+  background-color: var(--trace-color);
+  background-repeat: no-repeat;
+  /* Solder-mask clearance around the copper */
+  box-shadow: 0 0 0 2px var(--about-surface);
+  animation: traceSignal 2.4s linear infinite;
+  pointer-events: none;
+}
+
+:global([data-theme='dark']) .trace {
+  --trace-pulse: #ffffff;
+  box-shadow:
+    0 0 0 2px var(--about-surface),
+    0 0 10px 1px color-mix(in srgb, var(--trace-color) 55%, transparent);
+}
+
+.trace::before,
+.trace::after {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+}
+
+/* Via on the card side */
+.trace::before {
+  width: 11px;
+  height: 11px;
+  border: 3px solid var(--trace-color);
+  border-radius: 50%;
+  background: var(--ifm-background-color);
+  box-shadow: 0 0 0 2px var(--about-surface);
+}
+
+/* Solder pad where the trace meets the chip */
+.trace::after {
+  background: var(--trace-color);
+  border-radius: 1px;
+}
+
+.traceRight,
+.traceLeft {
+  top: 50%;
+  width: 2.25rem;
+  height: var(--trace-size);
+  transform: translateY(-50%);
+  background-image: linear-gradient(90deg, transparent 34%, var(--trace-pulse) 50%, transparent 66%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+}
+
+.traceRight { right: -2.25rem; }
+.traceLeft { left: -2.25rem; animation-direction: reverse; }
+
+.traceRight::before,
+.traceLeft::before {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.traceRight::after,
+.traceLeft::after {
+  top: 50%;
+  width: 5px;
+  height: 11px;
+  transform: translateY(-50%);
+}
+
+.traceRight::before { left: -6px; }
+.traceRight::after { right: -2px; }
+.traceLeft::before { right: -6px; }
+.traceLeft::after { left: -2px; }
+
+.traceDown,
+.traceUp {
+  left: 50%;
+  width: var(--trace-size);
+  height: 2.25rem;
+  transform: translateX(-50%);
+  background-image: linear-gradient(180deg, transparent 34%, var(--trace-pulse) 50%, transparent 66%);
+  background-size: 100% 200%;
+  background-position: 0 100%;
+}
+
+.traceDown { bottom: -2.25rem; }
+.traceUp { top: -2.25rem; animation-direction: reverse; }
+
+.traceDown::before,
+.traceUp::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.traceDown::after,
+.traceUp::after {
+  left: 50%;
+  width: 11px;
+  height: 5px;
+  transform: translateX(-50%);
+}
+
+.traceDown::before { top: -6px; }
+.traceDown::after { bottom: -2px; }
+.traceUp::before { bottom: -6px; }
+.traceUp::after { top: -2px; }
+
+@keyframes traceSignal {
+  to { background-position: 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trace {
+    animation: none;
+    background-image: none;
+  }
+}
+
+.ecosystem figcaption {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--about-muted);
+  font-size: 0.8rem;
+}
+
+.contributions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contribution,
+.infoCard {
+  padding: 1.75rem;
+  border: 1px solid var(--about-border);
+  border-radius: 16px;
+}
+
+.stepHeader {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem; 
-  padding-bottom: 6rem;
+  margin-bottom: 1.5rem;
+  color: var(--about-orange);
 }
 
-.title_container {
-  width: 100%;
-  height: auto;
-  padding-top: 4rem;
+.stepHeader svg {
+  font-size: 2rem;
 }
 
-.box_container {
-  margin: auto;
+.stepNumber {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--about-muted);
 }
 
-.box_container div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.contribution h3,
+.infoCard h3 {
+  font-size: 1.15rem;
 }
 
-.text {
-  flex-direction: column;
-  align-items: flex-start !important;
-  margin-left: 20px;
+.contribution p,
+.infoCard p {
+  line-height: 1.8;
+  color: var(--about-muted);
 }
 
-.logo {
-  padding: 25px;
-  width: 120px;
+.contribution p {
+  margin-bottom: 0;
 }
 
-.text p {
-  display: block;
-  text-align: left;
-  padding-bottom: 0px !important;
-  margin-bottom: 0px !important;
-  width: 600px;
+.twoColumns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
 }
 
-.img_container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 2rem 0;
+.infoCard {
+  background: var(--about-surface);
 }
 
-.img_container:last-of-type {
-  justify-content: flex-start;
+.infoCard a {
+  color: var(--about-orange);
+  font-weight: 700;
 }
 
-.img {
-  width: 75%;
-  height: auto;
+.workingGroup {
+  border-top: 3px solid #729deb;
 }
 
 .licenses {
-  width: 65%;
+  margin: 1.5rem 0 0;
+  color: var(--about-muted);
+  font-size: 0.9rem;
 }
 
-@media screen and (max-width: 996px) {
-  .container {
-    width: 80vw;
-    height: auto;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 2rem;
-    gap: 3rem;
+@media (max-width: 996px) {
+  .ecosystemMap {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'hub hub' 'projects association' 'industries companies';
+    gap: 1rem;
+    align-items: stretch;
   }
 
-  .title_container {
-    padding-top: 3rem;
+  .projects,
+  .companies {
+    align-self: stretch;
   }
 
-  .img {
-    width: 80%;
+  .associations,
+  .supporters {
+    gap: 1rem;
   }
 
-  .licenses {
-    width: 80%;
+  .trace {
+    display: none;
   }
 
-  .text p {
-    width: 300px;
+  .contributions {
+    grid-template-columns: 1fr;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .container {
-    width: 70vw;
+    width: calc(100% - 2rem);
+    padding: 3rem 0;
   }
 
-  .img {
-    width: 100%;
+  .section {
+    margin-top: 3rem;
   }
 
-  .licenses {
-    width: 100%;
+  .ecosystem {
+    padding: 1rem;
+    border-radius: 16px;
   }
 
-  .text p {
-    width: 300px;
+  .ecosystemContext {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
   }
+
+  .ecosystemMap {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'hub' 'association' 'projects' 'industries' 'companies';
+  }
+
+  .twoColumns {
+    grid-template-columns: 1fr;
+  }
+
 }

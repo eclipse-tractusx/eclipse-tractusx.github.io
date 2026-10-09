@@ -5,15 +5,38 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
 
+// Change this id to show the announcement bar again to everyone who closed it.
+const announcementBarId = 'announcementBar-v26.09';
+
+// The site is normally served from the root of https://eclipse-tractusx.github.io.
+// Pull request previews are deployed into a subfolder of the same GitHub Pages
+// site (for example /pr/1234/), so both values can be overridden via environment
+// variables. Defaults keep the production configuration unchanged.
+const siteUrl = process.env.SITE_URL || 'https://eclipse-tractusx.github.io';
+// Docusaurus requires a baseUrl with leading and trailing slashes.
+const rawBaseUrl = (process.env.BASE_URL || '/').replace(/^\/+|\/+$/g, '');
+const baseUrl = rawBaseUrl ? `/${rawBaseUrl}/` : '/';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
-  url: 'https://eclipse-tractusx.github.io',
-  baseUrl: '/',
+  url: siteUrl,
+  baseUrl,
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
+
+  // Docusaurus hides the announcement bar before React loads if the visitor closed
+  // any previous one, so a new id only appeared on their second visit. Clear the
+  // "closed" flag first when the id changed, so the new bar is open until closed.
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `(function(){try{if(localStorage.getItem('docusaurus.announcement.id')!=='${announcementBarId}'){localStorage.setItem('docusaurus.announcement.dismiss','false');}}catch(e){}})();`,
+    },
+  ],
 
   markdown: {
     mermaid: true,
@@ -254,8 +277,8 @@ const config = {
         appId: '5EEK7E23IM',
       },
       announcementBar: {
-        id: `announcementBar-v25.09`,
-        content: `🎉️ New <b><a href="/Kits">KITs 2.0 (Multi-Industry & Multi-Dataspace)</a></b> Webpage & <b><a href="/documentation/kit-getting-started">Documentation</a></b> 🥳️`,
+        id: announcementBarId,
+        content: `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',
@@ -370,6 +393,11 @@ const config = {
             position: 'left',
           },
           {
+            to: '/CommunityBases',
+            label: 'Bases',
+            position: 'left',
+          },
+          {
             to: '/blog-changelog',
             label: 'Changelog',
             position: 'left',
@@ -383,6 +411,14 @@ const config = {
                 type: 'html',
                 className: 'dropdown-archived-versions',
                 value: '<b>Archived</b>',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.09/kits',
+                label: '25.09',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.06/kits',
+                label: '25.06',
               },
               {
                 href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.03/kits',

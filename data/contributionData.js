@@ -96,7 +96,7 @@ export const contributionOptions = [
     title: "Join our Community Days",
     description: "Participate in our community days to learn, collaborate and share ideas with others.",
     icon: EventIcon,
-    link: "/blog/community-days-12-2025",
+    link: "/blog/community-days-12-2026",
     primary: false
   }
 ];

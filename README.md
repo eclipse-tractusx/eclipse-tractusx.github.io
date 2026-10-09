@@ -15,6 +15,26 @@ To use this site locally and see your doc rendered as website, just use the foll
 
 This will install all dependencies necessary and run the website on [http://localhost:3000/](http://localhost:3000/).
 
+## Pull request previews
+
+Every pull request against `main` is built by the `Verify website build` workflow. When the build
+succeeds, the `Deploy pull request preview` workflow publishes the result to
+
+`https://eclipse-tractusx.github.io/pr/<pull-request-number>/`
+
+and posts (or updates) a comment on the pull request with the link. The preview is refreshed on
+every push and removed automatically once the pull request is closed or merged.
+
+This also works for pull requests opened from a fork: the preview is keyed by the pull request
+number rather than the branch name, and the build and the deployment are split into two workflows so
+that code from a fork is never executed with write permissions.
+
+To reproduce a preview build locally, set the same base URL that CI uses:
+
+```bash
+BASE_URL=/pr/1234/ npm run build && npm run serve
+```
+
 ## Linting
 
 We do want to follow a specific style for our markdown based documentation.
@@ -41,3 +61,11 @@ Follow these steps if your PR's workflow fails on the action `3rd Party dependen
   Adjust the version of the jar if necessary. You should see logs saying `[main] INFO Querying X for license data for Y items.`
   and`[main] INFO Found Z items.`
 7. Commit the changed `DEPENDENCIES` file and push to your branch again.
+
+## NOTICE
+
+This work is licensed under the CC-BY-4.0
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2022 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/README.md

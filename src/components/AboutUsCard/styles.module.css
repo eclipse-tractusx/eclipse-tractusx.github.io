@@ -83,16 +83,48 @@
 }
 
 .outlinedbutton {
-  border-width: 1px;
-  border-color: var(--ifm-color-primary);
-  padding: 5px 25px;
-  border: 1px solid;
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 2rem;
+  border: 1px solid var(--ifm-color-primary);
   border-radius: 5px;
-  font-size: 13px;
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.outlinedbutton:hover {
+.outlinedbutton:hover,
+.outlinedbutton:focus-visible {
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 25%);
+  transform: translateY(-2px);
   text-decoration: none;
+}
+
+.outlinedbutton:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}
+
+.outlinedbutton:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .outlinedbutton {
+    transition: none;
+  }
+
+  .outlinedbutton:hover,
+  .outlinedbutton:focus-visible {
+    transform: none;
+  }
 }
 
 @media screen and (max-width: 996px) {
