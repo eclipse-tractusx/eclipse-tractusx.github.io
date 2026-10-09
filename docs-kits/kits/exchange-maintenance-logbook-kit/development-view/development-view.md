@@ -19,7 +19,7 @@ https://creativecommons.org/licenses/by/4.0/legalcode.
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-<!-- 
+<!--
 KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
 Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
 Do not remove!
@@ -57,7 +57,7 @@ Currently, this process is carried out manually. A maintenance employee document
 
 The solution breaks up the paper-based structure described in [State of the Art](#state-of-the-art): the maintenance documentation is digitalised, but under the two guiding requirements of the use case - self-determined and secure. The component landscape shown below is deliberately mirrored: manufacturer/fab and equipment supplier/service partner operate the same building blocks, and the only connection between them runs through the two EDCs.
 
-On the **manufacturer/fab** side, the abatement equipment is connected to the process control software. The AAS infrastructure hosts the digital twin of that equipment:  manufacturer of the abatements, provided the base AAS for the selected products with the submodel templates Nameplate, Technical Data and Handover Documentation; the Maintenance Logbook submodel is added on top of it and holds the maintenance logbook entries. The `GUI Maintenance Logbook` is the entry point for the maintenance personnel. The service `AAS to EDC` exposes the AAS infrastructure as EDC assets, so that the connector remains the single controlled egress point of the company. 
+On the **manufacturer/fab** side, the abatement equipment is connected to the process control software. The AAS infrastructure hosts the digital twin of that equipment:  the manufacturer of the abatements, provided the base AAS for the selected products with the submodel templates Nameplate, Technical Data and Handover Documentation; the Maintenance Logbook submodel is added on top of it and holds the maintenance logbook entries. The `GUI Maintenance Logbook` is the entry point for the maintenance personnel. The service `AAS to EDC` exposes the AAS infrastructure as EDC assets, so that the connector remains the single controlled egress point of the company.
 
 The **equipment supplier/service partner** side mirrors this setup: its EDC receives the entries, the service `EDC to AAS` writes them into its own AAS server, where the Maintenance Logbook keeps the received entries 1..X, and the same `GUI Maintenance Logbook` makes them available to the service partner - for example as the basis for cost billing. The supplier therefore never gains access to the fab's systems; it holds its own copy of exactly those entries that were released for it.
 
@@ -69,7 +69,7 @@ Both diagrams in this document are maintained as inline Mermaid source and rende
 flowchart TB
     subgraph supplier["<b>Equipment Supplier/Service Partner</b>"]
         direction TB
-        
+
         EDC2["EDC"]
         ServiceEDC["Service\nEDC to AAS"]
 
@@ -158,7 +158,7 @@ sequenceDiagram
 
     manufacturer_guy->>manufacturer_web_ui: Create maintenance entry
     manufacturer_web_ui->>+manufacturer_backend: Transfer entry
-    manufacturer_backend->>+manufacturer_aas_repository: Request AAS Shell of equipment 
+    manufacturer_backend->>+manufacturer_aas_repository: Request AAS Shell of equipment
     manufacturer_aas_repository-->>-manufacturer_backend: AAS Shell of equipment
     manufacturer_backend->>+manufacturer_sm_repository: Add Maintenance Logbook entry to Maintenance Logbook submodel
     manufacturer_sm_repository-->>-manufacturer_backend: Entry added
@@ -178,7 +178,7 @@ sequenceDiagram
     supplier_edc->>+supplier_sm_repository: [POST] Store Maintenance Logbook Entry
     supplier_sm_repository-->>-supplier_edc: Maintenance Logbook Entry stored
     supplier_edc-->>-manufacturer_backend: Maintenance Logbook Entry stored
-    manufacturer_backend-->>-manufacturer_web_ui: Entry transfered
+    manufacturer_backend-->>-manufacturer_web_ui: Entry transferred
 ```
 
 ## Application Programming Interfaces (API)

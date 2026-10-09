@@ -19,7 +19,7 @@ https://creativecommons.org/licenses/by/4.0/legalcode.
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-<!-- 
+<!--
 KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
 Replace <kit-id> with the id from your kit referenced in `data/kitsData.js`.
 Do not remove!
@@ -38,9 +38,9 @@ KIT LOGO END
 
 <!-- Describe what problem this KIT solves and who benefits from it. -->
 
-A digital Maintenance Logbook transforms on-site service visits in the semiconductor subfab into a fully connected, standardized workflow.  
+A digital Maintenance Logbook transforms on-site service visits in the semiconductor subfab into a fully connected, standardized workflow.
 
-By combining manually entered and automatically retrieved equipment data, service reports are documented in the standardized AAS (Asset Administration Shell) format and exchanged instantly via EDC (Eclipse Dataspace Connector), keeping all systems synchronized across company boundaries.  
+By combining manually entered and automatically retrieved equipment data, service reports are documented in the standardized AAS (Asset Administration Shell) format and exchanged instantly via EDC (Eclipse Dataspace Connector), keeping all systems synchronized across company boundaries.
 
 In practice, this scenario plays out as follows: a supplier's service technician carries out maintenance on abatement equipment within a manufacturer's subfab and records the service activity through a fully interoperable, cross-company data exchange.
 
@@ -108,20 +108,20 @@ The resulting connected subfab ecosystem also unlocks concrete economic benefits
 
 ## Semantic Models / Data Model
 
-As part of the Semiconductor-X project's use case, the AAS Submodel Template 
-`Maintenance Logbook` was developed. It is intended to be submitted for 
+As part of the Semiconductor-X project's use case, the AAS Submodel Template
+`Maintenance Logbook` was developed. It is intended to be submitted for
 standardization to the Industrial Digital Twin Association (IDTA).
 
-**Standardization Status**
+### Standardization Status
 
-The IDTA review process is currently **on hold**, consequently, no canonical 
-semanticId (IRI) has been assigned to the template yet. This section will be 
-updated with the assigned IDTA specification number and semanticId as soon as 
+The IDTA review process is currently **on hold**, consequently, no canonical
+semanticId (IRI) has been assigned to the template yet. This section will be
+updated with the assigned IDTA specification number and semanticId as soon as
 the review resumes and the template is published.
 
-**Template Artefact**
+### Template Artefact
 
-The machine-readable template is available as JSON in the KIT repository: 
+The machine-readable template is available as JSON in the KIT repository:
 [see smt_maintenancelogbook.json](../resources/smt_maintenancelogbook.json)
 
 ## Standards
@@ -151,5 +151,5 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 - SPDX-FileCopyrightText: 2026 Robert Bosch Semiconductor Manufacturing Dresden GmbH
 - SPDX-FileCopyrightText: 2026 DAS Environmental Expert GmbH
 - SPDX-FileCopyrightText: 2026 algorismic gmbh
-- SPDX-FileCopyrightText: 2026 ontributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
 - Source URL: [https://github.com/eclipse-tractusx/eclipse-tractusx.github.io](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io)
