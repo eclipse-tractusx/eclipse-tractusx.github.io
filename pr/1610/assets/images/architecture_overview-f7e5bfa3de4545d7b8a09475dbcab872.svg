@@ -1,0 +1,198 @@
+<svg width="960" height="670" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+
+  <!-- Arrowhead markers -->
+  <defs>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A8C4A"/>
+    </marker>
+    <marker id="arrow-green-left" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#4A8C4A"/>
+    </marker>
+    <marker id="arrow-grey" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#888"/>
+    </marker>
+    <marker id="arrow-grey-left" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#888"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5C6BC0"/>
+    </marker>
+    <marker id="arrow-teal" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2E8B7A"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#C87034"/>
+    </marker>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="960" height="670" fill="#F5F6F8"/>
+
+  <!-- ── Title ── -->
+  <text x="480" y="32" text-anchor="middle" font-size="17" font-weight="bold" fill="#1A1A2E">UPaaS Platform – Technical Architecture Overview</text>
+
+  <!-- ══════════════════════════════════════════
+       MARKETPLACE (top centre)
+  ══════════════════════════════════════════ -->
+  <rect x="355" y="50" width="250" height="58" rx="8" fill="#5C6BC0" stroke="#3949AB" stroke-width="1.5"/>
+  <text x="480" y="74" text-anchor="middle" font-size="13" font-weight="bold" fill="white">UPaaS Marketplace</text>
+  <text x="480" y="92" text-anchor="middle" font-size="10" fill="#C5CAE9">Service request · Offer matching · Contract</text>
+
+  <!-- Marketplace → Requester (dashed blue) -->
+  <line x1="355" y1="79" x2="190" y2="79" stroke="#5C6BC0" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow-blue)"/>
+  <line x1="190" y1="79" x2="190" y2="128" stroke="#5C6BC0" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Marketplace → Provider (dashed blue) -->
+  <line x1="605" y1="79" x2="770" y2="79" stroke="#5C6BC0" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow-blue)"/>
+  <line x1="770" y1="79" x2="770" y2="128" stroke="#5C6BC0" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- ══════════════════════════════════════════
+       REQUESTER ZONE  (left)  — height extended to 490
+  ══════════════════════════════════════════ -->
+  <rect x="18" y="120" width="295" height="490" rx="12" fill="#E6F4F1" stroke="#2E8B7A" stroke-width="2"/>
+  <rect x="18" y="120" width="295" height="34" rx="12" fill="#2E8B7A"/>
+  <rect x="18" y="140" width="295" height="14" fill="#2E8B7A"/>
+  <text x="165" y="142" text-anchor="middle" font-size="13" font-weight="bold" fill="white">UPaaS Requester</text>
+
+  <!-- SCM / ERP -->
+  <rect x="40" y="168" width="251" height="52" rx="6" fill="white" stroke="#2E8B7A" stroke-width="1.5"/>
+  <text x="165" y="189" text-anchor="middle" font-size="12" font-weight="bold" fill="#1F5E52">SCM / ERP System</text>
+  <text x="165" y="207" text-anchor="middle" font-size="10" fill="#555">Demand planning · Order management</text>
+
+  <!-- ERP → AAS arrow -->
+  <line x1="165" y1="220" x2="165" y2="238" stroke="#2E8B7A" stroke-width="1.5" marker-end="url(#arrow-teal)"/>
+
+  <!-- AAS Server (Requester) -->
+  <rect x="40" y="240" width="251" height="82" rx="6" fill="white" stroke="#2E8B7A" stroke-width="1.5"/>
+  <text x="165" y="260" text-anchor="middle" font-size="12" font-weight="bold" fill="#1F5E52">AAS Server</text>
+  <rect x="53" y="267" width="225" height="46" rx="4" fill="#E6F4F1" stroke="#2E8B7A" stroke-width="1"/>
+  <text x="165" y="284" text-anchor="middle" font-size="10" font-weight="bold" fill="#1F5E52">Wafer Testing Submodel</text>
+  <text x="165" y="299" text-anchor="middle" font-size="10" fill="#444">Metadata · Wafer specs · Routing info</text>
+  <text x="165" y="312" text-anchor="middle" font-size="9" fill="#777">AASX · JSON · XML</text>
+
+  <!-- AAS → EDC arrow -->
+  <line x1="165" y1="322" x2="165" y2="340" stroke="#2E8B7A" stroke-width="1.5" marker-end="url(#arrow-teal)"/>
+
+  <!-- EDC wrapper (Requester) -->
+  <rect x="40" y="342" width="251" height="130" rx="6" fill="white" stroke="#4A8C4A" stroke-width="1.5"/>
+  <text x="165" y="362" text-anchor="middle" font-size="11" font-weight="bold" fill="#2D5A2D">Eclipse Dataspace Connector</text>
+  <!-- CP -->
+  <rect x="50" y="369" width="112" height="92" rx="4" fill="#EAF5EA" stroke="#4A8C4A" stroke-width="1"/>
+  <text x="106" y="386" text-anchor="middle" font-size="10" font-weight="bold" fill="#2D5A2D">Control Plane</text>
+  <text x="106" y="401" text-anchor="middle" font-size="9" fill="#444">Catalog requests</text>
+  <text x="106" y="415" text-anchor="middle" font-size="9" fill="#444">Contract negotiation</text>
+  <text x="106" y="429" text-anchor="middle" font-size="9" fill="#444">ODRL policy check</text>
+  <text x="106" y="451" text-anchor="middle" font-size="8" fill="#777">DSP Protocol</text>
+  <!-- DP -->
+  <rect x="170" y="369" width="112" height="92" rx="4" fill="#EAF5EA" stroke="#4A8C4A" stroke-width="1"/>
+  <text x="226" y="386" text-anchor="middle" font-size="10" font-weight="bold" fill="#2D5A2D">Data Plane</text>
+  <text x="226" y="401" text-anchor="middle" font-size="9" fill="#444">AAS package access</text>
+  <text x="226" y="415" text-anchor="middle" font-size="9" fill="#444">EDR token handling</text>
+  <text x="226" y="429" text-anchor="middle" font-size="9" fill="#444">Secure retrieval</text>
+  <text x="226" y="451" text-anchor="middle" font-size="8" fill="#777">HTTPS</text>
+
+  <!-- Decentralized Wallet (Requester) -->
+  <rect x="40" y="482" width="251" height="44" rx="6" fill="white" stroke="#2E8B7A" stroke-width="1.5"/>
+  <text x="165" y="500" text-anchor="middle" font-size="11" font-weight="bold" fill="#1F5E52">Decentralized Wallet</text>
+  <text x="165" y="517" text-anchor="middle" font-size="10" fill="#666">Verifiable Credentials · Identity tokens</text>
+
+  <!-- QSD Pipeline (dashed) — moved down to y=536 -->
+  <rect x="40" y="536" width="251" height="44" rx="6" fill="white" stroke="#2E8B7A" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="165" y="555" text-anchor="middle" font-size="11" font-weight="bold" fill="#1F5E52">QSD Pipeline</text>
+  <text x="165" y="572" text-anchor="middle" font-size="10" fill="#666">Synthetic wafer data for onboarding &amp; testing</text>
+
+  <!-- QSD → AAS (dashed) — updated start y -->
+  <line x1="165" y1="536" x2="165" y2="322" stroke="#2E8B7A" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-teal)"/>
+
+  <!-- ══════════════════════════════════════════
+       PROVIDER ZONE  (right)  — height extended to 490
+  ══════════════════════════════════════════ -->
+  <rect x="647" y="120" width="295" height="490" rx="12" fill="#FEF0E6" stroke="#C87034" stroke-width="2"/>
+  <rect x="647" y="120" width="295" height="34" rx="12" fill="#C87034"/>
+  <rect x="647" y="140" width="295" height="14" fill="#C87034"/>
+  <text x="794" y="142" text-anchor="middle" font-size="13" font-weight="bold" fill="white">UPaaS Provider</text>
+
+  <!-- MES -->
+  <rect x="669" y="168" width="251" height="52" rx="6" fill="white" stroke="#C87034" stroke-width="1.5"/>
+  <text x="794" y="189" text-anchor="middle" font-size="12" font-weight="bold" fill="#7A3E10">MES / Fab System</text>
+  <text x="794" y="207" text-anchor="middle" font-size="10" fill="#555">Process execution · Equipment control</text>
+
+  <!-- MES → AAS arrow -->
+  <line x1="794" y1="220" x2="794" y2="238" stroke="#C87034" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+
+  <!-- AAS Server (Provider) — FIXED: submodel label now correctly reads Electrical Testing -->
+  <rect x="669" y="240" width="251" height="82" rx="6" fill="white" stroke="#C87034" stroke-width="1.5"/>
+  <text x="794" y="260" text-anchor="middle" font-size="12" font-weight="bold" fill="#7A3E10">AAS Server</text>
+  <rect x="682" y="267" width="225" height="46" rx="4" fill="#FEF0E6" stroke="#C87034" stroke-width="1"/>
+  <text x="794" y="284" text-anchor="middle" font-size="10" font-weight="bold" fill="#7A3E10">Electrical Testing Submodel</text>
+  <text x="794" y="299" text-anchor="middle" font-size="10" fill="#444">Electrical testing · Yield · Wafer maps</text>
+  <text x="794" y="312" text-anchor="middle" font-size="9" fill="#777">AASX · JSON · XML</text>
+
+  <!-- AAS → EDC arrow -->
+  <line x1="794" y1="322" x2="794" y2="340" stroke="#C87034" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+
+  <!-- EDC wrapper (Provider) -->
+  <rect x="669" y="342" width="251" height="130" rx="6" fill="white" stroke="#4A8C4A" stroke-width="1.5"/>
+  <text x="794" y="362" text-anchor="middle" font-size="11" font-weight="bold" fill="#2D5A2D">Eclipse Dataspace Connector</text>
+  <!-- CP -->
+  <rect x="679" y="369" width="112" height="92" rx="4" fill="#EAF5EA" stroke="#4A8C4A" stroke-width="1"/>
+  <text x="735" y="386" text-anchor="middle" font-size="10" font-weight="bold" fill="#2D5A2D">Control Plane</text>
+  <text x="735" y="401" text-anchor="middle" font-size="9" fill="#444">Catalog publication</text>
+  <text x="735" y="415" text-anchor="middle" font-size="9" fill="#444">Contract negotiation</text>
+  <text x="735" y="429" text-anchor="middle" font-size="9" fill="#444">ODRL policy def.</text>
+  <text x="735" y="451" text-anchor="middle" font-size="8" fill="#777">DSP Protocol</text>
+  <!-- DP -->
+  <rect x="799" y="369" width="112" height="92" rx="4" fill="#EAF5EA" stroke="#4A8C4A" stroke-width="1"/>
+  <text x="855" y="386" text-anchor="middle" font-size="10" font-weight="bold" fill="#2D5A2D">Data Plane</text>
+  <text x="855" y="401" text-anchor="middle" font-size="9" fill="#444">AAS package host</text>
+  <text x="855" y="415" text-anchor="middle" font-size="9" fill="#444">EDR provisioning</text>
+  <text x="855" y="429" text-anchor="middle" font-size="9" fill="#444">Secure serving</text>
+  <text x="855" y="451" text-anchor="middle" font-size="8" fill="#777">HTTPS</text>
+
+  <!-- Decentralized Wallet (Provider) -->
+  <rect x="669" y="482" width="251" height="44" rx="6" fill="white" stroke="#C87034" stroke-width="1.5"/>
+  <text x="794" y="500" text-anchor="middle" font-size="11" font-weight="bold" fill="#7A3E10">Decentralized Wallet</text>
+  <text x="794" y="517" text-anchor="middle" font-size="10" fill="#666">Verifiable Credentials · Identity tokens</text>
+
+  <!-- Equipment Interfaces — moved down to y=536 -->
+  <rect x="669" y="536" width="251" height="44" rx="6" fill="white" stroke="#C87034" stroke-width="1.5"/>
+  <text x="794" y="555" text-anchor="middle" font-size="11" font-weight="bold" fill="#7A3E10">Equipment Interfaces</text>
+  <text x="794" y="572" text-anchor="middle" font-size="10" fill="#666">OPC UA · Semi SECS/GEM (E5/E30)</text>
+
+  <!-- Equipment → MES arrow — updated start y -->
+  <line x1="794" y1="536" x2="794" y2="220" stroke="#C87034" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-orange)"/>
+
+  <!-- ══════════════════════════════════════════
+       CENTRE CONNECTIONS
+  ══════════════════════════════════════════ -->
+
+  <!-- EDC Control Plane ↔ Control Plane (DSP) -->
+  <line x1="313" y1="408" x2="647" y2="408" stroke="#4A8C4A" stroke-width="2" marker-end="url(#arrow-green)" marker-start="url(#arrow-green-left)"/>
+  <rect x="360" y="393" width="240" height="29" rx="4" fill="white" stroke="#4A8C4A" stroke-width="1"/>
+  <text x="480" y="406" text-anchor="middle" font-size="10" font-weight="bold" fill="#2D5A2D">Dataspace Protocol (DSP)</text>
+  <text x="480" y="418" text-anchor="middle" font-size="9" fill="#555">Catalog · Contract negotiation · Transfer init</text>
+
+  <!-- EDC Data Plane ↔ Data Plane (AAS transfer) -->
+  <line x1="313" y1="448" x2="647" y2="448" stroke="#4A8C4A" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow-green)" marker-start="url(#arrow-green-left)"/>
+  <rect x="370" y="435" width="220" height="24" rx="4" fill="white" stroke="#4A8C4A" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="480" y="451" text-anchor="middle" font-size="10" fill="#2D5A2D">AAS Package Access (HTTPS)</text>
+
+  <!-- ══════════════════════════════════════════
+       LEGEND
+  ══════════════════════════════════════════ -->
+  <rect x="358" y="472" width="244" height="78" rx="6" fill="white" stroke="#CCC" stroke-width="1"/>
+  <text x="480" y="489" text-anchor="middle" font-size="10" font-weight="bold" fill="#333">Legend</text>
+  <line x1="370" y1="502" x2="395" y2="502" stroke="#4A8C4A" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="400" y="506" font-size="9" fill="#333">Digital / EDC data flow</text>
+  <line x1="370" y1="520" x2="395" y2="520" stroke="#888" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow-grey)"/>
+  <text x="400" y="524" font-size="9" fill="#333">Physical material flow</text>
+  <line x1="370" y1="538" x2="395" y2="538" stroke="#5C6BC0" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-blue)"/>
+  <text x="400" y="542" font-size="9" fill="#333">Marketplace registration</text>
+
+  <!-- Physical wafer exchange (bottom) — moved down to y=640 -->
+  <line x1="313" y1="640" x2="647" y2="640" stroke="#888" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrow-grey)" marker-start="url(#arrow-grey-left)"/>
+  <rect x="358" y="626" width="244" height="26" rx="4" fill="#EFEFEF" stroke="#AAA" stroke-width="1"/>
+  <text x="480" y="638" text-anchor="middle" font-size="10" fill="#555">Physical material exchange</text>
+  <text x="480" y="651" text-anchor="middle" font-size="9" fill="#888">wafers · dies · partial assemblies</text>
+
+</svg>
