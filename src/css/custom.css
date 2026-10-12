@@ -269,6 +269,19 @@
   margin-top: 60px;
 }
 
+.footer-logo-divider {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  align-self: stretch;
+}
+
+@media screen and (max-width: 600px) {
+  .footer-logo-divider {
+    width: 100%;
+    height: 1px;
+  }
+}
+
 .footer--dark {
   background-color: var(--ifm-color-secondary-darkest);
 }

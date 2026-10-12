@@ -5,15 +5,38 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
 
+// Change this id to show the announcement bar again to everyone who closed it.
+const announcementBarId = 'announcementBar-v26.09';
+
+// The site is normally served from the root of https://eclipse-tractusx.github.io.
+// Pull request previews are deployed into a subfolder of the same GitHub Pages
+// site (for example /pr/1234/), so both values can be overridden via environment
+// variables. Defaults keep the production configuration unchanged.
+const siteUrl = process.env.SITE_URL || 'https://eclipse-tractusx.github.io';
+// Docusaurus requires a baseUrl with leading and trailing slashes.
+const rawBaseUrl = (process.env.BASE_URL || '/').replace(/^\/+|\/+$/g, '');
+const baseUrl = rawBaseUrl ? `/${rawBaseUrl}/` : '/';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
-  url: 'https://eclipse-tractusx.github.io',
-  baseUrl: '/',
+  url: siteUrl,
+  baseUrl,
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
+
+  // Docusaurus hides the announcement bar before React loads if the visitor closed
+  // any previous one, so a new id only appeared on their second visit. Clear the
+  // "closed" flag first when the id changed, so the new bar is open until closed.
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `(function(){try{if(localStorage.getItem('docusaurus.announcement.id')!=='${announcementBarId}'){localStorage.setItem('docusaurus.announcement.dismiss','false');}}catch(e){}})();`,
+    },
+  ],
 
   markdown: {
     mermaid: true,
@@ -254,8 +277,8 @@ const config = {
         appId: '5EEK7E23IM',
       },
       announcementBar: {
-        id: `announcementBar-v25.09`,
-        content: `🎉️ New <b><a href="/Kits">KITs 2.0 (Multi-Industry & Multi-Dataspace)</a></b> Webpage & <b><a href="/documentation/kit-getting-started">Documentation</a></b> 🥳️`,
+        id: announcementBarId,
+        content: `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',
@@ -333,6 +356,11 @@ const config = {
             position: 'left',
           },
           {
+            to: '/CommunityBases',
+            label: 'Bases',
+            position: 'left',
+          },
+          {
             to: '/blog-changelog',
             label: 'Changelog',
             position: 'left',
@@ -346,6 +374,14 @@ const config = {
                 type: 'html',
                 className: 'dropdown-archived-versions',
                 value: '<b>Archived</b>',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.09/kits',
+                label: '25.09',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.06/kits',
+                label: '25.06',
               },
               {
                 href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.03/kits',
@@ -419,16 +455,16 @@ const config = {
                 href: "https://github.com/eclipse-tractusx",
               },
               {
-                label: "Catena-X Automotive Network",
-                href: "https://catena-x.net/",
-              },
-              {
                 label: "Mailing List",
                 href: "https://accounts.eclipse.org/mailing-list/tractusx-dev",
               },
               {
                 label: "Report a Bug",
                 href: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues",
+              },
+              {
+                label: "Eclipse Dataspace Working Group",
+                href: "https://dataspace.eclipse.org",
               },
             ],
           },
@@ -458,16 +494,47 @@ const config = {
             ],
           },
           {
+            title: 'Collaboration',
             items: [
               {
-                html: `
-                  <img alt='' src='/img/EF_registered_wht_png.png'/>
-                `
-              }
-            ]
+                label: "Catena-X Automotive Network e.V.",
+                href: "https://catena-x.net/",
+              },
+              {
+                label: "Factory-X",
+                href: "https://factory-x.org",
+              },
+              {
+                label: "Manufacturing-X",
+                href: "https://www.plattform-i40.de/IP/Navigation/EN/Manufacturing-X/Manufacturing-X.html",
+              },
+              {
+                label: "Construct-X",
+                href: "https://construct-x.org",
+              },
+              {
+                label: "Semiconductor-X",
+                href: "https://semiconductor-x.com/",
+              },
+            ],
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.`,
+        copyright: `
+          <div style="display:flex;align-items:stretch;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:24px;">
+            <a href="https://www.eclipse.org" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-decoration:none;">
+              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">A project under the governance of the: </span>
+              <img alt="Eclipse Foundation" src="/img/EF_registered_wht_svg.svg" style="height:200px;"/>
+            </a>
+            <div class="footer-logo-divider"></div>
+            <a href="https://dataspace.eclipse.org" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-decoration:none;">
+              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">Built in collaboration with:</span>
+              <div style="display:flex;align-items:center;justify-content:center;flex:1;">
+                <img alt="Eclipse Dataspace Working Group" src="/img/edwg-logo-white.svg" style="height:200px;max-width:300px;"/>
+              </div>
+            </a>
+          </div>
+          <div>Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.</div>
+        `,
       },
       prism: {
         theme: lightCodeTheme,

@@ -1,0 +1,131 @@
+/* Copyright (c) 2026 Contributors to the Eclipse Foundation
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+.carousel {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--about-border);
+  border-bottom: 1px solid var(--about-border);
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+.toolbar {
+  margin-bottom: 1.5rem;
+  color: var(--about-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.cardLink:focus-visible {
+  outline: 2px solid var(--about-orange);
+  outline-offset: -2px;
+}
+
+.track {
+  position: relative;
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  mask-image: linear-gradient(to right, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track:focus-within {
+  mask-image: none;
+}
+
+.card {
+  flex: 0 0 230px;
+  min-width: 0;
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 0.5rem;
+  color: var(--about-muted);
+  text-align: center;
+}
+
+.cardLink:hover {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.logoPanel {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100px;
+}
+
+.logoPanel img {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 90px;
+  object-fit: contain;
+  filter: grayscale(1);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+  transform: scale(var(--logo-scale, 1));
+  transition: opacity 200ms;
+}
+
+:global([data-theme='dark']) .logoPanel img {
+  filter: grayscale(1) invert(1);
+  mix-blend-mode: screen;
+}
+
+.cardLink:hover img,
+.cardLink:focus-visible img {
+  opacity: 1;
+}
+
+.name {
+  display: grid;
+  align-items: center;
+  flex: 1;
+  min-height: 55px;
+  max-width: 220px;
+  padding-top: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex-basis: 180px;
+  }
+
+  .track {
+    gap: 1.5rem;
+    mask-image: linear-gradient(to right, transparent, #000 1rem, #000 calc(100% - 1rem), transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logoPanel img {
+    transition: none;
+  }
+}
