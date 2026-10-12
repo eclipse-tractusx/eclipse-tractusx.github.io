@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: 24d852bcbcef809e9a505aa1331893fd2d5716f0d88d2e8c24bc6d4418d0ba3f
+ * Content hash: 8b5b0f865759b5df8699f1c6fd8a7bb8d822472ab2bdf75027d7c0d52b88bf7b
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -247,8 +247,14 @@ const kitsByCategory = {
     ],
     "semiconductor": [
       {
+        "id": "exchange-maintenance-logbook",
+        "name": "EXCHANGE OF MAINTENANCE LOGBOOK KIT",
+        "route": "/docs-kits/next/kits/exchange-maintenance-logbook-kit/adoption-view",
+        "deprecated": false
+      },
+      {
         "id": "unit-process-as-a-service",
-        "name": "Unit Process as a Service KIT",
+        "name": "UNIT PROCESS AS A SERVICE KIT",
         "route": "/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view",
         "deprecated": false
       }
