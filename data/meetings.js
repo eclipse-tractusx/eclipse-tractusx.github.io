@@ -512,8 +512,6 @@ export const meetings = [
     },
   },
   // Community Days — on-site event at ARENA2036, no online session link.
-  // registrationComingSoon shows a "Registration Coming Soon" notice instead of a
-  // register button; replace it with registrationLink once registration opens.
   {
     id: 'seventh-community-days-2026',
     title: 'Seventh Eclipse Tractus-X Community Days',
@@ -524,7 +522,7 @@ export const meetings = [
     contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.MATHIAS_MOSER, CONTACTS.MIKEL_GARCIA],
     location: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
     onsite: true,
-    registrationComingSoon: true,
+    registrationLink: 'https://eveeno.com/146855101',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-dev:matrix.eclipse.org',
     additionalLinks: [
       { title: 'News Blog', url: '/blog/community-days-12-2026' },
