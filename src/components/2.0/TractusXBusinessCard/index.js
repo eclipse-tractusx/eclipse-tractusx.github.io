@@ -18,6 +18,7 @@
  ********************************************************************************/
 
 import React from 'react';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -47,10 +48,12 @@ export const TractusXBusinessCard = ({
   backgroundImage = '/img/tx-logos/221103_TractusX_Gradient_slim.png',
   maxWidth = '500px'
 }) => {
+  const backgroundImageUrl = useBaseUrl(backgroundImage);
+
   return (
     <div 
       style={{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `url(${backgroundImageUrl})`,
         backgroundSize: '120% 120%',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
