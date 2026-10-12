@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([["25421"],{467765(e){e.exports=JSON.parse('{"tags":[{"label":"release","permalink":"/pr/1545/blog-changelog/tags/release","count":18},{"label":"changelog","permalink":"/pr/1545/blog-changelog/tags/changelog","count":18}]}')}}]);
