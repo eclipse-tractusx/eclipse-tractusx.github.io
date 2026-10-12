@@ -8,12 +8,21 @@ const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
 // Change this id to show the announcement bar again to everyone who closed it.
 const announcementBarId = 'announcementBar-v26.09';
 
+// The site is normally served from the root of https://eclipse-tractusx.github.io.
+// Pull request previews are deployed into a subfolder of the same GitHub Pages
+// site (for example /pr/1234/), so both values can be overridden via environment
+// variables. Defaults keep the production configuration unchanged.
+const siteUrl = process.env.SITE_URL || 'https://eclipse-tractusx.github.io';
+// Docusaurus requires a baseUrl with leading and trailing slashes.
+const rawBaseUrl = (process.env.BASE_URL || '/').replace(/^\/+|\/+$/g, '');
+const baseUrl = rawBaseUrl ? `/${rawBaseUrl}/` : '/';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
-  url: 'https://eclipse-tractusx.github.io',
-  baseUrl: '/',
+  url: siteUrl,
+  baseUrl,
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
@@ -347,6 +356,11 @@ const config = {
             position: 'left',
           },
           {
+            to: '/CommunityBases',
+            label: 'Bases',
+            position: 'left',
+          },
+          {
             to: '/blog-changelog',
             label: 'Changelog',
             position: 'left',
@@ -518,13 +532,6 @@ const config = {
                 <img alt="Eclipse Dataspace Working Group" src="/img/edwg-logo-white.svg" style="height:200px;max-width:300px;"/>
               </div>
             </a>
-            <div class="footer-logo-divider"></div>
-            <div style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;">
-              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">Project supported by:</span>
-              <div style="display:flex;align-items:center;justify-content:center;flex:1;">
-                <img alt="Gefördert durch: Bundesministerium für Wirtschaft und Energie, aufgrund eines Beschlusses des Deutschen Bundestages" src="/img/funding/bmwe-gefoerdert.png" style="height:200px;padding:10px;border-radius:8px;background:#fff;"/>
-              </div>
-            </div>
           </div>
           <div>Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.</div>
         `,

@@ -20,6 +20,7 @@
 import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Head from '@docusaurus/Head';
+import Link from '@docusaurus/Link';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Select from '@mui/material/Select';
@@ -2103,9 +2104,9 @@ function MeetingsHubInner() {
             Dedicated sync meetings for specific products, community office hours, and open planning sessions.
             Everyone is welcome to join.
           </Typography>
-          <a href="/community/intro#how-to-create-open-meetings" className={styles.pageHeaderLink}>
+          <Link to="/community/intro#how-to-create-open-meetings" className={styles.pageHeaderLink}>
             <Icon name="add_circle_outline" size={16} /> How to add a meeting
-          </a>
+          </Link>
         </Box>
         <Box sx={{ flexShrink: 0, width: { xs: '100%', md: 'auto' } }}>
           <TimezoneBar timezone={timezone} onTimezoneChange={handleTimezoneChange} />
