@@ -387,7 +387,7 @@ export const meetings = [
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'The purpose of this session is to provide you with the latest updates on the test phase and the deployment status. Additionally, this will be an opportunity for you to ask any questions regarding the upcoming test phase.',
     contact: CONTACTS.MONIKA_JACOBSEN,
-    sessionLink: 'https://teams.microsoft.com/meet/398662305481309?p=jlaMKIG1ZC30ZgxR1l',
+    sessionLink: 'https://teams.microsoft.com/meet/3428341763009434?p=XyXSYj5PSZMNr9ZalD',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
     additionalLinks: [],
     recurrence: {
