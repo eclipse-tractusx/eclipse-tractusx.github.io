@@ -127,5 +127,12 @@ export const tractusxOrganizations = [
     "logo": "https://technovativesolutions.co.uk/web/image/2223-bd9c4be0/tvs-logo-dark.svg",
     "logoScale": 0.9,
     "url": "https://technovativesolutions.co.uk/"
+  },
+  {
+    "id": "university-of-applied-sciences-dresden",
+    "name": "University of Applied Sciences Dresden",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/3/3d/HTWD_logo_RGB_wordmark_color.svg",
+    "logoScale": 1.1,
+    "url": "https://www.htw-dresden.de/industrie40"
   }
 ];
