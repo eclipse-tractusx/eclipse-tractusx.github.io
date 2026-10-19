@@ -1,7 +1,0 @@
-version = 1
-
-[[annotations]]
-path = ["*.svg"]
-precedence = "closest"
-SPDX-FileCopyrightText = "2025 Contributors of the Eclipse Foundation"
-SPDX-License-Identifier = "CC-BY-4.0"
