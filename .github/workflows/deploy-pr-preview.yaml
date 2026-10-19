@@ -91,8 +91,9 @@ jobs:
           publish_dir: ./build
           destination_dir: pr/${{ steps.pr.outputs.number }}
           # Replace the preview instead of merging it with the previous one.
-          # Keeping files let stale, hashed assets from earlier pushes pile up
-          # in pr/<number> and grew the Pages artifact beyond its size limit.
+          # Keeping files caused stale, hashed assets from earlier pushes to
+          # pile up in pr/<number> and grow the Pages artifact beyond its
+          # size limit.
           # Since destination_dir is set, the action only cleans up that
           # folder, so the production site at the root and the previews of
           # other pull requests stay untouched.
