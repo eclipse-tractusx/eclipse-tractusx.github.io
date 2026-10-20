@@ -17,14 +17,19 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from '@docusaurus/Link';
+import { formatInTimeZone } from 'date-fns-tz';
 import { upcomingEvents, getUpcomingEvents, EVENT_TYPES } from '../../../data/upcomingEvents';
+import { buildEventICS, detectTimezone, downloadICS, getEventInstants } from '@site/src/utils/calendarUtils';
 import EventIcon from '@mui/icons-material/Event';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import PublicIcon from '@mui/icons-material/Public';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import CodeIcon from '@mui/icons-material/Code';
 import GroupsIcon from '@mui/icons-material/Groups';
 import EventNoteIcon from '@mui/icons-material/EventNote';
@@ -89,6 +94,70 @@ const formatDateRange = (startDate, endDate) => {
 };
 
 /**
+ * Resolve the viewer's own timezone, but only after mount — during SSR and the
+ * first client render it stays null so the server and client markup match.
+ * @returns {string|null} IANA timezone name
+ */
+const useViewerTimezone = () => {
+  const [timezone, setTimezone] = useState(null);
+  useEffect(() => setTimezone(detectTimezone()), []);
+  return timezone;
+};
+
+/**
+ * "Save the Date" — downloads an .ics blocker for the event.
+ *
+ * The file carries the event's own timezone, so the entry lands at the correct
+ * local time in any calendar app. The note underneath spells that local time
+ * out as soon as the viewer's timezone is known.
+ */
+const SaveTheDateButton = ({ event }) => {
+  const viewerTimezone = useViewerTimezone();
+  const instants = getEventInstants(event);
+
+  const handleSaveTheDate = () => {
+    const ics = buildEventICS({
+      uid: event.id,
+      title: event.title,
+      date: event.date,
+      endDate: event.endDate,
+      startTime: event.startTime,
+      endTime: event.endTime,
+      timezone: event.timezone,
+      description: event.description,
+      location: event.address || event.location,
+      url: event.blogSlug
+        ? `https://eclipse-tractusx.github.io/blog/${event.blogSlug}`
+        : event.registrationUrl || undefined,
+    });
+    downloadICS(event.id, ics);
+  };
+
+  const localTime = viewerTimezone && instants
+    ? `${formatInTimeZone(instants.start, viewerTimezone, 'd MMM, HH:mm')} – ${formatInTimeZone(instants.end, viewerTimezone, 'd MMM, HH:mm')}`
+    : null;
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={handleSaveTheDate}
+        className={`${styles.eventButton} ${styles.secondaryButton}`}
+        title="Download a calendar entry (.ics) for this event"
+      >
+        <EventAvailableIcon /> Save the Date
+      </button>
+
+      {localTime && (
+        <p className={styles.timezoneNote}>
+          <PublicIcon /> In your timezone ({viewerTimezone}): {localTime}
+        </p>
+      )}
+    </>
+  );
+};
+
+/**
  * Event Card Component
  */
 const EventCard = ({ event, isFeatured = false }) => {
@@ -141,38 +210,49 @@ const EventCard = ({ event, isFeatured = false }) => {
         <h3 className={styles.eventTitle}>{event.title}</h3>
         
         <p className={styles.eventDescription}>{event.description}</p>
-        
+
+        {/* Registration status is a notice, not an action — it sits above the buttons */}
+        {event.eventType !== EVENT_TYPES.OPEN_PLANNING && !event.registrationUrl && (
+          <div className={styles.comingSoonNotice}>
+            <HourglassEmptyIcon /> Registration Coming Soon
+          </div>
+        )}
+
         <div className={styles.eventActions}>
           {event.eventType === EVENT_TYPES.OPEN_PLANNING ? (
             // Open Planning events only show Learn More
-            <a 
-              href={event.registrationUrl} 
-              target="_blank" 
+            <a
+              href={event.registrationUrl}
+              target="_blank"
               rel="noopener noreferrer"
               className={`${styles.eventButton} ${styles.primaryButton}`}
             >
               Learn More <ArrowForwardIcon />
             </a>
           ) : (
-            // Other events show Register Now
+            // Other events show Register Now once registration is open
             <>
-              <a 
-                href={event.registrationUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className={`${styles.eventButton} ${styles.primaryButton}`}
-              >
-                Register Now <OpenInNewIcon />
-              </a>
-              
-              {event.blogSlug && (
-                <Link 
-                  to={`/blog/${event.blogSlug}`}
-                  className={`${styles.eventButton} ${styles.secondaryButton}`}
+              {event.registrationUrl && (
+                <a
+                  href={event.registrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.eventButton} ${styles.primaryButton}`}
                 >
-                  Learn More
+                  Register Now <OpenInNewIcon />
+                </a>
+              )}
+
+              {event.blogSlug && (
+                <Link
+                  to={`/blog/${event.blogSlug}`}
+                  className={`${styles.eventButton} ${event.registrationUrl ? styles.secondaryButton : styles.primaryButton}`}
+                >
+                  Learn More {!event.registrationUrl && <ArrowForwardIcon />}
                 </Link>
               )}
+
+              <SaveTheDateButton event={event} />
             </>
           )}
         </div>

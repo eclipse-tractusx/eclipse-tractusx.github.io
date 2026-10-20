@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: b7a1f9f6f8c49a813077fb59000d0abfc6012e25687b897f84d66f04fa5d0bd7
+ * Content hash: 8b5b0f865759b5df8699f1c6fd8a7bb8d822472ab2bdf75027d7c0d52b88bf7b
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -103,6 +103,12 @@ const kitsByCategory = {
     }
   ],
   "useCases": [
+    {
+      "id": "esdscom",
+      "name": "eSDS COMMUNICATION KIT",
+      "route": "/docs-kits/next/kits/esdscom-kit/adoption-view",
+      "deprecated": false
+    },
     {
       "id": "ess",
       "name": "ESS KIT",
@@ -215,6 +221,12 @@ const kitsByCategory = {
   "industryKits": {
     "manufacturing": [
       {
+        "id": "pcf-data-acquisition",
+        "name": "PCF DATA ACQUISITION KIT",
+        "route": "/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view",
+        "deprecated": false
+      },
+      {
         "id": "autonomous-operation",
         "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",
         "route": "/docs-kits/next/kits/autonomous-operation-kit/adoption-view",
@@ -230,6 +242,20 @@ const kitsByCategory = {
         "id": "modular-production",
         "name": "MODULAR PRODUCTION KIT",
         "route": "/docs-kits/kits/modular-production-kit/adoption-view",
+        "deprecated": false
+      }
+    ],
+    "semiconductor": [
+      {
+        "id": "exchange-maintenance-logbook",
+        "name": "EXCHANGE OF MAINTENANCE LOGBOOK KIT",
+        "route": "/docs-kits/next/kits/exchange-maintenance-logbook-kit/adoption-view",
+        "deprecated": false
+      },
+      {
+        "id": "unit-process-as-a-service",
+        "name": "UNIT PROCESS AS A SERVICE KIT",
+        "route": "/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view",
         "deprecated": false
       }
     ],

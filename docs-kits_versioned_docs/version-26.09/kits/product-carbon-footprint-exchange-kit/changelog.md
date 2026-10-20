@@ -1,0 +1,192 @@
+---
+id: changelog
+title: Changelog
+description: PCF Exchange KIT
+sidebar_position: 1
+---
+
+![PCF Exchange kit banner](@site/static/img/kits/pcf/pcf-kit-logo.svg)
+
+## PCF Exchange KIT
+
+All notable changes to this Kit will be documented in this file.
+
+## [1.5.1] - 2026-09-29
+
+### Changed
+
+- Fixed outdated reference
+
+## [1.5.0] - 2026-08-25
+
+### Added
+
+- Add guidance document references for the Operation View
+- Add updated Catena-X standards references
+- Add additional reference implementation candidates for evaluation (e.g. Glassdome)
+- Synchronous PCF data exchange via Digital Twin Registry (PCF submodel urn:samm:io.catenax.pcf:10.0.0)
+- New sequence diagrams for sync and async exchange
+- Backward compatibility section (v10/v9 data models, API v1.3.0/v1.2.0)
+
+### Changed
+
+- Update `declaredUnitOfMeasurement` in the PCF Data Model details to use a closed value list
+- Update PCF example payload to align with PCF Data Model v10.0.0
+- Update PCF Data Model reference link to version 10.0.0
+- Update reference implementation mapping:
+  - SiGreen → Mattermaps
+- Replace Operation View open source references with guidance-oriented documentation links
+- Architecture description updated to sync pull / async push
+- PCF Update simplified to PUT /footprintExchange/`{requestId}`?update=true
+- Removed inline JSON payload examples in favor of references to CX-0152/CX-0018
+- Standards list reorganized; T-Systems copyright extended to 2025–2026
+- Updated FAQs and added new
+
+## [1.4.0] - 2025-12-19
+
+### Added
+
+- Add new FAQ page to the KIT documentation
+
+## [1.3.1] - 2025-11-03
+
+### Changed
+
+- replaced data model version 8.0.0 with 9.0.0
+
+## [1.3.0] - 2025-09-29
+
+### Added
+
+- Synchronous data exchange via data pull and digital twins according to industry core standard/kit
+- Add customerPartID in data model
+
+## [1.2.2] - 2025-08-25
+
+### Changed
+
+#### Adoption View
+
+- Replaced the entire data model table with a new version and linked to the downloadable Excel sheet
+- adapted list of reference implementations to reflect certified solutions from expert group members
+- Rephrased outdated assumptions and verification statements in the Premises, Customer Journey, and Business Architecture sections
+
+#### Development View
+
+- Removed version v1.0.0 from policy examples, added tutorial links and a note about the upcoming CX-152 standard
+- Extended Architecture Picture, Sequence Diagram and API call to reflect synchronous PCF exchange in addition
+- Replaced the outdated architecture diagram in the Building Block View
+
+#### Overall
+
+- Reviewed and updated outdated links,
+
+## [1.2.1] - 2025-02-07
+
+- Fix broken links and spelling mistakes
+
+## [1.2.0] - 2024-08-01
+
+### Added
+
+#### Adoption View
+
+- References to available PCF exchange solutions (moved from CX-0136 PCF Use Case standard)
+- Comprehensive illustration of latest PCF data model (overview plus details)
+
+#### Development View
+
+- Specification for bilateral contracts
+
+### Changed
+
+#### Adoption View
+
+- Exemplary PCF data model payload to PCF data model version 7.0.0 (Rel. 24.08)
+- References to relevant standards in their latest versions (Rel. 24.08)
+- Several typos and link errors
+- Reference to Framework Agreement
+
+#### Development View
+
+- PCF Exchange API to Rel. 24.08 (e.g. data format)
+- Several illustrations to reflect latest changes in Rel. 24.08
+- Policy adapted to latest standards (incl. new Framework Agreement and bilateral contracts)
+- Referenced standard updated
+
+### Removed
+
+#### Development View
+
+- Inlined Open-API (MDX) removed
+
+## [1.1.0] - 2024-05-17
+
+### Added
+
+- Simple Data Exchanger (SDE) as available open-source reference implementation
+
+### Changed
+
+- DT submodel structure updated
+- EDC asset structure updated
+- Policy structure updated
+- Sample data updated
+- Minor bugfixes
+- Changed banner image file location and converted .png image to .svg
+
+### Removed
+
+- Deprecated EDC asset attributes removed
+
+## [1.0.0] - 2024-03-08
+
+### Added
+
+- Flow description in case no material twin or PCF submodel exists
+- Versions of referenced standards
+
+### Changed
+
+- Open API updated to version 1.0.0 (Rel.24.03)
+- Asset and Policy definitions updated
+- Link to Framework Agreement updated
+- Minor bugs fixed
+
+### Removed
+
+N/A
+
+## [0.1.0] - 2023-08-23
+
+### Added
+
+Initial Version of the PCF exchange KIT including adoption and development view incl. all relevant API specifications.
+
+### Changed
+
+N/A
+
+### Removed
+
+N/A
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023 T-Systems International GmbH
+- SPDX-FileCopyrightText: 2023 SAP SE
+- SPDX-FileCopyrightText: 2023 SIEMENS AG
+- SPDX-FileCopyrightText: 2023 SUPPLY ON AG
+- SPDX-FileCopyrightText: 2023 Volkswagen AG
+- SPDX-FileCopyrightText: 2023 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023 BASF SE
+- SPDX-FileCopyrightText: 2023 CCT
+- SPDX-FileCopyrightText: 2023 Gris Group
+- SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
+- [Source URL](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kits/product-carbon-footprint-exchange-kit)
