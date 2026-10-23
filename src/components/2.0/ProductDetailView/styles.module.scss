@@ -1,0 +1,303 @@
+/*********************************************************************************
+ * Eclipse Tractus-X - eclipse-tractusx.github.io
+ *
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+.detailView {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.notFound {
+  text-align: center;
+  padding: 4rem 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+.backLink {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+
+  a {
+    color: var(--ifm-color-primary);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.separator {
+  color: var(--ifm-font-color-base);
+  opacity: 0.4;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--ifm-color-card-border);
+  border-radius: 16px;
+  background: var(--ifm-background-color);
+  margin-bottom: 2rem;
+}
+
+.heroIcon {
+  font-size: 3.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.heroContent {
+  flex: 1;
+}
+
+.heroTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 0.25rem 0;
+}
+
+.heroSubtitle {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin: 0 0 1rem 0;
+}
+
+.badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+
+  &[data-type='success'] {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  &[data-type='warning'] {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  &[data-type='info'] {
+    background: #e2e3e5;
+    color: #495057;
+  }
+}
+
+.categoryBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(250, 160, 35, 0.15);
+  color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(250, 160, 35, 0.25);
+    text-decoration: none;
+  }
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section {
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ifm-color-card-border);
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+.relevanceTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.relevanceTag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  color: #333;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebarSection {
+  padding: 1.25rem;
+  border: 1px solid var(--ifm-color-card-border);
+  border-radius: 12px;
+  background: var(--ifm-background-color);
+
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem 0;
+  }
+}
+
+.repoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.repoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(250, 160, 35, 0.08);
+    text-decoration: none;
+  }
+}
+
+.githubIcon {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+}
+
+.role {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.githubHandle {
+  font-size: 0.8rem;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.quickLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quickLink {
+  font-size: 0.85rem;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  padding: 0.35rem 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 968px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .badges {
+    justify-content: center;
+  }
+
+  .detailView {
+    padding: 1.5rem 1rem;
+  }
+}
