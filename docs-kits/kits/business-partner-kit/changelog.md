@@ -5,11 +5,86 @@ description: Business Partner KIT
 sidebar_position: 1
 ---
 
+<!--
+Copyright (c) 2023-2026 ZF Friedrichshafen AG
+Copyright (c) 2023-2026 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+Copyright (c) 2023-2026 SAP SE
+Copyright (c) 2023-2026 Volkswagen AG
+Copyright (c) 2023-2026 Robert Bosch GmbH
+Copyright (c) 2023-2026 Mercedes Benz Group
+Copyright (c) 2023-2026 BASF SE
+Copyright (c) 2023-2026 Schaeffler AG
+Copyright (c) 2023-2026 Contributors to the Eclipse Foundation
+
+See the NOTICE file(s) distributed with this work for additional
+information regarding copyright ownership.
+
+This documentation and the accompanying materials are made available under
+the terms of the Creative Commons Attribution 4.0 International License,
+which is available at https://creativecommons.org/licenses/by/4.0/legalcode.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+<!--
+KIT LOGO START - Generated automatically from the configuration done in Kit Master Data
+Do not remove!
+This logo is only visible when compiled with Docusaurus (final version of the hosted KIT)
+-->
+
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="business-partner" />
+
 ![Business partner kit banner](@site/static/img/kits/business-partner/business-partner-logo.svg)
+
+<!--
+KIT LOGO END
+-->
 
 ### Business Partner KIT
 
 All notable changes to this KIT will be documented in this file.
+
+## [12.0.0] - 2026-09-08
+
+Compatible for **release 26.09**.
+
+### Added
+
+- Adoption view: what a golden record carries beyond a single business partner - relations, ultimate owner, confidence criteria and script variants.
+- Adoption view: CSV upload as an alternative to a master data management system, and the standards of the value-added services.
+- Architecture view: a Building Block View with the four deployed services and the repository's modules.
+- Architecture view: runtime views for sharing a relation, for counting the sharing members of a golden record and for picking up finished tasks.
+- Architecture view: a "Dummy Golden Record Process Restrictions" chapter.
+- Architecture view: the architecture decision "Realize multi-tenancy within one Gate deployment".
+- Architecture view: the tool, the version and the modification process of the diagrams.
+- Development view: the four BPDM services, the role-scoped Open-API documents, the integration guides per role and access over EDC.
+- Use cases: starting the Gates of the second and third sharing member, and obtaining an access token for the Gate API.
+- Use cases: `curl` and `jq` in the prerequisites.
+- Operation view: the bundled `helm test` smoke test and the Keycloak admin console.
+- Operation view: the optional `bpnSites` on `PUT addresses`.
+- CC BY 4.0 notice on the changelog, development view, use cases and operation view pages, and a CC BY 4.0 header on every page.
+- The KIT logo on the use cases page, the only page that did not carry one.
+
+### Changed
+
+- Aligned the KIT with BPDM application 7.5.0 and BPDM Helm Charts 7.1.0.
+- API Hub links for Gate, Pool and Orchestrator point to 7.5.0, which requires the 7.5.0 specifications to be published there.
+- Links into the BPDM repository point to its `release/7.5.x` branch instead of `main`, so they follow this KIT version instead of the next BPDM release.
+- Regenerated the architecture view from the BPDM repository: corrected deployment view, v7 API paths in all runtime views, complete permission tables, Pool permission group "Cx Member" renamed to "Dataspace Participant", and the actual logging levels.
+- Architecture view: the Gate serves several sharing members at once and resolves the tenant from the caller's token.
+- Adoption view: an address can belong to several sites.
+- Adoption view: every listed standard is linked and carries the version valid in the current Catena-X release CX-Titan.
+- Development view: rewrote the specification page.
+- Use cases: the end-to-end suite is built and run as an executable JAR, and the changelog examples use v7 endpoints.
+- Use cases: each BPDM service is started in its own terminal, as `mvn spring-boot:run` does not return.
+- Operation view: prerequisite tool versions, supported external Keycloak version, workload names, port forwarding, and the notes on upgrading an existing deployment and on the bundled dependencies.
+
+### Removed
+
+- Architecture view: the technical debts that no longer apply, and the Simulator Service.
+- Development view: the Postman collections of Gate, Pool, Orchestrator, Cleaning Service Dummy and Bridge Dummy, replaced by the role-scoped Open-API documents, which Postman imports into a collection scoped to one permission group.
 
 ## [11.0.0] - 2026-06-11
 
@@ -213,3 +288,19 @@ Compatible for **release 24.12**.
 ### Removed
 
 - ./.
+
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2023-2026 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023-2026 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023-2026 SAP SE
+- SPDX-FileCopyrightText: 2023-2026 Volkswagen AG
+- SPDX-FileCopyrightText: 2023-2026 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023-2026 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023-2026 BASF SE
+- SPDX-FileCopyrightText: 2023-2026 Schaeffler AG
+- SPDX-FileCopyrightText: 2023-2026 Contributors to the Eclipse Foundation
+- Source URL: [https://github.com/eclipse-tractusx/bpdm](https://github.com/eclipse-tractusx/bpdm)
