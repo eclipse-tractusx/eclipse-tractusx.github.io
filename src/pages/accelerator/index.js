@@ -17,7 +17,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-// Dedicated page of the Tractus-X Accelerator, served at accelerator.tractus-x.com.
+// Dedicated page of the Tractus-X Accelerator.
 
 import React from 'react';
 import Layout from '@theme/Layout';

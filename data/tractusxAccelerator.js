@@ -18,7 +18,7 @@
  ********************************************************************************/
 
 // Shared content of the Tractus-X Accelerator, used by the About Us timeline card
-// and the dedicated /accelerator page (served at accelerator.tractus-x.com).
+// and the dedicated /accelerator page.
 
 // Accelerator partners, referenced by their id in tractusxOrganizations.
 export const acceleratorPartnerIds = ["idsa", "catena-x", "fraunhofer-isst", "arena2036"];
