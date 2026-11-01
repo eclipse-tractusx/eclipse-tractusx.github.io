@@ -18,29 +18,32 @@
  ********************************************************************************/
 
 import React from "react";
+import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import ThemedImage from "@theme/ThemedImage";
 import { tractusxOrganizations } from "@site/data/tractusxOrganizations";
+import { acceleratorFocusAreas, acceleratorLogos, acceleratorPartnerIds } from "@site/data/tractusxAccelerator";
 import FundingBadge from "@site/src/components/FundingBadge";
 import styles from "./History.module.css";
 
-// Accelerator partners, referenced by their id in tractusxOrganizations.
-const partnerIds = ["idsa", "catena-x", "fraunhofer-isst", "arena2036"];
-
-const partners = partnerIds
+const partners = acceleratorPartnerIds
   .map((id) => tractusxOrganizations.find((organization) => organization.id === id))
   .filter(Boolean);
 
-// What the accelerator program offers.
-const focusAreas = [
-  "Structured onboarding and qualification of new projects and developers",
-  "Test and development infrastructure",
-  "Targeted mentoring by experienced community members",
-  "Further development of governance, release and quality processes",
-  "Sustainable community and exchange formats",
-];
+// Full color logos, one per site theme.
+const [lightLogo, darkLogo] = ["color-dark-text", "color-light-text"].map(
+  (id) => acceleratorLogos.find((logo) => logo.id === id).src
+);
 
 export default function TractusXAccelerator() {
   return (
     <div className={styles.accelerator}>
+      <Link to="/accelerator" className={styles.acceleratorLogo}>
+        <ThemedImage
+          alt="Tractus-X Accelerator"
+          sources={{ light: useBaseUrl(lightLogo), dark: useBaseUrl(darkLogo) }}
+        />
+      </Link>
       <p className={styles.acceleratorIntro}>
         The Tractus-X Accelerator is a cohort-based support program for projects, developers and
         organizations. It systematically lowers the technical and organizational barriers to entry
@@ -51,7 +54,7 @@ export default function TractusXAccelerator() {
         open-source ecosystems, and focuses on:
       </p>
       <ul className={styles.focusAreas}>
-        {focusAreas.map((area) => (
+        {acceleratorFocusAreas.map((area) => (
           <li key={area}>{area}</li>
         ))}
       </ul>
@@ -67,7 +70,7 @@ export default function TractusXAccelerator() {
         ))}
       </ul>
       <p className={styles.acceleratorIntro}>
-        More information is about to come soon!
+        Learn more on the <Link to="/accelerator">Tractus-X Accelerator page</Link>.
       </p>
       <span className={styles.partnersLabel}>Funding</span>
       <FundingBadge className={styles.funding} />
