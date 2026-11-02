@@ -2,11 +2,89 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2025-11-14T00:00:00.000Z</updated>
+    <updated>2026-10-30T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Community Office Hour 2026-10-30]]></title>
+        <id>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30</id>
+        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30"/>
+        <updated>2026-10-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Community Office Hour Meeting Minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-office-hour-meeting-minutes">Community Office Hour Meeting Minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#community-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Community Office Hour Meeting Minutes" title="Direct link to Community Office Hour Meeting Minutes" translate="no">​</a></h2>
+<p>Status updates discussed in meeting:</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="executive-summary">Executive Summary<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#executive-summary" class="hash-link" aria-label="Direct link to Executive Summary" title="Direct link to Executive Summary" translate="no">​</a></h2>
+<ul>
+<li class="">The meeting clarified that the proposed Toolbox and wizard/starter-kit concepts still need alignment before definitive next steps and milestones are set.</li>
+<li class="">The group agreed on <strong>tractusx-starter-kit</strong> as the working repository/project name.</li>
+<li class="">The repository will support a static webpage and a dynamic wizard-like tool for generating configured Docker Compose files, initially for two or three components.</li>
+<li class="">Release-process improvements are planned, focusing on better documentation, broader participation from initiatives and industries beyond Catena-X, and more accessible planning meetings.</li>
+<li class="">Several tracked items remain blocked or awaiting review, including Gateway API updates, committers information, security follow-up, and the AI-related TRG discussion.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="topics-discussed">Topics Discussed<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#topics-discussed" class="hash-link" aria-label="Direct link to Topics Discussed" title="Direct link to Topics Discussed" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="toolbox-and-starter-kit">Toolbox and Starter Kit<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#toolbox-and-starter-kit" class="hash-link" aria-label="Direct link to Toolbox and Starter Kit" title="Direct link to Toolbox and Starter Kit" translate="no">​</a></h3>
+<ul>
+<li class="">The relationship between the Eclipse Tractus-X Developer Toolbox and the existing wizard remains unclear; intended integration and the next steps should be confirmed with him.</li>
+<li class="">The planned repository will contain a static webpage and functionality to generate an easy-to-run, fully configured Docker Compose file with documentation, without requiring Kubernetes.</li>
+<li class="">The initial scope is two or three components, with the possibility of adding more later.</li>
+<li class="">The working name agreed in the discussion was <strong>tractusx-starter-kit</strong>.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="portal-hackathon">Portal Hackathon<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#portal-hackathon" class="hash-link" aria-label="Direct link to Portal Hackathon" title="Direct link to Portal Hackathon" translate="no">​</a></h3>
+<ul>
+<li class="">The hackathon remains planned for Friday, with a large attendee list for the onsite meeting at the Arena.</li>
+<li class="">Differences in the new architecture were not reviewed because they are expected to be discussed again immediately before development begins.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="eclipse-tractus-x-community-days">Eclipse Tractus-X Community Days<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#eclipse-tractus-x-community-days" class="hash-link" aria-label="Direct link to Eclipse Tractus-X Community Days" title="Direct link to Eclipse Tractus-X Community Days" translate="no">​</a></h3>
+<ul>
+<li class="">Registration is still open; participants were encouraged to seek approval to attend and book hotels early.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="product-page-and-repository-status">Product Page and Repository Status<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#product-page-and-repository-status" class="hash-link" aria-label="Direct link to Product Page and Repository Status" title="Direct link to Product Page and Repository Status" translate="no">​</a></h3>
+<ul>
+<li class="">The new product page was described as an improvement, but the displayed people may incorrectly mix committers and contributors.</li>
+<li class="">The repositories and people shown on the page still need validation before the information can be considered accurate.</li>
+<li class="">Work on the related item was deferred because other work is currently taking priority.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h3>
+<ul>
+<li class="">The release timeline is approaching the testing phase.</li>
+<li class="">Initial pull requests for kits should be created soon so reviewers have enough time before the release.</li>
+<li class="">A brainstorming effort planned for next week will examine the current release and planning processes, including how to document them better and make them more open to other initiatives and industries.</li>
+<li class="">The current planning meetings were described as having approximately 100–120 participants in the past (two years ago) and approximately 10–20 currently -&gt; this is the place where we can discuss and plan YOUR features -&gt; don`t be shy, join the meeting and create your issues/requirements</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security">Security<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security" translate="no">​</a></h3>
+<ul>
+<li class="">The Eclipse Foundation is expected to offer a meeting next year to present security options.</li>
+<li class="">The team discussed whether the existing security issue is still needed after changes for five individual users.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gateway-api-and-other-issues">Gateway API and Other Issues<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#gateway-api-and-other-issues" class="hash-link" aria-label="Direct link to Gateway API and Other Issues" title="Direct link to Gateway API and Other Issues" translate="no">​</a></h3>
+<ul>
+<li class="">The Gateway API work remains blocked until the active repositories are identified, after which a major issue can list the repositories requiring updates.</li>
+<li class="">A pull request concerning the committers project description was created, but it still needs review by someone other than its creator.</li>
+<li class="">The AI-related pull request remains unresolved after an earlier discussion about whether the topic needs its own TRG.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="decisions">Decisions<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#decisions" class="hash-link" aria-label="Direct link to Decisions" title="Direct link to Decisions" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Decision:</strong> Use <strong>tractusx-starter-kit</strong> as the working name for the repository/project.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="action-items">Action Items<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2026-10-30#action-items" class="hash-link" aria-label="Direct link to Action Items" title="Direct link to Action Items" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@stephanbcbauer: Create the tractusx-starter-kit repository and submit a pull request to the Eclipse Foundation repository.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@stephanbcbauer: Create the open meeting and kickoff issues on the Tractus X webpage.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@stephanbcbauer: Add screenshots to the security-related issue and move it to done if complete.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@stephanbcbauer: Check whether the committers pull request matches the issue requirements.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Unassigned: Review and merge the committers pull request; the creator cannot approve it.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@stephanbcbauer: Create a 15-minute meeting with the participants of the AI-related pull request discussion.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Unassigned: Decide whether the AI topic should have a separate TRG or be handled within another TRG.</li>
+</ul>]]></content>
+        <author>
+            <name>Stephan Bauer</name>
+            <uri>https://catena-x.net/</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Community Office Hour 2025-11-14]]></title>
         <id>https://eclipse-tractusx.github.io/community/meeting-minutes/community-office-hour-2025-11-14</id>
@@ -1104,25 +1182,5 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
         </author>
         <category label="community" term="community"/>
         <category label="meeting-minutes" term="meeting-minutes"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Security Office Hour 2024-07-04]]></title>
-        <id>https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-07-04</id>
-        <link href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-07-04"/>
-        <updated>2024-07-04T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Security Office Hour meeting minutes]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-office-hour-meeting-minutes">Security Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-07-04#security-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Security Office Hour meeting minutes" title="Direct link to Security Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="announcements">Announcements<a href="https://eclipse-tractusx.github.io/community/meeting-minutes/security-office-hour-2024-07-04#announcements" class="hash-link" aria-label="Direct link to Announcements" title="Direct link to Announcements" translate="no">​</a></h3>
-<ul>
-<li class="">Gitguardian tool for secret scanning will be replaced by TruffleHog. This will be used in parallel with Github's native secret scanning tool.</li>
-<li class="">Trivy workflow has been updated to address the failure of workflows</li>
-<li class="">Announcement of Security handover during the committer round</li>
-</ul>]]></content>
-        <author>
-            <name>Rohan Krishnamurthy</name>
-            <uri>https://github.com/RoKrish14</uri>
-        </author>
-        <category label="meeting-minutes" term="meeting-minutes"/>
-        <category label="security" term="security"/>
     </entry>
 </feed>
