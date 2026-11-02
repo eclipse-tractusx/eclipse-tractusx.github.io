@@ -195,6 +195,25 @@ export const meetings = [
       {title: "KIT Getting Started", url: "https://eclipse-tractusx.github.io/documentation/kit-getting-started"}
     ]
   },
+  {
+    id: 'starter-kit-open-meeting',
+    title: 'Eclipse Tractus-X Starter Kit Open Meeting',
+    icon: 'rocket_launch',
+    category: MEETING_CATEGORIES.GENERAL,
+    description: 'Open meeting for the Eclipse Tractus-X Starter Kit, a configuration wizard that generates a ready-to-use Docker Compose setup and documentation to get Tractus-X components running locally. We share the current status, discuss supported components and use cases, collect feedback from new adopters and coordinate contributions. Everyone is welcome!',
+    contact: CONTACTS.STEPHAN_BAUER,
+    additionalLinks: [
+      {title: 'Repository', url: 'https://github.com/eclipse-tractusx/tractusx-starter-kit'},
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 2,
+      daysOfWeek: ['thursday'],
+      startTime: '13:00',
+      endTime: '13:30',
+      validFrom: '2026-11-12',
+    },
+  },
   // Product Regular Meetings
   {
     id: 'industry-core-hub-weekly',
