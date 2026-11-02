@@ -20,6 +20,7 @@
  ********************************************************************************/
 
 import React from "react";
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from "@docusaurus/Link";
 import ThemedImage from '@theme/ThemedImage';
 import NewsTicker from "../NewsTicker";
@@ -36,8 +37,8 @@ export default function HomePageHeader() {
       <ThemedImage
         // alt="Docusaurus themed image hero background"
         sources={{
-          light: ('/img/main-bg-light.png'),
-          dark: ('/img/main-bg-new.png'),
+          light: useBaseUrl('/img/main-bg-light.png'),
+          dark: useBaseUrl('/img/main-bg-new.png'),
         }}
         className={classes.hero_bg}
       />

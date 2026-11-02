@@ -12,8 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "lint-doc": "markdownlint-cli2-config .markdownlint.yaml \"docs/**/*.md\" \"#node_modules\"",
-    "lint-kits": "markdownlint-cli2-config .markdownlint.yaml \"docs-kits/kits/**/*.md\" \"#node_modules\"",
+    "lint-doc": "markdownlint-cli2 --config .markdownlint.yaml \"docs/**/*.md\" \"#node_modules\"",
+    "lint-kits": "markdownlint-cli2 --config .markdownlint.yaml \"docs-kits/kits/**/*.md\" \"#node_modules\"",
     "generate:nav-items": "node utils/generateKitNavItems.js",
     "pre-render:kit-logos": "node utils/prerenderKitLogos.js",
     "pre-build:kit-master-data": "npm run validate:kits:silent && npm run generate:nav-items",
@@ -54,7 +54,7 @@
     "@docusaurus/module-type-aliases": "^3.10.2",
     "baseline-browser-mapping": "^2.9.6",
     "husky": "^8.0.2",
-    "markdownlint-cli2": "^0.5.1"
+    "markdownlint-cli2": "^0.22.0"
   },
   "browserslist": {
     "production": [
@@ -69,6 +69,20 @@
     ]
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=20.0"
+  },
+  "overrides": {
+    "tinypool": "^2.1.2",
+    "serialize-javascript": "^7.0.5",
+    "postcss-selector-parser": "^7.1.6",
+    "katex": "^0.18.2",
+    "sockjs": {
+      "uuid": "^11.1.1"
+    },
+    "markdownlint-cli2": {
+      "markdown-it": "^14.3.3",
+      "js-yaml": "^4.3.2",
+      "smol-toml": "^1.9.1"
+    }
   }
 }

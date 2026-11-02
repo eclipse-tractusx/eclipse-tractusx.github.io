@@ -11,6 +11,12 @@ sidebar_position: 1
 
 All notable changes to this Kit will be documented in this file.
 
+## [1.5.1] - 2026-09-29
+
+### Changed
+
+- Fixed outdated reference
+
 ## [1.5.0] - 2026-08-25
 
 ### Added

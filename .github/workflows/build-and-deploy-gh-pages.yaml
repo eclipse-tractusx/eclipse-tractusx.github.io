@@ -25,6 +25,15 @@ on:
     branches:
       - main
 
+# Shared with the pull request preview workflows so that no two workflows push
+# to the gh-pages branch at the same time.
+concurrency:
+  group: gh-pages-write
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 jobs:
   deploy:
     name: Build and deploy to GitHub Pages
@@ -42,6 +51,26 @@ jobs:
 
       - name: Build website
         run: npm run build
+
+      # The pull request previews live in the pr/ folder of the gh-pages branch.
+      # Publishing the root without them would delete every open preview, so they
+      # are carried over into the build output before it is published.
+      - name: Check out currently published site
+        id: published
+        continue-on-error: true
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          ref: gh-pages
+          fetch-depth: 1
+          path: gh-pages
+
+      - name: Preserve pull request previews
+        if: steps.published.outcome == 'success'
+        run: |
+          set -euo pipefail
+          if [ -d gh-pages/pr ]; then
+            cp -R gh-pages/pr ./build/pr
+          fi
 
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
       - name: Deploy to GitHub Pages

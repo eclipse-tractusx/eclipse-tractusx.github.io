@@ -104,7 +104,7 @@ PCF data is exchanged between a data consumer (e.g., supplier on tier n) and a d
 
 - The data consumer realizes that he/she needs the PCF for a specific component and that this data is not available in his/her local data (or is not of sufficient quality).
 - With his/her PCF data exchange tool, the data consumer checks whether the required PCF data is available via Catena-X. If not, the user can request this data from the supplier as described in the next steps.
-- The data consumer submits a “PCF request” (according to the standardized API [CX-0136](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)) to his/her supplier. In doing so, he/she asks the supplier to provide PCF data for the specific component, which was determined in accordance with the requirements of the [Catena-X PCF Rulebook](https://catenax-ev.github.io/assets/files/CX-NFR-PCF-Rulebook_v.3.0-04874a80a6d27511df06e07ae3049278.pdf).
+- The data consumer submits a “PCF request” (according to the standardized API [CX-0136](https://catenax-ev.github.io/docs/next/standards/CX-0136-UseCasePCF)) to his/her supplier. In doing so, he/she asks the supplier to provide PCF data for the specific component, which was determined in accordance with the requirements of the [Catena-X PCF Rulebook](https://catenax-ev.github.io/docs/next/rulebooks/CX-NFR-PCF/pcf-rulebook).
 
 With this request, the process temporarily ends for the data consumer. The ball is now in the data provider's playing field:
 

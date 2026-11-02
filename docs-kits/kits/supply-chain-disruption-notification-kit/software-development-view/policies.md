@@ -34,7 +34,8 @@ To not replicate existing documentation, this section covers only additional inf
   - the [policies documentation in the Eclipse Tractus-X Connectors usage guide](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/docs/usage/management-api-walkthrough/02_policies.md).
 - For more information on the available
   `usage policies`, please refer to the [odrl-profile](https://github.com/catenax-eV/cx-odrl-profile/blob/main/profile.md).
-  :::
+
+:::
 
 ### Contract Definitions
 

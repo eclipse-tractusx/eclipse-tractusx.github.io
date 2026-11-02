@@ -195,6 +195,25 @@ export const meetings = [
       {title: "KIT Getting Started", url: "https://eclipse-tractusx.github.io/documentation/kit-getting-started"}
     ]
   },
+  {
+    id: 'starter-kit-open-meeting',
+    title: 'Eclipse Tractus-X Starter Kit Open Meeting',
+    icon: 'rocket_launch',
+    category: MEETING_CATEGORIES.GENERAL,
+    description: 'Open meeting for the Eclipse Tractus-X Starter Kit, a configuration wizard that generates a ready-to-use Docker Compose setup and documentation to get Tractus-X components running locally. We share the current status, discuss supported components and use cases, collect feedback from new adopters and coordinate contributions. Everyone is welcome!',
+    contact: CONTACTS.STEPHAN_BAUER,
+    additionalLinks: [
+      {title: 'Repository', url: 'https://github.com/eclipse-tractusx/tractusx-starter-kit'},
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 2,
+      daysOfWeek: ['thursday'],
+      startTime: '13:00',
+      endTime: '13:30',
+      validFrom: '2026-11-12',
+    },
+  },
   // Product Regular Meetings
   {
     id: 'industry-core-hub-weekly',
@@ -345,12 +364,12 @@ export const meetings = [
   // One-time meetings
   {
     id: 'e2e-test-phase-daily',
-    title: 'Eclipse Tractus-X E2E Test Phase Daily for R26.09',
+    title: 'Eclipse Tractus-X E2E Test Phase Daily for R26.12',
     icon: 'bug_report',
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'Onboarding and deployment status for 26.09 on INT environment, Defect/Blocker updates, Test status of all participating products',
     contact: CONTACTS.MONIKA_JACOBSEN,
-    sessionLink: 'https://teams.microsoft.com/meet/393798526322149?p=rQN5SEW7mJ5SrebuzB',
+    sessionLink: 'https://teams.microsoft.com/meet/3137611350965690?p=b7WkmfBX3D8CBTBdmr',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
     additionalLinks: [],
     recurrence: {
@@ -359,42 +378,42 @@ export const meetings = [
       daysOfWeek: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
       startTime: '08:30',
       endTime: '09:00',
-      validFrom: '2026-08-18',
-      validUntil: '2026-09-04',
+      validFrom: '2026-11-03',
+      validUntil: '2026-11-20',
     },
   },
   {
     id: 'briefing-testing-phase',
-    title: 'Briefing Testing Phase for 26.09',
+    title: 'Briefing Testing Phase for 26.12',
     icon: 'assignment',
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'The goal of the meeting is to prepare for the test phase and clarify the process of the release test phase. We also want to review the Release Check Issues and discuss the deployment process.',
     contact: CONTACTS.MONIKA_JACOBSEN,
-    sessionLink: 'https://teams.microsoft.com/meet/395413168244309?p=Pn3syItN9nY4vVk3XH',
+    sessionLink: 'https://teams.microsoft.com/meet/3946424693092176?p=jRyLn5VXJZkiEjbyHd',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
     additionalLinks: [],
     recurrence: {
       frequency: 'once',
-      startDate: '2026-08-03',
+      startDate: '2026-10-21',
       startTime: '08:30',
       endTime: '09:00',
     },
   },
   {
     id: 'kickoff-testing-phase',
-    title: 'Kick-Off Testing Phase for 26.09',
+    title: 'Kick-Off Testing Phase for 26.12',
     icon: 'rocket_launch',
     category: MEETING_CATEGORIES.ONE_TIME,
     description: 'The purpose of this session is to provide you with the latest updates on the test phase and the deployment status. Additionally, this will be an opportunity for you to ask any questions regarding the upcoming test phase.',
     contact: CONTACTS.MONIKA_JACOBSEN,
-    sessionLink: 'https://teams.microsoft.com/meet/398662305481309?p=jlaMKIG1ZC30ZgxR1l',
+    sessionLink: 'https://teams.microsoft.com/meet/3428341763009434?p=XyXSYj5PSZMNr9ZalD',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
     additionalLinks: [],
     recurrence: {
       frequency: 'once',
-      startDate: '2026-08-17',
-      startTime: '11:00',
-      endTime: '11:30',
+      startDate: '2026-11-02',
+      startTime: '08:30',
+      endTime: '09:00',
     },
   },
   // New entries for R26.12 - Alignment Day and Open Planning
@@ -512,8 +531,6 @@ export const meetings = [
     },
   },
   // Community Days — on-site event at ARENA2036, no online session link.
-  // registrationComingSoon shows a "Registration Coming Soon" notice instead of a
-  // register button; replace it with registrationLink once registration opens.
   {
     id: 'seventh-community-days-2026',
     title: 'Seventh Eclipse Tractus-X Community Days',
@@ -524,7 +541,7 @@ export const meetings = [
     contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.MATHIAS_MOSER, CONTACTS.MIKEL_GARCIA],
     location: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
     onsite: true,
-    registrationComingSoon: true,
+    registrationLink: 'https://eveeno.com/146855101',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-dev:matrix.eclipse.org',
     additionalLinks: [
       { title: 'News Blog', url: '/blog/community-days-12-2026' },
