@@ -416,64 +416,6 @@ export const meetings = [
       endTime: '09:00',
     },
   },
-  // New entries for R26.12 - Alignment Day and Open Planning
-  {
-    id: 'alignment-day-r26-12',
-    title: 'Alignment Day for R26.12',
-    icon: 'handshake',
-    category: MEETING_CATEGORIES.ONE_TIME,
-    priority: MEETING_PRIORITIES.FEATURED,
-    description: 'Address open questions and unresolved dependencies for features planned for Release 26.12. This session focuses on alignment and clarifying blockers before open planning.',
-    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.THERESA_HILGER],
-    sessionLink: 'https://teams.microsoft.com/meet/36303060836975?p=PDgS8VJ76ypbOFmcxY',
-    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-release-planning:matrix.eclipse.org',
-    additionalLinks: [
-      {
-        title: 'Release Planning Board - Open Question',
-        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/43?filterQuery=-label%3Ametadata+label%3APrep-R26.12+label%3A%22open+question%22'
-      },
-      {
-        title: 'Timeline',
-        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A26.12'
-      },
-      {title: 'News Blog', url: '/blog/release-planning-R26.12'},
-    ],
-    recurrence: {
-      frequency: 'once',
-      startDate: '2026-07-30',
-      startTime: '09:05',
-      endTime: '10:00',
-    },
-  },
-  {
-    id: 'open-planning-r26-12',
-    title: 'Open Planning for R26.12',
-    icon: 'event_note',
-    category: MEETING_CATEGORIES.ONE_TIME,
-    priority: MEETING_PRIORITIES.FEATURED,
-    description: 'Finalize roadmap, prioritize features and align participants on deliverables for Release 26.12.',
-    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.THERESA_HILGER],
-    sessionLink: 'https://teams.microsoft.com/meet/311292893589704?p=bOzDbp9v4O4CKRGTVE',
-    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-release-planning:matrix.eclipse.org',
-    additionalLinks: [
-      {
-        title: 'Release Planning Board - Topic/Product',
-        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3A%22Prep-R26.12%22+status%3ABacklog'
-      },
-      {
-        title: 'Timeline',
-        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A26.12'
-      },
-      {title: 'News Blog', url: '/blog/release-planning-R26.12'},
-      {title: 'Detailed Agenda', url: '/blog/release-planning-R26.12#agenda-1'},
-    ],
-    recurrence: {
-      frequency: 'once',
-      startDate: '2026-08-13',
-      startTime: '09:05',
-      endTime: '10:30',
-    },
-  },
   {
     id: 'open-planning-r27-03',
     title: 'Open Planning for R27.03',
