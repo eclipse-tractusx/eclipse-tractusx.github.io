@@ -9,7 +9,7 @@ import UniqueIDPush from './parts/uniqueidpush.mdx'
 
 ![Industry Core kit banner](@site/static/img/kits/industry-core/industry-core-kit-logo.svg)
 
-Industry Core uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins with which you should be familiar to understand this section are described in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
+Industry Core uses digital twins to make a company's data available to other Catena-X partners. Basics about digital twins with which you should be familiar to understand this section are described in the [Digital Twin KIT](/docs-kits/category/digital-twin-kit).
 
 ### Register Digital Twins
 
@@ -17,7 +17,7 @@ In Industry Core, different types of parts, e. g. serialized parts, batches, JIS
 
 #### Regulatory Compliance and Security
 
-To enforce a strict need-to-know principle (and to prevent data from being exposed to non-authorized partners in the Catena-X network), the visibility of digital twins and the content of the attribute `specificAssetIds` of digital twins must be restricted to authorized partners only. The actual implementation depends on the DTR product used by the Catena-X partner. More details can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
+To enforce a strict need-to-know principle (and to prevent data from being exposed to non-authorized partners in the Catena-X network), the visibility of digital twins and the content of the attribute `specificAssetIds` of digital twins must be restricted to authorized partners only. The actual implementation depends on the DTR product used by the Catena-X partner. More details can be found in the [Digital Twin KIT](/docs-kits/category/digital-twin-kit).
 
 #### Handling of Digital Twins at Contract Manufacturing
 
@@ -96,7 +96,7 @@ To enforce a strict need-to-know (and prevent data from being exposed to non-aut
 
 ##### Submodel Descriptors
 
-Submodel descriptors must be compliant with the guidelines from the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit) as well as the following additional conventions:
+Submodel descriptors must be compliant with the guidelines from the [Digital Twin KIT](/docs-kits/category/digital-twin-kit) as well as the following additional conventions:
 
 - `id`: The submodel ID must be a UUIDv4 in URN format: "urn:uuid:&lt;UUIDv4&gt;";
 - `idShort`: the name of the aspect model in camel case, e.g. for aspect SerialPart: "serialPart".
@@ -281,7 +281,7 @@ Test was performed using 20 threads in parallel. The average number of transacti
 
 A data consumer must first identify the correct submodel descriptor for a Catena-X data transfer. For Catena-X submodel descriptors, the `subprotocol` attribute must have the value "DSP". Then, the data consumer must use the information in the `subprotocolBody` to perform a contract negotiation for the asset referenced by `id` with the Connector of the data provider specified by `dspEndpoint` and afterwards initiate the data transfer.
 
-Further information about the data transfer of submodels can be found in the [Digital Twin KIT](../../../../../docs-kits/category/digital-twin-kit).
+Further information about the data transfer of submodels can be found in the [Digital Twin KIT](/docs-kits/category/digital-twin-kit).
 
 #### Cloud-to-Cloud Parquet File Transfer with EDC Cloud Extension
 

@@ -20,6 +20,7 @@
  ********************************************************************************/
 
 import React, {useState} from "react";
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -55,8 +56,8 @@ export default function FAQsComponent() {
       <ThemedImage
         // alt="Docusaurus themed image hero background"
         sources={{
-          // light: ('/img/main_bg-min.png'),
-          dark: ('/img/main_bg-min.png'),
+          // light: useBaseUrl('/img/main_bg-min.png'),
+          dark: useBaseUrl('/img/main_bg-min.png'),
         }}
         className={styles.hero_bg}
       />

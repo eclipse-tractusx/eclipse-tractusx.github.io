@@ -91,13 +91,9 @@ The final agenda will be published closer to the event. The structure below is a
 
 ### Registration
 
-:::warning[Registration Coming Soon]
-Registration for the Seventh Eclipse Tractus-X Community Days is **not open yet**. There is no registration link available at this time — we will publish it here, on the [ARENA2036 event page](https://arena2036.de/en/reader/seventh-eclipse-tractus-x-community-days/), and in our community channels as soon as it goes live.
+Registration is now open! [Register for the Seventh Eclipse Tractus-X Community Days on Eveeno](https://eveeno.com/146855101).
 
-**Save the date: December 3–4, 2026** at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart) — places are limited, so keep an eye out for the announcement!
-
-👉 **Want to be the first to know?** Join our **[Community Office Hour](https://eclipse-tractusx.github.io/community/open-meetings#community-office-hour)** every Friday at 10:05 (Europe/Berlin) — we announce the registration start, the agenda, and the confirmed speakers there before anywhere else.
-:::
+The event takes place on **December 3–4, 2026** at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart). Places are limited, so register now.
 
 ### Looking Back — Our Community Days Journey
 
