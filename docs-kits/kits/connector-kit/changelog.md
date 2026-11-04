@@ -6,6 +6,10 @@
 
 All notable changes to this KIT will be documented in this file.
 
+## [4.0.0] - 2026-03-18
+
+- Complete rewrite of the Connector KIT
+
 ## [3.0.0] - 2024-06-07
 
 - Replace use case specific FrameworkAgreement rightOperand with the new, consolidated DataExchangeGovernance released with 2408

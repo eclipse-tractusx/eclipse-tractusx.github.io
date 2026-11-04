@@ -16,7 +16,7 @@ tags: [community, meeting-minutes]
 ## Update Release Management
 
 - Release Check issues must be created next week to confirm who joins or opts out of the test phase; reminders have been sent to previous participants.
-- Current reminder for 26.03 open planning: https://eclipse-tractusx.github.io/community/open-meetings#Open%20Planning%20for%20R26.03
+- Current reminder for 26.03 open planning: https://eclipse-tractusx.github.io/community/open-meetings#open-planning-r26-06
 
 ## Update Security
 

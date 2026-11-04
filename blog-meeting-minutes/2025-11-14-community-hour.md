@@ -32,7 +32,7 @@ Status updates discussed in meeting:
 ### Community/Open Planning
 
 - Everyone is invited to join the Fifth Eclipse Tractus-X Community Days on December 4th and 5th in Stuttgart. See this [link for registration](https://arena2036.de/de/reader/fifth-eclipse-tractus-x-community-days)
-- New Calendar View for open meetings, see for details the [open meetings page](https://eclipse-tractusx.github.io/community/open-meetings)
+- New Calendar View for open meetings, see for details the [open meetings page](/community/open-meetings)
   - Potentially type color for time and date could be set in white for better legibility.
 
 ### Feedback / Questions / Requests

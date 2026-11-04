@@ -23,7 +23,7 @@ Rooms for Discussion and Planning:
 Key Information:
 
 - Dates and Times: Listed for each session below.
-- Resources: Visit our [open meetings page](/community/open-meetings#one-time-meetings) for all session links and additional documentation.
+- Resources: Visit our [open meetings page](/community/open-meetings) for all session links and additional documentation.
 - Preparation Materials: Ensure readiness by reviewing the provided templates, guidelines, and your own features.
 
 We look forward to seeing you there and working together to make **R26.03** a success!

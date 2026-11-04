@@ -24,7 +24,7 @@ tags: [community, meeting-minutes]
 ### Open planning / community
 
 - We are looking for committers to help with the Release QG Check Review for the upcoming release. Please reach out to [Roland](https://github.com/RolaH1t) and [Siegfried](https://github.com/Siegfriedk) if you are interested.
-- Check out the meeting [invitations for open meetings](https://eclipse-tractusx.github.io/community/open-meetings/#one-time-meetings) regarding planning for release 24.12
+- Check out the meeting [invitations for open meetings](/community/open-meetings) regarding planning for release 24.12
 
 ### Discussions
 

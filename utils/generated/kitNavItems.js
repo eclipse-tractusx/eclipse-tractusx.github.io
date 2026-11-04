@@ -20,7 +20,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT MANUALLY
  * Generated from data/kitsData.js
- * Content hash: e63b19e2a3bd85db76dc1d4f2ccea92f4a66f7cb88b622a9b848e18b5958478f
+ * Content hash: 8b5b0f865759b5df8699f1c6fd8a7bb8d822472ab2bdf75027d7c0d52b88bf7b
  * 
  * To regenerate: npm run generate:nav-items
  * 
@@ -56,15 +56,15 @@ const kitsByCategory = {
       "name": "BUSINESS PARTNER KIT",
       "route": "/docs-kits/kits/business-partner-kit/adoption-view",
       "deprecated": false
-    }
-  ],
-  "industryCoreFoundation": [
+    },
     {
       "id": "digital-twin",
       "name": "DIGITAL TWIN KIT",
       "route": "/docs-kits/kits/digital-twin-kit/adoption-view",
       "deprecated": false
-    },
+    }
+  ],
+  "industryCoreFoundation": [
     {
       "id": "industry-core",
       "name": "INDUSTRY CORE KIT",
@@ -94,9 +94,21 @@ const kitsByCategory = {
       "name": "KNOWLEDGE AGENTS KIT",
       "route": "/docs-kits/kits/knowledge-agents-kit/adoption-view/intro",
       "deprecated": false
+    },
+    {
+      "id": "ai-service",
+      "name": "AI SERVICE KIT",
+      "route": "/docs-kits/kits/ai-service-kit/adoption-view",
+      "deprecated": false
     }
   ],
   "useCases": [
+    {
+      "id": "esdscom",
+      "name": "eSDS COMMUNICATION KIT",
+      "route": "/docs-kits/next/kits/esdscom-kit/adoption-view",
+      "deprecated": false
+    },
     {
       "id": "ess",
       "name": "ESS KIT",
@@ -110,6 +122,12 @@ const kitsByCategory = {
       "deprecated": false
     },
     {
+      "id": "cbam",
+      "name": "CBAM KIT",
+      "route": "/docs-kits/kits/cbam-kit/adoption-view",
+      "deprecated": false
+    },
+    {
       "id": "eco-pass",
       "name": "ECO PASS KIT",
       "route": "/docs-kits/kits/eco-pass-kit/adoption-view",
@@ -119,6 +137,18 @@ const kitsByCategory = {
       "id": "circularity",
       "name": "CIRCULARITY KIT",
       "route": "/docs-kits/kits/circularity-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "material-accounting",
+      "name": "MATERIAL ACCOUNTING KIT",
+      "route": "/docs-kits/next/kits/material-accounting-kit/adoption-view",
+      "deprecated": false
+    },
+    {
+      "id": "due-diligence",
+      "name": "DUE DILIGENCE CHECK KIT",
+      "route": "/docs-kits/kits/due-diligence-check-kit/adoption-view",
       "deprecated": false
     },
     {
@@ -180,20 +210,66 @@ const kitsByCategory = {
       "name": "GEOMETRY KIT",
       "route": "/docs-kits/kits/geometry-kit/adoption-view",
       "deprecated": false
+    },
+    {
+      "id": "ccm",
+      "name": "COMPANY CERTIFICATE MANAGEMENT KIT",
+      "route": "/docs-kits/kits/company-certificate-management-kit/adoption-view",
+      "deprecated": false
     }
   ],
   "industryKits": {
-    "shop-floor": [
+    "manufacturing": [
+      {
+        "id": "pcf-data-acquisition",
+        "name": "PCF DATA ACQUISITION KIT",
+        "route": "/docs-kits/next/kits/pcf-data-acquisition-kit/adoption-view",
+        "deprecated": false
+      },
+      {
+        "id": "autonomous-operation",
+        "name": "AUTONOMOUS OPERATION & REMOTE SERVICES KIT",
+        "route": "/docs-kits/next/kits/autonomous-operation-kit/adoption-view",
+        "deprecated": false
+      },
       {
         "id": "maas",
         "name": "MANUFACTURING AS A SERVICE KIT",
-        "route": "/docs-kits/kits/manufacturing-as-a-service-kit/adoption-view",
+        "route": "/docs-kits/next/kits/manufacturing-as-a-service-kit/adoption-view",
         "deprecated": false
       },
       {
         "id": "modular-production",
         "name": "MODULAR PRODUCTION KIT",
         "route": "/docs-kits/kits/modular-production-kit/adoption-view",
+        "deprecated": false
+      }
+    ],
+    "semiconductor": [
+      {
+        "id": "exchange-maintenance-logbook",
+        "name": "EXCHANGE OF MAINTENANCE LOGBOOK KIT",
+        "route": "/docs-kits/next/kits/exchange-maintenance-logbook-kit/adoption-view",
+        "deprecated": false
+      },
+      {
+        "id": "unit-process-as-a-service",
+        "name": "UNIT PROCESS AS A SERVICE KIT",
+        "route": "/docs-kits/next/kits/unit-process-as-a-service-kit/adoption-view",
+        "deprecated": false
+      }
+    ],
+    "automotive": [
+      {
+        "id": "modular-engineering",
+        "name": "MODULAR ENGINEERING KIT",
+        "route": "/docs-kits/kits/modular-engineering-kit/adoption-view",
+        "deprecated": false
+      },
+      {
+        "id": "engineering-as-a-service",
+        "name": "ENGINEERING AS A SERVICE KIT",
+        "route": "/docs-kits/kits/engineering-as-a-service-kit/adoption-view",
         "deprecated": false
       }
     ]
@@ -273,7 +349,7 @@ function generateKitNavItems() {
     });
     items.push({
       to: '/Kits/cross-industry',
-      label: 'USE CASES',
+      label: 'CROSS-INDUSTRY USE CASES',
       className: 'kit-category-header'
     });
     

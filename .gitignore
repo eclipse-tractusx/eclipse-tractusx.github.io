@@ -7,6 +7,10 @@
 # Generated files
 .docusaurus
 .cache-loader
+/static/generated/
+
+# Generated static folders
+static/generated/kit-logos
 
 # Misc
 .DS_Store
@@ -30,3 +34,5 @@ yarn-error.log*
 
 # Draw.IO
 *.bkp
+
+static/generated/kit-logos

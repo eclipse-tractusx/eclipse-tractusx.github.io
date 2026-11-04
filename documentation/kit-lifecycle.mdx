@@ -38,6 +38,7 @@ import ArtifactRequirementsTable from '@site/src/components/2.0/ArtifactRequirem
 import { artifactRequirementsData } from '@site/data/kitArtifactRequirementsData';
 import ThemedImage from '@theme/ThemedImage';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import KitDualViewCard from '@site/src/components/2.0/KitDualViewCard';
 
 
 | Status     | Created      | Post-History                           |
@@ -199,31 +200,56 @@ The Tractus-X KIT ecosystem uses a comprehensive lifecycle framework to ensure q
 ### Maturity Level Process
 
 ```mermaid
-graph TD
-    A[Sandbox] --> B[Incubating]
-    B --> B1[Draft]
-    B --> B2[In Progress] 
-    B --> B3[In Review]
-    B1 --> B2
-    B2 --> B3
-    B3 --> C[Graduated]
-    A -.-> D[Deprecated]
-    B -.-> D
-    C -.-> D
-
+graph LR
+    A["1. Sandbox (MVP)"] --> B[2. Incubating]
+    B --> C[3. Graduated]
+    
+    style A fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff
+    style B fill:#72bd00,stroke:#65a30d,stroke-width:2px,color:#fff
+    style C fill:#8246e1,stroke:#6b21a8,stroke-width:2px,color:#fff
 ```
 
 Each maturity level signals the quality, completeness, and proof that the use case solves specific business problems and provides value to all stakeholders. To advance between levels, developers must fulfill various criteria and complete mandatory artifacts and deliverables.
 
-## Detailed Maturity Levels
+<details>
+<summary><strong>View Detailed Process with Incubating Sub-States</strong></summary>
 
-For more information look at the [TRG 10.03 - KIT Lifeclycle](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-03) documentation.
+```mermaid
+graph TD
+    A[1. Sandbox] --> B[2. Incubating]
+    B --> B1[2.1 Draft]
+    B --> B2[2.2 In Progress] 
+    B --> B3[2.3 In Review]
+    B1 --> B2
+    B2 --> B3
+    B3 --> C[3. Graduated]
+    A -.-> D[4. Deprecated]
+    B -.-> D
+    C -.-> D
+    
+    style A fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff
+    style B fill:#72bd00,stroke:#65a30d,stroke-width:2px,color:#fff
+    style B1 fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff
+    style B2 fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff
+    style B3 fill:#8b5cf6,stroke:#7c3aed,stroke-width:2px,color:#fff
+    style C fill:#8246e1,stroke:#6b21a8,stroke-width:2px,color:#fff
+    style D fill:#ef4444,stroke:#dc2626,stroke-width:2px,color:#fff
+```
 
-### <LightbulbIcon sx={{ fontSize: 24, color: '#f59e0b', marginRight: '8px', verticalAlign: 'middle' }} /> Sandbox Level
+The detailed view shows the three sub-states within the Incubating level: **Draft**, **In Progress**, and **In Review**. Each sub-state represents a distinct phase of development progress before graduation.
+
+</details>
+
+# Detailed Maturity Levels
+
+For more information look at the [TRG 10.03 - KIT Lifecycle](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-03) documentation.
+
+
+## <LightbulbIcon sx={{ fontSize: 24, color: '#f59e0b', marginRight: '8px', verticalAlign: 'middle' }} /> 1. Sandbox Level (MVP KIT)
 
 **Purpose**: Initial exploration and community validation
 
-Sandbox is the entry point for new KIT ideas. At this stage, the focus is on establishing a clear vision, mission, and business value proposition. This level serves as a preview of potential business innovation and allows for community feedback and validation.
+Sandbox is the entry point for new KIT ideas (Minimal Viable Product). At this stage, the focus is on establishing a clear vision, mission, and business value proposition. This level serves as a preview of potential business innovation and allows for community feedback and validation.
 
 **Key Characteristics**:
 
@@ -231,34 +257,40 @@ Sandbox is the entry point for new KIT ideas. At this stage, the focus is on est
 - Community interest validation
 - Basic problem definition and domain identification
 - Foundation for future development
-- No standards a mandatory, just a clear business vision
+- No standards are mandatory, just a clear business vision
 - Technical implementation proposal can already be done
 
-### <AssignmentIcon sx={{ fontSize: 24, color: '#72bd00ff', marginRight: '8px', verticalAlign: 'middle' }} /> Incubating Level
+### Minimal KIT Requirements for Sandbox (MVP) Level
+
+<div>
+  <KitDualViewCard />
+</div>
+
+## <AssignmentIcon sx={{ fontSize: 24, color: '#72bd00ff', marginRight: '8px', verticalAlign: 'middle' }} /> 2. Incubating Level
 
 **Purpose**: Active development with structured progression
 
 Incubating represents the active development phase where KITs evolve from concept to functional implementation. This level includes three distinct sub-states that provide clear progression milestones:
 
-#### <EditIcon sx={{ fontSize: 20, color: '#f59e0b', marginRight: '6px', verticalAlign: 'middle' }} /> Draft State
+### <EditIcon sx={{ fontSize: 20, color: '#f59e0b', marginRight: '6px', verticalAlign: 'middle' }} /> 2.1 Draft State
 
 - **Focus**: Initial development and structure setup
 - **Activities**: Basic artifact creation, initial documentation, architecture planning
 - **Deliverables**: Core documentation framework, basic API specifications
 
-#### <DeveloperModeIcon sx={{ fontSize: 20, color: '#3b82f6', marginRight: '6px', verticalAlign: 'middle' }} /> In Progress State
+###  <DeveloperModeIcon sx={{ fontSize: 20, color: '#3b82f6', marginRight: '6px', verticalAlign: 'middle' }} /> 2.2 In Progress State
 
 - **Focus**: Active implementation and content development
 - **Activities**: Full artifact development, implementation work, testing
 - **Deliverables**: Complete documentation, working implementations, test cases
 
-#### <VisibilityIcon sx={{ fontSize: 20, color: '#8b5cf6', marginRight: '6px', verticalAlign: 'middle' }} /> In Review State
+### <VisibilityIcon sx={{ fontSize: 20, color: '#8b5cf6', marginRight: '6px', verticalAlign: 'middle' }} /> 2.3 In Review State
 
 - **Focus**: Quality assurance and community review
 - **Activities**: Peer review, quality validation, compliance checking
 - **Deliverables**: Reviewed and approved artifacts, feedback incorporation
 
-### <SchoolIcon sx={{ fontSize: 24, color: '#8246e1ff', marginRight: '8px', verticalAlign: 'middle' }} /> Graduated Level
+## <SchoolIcon sx={{ fontSize: 24, color: '#8246e1ff', marginRight: '8px', verticalAlign: 'middle' }} /> 3. Graduated Level
 
 **Purpose**: Production-ready with proven real-world validation
 

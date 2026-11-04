@@ -29,7 +29,7 @@ tags: [community, meeting-minutes]
 
 ### Open planning / community
 
-- Open [Meetings Links](https://eclipse-tractusx.github.io/community/open-meetings) with ics invitation files are available for the community
+- Open [Meetings Links](/community/open-meetings) with ics invitation files are available for the community
 
 ### Open discussion
 

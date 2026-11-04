@@ -20,6 +20,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from '@docusaurus/router';
 import Head from '@docusaurus/Head';
+import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import { getKitsByDataspace, industries } from '@site/data/kitsData';
 import FilteredKitsGallery from '@site/src/components/2.0/FilteredKitsGallery';
@@ -142,8 +143,8 @@ export default function DataspacePage() {
           }}>
             The requested dataspace could not be found.
           </p>
-          <a 
-            href="/kits" 
+          <Link 
+            to="/kits" 
             style={{ 
               display: 'inline-block',
               padding: '0.75rem 1.5rem',
@@ -155,7 +156,7 @@ export default function DataspacePage() {
             }}
           >
             ← Back to KITs Overview
-          </a>
+          </Link>
         </div>
       </Layout>
     );
@@ -249,7 +250,7 @@ export default function DataspacePage() {
             </a>. <br /><br />
             To collaborate, add your dataspace to this industry or support the content refactor, please join our{' '}
             <a 
-              href="https://eclipse-tractusx.github.io/community/open-meetings#Eclipse%20Tractus-X%20KITs%20Community%20Office%20Hour"
+              href="https://eclipse-tractusx.github.io/community/open-meetings#kits-office-hour"
               style={{ color: 'var(--ifm-color-primary)', textDecoration: 'underline' }}
             >
               KIT office hours

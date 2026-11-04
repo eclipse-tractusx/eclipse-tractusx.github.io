@@ -126,7 +126,7 @@ Examples:
 [Digital Product Pass](https://github.com/eclipse-tractusx/digital-product-pass/blob/main/.github/workflows/publish-swagger-hub.yaml)
 [Tractus-X EDC](https://github.com/eclipse-tractusx/tractusx-edc/blob/main/.github/workflows/publish-swaggerhub.yaml)
 
-If you have any questions, please use our [“Tractus-X community call”](https://eclipse-tractusx.github.io/community/open-meetings) and prepare accordingly before merging.
+If you have any questions, please use our ["Tractus-X community call"](/community/open-meetings) and prepare accordingly before merging.
 
 7.Add your newly created KIT documentation to the Kits `sidebar` page, by incorporating the following declaration in the sidebar object of the `sidebar.js` file:
 

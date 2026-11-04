@@ -7,7 +7,11 @@ info:
 paths:
   /receive:
     post:
-      summary: Receive notifications of your partners. Is responsible for the creation and update of demand and capacity notifications including closure.
+      summary: Receive notifications of your partners. Is responsible for the creation and update of demand and capacity notifications including closure. (Old Version)
+      deprecated: true
+      description: >
+        **DEPRECATED in release 26.09.** This endpoint will be fully out of service on 
+        **September 30, 2027**. Please migrate to the `v3` API.
       tags:
         - DemandAndCapacityNotification
       operationId: receiveDemandAndCapacityNotification

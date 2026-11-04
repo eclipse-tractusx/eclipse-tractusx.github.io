@@ -30,6 +30,7 @@ export default function FilteredKitsGallery({
   showIndustryFilter = true,
   showCategoryFilter = false,
   showDomainFilter = false,
+  showScopeFilter = false,
   showHeader = true,
   title,
   description,
@@ -39,6 +40,7 @@ export default function FilteredKitsGallery({
   const [selectedIndustry, setSelectedIndustry] = useState('all'); // Store industry ID
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [selectedDomain, setSelectedDomain] = useState('All Domains');
+  const [selectedScope, setSelectedScope] = useState('All KITs');
   const [sortOrder, setSortOrder] = useState('default');
 
   // Helper to get industry name from ID
@@ -112,6 +114,17 @@ export default function FilteredKitsGallery({
     // Filter by domain
     if (selectedDomain !== 'All Domains' && showDomainFilter) {
       filtered = filtered.filter(kit => kit.domain === selectedDomain);
+    }
+    
+    // Filter by scope (industry-specific vs cross-industry)
+    if (selectedScope !== 'All KITs' && showScopeFilter) {
+      if (selectedScope === 'Industry-Specific Only') {
+        filtered = filtered.filter(kit => kit.categoryType && kit.categoryType.endsWith(' Specific'));
+      } else if (selectedScope === 'Cross-Industry Only') {
+        filtered = filtered.filter(kit => 
+          kit.categoryType && ['Dataspace Foundation', 'Industry Core Foundation', 'Cross-Industry Use Cases'].includes(kit.categoryType)
+        );
+      }
     }
     
     return filtered;
@@ -216,6 +229,32 @@ export default function FilteredKitsGallery({
                     {domain}
                   </button>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {showScopeFilter && (
+            <div className={styles.filter_group}>
+              <label className={styles.filter_label}>Filter by Kit Scope</label>
+              <div className={styles.button_group}>
+                <button
+                  className={`${styles.filter_button} ${selectedScope === 'All KITs' ? styles.active : ''}`}
+                  onClick={() => setSelectedScope('All KITs')}
+                >
+                  All KITs
+                </button>
+                <button
+                  className={`${styles.filter_button} ${selectedScope === 'Industry-Specific Only' ? styles.active : ''}`}
+                  onClick={() => setSelectedScope('Industry-Specific Only')}
+                >
+                  Industry-Specific Only
+                </button>
+                <button
+                  className={`${styles.filter_button} ${selectedScope === 'Cross-Industry Only' ? styles.active : ''}`}
+                  onClick={() => setSelectedScope('Cross-Industry Only')}
+                >
+                  Cross-Industry Only
+                </button>
               </div>
             </div>
           )}

@@ -20,6 +20,39 @@
         "logo": {
           "description": "Logo component reference (validated at runtime)"
         },
+        "logoLicencse": {
+          "type": "object",
+          "description": "License information for the KIT logo",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["CC-BY-4.0", "Apache-2.0", "CC0 1.0 Universal", "MIT"],
+              "description": "License type for the logo"
+            },
+            "authors": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Semicolon-separated list of copyright holders (e.g., '2026 Eclipse Tractus-X Contributors; 2024,2025 Company Name')"
+            },
+            "licenseUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL to the license declaration file (e.g., GitHub .license file)"
+            },
+            "sourceUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL to the logo source file"
+            },
+            "originalSourceUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "Optional URL to the original source if logo is derived from external source"
+            }
+          },
+          "required": ["type", "authors", "licenseUrl", "sourceUrl"],
+          "additionalProperties": false
+        },
         "logoHeight": {
           "type": "number",
           "minimum": 0,
@@ -120,6 +153,7 @@
         "id",
         "name",
         "logo",
+        "logoLicencse",
         "route",
         "colors",
         "maturity",

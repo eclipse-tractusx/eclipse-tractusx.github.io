@@ -15,7 +15,7 @@ tags: [community, meeting-minutes]
 
 ### Security team
 
-- [Security office hour](https://eclipse-tractusx.github.io/community/open-meetings/#Security%20-%20Office%20Hour) kick off. Meeting minutes will be provided soon.
+- [Security office hour](/community/open-meetings) kick off. Meeting minutes will be provided soon.
 - TRG 8.0 [work in progress](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/681)
 - Mind the support end of:
   - Veracode - SAST /SCA

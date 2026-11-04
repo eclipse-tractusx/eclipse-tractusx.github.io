@@ -6,7 +6,7 @@ description: Onboarding
 
 ![DCM kit banner](@site/static/img/kits/demand-and-capacity-management/demand-and-capacity-management-kit-logo.svg)
 
-You can participate in the Catena-X data ecosystem in various roles. Become acquainted with the foundational building blocks of Catena-X and how all participants collaborate within a global ecosystem by reading the [Whitepaper describing the Catena-X operating model](https://catena-x.net/fileadmin/_online_media_/CX_Operating_Modelv2.1_final.pdf).
+You can participate in the Catena-X data ecosystem in various roles. Become acquainted with the foundational building blocks of Catena-X and how all participants collaborate within a global ecosystem by reading the explaination on [Roles in the Catena-X ecosystem](https://catenax-ev.github.io/docs/operating-model/who-roles-in-the-catena-x-ecosystem).
 
 Actors willing to use the Catena-X DCM standard, and start a collaboration with other supply chain partners enabled by an interoperable solution, can prepare asking the IT colleagues to check the following [End-to-End Adopter Journey](https://eclipse-tractusx.github.io/docs/tutorials/e2e/).
 
@@ -43,13 +43,13 @@ If you are interested in utilizing DCM within the Catena-X dataspace you can fol
 
 #### Onboarding
 
-Business Application Providers that want to enable their commercial software for Catena-X DCM need to register for the Catena-X Ecosystem following the specific information described in [Offering a Catena-X Solution](https://catena-x.net/en/catena-x-introduce-implement/offering-a-catena-x-solution) (including next steps and contacts).
+Business Application Providers that want to enable their commercial software for Catena-X DCM can get their solution certified following the [certification process](https://catena-x.net/ecosystem/certification/).
 
 Please refer to the [Catena-X Library][StandardLibrary] for the newest version of the DCM as well as other standards.
 
 ### Software Developers
 
-[https://catena-x.net/en/tractus-x-1](https://catena-x.net/en/tractus-x-1)
+[https://eclipse-tractusx.github.io](https://eclipse-tractusx.github.io)
 
 [https://github.com/eclipse-tractusx](https://github.com/eclipse-tractusx)
 

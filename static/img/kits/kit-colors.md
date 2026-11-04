@@ -7,6 +7,7 @@ Each KIT logo consists of a domain primary color, which is shared among all KITs
 |kit|domain primary color|KIT primary color|
 |---|---|---|
 |agents|3372CC|2718FA|
+|autonomous-operation|E5CCFF|6638A1|
 |behavior-twin|FFC357|FFA601|
 |business-partner|3372CC|1E13C2|
 |circularity|66C791|41891F|
@@ -49,3 +50,11 @@ Each KIT logo consists of a domain primary color, which is shared among all KITs
 - Gradient
   - top left: domain primary color
   - bottom right: KIT primary color
+
+## NOTICE
+
+This work is licensed under the CC-BY-4.0
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2024 Contributors to the Eclipse Foundation
+- Source URL: https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/static/img/kit-colors.md

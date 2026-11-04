@@ -29,6 +29,10 @@ https://creativecommons.org/licenses/by/4.0/legalcode.
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
+import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
+
+<Kit3DLogo kitId="geometry" />
+
 ## Architecture
 
 ### Component Diagram

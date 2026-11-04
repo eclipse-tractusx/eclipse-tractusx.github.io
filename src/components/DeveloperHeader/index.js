@@ -20,6 +20,7 @@
  ********************************************************************************/
 
 import React from "react";
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import ThemedImage from '@theme/ThemedImage';
 import KitsCoreSvg from '@site/static/img/kits&core.svg'
 
@@ -32,8 +33,8 @@ export default function DeveloperHeader() {
         <ThemedImage
           // alt="Docusaurus themed image hero background"
           sources={{
-            light: ('/img/main-bg-light.png'),
-            dark: ('/img/main_bg-min.png'),
+            light: useBaseUrl('/img/main-bg-light.png'),
+            dark: useBaseUrl('/img/main_bg-min.png'),
           }}
           className={styles.hero_bg}
         />

@@ -23,7 +23,7 @@ tags: [community, meeting-minutes]
 
 ### Open planning / community
 - Last open planning session went very well
-- There's a new [open meetings](https://eclipse-tractusx.github.io/community/open-meetings) page
+- There's a new [open meetings](/community/open-meetings) page
 
 ### Open discussion
 - discussion regarding the "Notice for docker image" to be moved into a separate file.

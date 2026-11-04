@@ -14,3 +14,15 @@
 
 # Example of KIT Code Owner eg. Data Trust & Security KIT
 /docs-kits/kits/data-trust-and-security-kit/ @matbmoser
+
+# Connector KIT
+/docs-kits/kits/connector-kit/ @lgblaumeiser
+
+# Modular Engineering KIT
+/docs-kits/kits/modular-engineering-kit/ @sb3nz
+
+# Engineering as a Service KIT
+/docs-kits/kits/engineering-as-a-service-kit/ @sb3nz
+
+# Company Certificate Management KIT
+/docs-kits/kits/company-certificate-management-kit/ @seb-l0

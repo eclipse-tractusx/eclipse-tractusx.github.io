@@ -13,7 +13,7 @@ tags: [community, meeting-minutes]
 ### Release Management
 
 - The first activities for the next release are coming up as [per the timeline](https://github.com/orgs/eclipse-tractusx/projects/26/views/35).
-- docusaurus of the website will finally be updated to 3.x 😍 Everyone who is responsible for a kit should join the kick-off as announced per the [open meetings page](https://eclipse-tractusx.github.io/community/open-meetings/).
+- docusaurus of the website will finally be updated to 3.x 😍 Everyone who is responsible for a kit should join the kick-off as announced per the [open meetings page](/community/open-meetings).
 
 ### FOSS
 

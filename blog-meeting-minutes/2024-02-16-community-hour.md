@@ -31,5 +31,5 @@ tags: [community, meeting-minutes]
 
 ### Open planning / community
 
-- New open meeting links available in the [community section](https://eclipse-tractusx.github.io/community/open-meetings)
+- New open meeting links available in the [community section](/community/open-meetings)
 

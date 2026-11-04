@@ -26,6 +26,23 @@ All notable changes to this KIT will be documented in this file.
 
 - ./.
 
+## [0.2.0] - 2026-04-17
+
+### Added
+
+- Initial documentation structure for the Factory-XManufacturing as a Service KIT in the Tractus-X KIT framework
+- Development View content, including Architecture, API Specification, and Reference Implementation
+- Operations View content, including initial Deployment Script section
+- NOTICE and license information added to the affected KIT files
+
+### Changed
+
+- Adoption View content, including Vision and Mission, Business Value, Semantic Models, and Standards
+
+### Removed
+
+- Software Development View
+
 ## [0.1.0] - 2024-03-29
 
 ### Added

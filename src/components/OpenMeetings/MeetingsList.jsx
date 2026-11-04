@@ -19,6 +19,7 @@
 
 import React, { useState, useEffect } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import Grid from '@mui/material/Grid';
 import MeetingInfo from './MeetingInfo';
 import { meetings, MEETING_CATEGORIES } from '@site/data/meetings';
 
@@ -43,21 +44,22 @@ export default function MeetingsList({ category }) {
   return (
     <BrowserOnly fallback={<div>Loading meetings...</div>}>
       {() => (
-        <>
+        <Grid container spacing={3} sx={{ mb: 4 }}>
           {filteredMeetings.map(meeting => (
-            <MeetingInfo
-              key={meeting.id}
-              title={meeting.title}
-              schedule={meeting.recurrence ? 'Loading...' : 'No dedicated schedule - session needs to be requested'}
-              description={meeting.description}
-              contact={meeting.contact}
-              sessionLink={meeting.sessionLink}
-              additionalLinks={meeting.additionalLinks || []}
-              meetingData={meeting}
-              timezone={selectedTimezone}
-            />
+            <Grid item xs={12} sm={6} md={4} key={meeting.id}>
+              <MeetingInfo
+                title={meeting.title}
+                schedule={meeting.recurrence ? 'Loading...' : 'No dedicated schedule - session needs to be requested'}
+                description={meeting.description}
+                contact={meeting.contact}
+                sessionLink={meeting.sessionLink}
+                additionalLinks={meeting.additionalLinks || []}
+                meetingData={meeting}
+                timezone={selectedTimezone}
+              />
+            </Grid>
           ))}
-        </>
+        </Grid>
       )}
     </BrowserOnly>
   );

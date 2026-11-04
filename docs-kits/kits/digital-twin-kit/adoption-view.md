@@ -35,7 +35,7 @@ back to the public. A priority is the seamless integration with other Catena-X d
 
 ### Customer Journey
 
-With the Digital Twin Kit, all roles mentioned in the [Operating Model Whitepaper](https://catena-x.net/fileadmin/user_upload/Publikationen_und_WhitePaper_des_Vereins/CX_Operating_Modelv2.1_final.pdf)
+With the Digital Twin Kit, all roles mentioned in the [Catena-X Operating Model](https://catenax-ev.github.io/docs/operating-model/why-introduction)
 are given the necessary tooling to format their data and APIs in a standardized manner.
 
 <!-- !Mandatory! -->
@@ -71,7 +71,7 @@ in existing enterprise IT and on other hand with the Dataspace.
 ### Example
 
 The [Traceability Kit](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/adoption-view#logic--schema)
-and the [Data Chain Kit](https://eclipse-tractusx.github.io/docs-kits/kits/data-chain-kit/Documentation/irs_arc42)
+and the [Data Chain Kit](https://eclipse-tractusx.github.io/docs-kits/kits/data-chain-kit/documentation/arc42)
 build on Digital Twins and leverage many of this Kit's content. The Data Chain Kit would be unimaginable without the
 pre-defined endpoint- and payload-definition that is the Digital Twin Kit. Likewise,
 coupling the chains' elements would be impossible without a unified hierarchical structure running with all participants.
@@ -83,7 +83,7 @@ For more information how specifically the Asset Administration Shell is used, co
 
 Links open html.
 
-- [CX - 0001 EDC Discovery API](https://catenax-ev.github.io/docs/next/standards/CX-0001-EDCDiscoveryAPI) *(version 1.0.2)*
+- [CX - 0001 Participant Agent Registration](https://catenax-ev.github.io/docs/standards/CX-0001-ParticipantAgentRegistration) *(version 1.0.2)*
 - [CX - 0002 Digital Twins in Catena-X](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX)*(version 2.2.0)*
 - [CX - 0003 Semantic Aspect Meta-Model](https://catenax-ev.github.io/docs/next/standards/CX-0003-SAMMSemanticAspectMetaModel)*(version 1.1.0)*
 - [CX - 0053 BPN Discovery Service](https://catenax-ev.github.io/docs/next/standards/CX-0053-BPNDiscoveryServiceAPIs) *(version 1.1.0)*

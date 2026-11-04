@@ -1,0 +1,7 @@
+version = 1
+
+[[annotations]]
+path = ["*.png", "*.jpg", "*.jpeg"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Contributors of the Eclipse Foundation"
+SPDX-License-Identifier = "CC-BY-4.0"

@@ -54,6 +54,18 @@ const sidebars = {
                 'kit-master-data-overview',
             ]
         },
+        {
+            type: 'category',
+            label: 'KIT Assets',
+            collapsed: false,
+            link: {
+                type: 'doc',
+                id: 'kit-3d-logo-library'
+            },
+            items: [
+                'kit-3d-logo-library'
+            ]
+        },
     ],
 };
  

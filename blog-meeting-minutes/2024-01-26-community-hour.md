@@ -34,7 +34,7 @@ tags: [community, meeting-minutes]
 
 ### Open planning / community
 
-- New [Open Meetings Links](https://eclipse-tractusx.github.io/community/open-meetings) are listed directly on our webpage to participate and separate calendar files can be downloaded from there.
+- New [Open Meetings Links](/community/open-meetings) are listed directly on our webpage to participate and separate calendar files can be downloaded from there.
 - Office hours will probably start a few minutes later so the people don't have to wait until everyone gets there.
 - Commiters and Contributors Meeting could be a new form of communication where the committers are more involved getting some pressure off the System Team.
 - Newjoiner rounds for basic introductions would be held every 2 weeks in a separate session.

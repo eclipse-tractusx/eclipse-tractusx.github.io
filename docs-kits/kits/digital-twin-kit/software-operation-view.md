@@ -34,7 +34,7 @@ CX-0002.
 - IDSA: [International Data Spaces Association](https://internationaldataspaces.org/)
 - IDTA: [Industrial Digital Twin Association](https://industrialdigitaltwin.org/)
 - OpCo: Operating Company. Also called Core Service Provider A in
-  the [CX Operating Model](https://catena-x.net/fileadmin/_online_media_/CX_Operating_Modelv2.1_final.pdf).
+  the [Catena-X Operating Model](https://catenax-ev.github.io/docs/operating-model/why-introduction).
 
 ## Setup Guide
 
