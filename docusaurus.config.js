@@ -373,26 +373,26 @@ const config = {
               {
                 type: 'html',
                 className: 'dropdown-archived-versions',
-                value: '<b>Archived</b>',
+                value: '<b>Archived - zip (900 MB)</b>',
               },
               {
-                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.09/kits',
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/archive/refs/tags/25.09.zip',
                 label: '25.09',
               },
               {
-                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.06/kits',
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/archive/refs/tags/25.06.zip',
                 label: '25.06',
               },
               {
-                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-25.03/kits',
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/archive/refs/tags/25.03.zip',
                 label: '25.03',
               },
               {
-                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-24.12/kits',
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/archive/refs/tags/24.12.zip',
                 label: '24.12',
               },
               {
-                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits_versioned_docs/version-24.08/kits',
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/archive/refs/tags/24.08.zip',
                 label: '24.08',
               },
             ],
