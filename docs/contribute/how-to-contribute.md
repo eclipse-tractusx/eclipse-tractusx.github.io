@@ -49,6 +49,6 @@ to be subscribed to the list and are added automatically when gaining the commit
 
 If you find a bug or you have a request or proposal for e.g. a new feature, open an issue. This is an important part of
 doing development in an open and transparent way and is also used for documentation.
-More [information about the different issue tracker](/docs/oss/issues).
+More [information about the different issue tracker](/docs/contribute/issues).
 
 See the [Handbook](https://www.eclipse.org/projects/handbook/#community-issues)

@@ -30,7 +30,7 @@ tags: [meeting-minutes, community]
 
 ### Discussions
 
-- You can read about Eclipse roles and how to become one [here](https://eclipse-tractusx.github.io/docs/oss/contributor-committer#committer)
+- You can read about Eclipse roles and how to become one [here](https://eclipse-tractusx.github.io/docs/contribute/contributor-committer#committer)
 - There is a [new board work in progress](https://github.com/orgs/eclipse-tractusx/projects/61/views/1#) on GitHub that could be a replacement for the current
   Miro board we use for the Office Hour
 - Kubernetes 1.30 is available now, but consortia clusters are still on 1.27 (which is the LTS 

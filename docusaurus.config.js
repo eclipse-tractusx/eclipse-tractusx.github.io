@@ -142,15 +142,15 @@ const config = {
         exclude: ['**/kit-template/**'],
       },
     ],
-    // -- documentation-kits --
+    // -- KIT Handbook: everything explaining what a KIT is and how to build one --
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'docs-documentation',
-        path: 'documentation',
-        routeBasePath: 'documentation',
-        editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation',
-        sidebarPath: './sidebarsDocumentation.js',
+        id: 'kit-handbook',
+        path: 'kit-handbook',
+        routeBasePath: 'kits/handbook',
+        editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
+        sidebarPath: './sidebarsKitHandbook.js',
       },
     ],
     // -- Community --
@@ -199,6 +199,34 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          // --- Information architecture restructure (2026-11): old → new routes ---
+          { to: '/about', from: '/AboutUs' },
+          { to: '/kits', from: '/Kits' },
+          { to: '/kits/dataspace-foundation', from: '/Kits/dataspace-foundation' },
+          { to: '/kits/industry-core', from: '/Kits/industry-core' },
+          { to: '/kits/cross-industry', from: '/Kits/cross-industry' },
+          { to: '/kits/industry', from: '/Kits/industry' },
+          { to: '/kits/dataspace', from: '/Kits/dataspace' },
+          { to: '/community-bases', from: '/CommunityBases' },
+          { to: '/contribute', from: '/Contribute' },
+          { to: '/kits/handbook/icon-library', from: '/icons' },
+          { to: '/kits/handbook/getting-started', from: '/documentation/kit-getting-started' },
+          { to: '/kits/handbook/lifecycle', from: '/documentation/kit-lifecycle' },
+          { to: '/kits/handbook/framework', from: '/documentation/kit-framework' },
+          { to: '/kits/handbook/statistics', from: '/documentation/kit-statistics' },
+          { to: '/kits/handbook/master-data', from: '/documentation/kit-master-data-overview' },
+          { to: '/kits/handbook/logo-library', from: '/documentation/kit-3d-logo-library' },
+          { to: '/docs/faq', from: '/docs/dev_faq' },
+          { to: '/docs/resources', from: '/docs/dev_links' },
+          { to: '/docs/contribute/how-to-contribute', from: '/docs/oss/how-to-contribute' },
+          { to: '/docs/contribute/contributor-committer', from: '/docs/oss/contributor-committer' },
+          { to: '/docs/contribute/committer-election-process', from: '/docs/oss/committer-election-process' },
+          { to: '/docs/contribute/code-reviews', from: '/docs/oss/code-reviews' },
+          { to: '/docs/contribute/issues', from: '/docs/oss/issues' },
+          { to: '/docs/contribute/release-process', from: '/docs/oss/release-process' },
+          { to: '/docs/contribute/tooling', from: '/docs/oss/tooling' },
+          { to: '/docs/contribute/howto-xray', from: '/docs/oss/howto-xray' },
+          // --- Pre-existing redirects ---
           {
             to: '/blog-changelog',
             from: '/CHANGELOG',
@@ -214,7 +242,7 @@ const config = {
           },
           {
             to: '/docs/getting-started',
-            from: '/docs/oss/getting-started',
+            from: '/docs/contribute/getting-started',
           },
           {
             to: '/docs/release/trg-1/trg-1-01',
@@ -278,7 +306,7 @@ const config = {
       },
       announcementBar: {
         id: announcementBarId,
-        content: `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
+        content: `🎉️ Get to know us on our new <b><a href="/about">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',
@@ -287,51 +315,45 @@ const config = {
           src: 'img/tx-logos/logo_tractus-x.svg',
         },
         items: [
-          {to: 'blog', label: 'News', position: 'left'},
-          {
-            to: "/AboutUs",
-            position: "left",
-            label: "About Us",
-          },
           {
             type: 'dropdown',
             label: 'KITs',
             position: 'left',
-            to: '/Kits',
+            to: '/kits',
             items: [
               {
-                to: 'Kits',
-                label: 'KITs HOMEPAGE',
+                to: '/kits',
+                label: 'KIT CATALOGUE',
                 className: 'kit-category-header kit-home-icon'
               },
               {
-                to: '/documentation/kit-getting-started',
-                label: 'KIT Getting Started',
+                to: '/kits/handbook/getting-started',
+                label: 'Getting Started with KITs',
                 className: 'kit-nav-item'
               },
               {
-                to: '/documentation/kit-lifecycle',
-                label: 'KIT Lifecycle',
-                className: 'kit-nav-item'
-              },
-              {
-                to: '/documentation/kit-framework',
+                to: '/kits/handbook/framework',
                 label: 'KIT Framework',
                 className: 'kit-nav-item'
               },
               {
-                to: '/documentation/kit-statistics',
-                label: 'KIT Statistics',
+                to: '/kits/handbook/lifecycle',
+                label: 'KIT Lifecycle',
                 className: 'kit-nav-item'
               },
               {
-                to: '/documentation/kit-master-data-overview',
+                to: '/kits/handbook/master-data',
                 label: 'KIT Master Data',
                 className: 'kit-nav-item'
               },
               {
-                to: '/documentation/kit-3d-logo-library',
-                label: 'KIT Assets',
+                to: '/kits/handbook/statistics',
+                label: 'KIT Statistics',
+                className: 'kit-nav-item'
+              },
+              {
+                to: '/kits/handbook/logo-library',
+                label: 'KIT Brand Assets',
                 className: 'kit-nav-item'
               },
               // Dynamically generated from kitsData
@@ -339,31 +361,131 @@ const config = {
             ],
           },
           {
-            type: 'doc',
-            docId: 'developer',
+            type: 'dropdown',
+            label: 'Documentation',
             position: 'left',
-            label: 'Developer Hub',
+            to: '/docs/developer',
+            items: [
+              {
+                type: 'doc',
+                docId: 'developer',
+                label: 'Developer Hub',
+              },
+              {
+                type: 'doc',
+                docId: 'getting-started',
+                label: 'Getting Started',
+              },
+              {
+                type: 'doc',
+                docId: 'tutorials',
+                label: 'Tutorials',
+              },
+              {
+                type: 'doc',
+                docId: 'tutorials/e2e',
+                label: 'End-to-End Adopter Journey',
+              },
+              {
+                type: 'doc',
+                docId: 'faq',
+                label: 'FAQ',
+              },
+              {
+                type: 'doc',
+                docId: 'resources',
+                label: 'Links & Resources',
+              },
+            ],
           },
           {
-            type: 'doc',
-            docId: 'tutorials',
+            type: 'dropdown',
+            label: 'Contribute',
             position: 'left',
-            label: 'Tutorials',
+            to: '/contribute',
+            items: [
+              {
+                to: '/contribute',
+                label: 'Ways to Contribute',
+              },
+              {
+                type: 'doc',
+                docId: 'contribute/how-to-contribute',
+                label: 'How to Contribute',
+              },
+              {
+                type: 'doc',
+                docId: 'contribute/contributor-committer',
+                label: 'Contributors & Committers',
+              },
+              {
+                type: 'doc',
+                docId: 'release',
+                label: 'Release Guidelines (TRG)',
+              },
+              {
+                type: 'doc',
+                docId: 'contribute/release-process',
+                label: 'Release Process',
+              },
+              {
+                type: 'doc',
+                docId: 'website-guidelines/wiki',
+                label: 'Website Maintainer Guide',
+              },
+            ],
           },
           {
-            to: '/community/open-meetings',
+            type: 'dropdown',
             label: 'Community',
             position: 'left',
+            to: '/community/intro',
+            items: [
+              {
+                to: '/community/intro',
+                label: 'Community Overview',
+              },
+              {
+                to: '/community/open-meetings',
+                label: 'Open Meetings',
+              },
+              {
+                to: '/community/meeting-minutes',
+                label: 'Meeting Minutes',
+              },
+              {
+                to: '/community/sigs/intro',
+                label: 'Special Interest Groups',
+              },
+              {
+                to: '/community/products',
+                label: 'Products',
+              },
+              {
+                to: '/community-bases',
+                label: 'Community Bases',
+              },
+              {
+                to: '/about',
+                label: 'About Us',
+              },
+            ],
           },
           {
-            to: '/CommunityBases',
-            label: 'Bases',
+            type: 'dropdown',
+            label: 'News',
             position: 'left',
-          },
-          {
-            to: '/blog-changelog',
-            label: 'Changelog',
-            position: 'left',
+            to: '/blog',
+            items: [
+              {
+                to: '/blog',
+                label: 'Blog',
+              },
+              {
+                to: '/blog-changelog',
+                label: 'Release Changelog',
+              },
+            ],
           },
           {
             type: 'docsVersionDropdown',
@@ -414,6 +536,35 @@ const config = {
       footer: {
         style: 'dark',
         links: [
+          {
+            title: 'Explore',
+            items: [
+              {
+                label: "KIT Catalogue",
+                to: "/kits",
+              },
+              {
+                label: "KIT Handbook",
+                to: "/kits/handbook/getting-started",
+              },
+              {
+                label: "Developer Hub",
+                to: "/docs/developer",
+              },
+              {
+                label: "Release Guidelines (TRG)",
+                to: "/docs/release",
+              },
+              {
+                label: "Contribute",
+                to: "/contribute",
+              },
+              {
+                label: "Community",
+                to: "/community/intro",
+              },
+            ],
+          },
           {
             title: 'Eclipse Foundation',
             items: [

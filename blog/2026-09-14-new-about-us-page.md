@@ -11,7 +11,7 @@ tags: [community, tractus-x, website, open-source, collaboration]
 
 Hi Everyone 👋,
 
-Who is behind Eclipse Tractus-X? How do so many organizations build one open-source project together? And where is the project heading? Until now, the answers were spread across blog posts, meeting minutes and presentations. That changes today: we are happy to present our **brand-new [About Us page](/AboutUs)**! 🎉
+Who is behind Eclipse Tractus-X? How do so many organizations build one open-source project together? And where is the project heading? Until now, the answers were spread across blog posts, meeting minutes and presentations. That changes today: we are happy to present our **brand-new [About Us page](/about)**! 🎉
 
 **Community Built. Open to everyone.** — that is the message at the heart of the page. Eclipse Tractus-X brings together contributors from different organizations, open-source projects, industry initiatives and independent companies, and the new page tells that story in one place.
 
@@ -90,7 +90,7 @@ And of course everything works on your phone as well:
 
 ## 👉 Take a Look
 
-**[Visit the new About Us page](/AboutUs)** and share it with colleagues who want to understand what Eclipse Tractus-X is all about.
+**[Visit the new About Us page](/about)** and share it with colleagues who want to understand what Eclipse Tractus-X is all about.
 
 Is your organization contributing to Eclipse Tractus-X and missing from the page? Or do you have ideas on how to improve it? Open an issue or a pull request in our [website repository](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io) — like everything we do, this page is open source too. 💙
 

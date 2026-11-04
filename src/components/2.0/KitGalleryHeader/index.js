@@ -35,7 +35,7 @@ export default function KitGalleryHeader({
   gradient,
   statistics,
   dataspaces,
-  backButtonLink = "/Kits",
+  backButtonLink = "/kits",
   backButtonText = "Back to All KITs",
   industryLayout = false
 }) {

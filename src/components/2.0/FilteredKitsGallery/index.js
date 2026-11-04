@@ -163,7 +163,7 @@ export default function FilteredKitsGallery({
           kitCount={filteredKits.length}
           statistics={statistics}
           gradient={categoryData?.gradient}
-          backButtonLink={backRef ? `/Kits?scrollTo=${backRef}` : `/Kits`}
+          backButtonLink={backRef ? `/kits?scrollTo=${backRef}` : `/kits`}
         />
       )}
 

@@ -153,7 +153,7 @@ const KitStatistics = ({ kitsData: allKits }) => {
             startIcon={<AddIcon />}
             className={styles.primaryButton}
             component={Link}
-            to="/documentation/kit-getting-started"
+            to="/kits/handbook/getting-started"
             size="large"
           >
             Contribute
@@ -163,7 +163,7 @@ const KitStatistics = ({ kitsData: allKits }) => {
             startIcon={<AnalyticsIcon />}
             className={styles.secondaryButton}
             component={Link}
-            to="/documentation/kit-statistics"
+            to="/kits/handbook/statistics"
             size="large"
           >
             View More Statistics
@@ -173,7 +173,7 @@ const KitStatistics = ({ kitsData: allKits }) => {
             startIcon={<LifecycleIcon />}
             className={styles.secondaryButton}
             component={Link}
-            to="/documentation/kit-lifecycle"
+            to="/kits/handbook/lifecycle"
             size="large"
           >
             KIT Lifecycle

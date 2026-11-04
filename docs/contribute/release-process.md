@@ -294,7 +294,7 @@ Stay connected and informed throughout the release process:
 - [Release Planning Board](https://github.com/orgs/eclipse-tractusx/projects/26)
 - [Tractus-X Release Guidelines (TRGs)](/docs/release)
 - [Open Meetings Schedule](/community/open-meetings)
-- [How to Contribute](/docs/oss/how-to-contribute)
+- [How to Contribute](/docs/contribute/how-to-contribute)
 - [Latest Release Planning Blog Posts](/blog)
 - [Timeline View](https://github.com/orgs/eclipse-tractusx/projects/26/views/35)
 

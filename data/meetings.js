@@ -192,7 +192,7 @@ export const meetings = [
     },
     additionalLinks: [
       {title: "Kanban Board KIT Office Hour", url: "https://github.com/orgs/eclipse-tractusx/projects/92"},
-      {title: "KIT Getting Started", url: "https://eclipse-tractusx.github.io/documentation/kit-getting-started"}
+      {title: "KIT Getting Started", url: "https://eclipse-tractusx.github.io/kits/handbook/getting-started"}
     ]
   },
   {

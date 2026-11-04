@@ -55,7 +55,7 @@ export default function HomePageHeader() {
           </p>
         </div>
         <div className={classes.btn_container}>
-          <Link className={classes.btn} to="/Kits">
+          <Link className={classes.btn} to="/kits">
             <LibraryBooksIcon className={classes.icon}/><span>KITs</span>
           </Link>
           <Link className={classes.btn} to="https://github.com/eclipse-tractusx">

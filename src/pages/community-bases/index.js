@@ -100,7 +100,7 @@ function PartnerList({ base }) {
 
 /** One community base, rendered as an anchorable card. */
 function BaseCard({ base, isActive, onHover, cardRef }) {
-  // Registers the card id so Docusaurus accepts /CommunityBases#<id> deep links.
+  // Registers the card id so Docusaurus accepts /community-bases#<id> deep links.
   useBrokenLinks().collectAnchor(base.id);
 
   return (
@@ -192,7 +192,7 @@ export default function CommunityBasesPage() {
     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, []);
 
-  // Deep links such as /CommunityBases#india select and scroll to that base,
+  // Deep links such as /community-bases#india select and scroll to that base,
   // both on a fresh load and when arriving from the home page teaser.
   useEffect(() => {
     const id = location.hash.replace('#', '');
@@ -331,7 +331,7 @@ export default function CommunityBasesPage() {
                   <Link className={styles.joinPrimary} to="/community/open-meetings">
                     Join an open meeting
                   </Link>
-                  <Link className={styles.joinSecondary} to="/Contribute">
+                  <Link className={styles.joinSecondary} to="/contribute">
                     Start contributing
                   </Link>
                 </div>

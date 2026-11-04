@@ -182,7 +182,7 @@ export default function DataspacePage() {
           property="og:description" 
           content={`Explore ${dataspace.name} KITs - comprehensive documentation and resources for building interoperable solutions in the ${dataspace.name} dataspace ecosystem.`}
         />
-        <link rel="canonical" href={`https://eclipse-tractusx.github.io/Kits/dataspace?name=${encodeURIComponent(dataspace.name)}`} />
+        <link rel="canonical" href={`https://eclipse-tractusx.github.io/kits/dataspace?name=${encodeURIComponent(dataspace.name)}`} />
       </Head>
       
       <KitGalleryHeader
@@ -193,7 +193,7 @@ export default function DataspacePage() {
         url={dataspace.url}
         gradient={dataspace.gradient}
         statistics={kitStats}
-        backButtonLink={ref ? `/Kits?scrollTo=${ref}` : `/Kits/industry?id=${industry.id}`}
+        backButtonLink={ref ? `/kits?scrollTo=${ref}` : `/kits/industry?id=${industry.id}`}
         backButtonText={ref ? `Back to ${ref.charAt(0).toUpperCase() + ref.slice(1)}` : `Back to ${industry.name}`}
       />
 

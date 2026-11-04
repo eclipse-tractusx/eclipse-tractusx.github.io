@@ -18,10 +18,10 @@ sidebar_position: 98
 
 ### Requesting infrastructure and support
 
-See [examples and a detailed description](/docs/oss/issues).
+See [examples and a detailed description](/docs/contribute/issues).
 
 - [Add a Tractus-X Project Contributor](getting-started.md#extended-contributor-permissions)
-- [Create / manage Tractus-X repositories](oss/issues.md#create-manage-a-repository-in-eclipse-tractusx--otterdog-self-service)
+- [Create / manage Tractus-X repositories](contribute/issues.md#create-manage-a-repository-in-eclipse-tractusx--otterdog-self-service)
 - [Eclipse Foundation Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?sort=created_date&state=opened)
 - [Eclipse Foundation Helpdesk for IP Checks](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/?search=automotive.tractusx&sort=created_date&state=opened&first_page_size=20) - open issues for Tractus-X
 

@@ -33,7 +33,7 @@ export const contributionOptions = [
     title: "Create a KIT",
     description: "Build and contribute your own KIT to help the community with comprehensive documentation and reference implementations.",
     icon: Add,
-    link: "/documentation/kit-getting-started",
+    link: "/kits/handbook/getting-started",
     primary: true
   },
   {
@@ -75,7 +75,7 @@ export const contributionOptions = [
     title: "Learn and Improve Documentation",
     description: "Help make the content of the KITs better by fixing errors, adding examples and diagrams, or improving clarity.",
     icon: Description,
-    link: "/documentation/kit-framework",
+    link: "/kits/handbook/framework",
     primary: false
   },
   {

@@ -186,7 +186,7 @@ export default function GenericIndustryPage() {
           property="og:description" 
           content={`Explore ${industry.name} KITs - comprehensive documentation and resources for building interoperable solutions in the ${industry.name} industry ecosystem.`}
         />
-        <link rel="canonical" href={`https://eclipse-tractusx.github.io/Kits/industry?id=${industry.id}`} />
+        <link rel="canonical" href={`https://eclipse-tractusx.github.io/kits/industry?id=${industry.id}`} />
       </Head>
       
       <KitGalleryHeader
@@ -201,7 +201,7 @@ export default function GenericIndustryPage() {
         gradient={industry.gradient}
         statistics={kitStats}
         dataspaces={industry.dataspaces}
-        backButtonLink={ref ? `/Kits?scrollTo=${ref}` : `/Kits`}
+        backButtonLink={ref ? `/kits?scrollTo=${ref}` : `/kits`}
         industryLayout={true}
       />
 

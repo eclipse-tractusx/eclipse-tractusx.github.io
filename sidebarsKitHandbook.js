@@ -33,37 +33,50 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
  
 const sidebars = {
-    documentation: [
+    kitHandbook: [
         {
             type: 'link',
-            label: '← Back to KIT Overview',
-            href: '/Kits'
+            label: '← Back to KIT Catalogue',
+            href: '/kits'
         },
         {
             type: 'category',
-            label: 'KIT Documentation',
+            label: 'Understanding KITs',
+            collapsed: false,
             link: {
                 type: 'doc',
-                id: 'kit-framework'
+                id: 'framework'
             },
             items: [
-                'kit-getting-started',
-                'kit-lifecycle',
-                'kit-framework',
-                'kit-statistics',
-                'kit-master-data-overview',
+                'getting-started',
+                'framework',
+                'lifecycle',
             ]
         },
         {
             type: 'category',
-            label: 'KIT Assets',
+            label: 'KIT Master Data',
             collapsed: false,
             link: {
                 type: 'doc',
-                id: 'kit-3d-logo-library'
+                id: 'master-data'
             },
             items: [
-                'kit-3d-logo-library'
+                'master-data',
+                'statistics',
+            ]
+        },
+        {
+            type: 'category',
+            label: 'Brand Assets',
+            collapsed: false,
+            link: {
+                type: 'doc',
+                id: 'logo-library'
+            },
+            items: [
+                'logo-library',
+                'icon-library',
             ]
         },
     ],
