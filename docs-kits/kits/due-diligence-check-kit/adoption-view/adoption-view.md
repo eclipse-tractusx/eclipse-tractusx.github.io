@@ -182,7 +182,7 @@ The KIT is explicitly built on Catena-X principles that reduce barriers to adopt
 
 The automotive industry faces the challenge of scrutinizing complex, global supply chains for potential and actual adverse human rights and environmental impacts in accordance with the Corporate Sustainability Due Diligence Directive (CSDDD). This necessitates structured, risk-based, and documented Due Diligence processes. The Catena-X Due Diligence Check offers a standardized, interoperable, and efficient solution that specifically reduces the burden for small and medium-sized enterprises (SMEs) and preserves data sovereignty. The process is divided into five main phases: Master Data Management; Scoping Analysis and Risk Classification; determination of the applicable risk-based Due Diligence pathway; Code of Conduct (CoC) Signing; and, where triggered by the risk-based decision tree, further In-Depth Assessment through instruments such as SAQs or Audits.
 
-![User Journey](../resources/DDC_KIT_User_Journey_v2.svg)
+![User Journey](../resources/ddc-kit-user-journey-v2.svg)
 
 ### 1. Master Data Management: The Foundation for Data Exchange
 

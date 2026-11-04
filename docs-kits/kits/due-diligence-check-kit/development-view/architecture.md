@@ -34,7 +34,7 @@ import Kit3DLogo from '@site/src/components/2.0/Kit3DLogo';
 
 ### Application Architecture Overview
 
-![DueDiligenceArchitecture](../resources/Data_Exchange_Architecture_v2.svg)
+![DueDiligenceArchitecture](../resources/data-exchange-architecture-v2.svg)
 
 The **Golden Record Service** at the Operating Company manages the master data of Catena-X participants, including Due Diligence information. Therefore, the Due Diligence information is part of the so-called Golden Record of a Catena-X participant.
 
