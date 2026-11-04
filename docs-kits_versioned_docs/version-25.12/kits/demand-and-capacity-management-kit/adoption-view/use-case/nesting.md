@@ -117,7 +117,7 @@ Feature Nesting is to be used optional but if it is used certain parameters are 
 |-|-|-|-|
 | linkedCapacityGroups | No | UUID of the linked Capacity Group | 0157ba42-d2a8-4e28-8565-7b07830c1110 |
 
-For further details please refer to [Aspect Model - WeekBasedCapacityGroup](../../software-development-view/model-capacity-group.md).
+For further details please refer to [Aspect Model - WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
 
 ## Sequence Diagram
 

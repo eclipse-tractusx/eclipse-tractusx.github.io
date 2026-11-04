@@ -1,4 +1,5 @@
 ---
+id: development-view
 title: Development View
 sidebar_position: 1
 ---

@@ -199,6 +199,8 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          // --- KIT pages relocated to the TRG 10-02 structure (auto-generated) ---
+          ...require('./utils/generated/kitRedirects'),
           // --- Information architecture restructure (2026-11): old → new routes ---
           { to: '/about', from: '/AboutUs' },
           { to: '/kits', from: '/Kits' },

@@ -9,8 +9,8 @@ In a multi-customer scenario, the same material or product is delivered to multi
 
 In these cases, data provisioning is as straightforward as in a Single Customer scenario, since customer-specific information can be clearly identified and shared without additional transformation.
 
-![supplier-multi-customer-scenario](../../assets/supplier-multi-customer-scenario.svg)
-![supplier-multi-customer-scenario-part2](../../assets/supplier-multi-customer-scenario-part2.svg)
+![supplier-multi-customer-scenario](../../resources/supplier-multi-customer-scenario.svg)
+![supplier-multi-customer-scenario-part2](../../resources/supplier-multi-customer-scenario-part2.svg)
 
 Figure 1 and 2: *Supplier multi customer scenarios with physical or data-level separation*
 
@@ -20,8 +20,8 @@ However, in many cases, there is no physical or data-level separation. Materials
 - Ensuring transparency and traceability
 - Maintaining data sovereignty and confidentiality
 
-![supplier-multi-customer-scenario-part3](../../assets/supplier-multi-customer-scenario-part3.svg)
-![supplier-multi-customer-scenario-part4](../../assets/supplier-multi-customer-scenario-part4.svg)
+![supplier-multi-customer-scenario-part3](../../resources/supplier-multi-customer-scenario-part3.svg)
+![supplier-multi-customer-scenario-part4](../../resources/supplier-multi-customer-scenario-part4.svg)
 
 Figure 3 and 4: *Supplier multi customer scenarios without physical or data-level separation*
 

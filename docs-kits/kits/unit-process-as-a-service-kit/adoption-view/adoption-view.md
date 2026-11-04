@@ -292,8 +292,8 @@ The UPaaS KIT builds on and complements several existing Tractus-X KITs:
 | KIT | Relation |
 | --- | -------- |
 | [Connector KIT](../../connector-kit/adoption-view/adoption-view.md) | Provides the EDC/Dataspace Protocol foundation used for the policy-controlled exchange of UPaaS assets. |
-| [Digital Twin KIT](../../digital-twin-kit/adoption-view.md) | Defines the AAS-based digital twin infrastructure; the UPaaS Wafer Testing Submodel follows these conventions. |
-| [MaaS KIT](../../manufacturing-as-a-service-kit/adoption-view.md) | Addresses marketplace-based offering of complete manufacturing services; UPaaS complements this at the granularity of individual semiconductor unit processes (e.g. wafer testing). |
+| [Digital Twin KIT](../../digital-twin-kit/adoption-view/adoption-view.md) | Defines the AAS-based digital twin infrastructure; the UPaaS Wafer Testing Submodel follows these conventions. |
+| [MaaS KIT](../../manufacturing-as-a-service-kit/adoption-view/adoption-view.md) | Addresses marketplace-based offering of complete manufacturing services; UPaaS complements this at the granularity of individual semiconductor unit processes (e.g. wafer testing). |
 
 ## Standards
 

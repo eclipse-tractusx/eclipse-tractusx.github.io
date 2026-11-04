@@ -37,7 +37,7 @@ Using this "basic" wallet for issuing and verifying the "Aspect Model" credentia
 
 For the proof of concept two simple wallets were used at provider and consumer side. The simple wallet in the provider was used to issue the verifiable credential and then returned the signed credential, so it could be stored at a data service/submodel service. Also this credential was referenced then by the provider in the Digital Twin Registry deployed at their infrastructure.
 
-Using the Catena-X Standards for the [Digital Product Passport (CX-0143)](https://catenax-ev.github.io/docs/standards/CX-0143-UseCaseCircularEconomyDigitalProductPassportStandard/introduction) the data consumer was able to find the digital twin and retrieve the submodel which was indicated to be verifiable, like specified [here](../software-development-view/digital-twins.md) in this Data Trust & Security KIT.
+Using the Catena-X Standards for the [Digital Product Passport (CX-0143)](https://catenax-ev.github.io/docs/standards/CX-0143-UseCaseCircularEconomyDigitalProductPassportStandard/introduction) the data consumer was able to find the digital twin and retrieve the submodel which was indicated to be verifiable, like specified [here](../development-view/digital-twins.md) in this Data Trust & Security KIT.
 
 After the consumer received the verifiable credential it used his simple wallet to verify the signature contained in the credential, and also validating the content (in case it was changed in transit).
 
