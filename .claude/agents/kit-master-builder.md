@@ -356,3 +356,13 @@ npm run docusaurus docs:version:docs-kits <ver>    # Version docs-kits
 | GitHub Repository | https://github.com/eclipse-tractusx/eclipse-tractusx.github.io |
 | sig-release | https://github.com/eclipse-tractusx/sig-release |
 | Eclipse ECA | https://www.eclipse.org/legal/ECA.php |
+
+## NOTICE
+
+This program and the accompanying materials are made available under the terms of the
+[Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
+- SPDX-License-Identifier: Apache-2.0
+- SPDX-FileCopyrightText: 2026 Contributors to the Eclipse Foundation
+- SPDX-FileCopyrightText: 2026 Catena-X Automotive Network e.V.
+- Source URL: <https://github.com/eclipse-tractusx/eclipse-tractusx.github.io>
