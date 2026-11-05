@@ -889,7 +889,8 @@ block-beta
 Figure: *A small supply network built by seven capacity groups*
 
 ## Collaboration in multi-company scenarios
-There are situations where multiple companies are involved in the DCM process. 
+
+There are situations where multiple companies are involved in the DCM process.
 This section gives an overview of some potential cases in cross-company scenarios and how to handle them.
 
 - **Directed buy**: in this case a company (e.g. an OEM) asks its supplier A to buy parts from supplier B, whereas:
