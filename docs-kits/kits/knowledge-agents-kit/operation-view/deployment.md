@@ -34,7 +34,7 @@ It also provides a runbook for deploying a minimal stable environment for testin
 For more information see
 
 * Our [Adoption](../adoption-view/intro) guideline
-* The [Architecture](../development-view/architecture) documentation
+* The [Architecture](../software-development-view/architecture) documentation
 * The [EDC Deployment](agent_edc) description
 * The [(Data/Function) Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
