@@ -20,22 +20,22 @@ sidebar_position: 1
 
 The core DCM business process is executed by two roles and uses two APIs as well as two aspect models. The customer is responsible for `WeekBasedMaterialDemand`, the supplier for `WeekBasedCapacityGroup`. Within `WeekBasedCapacityGroup` the supplier has to link material demands.
 
-|Function / Role|Customer|Supplier|
-|-|-|-|
-|Manage demand data|X||
-|Inform supplier about demand|X||
-|Manage capacity data||X|
-|Link demand and capacity||X|
-|Inform customer about capacity||X|
-|Compare demand to capacity|X|X|
-|Collaborate to resolve bottlenecks|X|X|
+| Function / Role                    | Customer | Supplier |
+|------------------------------------|----------|----------|
+| Manage demand data                 | X        |          |
+| Inform supplier about demand       | X        |          |
+| Manage capacity data               |          | X        |
+| Link demand and capacity           |          | X        |
+| Inform customer about capacity     |          | X        |
+| Compare demand to capacity         | X        | X        |
+| Collaborate to resolve bottlenecks | X        | X        |
 
 ## User Journey
 
 ```mermaid
 journey
     title Basic DCM User Journey
- section Exchange demand 
+ section Exchange demand
         Manage demand:3: Customer
         Provide demand data:3: Customer
         Consume demand data:3: Supplier
@@ -213,7 +213,7 @@ Figure: *Material demand structure*
         titlePadding: 10
         titleFontSize: 20
         showTitle: true
-        plotReservedSpacePercent: 50 
+        plotReservedSpacePercent: 50
     themeVariables:
         xyChart:
             backgroundColor: "#000000"
@@ -231,7 +231,7 @@ Figure: *Material demand structure*
 ---
     xychart-beta
     title "Example: Demand Data"
-    x-axis [Week 1, Week 2, Week 3, Week 4, Week 5, Week 6, Week 7, Week 8] 
+    x-axis [Week 1, Week 2, Week 3, Week 4, Week 5, Week 6, Week 7, Week 8]
     y-axis 0 --> 6000
     bar [3000, 3000, 3000, 3000, 4000, 4000, 4000, 5000]
 ```
@@ -327,7 +327,7 @@ The customer is responsible for publishing capacity groups to their customer and
 - Refresh the data at a minimum of once every four weeks.
 - Align, ideally within a contract, the unit of measure for capacity quantities (e.g., pieces, kilograms, metric tons) with the Customer and utilize lead factors as conversion factors, if applicable.
 
-The supplier must provide capacity data to the customer, corresponding to the material demand data previously shared. Thereby, the supplier is acting as a data provider and the customer as a data consumer of the exchanged capacity group.  
+The supplier must provide capacity data to the customer, corresponding to the material demand data previously shared. Thereby, the supplier is acting as a data provider and the customer as a data consumer of the exchanged capacity group.
 
 The customer must have the capability to consume the capacity group data from the supplier.
 
@@ -385,7 +385,7 @@ Figure: *Capacity group structure*
         titlePadding: 10
         titleFontSize: 20
         showTitle: true
-        plotReservedSpacePercent: 50 
+        plotReservedSpacePercent: 50
     themeVariables:
         xyChart:
             backgroundColor: "#000000"
@@ -456,7 +456,7 @@ config:
             yAxisTickColor: "#F4F2F3"
             yAxisLineColor: "#F4F2F3"
             plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
----   
+---
     xychart-beta
     title "Example 1"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
@@ -518,7 +518,7 @@ config:
             yAxisTickColor: "#F4F2F3"
             yAxisLineColor: "#F4F2F3"
             plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
----   
+---
     xychart-beta
     title "Example 2"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
@@ -564,7 +564,7 @@ config:
             yAxisTickColor: "#F4F2F3"
             yAxisLineColor: "#F4F2F3"
             plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#046b99"
----   
+---
     xychart-beta
     title "Example 3: Capacity Group with little Flexible Capacity"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
@@ -606,7 +606,7 @@ config:
             yAxisTickColor: "#F4F2F3"
             yAxisLineColor: "#F4F2F3"
             plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
----  
+---
     xychart-beta
     title "Example 4a"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
@@ -647,7 +647,7 @@ config:
             yAxisTickColor: "#F4F2F3"
             yAxisLineColor: "#F4F2F3"
             plotColorPalette: "#FFA600,#d91e18,#809500,#ffffff,#00ffff"
----   
+---
     xychart-beta
     title "Example 4b"
     x-axis [Week14, Week15, Week16, Week17, Week18, Week19, Week20, Week21, Week22, Week23]
@@ -888,8 +888,9 @@ block-beta
 
 Figure: *A small supply network built by seven capacity groups*
 
-### Specific cross-company scenarios
+## Collaboration in multi-company scenarios
 
+There are situations where multiple companies are involved in the DCM process.
 This section gives an overview of some potential cases in cross-company scenarios and how to handle them.
 
 - **Directed buy**: in this case a company (e.g. an OEM) asks its supplier A to buy parts from supplier B, whereas:
