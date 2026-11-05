@@ -43,6 +43,7 @@
 
 .item_img {
   border-radius: 10px;
+  height: 100%;
   width: 100%;
   object-fit: cover;
 }
@@ -82,5 +83,24 @@
 @media screen and (max-width: 600px) {
   .gallery_container {
     grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  .gallery_container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .container {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  .gallery_container {
+    width: 60vw;
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .container {
+    width: 60vw;
   }
 }

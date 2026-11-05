@@ -6,15 +6,10 @@ import Agents_Kit from "@site/static/img/knowledge-agents/AgentsKit.png";
 import MoreToCome from "@site/static/img/gallery-more_coming-minified.png";
 
 export const previewKits = [
-  	{
-		id: 1,
-		img: Maas_Kit,
-		pageRoute: "/docs-kits/kits/Resiliency/maas"
-	},
 	{
 		id: 2,
 		img: PURIS_Kit,
-		pageRoute: "/docs-kits/kits/Resiliency/PURIS"
+		pageRoute: "/docs-kits/kits/puris-kit/adoption-view"
 	},
 	{
 		id: 4,

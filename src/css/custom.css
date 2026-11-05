@@ -1,3 +1,25 @@
+/********************************************************************************
+ * Eclipse Tractus-X - eclipse-tractusx.github.io
+ *
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the
+ * License for the specific language govern in permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+********************************************************************************/
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -11,13 +33,6 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e; */
   --ifm-color-primary: #faa023;
   --ifm-color-primary-dark: #f99407;
   --ifm-color-primary-darker: #ed8c05;
@@ -25,9 +40,15 @@
   --ifm-color-primary-light: #fbac3f;
   --ifm-color-primary-lighter: #fbb24d;
   --ifm-color-primary-lightest: #fcc477;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-family-base: 'Manrope';
+  --ifm-background-color: #fff;
+  --ifm-navbar-background-color: #f0f0f0;
+  --ifm-menu-color: #00000099;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-heading-color: #000;
+  --ifm-font-color-base: #000;
+  --ifm-navbar-link-color: #00000099;
+  --ifm-color-secondary-darkest: #626262;
+  --ifm-color-card-border: rgba(0, 0, 0, 0.3);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -41,13 +62,43 @@
   --ifm-color-primary-lightest: #fcc477;
   --ifm-background-color: #000;
   --ifm-navbar-background-color: #000;
+  --ifm-menu-color: #fff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-heading-color: #fff;
   --ifm-font-color-base: #fff;
   --ifm-navbar-link-color: #fff;
+  --ifm-color-secondary-darkest: #000;
+  --ifm-color-card-border: rgba(255, 255, 255, 0.3);
 }
 
 /* Algolia DocSearch Component */
+[data-theme='light'] .DocSearch {
+  --docsearch-text-color: var(--ifm-navbar-link-color);
+  --docsearch-muted-color: var(--ifm-navbar-link-color);
+  --docsearch-container-background: rgba(47, 55, 69, 0.7);
+  /* Modal */
+  --docsearch-modal-background: var(--ifm-background-color);
+  --docsearch-highlight-color: var(--ifm-color-primary-darker);
+  --docsearch-modal-width: 50vw;
+  /* Search box */
+  --docsearch-searchbox-background: var(--ifm-background-color);
+  --docsearch-searchbox-focus-background: var(--ifm-color-white);
+  /* Hit */
+  --docsearch-hit-color: var(--ifm-font-color-base);
+  --docsearch-hit-active-color: var(--ifm-color-white);
+  --docsearch-hit-background: var(--ifm-color-emphasis-100);
+  /* Footer */
+  --docsearch-footer-background: var(--ifm-background-color);
+  --docsearch-key-gradient: linear-gradient(
+    -26.5deg,
+    var(--ifm-color-emphasis-200) 0%,
+    var(--ifm-color-emphasis-100) 100%
+  );
+  --docsearch-searchbox-shadow: none;
+  --docsearch-key-shadow: none;
+  --docsearch-key-gradient: none;
+}
+
 [data-theme='dark'] .DocSearch {
   --docsearch-text-color: var(--ifm-navbar-link-color);
   --docsearch-muted-color: var(--ifm-navbar-link-color);
@@ -104,6 +155,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
+  width: 80%;
 }
 
 .title-h2 {
@@ -165,6 +217,43 @@
   font-weight: bold;
 }
 
+.navbar-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  width: 32px;
+  height: 32px;
+  color: var(--ifm-navbar-link-color);
+}
+
+.navbar-icon-link::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.header-open-meetings::before {
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M7%202a1%201%200%200%201%201%201v1h8V3a1%201%200%201%201%202%200v1h1.5A2.5%202.5%200%200%201%2022%206.5v13A2.5%202.5%200%200%201%2019.5%2022h-15A2.5%202.5%200%200%201%202%2019.5v-13A2.5%202.5%200%200%201%204.5%204H6V3a1%201%200%200%201%201-1zm12%208H5v9.5a.5.5%200%200%200%20.5.5h13a.5.5%200%200%200%20.5-.5V10zM6%206H4.5a.5.5%200%200%200-.5.5V8h16V6.5a.5.5%200%200%200-.5-.5H18v1a1%201%200%201%201-2%200V6H8v1a1%201%200%201%201-2%200V6z%22/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M7%202a1%201%200%200%201%201%201v1h8V3a1%201%200%201%201%202%200v1h1.5A2.5%202.5%200%200%201%2022%206.5v13A2.5%202.5%200%200%201%2019.5%2022h-15A2.5%202.5%200%200%201%202%2019.5v-13A2.5%202.5%200%200%201%204.5%204H6V3a1%201%200%200%201%201-1zm12%208H5v9.5a.5.5%200%200%200%20.5.5h13a.5.5%200%200%200%20.5-.5V10zM6%206H4.5a.5.5%200%200%200-.5.5V8h16V6.5a.5.5%200%200%200-.5-.5H18v1a1%201%200%201%201-2%200V6H8v1a1%201%200%201%201-2%200V6z%22/%3E%3C/svg%3E");
+}
+
+.header-github-link::before {
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%20.5C5.73.5.5%205.74.5%2012.02c0%205.11%203.29%209.44%207.86%2010.97.58.11.79-.25.79-.56%200-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.05-.72.08-.71.08-.71%201.16.08%201.77%201.2%201.77%201.2%201.03%201.77%202.7%201.26%203.36.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7%200-1.26.45-2.29%201.19-3.1-.12-.29-.52-1.45.11-3.02%200%200%20.97-.31%203.18%201.18a10.9%2010.9%200%200%201%205.8%200c2.2-1.49%203.17-1.18%203.17-1.18.64%201.57.24%202.73.12%203.02.74.81%201.18%201.84%201.18%203.1%200%204.43-2.68%205.4-5.24%205.68.41.36.78%201.07.78%202.16%200%201.56-.01%202.82-.01%203.2%200%20.31.21.68.8.56%204.56-1.53%207.85-5.86%207.85-10.97C23.5%205.74%2018.27.5%2012%20.5z%22/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%20.5C5.73.5.5%205.74.5%2012.02c0%205.11%203.29%209.44%207.86%2010.97.58.11.79-.25.79-.56%200-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.05-.72.08-.71.08-.71%201.16.08%201.77%201.2%201.77%201.2%201.03%201.77%202.7%201.26%203.36.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7%200-1.26.45-2.29%201.19-3.1-.12-.29-.52-1.45.11-3.02%200%200%20.97-.31%203.18%201.18a10.9%2010.9%200%200%201%205.8%200c2.2-1.49%203.17-1.18%203.17-1.18.64%201.57.24%202.73.12%203.02.74.81%201.18%201.84%201.18%203.1%200%204.43-2.68%205.4-5.24%205.68.41.36.78%201.07.78%202.16%200%201.56-.01%202.82-.01%203.2%200%20.31.21.68.8.56%204.56-1.53%207.85-5.86%207.85-10.97C23.5%205.74%2018.27.5%2012%20.5z%22/%3E%3C/svg%3E");
+}
+
+.navbar-icon-link:hover {
+  color: var(--ifm-color-primary);
+}
+
 .dropdown.dropdown--right {
   background-color: var(--ifm-color-primary-darkest);
   border-radius: 5px;
@@ -180,8 +269,32 @@
   margin-top: 60px;
 }
 
+.footer-logo-divider {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  align-self: stretch;
+}
+
+@media screen and (max-width: 600px) {
+  .footer-logo-divider {
+    width: 100%;
+    height: 1px;
+  }
+}
+
 .footer--dark {
-  --ifm-footer-background-color: #000;
+  background-color: var(--ifm-color-secondary-darkest);
+}
+
+/* .footer__title,
+.footer__link-item,
+.footer__copyright {
+  color: var(--ifm-navbar-link-color);
+} */
+
+/* Docusaurus Menu */
+.menu__list-item {
+  background-color: var(--ifm-background-color);
 }
 
 .hidden {
@@ -193,15 +306,15 @@
   .navbar__items {
     margin: 0 8px;
   }
-  
+
   .navbar__brand {
     margin-right: 16px;
   }
-  
+
   .navbar__title {
     font-size: 14px;
   }
-  
+
   .navbar__link {
     margin: 0 10px;
     font-size: 12px;
@@ -226,6 +339,7 @@
     font-size: 16px;
     line-height: 20px;
     margin-top: -1rem;
+    width: 50%;
   }
 
   .title-h2 {
@@ -240,6 +354,23 @@
     padding: 0.5rem 1rem;
     font-size: 1.8vw;
   }
+
+  /* Mobile Navbar: hide title text to free space for icons */
+  .navbar__title {
+    display: none;
+  }
+
+  /* Ensure both icon links stay visible on mobile */
+  .navbar-icon-link {
+    display: inline-flex !important;
+    flex-shrink: 0;
+    padding: 0 4px;
+  }
+
+  /* Push icon links left of the absolutely-positioned search button */
+  .navbar__items--right {
+    padding-right: 48px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -250,6 +381,7 @@
   .headers-subtitle-p {
     font-size: 14px;
     line-height: 16px;
+    width: 50%;
   }
 
   .button {
@@ -307,4 +439,126 @@
 .head > .menu__link::before {
   content: "head";
   background-color: var(--ifm-color-secondary-darkest);
+}
+
+/* Media Queries */
+@media screen and (min-width: 2200px) {
+  .headers-subtitle-p {
+    width: 50%;
+  }
+}
+
+
+@media screen and (min-width: 3200px) {
+  .headers-subtitle-p {
+    width: 40%;
+  }
+}
+
+.MuiAccordionSummary-root,
+.MuiAccordionDetails-root {
+     background-color: var(--ifm-background-color) !important;
+}
+
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(1) {
+  fill: #F8E4D0 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(2) {
+  fill: #F1C99A !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(3) {
+  fill: #E7A844 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(4) {
+  fill: #C78F33 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(5) {
+  fill: #A97C2B !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(6) {
+  fill: #8B6914 !important;
+}
+.color-varying-by-point .docusaurus-mermaid-container svg .plot .bar-plot-0 rect:nth-child(7) {
+  fill: #6B5010 !important;
+}
+
+/* Ensure full width layout */
+main {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+main > * {
+  max-width: 100% !important;
+}
+
+/* Blog layout full width */
+.container,
+.row,
+.markdown,
+article[class*="blogPostPage"],
+div[class*="blogPostPage"],
+.blogPostPage,
+.blogPostPage > div,
+.blogPostPage .container,
+.blogPostPage .row,
+.col {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Keep reasonable padding for text content */
+.blogPostPage .markdown > p,
+.blogPostPage .markdown > h1,
+.blogPostPage .markdown > h2,
+.blogPostPage .markdown > h3,
+.blogPostPage .markdown > h4,
+.blogPostPage .markdown > ul,
+.blogPostPage .markdown > ol {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* KIT Category Headers in Navbar Dropdown */
+.kit-category-header {
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  color: #faa023 !important;
+  letter-spacing: 0.05em !important;
+  text-align: left !important;
+}
+
+.kit-category-header:hover {
+  color: #f99407 !important;
+  background-color: var(--ifm-color-emphasis-100) !important;
+}
+
+[data-theme='dark'] .kit-category-header {
+  color: #fbb24d !important;
+}
+
+[data-theme='dark'] .kit-category-header:hover {
+  color: #fcc477 !important;
+}
+
+.kit-nav-item{
+  padding-left: 24px!important;
+}
+
+/* Add home icon to KITs HOMEPAGE using pseudo-element */
+.kit-home-icon::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23faa023"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: sub;
+}
+
+[data-theme='dark'] .kit-home-icon::before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fbb24d"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>');
 }

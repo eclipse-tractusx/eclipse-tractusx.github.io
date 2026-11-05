@@ -1,0 +1,282 @@
+/********************************************************************************* 
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+ 
+// Product Selection Component Styles
+// Modern card-based selection with eye-catching design
+
+.productSelection {
+  padding: 80px 0;
+  background: var(--ifm-background-color);
+  position: relative;
+
+  @media screen and (max-width: 996px) {
+    padding: 60px 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 40px 0;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+
+  @media screen and (max-width: 996px) {
+    gap: 30px;
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, 
+      var(--hover-color, var(--ifm-color-primary)) 0%, 
+      transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(135deg, 
+      var(--hover-color, var(--ifm-color-primary)) 0%, 
+      transparent 50%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      opacity: 0.5;
+    }
+
+    .iconWrapper {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .cta {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  [data-theme='dark'] & {
+    background: #1e2127;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  @media screen and (max-width: 996px) {
+    padding: 40px 32px;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 32px 24px;
+  }
+}
+
+.iconWrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (max-width: 996px) {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 24px;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+}
+
+.icon {
+  font-size: 64px !important;
+  color: #ffffff;
+
+  @media screen and (max-width: 996px) {
+    font-size: 52px !important;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 40px !important;
+  }
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--ifm-heading-color);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+
+  @media screen and (max-width: 996px) {
+    font-size: 28px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 24px;
+  }
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 16px 0;
+  opacity: 0.9;
+
+  @media screen and (max-width: 996px) {
+    font-size: 13px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 12px;
+  }
+}
+
+.description {
+  font-size: 16px;
+  color: var(--ifm-font-color-base);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  flex-grow: 1;
+
+  @media screen and (max-width: 996px) {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--hover-color, var(--ifm-color-primary));
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 140px;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  @media screen and (max-width: 996px) {
+    font-size: 15px;
+    padding: 12px 32px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+    padding: 10px 28px;
+  }
+}
+
+// Pulse animation for attention
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(250, 160, 35, 0.2);
+  }
+}
+
+.card:first-child {
+  animation: pulse 3s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.card:last-child {
+  animation: pulse 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}

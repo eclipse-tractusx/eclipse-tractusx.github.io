@@ -1,0 +1,1561 @@
+---
+openapi: 3.0.1
+info:
+  title: Tractus-X Knowledge Agents SPARQL Endpoint Specification
+  description: "# Usage\n\nThis endpoint is designed after [W3C SparQL 1.1](https://www.w3.org/TR/sparql11-protocol/)\n\nIt is used in three places:\n- As the consumer-oriented entrypoint of a Matchmaking Agent into the dataspace\n- As the provider-oriented looking entrypoint of a Binding Agent to a backend system\n- As the \"transfer\" protocol between the transfer proxies as built by the EDC infrastructure\n\n### Examples\n\n1. Invoke a Parameterized Skill\n\n```\nPREFIX l0: <https://w3id.org/italia/onto/l0/>\nPREFIX cis: <http://dati.beniculturali.it/cis/>\nSELECT ?event ?eventName ?culturalProperty ?culturalPropertyLabel\nWHERE{\n  ?event cis:involvesCulturalEntity ?culturalProperty ;\n  l0:name ?eventName .\n  ?culturalProperty rdfs:label ?culturalPropertyLabel\n}\n```\n\n2. Invoke a Dataspace Query\n\n```\nPREFIX arco-catalogue: <https://w3id.org/arco/ontology/catalogue/>\nPREFIX roapit: <https://w3id.org/italia/onto/RO/>\nSELECT *\nWHERE{\n  ?entity arco-catalogue:hasCatalogueRecordVersion ?record . \n  ?record arco-catalogue:hasCatalogueRecordVersionRiT ?rit . \n  ?rit roapit:withRole ?role ;\n    roapit:isRoleInTimeOf ?agent\n}\n\n3. Sub-Skill of 2. that is transferred to the Binding Agent\n\n```\nPREFIX arco-catalogue: <https://w3id.org/arco/ontology/catalogue/>\nPREFIX roapit: <https://w3id.org/italia/onto/RO/>\nSELECT *\nWHERE{\n  ?entity arco-catalogue:hasCatalogueRecordVersion ?record . \n  ?record arco-catalogue:hasCatalogueRecordVersionRiT ?rit . \n  ?rit roapit:withRole ?role ;\n    roapit:isRoleInTimeOf ?agent\n}\n\n```\n"
+  termsOfService: http://catenax.io
+  contact:
+    email: info@catenax.io
+  license:
+    name: Eclipse Public License
+    url: https://www.eclipse.org/legal/epl-2.0/
+  version: 1.14.24
+externalDocs:
+  description: https://eclipse-tractusx.github.io/docs-kits/category/knowledge-agents-kit
+  url: https://eclipse-tractusx.github.io/docs-kits/kits/knowledge-agents-kit/software-development-view/api
+servers:
+- url: https://knowledge.dev.demo/conforming-agent/bind
+  description: Development Conforming Agent for KA-BIND Profile
+- url: https://knowledge.dev.demo/conforming-agent/match
+  description: Development Conforming Agent for KA-MATCH Profile
+- url: https://knowledge.dev.demo/conforming-agent/transfer
+  description: Development Conforming Agent for KA-TRANSFER Profile
+- url: https://knowledge.dev.demo/tiera-remoting-agent/rdf4j-server/repositories/prognosis
+  description: Development Remoting Agent Prognosis Example
+- url: https://knowledge.dev.demo/tiera-remoting-agent/rdf4j-server/repositories/rul
+  description: Development Remoting Agent Remaining Useful Life Example
+- url: https://knowledge.dev.demo/tiera-remoting-agent/rdf4j-server/repositories/health
+  description: Development Remoting Agent Health Indicator Example
+- url: https://knowledge.dev.demo/oem-provider-agent/sparql
+  description: Development Provisioning Agent Endpoint 1
+- url: https://knowledge.dev.demo/oem-provider-agent2/sparql
+  description: Development Provisioning Agent Endpoint 2
+- url: https://knowledge.dev.demo/oem-provider-agent3/sparql
+  description: Development Provisioning Agent Endpoint 3
+- url: https://knowledge.dev.demo/oem-provider-agent4/sparql
+  description: Development Provisioning Agent Endpoint 4
+- url: https://knowledge.dev.demo/oem-provider-agent5/sparql
+  description: Development Provisioning Agent Endpoint 5
+- url: https://knowledge.dev.demo/tiera-edc-data/BPNL00000003CPIY/api/agent
+  description: Development Matchmaking Agent
+- url: https://knowledge.dev.demo/consumer-edc-data/BPNL00000003CQI9/api
+  description: Development Consumer
+- url: https://knowledge.dev.demo/oem-edc-data/BPNL00000003COJN/api
+  description: Development OEM
+security:
+- ApiKeyAuth: []
+- BasicAuth: []
+- OAuth2: []
+tags:
+- name: agent
+  description: Perform a SPARQL query against the dataspace
+paths:
+  /:
+    get:
+      tags:
+      - agent
+      summary: Invoke a Skill or Query (Simple)
+      operationId: getAgent
+      parameters:
+      - name: asset
+        in: query
+        description: The Target Asset of the Query (targets the complete dataspace if empty)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          LifetimeSkill:
+            $ref: '#/components/examples/LifetimeSkill'
+          NullSkill:
+            $ref: '#/components/examples/NullSkill'
+          DataspaceSkill:
+            $ref: '#/components/examples/DataspaceSkill'
+      - name: runMode
+        in: query
+        description: "Determines the preferred execution location which may be \"consumer\" (in the computing environment of the endpoint agent), \"provider\" (in the computing environment of the remote agent providing the targetted asset) or \"all\" (the agent will choose the best computing environment based on contracts and policies, this is the default mode)."
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          consumer:
+            $ref: '#/components/examples/RunModeConsumer'
+          provider:
+            $ref: '#/components/examples/RunModeProvider'
+          all:
+            $ref: '#/components/examples/RunModeAll'
+      - name: queryLn
+        in: query
+        description: Determines the query language. Currently only "SPARQL" is supported.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          sparql:
+            $ref: '#/components/examples/QuerySparql'
+      - name: query
+        in: query
+        description: The SPARQL query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          "Null":
+            $ref: '#/components/examples/NullText'
+          Dataspace:
+            $ref: '#/components/examples/Dataspace'
+      - name: (vin
+        in: query
+        description: A sample bound parameter 'vin' which opens a new input tuple
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Vehicle1:
+            $ref: '#/components/examples/Vehicle1'
+          NoVehicle:
+            $ref: '#/components/examples/NoVehicle'
+      - name: troubleCode
+        in: query
+        description: A sample multi-bound parameter 'troubleCode' which closes the tuple
+        required: false
+        style: form
+        explode: true
+        schema:
+          maxItems: 128
+          type: array
+          items:
+            type: string
+        examples:
+          TroubleCodeClose:
+            $ref: '#/components/examples/TroubleCodeClose'
+          NoTroubleCode:
+            $ref: '#/components/examples/NoTroubleCode'
+      responses:
+        "200":
+          description: The SparQL query has been processed successfully.
+          content:
+            application/sparql-results+json:
+              schema:
+                type: object
+              example:
+                head:
+                  vars:
+                  - connector
+                  - asset
+                  - name
+                  - description
+                  - type
+                  - version
+                  - contentType
+                  - isDefinedBy
+                  - shape
+                results:
+                  bindings:
+                  - connector:
+                      type: uri
+                      value: edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN
+                    asset:
+                      type: uri
+                      value: GraphAsset?oem=Quality
+                    name:
+                      type: literal
+                      value: Quality Data.
+                    description:
+                      type: literal
+                      value: A graph asset/offering mounting Quality data.
+                    type:
+                      type: "uri,"
+                      value: https://w3id.org/catenax/ontology/common#GraphAsset
+                    version:
+                      type: "literal,"
+                      value: v0.7.2
+                    contentType:
+                      type: "literal,"
+                      value: "application/json, application/xml"
+                    isDefinedBy:
+                      type: "literal,"
+                      value: <https://w3id.org/catenax/ontology/reliability>
+                    shape:
+                      type: "literal,"
+                      value: "@prefix : <GraphAsset?oem=Quality#> ."
+            application/sparql-results+xml:
+              schema:
+                $ref: '#/components/schemas/XmlResultset'
+              example: |-
+                <?xml version="1.0"?>
+                <sparql xmlns="http://www.w3.org/2005/sparql-results#">
+                    <head>
+                        <variable name="connector"/>
+                        <variable name="asset"/>
+                        <variable name="name"/>
+                        <variable name="description"/>
+                        <variable name="type"/>
+                        <variable name="version"/>
+                        <variable name="contentType"/>
+                        <variable name="isDefinedBy"/>
+                        <variable name="shape"/>
+                    </head>
+                    <results>
+                        <result>
+                            <binding name="connector">
+                                <uri>edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN</uri>
+                            </binding>
+                            <binding name="asset">
+                                <uri>GraphAsset?oem=Quality</uri>
+                            </binding>
+                            <binding name="name">
+                                <literal>Quality Data.</literal>
+                            </binding>
+                            <binding name="description">
+                                <literal>A graph asset/offering mounting Quality data.</literal>
+                            </binding>
+                            <binding name="type">
+                                <uri>https://w3id.org/catenax/ontology/common#GraphAsset</uri>
+                            </binding>
+                            <binding name="version">
+                                <literal>v0.7.2</literal>
+                            </binding>
+                            <binding name="contentType">
+                                <literal>application/json, application/xml</literal>
+                            </binding>
+                            <binding name="isDefinedBy">
+                                <literal>&lt;https://w3id.org/catenax/ontology/reliability&gt;</literal>
+                            </binding>
+                            <binding name="shape">
+                                <literal>@prefix : &lt;GraphAsset?oem=Quality#&gt; .</literal>
+                            </binding>
+                        </result>
+                    </results>
+                </sparql>
+            text/csv:
+              schema:
+                type: string
+                example: |-
+                  "subject","predicate","object"
+                  "foo","meets","bar"
+                  "one","meets","two"
+            text/tab-separated-values:
+              schema:
+                type: string
+                example: ?subject ?predicate ?object
+            application/x-binary-rdf-results-table:
+              schema:
+                type: string
+                format: binary
+        "203":
+          description: The SparQL query has been processed successfully but warnings did occur.
+          headers:
+            cx_warnings:
+              description: A data structure listing problems when processing the query.
+              style: simple
+              explode: false
+              schema:
+                maxItems: 64
+                type: array
+                items:
+                  $ref: '#/components/schemas/CxWarning'
+          content:
+            application/sparql-results+json:
+              schema:
+                type: object
+              example:
+                head:
+                  vars:
+                  - connector
+                  - asset
+                  - name
+                  - description
+                  - type
+                  - version
+                  - contentType
+                  - isDefinedBy
+                  - shape
+                results:
+                  bindings:
+                  - connector:
+                      type: uri
+                      value: edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN
+                    asset:
+                      type: uri
+                      value: GraphAsset?oem=Quality
+                    name:
+                      type: literal
+                      value: Quality Data.
+                    description:
+                      type: literal
+                      value: A graph asset/offering mounting Quality data.
+                    type:
+                      type: "uri,"
+                      value: https://w3id.org/catenax/ontology/common#GraphAsset
+                    version:
+                      type: "literal,"
+                      value: v0.7.2
+                    contentType:
+                      type: "literal,"
+                      value: "application/json, application/xml"
+                    isDefinedBy:
+                      type: "literal,"
+                      value: <https://w3id.org/catenax/ontology/reliability>
+                    shape:
+                      type: "literal,"
+                      value: "@prefix : <GraphAsset?oem=Quality#> ."
+            application/sparql-results+xml:
+              schema:
+                $ref: '#/components/schemas/XmlResultset'
+              example: |-
+                <?xml version="1.0"?>
+                <sparql xmlns="http://www.w3.org/2005/sparql-results#">
+                    <head>
+                        <variable name="connector"/>
+                        <variable name="asset"/>
+                        <variable name="name"/>
+                        <variable name="description"/>
+                        <variable name="type"/>
+                        <variable name="version"/>
+                        <variable name="contentType"/>
+                        <variable name="isDefinedBy"/>
+                        <variable name="shape"/>
+                    </head>
+                    <results>
+                        <result>
+                            <binding name="connector">
+                                <uri>edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN</uri>
+                            </binding>
+                            <binding name="asset">
+                                <uri>GraphAsset?oem=Quality</uri>
+                            </binding>
+                            <binding name="name">
+                                <literal>Quality Data.</literal>
+                            </binding>
+                            <binding name="description">
+                                <literal>A graph asset/offering mounting Quality data.</literal>
+                            </binding>
+                            <binding name="type">
+                                <uri>https://w3id.org/catenax/ontology/common#GraphAsset</uri>
+                            </binding>
+                            <binding name="version">
+                                <literal>v0.7.2</literal>
+                            </binding>
+                            <binding name="contentType">
+                                <literal>application/json, application/xml</literal>
+                            </binding>
+                            <binding name="isDefinedBy">
+                                <literal>&lt;https://w3id.org/catenax/ontology/reliability&gt;</literal>
+                            </binding>
+                            <binding name="shape">
+                                <literal>@prefix : &lt;GraphAsset?oem=Quality#&gt; .</literal>
+                            </binding>
+                        </result>
+                    </results>
+                </sparql>
+            text/csv:
+              schema:
+                type: string
+                example: |-
+                  "subject","predicate","object"
+                  "foo","meets","bar"
+                  "one","meets","two"
+            text/tab-separated-values:
+              schema:
+                type: string
+                example: ?subject ?predicate ?object
+            application/x-binary-rdf-results-table:
+              schema:
+                type: string
+                format: binary
+        "400":
+          description: Bad request or malformed SPARQL
+        "500":
+          description: Fatal error
+    post:
+      tags:
+      - agent
+      summary: Invoke a Skill or Query (Flexible)
+      operationId: postAgent
+      parameters:
+      - name: asset
+        in: query
+        description: The Target Asset of the Query (targets the complete dataspace if empty)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          LifetimeSkill:
+            $ref: '#/components/examples/LifetimeSkill'
+          NullSkill:
+            $ref: '#/components/examples/NullSkill'
+          DataspaceSkill:
+            $ref: '#/components/examples/DataspaceSkill'
+      - name: runMode
+        in: query
+        description: "Determines the preferred execution location which may be \"consumer\" (in the computing environment of the endpoint agent), \"provider\" (in the computing environment of the remote agent providing the targetted asset) or \"all\" (the agent will choose the best computing environment based on contracts and policies, this is the default mode)."
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          consumer:
+            $ref: '#/components/examples/RunModeConsumer'
+          provider:
+            $ref: '#/components/examples/RunModeProvider'
+          all:
+            $ref: '#/components/examples/RunModeAll'
+      - name: queryLn
+        in: query
+        description: Determines the query language. Currently only "SPARQL" is supported.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          sparql:
+            $ref: '#/components/examples/QuerySparql'
+      - name: query
+        in: query
+        description: The SPARQL query (in case that the body contains a tuple set)
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          "Null":
+            $ref: '#/components/examples/NullText'
+          Dataspace:
+            $ref: '#/components/examples/Dataspace'
+      - name: (vin
+        in: query
+        description: A sample bound parameter 'vin' which opens a new input tuple
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Vehicle1:
+            $ref: '#/components/examples/Vehicle1'
+          NoVehicle:
+            $ref: '#/components/examples/NoVehicle'
+      - name: troubleCode
+        in: query
+        description: A sample multi-bound parameter 'troubleCode' which closes the tuple
+        required: false
+        style: form
+        explode: true
+        schema:
+          maxItems: 128
+          type: array
+          items:
+            type: string
+        examples:
+          TroubleCodeClose:
+            $ref: '#/components/examples/TroubleCodeClose'
+          NoTroubleCode:
+            $ref: '#/components/examples/NoTroubleCode'
+      requestBody:
+        description: The body either contains the query or a binding data set when a skill is invoked
+        content:
+          application/sparql-results+json:
+            schema:
+              type: object
+            example:
+              head:
+                vars:
+                - vin
+                - troubleCode
+              results:
+                bindings:
+                - vin:
+                    type: literal
+                    value: WBAAL31029PZ00001
+                  troubleCode:
+                    type: literal
+                    value: P0746
+                - vin:
+                    type: literal
+                    value: WBAAL31029PZ00001
+                  troubleCode:
+                    type: literal
+                    value: P0745
+                - vin:
+                    type: literal
+                    value: WBAAL31029PZ00002
+                  troubleCode:
+                    type: literal
+                    value: P0744
+                - vin:
+                    type: literal
+                    value: WBAAL31029PZ00003
+                  troubleCode:
+                    type: literal
+                    value: P0743
+          application/sparql-results+xml:
+            schema:
+              $ref: '#/components/schemas/XmlResultset'
+            example: |-
+              <?xml version="1.0"?>
+              <sparql xmlns="http://www.w3.org/2005/sparql-results#">
+                  <head>
+                      <variable name="vin"/>
+                      <variable name="troubleCode"/>
+                  </head>
+                  <results>
+                      <result>
+                          <binding name="vin">
+                            <literal>WBAAL31029PZ00001</literal>
+                          </binding>
+                          <binding name="troubleCode">
+                            <literal>P0746</literal>
+                          </binding>
+                      </result>
+                      <result>
+                          <binding name="vin">
+                            <literal>WBAAL31029PZ00001</literal>
+                          </binding>
+                          <binding name="troubleCode">
+                            <literal>P0745</literal>
+                          </binding>
+                      </result>
+                      <result>
+                          <binding name="vin">
+                            <literal>WBAAL31029PZ00002</literal>
+                          </binding>
+                          <binding name="troubleCode">
+                            <literal>P0744</literal>
+                          </binding>
+                      </result>
+                    </results>
+                  </sparql>
+          application/sparql-query:
+            schema:
+              type: string
+            examples:
+              Dataspace:
+                $ref: '#/components/examples/Dataspace'
+        required: true
+      responses:
+        "200":
+          description: The SparQL query has been processed successfully.
+          content:
+            application/sparql-results+json:
+              schema:
+                type: object
+              example:
+                head:
+                  vars:
+                  - connector
+                  - asset
+                  - name
+                  - description
+                  - type
+                  - version
+                  - contentType
+                  - isDefinedBy
+                  - shape
+                results:
+                  bindings:
+                  - connector:
+                      type: uri
+                      value: edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN
+                    asset:
+                      type: uri
+                      value: GraphAsset?oem=Quality
+                    name:
+                      type: literal
+                      value: Quality Data.
+                    description:
+                      type: literal
+                      value: A graph asset/offering mounting Quality data.
+                    type:
+                      type: "uri,"
+                      value: https://w3id.org/catenax/ontology/common#GraphAsset
+                    version:
+                      type: "literal,"
+                      value: v0.7.2
+                    contentType:
+                      type: "literal,"
+                      value: "application/json, application/xml"
+                    isDefinedBy:
+                      type: "literal,"
+                      value: <https://w3id.org/catenax/ontology/reliability>
+                    shape:
+                      type: "literal,"
+                      value: "@prefix : <GraphAsset?oem=Quality#> ."
+            application/sparql-results+xml:
+              schema:
+                $ref: '#/components/schemas/XmlResultset'
+              example: |-
+                <?xml version="1.0"?>
+                <sparql xmlns="http://www.w3.org/2005/sparql-results#">
+                    <head>
+                        <variable name="connector"/>
+                        <variable name="asset"/>
+                        <variable name="name"/>
+                        <variable name="description"/>
+                        <variable name="type"/>
+                        <variable name="version"/>
+                        <variable name="contentType"/>
+                        <variable name="isDefinedBy"/>
+                        <variable name="shape"/>
+                    </head>
+                    <results>
+                        <result>
+                            <binding name="connector">
+                                <uri>edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN</uri>
+                            </binding>
+                            <binding name="asset">
+                                <uri>GraphAsset?oem=Quality</uri>
+                            </binding>
+                            <binding name="name">
+                                <literal>Quality Data.</literal>
+                            </binding>
+                            <binding name="description">
+                                <literal>A graph asset/offering mounting Quality data.</literal>
+                            </binding>
+                            <binding name="type">
+                                <uri>https://w3id.org/catenax/ontology/common#GraphAsset</uri>
+                            </binding>
+                            <binding name="version">
+                                <literal>v0.7.2</literal>
+                            </binding>
+                            <binding name="contentType">
+                                <literal>application/json, application/xml</literal>
+                            </binding>
+                            <binding name="isDefinedBy">
+                                <literal>&lt;https://w3id.org/catenax/ontology/reliability&gt;</literal>
+                            </binding>
+                            <binding name="shape">
+                                <literal>@prefix : &lt;GraphAsset?oem=Quality#&gt; .</literal>
+                            </binding>
+                        </result>
+                    </results>
+                </sparql>
+            text/csv:
+              schema:
+                type: string
+                example: |-
+                  "subject","predicate","object"
+                  "foo","meets","bar"
+                  "one","meets","two"
+            text/tab-separated-values:
+              schema:
+                type: string
+                example: ?subject ?predicate ?object
+            application/x-binary-rdf-results-table:
+              schema:
+                type: string
+                format: binary
+        "203":
+          description: The SparQL query has been processed successfully but warnings did occur.
+          headers:
+            cx_warnings:
+              description: A data structure listing problems when processing the query.
+              style: simple
+              explode: false
+              schema:
+                maxItems: 64
+                type: array
+                items:
+                  $ref: '#/components/schemas/CxWarning'
+          content:
+            application/sparql-results+json:
+              schema:
+                type: object
+              example:
+                head:
+                  vars:
+                  - connector
+                  - asset
+                  - name
+                  - description
+                  - type
+                  - version
+                  - contentType
+                  - isDefinedBy
+                  - shape
+                results:
+                  bindings:
+                  - connector:
+                      type: uri
+                      value: edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN
+                    asset:
+                      type: uri
+                      value: GraphAsset?oem=Quality
+                    name:
+                      type: literal
+                      value: Quality Data.
+                    description:
+                      type: literal
+                      value: A graph asset/offering mounting Quality data.
+                    type:
+                      type: "uri,"
+                      value: https://w3id.org/catenax/ontology/common#GraphAsset
+                    version:
+                      type: "literal,"
+                      value: v0.7.2
+                    contentType:
+                      type: "literal,"
+                      value: "application/json, application/xml"
+                    isDefinedBy:
+                      type: "literal,"
+                      value: <https://w3id.org/catenax/ontology/reliability>
+                    shape:
+                      type: "literal,"
+                      value: "@prefix : <GraphAsset?oem=Quality#> ."
+            application/sparql-results+xml:
+              schema:
+                $ref: '#/components/schemas/XmlResultset'
+              example: |-
+                <?xml version="1.0"?>
+                <sparql xmlns="http://www.w3.org/2005/sparql-results#">
+                    <head>
+                        <variable name="connector"/>
+                        <variable name="asset"/>
+                        <variable name="name"/>
+                        <variable name="description"/>
+                        <variable name="type"/>
+                        <variable name="version"/>
+                        <variable name="contentType"/>
+                        <variable name="isDefinedBy"/>
+                        <variable name="shape"/>
+                    </head>
+                    <results>
+                        <result>
+                            <binding name="connector">
+                                <uri>edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN</uri>
+                            </binding>
+                            <binding name="asset">
+                                <uri>GraphAsset?oem=Quality</uri>
+                            </binding>
+                            <binding name="name">
+                                <literal>Quality Data.</literal>
+                            </binding>
+                            <binding name="description">
+                                <literal>A graph asset/offering mounting Quality data.</literal>
+                            </binding>
+                            <binding name="type">
+                                <uri>https://w3id.org/catenax/ontology/common#GraphAsset</uri>
+                            </binding>
+                            <binding name="version">
+                                <literal>v0.7.2</literal>
+                            </binding>
+                            <binding name="contentType">
+                                <literal>application/json, application/xml</literal>
+                            </binding>
+                            <binding name="isDefinedBy">
+                                <literal>&lt;https://w3id.org/catenax/ontology/reliability&gt;</literal>
+                            </binding>
+                            <binding name="shape">
+                                <literal>@prefix : &lt;GraphAsset?oem=Quality#&gt; .</literal>
+                            </binding>
+                        </result>
+                    </results>
+                </sparql>
+            text/csv:
+              schema:
+                type: string
+                example: |-
+                  "subject","predicate","object"
+                  "foo","meets","bar"
+                  "one","meets","two"
+            text/tab-separated-values:
+              schema:
+                type: string
+                example: ?subject ?predicate ?object
+            application/x-binary-rdf-results-table:
+              schema:
+                type: string
+                format: binary
+        "400":
+          description: Bad request or malformed SPARQL
+        "500":
+          description: Fatal error
+  /skill:
+    get:
+      tags:
+      - agent
+      summary: Get a Skill
+      operationId: getSkill
+      parameters:
+      - name: asset
+        in: query
+        description: The Asset Id of the Skill
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          DataspaceSkill:
+            $ref: '#/components/examples/DataspaceSkill'
+          LifetimeSkill:
+            $ref: '#/components/examples/LifetimeSkill'
+      responses:
+        "200":
+          description: Skill has been found
+          content:
+            application/sparql-query:
+              schema:
+                type: string
+              examples:
+                Dataspace:
+                  $ref: '#/components/examples/Dataspace'
+                Lifetime:
+                  $ref: '#/components/examples/AuthorsWithLimits'
+        "400":
+          description: Skill has not been found
+        "500":
+          description: Fatal error
+    post:
+      tags:
+      - agent
+      summary: Register a Skill
+      operationId: postSkill
+      parameters:
+      - name: asset
+        in: query
+        description: The Asset Id of the Skill
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          DataspaceSkill:
+            $ref: '#/components/examples/DataspaceSkill'
+          LifetimeSkill:
+            $ref: '#/components/examples/LifetimeSkill'
+      - name: assetName
+        in: query
+        description: The Asset Name of the Skill
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Example Skill
+      - name: assetVersion
+        in: query
+        description: The Version of the Skill
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: 1.0.5
+      - name: assetDescription
+        in: query
+        description: The Description of the Skill
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Performs a sample operation on the dataspace.
+      - name: allowServicePattern
+        in: query
+        description: A regex indicating which external SERVICE Iris are allowed during execution.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: edcs://.*
+      - name: denyServicePattern
+        in: query
+        description: A regex indicating which external SERVICE Iris are forbidden during execution.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: https?://.*
+      - name: distributionMode
+        in: query
+        description: The distribution mode under which to publish the skill
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Provider:
+            $ref: '#/components/examples/DistributionModeProvider'
+          Consumer:
+            $ref: '#/components/examples/DistributionModeConsumer'
+          All:
+            $ref: '#/components/examples/DistributionModeAll'
+      - name: contract
+        in: query
+        description: The contract under which the skill should be published
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Provider:
+            $ref: '#/components/examples/Contract'
+      - name: isFederated
+        in: query
+        description: Whether the skill should be visible in the Federated Catalogue
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+      - name: ontology
+        in: query
+        description: Multiple references to ontologies which are referenced in the skill
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Provider:
+            $ref: '#/components/examples/Ontology'
+      requestBody:
+        description: The body either contains the parameterized query
+        content:
+          application/sparql-query:
+            schema:
+              type: string
+            examples:
+              Dataspace:
+                $ref: '#/components/examples/Dataspace'
+        required: true
+      responses:
+        "200":
+          description: Skill has been registered
+        "204":
+          description: Skill has been updated
+        "400":
+          description: Bad request or malformed SPARQL
+        "500":
+          description: Fatal error
+  /graph:
+    post:
+      tags:
+      - graph
+      summary: Upload a Graph
+      operationId: postGraph
+      parameters:
+      - name: asset
+        in: query
+        description: The Asset Id of the Graph
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          GraphAsset:
+            $ref: '#/components/examples/GraphAsset'
+      - name: assetName
+        in: query
+        description: The Asset Name of the Graph
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Example Graph
+      - name: assetVersion
+        in: query
+        description: The Version of the Graph
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: 3.2.1
+      - name: assetDescription
+        in: query
+        description: The Description of the Graph
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: Contains freshly uploaded traceability data.
+      - name: allowServicePattern
+        in: query
+        description: A regex indicating which external SERVICE Iris are allowed when traversing this graph.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: edcs://.*
+      - name: denyServicePattern
+        in: query
+        description: A regex indicating which external SERVICE Iris are forbidden when travering this graph.
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: https?://.*
+      - name: contract
+        in: query
+        description: The contract under which the graph should be published
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Provider:
+            $ref: '#/components/examples/Contract'
+      - name: shape
+        in: query
+        description: "The shape of the asset if it is known,."
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Shape:
+            $ref: '#/components/examples/Shape'
+      - name: isFederated
+        in: query
+        description: Whether the graph should be visible in the Federated Catalogue
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: boolean
+      - name: ontology
+        in: query
+        description: Multiple references to ontologies which are referenced in the graph
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          Provider:
+            $ref: '#/components/examples/Ontology'
+      requestBody:
+        description: The body either contains rdf in TTL (terse triple language) syntax or CSV
+        content:
+          text/turtle:
+            schema:
+              type: string
+            examples:
+              Dataspace:
+                $ref: '#/components/examples/GraphTtl'
+          text/csv:
+            schema:
+              type: string
+            examples:
+              Dataspace:
+                $ref: '#/components/examples/GraphCsv'
+        required: true
+      responses:
+        "200":
+          description: Graph has been registered
+        "204":
+          description: Graph has been updated
+        "400":
+          description: Bad request or malformed CSV/TTL
+        "500":
+          description: Fatal error
+    delete:
+      tags:
+      - graph
+      summary: Delete a Graph (Asset)
+      operationId: deleteGraph
+      parameters:
+      - name: asset
+        in: query
+        description: The Asset Id of the Graph
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+        examples:
+          GraphAsset:
+            $ref: '#/components/examples/GraphAsset'
+      responses:
+        "200":
+          description: Graph has been deleted
+        "400":
+          description: Graph has not been found
+        "500":
+          description: Fatal error
+components:
+  schemas:
+    CxWarning:
+      type: object
+      properties:
+        source-tenant:
+          type: string
+        source-asset:
+          type: string
+        target-tenant:
+          type: string
+        target-asset:
+          type: string
+        problem:
+          type: string
+        context:
+          type: string
+    XmlResultset:
+      type: object
+      properties:
+        head:
+          $ref: '#/components/schemas/XmlResultset_head'
+        results:
+          $ref: '#/components/schemas/XmlResultset_results'
+      xml:
+        name: sparql
+    XmlResultset_head_variable:
+      type: object
+      properties:
+        name:
+          type: string
+          xml:
+            attribute: true
+      xml:
+        name: variable
+    XmlResultset_head:
+      type: object
+      properties:
+        variable:
+          $ref: '#/components/schemas/XmlResultset_head_variable'
+      xml:
+        name: head
+    XmlResultset_results_result_binding:
+      type: object
+      properties:
+        name:
+          type: string
+          xml:
+            attribute: true
+        literal:
+          type: string
+        uri:
+          type: string
+      xml:
+        name: binding
+    XmlResultset_results_result:
+      type: object
+      properties:
+        binding:
+          $ref: '#/components/schemas/XmlResultset_results_result_binding'
+      xml:
+        name: result
+    XmlResultset_results:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/XmlResultset_results_result'
+      xml:
+        name: results
+  responses:
+    "203":
+      description: The SparQL query has been processed successfully but warnings did occur.
+      headers:
+        cx_warnings:
+          description: A data structure listing problems when processing the query.
+          style: simple
+          explode: false
+          schema:
+            maxItems: 64
+            type: array
+            items:
+              $ref: '#/components/schemas/CxWarning'
+      content:
+        application/sparql-results+json:
+          schema:
+            type: object
+          example:
+            head:
+              vars:
+              - connector
+              - asset
+              - name
+              - description
+              - type
+              - version
+              - contentType
+              - isDefinedBy
+              - shape
+            results:
+              bindings:
+              - connector:
+                  type: uri
+                  value: edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN
+                asset:
+                  type: uri
+                  value: GraphAsset?oem=Quality
+                name:
+                  type: literal
+                  value: Quality Data.
+                description:
+                  type: literal
+                  value: A graph asset/offering mounting Quality data.
+                type:
+                  type: "uri,"
+                  value: https://w3id.org/catenax/ontology/common#GraphAsset
+                version:
+                  type: "literal,"
+                  value: v0.7.2
+                contentType:
+                  type: "literal,"
+                  value: "application/json, application/xml"
+                isDefinedBy:
+                  type: "literal,"
+                  value: <https://w3id.org/catenax/ontology/reliability>
+                shape:
+                  type: "literal,"
+                  value: "@prefix : <GraphAsset?oem=Quality#> ."
+        application/sparql-results+xml:
+          schema:
+            $ref: '#/components/schemas/XmlResultset'
+          example: |-
+            <?xml version="1.0"?>
+            <sparql xmlns="http://www.w3.org/2005/sparql-results#">
+                <head>
+                    <variable name="connector"/>
+                    <variable name="asset"/>
+                    <variable name="name"/>
+                    <variable name="description"/>
+                    <variable name="type"/>
+                    <variable name="version"/>
+                    <variable name="contentType"/>
+                    <variable name="isDefinedBy"/>
+                    <variable name="shape"/>
+                </head>
+                <results>
+                    <result>
+                        <binding name="connector">
+                            <uri>edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN</uri>
+                        </binding>
+                        <binding name="asset">
+                            <uri>GraphAsset?oem=Quality</uri>
+                        </binding>
+                        <binding name="name">
+                            <literal>Quality Data.</literal>
+                        </binding>
+                        <binding name="description">
+                            <literal>A graph asset/offering mounting Quality data.</literal>
+                        </binding>
+                        <binding name="type">
+                            <uri>https://w3id.org/catenax/ontology/common#GraphAsset</uri>
+                        </binding>
+                        <binding name="version">
+                            <literal>v0.7.2</literal>
+                        </binding>
+                        <binding name="contentType">
+                            <literal>application/json, application/xml</literal>
+                        </binding>
+                        <binding name="isDefinedBy">
+                            <literal>&lt;https://w3id.org/catenax/ontology/reliability&gt;</literal>
+                        </binding>
+                        <binding name="shape">
+                            <literal>@prefix : &lt;GraphAsset?oem=Quality#&gt; .</literal>
+                        </binding>
+                    </result>
+                </results>
+            </sparql>
+        text/csv:
+          schema:
+            type: string
+            example: |-
+              "subject","predicate","object"
+              "foo","meets","bar"
+              "one","meets","two"
+        text/tab-separated-values:
+          schema:
+            type: string
+            example: ?subject ?predicate ?object
+        application/x-binary-rdf-results-table:
+          schema:
+            type: string
+            format: binary
+    "200":
+      description: The SparQL query has been processed successfully.
+      content:
+        application/sparql-results+json:
+          schema:
+            type: object
+          example:
+            head:
+              vars:
+              - connector
+              - asset
+              - name
+              - description
+              - type
+              - version
+              - contentType
+              - isDefinedBy
+              - shape
+            results:
+              bindings:
+              - connector:
+                  type: uri
+                  value: edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN
+                asset:
+                  type: uri
+                  value: GraphAsset?oem=Quality
+                name:
+                  type: literal
+                  value: Quality Data.
+                description:
+                  type: literal
+                  value: A graph asset/offering mounting Quality data.
+                type:
+                  type: "uri,"
+                  value: https://w3id.org/catenax/ontology/common#GraphAsset
+                version:
+                  type: "literal,"
+                  value: v0.7.2
+                contentType:
+                  type: "literal,"
+                  value: "application/json, application/xml"
+                isDefinedBy:
+                  type: "literal,"
+                  value: <https://w3id.org/catenax/ontology/reliability>
+                shape:
+                  type: "literal,"
+                  value: "@prefix : <GraphAsset?oem=Quality#> ."
+        application/sparql-results+xml:
+          schema:
+            $ref: '#/components/schemas/XmlResultset'
+          example: |-
+            <?xml version="1.0"?>
+            <sparql xmlns="http://www.w3.org/2005/sparql-results#">
+                <head>
+                    <variable name="connector"/>
+                    <variable name="asset"/>
+                    <variable name="name"/>
+                    <variable name="description"/>
+                    <variable name="type"/>
+                    <variable name="version"/>
+                    <variable name="contentType"/>
+                    <variable name="isDefinedBy"/>
+                    <variable name="shape"/>
+                </head>
+                <results>
+                    <result>
+                        <binding name="connector">
+                            <uri>edcs://knowledge.dev.demo.catena-x.net/oem-edc-control/BPNL00000003COJN</uri>
+                        </binding>
+                        <binding name="asset">
+                            <uri>GraphAsset?oem=Quality</uri>
+                        </binding>
+                        <binding name="name">
+                            <literal>Quality Data.</literal>
+                        </binding>
+                        <binding name="description">
+                            <literal>A graph asset/offering mounting Quality data.</literal>
+                        </binding>
+                        <binding name="type">
+                            <uri>hhttps://w3id.org/catenax/ontology/common#GraphAsset</uri>
+                        </binding>
+                        <binding name="version">
+                            <literal>v0.7.2</literal>
+                        </binding>
+                        <binding name="contentType">
+                            <literal>application/json, application/xml</literal>
+                        </binding>
+                        <binding name="isDefinedBy">
+                            <literal>&lt;https://w3id.org/catenax/ontology/reliability&gt;</literal>
+                        </binding>
+                        <binding name="shape">
+                            <literal>@prefix : &lt;GraphAsset?oem=Quality#&gt; .</literal>
+                        </binding>
+                    </result>
+                </results>
+            </sparql>
+        text/csv:
+          schema:
+            type: string
+            example: |-
+              "subject","predicate","object"
+              "foo","meets","bar"
+              "one","meets","two"
+        text/tab-separated-values:
+          schema:
+            type: string
+            example: ?subject ?predicate ?object
+        application/x-binary-rdf-results-table:
+          schema:
+            type: string
+            format: binary
+    "400":
+      description: Bad request or malformed SPARQL
+    "500":
+      description: Fatal error
+  examples:
+    NullSkill:
+      summary: No Predefined Skill
+      value: null
+    DataspaceSkill:
+      summary: Predefined Skill to List Federated Data Catalogue
+      value: SkillAsset?consumer=Dataspace
+    LifetimeSkill:
+      summary: Predefined Skill to Perform a Lifetime Prognosis
+      value: SkillAsset?consumer=RemainingUsefulLife
+    GraphAsset:
+      summary: Sample Graph Asset Name
+      value: GraphAsset?provider=Traceability
+    Vehicle1:
+      summary: Vehicle Parameter
+      value: WBAAL31029PZ00001
+    NoVehicle:
+      summary: No Vehicle Parameter
+      value: null
+    TroubleCodeClose:
+      summary: Multiple Trouble Codes (and Tuple End)
+      value:
+      - P0746
+      - P0745)
+    SingleTroubleCode:
+      summary: A Single Trouble Code
+      value: P0746
+    NoTroubleCode:
+      summary: No Trouble Code
+      value: null
+    NullText:
+      summary: No Skill
+      value: null
+    Dataspace:
+      summary: Skill to List Federated Data Catalogue
+      value: "SELECT ?connector ?asset \n       ?name\n       (MIN(?adescription) AS ?description) \n       ?type\n       (MAX(?aversion) AS ?version) \n       (GROUP_CONCAT(DISTINCT ?acontentType;SEPARATOR=\",\") AS ?contentType) \n       (CONCAT(\"<\",GROUP_CONCAT(?aontology;SEPARATOR=\">,<\"),\">\") AS ?isDefinedBy) \n       (MIN(?ashape) AS ?shape)\n WHERE { \n     ?connector <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/cx.ttl#offersAsset> ?asset. \n     ?asset <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/common_ontology.ttl#contentType> ?acontentType; \n            <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/common_ontology.ttl#name> ?name; \n            <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type; \n            <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> ?aontology; \n            <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/common_ontology.ttl#version> ?aversion; \n            <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/common_ontology.ttl#description> ?adescription.\n\n    OPTIONAL {\n        ?asset <https://github.com/big-data-spaces/knowledge-agents-deployment/ontology/cx.ttl#shape> ?ashape\n    }\n} GROUP BY ?connector ?asset ?name ?type"
+    Resultset:
+      summary: Sample Json-Based Resultset
+    AuthorsWithLimits:
+      summary: First 10 authors
+      value: "SELECT DISTINCT \n  ?author_url \n  (GROUP_CONCAT(?author_label; SEPARATOR=\";\") AS ?author_names)\n{ \n\n ?author_url a-cd:pseudonym ?x .\n ?author_url rdfs:label ?author_label\n} LIMIT 10"
+    CulturalPlacesInVinci:
+      summary: Cultural places in Latina
+      value: |-
+        SELECT DISTINCT ?luogo ?indirizzo ?comune WHERE {
+         ?x a cis:CulturalInstituteOrSite ;
+          cis:institutionalCISName ?luogo ;
+          cis:hasSite ?site .
+         ?site cis:siteAddress ?address .
+         ?address clvapit:fullAddress ?indirizzo ;
+                  clvapit:hasCity [rdfs:label ?comune] .
+         FILTER regex(str(?comune), "Vinci", "i")
+        }  ORDER BY ?luogo LIMIT 100
+        LifetimeSkill:
+    RunModeConsumer:
+      summary: Local Consumer Execution
+      value: consumer
+    RunModeProvider:
+      summary: Remote Provider Execution
+      value: provider
+    RunModeAll:
+      summary: Best Possible Execution
+      value: all
+    DistributionModeConsumer:
+      summary: Local Consumer Execution
+      value: CONSUMER
+    DistributionModeProvider:
+      summary: Remote Provider Execution
+      value: PROVIDER
+    DistributionModeAll:
+      summary: Best Possible Execution
+      value: ALL
+    QuerySparql:
+      summary: SPARQL Query Language
+      value: SPARQL
+    Contract:
+      summary: An example contract name
+      value: Contract?oem=Skill
+    Ontology:
+      summary: An example reference to an ontology
+      value: https://w3id.org/catenax/ontology/behaviour
+    GraphTtl:
+      summary: An example graph in TTL syntax
+      value: |-
+        #################################################################
+        # Graph Asset in TTL/RDF/OWL FORMAT
+        # See copyright notice in the top folder
+        # See authors file in the top folder
+        # See license file in the top folder
+        #################################################################
+
+        @prefix : <GraphAsset?consumer=Upload> .
+        @prefix cx-core: <https://w3id.org/catenax/ontology/core#> .
+        @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+        @prefix cx-supply: <https://w3id.org/catenax/ontology/supply-chain#> .
+        @prefix cx-mat: <https://w3id.org/catenax/taxonomy/material#> .
+        @prefix bpnl: <urn:bpn:legal:> .
+        @prefix bpns: <urn:bpn:site:> .
+        @prefix bpna: <urn:bpn:address:> .
+        @prefix bpnl: <urn:bpn:legal:> .
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+        @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+        @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+        @prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+        :Chain1 rdf:type cx-supply:SupplyRelationship;
+                cx-supply:material cx-mat:Rubber;
+                cx-supply:consumer bpna:BPNL00000003COJN;
+                cx-supply:supplier bpns:BPNL00000003CPIY.
+    GraphCsv:
+      summary: An example graph in CSV syntax
+      value: |-
+        IRI,http://www.w3.org/1999/02/22-rdf-syntax-ns#type,https://w3id.org/catenax/ontology/supply-chain#material,https://w3id.org/catenax/ontology/supply-chain#consumer,https://w3id.org/catenax/ontology/supply-chain#supplier
+        :Chain1,<https://w3id.org/catenax/ontology/supply-chain#SupplyRelationship>,<https://w3id.org/catenax/taxonomy/material#Rubber>,<urn:bpn:address:BPNL00000003COJN>,<urn:bpn:site:BPNL00000003CPIY>
+    Shape:
+      summary: An example shape in TTL syntax
+      value: |-
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+        @prefix owl: <http://www.w3.org/2002/07/owl#> .
+        @prefix cx-core: <https://w3id.org/catenax/ontology/core#> .
+        @prefix cx-vehicle: <https://w3id.org/catenax/ontology/vehicle#> .
+        @prefix sh: <http://www.w3.org/ns/shacl#> .
+        @prefix : <https://w3id.org/catenax/taxonomy#GraphAsset?provider=Traceability&shapeObject=>
+        # Asset content description (exp:vehicleShapeGraph)
+        :VehicleShape a sh:NodeShape ;
+          sh:targetClass cx-vehicle:Vehicle ;
+          sh:property [
+            sh:path cx-vehicle:vehicleIdentificationNumber ;
+            sh:pattern "[A-Z0-9]{17}";
+            sh:minCount 1 ;
+          ] ;
+          sh:property [
+            sh:path cx-core:name ;
+            sh:datatype xsd:string ;
+            sh:minCount 1 ;
+          ] .
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    ApiKeyAuth:
+      type: apiKey
+      name: X-API-Key
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/auth
+          tokenUrl: https://centralidp.int.demo.catena-x.net/auth/realms/CX-Central/protocol/openid-connect/token
+          scopes: {}

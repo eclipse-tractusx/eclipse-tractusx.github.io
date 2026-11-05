@@ -3,7 +3,7 @@ title: Understanding our multi instance and versioning behaviour
 sidebar_position: 6
 ---
 
-Like mentioned in the [important to know!](/docs/kit-process/processes/create_KIT_page#important-to-know) section, In this `guideline` page we want to talk a bit about the structure, documentation instances, versioning and conditional rendering (non official) solution for the `versions dropdown` menu.
+Like mentioned in the [important to know!](kit-structure.md#steps-to-add-a-newkit-documentation) section, In this `guideline` page we want to talk a bit about the structure, documentation instances, versioning and conditional rendering (non official) solution for the `versions dropdown` menu.
 
 ## Our multi-instance structure
 

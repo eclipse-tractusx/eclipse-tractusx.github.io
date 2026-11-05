@@ -1,0 +1,432 @@
+openapi: 3.1.0
+info:
+  title: Company Certificate Management API
+  description: API for managing company certificates between Data Providers and Consumers
+  version: 1.0.0
+
+components:
+  schemas:
+    Header:
+      type: object
+      required:
+        - senderBpn
+        - senderFeedbackUrl
+        - messageId
+        - context
+        - receiverBpn
+        - sentDateTime
+        - version
+      properties:
+        senderBpn:
+          type: string
+          example: "BPNL0000000001AB"
+        senderFeedbackUrl:
+          type: string
+          format: uri
+          description: "URL endpoint where the sender can receive feedback or responses"
+          example: "https://domain.tld/path/to/api"
+        messageId:
+          type: string
+          format: uuid
+          example: "3b4edc05-e214-47a1-b0c2-1d831cdd9ba9"
+        relatedMessageId:
+          type: string
+          format: uuid
+          example: "d9452f24-3bf3-4134-b3eb-68858f1b2362"
+        expectedResponseBy:
+          type: string
+          format: date-time
+        context:
+          type: string
+          enum: 
+            - "CompanyCertificateManagement-CCMAPI-Push:1.0.0"
+            - "CompanyCertificateManagement-CCMAPI-Request:1.0.0"
+            - "CompanyCertificateManagement-CCMAPI-Status:1.0.0"
+        receiverBpn:
+          type: string
+          example: "BPNL0000000002CD"
+        sentDateTime:
+          type: string
+          format: date-time
+        version:
+          type: string
+          example: "3.1.0"
+
+    BpnlTrait:
+      type: string
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.shared.business_partner_number:2.0.0#BpnlTrait"
+      description: "The provided regular expression ensures that the BPNL is composed\
+        \ of prefix 'BPNL', 10 digits and two alphanumeric letters."
+      pattern: "^BPNL[a-zA-Z0-9]{12}$"
+
+    BpnsTrait:
+      type: string
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.shared.business_partner_number:2.0.0#BpnsTrait"
+      description: "The provided regular expression ensures that the BPNS is composed\
+        \ of prefix 'BPNS', 10 digits and two alphanumeric letters."
+      pattern: "^BPNS[a-zA-Z0-9]{12}$"
+
+    BpnLocation:
+      type: string
+      description: "The provided regular expression ensures that the BPN is composed\
+        \ of prefix 'BPNA' or 'BPNL', 10 digits and two alphanumeric letters."
+      # pattern should start with BPN, then A or S, then 11 alphanumeric characters
+      pattern: "^BPN[A|S][a-zA-Z0-9]{11}$"
+    CertificateTypeCharacteristic:
+      description: Describes the characteristics of the Certificate Type.
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#CertificateTypeCharacteristic"
+      type: object
+      allOf:
+        - $ref: "#/components/schemas/CertificateTypeEntity"
+    CertificateTypeEntity:
+      description: "Detailed entity of the certificate like IS09001:2015, IATF 16949:2015\
+        \ or other, valid types are registered at BPN metadatacontroller"
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#CertificateTypeEntity"
+      type: object
+      properties:
+        certificateType:
+          description: "Type of the certificate as defined on the document,valid types\
+            \ are registered at BPN metadatacontroller"
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#certificateType"
+          $ref: "#/components/schemas/Text"
+        certificateVersion:
+          description: "Version of the certificate as defined on the document, usually\
+            \ the specific version of a certification standard"
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#certificateVersion"
+          $ref: "#/components/schemas/Text"
+      required:
+        - certificateType
+    CertificateRequest:
+      type: object
+      required:
+        - header
+        - content
+      properties:
+        header:
+          $ref: '#/components/schemas/Header'
+        content:
+          type: object
+          required: 
+            - certifiedBpn
+            - certificateType
+            - locationBpns
+          properties:
+            certifiedBpn:
+              $ref: '#/components/schemas/BpnlTrait'
+            certificateType:
+              type: string
+              example: "ISO9001"
+            locationBpns:
+              type: array
+              items:
+                $ref: '#/components/schemas/BpnLocation'
+              example: ["BPNA000000000001", "BPNA000000000002"]
+
+    CertificatePush:
+      type: object
+      required:
+        - header
+        - content
+      properties:
+        header:
+          $ref: '#/components/schemas/Header'
+        content:
+          type: object
+          required:
+            - businessPartnerNumber
+            - type
+            - registrationNumber
+            - validFrom
+            - validUntil
+            - trustLevel
+            - document
+          properties:
+            businessPartnerNumber:
+              description: The Business Partner Number (BPN) of the certified legal entity
+                .
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#businessPartnerNumber"
+              $ref: "#/components/schemas/BpnlTrait"
+            type:
+              description: "Type of the certificate as defined on the document like IS09001,\
+                \ IATF 16949 or other"
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#type"
+              $ref: "#/components/schemas/CertificateTypeCharacteristic"
+            registrationNumber:
+              description: Registration number of the certificate as defined on the certificate
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#registrationNumber"
+              $ref: "#/components/schemas/Text"
+            areaOfApplication:
+              description: Details on which areas / application types a certificate is
+                valid for a company and/or site.
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#areaOfApplication"
+              $ref: "#/components/schemas/Text"
+            enclosedSites:
+              description: "Additional sites covered by the certificate, which can be\
+                \ either the Business Partner Number Site (BPNS) or Business Partner Number\
+                \ Address (BPNA)"
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#enclosedSites"
+              $ref: "#/components/schemas/EnclosedSitesCharacteristic"
+            validFrom:
+              description: Valid from date as defined on the certificate.
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#validFrom"
+              $ref: "#/components/schemas/Date"
+            validUntil:
+              description: Valid valid until as defined on the certificate. If certificate
+                never expires value until expected to be 9999-12-31
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#validUntil"
+              $ref: "#/components/schemas/Date"
+            issuer:
+              description: 'The BPN of the issuing authority e.g. TUEV Sued '
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#issuer"
+              $ref: "#/components/schemas/IssuerCharacteristics"
+            trustLevel:
+              description: "The trust level of the given certificate - none,low, high,\
+                \ trusted"
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#trustLevel"
+              $ref: "#/components/schemas/TrustLevelValue"
+            validator:
+              description: The Business Partner Number (BPN) of the data service provider
+                who validates the given certificate.
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#validator"
+              $ref: "#/components/schemas/TrustValidatorCharacteristic"
+            uploader:
+              description: The Business Partner Number (BPN) of the business partner who
+                originally provided the certifcate data or document.
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#uploader"
+              $ref: "#/components/schemas/BpnlTrait"
+            document:
+              description: The content and ID of the document.
+              x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#document"
+              $ref: "#/components/schemas/DocumentCharacteristic"
+
+    ContentBase64Characteristic:
+      type: string
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#ContentBase64Characteristic"
+      description: 'Describes the document''s encoded value in a Content Base 64 String. '
+
+    Date:
+      type: string
+      format: date
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#Date"
+      description: Describes a property which contains the date in english format.
+
+    DocumentCharacteristic:
+      description: Describes the characteristics of the attribute document.
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#DocumentCharacteristic"
+      type: object
+      properties:
+        creationDate:
+          description: The creation date of the document.
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#creationDate"
+          $ref: "#/components/schemas/Timestamp"
+        documentID:
+          description: The id of the certificate document as stored by the data service
+            provider.
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#documentID"
+          $ref: "#/components/schemas/DocumentIdCharacteristic"
+        contentType:
+          description: The content type of the document.
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#contentType"
+          $ref: "#/components/schemas/MimeType"
+        contentBase64:
+          description: "The data is encoded using the Base64 encoding scheme, which\
+            \ converts binary data into a string of ASCII characters. "
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#contentBase64"
+          $ref: "#/components/schemas/ContentBase64Characteristic"
+      required:
+      - creationDate
+      - documentID
+      - contentType
+      - contentBase64
+
+    DocumentIdCharacteristic:
+      type: string
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#DocumentIdCharacteristic"
+      description: The characteristics of the document ID.
+
+    EnclosedSitesCharacteristic:
+      description: 'Describes the characteristic of the attribute enclosedSites. '
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#EnclosedSitesCharacteristic"
+      type: array
+      items:
+        $ref: "#/components/schemas/EnclosedSiteEntity"
+
+    EnclosedSiteEntity:
+      description: "Entity representing an enclosed site, can be the Business Partner\
+        \ Number Site (BPNS) or Business Partner Number Address (BPNA)."
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#EnclosedSiteEntity"
+      type: object
+      properties:
+        enclosedSiteBpn:
+          description: The Business Partner Number (BPN) of an enclosed site
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#enclosedSiteBpn"
+          $ref: "#/components/schemas/BpnsTrait"
+        areaOfApplication:
+          description: Details on which areas / application types a certificate is
+            valid for a company and/or site.
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#areaOfApplication"
+          $ref: "#/components/schemas/Text"
+      required:
+        - enclosedSiteBpn
+
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+
+    IssuerCharacteristics:
+      description: Issuer name and the Business Partner Number (BPN) Characteristics.
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#IssuerCharacteristics"
+      type: object
+      properties:
+        issuerName:
+          description: Name of the Issuer i.e. Certifying Authority.
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#issuerName"
+          $ref: "#/components/schemas/Text"
+        issuerBpn:
+          description: The Business Partner Number (BPN) of the Issuer.
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#issuerBpn"
+          $ref: "#/components/schemas/BpnlTrait"
+      required:
+        - issuerName
+
+    LocationError:
+      type: object
+      properties:
+        bpn:
+          $ref: '#/components/schemas/BpnLocation'
+        locationErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+
+    MimeType:
+      type: string
+      x-samm-aspect-model-urn: "urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#MimeType"
+      description: "A MIME type as defined in RFC 2046, for example \"application/pdf\"\
+        ."
+
+    CertificateStatus:
+      type: object
+      required:
+        - header
+        - content
+      properties:
+        header:
+          $ref: '#/components/schemas/Header'
+        content:
+          type: object
+          required:
+            - documentId
+            - certificateStatus
+            - locationBpns
+          properties:
+            documentId:
+              type: string
+              format: uuid
+            certificateStatus:
+              type: string
+              enum: [ACCEPTED, REJECTED, RECEIVED]
+            certificateErrors:
+              type: array
+              items:
+                $ref: '#/components/schemas/Error'
+            locationBpns:
+              type: array
+              items:
+                $ref: '#/components/schemas/BpnLocation'
+            locationErrors:
+              type: array
+              items:
+                $ref: '#/components/schemas/LocationError'
+
+    TrustLevelValue:
+      type: string
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#TrustLevelValue"
+      description: The possible trust level values of certificate
+      enum:
+        - none
+        - low
+        - high
+        - trusted
+
+    Text:
+      type: string
+      x-samm-aspect-model-urn: "urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Text"
+      description: "Describes a Property which contains plain text. This is intended\
+        \ exclusively for human readable strings, not for identifiers, measurement\
+        \ values, etc."
+    
+    Timestamp:
+      type: string
+      pattern: "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\\
+        .[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
+      x-samm-aspect-model-urn: "urn:samm:org.eclipse.esmf.samm:characteristic:2.1.0#Timestamp"
+      description: Describes a Property which contains the date and time with an optional
+        timezone.
+
+    TrustValidatorCharacteristic:
+      description: The Business Partner Number (BPN) of the data service provider
+        who validated the given certificate
+      x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#TrustValidatorCharacteristic"
+      type: object
+      properties:
+        validatorName:
+          description: The optional name of the data service provider who validated
+            the given certificate
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#validatorName"
+          $ref: "#/components/schemas/Text"
+        validatorBpn:
+          description: The Business Partner Number (BPN) of the data service provider
+            who validated the given certificate
+          x-samm-aspect-model-urn: "urn:samm:io.catenax.business_partner_certificate:3.1.0#validatorBpn"
+          $ref: "#/components/schemas/BpnlTrait"
+
+paths:
+  /companycertificate/request:
+    post:
+      summary: Request a specific certificate from provider
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CertificateRequest'
+      responses:
+        '200':
+          description: Certificate found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificateRequest'
+        '404':
+          description: Certificate not found
+
+  /companycertificate/push:
+    post:
+      summary: Notify that a certificate is available along with its content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CertificatePush'
+      responses:
+        '200':
+          description: Notification processed successfully
+
+  /companycertificate/status:
+    post:
+      summary: Update certificate status
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CertificateStatus'
+      responses:
+        '200':
+          description: Status updated successfully

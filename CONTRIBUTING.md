@@ -16,12 +16,29 @@ Catena-X alliance focusing on parts traceability.
 
 * <https://projects.eclipse.org/projects/automotive.tractusx>
 
+## Project licenses
+
+The Tractus-X project uses the following licenses:
+
+* Apache-2.0 for code
+* CC-BY-4.0 for non-code
+
+## Terms of Use
+
+This repository is subject to the Terms of Use of the Eclipse Foundation
+
+* https://www.eclipse.org/legal/termsofuse.php
+
 ## Developer resources
 
 Information regarding source code management, builds, coding standards, and
 more.
 
 * <https://projects.eclipse.org/projects/automotive.tractusx/developer>
+
+Getting started:
+
+* https://eclipse-tractusx.github.io/docs/developer
 
 The project maintains the source code repositories in the following GitHub organization:
 

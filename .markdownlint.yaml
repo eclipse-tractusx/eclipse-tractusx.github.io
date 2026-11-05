@@ -25,3 +25,12 @@
 # Allow same content on headlines on siblings: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#MD024
 "MD024":
   "siblings_only": true
+# Rules introduced after markdownlint-cli2 0.5.1; disabled to keep lint behavior unchanged.
+"MD055": false
+"MD056": false
+"MD058": false
+"MD059": false
+"MD060": false
+# Do not treat the front matter title as a level-1 heading (pre-0.5.1 behavior).
+"MD001":
+  "front_matter_title": ""

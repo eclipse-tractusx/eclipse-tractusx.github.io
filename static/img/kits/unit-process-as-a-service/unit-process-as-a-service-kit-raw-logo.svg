@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 4 180 172" width="180" height="172" role="img" aria-label="UPaaS KIT mark">
+  <title>Unit Process-as-a-Service (UPaaS) KIT — mark</title>
+  <defs>
+    <clipPath id="disc"><circle cx="100" cy="90" r="49"/></clipPath>
+  </defs>
+
+  <!-- Exchange cycle -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round">
+    <path d="M 24.825 62.638 A 80 80 0 0 1 175.175 62.638"/>
+    <path d="M 175.175 117.362 A 80 80 0 0 1 24.825 117.362"/>
+  </g>
+  <g fill="#FFFFFF">
+    <polygon points="177.57,69.22 167.35,60.16 179.57,55.72"/>
+    <polygon points="22.43,110.78 32.65,119.84 20.43,124.28"/>
+  </g>
+
+  <!-- Wafer: grid of dies clipped to disc, with rim -->
+  <g clip-path="url(#disc)">
+      <rect x="46.05" y="36.05" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="46.05" y="48.35" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="46.05" y="60.65" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="46.05" y="72.95" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="46.05" y="85.25" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="46.05" y="97.55" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="46.05" y="109.85" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="46.05" y="122.15" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="46.05" y="134.45" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="58.35" y="36.05" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="58.35" y="48.35" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="58.35" y="60.65" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="58.35" y="72.95" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="58.35" y="85.25" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="58.35" y="97.55" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="58.35" y="109.85" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="58.35" y="122.15" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="58.35" y="134.45" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="70.65" y="36.05" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="70.65" y="48.35" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="70.65" y="60.65" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="70.65" y="72.95" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="70.65" y="85.25" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="70.65" y="97.55" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="70.65" y="109.85" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="70.65" y="122.15" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="70.65" y="134.45" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="82.95" y="36.05" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="82.95" y="48.35" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="82.95" y="60.65" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="82.95" y="72.95" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="82.95" y="85.25" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="82.95" y="97.55" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="82.95" y="109.85" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="82.95" y="122.15" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="82.95" y="134.45" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="95.25" y="36.05" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="95.25" y="48.35" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="95.25" y="60.65" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="95.25" y="72.95" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="95.25" y="85.25" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="95.25" y="97.55" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="95.25" y="109.85" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="95.25" y="122.15" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="95.25" y="134.45" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="107.55" y="36.05" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="107.55" y="48.35" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="107.55" y="60.65" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="107.55" y="72.95" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="107.55" y="85.25" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="107.55" y="97.55" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="107.55" y="109.85" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="107.55" y="122.15" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="107.55" y="134.45" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="119.85" y="36.05" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="119.85" y="48.35" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="119.85" y="60.65" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="119.85" y="72.95" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="119.85" y="85.25" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="119.85" y="97.55" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="119.85" y="109.85" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="119.85" y="122.15" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="119.85" y="134.45" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="132.15" y="36.05" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="132.15" y="48.35" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="132.15" y="60.65" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="132.15" y="72.95" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="132.15" y="85.25" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="132.15" y="97.55" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="132.15" y="109.85" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="132.15" y="122.15" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="132.15" y="134.45" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="144.45" y="36.05" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="144.45" y="48.35" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="144.45" y="60.65" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="144.45" y="72.95" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="144.45" y="85.25" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="144.45" y="97.55" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="144.45" y="109.85" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="144.45" y="122.15" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+      <rect x="144.45" y="134.45" width="9.5" height="9.5" rx="1.7" fill="#FFFFFF"/>
+  </g>
+  <circle cx="100" cy="90" r="51" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+
+  <!-- Exchange endpoint nodes -->
+  <g fill="#FFFFFF">
+    <circle cx="24.825" cy="62.638" r="6"/>
+    <circle cx="175.175" cy="117.362" r="6"/>
+  </g>
+</svg>

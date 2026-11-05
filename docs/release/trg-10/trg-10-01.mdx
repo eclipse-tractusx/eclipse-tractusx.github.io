@@ -1,0 +1,70 @@
+---
+title: TRG 10.01 - KIT Architecture
+---
+
+import ArchitectureDiagram from '@site/src/components/2.0/KitArchitectureDiagram';
+
+| Status     | Created      | Post-History                           |
+|------------|--------------|----------------------------------------|
+| Draft      | 12-Apr-2024  | Initial contribution                   |
+| Active     | 20-Nov-2025  | Splitted 09.01 Draft into 10.01, 10.02, 10.03 adding the new KIT 2.0 Content Structure |
+
+## Why
+
+This TRG serves to maintain a **consistent structure** and ensure **content quality** for the KIT developers. It defines the two dimentions of clasification from an KIT.
+
+- [KIT Framework Architecture Categories](#kit-framework-architecture) (Vertical/Layered classification)
+- [KIT Domains](#kit-domains) (Functional/Thematic classification)
+
+And describes how a KIT must be included at the [Master Data](#master-data).
+
+**KIT**, short for **Keep It Together**, is an open-source toolbox with comprehensive documentation that enables multiple stakeholders **(Business, Solution Providers, Developers)** to build interoperable applications compatible with the Eclipse Tractus-X dataspace technologies, and support the compliance with industrial standards from standarization organizations (Catena-X e.V., IDTA, ISO/DIN, EDWG, Manufacturing-X, etc.) and in some cases enable regulatory compliance.
+
+A detailed explanation can be found here:
+[KIT Framework](../../../documentation/kit-framework)
+
+
+## Master Data
+
+- Every KIT must be added to the [KIT master data](../../../documentation/kit-master-data-overview), which is located at the `/docs/kitData.js` file, and it must follow the structure described in this [JSON schema](../../../utils/schemas/kitsData.schema.json) and at the [documentation](../../../documentation/kit-master-data-overview).
+- The Masted Data structure must be respected, since it is used for automatization of the KIT webpage generation, for that automated checks are done in compilation time.
+- The KIT logos must be added to the `/static/img/kits/<kit-id>/<kit-id>-raw.svg` folder, in SVG format **without background, in white color, without claim** and imported in the master data at the `logo` field. 
+- The KIT logo must be licensed following the [TRG 7.07 - Legal notice for non-code](/docs/release/trg-7/trg-7-07) guidelines. 
+
+## KIT Framework Architecture
+In order to provide intereperability and a clear context where a KIT is used within the overall dataspace architecture, a KIT must be included in one of the four categories:
+
+<ArchitectureDiagram />
+
+### Dataspace Foundation
+The Dataspace Foundation Category, contains KITs that provide the network basis for industrial dataspace to built, following security, decentralization, self-sovereign and scalable principles. This Core components are required for maintaining interoperability between the different use cases that will be built in the future. Assuring that the data exchange is possible and a 'common language' is spoken between the industry core foundation components.
+
+See [Dataspace Foundation KITs](https://eclipse-tractusx.github.io/documentation/kit-master-data-overview#dataspace-foundation)
+
+Here is a [filtered view](/Kits/dataspace-foundation) from the dataspace foundation kits.
+
+### Industry Core Foundation
+The Industry Core Foundation category contains KITs that provide common capabilities and standards shared across all use cases within any industry. These KITs define the core data models, digital twin concepts, and cross-functional services that multiple use cases depend upon, allowing use cases to be built in the future, keeping the interoperability and a common ground
+
+See [Industry Core Foundation KITs](https://eclipse-tractusx.github.io/documentation/kit-master-data-overview#industry-core-foundation)
+
+### Cross-Industry Use Cases
+The Cross-Industry Use Cases category includes KITs that address specific business scenarios and challenges applicable across multiple industries or the entire dataspace. These KITs solve concrete business problems related to sustainability, quality, supply chain management, and other horizontal concerns that span industry boundaries.
+
+See [Cross-Industry Use Cases KITs](https://eclipse-tractusx.github.io/documentation/kit-master-data-overview#cross-industry-use-cases)
+
+### Industry Specific Use Cases
+The Industry-Specific Use Cases category contains KITs tailored to address unique challenges and requirements of particular industries or vertical domains. These KITs provide specialized functionality that may only be relevant within a specific industry context, such as shop floor operations or sector-specific regulatory requirements.
+
+See [Industry Specific Use Cases KITs](https://eclipse-tractusx.github.io/documentation/kit-master-data-overview#industry-specific-use-cases)
+
+## KIT Domains
+
+Additionally from the KIT Overarch Categories, a KIT must have a category, which relates him with other KITs, here are examples of KIT domains:
+
+- Enablement Services
+- Sustainability
+- Engineering
+- ...
+
+In this way KITs can be grouped and easily identified by Vertical/Layered classification and Functional/Thematic classification.

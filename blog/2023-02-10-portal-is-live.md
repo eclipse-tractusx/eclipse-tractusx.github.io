@@ -1,15 +1,11 @@
 ---
 title: Eclipse Tractus-X Developer Portal is LIVE!
-description: Official launch announcement 
+description: Official launch announcement
 slug: portal-is-live
 date: 2023-02-10T11:00
 hide_table_of_contents: false
 authors:
-  - name: Daniel Miehle
-    title: Tractus-X Project Lead
-    url: https://github.com/danielmiehle
-    image_url: https://github.com/danielmiehle.png
-    email: daniel.miehle@bmw.de
+  - daniel_miehle
 ---
 
 ![eclipse tractus x logo](@site/static/img/logo-blog.png)

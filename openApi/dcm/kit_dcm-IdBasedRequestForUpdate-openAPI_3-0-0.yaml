@@ -1,0 +1,224 @@
+---
+openapi: 3.0.3
+info:
+  title: Catena-X DCM ID Based Request For Update
+  description: Open API documentation for the Catena-X DCM ID Based Request For Update
+  version: 3.0.0
+paths:
+  /internal-dcm-application-id-based-request-for-update-post-endpoint:
+    post:
+      tags:
+      - IdBasedRequestForUpdate
+      operationId: postIdBasedRequestForUpdate
+      description: Endpoint to receive an Id Based Request for Update with header information from a Catena-X DCM partner.
+      requestBody:
+        $ref: '#/components/requestBodies/IdBasedRequestForUpdate'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "405":
+          description: Method not allowed
+        "422":
+          description: Unprocessable Entity
+        "503":
+          description: Service Unavailable
+components:
+  schemas:
+    urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait:
+      type: string
+      description: "The provided regular expression ensures that the UUID is composed\
+        \ of five groups of characters separated by hyphens, in the form 8-4-4-4-12\
+        \ for a total of 36 characters (32 hexadecimal characters and 4 hyphens),\
+        \ optionally prefixed by \"urn:uuid:\" to make it an IRI."
+      pattern: "(^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)|(^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$)"
+    urn_samm_io.catenax.shared.message_header_3.0.0_ContextCharacteristic:
+      type: string
+      description: Defining a string value for the context
+    urn_samm_org.eclipse.esmf.samm_characteristic_2.1.0_Timestamp:
+      type: string
+      pattern: "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\\
+        .[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
+      description: Describes a Property which contains the date and time with an optional
+        timezone.
+    urn_samm_io.catenax.shared.business_partner_number_2.0.0_BpnlTrait:
+      type: string
+      description: "The provided regular expression ensures that the BPNL is composed\
+        \ of prefix 'BPNL', 10 digits and two alphanumeric letters."
+      pattern: "^BPNL[a-zA-Z0-9]{12}$"
+    urn_samm_io.catenax.shared.message_header_3.0.0_SemanticVersioningTrait:
+      type: string
+      description: Constraint for defining a SemVer version.
+      pattern: "^(0|[1-9][0-9]*).(0|[1-9][0-9]*).(0|[1-9][0-9]*)(-(0|[1-9A-Za-z-][0-9A-Za-z-]*)(.[0-9A-Za-z-]+)*)?([0-9A-Za-z-]+(.[0-9A-Za-z-]+)*)?$"
+    urn_samm_io.catenax.shared.message_header_3.0.0_HeaderCharacteristic:
+      description: Characteristic describing the common shared aspect Message Header
+      type: object
+      properties:
+        messageId:
+          description: "Unique ID identifying the message. The purpose of the ID is\
+            \ to uniquely identify a single message, therefore it MUST not be reused."
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
+        context:
+          description: |-
+            Information about the context the message should be considered in.
+            The value MUST consist of two parts: an identifier of the context (e.g. business domain, etc.) followed by a version number.
+            Both the identifier and the version number MUST correspond to the content of the message.
+            If the content of a message is described by an aspect model available in the Catena-X Semantic Hub, then the unique identifier of this semantic model (e.g. urn:samm:io.catenax.<ASPECT-MODEL-NAME>:1.x.x) MUST be used as a value of the context field. This is considered the default case.
+            In all other cases the value of the context field MUST follow the pattern <domain>-<subdomain>-<object>:<[major] version> (e.g. TRACE-QM-Alert:1.x.x).
+            Versioning only refers to major versions in both default and fallback cases.
+            Note: The version of the message's header is specified in the version field.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_3.0.0_ContextCharacteristic'
+        sentDateTime:
+          description: Time zone aware timestamp holding the date and the time the
+            message was sent by the sending party. The value MUST be formatted according
+            to the ISO 8601 standard
+          $ref: '#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.1.0_Timestamp'
+        senderBpn:
+          description: The Business Partner Number of the sending party. The value
+            MUST be a valid BPN. BPNA and BPNS are not allowed. Applicable constraints
+            are defined in the corresponding standard
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.business_partner_number_2.0.0_BpnlTrait'
+        receiverBpn:
+          description: The Business Partner Number of the receiving party. The value
+            MUST be a valid BPN. BPNA and BPNS are not allowed. Applicable constraints
+            are defined in the corresponding standard.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.business_partner_number_2.0.0_BpnlTrait'
+        expectedResponseBy:
+          description: Time zone aware timestamp holding the date and time by which
+            the sending party expects a certain type of response from the receiving
+            party. The meaning and interpretation of the fields's value are context-bound
+            and MUST therefore be defined by any business domain or platform capability
+            making use of it. The value MUST be formatted according to the ISO 8601
+            standard
+          $ref: '#/components/schemas/urn_samm_org.eclipse.esmf.samm_characteristic_2.1.0_Timestamp'
+        relatedMessageId:
+          description: Unique ID identifying a message somehow related to the current
+            one
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
+        version:
+          description: The unique identifier of the aspect model defining the structure
+            and the semantics of the message's header. The version number should reflect
+            the versioning schema of aspect models in Catena-X.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_3.0.0_SemanticVersioningTrait'
+      required:
+      - messageId
+      - context
+      - sentDateTime
+      - senderBpn
+      - receiverBpn
+      - version
+    MessageHeaderAspect:
+      description: Aspect model describing the shared message header.
+      type: object
+      properties:
+        header:
+          description: Contains standardized attributes for message processing common
+            across several use cases.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.message_header_3.0.0_HeaderCharacteristic'
+      required:
+      - header
+    urn_samm_io.catenax.id_based_request_for_update_3.0.0_Timestamp:
+      type: string
+      pattern: "-?([1-9][0-9]{3,}|0[0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\\
+        .[0-9]+)?|(24:00:00(\\.0+)?))(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
+      description: Describes a Property which contains the date and time with an optional
+        timezone.
+    urn_samm_io.catenax.id_based_request_for_update_3.0.0_WeekBasedMaterialDemandEntity:
+      description: Encapsulates the information that is necessary for an update request.
+      type: object
+      properties:
+        materialDemandId:
+          description: The Material Demand ID uniquely identifies the material demand
+            the supplier requests an update for within the business relationship between
+            the customer and its supplier.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
+        changedAt:
+          description: "Point in time of the last update known to the requesting business\
+            \ partner. If the requested entity has been changed more recently, the\
+            \ requested party should resend the data. If the changedAt property is\
+            \ not given, the latest entity should be send without precondition."
+          $ref: '#/components/schemas/urn_samm_io.catenax.id_based_request_for_update_3.0.0_Timestamp'
+      required:
+      - materialDemandId
+    urn_samm_io.catenax.id_based_request_for_update_3.0.0_WeekBasedMaterialDemandCharacteristic:
+      description: A list of material demand UUIDs without duplicates an update is
+        requested for.
+      type: array
+      items:
+        $ref: '#/components/schemas/urn_samm_io.catenax.id_based_request_for_update_3.0.0_WeekBasedMaterialDemandEntity'
+      uniqueItems: true
+    urn_samm_io.catenax.id_based_request_for_update_3.0.0_WeekBasedCapacityGroupEntity:
+      description: Encapsulates the information that is necessary for an update request.
+      type: object
+      properties:
+        capacityGroupId:
+          description: The Capacity Group ID uniquely identifies the capacity group
+            the supplier requests an update for within the business relationship between
+            the supplier and its customer.
+          $ref: '#/components/schemas/urn_samm_io.catenax.shared.uuid_2.0.0_UuidV4Trait'
+        changedAt:
+          description: "Point in time of the last update known to the requesting business\
+            \ partner. If the requested entity has been changed more recently, the\
+            \ requested party should resend the data. If the changedAt property is\
+            \ not given, the latest entity should be send without precondition."
+          $ref: '#/components/schemas/urn_samm_io.catenax.id_based_request_for_update_3.0.0_Timestamp'
+      required:
+      - capacityGroupId
+    urn_samm_io.catenax.id_based_request_for_update_3.0.0_WeekBasedCapacityGroupCharacteristic:
+      description: A list of capacity group UUIDs without duplicates an update is
+        requested for.
+      type: array
+      items:
+        $ref: '#/components/schemas/urn_samm_io.catenax.id_based_request_for_update_3.0.0_WeekBasedCapacityGroupEntity'
+      uniqueItems: true
+    IdBasedRequestForUpdate:
+      description: |-
+        The requirements for a request for update from another Catena-X Partner of a specific entity.
+        If within the payload, no specific object type is defined (Payload empty), than an update of all objects within the sender receiver relation is requested).
+      type: object
+      properties:
+        weekBasedMaterialDemand:
+          description: |-
+            Material demands the supplier requests an update for.
+            If within the array, no specific ID (array empty), than an update of all IDs is requested).
+          $ref: '#/components/schemas/urn_samm_io.catenax.id_based_request_for_update_3.0.0_WeekBasedMaterialDemandCharacteristic'
+        weekBasedCapacityGroup:
+          description: |-
+            Capacity groups the customer requests an update for.
+            If within the array, no specific ID (array empty), than an update of all IDs is requested).
+          $ref: '#/components/schemas/urn_samm_io.catenax.id_based_request_for_update_3.0.0_WeekBasedCapacityGroupCharacteristic'
+    InformationObject:
+      description: Bundles all business objects in this property.
+      type: array
+      items:
+        $ref: '#/components/schemas/IdBasedRequestForUpdate'
+      uniqueItems: true
+    Content:
+      description: Object to bundle all transferred business objects.
+      type: object
+      properties:
+        informationObject:
+          description: Property to collect all transferred business objects.
+          $ref: '#/components/schemas/InformationObject'
+    IdBasedRequestForUpdateWithHeader:
+      description: An entity that combines the IdBasedRequestForUpdate with the message header data model in order to be compliant with the DCM standard for the exchange of a request for update.
+      type: object
+      properties:
+        messageHeader:
+          description: The Capacity Group ID uniquely identifies the capacity group
+            within the business relationship between a supplier and its customer.
+          $ref: '#/components/schemas/MessageHeaderAspect'
+        content:
+          description: Bundles all business objects in this property.
+          $ref: '#/components/schemas/Content'
+  requestBodies:
+    IdBasedRequestForUpdate:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/IdBasedRequestForUpdateWithHeader'

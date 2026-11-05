@@ -34,7 +34,7 @@
          </h1>
          <div className={styles.subtitle_box}>
            <p className={styles.subtitle}>
-           Introduction to the Catena-X KITS.
+           Introduction to the Eclipse Tructus-X KITS.
            </p>
          </div>
        </div>

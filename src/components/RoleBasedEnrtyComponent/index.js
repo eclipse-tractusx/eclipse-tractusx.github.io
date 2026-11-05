@@ -25,7 +25,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Typography from '@mui/material/Typography';
 import styles from "./styles.module.css";
-import { useMediaQuery } from '@mui/material';
+import { useMediaQuery, Box } from '@mui/material';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import sliderRightArrowImage from '@site/static/img/slider_right_icon.png'
 import sliderLeftArrowImage from '@site/static/img/slider_left_icon.png';
@@ -37,29 +37,13 @@ export default function RoleBasedEnrtyComponent({data, showArrow = true}) {
     function  NextArrow (props) {
         const { onClick } = props;
         return (
-            <div style={{
-                display: 'flex',
-                right: '20px',
-                boxShadow: '0px 4px 100px 100px rgb(1 1 1)',
-                backgroundColor: '#111111',
-                position: 'absolute',
-                top: '75px',
-                cursor: 'pointer'
-            }} onClick={onClick}><img src={sliderRightArrowImage} width={'30px'} height={'auto'} alt={'img'} /></div>
+            <Box className={styles.next_arrow} onClick={onClick}><img src={sliderRightArrowImage} width={'30px'} height={'auto'} alt={'img'} /></Box>
         )
     }
     function  PrevArrow (props) {
         const { onClick } = props;
         return (
-            <div style={{
-                display: 'flex',
-                left: '20px',
-                backgroundColor: '#111111',
-                position: 'absolute',
-                top: '75px',
-                cursor: 'pointer',
-                zIndex: '9'
-            }} onClick={onClick}><img src={sliderLeftArrowImage} width={'30px'} height={'auto'} alt={'img'} /></div>
+            <Box className={styles.prev_arrow} onClick={onClick}><img src={sliderLeftArrowImage} width={'30px'} height={'auto'} alt={'img'} /></Box>
         )
     }
     let settings = {

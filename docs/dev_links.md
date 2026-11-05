@@ -20,8 +20,8 @@ sidebar_position: 98
 
 See [examples and a detailed description](/docs/oss/issues).
 
-- [Create / manage Tractus-X repositories](/docs/oss/issues#create-manage-a-repository-in-eclipse-tractusx)
-- [Tractus-X infrastructure issues](https://github.com/eclipse-tractusx/sig-infra/issues) via sig-infra
+- [Add a Tractus-X Project Contributor](getting-started.md#extended-contributor-permissions)
+- [Create / manage Tractus-X repositories](oss/issues.md#create-manage-a-repository-in-eclipse-tractusx--otterdog-self-service)
 - [Eclipse Foundation Helpdesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues/?sort=created_date&state=opened)
 - [Eclipse Foundation Helpdesk for IP Checks](https://gitlab.eclipse.org/eclipsefdn/emo-team/iplab/-/issues/?search=automotive.tractusx&sort=created_date&state=opened&first_page_size=20) - open issues for Tractus-X
 
@@ -33,7 +33,7 @@ See [examples and a detailed description](/docs/oss/issues).
 - [Legal resource page for the Eclipse Foundation](https://www.eclipse.org/legal/)
 - [Dash License Tool](https://github.com/eclipse/dash-licenses)
 
-### Eclipse Trainigs & Events
+### Eclipse Trainings & Events
 
 - [Trainings Videos: Eclipse Foundation Training](https://www.eclipse.org/projects/training/)
 - [Committer Office Hours](https://www.eclipse.org/projects/calendar/#office-hours)

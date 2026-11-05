@@ -2,20 +2,48 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
+
+// Change this id to show the announcement bar again to everyone who closed it.
+const announcementBarId = 'announcementBar-v26.09';
+
+// The site is normally served from the root of https://eclipse-tractusx.github.io.
+// Pull request previews are deployed into a subfolder of the same GitHub Pages
+// site (for example /pr/1234/), so both values can be overridden via environment
+// variables. Defaults keep the production configuration unchanged.
+const siteUrl = process.env.SITE_URL || 'https://eclipse-tractusx.github.io';
+// Docusaurus requires a baseUrl with leading and trailing slashes.
+const rawBaseUrl = (process.env.BASE_URL || '/').replace(/^\/+|\/+$/g, '');
+const baseUrl = rawBaseUrl ? `/${rawBaseUrl}/` : '/';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Eclipse Tractus-X',
   tagline: '',
-  url: 'https://eclipse-tractusx.github.io',
-  baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  url: siteUrl,
+  baseUrl,
+  onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
   favicon: 'img/logo_tractus-x-min.ico',
+
+  // Docusaurus hides the announcement bar before React loads if the visitor closed
+  // any previous one, so a new id only appeared on their second visit. Clear the
+  // "closed" flag first when the id changed, so the new bar is open until closed.
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `(function(){try{if(localStorage.getItem('docusaurus.announcement.id')!=='${announcementBarId}'){localStorage.setItem('docusaurus.announcement.dismiss','false');}}catch(e){}})();`,
+    },
+  ],
 
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownImages: 'throw',
+    },
   },
 
   // GitHub pages deployment config.
@@ -31,6 +59,28 @@ const config = {
     locales: ['en'],
   },
 
+  future: {
+    // introduce breaking changes since 3.8 incrementally so that we need to fix them directly and don't
+    // run again into "the big bang we can't upgrade" issue
+    v4: {
+      // see https://docusaurus.io/blog/releases/3.8#postbuild-change
+      // required for expermiental_faster.ssgWorkerThreads
+      removeLegacyPostBuildHeadAttribute: true,
+      // see https://docusaurus.io/blog/releases/3.8#css-cascade-layers
+      useCssCascadeLayers: true
+    },
+    faster: {
+      lightningCssMinimizer: true,
+      mdxCrossCompilerCache: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      swcHtmlMinimizer: true,
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      ssgWorkerThreads: true,
+    }
+  },
+
   presets: [
     [
       'classic',
@@ -44,8 +94,6 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
-          docLayoutComponent: "@theme/DocPage",
-          // docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
         },
         blog: {
           showReadingTime: true,
@@ -55,6 +103,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/',
+          onUntruncatedBlogPosts: 'ignore',
+          authorsMapPath: '../blog-meeting-minutes/authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -64,6 +114,23 @@ const config = {
   ],
 
   plugins: [
+    ['docusaurus-plugin-sass', {}],
+    [
+      function disableExpensiveBundlerOptimizationPlugin() {
+        return {
+          name: 'disable-expensive-bundler-optimizations',
+          configureWebpack(config, isServer) {
+            return {
+              optimization: {
+                // See https://github.com/facebook/docusaurus/discussions/11199
+                concatenateModules: false,
+              },
+            };
+          },
+        };
+      },
+      {},
+    ],
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
@@ -72,8 +139,18 @@ const config = {
         path: 'docs-kits',
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
-        docLayoutComponent: "@theme/DocPage",
-        docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
+        exclude: ['**/kit-template/**'],
+      },
+    ],
+    // -- documentation-kits --
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs-documentation',
+        path: 'documentation',
+        routeBasePath: 'documentation',
+        editUrl: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/documentation',
+        sidebarPath: './sidebarsDocumentation.js',
       },
     ],
     // -- Community --
@@ -84,11 +161,26 @@ const config = {
         path: 'blog-meeting-minutes',
         blogTitle: 'Open meeting minutes',
         blogDescription: 'This blog hosts meeting minutes that summarize our open meetings',
-        blogSidebarCount: 10,
         blogSidebarTitle: "Recent meetings",
         routeBasePath: 'community/meeting-minutes',
         showReadingTime: false,
-        authorsMapPath: 'authors.yaml' // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        authorsMapPath: 'authors.yaml', // relative path. File used is therefore /blog-meeting-minutes/authors.yaml
+        blogSidebarCount: 'ALL',
+        onUntruncatedBlogPosts: 'ignore',
+      },
+    ],
+    // -- Changelog --
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'blog-changelog',
+        path: 'blog-changelog',
+        routeBasePath: 'blog-changelog',
+        blogTitle: 'Release Changelog',
+        blogDescription: 'This blog hosts Tractus-X release changelogs.',
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: 'Release Changelogs',
+        onUntruncatedBlogPosts: 'ignore',
       },
     ],
     [
@@ -108,6 +200,10 @@ const config = {
       {
         redirects: [
           {
+            to: '/blog-changelog',
+            from: '/CHANGELOG',
+          },
+          {
             to: '/community/intro',
             from: '/community',
           },
@@ -116,236 +212,63 @@ const config = {
             to: '/docs/release/',
             from: ['/docs/release/trg-2/trg-2-2', '/docs/release/trg-3/trg-3-1'],
           },
+          {
+            to: '/docs/getting-started',
+            from: '/docs/oss/getting-started',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-01',
+            from: '/docs/release/trg-1/trg-1-1',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-02',
+            from: '/docs/release/trg-1/trg-1-2',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-03',
+            from: '/docs/release/trg-1/trg-1-3',
+          },
+          {
+            to: '/docs/release/trg-1/trg-1-04',
+            from: '/docs/release/trg-1/trg-1-4',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-01',
+            from: '/docs/release/trg-2/trg-2-1',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-03',
+            from: '/docs/release/trg-2/trg-2-3',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-04',
+            from: '/docs/release/trg-2/trg-2-4',
+          },
+          {
+            to: '/docs/release/trg-2/trg-2-05',
+            from: '/docs/release/trg-2/trg-2-5',
+          },
+          {
+            to: '/docs/release/trg-3/trg-3-02',
+            from: '/docs/release/trg-3/trg-3-2',
+          },
+          {
+            to: '/docs/release/trg-6/trg-6-01',
+            from: '/docs/release/trg-6/trg-6-1',
+          },
         ],
-      },
-    ],
-    // ------------DOCUSAURUS PLUGIN REMOTE CONTENT----------------
-    [
-      "docusaurus-plugin-remote-content",
-      {
-        // options here
-        id: "remoteBpdm",
-        name: "bpdm", // used by CLI, must be path safe
-        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/bpdm/main/docs/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
-        outDir: "openApi/bpdm", // the base directory to output to.
-        documents: ["pool.yaml"], // the file names to download
-        noRuntimeDownloads: true
-      },
-    ],
-    [
-      "docusaurus-plugin-remote-content",
-      {
-        // options here
-        id: "remoteIrs",
-        name: "irs", // used by CLI, must be path safe
-        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/item-relationship-service/main/docs/src/api/", // the base url for the markdown (gets prepended to all of the documents when fetching)
-        outDir: "openApi/irs", // the base directory to output to.
-        documents: ["irs-api.yaml"], // the file names to download
-        noRuntimeDownloads: true
-      },
-    ],
-    [
-      "docusaurus-plugin-remote-content",
-      {
-        // options here
-        id: "remoteChangelog",
-        name: "changelog", // used by CLI, must be path safe
-        sourceBaseUrl: "https://raw.githubusercontent.com/eclipse-tractusx/tractus-x-release/main/", // the base url for the markdown (gets prepended to all of the documents when fetching)
-        outDir: "src/pages", // the base directory to output to.
-        documents: ["CHANGELOG.md"], // the file names to download
-        noRuntimeDownloads: true
-      },
-    ],
-    [
-      "docusaurus-plugin-remote-content",
-      {
-        // options here
-        id: "discoveryFinderOpenapi",
-        name: "discoveryFinder", // used by CLI, must be path safe
-        sourceBaseUrl: "https://semantics.int.demo.catena-x.net/discoveryfinder/", // the base url for the markdown (gets prepended to all of the documents when fetching)
-        outDir: "openApi/dt", // the base directory to output to.
-        documents: ["discovery-finder-openapi.yaml"], // the file names to download
-        noRuntimeDownloads: false
-      },
-    ],
-    [
-      "docusaurus-plugin-remote-content",
-      {
-        // options here
-        id: "bpnDiscoveryOpenapi",
-        name: "bpnDiscovery", // used by CLI, must be path safe
-        sourceBaseUrl: "https://semantics.int.demo.catena-x.net/bpndiscovery/", // the base url for the markdown (gets prepended to all of the documents when fetching)
-        outDir: "openApi/dt", // the base directory to output to.
-        documents: ["bpn-discovery-service-openapi.yaml"], // the file names to download
-        noRuntimeDownloads: true
-      },
-    ],
-    // ------------DOCUSAURUS PLUGIN OPEN API DOCS---------------------
-    [
-      'docusaurus-plugin-openapi-docs',
-      {
-        id: "docs-kits",
-        docsPluginId: "docs-kits",
-        config: {
-          bpdm_gate: {
-            specPath: "./openApi/bpdm/gate.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Gate Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          bpdm_pool: {
-            specPath: "./openApi/bpdm/pool.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Pool Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          bpdm_bridge: {
-            specPath: "./openApi/bpdm/bridge-dummy.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Bridge Dummy Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          bpdm_cleaning: {
-            specPath: "./openApi/bpdm/cleaning-dummy.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Cleaning Dummy Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          bpdm_orchestrator: {
-            specPath: "./openApi/bpdm/orchestrator.yaml",
-            outputDir: "./docs-kits/kits/Business Partner Kit/Software Development View/Orchestrator Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          irs: {
-            specPath: "./openApi/irs/irs-api.yaml",
-            outputDir: "./docs-kits/kits/Data Chain Kit/Software Development View/Job Api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          traceability_notifications: {
-            specPath: "./openApi/traceability/notifications.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Notification API",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          traceability_unique_id_push: {
-            specPath: "./openApi/traceability/unique-id-push.yaml",
-            outputDir: "./docs-kits/kits/Traceability Kit/Software Development View/Unique ID Push API",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          tractusx_edc_api: {
-            specPath: "./openApi/edc/tractusx-edc-0.5.1-SNAPSHOT.yaml", // Path to designated spec file
-            outputDir:
-              "./docs-kits/kits/tractusx-edc/docs/kit/development-view/openAPI/tractusx-edc-api", // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          dt_discovery_finder: {
-            specPath: "./openApi/dt/discovery-finder-openapi.yaml", // Path to designated spec file
-            outputDir:
-              "./docs-kits/kits/Digital Twin Kit/Software Development View/API Discovery Finder/", // Output directory for generated .mdx docs
-              sidebarOptions: {
-                groupPathsBy: "tag",
-              },
-          },
-          dt_bpn_discovery: {
-            specPath: "./openApi/dt/bpn-discovery-service-openapi.yaml", // Path to designated spec file
-            outputDir:
-              ".docs-kits/kits/Digital Twin Kit/Software Development View/API AAS Discovery/", // Output directory for generated .mdx docs
-            sidebarOptions: {
-               groupPathsBy: "tag",
-            },
-          },
-          dt_edc_discovery: {
-                      specPath: "./openApi/dt/edc-discovery-service-openapi.json", // Path to designated spec file
-                      outputDir:
-                        "./docs-kits/kits/Digital Twin Kit/Software Development View/API EDC Discovery/", // Output directory for generated .mdx docs
-                      sidebarOptions: {
-                        groupPathsBy: "tag",
-                      },
-          },
-          dt_submodel: {
-            specPath: "./openApi/dt/submodel-service-ssp003-openapi.yaml", // Path to designated spec file
-            outputDir:
-              "./docs-kits/kits/Digital Twin Kit/Software Development View/API Submodel/", // Output directory for generated .mdx docs
-            sidebarOptions: {
-               groupPathsBy: "tag",
-            },
-          },
-          dt_registry: {
-            specPath: "./openApi/dt/registry-service-ssp002-openapi.yaml", // Path to designated spec file
-            outputDir:
-              "./docs-kits/kits/Digital Twin Kit/Software Development View/API AAS Registry/", // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          dt_aas_discovery: {
-            specPath: "./openApi/dt/discovery-service-ssp001-openapi.yaml", // Path to designated spec file
-            outputDir:
-              "./docs-kits/kits/Digital Twin Kit/Software Development View/API AAS Discovery/", // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          pcf_exchange_api: {
-              specPath: "./openApi/pcf/catena-x-pcf-endpoint-0_0_3.yaml", // Path to designated spec file
-              outputDir:
-                "./docs-kits/kits/PCF Exchange Kit/Software Development View/pcf-exchange-api/",
-              sidebarOptions: {
-                groupPathsBy: "tag",
-              },
-            },
-          resiliency_osim: {
-            specPath: "./openApi/resiliency/simulation-result.yaml", // Path to designated spec file
-            outputDir:
-              "./docs-kits/kits/OSim Kit/Software Development View/", // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: "tag",
-            },
-          },
-          resiliency_mp_provider: {
-            specPath:
-              './openApi/resiliency/modular-production/openapispec-provider.yaml', // Path to designated spec file
-            outputDir:
-              './docs-kits/kits/Modular Production Kit/Software Development View/Provider/', // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-            },
-          },
-          resiliency_mp_consumer: {
-            specPath:
-              './openApi/resiliency/modular-production/openapispec-consumer.yaml', // Path to designated spec file
-            outputDir:
-              './docs-kits/kits/Modular Production Kit/Software Development View/Consumer/', // Output directory for generated .mdx docs
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-            },
-          },
-        },
       },
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs", "@docusaurus/theme-mermaid"], // Allows use of @theme/ApiItem and other components
+  themes: ["@docusaurus/theme-mermaid"],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
         defaultMode: 'dark',
-        disableSwitch: true,
+        disableSwitch: false,
         respectPrefersColorScheme: false,
       },
       algolia: {
@@ -353,16 +276,20 @@ const config = {
         indexName: 'eclipse-tractusxio',
         appId: '5EEK7E23IM',
       },
+      announcementBar: {
+        id: announcementBarId,
+        content: `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
+      },
       navbar: {
         title: 'Eclipse Tractus-X',
         logo: {
           alt: 'Eclipse Tractus-X logo',
-          src: 'img/logo_tractus-x.svg',
+          src: 'img/tx-logos/logo_tractus-x.svg',
         },
         items: [
           {to: 'blog', label: 'News', position: 'left'},
           {
-            to: "/aboutus",
+            to: "/AboutUs",
             position: "left",
             label: "About Us",
           },
@@ -373,73 +300,42 @@ const config = {
             to: '/Kits',
             items: [
               {
-                to: '/docs-kits/kits/knowledge-agents/adoption-view/intro',
-                label: 'Agents',
+                to: 'Kits',
+                label: 'KITs HOMEPAGE',
+                className: 'kit-category-header kit-home-icon'
               },
               {
-                to: '/docs-kits/kits/Business%20Partner%20Kit/Adoption%20View',
-                label: 'Business Partner',
+                to: '/documentation/kit-getting-started',
+                label: 'KIT Getting Started',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/Circularity_KIT/page-adoption-view',
-                label: 'Circularity',
+                to: '/documentation/kit-lifecycle',
+                label: 'KIT Lifecycle',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/tractusx-edc/docs/kit/adoption-view/Adoption%20View',
-                label: 'Connector',
+                to: '/documentation/kit-framework',
+                label: 'KIT Framework',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/Data%20Chain%20Kit/Adoption%20View%20Data%20Chain%20Kit',
-                label: 'Data Chain',
+                to: '/documentation/kit-statistics',
+                label: 'KIT Statistics',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/DCM%20Kit/adoption-view',
-                label: 'DCM KIT',
+                to: '/documentation/kit-master-data-overview',
+                label: 'KIT Master Data',
+                className: 'kit-nav-item'
               },
               {
-                to: '/docs-kits/kits/Digital%20Twin%20Kit/Adoption%20View%20Digital%20Twin%20Kit',
-                label: 'Digital Twin',
+                to: '/documentation/kit-3d-logo-library',
+                label: 'KIT Assets',
+                className: 'kit-nav-item'
               },
-              {
-                to: '/docs-kits/kits/Eco_Pass_KIT/page-adoption-view',
-                label: 'Eco Pass',
-              },
-              {
-                to: '/docs-kits/kits/Behaviour%20Twin%20HI%20Kit/Adoption%20View%20Health%20Indicator%20Kit',
-                label: 'Health Indicator',
-              },
-              {
-                to: '/docs-kits/kits/Behaviour%20Twin%20MDP%20Kit/Adoption%20View%20Model%20Based%20Development%20and%20Data%20Processing%20Kit',
-                label: 'Model Based Development',
-              },
-              {
-                to: '/docs-kits/kits/Modular%20Production%20Kit/Adoption%20View%20Modular%20Production%20Kit',
-                label: 'Modular Production',
-              },
-              {
-                to: '/docs-kits/kits/OSim%20Kit/Adoption%20View%20OSim%20Kit',
-                label: 'Online Simulation',
-              },
-              {
-                to: '/docs-kits/kits/PCF%20Exchange%20Kit/Adoption%20View',
-                label: 'PCF Exchange',
-              },
-              {
-                to: '/docs-kits/kits/Quality-Kit/Adoption%20View%20Quality%20Kit',
-                label: 'Quality',
-              },
-              {
-                to: '/docs-kits/kits/Behaviour%20Twin%20RuL%20Kit/Adoption%20View%20Remaining%20Useful%20Life%20Kit',
-                label: 'Remaining Useful Life',
-              },
-              {
-                to: '/docs-kits/kits/Traceability%20Kit/Business%20View%20Traceability%20Kit',
-                label: 'Traceability',
-              },
-              {
-                to: 'docs-kits/kits/Resiliency/',
-                label: 'Upcoming KITs',
-              }
+              // Dynamically generated from kitsData
+              ...generateKitNavItems(),
             ],
           },
           {
@@ -455,34 +351,63 @@ const config = {
             label: 'Tutorials',
           },
           {
-            to: '/community/intro',
+            to: '/community/open-meetings',
             label: 'Community',
             position: 'left',
           },
           {
-            type: 'dropdown',
-            label: 'Versions',
+            to: '/CommunityBases',
+            label: 'Bases',
             position: 'left',
-            items: [
-              {
-                to: '/release-information',
-                label: 'Release Information',
-              },
-              {
-                to: '/CHANGELOG',
-                label: 'Change Log',
-              },
-            ],
+          },
+          {
+            to: '/blog-changelog',
+            label: 'Changelog',
+            position: 'left',
           },
           {
             type: 'docsVersionDropdown',
             docsPluginId: 'docs-kits',
-            position: 'right'
+            position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                className: 'dropdown-archived-versions',
+                value: '<b>Archived - zip (900 MB)</b>',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/archive/refs/tags/25.09.zip',
+                label: '25.09',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/archive/refs/tags/25.06.zip',
+                label: '25.06',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/archive/refs/tags/25.03.zip',
+                label: '25.03',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/archive/refs/tags/24.12.zip',
+                label: '24.12',
+              },
+              {
+                href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/archive/refs/tags/24.08.zip',
+                label: '24.08',
+              },
+            ],
+          },
+          {
+            to: '/community/open-meetings',
+            position: 'right',
+            'aria-label': 'Open meetings',
+            className: 'navbar-icon-link header-open-meetings',
           },
           {
             href: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io',
-            label: 'GitHub',
             position: 'right',
+            'aria-label': 'GitHub',
+            className: 'navbar-icon-link header-github-link',
           },
         ],
       },
@@ -493,32 +418,36 @@ const config = {
             title: 'Eclipse Foundation',
             items: [
               {
-                label: "Main Eclipse Foundation website",
+                label: "About",
                 href: "http://www.eclipse.org",
               },
               {
-                label: "Privacy policy",
+                label: "Privacy Policy",
                 href: "http://www.eclipse.org/legal/privacy.php",
               },
               {
-                label: "Website terms of use",
+                label: "Terms of Use",
                 href: "http://www.eclipse.org/legal/termsofuse.php",
               },
               {
-                label: "Copyright agent",
-                href: "http://www.eclipse.org/legal/copyright.php",
+                label: "Compliance",
+                href: "https://www.eclipse.org/legal/compliance/",
               },
               {
-                label: "Legal",
+                label: "Legal Resources",
                 href: "http://www.eclipse.org/legal",
+              },
+              {
+                label: "Contact",
+                href: "https://www.eclipse.org/org/foundation/contact.php",
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Eclipse Tractus-X',
             items: [
               {
-                label: "Eclipse Foundation project",
+                label: "Eclipse Project",
                 href: "https://projects.eclipse.org/projects/automotive.tractusx",
               },
               {
@@ -526,25 +455,29 @@ const config = {
                 href: "https://github.com/eclipse-tractusx",
               },
               {
-                label: "Catena-X Automotive Network",
-                href: "https://catena-x.net/",
+                label: "Mailing List",
+                href: "https://accounts.eclipse.org/mailing-list/tractusx-dev",
               },
               {
-                label: "Icons used from svgrepo with CC0 License",
-                href: "https://www.svgrepo.com/",
-              }
+                label: "Report a Bug",
+                href: "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/issues",
+              },
+              {
+                label: "Eclipse Dataspace Working Group",
+                href: "https://dataspace.eclipse.org",
+              },
             ],
           },
           {
-            title: 'Useful Links',
+            title: 'More',
             items: [
               {
-                label: "Report a Bug",
-                href: "https://bugs.eclipse.org/bugs",
+                label: "Code of Conduct",
+                href: "https://www.eclipse.org/org/documents/Community_Code_of_Conduct.php",
               },
               {
-                label: "Documentation",
-                href: "https://help.eclipse.org/latest/index.jsp",
+                label: "Report a Vulnerability",
+                href: "https://github.com/eclipse-tractusx/sig-security/issues/new/choose",
               },
               {
                 label: "How to Contribute",
@@ -555,22 +488,53 @@ const config = {
                 href: "https://accounts.eclipse.org/mailing-list",
               },
               {
-                label: "Forums",
-                href: "https://www.eclipse.org/forums/",
+                label: "Matrix Chat",
+                href: "https://chat.eclipse.org/#/home/",
               },
             ],
           },
           {
+            title: 'Collaboration',
             items: [
               {
-                html: `
-                  <img alt='' src='/img/EF_registered_wht_png.png'/>
-                `
-              }
-            ]
+                label: "Catena-X Automotive Network e.V.",
+                href: "https://catena-x.net/",
+              },
+              {
+                label: "Factory-X",
+                href: "https://factory-x.org",
+              },
+              {
+                label: "Manufacturing-X",
+                href: "https://www.plattform-i40.de/IP/Navigation/EN/Manufacturing-X/Manufacturing-X.html",
+              },
+              {
+                label: "Construct-X",
+                href: "https://construct-x.org",
+              },
+              {
+                label: "Semiconductor-X",
+                href: "https://semiconductor-x.com/",
+              },
+            ],
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.`,
+        copyright: `
+          <div style="display:flex;align-items:stretch;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:24px;">
+            <a href="https://www.eclipse.org" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-decoration:none;">
+              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">A project under the governance of the: </span>
+              <img alt="Eclipse Foundation" src="/img/EF_registered_wht_svg.svg" style="height:200px;"/>
+            </a>
+            <div class="footer-logo-divider"></div>
+            <a href="https://dataspace.eclipse.org" target="_blank" rel="noopener noreferrer" style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-decoration:none;">
+              <span style="color:#fff;font-size:0.75rem;margin-bottom:8px;text-align:center;">Built in collaboration with:</span>
+              <div style="display:flex;align-items:center;justify-content:center;flex:1;">
+                <img alt="Eclipse Dataspace Working Group" src="/img/edwg-logo-white.svg" style="height:200px;max-width:300px;"/>
+              </div>
+            </a>
+          </div>
+          <div>Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.</div>
+        `,
       },
       prism: {
         theme: lightCodeTheme,

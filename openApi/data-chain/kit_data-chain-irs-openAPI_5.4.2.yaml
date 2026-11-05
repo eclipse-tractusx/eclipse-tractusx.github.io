@@ -1,0 +1,2741 @@
+openapi: 3.0.1
+info:
+  description: The API of the Item Relationship Service (IRS) for retrieving item
+    graphs along the value chain of CATENA-X partners.
+  title: IRS API
+  version: "4.5.2"
+servers:
+  - url: http://localhost:8080
+security:
+  - api_key: []
+paths:
+  /ess/bpn/investigations:
+    post:
+      description: Registers an IRS job to start an investigation if a given bpn is
+        contained in a part chain of a given globalAssetId.
+      operationId: registerBPNInvestigation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterBpnInvestigationJob'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/job-handle'
+              schema:
+                $ref: '#/components/schemas/JobHandle'
+          description: Returns id of registered job.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Job registration failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+      security:
+        - api_key: []
+      summary: Registers an IRS job to start an investigation if a given bpn is contained
+        in a part chain of a given globalAssetId.
+      tags:
+        - Environmental and Social Standards
+  /ess/bpn/investigations/{id}:
+    get:
+      description: Return job with additional supplyChainImpacted information.
+      operationId: getBPNInvestigation
+      parameters:
+        - description: Id of the job.
+          example: 6c311d29-5753-46d4-b32c-19b918ea93b0
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/complete-ess-job-result'
+              schema:
+                $ref: '#/components/schemas/Jobs'
+          description: Return job with item graph for the requested id.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Return job failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+        "404":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-404'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Job with the requested jobId not found.
+      security:
+        - api_key: []
+      summary: Return job with additional supplyChainImpacted information.
+      tags:
+        - Environmental and Social Standards
+  /ess/notification/receive:
+    post:
+      description: Accepts notifications via EDC. Notifications are filtered by their
+        type and processed accordingly.
+      operationId: receiveEdcNotification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdcNotificationResponseNotificationContent'
+        required: true
+      responses:
+        "200":
+          description: Notification received successfully.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Notification malformed.
+      summary: Accepts notifications sent via EDC.
+      tags:
+        - Environmental and Social Standards
+  /irs/ess/orders:
+    post:
+      description: "Registers an order for an ESS investigation with an array of 
+      {globalAssetIds}. Each globalAssetId will be processed in an separate job, grouped in batches."
+      operationId: registerESSInvestigationOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterBpnInvestigationBatchOrder'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/job-handle'
+              schema:
+                $ref: '#/components/schemas/BatchOrderCreated'
+          description: Returns orderId of registered Batch order.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Batch Order registration failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+      security:
+        - api_key: []
+      summary: "Registers an order for an ESS investigation with an array of {globalAssetIds}. 
+      Each globalAssetId will be processed in an separate job, grouped in batches."
+      tags:
+        - Environmental and Social Standards
+  /irs/jobs:
+    get:
+      description: Returns paginated jobs with state and execution times.
+      operationId: getJobsByJobStates
+      parameters:
+        - description: Requested job states.
+          explode: false
+          in: query
+          name: states
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - UNSAVED
+                - INITIAL
+                - RUNNING
+                - TRANSFERS_FINISHED
+                - COMPLETED
+                - CANCELED
+                - ERROR
+            maxItems: 2147483647
+        - description: Zero-based page index (0..N)
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - description: The size of the page to be returned
+          in: query
+          name: size
+          required: false
+          schema:
+            type: integer
+            default: 20
+        - description: "Sorting criteria in the format: property,(asc|desc). Default\
+          \ sort order is ascending. Multiple sort criteria are supported."
+          in: query
+          name: sort
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/complete-job-list-processing-state'
+              schema:
+                $ref: '#/components/schemas/PageResult'
+          description: Paginated list of jobs with state and execution times for requested
+            job states.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Return jobs for requested job states failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+      security:
+        - api_key: []
+      summary: Returns paginated jobs with state and execution times.
+      tags:
+        - Item Relationship Service
+    post:
+      description: "Register an IRS job to retrieve an item graph for given {globalAssetId}."
+      operationId: registerJobForGlobalAssetId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterJob'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/job-handle'
+              schema:
+                $ref: '#/components/schemas/JobHandle'
+          description: Returns id of registered job.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Job registration failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+      security:
+        - api_key: []
+      summary: "Register an IRS job to retrieve an item graph for given {globalAssetId}."
+      tags:
+        - Item Relationship Service
+  /irs/jobs/{id}:
+    get:
+      description: Return job with optional item graph result for requested id.
+      operationId: getJobForJobId
+      parameters:
+        - description: Id of the job.
+          example: 6c311d29-5753-46d4-b32c-19b918ea93b0
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            maxLength: 36
+            minLength: 36
+        - description: "\\<true\\> Return job with current processed item graph. \\<false\\>
+         Return job with item graph if job is in state COMPLETED, otherwise job."
+          in: query
+          name: returnUncompletedJob
+          required: false
+          schema:
+            type: boolean
+            default: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/complete-job-result'
+              schema:
+                $ref: '#/components/schemas/Jobs'
+          description: Return job with item graph for the requested id.
+        "206":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/partial-job-result'
+              schema:
+                $ref: '#/components/schemas/Jobs'
+          description: Return job with current processed item graph for the requested
+            id.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Return job failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+        "404":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-404'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Job with the requested jobId not found.
+      security:
+        - api_key: []
+      summary: Return job with optional item graph result for requested id.
+      tags:
+        - Item Relationship Service
+    put:
+      description: Cancel job for requested jobId.
+      operationId: cancelJobByJobId
+      parameters:
+        - description: Id of the job.
+          example: 6c311d29-5753-46d4-b32c-19b918ea93b0
+          in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+            maxLength: 36
+            minLength: 36
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/canceled-job-response'
+              schema:
+                $ref: '#/components/schemas/Job'
+          description: Job with requested jobId canceled.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Cancel job failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+        "404":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-404'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Job for requested jobId not found.
+      security:
+        - api_key: []
+      summary: Cancel job for requested jobId.
+      tags:
+        - Item Relationship Service
+  /irs/aspectmodels:
+    get:
+      description: Get all available aspect models from semantic hub or local models.
+      operationId: getAllAspectModels
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: "#/components/examples/aspect-models-list"
+              schema:
+                $ref: "#/components/schemas/AspectModels"
+          description: Returns all available aspect models.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: "#/components/examples/error-response-401"
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: "#/components/examples/error-response-403"
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+          description: Authorization refused by server.
+      security:
+        - api_key: []
+      summary: Get all available aspect models from semantic hub or local models.
+      tags:
+        - Aspect Models
+  /irs/orders:
+    post:
+      description: "Registers an IRS order with an array of {globalAssetIds}.\
+      \ Each globalAssetId will be processed in an IRS Job, grouped in batches."
+      operationId: registerOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterBatchOrder'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/job-handle'
+              schema:
+                $ref: '#/components/schemas/BatchOrderCreated'
+          description: Returns orderId of registered Batch order.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Batch Order registration failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+      security:
+        - api_key: []
+      summary: "Registers an IRS order with an array of {globalAssetIds}.\
+      \ Each globalAssetId will be processed in an IRS Job, grouped in batches."
+      tags:
+        - Item Relationship Service
+  /irs/orders/{orderId}:
+    get:
+      description: Get a batch order for a given orderId.
+      operationId: getBatchOrder
+      parameters:
+        - description: Id of the order.
+          example: 6c311d29-5753-46d4-b32c-19b918ea93b0
+          in: path
+          name: orderId
+          required: true
+          schema:
+            type: string
+            format: uuid
+            maxLength: 36
+            minLength: 36
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/complete-order-result'
+              schema:
+                $ref: '#/components/schemas/BatchOrderResponse'
+          description: Get a batch order for a given orderId.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Return Batch Order failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+        "404":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-404'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Batch Order with the requested orderId not found.
+      security:
+        - api_key: []
+      summary: Get a batch order for a given orderId.
+      tags:
+        - Item Relationship Service
+    put:
+      description: Cancel a batch order for a given orderId.
+      operationId: cancelBatchOrder
+      parameters:
+        - description: Id of the order.
+          example: 6c311d29-5753-46d4-b32c-19b918ea93b0
+          in: path
+          name: orderId
+          required: true
+          schema:
+            type: string
+            format: uuid
+            maxLength: 36
+            minLength: 36
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/complete-order-result'
+              schema:
+                $ref: '#/components/schemas/BatchOrderResponse'
+          description: Cancel a batch order for a given orderId.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Return Batch Order failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+        "404":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-404'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Batch Order with the requested orderId not found.
+      security:
+        - api_key: []
+      summary: Cancel a batch order for a given orderId.
+      tags:
+        - Item Relationship Service
+  /irs/orders/{orderId}/batches/{batchId}:
+    get:
+      description: Get a batch with a given batchId for a given orderId.
+      operationId: getBatch
+      parameters:
+        - description: Id of the order.
+          example: 6c311d29-5753-46d4-b32c-19b918ea93b0
+          in: path
+          name: orderId
+          required: true
+          schema:
+            type: string
+            format: uuid
+            maxLength: 36
+            minLength: 36
+        - description: Id of the batch.
+          example: 4bce40b8-64c7-41bf-9ca3-e9432c7fef98
+          in: path
+          name: batchId
+          required: true
+          schema:
+            type: string
+            format: uuid
+            maxLength: 36
+            minLength: 36
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                complete:
+                  $ref: '#/components/examples/complete-batch-result'
+              schema:
+                $ref: '#/components/schemas/BatchResponse'
+          description: Get a batch with a given batchId for a given orderId.
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Return batch failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+        "404":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-404'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Batch with the requested orderId and batchId not found.
+      security:
+        - api_key: []
+      summary: Get a batch with a given batchId for a given orderId.
+      tags:
+        - Item Relationship Service
+  /irs/policies:
+    get:
+      description: Lists the registered policies that should be accepted in EDC negotiation.
+      operationId: getAllowedPolicies
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Policy'
+          description: Returns the policies.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+      security:
+        - api_key: []
+      summary: Lists the registered policies that should be accepted in EDC negotiation.
+      tags:
+        - Item Relationship Service
+    post:
+      description: Register a policy that should be accepted in EDC negotiation.
+      operationId: registerAllowedPolicy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePolicyRequest'
+        required: true
+      responses:
+        "201":
+          description: Created
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Policy registration failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+      security:
+        - api_key: []
+      summary: Register a policy that should be accepted in EDC negotiation.
+      tags:
+        - Item Relationship Service
+  /irs/policies/{policyId}:
+    delete:
+      description: Removes a policy that should no longer be accepted in EDC negotiation.
+      operationId: deleteAllowedPolicy
+      parameters:
+        - in: path
+          name: policyId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Policy deletion failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+      security:
+        - api_key: []
+      summary: Removes a policy that should no longer be accepted in EDC negotiation.
+      tags:
+        - Item Relationship Service
+    put:
+      description: Updates an existing policy with new validUntil value.
+      operationId: updateAllowedPolicy
+      parameters:
+        - in: path
+          name: policyId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-400'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Policy update failed.
+        "401":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-401'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: No valid authentication credentials.
+        "403":
+          content:
+            application/json:
+              examples:
+                error:
+                  $ref: '#/components/examples/error-response-403'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Authorization refused by server.
+      security:
+        - api_key: []
+      summary: Updates an existing policy with new validUntil value.
+      tags:
+        - Item Relationship Service
+components:
+  examples:
+    canceled-job-response:
+      value:
+        completedOn: 2022-02-03T14:48:54.709Z
+        globalAssetId: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+        id: 6c311d29-5753-46d4-b32c-19b918ea93b0
+        lastModifiedOn: 2022-02-03T14:48:54.709Z
+        startedOn: 2022-02-03T14:48:54.709Z
+        state: CANCELED
+    canceled-job-result:
+      value:
+        bpns: []
+        job:
+          completedOn: 2022-02-03T14:48:54.709Z
+          createdOn: 2022-02-03T14:48:54.709Z
+          exception:
+            errorDetail: Timeout while requesting Digital Registry
+            exception: IrsTimeoutException
+            exceptionDate: 2022-02-03T14:48:54.709Z
+          globalAssetId: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          id: e5347c88-a921-11ec-b909-0242ac120002
+          lastModifiedOn: 2022-02-03T14:48:54.709Z
+          parameter:
+            aspects:
+              - SerialPart
+              - AddressAspect
+            auditContractNegotiation: false
+            bomLifecycle: asBuilt
+            collectAspects: false
+            depth: 1
+            direction: downward
+            lookupBPNs: false
+          startedOn: 2022-02-03T14:48:54.709Z
+          state: CANCELED
+          summary:
+            asyncFetchedItems:
+              completed: 0
+              failed: 0
+              running: 0
+        relationships: []
+        submodels: []
+        tombstones: []
+    complete-batch-result:
+      value:
+        batchId: f253718e-a270-4367-901b-9d50d9bd8462
+        batchNumber: 1
+        batchProcessingState: COMPLETED
+        batchTotal: 1
+        completedOn: 2022-02-03T14:48:54.709Z
+        jobs:
+          - completedOn: 2022-02-03T14:48:54.709Z
+            id: 6c311d29-5753-46d4-b32c-19b918ea93b0
+            startedOn: 2022-02-03T14:48:54.709Z
+            state: COMPLETED
+        jobsInBatchChecksum: 1
+        orderId: f253718e-a270-4367-901b-9d50d9bd8462
+        startedOn: 2022-02-03T14:48:54.709Z
+        totalJobs: 1
+    complete-ess-job-result:
+      value:
+        bpns:
+          - manufacturerId: BPNL00000003AAXX
+            manufacturerName: AB CD
+        job:
+          completedOn: 2022-02-03T14:48:54.709Z
+          createdOn: 2022-02-03T14:48:54.709Z
+          exception:
+            errorDetail: Timeout while requesting Digital Registry
+            exception: IrsTimeoutException
+            exceptionDate: 2022-02-03T14:48:54.709Z
+          globalAssetId: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          id: e5347c88-a921-11ec-b909-0242ac120002
+          lastModifiedOn: 2022-02-03T14:48:54.709Z
+          parameter:
+            aspects:
+              - SerialPart
+              - AddressAspect
+            auditContractNegotiation: false
+            bomLifecycle: asBuilt
+            collectAspects: false
+            depth: 1
+            direction: downward
+            lookupBPNs: false
+          startedOn: 2022-02-03T14:48:54.709Z
+          state: COMPLETED
+          summary:
+            asyncFetchedItems:
+              completed: 3
+              failed: 0
+              running: 0
+            bpnLookups:
+              completed: 3
+              failed: 0
+        relationships:
+          - catenaXId: urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447
+            linkedItem:
+              assembledOn: 2022-02-03T14:48:54.709Z
+              childCatenaXId: urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9
+              hasAlternatives: false
+              lastModifiedOn: 2022-02-03T14:48:54.709Z
+              lifecycleContext: asBuilt
+              quantity:
+                measurementUnit:
+                  datatypeURI: urn:bamm:io.openmanufacturing:meta-model:1.0.0#piece
+                  lexicalValue: piece
+                quantityNumber: 1.0
+        shells:
+        - contractAgreementId: a787aa13-2bd7-488f-9e25-40682003901b
+          payload:
+            description:
+              - language: en
+                text: The shell for a vehicle
+            globalAssetId: urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9
+            id: urn:uuid:882fc530-b69b-4707-95f6-5dbc5e9baaa8
+            idShort: future concept x
+            specificAssetIds:
+              - name: engineserialid
+                value: "12309481209312"
+            submodelDescriptors:
+              - description:
+                  - language: en
+                    text: Provides base vehicle information
+                endpoints:
+                  - interface: HTTP
+                    protocolInformation:
+                      endpointProtocol: HTTPS
+                      endpointProtocolVersion:
+                        - "1.0"
+                      href: https://catena-x.net/vehicle/basedetails/
+                      subprotocol: DSP
+                      subprotocolBody: id=urn:uuid:c8159379-4613-48b8-ad52-6baed7afe923;dspEndpoint=https://irs-provider-controlplane3.dev.demo.catena-x.net
+                      subprotocolBodyEncoding: plain
+                id: urn:uuid:5d25a897-6571-4800-b98c-a3352fbf996d
+                idShort: SingleLevelBomAsPlanned
+                semanticId:
+                  keys:
+                    - type: ExternalReference
+                      value: urn:bamm:io.catenax.single_level_bom_as_planned:2.0.0#SingleLevelBomAsPlanned
+                  type: ModelReference
+              - description:
+                  - language: en
+                    text: Provides base vehicle information
+                endpoints:
+                  - interface: HTTP
+                    protocolInformation:
+                      endpointProtocol: HTTPS
+                      endpointProtocolVersion:
+                        - "1.0"
+                      href: https://catena-x.net/vehicle/partdetails/
+                      subprotocol: DSP
+                      subprotocolBody: id=urn:uuid:c8159379-4613-48b8-ad52-6baed7afe923;dspEndpoint=https://irs-provider-controlplane3.dev.demo.catena-x.net
+                      subprotocolBodyEncoding: plain
+                id: urn:uuid:dae4d249-6d66-4818-b576-bf52f3b9ae90
+                idShort: vehicle part details
+                semanticId:
+                  keys:
+                    - type: Submodel
+                      value: urn:bamm:com.catenax.vehicle:0.1.1#PartDetails
+                  type: ModelReference
+        submodels:
+          - aspectType: supply_chain_impacted
+            identification: urn:uuid:fc784d2a-5506-4e61-8e34-21600f8cdeff
+            payload:
+              supplyChainImpacted: "YES"
+        tombstones:
+          - catenaXId: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+            endpointURL: https://catena-x.net/vehicle/partdetails/
+            processingError:
+              errorDetail: Details to reason of failure
+              lastAttempt: 2022-02-03T14:48:54.709Z
+              processStep: SchemaValidation
+              retryCounter: 0
+    complete-job-list-processing-state:
+      value:
+        content:
+          - completedOn: 2022-02-03T14:48:54.709Z
+            id: 6c311d29-5753-46d4-b32c-19b918ea93b0
+            startedOn: 2022-02-03T14:48:54.709Z
+            state: COMPLETED
+        pageCount: 1
+        pageNumber: 0
+        pageSize: 10
+        totalElements: 1
+    complete-job-result:
+      value:
+        bpns:
+          - manufacturerId: BPNL00000003AYRE
+            manufacturerName: OEM A
+        job:
+          completedOn: 2022-02-03T14:48:54.709Z
+          createdOn: 2022-02-03T14:48:54.709Z
+          exception:
+            errorDetail: Timeout while requesting Digital Registry
+            exception: IrsTimeoutException
+            exceptionDate: 2022-02-03T14:48:54.709Z
+          globalAssetId: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          id: e5347c88-a921-11ec-b909-0242ac120002
+          lastModifiedOn: 2022-02-03T14:48:54.709Z
+          parameter:
+            aspects:
+              - SerialPart
+              - AddressAspect
+            auditContractNegotiation: false
+            bomLifecycle: asBuilt
+            collectAspects: false
+            depth: 1
+            direction: downward
+            lookupBPNs: false
+          startedOn: 2022-02-03T14:48:54.709Z
+          state: COMPLETED
+          summary:
+            asyncFetchedItems:
+              completed: 0
+              failed: 0
+              running: 0
+        relationships:
+          - catenaXId: urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447
+            linkedItem:
+              assembledOn: 2022-02-03T14:48:54.709Z
+              childCatenaXId: urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9
+              hasAlternatives: false
+              lastModifiedOn: 2022-02-03T14:48:54.709Z
+              lifecycleContext: asBuilt
+              quantity:
+                measurementUnit:
+                  datatypeURI: urn:bamm:io.openmanufacturing:meta-model:1.0.0#piece
+                  lexicalValue: piece
+                quantityNumber: 1.0
+        shells:
+        - contractAgreementId: a787aa13-2bd7-488f-9e25-40682003901b
+          payload:
+            description:
+            - language: en
+              text: The shell for a vehicle
+            globalAssetId: urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9
+            id: urn:uuid:882fc530-b69b-4707-95f6-5dbc5e9baaa8
+            idShort: future concept x
+            specificAssetIds:
+              - name: engineserialid
+                value: "12309481209312"
+            submodelDescriptors:
+              - description:
+                  - language: en
+                    text: Provides base vehicle information
+                endpoints:
+                  - interface: HTTP
+                    protocolInformation:
+                      endpointProtocol: HTTPS
+                      endpointProtocolVersion:
+                        - "1.0"
+                      href: https://catena-x.net/vehicle/basedetails/
+                      subprotocol: DSP
+                      subprotocolBody: id=urn:uuid:c8159379-4613-48b8-ad52-6baed7afe923;dspEndpoint=https://irs-provider-controlplane3.dev.demo.catena-x.net
+                      subprotocolBodyEncoding: plain
+                idShort: SingleLevelBomAsPlanned
+                id: urn:uuid:5d25a897-6571-4800-b98c-a3352fbf996d
+                semanticId:
+                  type: ModelReference
+                  keys:
+                    - type: ExternalReference
+                      value: urn:bamm:io.catenax.single_level_bom_as_planned:2.0.0#SingleLevelBomAsPlanned
+              - description:
+                  - language: en
+                    text: Provides base vehicle information
+                endpoints:
+                  - interface: HTTP
+                    protocolInformation:
+                      href: https://catena-x.net/vehicle/partdetails/
+                      endpointProtocol: HTTPS
+                      endpointProtocolVersion:
+                        - "1.0"
+                      subprotocol: DSP
+                      subprotocolBody: id=urn:uuid:c8159379-4613-48b8-ad52-6baed7afe923;dspEndpoint=https://irs-provider-controlplane3.dev.demo.catena-x.net
+                      subprotocolBodyEncoding: plain
+                id: urn:uuid:dae4d249-6d66-4818-b576-bf52f3b9ae90
+                idShort: vehicle part details
+                semanticId:
+                  keys:
+                    - type: Submodel
+                      value: urn:bamm:com.catenax.vehicle:0.1.1#PartDetails
+                  type: ModelReference
+        submodels:
+          - aspectType: urn:bamm:io.catenax.single_level_bom_as_built:1.0.0
+            identification: urn:uuid:fc784d2a-5506-4e61-8e34-21600f8cdeff
+            payload:
+              catenaXId: urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447
+              childItems:
+                - createdOn: 2022-02-03T14:48:54.709Z
+                  catenaXId: urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447
+                  lastModifiedOn: 2022-02-03T14:48:54.709Z
+                  lifecycleContext: AsBuilt
+                  quantity:
+                    measurementUnit:
+                      datatypeURI: urn:bamm:io.openmanufacturing:meta-model:1.0.0#piece
+                      lexicalValue: piece
+                    quantityNumber: 1
+        tombstones:
+          - catenaXId: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+            endpointURL: https://catena-x.net/vehicle/partdetails/
+            processingError:
+              errorDetail: Details to reason of failure
+              lastAttempt: 2022-02-03T14:48:54.709Z
+              processStep: SchemaValidation
+              retryCounter: 0
+    complete-order-result:
+      value:
+        batchChecksum: 1
+        batches:
+          - batchId: f253718e-a270-4367-901b-9d50d9bd8462
+            batchNumber: 1
+            batchProcessingState: PARTIAL
+            batchUrl: https://../irs/orders/f253718e-a270-4367-901b-9d50d9bd8462/batches/f253718e-a270-4367-901b-9d50d9bd8462
+            jobsInBatchChecksum: 1
+        orderId: f253718e-a270-4367-901b-9d50d9bd8462
+        state: COMPLETED
+    error-response-400:
+      value:
+        error: Bad request
+        messages:
+          - BadRequestException
+        statusCode: 400 BAD_REQUEST
+    error-response-401:
+      value:
+        error: Unauthorized
+        messages:
+          - UnauthorizedException
+        statusCode: 401 UNAUTHORIZED
+    error-response-403:
+      value:
+        error: Forbidden
+        messages:
+          - ForbiddenException
+        statusCode: 403 FORBIDDEN
+    error-response-404:
+      value:
+        error: Not found
+        messages:
+          - NotFoundException
+        statusCode: 404 NOT_FOUND
+    failed-job-result:
+      value:
+        bpns: []
+        job:
+          createdOn: 2022-02-03T14:48:54.709Z
+          exception:
+            errorDetail: Timeout while requesting Digital Registry
+            exception: IrsTimeoutException
+            exceptionDate: 2022-02-03T14:48:54.709Z
+          globalAssetId: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          id: e5347c88-a921-11ec-b909-0242ac120002
+          lastModifiedOn: 2022-02-03T14:48:54.709Z
+          parameter:
+            aspects:
+              - SerialPart
+              - AddressAspect
+            auditContractNegotiation: false
+            bomLifecycle: asBuilt
+            collectAspects: false
+            depth: 1
+            direction: downward
+            lookupBPNs: false
+          startedOn: 2022-02-03T14:48:54.709Z
+          state: ERROR
+          summary:
+            asyncFetchedItems:
+              completed: 0
+              failed: 0
+              running: 0
+        relationships: []
+        submodels: []
+        tombstones: []
+    job-handle:
+      value:
+        id: 6c311d29-5753-46d4-b32c-19b918ea93b0
+    job-result-without-uncompleted-result-tree:
+      value:
+        bpns:
+          - manufacturerId: BPNL00000003AYRE
+            manufacturerName: OEM A
+        job:
+          completedOn: 2022-02-03T14:48:54.709Z
+          createdOn: 2022-02-03T14:48:54.709Z
+          exception:
+            errorDetail: Timeout while requesting Digital Registry
+            exception: IrsTimeoutException
+            exceptionDate: 2022-02-03T14:48:54.709Z
+          globalAssetId: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          id: e5347c88-a921-11ec-b909-0242ac120002
+          lastModifiedOn: 2022-02-03T14:48:54.709Z
+          parameter:
+            aspects:
+              - SerialPart
+              - AddressAspect
+            auditContractNegotiation: false
+            bomLifecycle: asBuilt
+            collectAspects: false
+            depth: 1
+            direction: downward
+            lookupBPNs: false
+          startedOn: 2022-02-03T14:48:54.709Z
+          state: COMPLETED
+          summary:
+            asyncFetchedItems:
+              completed: 0
+              failed: 0
+              running: 0
+        relationships:
+          - catenaXId: urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447
+            linkedItem:
+              assembledOn: 2022-02-03T14:48:54.709Z
+              childCatenaXId: urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9
+              hasAlternatives: false
+              lastModifiedOn: 2022-02-03T14:48:54.709Z
+              lifecycleContext: asBuilt
+              quantity:
+                measurementUnit:
+                  datatypeURI: urn:bamm:io.openmanufacturing:meta-model:1.0.0#piece
+                  lexicalValue: piece
+                quantityNumber: 1.0
+        shells:
+        - contractAgreementId: a787aa13-2bd7-488f-9e25-40682003901b
+          payload:
+            description:
+            - language: en
+              text: The shell for a vehicle
+            globalAssetId: urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9
+            id: urn:uuid:882fc530-b69b-4707-95f6-5dbc5e9baaa8
+            idShort: future concept x
+            specificAssetIds:
+              - name: engineserialid
+                value: "12309481209312"
+            submodelDescriptors:
+              - description:
+                  - language: en
+                    text: Provides base vehicle information
+                endpoints:
+                  - interface: HTTP
+                    protocolInformation:
+                      endpointProtocol: HTTPS
+                      endpointProtocolVersion: ["1.0"]
+                      href: https://catena-x.net/vehicle/basedetails/
+                      subprotocol: DSP
+                      subprotocolBody: id=urn:uuid:c8159379-4613-48b8-ad52-6baed7afe923;dspEndpoint=https://irs-provider-controlplane3.dev.demo.catena-x.net
+                      subprotocolBodyEncoding: plain
+                id: urn:uuid:5d25a897-6571-4800-b98c-a3352fbf996d
+                idShort: SingleLevelBomAsPlanned
+                semanticId:
+                  type: ModelReference
+                  keys:
+                    - type: ExternalReference
+                      value: urn:bamm:io.catenax.single_level_bom_as_planned:2.0.0#SingleLevelBomAsPlanned
+              - description:
+                  - language: en
+                    text: Provides base vehicle information
+                endpoints:
+                  - interface: HTTP
+                    protocolInformation:
+                      href: https://catena-x.net/vehicle/partdetails/
+                      endpointProtocol: HTTPS
+                      endpointProtocolVersion: ["1.0"]
+                      subprotocol: DSP
+                      subprotocolBody: id=urn:uuid:c8159379-4613-48b8-ad52-6baed7afe923;dspEndpoint=https://irs-provider-controlplane3.dev.demo.catena-x.net
+                      subprotocolBodyEncoding: plain
+                id: urn:uuid:dae4d249-6d66-4818-b576-bf52f3b9ae90
+                idShort: vehicle part details
+                semanticId:
+                  type: ModelReference
+                  keys:
+                    - type: Submodel
+                      value: urn:bamm:com.catenax.vehicle:0.1.1#PartDetails
+        submodels:
+          - aspectType: urn:bamm:io.catenax.single_level_bom_as_built:1.0.0
+            identification: urn:uuid:fc784d2a-5506-4e61-8e34-21600f8cdeff
+            payload:
+              catenaXId: urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447
+              childItems:
+                - createdOn: 2022-02-03T14:48:54.709Z
+                  catenaXId: urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447
+                  lastModifiedOn: 2022-02-03T14:48:54.709Z
+                  lifecycleContext: AsBuilt
+                  quantity:
+                    measurementUnit:
+                      datatypeURI: urn:bamm:io.openmanufacturing:meta-model:1.0.0#piece
+                      lexicalValue: piece
+                    quantityNumber: 1
+        tombstones:
+          - catenaXId: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+            endpointURL: https://catena-x.net/vehicle/partdetails/
+            processingError:
+              errorDetail: Details to reason of failure
+              lastAttempt: 2022-02-03T14:48:54.709Z
+              processStep: SchemaValidation
+              retryCounter: 0
+    partial-job-result:
+      value:
+        bpns: []
+        job:
+          completedOn: 2022-02-03T14:48:54.709Z
+          createdOn: 2022-02-03T14:48:54.709Z
+          exception:
+            errorDetail: Timeout while requesting Digital Registry
+            exception: IrsTimeoutException
+            exceptionDate: 2022-02-03T14:48:54.709Z
+          globalAssetId: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          id: e5347c88-a921-11ec-b909-0242ac120002
+          lastModifiedOn: 2022-02-03T14:48:54.709Z
+          parameter:
+            aspects:
+              - SerialPart
+              - AddressAspect
+            auditContractNegotiation: false
+            bomLifecycle: asBuilt
+            collectAspects: false
+            depth: 1
+            direction: downward
+            lookupBPNs: false
+          startedOn: 2022-02-03T14:48:54.709Z
+          state: RUNNING
+          summary:
+            asyncFetchedItems:
+              completed: 0
+              failed: 0
+              running: 0
+        relationships: []
+        submodels: []
+        tombstones: []
+    aspect-models-list:
+      value:
+        lastUpdated: 2023-02-13T08:18:11.990659500Z
+        models:
+          - urn: urn:bamm:io.catenax.single_level_bom_as_built:1.0.0#SingleLevelBomAsBuilt
+            name: SingleLevelBomAsBuilt
+            status: RELEASED
+            type: BAMM
+            version: 1.0.0
+          - urn: urn:bamm:io.catenax.serial_part:1.0.0#SerialPart
+            name: SerialPart
+            status: RELEASED
+            type: BAMM
+            version: 1.0.0
+  schemas:
+    AdministrativeInformation:
+      type: object
+      additionalProperties: false
+      properties:
+        revision:
+          type: string
+        version:
+          type: string
+    AssetAdministrationShellDescriptor:
+      type: object
+      additionalProperties: false
+      description: AAS shells.
+      properties:
+        administration:
+          $ref: '#/components/schemas/AdministrativeInformation'
+        description:
+          type: array
+          items:
+            $ref: '#/components/schemas/LangString'
+          maxItems: 2147483647
+        globalAssetId:
+          type: string
+          description: Id of global asset.
+          example: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+        id:
+          type: string
+          example: 882fc530-b69b-4707-95f6-5dbc5e9baaa8
+        idShort:
+          type: string
+          example: future concept x
+        specificAssetIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentifierKeyValuePair'
+          maxItems: 2147483647
+        submodelDescriptors:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubmodelDescriptor'
+          maxItems: 2147483647
+    AsyncFetchedItems:
+      type: object
+      additionalProperties: false
+      description: Statistics of job execution.
+      properties:
+        completed:
+          type: integer
+          format: int32
+          description: Number of completed item transfers.
+          maximum: 2147483647
+          minimum: 0
+        failed:
+          type: integer
+          format: int32
+          description: Number of failed item transfers.
+          maximum: 2147483647
+          minimum: 0
+        running:
+          type: integer
+          format: int32
+          description: Number of running item transfers.
+          maximum: 2147483647
+          minimum: 0
+    BatchOrderCreated:
+      type: object
+      additionalProperties: false
+      description: Id of the created Batch order.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Id of the Batch Order.
+    BatchOrderResponse:
+      type: object
+      additionalProperties: false
+      description: BatchOrderAck Payload Response.
+      properties:
+        batchChecksum:
+          type: integer
+          format: int32
+          description: Expected number of batches in order.
+        batches:
+          type: array
+          description: Array of batches.
+          items:
+            $ref: '#/components/schemas/BatchResponse'
+          maxItems: 2147483647
+        orderId:
+          type: string
+          format: uuid
+          description: Id of the order.
+          maxLength: 36
+          minLength: 36
+          pattern: "/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i"
+        state:
+          type: string
+          description: The state of the order.
+          enum:
+            - INITIALIZED
+            - COMPLETED
+            - PROCESSING
+            - PARTIAL
+            - ERROR
+    BatchResponse:
+      type: object
+      additionalProperties: false
+      description: Batch model.
+      properties:
+        batchId:
+          type: string
+          format: uuid
+          description: Id of the batch.
+          maxLength: 36
+          minLength: 36
+          pattern: "/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i"
+        batchNumber:
+          type: integer
+          format: int32
+          description: Sequential number begins with first (1.) batch.
+        batchProcessingState:
+          type: string
+          description: The state of the batch.
+          enum:
+            - INITIALIZED
+            - COMPLETED
+            - PROCESSING
+            - PARTIAL
+            - ERROR
+        batchTotal:
+          type: integer
+          format: int32
+          description: The total number of batches.
+        completedOn:
+          type: string
+          format: date-time
+        jobs:
+          type: array
+          description: Array of jobs.
+          items:
+            $ref: '#/components/schemas/JobStatusResult'
+          maxItems: 2147483647
+        jobsInBatchChecksum:
+          type: integer
+          format: int32
+          description: Expected number of jobs in batch.
+        orderId:
+          type: string
+          format: uuid
+          description: Id of the order.
+          maxLength: 36
+          minLength: 36
+          pattern: "/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i"
+        startedOn:
+          type: string
+          format: date-time
+        totalJobs:
+          type: integer
+          format: int32
+          description: Total amount of jobs inside the order.
+    Bpn:
+      type: object
+      additionalProperties: false
+      description: Business partner id with name
+      properties:
+        manufacturerId:
+          type: string
+          example: BPNL00000003AYRE
+        manufacturerName:
+          type: string
+          example: OEM A
+    Constraint:
+      type: object
+      additionalProperties: false
+      properties:
+        leftOperand:
+          type: string
+          example: string
+        'odrl:rightOperand':
+          type: string
+          example: string
+        operator:
+          $ref: '#/components/schemas/Operator'
+    Constraints:
+      type: object
+      additionalProperties: false
+      properties:
+        and:
+          type: array
+          items:
+            $ref: '#/components/schemas/Constraint'
+        or:
+          type: array
+          items:
+            $ref: '#/components/schemas/Constraint'
+    CreatePolicyRequest:
+      type: object
+      additionalProperties: false
+      description: Request to add a policy
+      properties:
+        payload:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/JsonValue'
+          example:
+            payload:
+              '@context':
+                odrl: http://www.w3.org/ns/odrl/2/
+              '@id': policy-id
+              policy:
+                'odrl:permission':
+                  - 'odrl:action': USE
+                    'odrl:constraint':
+                      'odrl:and':
+                        - 'odrl:leftOperand': Membership
+                          'odrl:operator':
+                            '@id': 'odrl:eq'
+                          'odrl:rightOperand': active
+                        - 'odrl:leftOperand': PURPOSE
+                          'odrl:operator':
+                            '@id': 'odrl:eq'
+                          'odrl:rightOperand': ID 3.1 Trace
+            validUntil: '2025-12-12T23:59:59.999Z'
+          properties:
+            empty:
+              type: boolean
+            valueType:
+              type: string
+              enum:
+                - 'ARRAY'
+                - 'OBJECT'
+                - 'STRING'
+                - 'NUMBER'
+                - 'TRUE'
+                - 'FALSE'
+                - 'NULL'
+        validUntil:
+          type: string
+          format: date-time
+          description: Timestamp after which the policy will no longer be accepted in negotiations
+      required:
+        - payload
+        - validUntil
+    EdcNotificationResponseNotificationContent:
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          $ref: '#/components/schemas/ResponseNotificationContent'
+        header:
+          $ref: '#/components/schemas/EdcNotificationHeader'
+      required:
+        - content
+        - header
+    EdcNotificationHeader:
+      type: object
+      additionalProperties: false
+      description: EDC notification header information
+      properties:
+        notificationId:
+          type: string
+        notificationType:
+          type: string
+        originalNotificationId:
+          type: string
+        recipientBpn:
+          type: string
+        replyAssetId:
+          type: string
+        replyAssetSubPath:
+          type: string
+        senderBpn:
+          type: string
+        senderEdc:
+          type: string
+      required:
+        - notificationId
+        - notificationType
+        - recipientBpn
+        - senderBpn
+    Endpoint:
+      type: object
+      additionalProperties: false
+      properties:
+        interface:
+          type: string
+          example: HTTP
+        protocolInformation:
+          $ref: '#/components/schemas/ProtocolInformation'
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      description: Error response.
+      properties:
+        error:
+          type: string
+          description: Error.
+        messages:
+          type: array
+          description: List of error messages.
+          items:
+            type: string
+          maxItems: 2147483647
+        statusCode:
+          type: string
+          description: Error code.
+          enum:
+            - 100 CONTINUE
+            - 101 SWITCHING_PROTOCOLS
+            - 102 PROCESSING
+            - 103 EARLY_HINTS
+            - 103 CHECKPOINT
+            - 200 OK
+            - 201 CREATED
+            - 202 ACCEPTED
+            - 203 NON_AUTHORITATIVE_INFORMATION
+            - 204 NO_CONTENT
+            - 205 RESET_CONTENT
+            - 206 PARTIAL_CONTENT
+            - 207 MULTI_STATUS
+            - 208 ALREADY_REPORTED
+            - 226 IM_USED
+            - 300 MULTIPLE_CHOICES
+            - 301 MOVED_PERMANENTLY
+            - 302 FOUND
+            - 302 MOVED_TEMPORARILY
+            - 303 SEE_OTHER
+            - 304 NOT_MODIFIED
+            - 305 USE_PROXY
+            - 307 TEMPORARY_REDIRECT
+            - 308 PERMANENT_REDIRECT
+            - 400 BAD_REQUEST
+            - 401 UNAUTHORIZED
+            - 402 PAYMENT_REQUIRED
+            - 403 FORBIDDEN
+            - 404 NOT_FOUND
+            - 405 METHOD_NOT_ALLOWED
+            - 406 NOT_ACCEPTABLE
+            - 407 PROXY_AUTHENTICATION_REQUIRED
+            - 408 REQUEST_TIMEOUT
+            - 409 CONFLICT
+            - 410 GONE
+            - 411 LENGTH_REQUIRED
+            - 412 PRECONDITION_FAILED
+            - 413 PAYLOAD_TOO_LARGE
+            - 413 REQUEST_ENTITY_TOO_LARGE
+            - 414 URI_TOO_LONG
+            - 414 REQUEST_URI_TOO_LONG
+            - 415 UNSUPPORTED_MEDIA_TYPE
+            - 416 REQUESTED_RANGE_NOT_SATISFIABLE
+            - 417 EXPECTATION_FAILED
+            - 418 I_AM_A_TEAPOT
+            - 419 INSUFFICIENT_SPACE_ON_RESOURCE
+            - 420 METHOD_FAILURE
+            - 421 DESTINATION_LOCKED
+            - 422 UNPROCESSABLE_ENTITY
+            - 423 LOCKED
+            - 424 FAILED_DEPENDENCY
+            - 425 TOO_EARLY
+            - 426 UPGRADE_REQUIRED
+            - 428 PRECONDITION_REQUIRED
+            - 429 TOO_MANY_REQUESTS
+            - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
+            - 451 UNAVAILABLE_FOR_LEGAL_REASONS
+            - 500 INTERNAL_SERVER_ERROR
+            - 501 NOT_IMPLEMENTED
+            - 502 BAD_GATEWAY
+            - 503 SERVICE_UNAVAILABLE
+            - 504 GATEWAY_TIMEOUT
+            - 505 HTTP_VERSION_NOT_SUPPORTED
+            - 506 VARIANT_ALSO_NEGOTIATES
+            - 507 INSUFFICIENT_STORAGE
+            - 508 LOOP_DETECTED
+            - 509 BANDWIDTH_LIMIT_EXCEEDED
+            - 510 NOT_EXTENDED
+            - 511 NETWORK_AUTHENTICATION_REQUIRED
+    IdentifierKeyValuePair:
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+          example: engineserialid
+        semanticId:
+          $ref: '#/components/schemas/Reference'
+        subjectId:
+          $ref: '#/components/schemas/Reference'
+        value:
+          type: string
+          example: "12309481209312"
+    Job:
+      type: object
+      additionalProperties: false
+      description: Executable unit with meta information and item graph result.
+      properties:
+        completedOn:
+          type: string
+          format: date-time
+          example: 2022-02-03T14:48:54.709Z
+        createdOn:
+          type: string
+          format: date-time
+          example: 2022-02-03T14:48:54.709Z
+        exception:
+          $ref: '#/components/schemas/JobErrorDetails'
+        globalAssetId:
+          type: string
+          description: Part global unique id in the format urn:uuid:uuid4.
+          example: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          maxLength: 45
+          minLength: 45
+          pattern: "^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        id:
+          type: string
+          format: uuid
+          example: e5347c88-a921-11ec-b909-0242ac120002
+          description: Id of the job.
+          maxLength: 36
+          minLength: 36
+          pattern: "/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i"
+        lastModifiedOn:
+          type: string
+          format: date-time
+          example: 2022-02-03T14:48:54.709Z
+        parameter:
+          $ref: '#/components/schemas/JobParameter'
+        startedOn:
+          type: string
+          format: date-time
+          example: 2022-02-03T14:48:54.709Z
+        state:
+          type: string
+          example: COMPLETED
+          enum:
+            - UNSAVED
+            - INITIAL
+            - RUNNING
+            - TRANSFERS_FINISHED
+            - COMPLETED
+            - CANCELED
+            - ERROR
+        summary:
+          $ref: '#/components/schemas/Summary'
+      required:
+        - globalAssetId
+        - id
+        - state
+    JobErrorDetails:
+      type: object
+      additionalProperties: false
+      description: Job error details.
+      properties:
+        errorDetail:
+          type: string
+          example: Timeout while requesting Digital Registry
+          description: Detailed exception information.
+          maxLength: 4000
+        exception:
+          type: string
+          description: Exception name.
+          example: IrsTimeoutException
+          maxLength: 100
+        exceptionDate:
+          type: string
+          format: date-time
+          description: Datetime error occurs.
+          example: 2022-02-03T14:48:54.709Z
+    JobHandle:
+      type: object
+      additionalProperties: false
+      description: The unique jobId handle of the just processed job.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Id of the job.
+          maxLength: 36
+          minLength: 36
+          pattern: "/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i"
+    JobParameter:
+      type: object
+      additionalProperties: false
+      description: Job parameter of job processing.
+      properties:
+        aspects:
+          type: string
+          example: SerialPart
+        auditContractNegotiation:
+          type: boolean
+          example: false
+        bomLifecycle:
+          type: string
+          example: asBuilt
+          description: The lifecycle context in which the child part was assembled
+            into the parent part.
+          enum:
+            - asBuilt
+            - asPlanned
+            - asSpecified
+        bpn:
+          type: string
+          example: BPNL00000003AYRE
+        callbackUrl:
+          type: string
+          example: https://hostname.com/callback?id={id}&state={state}
+        collectAspects:
+          type: boolean
+          example: false
+        depth:
+          type: integer
+          format: int32
+          example: 1
+          maximum: 2147483647
+          minimum: 0
+        direction:
+          type: string
+          example: upward
+          description: Item graph traversal direction.
+          enum:
+            - upward
+            - downward
+        lookupBPNs:
+          type: boolean
+          example: false
+    JobStatusResult:
+      type: object
+      additionalProperties: false
+      properties:
+        completedOn:
+          type: string
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        startedOn:
+          type: string
+          format: date-time
+        state:
+          type: string
+          enum:
+            - UNSAVED
+            - INITIAL
+            - RUNNING
+            - TRANSFERS_FINISHED
+            - COMPLETED
+            - CANCELED
+            - ERROR
+    Jobs:
+      type: object
+      additionalProperties: false
+      description: Container for a job with item graph.
+      properties:
+        bpns:
+          type: array
+          description: Collection of bpn mappings
+          items:
+            $ref: '#/components/schemas/Bpn'
+          maxItems: 2147483647
+          uniqueItems: true
+        job:
+          $ref: '#/components/schemas/Job'
+        relationships:
+          type: array
+          description: Relationships between parent and child items.
+          items:
+            $ref: '#/components/schemas/Relationship'
+          maxItems: 2147483647
+        shells:
+          type: array
+          description: AAS shells.
+          items:
+            $ref: '#/components/schemas/Shell'
+          maxItems: 2147483647
+        submodels:
+          type: array
+          description: Collection of requested Submodels
+          items:
+            $ref: '#/components/schemas/Submodel'
+          maxItems: 2147483647
+        tombstones:
+          type: array
+          description: Collection of not resolvable endpoints as tombstones. Including
+            cause of error and endpoint URL.
+          items:
+            $ref: '#/components/schemas/Tombstone'
+          maxItems: 2147483647
+    JsonValue:
+      type: object
+      additionalProperties: false
+      properties:
+        valueType:
+          type: string
+          enum:
+            - 'ARRAY'
+            - 'OBJECT'
+            - 'STRING'
+            - 'NUMBER'
+            - 'TRUE'
+            - 'FALSE'
+            - 'NULL'
+      example:
+        payload:
+          '@context':
+            odrl: http://www.w3.org/ns/odrl/2/
+          '@id': policy-id
+          policy:
+            'odrl:permission':
+              - 'odrl:action': USE
+                'odrl:constraint':
+                  'odrl:and':
+                    - 'odrl:leftOperand': Membership
+                      'odrl:operator':
+                        '@id': 'odrl:eq'
+                      'odrl:rightOperand': active
+                    - 'odrl:leftOperand': PURPOSE
+                      'odrl:operator':
+                        '@id': 'odrl:eq'
+                      'odrl:rightOperand': ID 3.1 Trace
+        validUntil: '2025-12-12T23:59:59.999Z'
+    LangString:
+      type: object
+      additionalProperties: false
+      properties:
+        language:
+          type: string
+          example: en
+        text:
+          type: string
+          example: The shell for a vehicle
+    LinkedItem:
+      type: object
+      additionalProperties: false
+      description: Set of child parts the parent object is assembled by (one structural
+        level down).
+      properties:
+        assembledOn:
+          type: string
+          format: date-time
+          description: Datetime of assembly.
+          example: 2022-02-03T14:48:54.709Z
+        childCatenaXId:
+          type: string
+          description: CatenaX child global asset id in the format urn:uuid:uuid4.
+          example: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          maxLength: 45
+          minLength: 45
+          pattern: "^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        hasAlternatives:
+          type: boolean
+          description: Expresses whether the part is built-in or whether it is one
+            of several options.
+        lastModifiedOn:
+          type: string
+          format: date-time
+          description: Last datetime item was modified.
+          example: 2022-02-03T14:48:54.709Z
+        lifecycleContext:
+          type: string
+          description: The lifecycle context in which the child part was assembled
+            into the parent part.
+          enum:
+            - asBuilt
+            - asPlanned
+            - asSpecified
+          example: asBuilt
+        quantity:
+          $ref: '#/components/schemas/Quantity'
+    MeasurementUnit:
+      type: object
+      additionalProperties: false
+      properties:
+        datatypeURI:
+          type: string
+          example: urn:bamm:io.openmanufacturing:meta-model:1.0.0#piece
+        lexicalValue:
+          type: string
+          example: piece
+    Operator:
+      type: object
+      additionalProperties: false
+      properties:
+        '@id':
+          type: string
+          example: 'odrl:eq'
+          enum:
+            - eq
+            - neq
+            - lt
+            - gt
+            - in
+            - lteq
+            - gteq
+            - isA
+            - hasPart
+            - isPartOf
+            - isOneOf
+            - isAllOf
+            - isNoneOf
+    PageResult:
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobStatusResult'
+        pageCount:
+          type: integer
+          format: int32
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+    PartChainIdentificationKey:
+      type: object
+      additionalProperties: false
+      description: Key object contains required attributes for identify part chain
+        entry node.
+      properties:
+        bpn:
+          type: string
+          description: BPN of partner providing the initial asset
+          example: BPNL0123456789XX
+          maxLength: 16
+          minLength: 16
+          #pattern: "^(BPN)(L|S|A)(\\d{10})([a-zA-Z0-9]{2})$"
+        globalAssetId:
+          type: string
+          description: Id of global asset.
+          example: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          maxLength: 45
+          minLength: 45
+          pattern: "^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+      required:
+        - bpn
+        - globalAssetId
+    Permission:
+      type: object
+      additionalProperties: false
+      properties:
+        action:
+          type: string
+          example: USE
+          enum:
+            - ACCESS
+            - USE
+        constraint:
+          $ref: '#/components/schemas/Constraints'
+    Policy:
+      type: object
+      additionalProperties: false
+      properties:
+        createdOn:
+          type: string
+          format: date-time
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+        policyId:
+          type: string
+          example: f253718e-a270-4367-901b-9d50d9bd8462
+        validUntil:
+          type: string
+          format: date-time
+    ProcessingError:
+      type: object
+      additionalProperties: false
+      properties:
+        errorDetail:
+          type: string
+        lastAttempt:
+          type: string
+          format: date-time
+        processStep:
+          type: string
+          enum:
+            - SubmodelRequest
+            - DigitalTwinRequest
+            - SchemaValidation
+            - SchemaRequest
+            - BpdmRequest
+            - BpdmValidation
+            - UsagePolicyValidation
+            - EssValidation
+        retryCounter:
+          type: integer
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+    ProtocolInformation:
+      type: object
+      additionalProperties: false
+      properties:
+        href:
+          example: https://edc.data.plane/{path}/submodel
+          type: string
+        endpointProtocol:
+          example: HTTPS
+          type: string
+        endpointProtocolVersion:
+          type: array
+          example: ["1.0"]
+          items:
+            type: string
+        subprotocol:
+          type: string
+        subprotocolBody:
+          type: string
+        subprotocolBodyEncoding:
+          type: string
+    Quantity:
+      type: object
+      additionalProperties: false
+      description: Quantity component.
+      properties:
+        measurementUnit:
+          $ref: '#/components/schemas/MeasurementUnit'
+        quantityNumber:
+          type: number
+          example: 1.0
+          format: double
+          maximum: 2147483647
+          minimum: 0
+    Reference:
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/SemanticId'
+          maxItems: 2147483647
+    RegisterBatchOrder:
+      type: object
+      additionalProperties: false
+      description: Request body for registering a new Batch Order.
+      properties:
+        aspects:
+          type: array
+          items:
+            type: string
+          maxItems: 2147483647
+        batchSize:
+          type: integer
+          format: int32
+          default: 20
+          description: Size of the batch.
+          maximum: 100
+          minimum: 10
+        batchStrategy:
+          type: string
+          description: The strategy how the batch is processed internally in IRS.
+          enum:
+            - PRESERVE_BATCH_JOB_ORDER
+            - PRESERVE_JOB_ORDER
+            - PRESERVE_BATCH_ORDER
+        bomLifecycle:
+          type: string
+          description: The lifecycle context in which the child part was assembled
+            into the parent part.
+          enum:
+            - asBuilt
+            - asPlanned
+            - asSpecified
+        callbackUrl:
+          type: string
+          description: "Callback url to notify requestor when job processing is finished.\
+            \ There are four uri variable placeholders that can be used: orderId,\
+            \ batchId, orderState and batchState."
+          example: "https://hostname.com/callback?orderId={orderId}&batchId={batchId}&orderState={orderState}&batchState={batchState}"
+        collectAspects:
+          type: boolean
+          description: Flag to specify whether aspects should be requested and collected.
+            Default is false.
+        depth:
+          type: integer
+          format: int32
+          description: Max depth of the item graph returned. If no depth is set item
+            graph with max depth is returned.
+          maximum: 100
+          minimum: 1
+        direction:
+          type: string
+          default: downward
+          description: Item graph traversal direction.
+          enum:
+            - upward
+            - downward
+        jobTimeout:
+          type: integer
+          format: int32
+          default: 3600
+          description: Timeout in seconds for each job processing inside the complete
+            order.
+          maximum: 7200
+          minimum: 60
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartChainIdentificationKey'
+          maxItems: 2147483647
+        lookupBPNs:
+          type: boolean
+          description: Flag to specify whether BPNs should be collected and resolved
+            via the configured BPDM URL. Default is false.
+        timeout:
+          type: integer
+          format: int32
+          default: 43200
+          description: Timeout in seconds for the complete batch order processing.
+          maximum: 86400
+          minimum: 60
+      required:
+        - keys
+    RegisterBpnInvestigationBatchOrder:
+      type: object
+      additionalProperties: false
+      description: Request body for registering a new Batch Order for ESS Investigation
+        Job.
+      properties:
+        batchSize:
+          type: integer
+          format: int32
+          default: 20
+          description: Size of the batch.
+          maximum: 100
+          minimum: 10
+        batchStrategy:
+          type: string
+          description: The strategy how the batch is processed internally in IRS.
+          enum:
+            - PRESERVE_BATCH_JOB_ORDER
+            - PRESERVE_JOB_ORDER
+            - PRESERVE_BATCH_ORDER
+        bomLifecycle:
+          type: string
+          description: The lifecycle context in which the child part was assembled
+            into the parent part.
+          enum:
+            - asBuilt
+            - asPlanned
+            - asSpecified
+        callbackUrl:
+          type: string
+          description: "Callback url to notify requestor when job processing is finished.\
+                \ There are four uri variable placeholders that can be used: orderId,\
+                \ batchId, orderState and batchState."
+          example: "https://hostname.com/callback?orderId={orderId}&batchId={batchId}&orderState={orderState}&batchState={batchState}"
+        incidentBPNSs:
+          type: array
+          items:
+            type: string
+            pattern: "(BPN)[LSA][\\w\\d]{10}[\\w\\d]{2}"
+          maxItems: 2147483647
+        jobTimeout:
+          type: integer
+          format: int32
+          default: 3600
+          description: Timeout in seconds for each job processing inside the complete
+            order.
+          maximum: 7200
+          minimum: 60
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartChainIdentificationKey'
+          maxItems: 2147483647
+        timeout:
+          type: integer
+          format: int32
+          default: 43200
+          description: Timeout in seconds for the complete batch order processing.
+          maximum: 86400
+          minimum: 60
+      required:
+        - incidentBPNSs
+        - keys
+    RegisterBpnInvestigationJob:
+      type: object
+      additionalProperties: false
+      description: The requested job definition.
+      properties:
+        bomLifecycle:
+          example: asPlanned
+          type: string
+          description: The lifecycle context in which the child part was assembled
+            into the parent part.
+          enum:
+            - asBuilt
+            - asPlanned
+            - asSpecified
+        callbackUrl:
+          type: string
+          description: "Callback url to notify requestor when job processing is finished.\
+            \ There are two uri variable placeholders that can be used: jobId and\
+            \ jobState."
+          example: "https://hostname.com/callback?jobId={jobId}&jobState={jobState}"
+        key:
+          $ref: '#/components/schemas/PartChainIdentificationKey'
+        incidentBPNSs:
+          type: array
+          items:
+            type: string
+            pattern: "(BPN)[LSA][\\w\\d]{10}[\\w\\d]{2}"
+          maxItems: 2147483647
+      required:
+        - incidentBPNSs
+        - key
+    RegisterJob:
+      type: object
+      additionalProperties: false
+      description: The requested job definition.
+      properties:
+        aspects:
+          type: array
+          description: List of aspect names that will be collected if \<collectAspects\>
+            flag is set to true.
+          items:
+            type: string
+          maxItems: 2147483647
+        auditContractNegotiation:
+          type: boolean
+          description: Flag enables and disables auditing, including provisioning 
+            of ContractAgreementId inside submodels and shells objects. Default is true.
+        bomLifecycle:
+          type: string
+          description: The lifecycle context in which the child part was assembled
+            into the parent part.
+          enum:
+            - asBuilt
+            - asPlanned
+            - asSpecified
+        callbackUrl:
+          type: string
+          description: "Callback url to notify requestor when job processing is finished.\
+            \ There are two uri variable placeholders that can be used: id and state."
+          example: "https://hostname.com/callback?id={id}&state={state}"
+        collectAspects:
+          type: boolean
+          description: Flag to specify whether aspects should be requested and collected.
+            Default is false.
+        depth:
+          type: integer
+          format: int32
+          description: Max depth of the item graph returned. If no depth is set item
+            graph with max depth is returned.
+          maximum: 100
+          minimum: 1
+        direction:
+          type: string
+          default: downward
+          description: Item graph traversal direction.
+          enum:
+            - upward
+            - downward
+        key:
+          $ref: '#/components/schemas/PartChainIdentificationKey'
+        lookupBPNs:
+          type: boolean
+          description: Flag to specify whether BPNs should be collected and resolved
+            via the configured BPDM URL. Default is false.
+      required:
+        - key
+    Relationship:
+      type: object
+      additionalProperties: false
+      description: Relationships between parent and child items.
+      properties:
+        aspectType:
+          type: string
+          example: SingleLevelBomAsBuilt
+        bpn:
+          type: string
+          example: BPNL00000003AYRE
+        catenaXId:
+          type: string
+          description: CATENA-X global asset id in the format urn:uuid:uuid4.
+          example: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          maxLength: 45
+          minLength: 45
+          pattern: "^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        linkedItem:
+          $ref: '#/components/schemas/LinkedItem'
+    ResponseNotificationContent:
+      type: object
+      additionalProperties: false
+      properties:
+        hops:
+          type: integer
+          format: int32
+        bpn:
+          type: string
+        result:
+          type: string
+    SemanticId:
+      type: object
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          example: urn:bamm:com.catenax.vehicle:0.1.1
+        value:
+          type: string
+          example: Submodel
+    Shell:
+      type: object
+      additionalProperties: false
+      properties:
+        contractAgreementId:
+          type: string
+        payload:
+          $ref: '#/components/schemas/AssetAdministrationShellDescriptor'
+    Submodel:
+      type: object
+      additionalProperties: false
+      description: "Submodel with identification of SubmodelDescriptor, aspect type\
+        \ and payload as String"
+      properties:
+        aspectType:
+          type: string
+        contractAgreementId:
+          type: string
+        identification:
+          type: string
+        payload:
+          type: object
+          additionalProperties:
+            type: object
+    SubmodelDescriptor:
+      type: object
+      additionalProperties: false
+      properties:
+        administration:
+          $ref: '#/components/schemas/AdministrativeInformation'
+        description:
+          type: array
+          items:
+            $ref: '#/components/schemas/LangString'
+          maxItems: 2147483647
+        endpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/Endpoint'
+          maxItems: 2147483647
+        id:
+          type: string
+        idShort:
+          type: string
+        semanticId:
+          $ref: '#/components/schemas/Reference'
+    Summary:
+      type: object
+      additionalProperties: false
+      description: Summary of the job with statistics of the job processing.
+      properties:
+        asyncFetchedItems:
+          $ref: '#/components/schemas/AsyncFetchedItems'
+        bpnLookups:
+          $ref: '#/components/schemas/AsyncFetchedItems'
+    Tombstone:
+      type: object
+      additionalProperties: false
+      description: Tombstone with information about request failure
+      properties:
+        catenaXId:
+          type: string
+          description: CATENA-X global asset id in the format urn:uuid:uuid4.
+          example: urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+          maxLength: 45
+          minLength: 45
+          pattern: "^urn:uuid:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        endpointURL:
+          type: string
+        policy:
+          type: object
+          additionalProperties:
+            type: object
+        processingError:
+          $ref: '#/components/schemas/ProcessingError'
+    AspectModel:
+      type: object
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+        urn:
+          type: string
+        version:
+          type: string
+    AspectModels:
+      type: object
+      additionalProperties: false
+      properties:
+        lastUpdated:
+          type: string
+        models:
+          type: array
+          items:
+            $ref: '#/components/schemas/AspectModel'
+    UpdatePolicyRequest:
+      type: object
+      additionalProperties: false
+      description: Request to add a policy
+      properties:
+        validUntil:
+          type: string
+          format: date-time
+          description: Timestamp after which the policy will no longer be accepted
+            in negotiations
+      required:
+        - validUntil
+  securitySchemes:
+    api_key:
+      description: Api Key access
+      in: header
+      name: X-API-KEY
+      type: apiKey

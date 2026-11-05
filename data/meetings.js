@@ -1,0 +1,502 @@
+/*********************************************************************************
+ * Copyright (c) 2023, 2025 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+// Meeting categories for color coding
+export const MEETING_CATEGORIES = {
+  GENERAL: 'general',
+  PRODUCT: 'product',
+  ONE_TIME: 'one-time',
+};
+
+// Meeting priority levels for visual importance hierarchy
+// highlight: Full-width hero banner — major events, prepare ahead
+// featured:  Double-width card — key recurring meetings, don't miss
+// (omit for standard meetings)
+export const MEETING_PRIORITIES = {
+  HIGHLIGHT: 'highlight',
+  FEATURED: 'featured',
+};
+
+// Optional event fields (mainly for one-time, on-site events such as Community Days):
+// location:                venue address, also written into the .ics LOCATION field
+// onsite:                  true for on-site events — renders the "Onsite" badge
+// registrationLink:        URL of the registration page — renders the "Register" button
+// registrationComingSoon:  true while registration is not open yet — renders a
+//                          non-clickable "Registration Coming Soon" notice instead of a
+//                          button that leads nowhere. Remove it once registrationLink is set.
+
+// Contact persons — centralized to avoid duplication
+// country: ISO 3166-1 alpha-2 code — used for public holiday detection per meeting
+export const CONTACTS = {
+  STEPHAN_BAUER: {
+    name: 'Stephan Bauer',
+    title: 'Eclipse Tractus-X Project Lead',
+    email: 'stephan.bauer@catena-x.net',
+    github: 'stephanbcbauer',
+    linkedin: 'stephan-bauer-7a3a22117',
+    country: 'DE'
+  },
+  MATHIAS_MOSER: {
+    name: 'Mathias Moser',
+    title: 'Eclipse Tractus-X Project Lead',
+    email: 'mathias.moser@catena-x.net',
+    github: 'matbmoser',
+    linkedin: 'mathias-brunkow-moser',
+    country: 'DE'
+  },
+  LARS_BLAUMEISER: {
+    name: 'Lars Geyer-Blaumeiser',
+    title: 'EDC Responsible',
+    email: 'lars.blaumeiser@cofinity-x.com',
+    github: 'lgblaumeiser',
+    country: 'DE'
+  },
+  SAAD_RAFIQ: {
+    name: 'Saad Rafiq',
+    title: 'Portal Product Owner',
+    email: 'saad.rafiq@cofinity-x.com',
+    github: 'saadrafiq12',
+    country: 'DE'
+  },
+  MIKEL_GARCIA: {
+    name: 'Mikel Garcia',
+    title: 'Eclipse Tractus-X Project Lead',
+    email: 'mgarcia@lksnext.com',
+    github: 'mgarciaLKS',
+    linkedin: 'mikel-garcia-bartolome-a3891b308',
+    country: 'ES'
+  },
+  JULIAN_STOLL: {
+    name: 'Julian Stoll',
+    title: 'BPDM Product Owner',
+    email: 'julian.stoll@mercedes-benz.com',
+    github: 'jstollmb',
+    country: 'DE'
+  },
+  JOHANN_SCHUETZ: {
+    name: 'Johann Schütz',
+    title: 'Semantic Modelling Lead',
+    email: 'johann.schuetz@catena-x.net',
+    country: 'DE'
+  },
+  MONIKA_JACOBSEN: {
+    name: 'Monika Jacobsen',
+    title: 'Test Management',
+    email: 'monika.jacobsen@catena-x.net',
+    country: 'DE'
+  },
+  CARLOS_RODRIGUEZ: {
+    name: 'Carlos D. Rodriguez',
+    title: 'Eclipse Tractus-X Committer',
+    email: 'cdiez@lksnext.com',
+    github: 'CDiezRodriguez',
+    country: 'ES'
+  },
+  ANGEL_YAO: {
+    name: 'Angel Y. Zhan',
+    title: 'Eclipse Tractus-X Contributor',
+    email: 'ayao@lksnext.com',
+    github: 'AYaoZhan',
+    country: 'ES'
+  },
+  THERESA_HILGER: {
+    name: 'Theresa Hilger',
+    title: 'Releasemanagemnt',
+    email: 'theresa.hilger@catena-x.net',
+    github: 'ther3sa',
+    country: 'DE'
+  },
+};
+
+// Country labels for display — maps ISO code to readable name
+export const COUNTRY_LABELS = {
+  DE: 'Germany',
+  ES: 'Spain',
+  US: 'United States',
+  GB: 'United Kingdom',
+  FR: 'France',
+  IN: 'India',
+  JP: 'Japan',
+};
+
+// Meeting data with recurrence rules
+// All times are in Europe/Berlin timezone
+export const meetings = [
+  // General Office Hours
+  {
+    id: 'community-office-hour',
+    title: 'Community Office Hour',
+    icon: 'forum',
+    category: MEETING_CATEGORIES.GENERAL,
+    priority: MEETING_PRIORITIES.FEATURED,
+    description: 'Open hour meeting for all interests. The goal of the meeting is to inform and share information about different topics. Additionally, we will discuss and share specific committer tasks/responsibilities at the end of the meeting.',
+    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.MATHIAS_MOSER, CONTACTS.MIKEL_GARCIA],
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_MDFiNDJjMmQtNjFkYi00ODdjLTk2NDgtZGMwNTRmYzg3NzM0%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx:matrix.eclipse.org',
+    additionalLinks: [
+      {title: 'Taskboard', url: 'https://github.com/orgs/eclipse-tractusx/projects/61/views/1'},
+      {title: 'Meeting minutes', url: '/community/meeting-minutes/tags/community'},
+      {title: 'Timelines', url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35'},
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 1,
+      daysOfWeek: ['friday'],
+      startTime: '10:05',
+      endTime: '11:00',
+      validFrom: '2025-01-01',
+    },
+  },
+  {
+    id: 'newjoiner-office-hour',
+    title: 'NewJoiner - Office Hour',
+    icon: 'waving_hand',
+    category: MEETING_CATEGORIES.GENERAL,
+    description: 'Are you new to Eclipse Tractus-X and looking for your first insights? Join our New Joiner Session to learn the essentials about the project, how to get started, and how you can contribute. This session is designed to help new members understand the key aspects of Eclipse Tractus-X. If you\'re interested in joining, please contact Stephan Bauer.',
+    contact: CONTACTS.STEPHAN_BAUER,
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjAzYzVjZGEtZjEwNC00NDI5LWEwODEtN2RhNmI0NDEzNTI2%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
+    recurrence: null, // On-demand, no fixed schedule
+  },
+  {
+    id: 'kits-office-hour',
+    title: 'Eclipse Tractus-X KITs Community Office Hour',
+    icon: 'inventory_2',
+    category: MEETING_CATEGORIES.GENERAL,
+    priority: MEETING_PRIORITIES.FEATURED,
+    description: 'Are you interested on developing or contributing KITs (Keep it Together) for Eclipse Tractus-X? Join our KITs Office Hour to learn more about KITs, their development process, and how you can get involved. This session is designed to provide insights into the KIT framework and answer any questions you may have.',
+    contact: CONTACTS.MATHIAS_MOSER,
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjI2YjA0MmItNWNiNS00OGQ0LWJjNGMtOTFmMjg0YzNlZjlh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org',
+    recurrence: {
+      frequency: 'weekly',
+      interval: 1,
+      daysOfWeek: ['thursday'],
+      startTime: '09:30',
+      endTime: '10:30',
+    },
+    additionalLinks: [
+      {title: "Kanban Board KIT Office Hour", url: "https://github.com/orgs/eclipse-tractusx/projects/92"},
+      {title: "KIT Getting Started", url: "https://eclipse-tractusx.github.io/documentation/kit-getting-started"}
+    ]
+  },
+  {
+    id: 'starter-kit-open-meeting',
+    title: 'Eclipse Tractus-X Starter Kit Open Meeting',
+    icon: 'rocket_launch',
+    category: MEETING_CATEGORIES.GENERAL,
+    description: 'Open meeting for the Eclipse Tractus-X Starter Kit, a configuration wizard that generates a ready-to-use Docker Compose setup and documentation to get Tractus-X components running locally. We share the current status, discuss supported components and use cases, collect feedback from new adopters and coordinate contributions. Everyone is welcome!',
+    contact: CONTACTS.STEPHAN_BAUER,
+    additionalLinks: [
+      {title: 'Repository', url: 'https://github.com/eclipse-tractusx/tractusx-starter-kit'},
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 2,
+      daysOfWeek: ['thursday'],
+      startTime: '13:00',
+      endTime: '13:30',
+      validFrom: '2026-11-12',
+    },
+  },
+  // Product Regular Meetings
+  {
+    id: 'industry-core-hub-weekly',
+    title: 'Industry Core Hub + Tractus-X SDK and TestLab Weekly',
+    icon: 'hub',
+    category: MEETING_CATEGORIES.PRODUCT,
+    description: 'Open Meeting to align the development status of the Industry Core Hub [IC-Hub], the data provision & consumption orchestrator. This meeting also covers Tractus-X SDK (TX-SDK) topics, including the development of the TX-SDK library and Tractus-X TestLab. Additional Topic Groups (Backend, Frontend & Architecture) Weekly meetings are available in the additional links.',
+    contact: CONTACTS.MATHIAS_MOSER,
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_MGJlYzgzMjktNWE4OS00NjcwLWIyOGYtZDgzYmMzODRiMTgy%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
+    matrixChatUrl: 'https://matrix.to/#/#tractusx-industry-core-hub:matrix.eclipse.org',
+    additionalLinks: [
+      {title: 'industry-core-hub Repository', url: 'https://github.com/eclipse-tractusx/industry-core-hub'},
+      {title: 'tractusx-sdk Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk'},
+      {title: 'tractusx-sdk-services (Test Bed) Repository', url: 'https://github.com/eclipse-tractusx/tractusx-sdk-services'},
+      {title: 'Planning Board Project', url: 'https://github.com/orgs/eclipse-tractusx/projects/83'},
+      {
+        title: 'Architecture Weekly - Thursday 01:00 pm to 02:00 pm',
+        url: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_YzYyMDUyZjMtMmFlMy00ODMyLWFlZDQtNjMwYWZhOTc3YTVh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d'
+      },
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 1,
+      daysOfWeek: ['tuesday'],
+      startTime: '09:00',
+      endTime: '09:30',
+    },
+  },
+  {
+    id: 'edc-weekly',
+    title: 'Connector - Open Meeting',
+    icon: 'cable',
+    category: MEETING_CATEGORIES.PRODUCT,
+    description: 'Open house meeting to support with anything connector related. You have questions about the connector, problems running/configuring connector in your environment or want to know what´s next in connector and when to expect? This is the place to ask all these questions.',
+    contact: CONTACTS.LARS_BLAUMEISER,
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-edc:matrix.eclipse.org',
+    sessionLink: 'https://eclipse.zoom.us/j/87463482673?pwd=XwLhl6yazHg2Llaos4ojcCs2OPRaip.1',
+    recurrence: {
+      frequency: 'weekly',
+      interval: 2,
+      daysOfWeek: ['tuesday'],
+      startTime: '16:00',
+      endTime: '16:30',
+      validFrom: '2026-01-06',
+    },
+  },
+  {
+    id: 'identity-hub-weekly',
+    title: 'Identity Hub Weekly',
+    icon: 'fingerprint',
+    category: MEETING_CATEGORIES.PRODUCT,
+    description: 'Open Meeting to align the development of the TX Identity Hub',
+    contact: CONTACTS.MATHIAS_MOSER,
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTIxMmIyMmItYTk0NC00YjMxLWFiNDAtOTRlOWM1ZDUxYWRm%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-identity-hub:matrix.eclipse.org',
+    additionalLinks: [
+      {title: 'tractusx-identityhub Repository', url: 'https://github.com/eclipse-tractusx/tractusx-identityhub'},
+      {title: 'Planning Board', url: 'https://github.com/orgs/eclipse-tractusx/projects/87/views/1'},
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 1,
+      daysOfWeek: ['wednesday'],
+      startTime: '15:00',
+      endTime: '16:00',
+    },
+  },
+  {
+    id: 'portal-open-meeting',
+    title: 'Portal - Open Meeting',
+    icon: 'dashboard',
+    category: MEETING_CATEGORIES.PRODUCT,
+    description: 'Open meeting for Portal product. Agenda is divided in alignment on development - features, bugs, maintenance - and Q&A.',
+    contact: CONTACTS.SAAD_RAFIQ,
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_YmIyYjgwOTQtZjI1Ny00YmM0LTlmOWQtODRjZWFmZWM1Y2E3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-portal:matrix.eclipse.org',
+    additionalLinks: [
+      {title: 'Feature Board', url: 'https://github.com/orgs/eclipse-tractusx/projects/50/views/25'},
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 4,
+      daysOfWeek: ['tuesday'],
+      startTime: '10:30',
+      endTime: '11:00',
+    },
+  },
+  {
+    id: 'umbrella-helm-chart-sync',
+    title: 'Umbrella Helm Chart Sync',
+    icon: 'cloud_sync',
+    category: MEETING_CATEGORIES.PRODUCT,
+    description: 'Open meeting to discuss the integration work around the umbrella helm chart with the purpose to enable a sandbox environment to support end-to-end (e2e) testing and to provide an easy entry point to Tractus-X for developers and adopters.',
+    contact: CONTACTS.MIKEL_GARCIA,
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19:meeting_ODMzMzMxY2MtMGI4ZC00MjJkLThjZjYtMzk3ZjBjMmEzYjZj@thread.v2/0?context=%7B%22Tid%22:%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22,%22Oid%22:%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7D',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-umbrella-chart:matrix.eclipse.org',
+    additionalLinks: [
+      {title: 'Umbrella Repository', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella'},
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 1,
+      daysOfWeek: ['monday'],
+      startTime: '11:00',
+      endTime: '11:30',
+    },
+  },
+  {
+    id: 'bpdm-open-meeting',
+    title: 'BPDM - Open Meeting',
+    icon: 'contact_page',
+    category: MEETING_CATEGORIES.PRODUCT,
+    description: 'Coordination of feature refinement and development for bpdm product.',
+    contact: CONTACTS.JULIAN_STOLL,
+    sessionLink: 'https://teams.microsoft.com/meet/39668829824816?p=V98MwqIBHMrXfu6GSd',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-bpdm:matrix.eclipse.org',
+    additionalLinks: [],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 1,
+      daysOfWeek: ['wednesday'],
+      startTime: '09:00',
+      endTime: '09:30',
+    },
+  },
+  {
+    id: 'semantic-model-modelling',
+    title: 'Semantic Model Modelling - Open Meeting',
+    icon: 'schema',
+    category: MEETING_CATEGORIES.PRODUCT,
+    description: 'Coordination of the development and alignment of aspect models (sldt-semantic-models) as well as ontologies (sldt-ontology-model).',
+    contact: CONTACTS.JOHANN_SCHUETZ,
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2I5MjM1NzUtZmFmZS00MTI2LTgyMmEtOGZiMDMxNmRlYTA4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22bf6c04e8-bde4-4ca1-ac15-0f85f440ab48%22%7d',
+    additionalLinks: [
+      {title: 'SLDT Semantic Models Repository', url: 'https://github.com/eclipse-tractusx/sldt-semantic-models'},
+      {title: 'SLDT Ontology Models Repository', url: 'https://github.com/eclipse-tractusx/sldt-ontology-model'},
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 1,
+      daysOfWeek: ['monday'],
+      startTime: '15:30',
+      endTime: '16:30',
+      validFrom: '2025-01-20',
+    },
+  },
+
+  // One-time meetings
+  {
+    id: 'e2e-test-phase-daily',
+    title: 'Eclipse Tractus-X E2E Test Phase Daily for R26.12',
+    icon: 'bug_report',
+    category: MEETING_CATEGORIES.ONE_TIME,
+    description: 'Onboarding and deployment status for 26.09 on INT environment, Defect/Blocker updates, Test status of all participating products',
+    contact: CONTACTS.MONIKA_JACOBSEN,
+    sessionLink: 'https://teams.microsoft.com/meet/3137611350965690?p=b7WkmfBX3D8CBTBdmr',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
+    additionalLinks: [],
+    recurrence: {
+      frequency: 'daily',
+      interval: 1,
+      daysOfWeek: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
+      startTime: '08:30',
+      endTime: '09:00',
+      validFrom: '2026-11-03',
+      validUntil: '2026-11-20',
+    },
+  },
+  {
+    id: 'briefing-testing-phase',
+    title: 'Briefing Testing Phase for 26.12',
+    icon: 'assignment',
+    category: MEETING_CATEGORIES.ONE_TIME,
+    description: 'The goal of the meeting is to prepare for the test phase and clarify the process of the release test phase. We also want to review the Release Check Issues and discuss the deployment process.',
+    contact: CONTACTS.MONIKA_JACOBSEN,
+    sessionLink: 'https://teams.microsoft.com/meet/3946424693092176?p=jRyLn5VXJZkiEjbyHd',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
+    additionalLinks: [],
+    recurrence: {
+      frequency: 'once',
+      startDate: '2026-10-21',
+      startTime: '08:30',
+      endTime: '09:00',
+    },
+  },
+  {
+    id: 'kickoff-testing-phase',
+    title: 'Kick-Off Testing Phase for 26.12',
+    icon: 'rocket_launch',
+    category: MEETING_CATEGORIES.ONE_TIME,
+    description: 'The purpose of this session is to provide you with the latest updates on the test phase and the deployment status. Additionally, this will be an opportunity for you to ask any questions regarding the upcoming test phase.',
+    contact: CONTACTS.MONIKA_JACOBSEN,
+    sessionLink: 'https://teams.microsoft.com/meet/3428341763009434?p=XyXSYj5PSZMNr9ZalD',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-test-management:matrix.eclipse.org',
+    additionalLinks: [],
+    recurrence: {
+      frequency: 'once',
+      startDate: '2026-11-02',
+      startTime: '08:30',
+      endTime: '09:00',
+    },
+  },
+  {
+    id: 'open-planning-r27-03',
+    title: 'Open Planning for R27.03',
+    icon: 'event_note',
+    category: MEETING_CATEGORIES.ONE_TIME,
+    priority: MEETING_PRIORITIES.FEATURED,
+    description: 'Finalize roadmap, prioritize features and align participants on deliverables for Release 27.03.',
+    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.THERESA_HILGER],
+    sessionLink: 'https://teams.microsoft.com/meet/390787570757205?p=0jCKpPTyrjvhJYFmNz',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-release-planning:matrix.eclipse.org',
+    additionalLinks: [
+      {
+        title: 'Release Planning Board - Topic/Product',
+        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3A%22Prep-R27.03%22+status%3ABacklog'
+      },
+      {
+        title: 'Timeline',
+        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A27.03'
+      },
+      {title: 'News Blog', url: '/blog/release-planning-R27.03'},
+      {title: 'Detailed Agenda', url: '/blog/release-planning-R27.03#agenda-1'},
+    ],
+    recurrence: {
+      frequency: 'once',
+      startDate: '2026-11-11',
+      startTime: '09:05',
+      endTime: '10:30',
+    },
+  },
+  // Hackathon II — on-site, full-day developer event at ARENA2036, no online session link.
+  // Participation is by email, so the register button opens a pre-filled mail to the organizer.
+  // Times are preliminary (full day); adjust once the agenda is published.
+  {
+    id: 'hackathon-ii-2026',
+    title: 'Second International Eclipse Tractus-X Hackathon',
+    icon: 'code',
+    category: MEETING_CATEGORIES.ONE_TIME,
+    priority: MEETING_PRIORITIES.HIGHLIGHT,
+    description: 'The Second International Eclipse Tractus-X Hackathon at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany) — a free, full-day design thinking and programming hackathon, with the option to join online. The mission: re-architecting the Eclipse Tractus-X Portal — simpler, easier to maintain, more performant, and easier to use for data space onboardings with Tractus-X technology. Interested in joining? Send an email to mathias.moser@catena-x.net.',
+    contact: [CONTACTS.MATHIAS_MOSER],
+    location: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
+    onsite: true,
+    registrationLink: 'mailto:mathias.moser@catena-x.net?subject=Eclipse%20Tractus-X%20Hackathon%20II%20%E2%80%94%20November%206%2C%202026',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-dev:matrix.eclipse.org',
+    additionalLinks: [
+      { title: 'News Blog', url: '/blog/hackathon-ii-11-2026' },
+      { title: 'Looking Back: Hackathon I in Bilbao', url: '/blog/first-international-hackathon' },
+      { title: 'Tractus-X Mailing List', url: 'https://accounts.eclipse.org/mailing-list/tractusx-dev' },
+    ],
+    recurrence: {
+      frequency: 'once',
+      startDate: '2026-11-06',
+      startTime: '09:00',
+      endTime: '17:00',
+    },
+  },
+  // Community Days — on-site event at ARENA2036, no online session link.
+  {
+    id: 'seventh-community-days-2026',
+    title: 'Seventh Eclipse Tractus-X Community Days',
+    icon: 'groups',
+    category: MEETING_CATEGORIES.ONE_TIME,
+    priority: MEETING_PRIORITIES.HIGHLIGHT,
+    description: 'Join us for the Seventh Eclipse Tractus-X Community Days at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany)! Two full days of exchange, innovation, and collaboration within the Tractus-X and Manufacturing-X ecosystems — technical deep dives, open workshops, coding challenges, keynotes, and networking with the global open-source community.',
+    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.MATHIAS_MOSER, CONTACTS.MIKEL_GARCIA],
+    location: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
+    onsite: true,
+    registrationLink: 'https://eveeno.com/146855101',
+    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-dev:matrix.eclipse.org',
+    additionalLinks: [
+      { title: 'News Blog', url: '/blog/community-days-12-2026' },
+      { title: 'ARENA2036 Event Page', url: 'https://arena2036.de/en/reader/seventh-eclipse-tractus-x-community-days/' },
+      { title: 'Aftermovie of the Sixth Community Days', url: 'https://www.youtube.com/watch?v=pXpXXMuLmJ8' },
+      { title: 'Tractus-X Mailing List', url: 'https://accounts.eclipse.org/mailing-list/tractusx-dev' },
+    ],
+    recurrence: {
+      frequency: 'once',
+      startDate: '2026-12-03',
+      endDate: '2026-12-04',
+      startTime: '09:00',
+      endTime: '17:00',
+    },
+  },
+];

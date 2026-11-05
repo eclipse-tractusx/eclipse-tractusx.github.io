@@ -1,0 +1,595 @@
+---
+title: KIT Framework
+---
+
+{/********************************************************************************* 
+ * Copyright (c) 2025 Contributors to the Eclipse Foundation
+ * 
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ * 
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ * 
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+ }
+
+import { KitStructureTable } from '@site/src/components/2.0/KitComponents';
+import KitArchitectureDiagram from '@site/src/components/2.0/KitArchitectureDiagram';
+import KitCategoryCard from '@site/src/components/2.0/KitCategoryCard';
+import KitVersionComparison from '@site/src/components/2.0/KitVersionComparison';
+import KitBenefits from '@site/src/components/2.0/KitBenefits';
+import VpnLockIcon from '@mui/icons-material/VpnLock';
+import FoundationIcon from '@mui/icons-material/Foundation';
+import PublicIcon from '@mui/icons-material/Public';
+import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
+import Button from '@mui/material/Button';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
+import GradientButton from '@site/src/components/2.0/GradientButton';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+| Status     | Created      | Post-History                           |
+|------------|--------------|----------------------------------------|
+| Draft      | 04-Apr-2024  | Initial contribution                   |
+| Active     | 07-Nov-2025  | Added Industry Extensions, KIT 2.0 Architecture and Structure     |
+
+In this documentation you will find a comprehensive overview of the KIT framework, including its architecture, content structure, and the various artifacts that make up a KIT. Whether you are a developer looking to implement a KIT, an operator seeking deployment guidance, or a business stakeholder interested in understanding the value proposition of a KIT, this documentation provides the necessary insights and resources to get started.
+
+
+## What is a KIT?
+
+<div style={{ textAlign: 'left', margin: '20px 0' }}>
+  <ThemedImage
+    alt="KIT Framework Overview"
+    sources={{
+      light: useBaseUrl('/img/kits-2.0/tx-white-kit.svg'),
+      dark: useBaseUrl('/img/kits-2.0/tx-black-kit.svg'),
+    }}
+    style={{ 
+      maxWidth: '220px',
+      transition: 'transform 0.3s ease',
+      cursor: 'pointer'
+    }}
+    onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+    onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+  />
+</div>
+
+> **KIT**, short for **Keep It Together**, is an open-source toolbox with comprehensive documentation that enables multiple stakeholders **(Business, Solution Providers, Developers)** to build interoperable applications compatible with the Eclipse Tractus-X dataspace technologies, and support the compliance with industrial standards from standarization organizations (Catena-X e.V., IDTA, ISO/DIN, EDWG, Manufacturing-X, etc.) and in some cases enable regulatory compliance.
+
+A KIT provides everything needed to implement and deploy specific business scenarios within a dataspace environment - from architectural guidance and API specifications to reference implementations and operational procedures. Each KIT serves as a complete, self-contained package that enables developers, operators, and business stakeholders to understand, build, and run solutions that are interoperable across the dataspace network.
+
+The KIT framework, allows different stakeholders to easily find relevant information and resources tailored to their specific needs, whether they are looking for high-level overviews, technical details, or operational guidelines.
+
+By following the KIT structure, organizations can ensure that their solutions align with the broader goals of Eclipse Tractus-X, promoting:
+
+<KitBenefits />
+
+## KIT Evolution: 1.0 to 2.0
+
+The KIT framework has evolved significantly to support the growing needs of multiple dataspaces and industries:
+
+<KitVersionComparison />
+
+The transition from KIT 1.0 to KIT 2.0 represents a fundamental shift in how we approach dataspace interoperability. While KIT 1.0 served the Catena-X automotive dataspace well, KIT 2.0 embraces a broader vision - enabling multiple industries to leverage the same foundational technologies while maintaining the flexibility to address industry-specific requirements through modular extensions.
+
+This evolution ensures that core dataspace capabilities remain consistent and interoperable, while allowing each industry to build specialized solutions on top of a shared foundation.
+
+<GradientButton 
+href="https://eclipse-tractusx.github.io/documentation/kit-getting-started"
+text="Support us on the KIT Evolution!"
+icon={RocketLaunchIcon}
+gradient="linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)"
+shadowColor="rgba(102, 126, 234, 0.4)"
+shadowColorHover="rgba(118, 75, 162, 0.6)"
+/>
+
+## KIT Framework Architecture
+
+KITs in Eclipse Tractus-X are organized into four main categories, each serving a specific purpose in the dataspace ecosystem:
+
+<KitArchitectureDiagram />
+
+### Dataspace Foundation
+
+<KitCategoryCard 
+  icon={VpnLockIcon}
+  title="Dataspace Foundation"
+  description="The Dataspace Foundation Category, contains KITs that provide the network basis for industrial dataspace to built, following security, decentralization, self-sovereign and scalable principles. This Core components are required for maintaining interoperability between the different use cases that will be built in the future. Assuring that the data exchange is possible and a 'common language' is spoken between the industry core foundation components."
+  highlight='Exchange "bytes" using dataspace technology in a secure and sovereign manner.'
+  examples={['Connector KIT', 'Data Trust & Security KIT', 'Data Governance KIT']}
+  color="primary"
+/>
+
+### Industry Core Foundation
+
+<KitCategoryCard 
+  icon={FoundationIcon}
+  title="Industry Core Foundation"
+  description="The Industry Core Foundation category contains KITs that provide common capabilities and standards shared across all use cases within any industry. These KITs define the core data models, digital twin concepts, and cross-functional services that multiple use cases depend upon, allowing use cases to be built in the future, keeping the interoperability and a common ground"
+  highlight="Foundation for building multiple use cases, fostering interoperability, data consistency and reusability across different use cases."
+  examples={['Industry Core KIT', 'Digital Twin KIT']}
+  color="secondary"
+/>
+
+
+### Cross-Industry Use Cases
+
+<KitCategoryCard 
+  icon={AllInclusiveIcon}
+  title="Cross-Industry Use Cases"
+  description="The Cross-Industry Use Cases category includes KITs that address specific business scenarios and challenges applicable across multiple industries or the entire dataspace. These KITs solve concrete business problems related to sustainability, quality, supply chain management, and other horizontal concerns that span industry boundaries."
+  highlight="Solve common business & regulatory problems across sectors"
+  examples={['PCF KIT', 'Eco Pass KIT', 'ESS KIT']}
+  color="tertiary"
+/>
+
+### Industry-Specific Use Cases
+
+<KitCategoryCard 
+  icon={PrecisionManufacturingIcon}
+  title="Industry-Specific Use Cases"
+  description="The Industry-Specific Use Cases category contains KITs tailored to address unique challenges and requirements of particular industries or vertical domains. These KITs provide specialized functionality that may only be relevant within a specific industry context, such as shop floor operations or sector-specific regulatory requirements."
+  highlight="Specialized solutions for specific industries, with flexibility and the future proofed interoperability"
+  examples={['Manufacturing as a Service KIT', 'Modular Production KIT']}
+  color="quaternary"
+/>
+
+## KIT Template
+
+<div style={{ textAlign: 'left', margin: '20px 0' }}>
+  <ThemedImage
+    alt="KIT Framework Overview"
+    sources={{
+      light: useBaseUrl('/img/kits-2.0/tx-assembly-kit.svg'),
+      dark: useBaseUrl('/img/kits-2.0/tx-assembly-kit.svg'),
+    }}
+    style={{
+      maxWidth: '220px',
+      transition: 'transform 0.3s ease',
+      cursor: 'pointer'
+    }}
+    onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+    onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+  />
+</div>
+
+
+Follow the KIT template to have an example of folder structure that can be followed following the [KIT Framework Guide](./kit-framework) and the needed content for each view in order to achieve all requirements from the [KIT Lifecycle](./kit-lifecycle).
+
+<div style={{ display: 'flex', gap: '12px', justifyContent: 'left', marginTop: '20px', marginBottom: '20px', flexWrap: 'wrap' }}>
+  <GradientButton 
+    href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/tree/main/docs-kits/kit-template"
+    text="View KIT Template"
+    icon={MenuBookIcon}
+    gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+    shadowColor="rgba(102, 126, 234, 0.3)"
+    shadowColorHover="rgba(102, 126, 234, 0.4)"
+    external={true}
+  />
+</div>
+
+## The KIT Content Structure
+
+KITs are structured around different views, each targeting specific stakeholders with relevant content:
+:::info Generic Requirements for All KITs
+In addition to the view-specific content below, every KIT must include:
+- **Copyright Notice** - Mandatory CC-BY-4.0 licensing information and contributor copyright statements at every file
+- **Changelog** - Version history file following [semantic versioning](https://semver.org/)
+
+The views below are organized in "folders" so that its sections are harmonized and the content from each view remains flexible.
+:::
+<KitStructureTable />
+
+:::tip
+Click on any row to navigate to the corresponding view documentation section below.
+:::
+
+
+### Copyright Notice
+
+Mandatory for every KIT, It **MUST** be included in every file (not just on the adoption view!).
+KIT documentation works under the CC-BY-4.0 license. Therefore you need to add the "notice" part to make transparent which companies worked on this KIT.
+It **MUST** always include the `- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation` copyright statement.
+
+Example:
+
+```md
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2025 <Your Company FullName>
+- SPDX-FileCopyrightText: 2023, 2025 ZF Friedrichshafen AG
+- SPDX-FileCopyrightText: 2023, 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2023, 2025 SAP SE
+- SPDX-FileCopyrightText: 2023, 2025 Volkswagen AG
+- SPDX-FileCopyrightText: 2023, 2025 Robert Bosch GmbH
+- SPDX-FileCopyrightText: 2023, 2025 Mercedes Benz Group
+- SPDX-FileCopyrightText: 2023, 2025 BASF SE
+- SPDX-FileCopyrightText: 2023, 2025 Schaeffler AG
+- SPDX-FileCopyrightText: 2023, 2025 Contributors to the Eclipse Foundation
+- Source URL: [Source Code](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/)
+```
+
+In case its a new KIT the year can be referenced like that:
+
+Example:
+
+```md
+## NOTICE
+
+This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+- SPDX-License-Identifier: CC-BY-4.0
+- SPDX-FileCopyrightText: 2025 <Your Company FullName>
+- SPDX-FileCopyrightText: 2025 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
+- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation
+- Source URL: [Source Code](https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/)
+```
+
+### Changelog
+
+To achieve uniformity, we use [semantic versioning](https://semver.org/). Concrete examples in our already published [KITs](https://eclipse-tractusx.github.io/Kits).
+For a KIT we distinguish between three phases sandbox, incubating and graduated.
+
+### Adoption View
+
+The adoption view gives a general introduction to the KIT. It aims to provide insights to industry problems, the KIT is addressing.
+Mandatory for every KIT and all graduation stages
+The vision describes the strategic objectives of a KIT and how it aims to inspire solution providers.
+Deliverables:
+
+- Vision catch phrase + context
+- Mission catch phrase
+- Context to the use case
+Starting with the **vision of the KIT** (one or two catching phrases)
+`Example from BPDM:`
+Unique business partner data sets for the whole data space. Basis for integration value-adding services in the area of business partner data management.
+
+#### The missions of the KIT
+
+Mandatory for every KIT and all graduation stages
+The mission explains why we are providing the KIT describing a concrete industry problem.
+`Example from BPDM:` "The KIT provides a homogenous semantic with an open data model, high data quality and one access point to the business partner data sets."
+
+##### Giving more context with explaining the connection to the use case
+
+`Example from BPDM:`
+The BusinessPartner KIT provides high-quality data records of business partners called golden record, including a unique identifier, the business partner number (BPN).
+…
+
+#### Business Value
+
+Mandatory for every KIT that is related to a use case and all graduation stages
+The business value describes the benefits for an service provider by using a KIT in order to create a commercial or non-profit solution for the Catena-X marketplaces.
+Deliverable:
+About 3 to 5 top business values (title + description)
+`Example from BPDM:`
+One open data model: Application and Service provider can reduce investments to integrate due to one data model / API specification and open interface. The pool API enables the integration and offering of value-added services and innovation based on high-quality master data.
+Access to new market potentials: Potential to scale customer group and access new market potentials via Catena-X marketplace and shared service network. The BP KIT enables an interoperable foundation for value-added services.
+The unique identifier: BPN is the unique number to identify and find partners in the Catena-X network. It will also provide high quality data sets from business partners, their legal unit, sites and addresses.
+
+#### Use Case / Domain explanation
+
+Mandatory for every KIT that is related to a use case and all graduation stages
+This gives more insights into the use case or domain itself.
+
+- Todays challenge
+- Values for taking the challenge
+- Benefits for OEM, SME, Solution Provider
+Deliverable: Status quo, challenge and the benefits from different perspectives
+`Example from BPDM:`
+Business Partner KIT comes from the use case Business Partner Data Management.
+Status Quo / Todays challenge:
+Most of today’s automotive companies have to invest a significant amount to keep their individual partner master data updated and correct, since outdated or incorrect data records result in federal fines and wrong claims / billing processes. The industry spends a vast amount into an area that is non differentiating, regulated and executed redundantly across the partners.
+For this, cutting individual company costs by offering the golden master data record as a shared service and proactively reduce Business Partner risk via collaborative value-add services.
+This will become the industry’s largest golden record collection as a shared and cost-optimized service (quality tested by the biggest players).
+OEMs and small-medium enterprises can:
+- Reduce today’s individual investments in master data mgt.
+- Re-allocate freed-up resources to differentiating / critical tasks
+- Time to value within 6 months, due to standard interfaces and mapping tools (e.g. SAP)
+- Increase data quality and use industry collective wisdom to act pro-actively (e.g. fraud alerts)
+Solution Provider:
+- Reduce investments to integrate due to one Data Model and open interface.
+- The KIT enables the offering of value-add services and innovation based on golden record and collective wisdom.
+- Potential to scale customer group and access new market potentials via marketplace and shared service network.
+
+#### Tutorials
+
+Mandatory for the 'Graduated' stage. Optional for 'sandbox' and 'incubating'
+A tutorial provides educational resources that provides step-by-step guidance on how to use a KIT. Tutorials can be delivered in various formats, such as videos or written text. It may also provide additional resources for further exploration of the topic.
+Deliverables:
+
+- Description
+- Tutorial video or screenshot documentation
+
+#### Whitepaper
+
+Optional
+A whitepaper outlines the overall objectives of a KIT regarding a specific business problem. It provides readers with background information on the topic, identifies key challenges and solutions to those challenges, evaluates alternative approaches to solving the business problem at hand, and offers recommendations for action.
+Deliverable:
+
+- Description
+- Link to the whitepaper
+
+#### Standards
+
+Optional but highly recommended
+Standards are essential for ensuring interoperability and consistency across different implementations of a KIT. By adhering to established standards, KITs can facilitate seamless integration and communication between various systems and stakeholders within the ecosystem.
+
+- A table of non-dataspace specific standards relevant for the KIT
+
+Example: 
+
+| Standard | Version | Reference |
+|----------|---------|-----------|
+| **Standard Name** | 1.0     | [Link to Standard](https://example.com) |
+
+:::warning
+If there is an industry specific standard, please include it on the Industry Extensions Tab for your industry.
+:::
+
+#### Semantic Models
+
+Mandatory for every KIT that is related to a use case + for the 'incubating' stage
+The semantic data models are a method of structuring data that includes semantic information that adds a basic meaning to the data and the relationships that lie between them to enable interoperability.
+Deliverables:
+
+- Description
+- Link to the semantic data models (GitHub)
+`Example from Traceability:`
+[Traceability Semantic Models](https://eclipse-tractusx.github.io/docs-kits/kits/traceability-kit/adoption-view#semantic-models)
+
+:::warning
+If there is an industry specific semantic model, please include it on the Industry Extensions Tab for your industry.
+:::
+
+#### Logic / Schema
+
+Mandatory for every KIT that is related to a use case + for the 'incubating' stage
+Logic / schemas provides a definition of the minimum viable business process that must be implemented to enable interoperability.
+Deliverables: Description
+
+#### Business Process
+
+Mandatory for every KIT that is related to a use case + for the 'incubating' stage
+Data sovereignty is one of the main principles of Eclipse Tractus-X and a major topic for the participants in the data space. This part should help to understand how the business process works and provides a blue print on how access & usage policies **could** look like.
+
+- Business Architecture
+- Access & Usage Policies
+
+
+### Development View
+
+The development view provides developers with resources to accelerate the development of apps and services.
+
+#### Architecture Overview
+
+The architecture view is an optional chapter. It offers an architecture perspective including the main building blocks and the runtime view. It can be extended with more architecture documentation like an ARC42.
+[`Example for an Architecture View/Overview:`](https://eclipse-tractusx.github.io/docs-kits/kits/data-trust-and-security-kit/software-development-view/overview).
+
+#### API Specifications
+
+Mandatory for every KIT that wants to go to the 'incubating' stage
+Deliverables:
+
+- Introduction to the API / specification of the API
+- Whats the main focus of the API
+- Integration of the OpenAPI file
+- Use case examples for the API endpoints and how to use them
+`Example from DataChain KIT:` The API of the Item Relationship Service (IRS) for retrieving item graphs along the value chain of Eclipse Tractus-X partners.
+[`Example for OpenAPI integration:`](/docs-kits/kits/business-partner-kit/software-development-view)
+
+#### Sample Data
+
+Deliverable:
+
+- Description on how to use the sample data
+- File with sample data
+
+#### Reference Implementation
+
+Deliverable:
+
+- Description
+- Link to repository
+
+#### Documentation in the context of development
+
+Deliverable:
+
+- Arch42
+- Usage examples
+- More explanation on how to use the API in different scenarios
+
+### Operations View
+
+... provides resources to deploy and operate centralized & decentralized Eclipse Tractus-X offerings in your IT environment (e.g., on-prem, cloud).
+Deliverables:
+**Quick Setup Guide / Installation Instructions**
+
+- Prerequisites (if they exist)
+- Authorization information
+- Deployment
+  **Deployment Scripts**
+
+### Documentation
+
+The Documentation view provides extra documentation and links that may be relevant for any stakeholder. This section serves as a central repository for additional resources that don't fit into the specific views above but are valuable for understanding or working with the KIT.
+
+#### Purpose
+
+This view is designed to be flexible and accommodate various types of supplementary information that stakeholders might need, including:
+
+- Links to external resources and related projects
+- External documentation that complements the KIT
+- Additional technical papers or research documents
+- Community resources and discussion forums
+- Video presentations and webinars
+- Case studies and implementation examples
+- Related standards and specifications hosted elsewhere
+- Training materials and certification programs
+
+#### Deliverables
+
+**Additional Resources:**
+
+- **External Links**: Relevant websites, repositories, and resources
+- **Related Documentation**: Links to complementary KITs or standards
+- **Community Resources**: Forums, chat channels, and discussion boards
+- **Media Resources**: Videos, podcasts, or presentations about the KIT
+- **Publications**: Research papers, blog posts, or articles
+- **Training Materials**: Courses, workshops, or certification programs
+
+#### Examples
+
+- In [Data Trust & Security KIT](/docs-kits/kits/data-trust-and-security-kit/documentation/rulebook-template) the documentation section is used to reference a rulebook template.
+
+- In the category documentation you can include links like this:
+
+```js
+
+{
+    type: 'category',
+    label: 'Documentation',
+    items: [
+        // Add your links here:
+        {
+            type: 'link',
+            label: 'Your Link Label',  // Change this to your link text
+            href: 'https://example.com/your-url'  // Change this to your URL
+        }
+    ]
+}
+```
+
+You can update that in ['/sidebarsDocsKits.js'](../sidebarsDocsKits.js) file at the root folder.
+
+
+### Industry Extensions
+
+The Industry Extensions view represents a specialized extension mechanism that allows KITs to be adapted and customized for specific industry implementations while maintaining their core structure and functionality. This approach ensures interoperability across different industries while allowing for industry-specific requirements, policies, and standards.
+
+#### Folder Structure
+
+The industry extensions are organized in a clear folder structure within each KIT:
+
+```
+docs-kits/kits/your-kit/
+├── adoption-view/
+├── development-view/
+├── operations-view/
+├── documentation/
+└── industry-extensions/
+    ├── automotive/
+    │   ├── standards.md
+    │   ├── policies.md
+    │   └── semantic-models.md
+    ├── shop-floor/
+    │   ├── standards.md
+    │   └── policies.md
+    └── semiconductor/
+        └── standards.md
+```
+
+Each industry folder contains only the specific extensions relevant to that industry, allowing for flexible and modular customization.
+
+#### Purpose and Scope
+
+Industry Extensions enable KITs to support multiple industry verticals (such as Automotive, Shop Floor, Semiconductor, etc.) without duplicating the core KIT content. Each industry extension contains:
+
+- **Industry-specific policies** that govern data usage and access within that particular industry
+- **Custom semantic models** tailored to the specific industry or domain requirements
+- **Industry standards** that may differ from generic implementations
+- **Compliance requirements** specific to regulatory or industry standards
+
+#### Standards
+
+Mandatory for every KIT that wants to go to the 'incubating' stage
+Links to the relevant standards (Association Library). Add the relevant number of the standard, the name and version of the standard.
+The industry specific standards should be added in this section and are hosted in the industry's standard library. 
+Normally it includes a table and a header similiar to this ones in the example.
+
+Example:
+
+##### Automotive Industry Standards
+
+| ID | Name | Link |
+| -- | ---- | ---- |
+| CX-0002 | Digital Twins in Catena-X v2.2.0 | [go to standard](https://catenax-ev.github.io/docs/next/standards/CX-0002-DigitalTwinsInCatenaX) |
+
+
+#### Structure and Implementation
+
+The following diagram illustrates how generic KIT components relate to industry-specific extensions:
+
+```mermaid
+flowchart TD
+    subgraph Generic["   Generic KIT Structure   "]
+        AV["  ADOPTION VIEW  "]
+        DV["  DEVELOPMENT VIEW  "]
+        OV["  OPERATION VIEW  "]
+        SS["  SUCCESS STORIES  "]
+        DOC["  DOCUMENTATION  "]
+    end
+    
+    subgraph IE["   INDUSTRY EXTENSIONS   "]
+        subgraph AUTO["   AUTOMOTIVE   "]
+            AUTO_POL["  POLICIES  "]
+            AUTO_DM["  DATA MODEL  "]
+            AUTO_STD["  STANDARDS  "]
+        end
+        
+        subgraph SF["   SHOP FLOOR   "]
+            SF_POL["  POLICIES  "]
+            SF_DM["  DATA MODEL  "]
+        end
+        
+        subgraph SEMI["   SEMICONDUCTOR   "]
+            SEMI_POL["  POLICIES  "]
+            SEMI_STD["  STANDARDS  "]
+        end
+    end
+    
+    Generic --> IE
+    
+```
+
+This modular approach enables KITs to serve as universal building blocks that can be specialized for different industry verticals while maintaining their core value proposition and functionality.
+
+## Additional Resources
+
+### KIT Documentation
+
+- [KIT Getting Started](./kit-getting-started) - How to create a KIT
+- [KIT Lifecycle](./kit-lifecycle) - KIT maturity levels, graduation, and maintenance processes
+- [KIT Master Data Overview](./kit-master-data-overview) - Complete KIT metadata, statistics, and data structure
+- [KIT Statistics](./kit-statistics) - Analytics dashboard for KIT ecosystem metrics
+
+### Documentation References
+
+#### KIT-Specific TRGs (Tractus-X Release Guidelines)
+
+- [TRG 10.01 - KIT Architecture](/docs/release/trg-10/trg-10-01) - KIT framework categories and classification
+- [TRG 10.02 - KIT Content Structure](/docs/release/trg-10/trg-10-02) - Required content and structure
+- [TRG 10.03 - KIT Lifecycle](/docs/release/trg-10/trg-10-03) - Maturity levels and lifecycle management
+- [TRG 10.04 - KIT Graduation Process](/docs/release/trg-10/trg-10-04) - Graduation requirements and process
+- [TRG 10.05 - KIT Deprecation Process](/docs/release/trg-10/trg-10-05) - Deprecation criteria and procedures
+
+#### Legal & Licensing
+
+- [TRG 7.07 - Legal notice for non-code](/docs/release/trg-7/trg-7-07) - Image and media licensing requirements
+- [TRG 7.08 - Legal notice for KIT documentation (CC-BY-4.0)](/docs/release/trg-7/trg-7-08) - Documentation licensing

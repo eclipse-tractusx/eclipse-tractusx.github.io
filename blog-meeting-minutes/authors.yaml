@@ -14,7 +14,7 @@ almadi_gabor:
   title: Consortia System Team Member
   url: https://github.com/almadigabor
   image_url: https://github.com/almadigabor.png
-  
+
 fabian_gruen:
   name: Fabian Grün
   title: Consortia System Team Member
@@ -25,3 +25,137 @@ tomasz_barwicki:
   name: Tomasz Barwicki
   title: Consortia System Team Member
   url: https://github.com/tomaszbarwicki
+
+daniel_dilger:
+  name: Daniel Dilger
+  title: Consortia Security Team Member
+  url: https://github.com/mm73628486283/
+
+rohan_krishnamurthy:
+  name: Rohan Krishnamurthy
+  title: Consortia Security Team Member
+  url: https://github.com/RoKrish14
+
+stephan_bauer:
+  name: Stephan Bauer
+  title: Eclipse Tractus-X Project Lead
+  url: https://catena-x.net/
+  image_url: https://github.com/stephanbcbauer.png
+  socials:
+    github: stephanbcbauer
+    email: stephan.bauer@catena-x.net
+    linkedin: stephan-bauer-7a3a22117
+
+matbmoser:
+  name: Mathias Brunkow Moser
+  title: Eclipse Tractus-X Project Lead
+  url: https://github.com/matbmoser
+  image_url: https://github.com/matbmoser.png
+  socials:
+    github: matbmoser
+    email: mathias.moser@catena-x.net
+    linkedin: mathias-brunkow-moser
+    
+evelyn_gurschler:
+  name: Evelyn Gurschler
+  title: Tractus-X Project Lead
+  url: https://github.com/evegufy
+
+arno_weiss:
+  name: Arno Weiß
+  title: Tractus-X Committer
+  url: https://github.com/arnoweiss
+
+tom-rm-meyer-ISST:
+  name: Tom Meyer
+  title: PURIS Architect, Eclipse Committer
+  url: https://github.com/tom-rm-meyer-ISST
+  image_url: https://github.com/tom-rm-meyer-ISST.png
+
+lgblaumeiser:
+  name: Lars Geyer-Blaumeiser
+  title: EDC responsible
+  url: https://github.com/lgblaumeiser
+  image_url: https://github.com/lgblaumeiser.png
+
+theresa_hilger:
+  name: Theresa Hilger
+  title: Data Space Operations Manager
+  url: https://github.com/ther3sa
+  image_url: https://github.com/ther3sa.png
+  email: theresa.hilger@catena-x.net
+  socials:
+    github: ther3sa
+    linkedin: theresa-hilger
+
+ds-hzimmer:
+  name: Harald Zimmer
+  title: Test Management on behalf of Catena-X e.V.
+  url: https://github.com/ds-hzimmer
+  image_url: https://github.com/ds-hzimmer.png
+
+monika_jacobsen:
+  name: Monika Jacobsen
+  title: Test Management
+  email: monika.jacobsen@catena-x.net
+
+michaela_kleynhans:
+  name: Michaela Kleynhans
+  title: Light Theme Webpage for Tractus-X
+  url: https://github.com/michaelakleynhans
+  image_url: https://avatars.githubusercontent.com/u/158182781?v=4
+  email: michaela.kleynhans@mercedes-benz.com
+
+thibault_grandemenge:
+  name: Thibault Grandemenge
+  title: Business Domanin Manager
+  url: https://github.com/Grand-Thibault
+  image_url: https://github.com/Grand-Thibault.png
+  email: thibault.grandemenge@catena-x.net
+
+hanno_focken:
+  name: Hanno Focken
+  title: Ecosystem & Kits
+  url: https://github.com/hfocken
+  image_url: https://github.com/hfocken.png
+  email: hanno.focken@catena-x.net
+
+maximilian_ong:
+  name: Maximilian Ong
+  title: Ecosystem & Kits
+  url: https://github.com/maximilianong
+  image_url: https://github.com/maximilianong.png
+  email: maximilian.ong@catena-x.net
+
+daniel_miehle:
+  name: Daniel Miehle
+  url: https://github.com/danielmiehle
+  image_url: https://github.com/danielmiehle.png
+  email: daniel.miehle@bmw.de
+
+phil91:
+  name: Phil Schneider
+  title: Software Architect, Eclipse Committer
+  url: https://github.com/Phil91
+  image_url: https://github.com/Phil91.png
+
+carlos_rodriguez:
+  name: Carlos Diez Rodriguez
+  title: Dataspace Architect, Eclipse Committer
+  url: https://github.com/CDiezRodriguez
+  image_url: https://github.com/CDiezRodriguez.png
+
+bjoern_roy:
+  name: Björn Roy
+  url: https://github.com/giterrific
+  image_url: https://github.com/giterrific.png
+
+mikel_garcia:
+  name: Mikel Garcia
+  title: Eclipse Tractus-X Project Lead
+  url: https://github.com/mgarciaLKS
+  image_url: https://github.com/mgarciaLKS.png
+  socials:
+    github: mgarciaLKS
+    email: mgarcia@lksnext.com
+    linkedin: mikel-garcia-bartolome-a3891b308

@@ -1,14 +1,22 @@
 /********************************************************************************
- * Copyright (c) 2024 Contributors to the Eclipse Foundation
- *
- * See the NOTICE file(s) distributed with this work for additional
- * information regarding copyright ownership.
- *
- * This program and the accompanying materials are made available under the
- * terms of the Eclipse Public License 2.0 which is available at
- * http://www.eclipse.org/legal/epl-2.0
- *
- * SPDX-License-Identifier: EPL-2.0
+* Copyright (c) 2025 BMW Group AG
+* Copyright (c) 2025 Mercedes Benz AG  
+* Copyright (c) 2025 Contributors to the Eclipse Foundation
+* 
+* See the NOTICE file(s) distributed with this work for additional
+* information regarding copyright ownership.
+* 
+* This program and the accompanying materials are made available under the
+* terms of the Apache License, Version 2.0 which is available at
+* https://www.apache.org/licenses/LICENSE-2.0.
+* 
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+* License for the specific language governing permissions and limitations
+* under the License.
+* 
+* SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
 import React from "react";
@@ -19,8 +27,8 @@ import UsageSvg from '@site/static/icons/Icon_App_Service_Grey.svg';
 import styles from "./styles.module.css";
 import IFrameComponent from "../../components/IFrameComponent"
 import KitsGalleryWithFilters from "../../components/KitsGalleryWithFilters"
-import { kitsGallery } from "@site/utils/kitsGallery";
-
+import { kitsData, getAllKits, industries } from "@site/data/kitsData";
+import KitsGallery from "@site/src/components/2.0/KitsGallery";
 export default function AppProvider() {
   const { siteConfig } = useDocusaurusContext();
 
@@ -36,7 +44,7 @@ export default function AppProvider() {
 
             <IFrameComponent
               link={'https://www.youtube.com/embed/3XgsNPGQGIY'}
-              description={'This video provides an explanation of how Catena-X defines a KIT and showcases a real-world use case where Kits are implemented in the Catena-X ecosystem.'}
+              description={'This video provides an explanation of how Catena-X defines a KIT and showcases a real-world use case where KITs are implemented in the Catena-X ecosystem.'}
               title={'Get inspired by using a KIT'}
               headerDescription={'Business applications enable data providers and consumers  to leverage different use cases and data-driven processes to solve a specific industry problem (e.g., PCF) and create business value, by using KITs and Standards for interoperable and trusted data exchange. A business application provider (BAP) can decide on the scope of its business applications and whether to offer them on one or more of the marketplaces.'}
             />
@@ -61,15 +69,15 @@ export default function AppProvider() {
                 There are two main customer groups for KITs:
               </p>
             </div>
-
-            <KitsGalleryWithFilters 
-          itemsArray={kitsGallery}
-          title={"Our Kits"}
-          description={"Unlock the power of kits. Browse the latest kits, their documentation, including tutorials,sample code, articles, and API reference."}
-        />
-
           </div>
         </section>
+        <KitsGallery
+          title={"Our Gallery"}
+          description={"Unlock the full power of the KITs. Browse all the available specifications, blueprints, and reference implementations."}
+          dataspaceFoundation={kitsData.dataspaceFoundation}
+          industryCoreFoundation={kitsData.industryCoreFoundation}
+          useCases={kitsData.useCases}
+        />
       </main>
     </Layout>
   );

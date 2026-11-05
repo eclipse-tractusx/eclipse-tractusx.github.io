@@ -1,0 +1,407 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+// Community bases world map.
+// The map always renders on a dark canvas, in both colour modes, because the
+// black-map look is part of the visual identity of this section.
+
+$brand-orange: #faa023;
+$brand-green: #afc72d;
+$marker-size: 34px;
+$marker-size-compact: 28px;
+
+/* ---------------------------------------------------------------------------
+   Map canvas
+   --------------------------------------------------------------------------- */
+
+.mapWrapper {
+  width: 100%;
+}
+
+.mapViewport {
+  width: 100%;
+}
+
+// Only shown while the map overflows its viewport - see the media query below.
+.scrollHint {
+  display: none;
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.map {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% 40%, #12161d 0%, #08090c 55%, #050608 100%);
+  border: 1px solid rgba(250, 160, 35, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+// Wide, borderless variant used on the home page and the bases page hero.
+// The map is capped by viewport height as well as width (its aspect ratio is
+// fixed at ~2.54:1), so that the heading, the map and the figures below it
+// still fit on one screen instead of the map pushing them out of view.
+.mapFull {
+  max-width: min(2244px, 152vh, 98vw);
+  margin: 0 auto;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+}
+
+.mapCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.land {
+  fill: #0a0c10;
+  stroke: rgba(255, 255, 255, 0.42);
+  stroke-width: 0.7;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.countryHighlight {
+  fill: rgba(250, 160, 35, 0.14);
+  stroke: rgba(250, 160, 35, 0.6);
+  stroke-width: 0.7;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.25s ease, stroke 0.25s ease;
+}
+
+.countryHighlightActive {
+  fill: rgba(250, 160, 35, 0.38);
+  stroke: $brand-orange;
+}
+
+.connection {
+  fill: none;
+  stroke: rgba(250, 160, 35, 0.3);
+  stroke-width: 0.8;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+  animation: dashFlow 12s linear infinite;
+  transition: stroke 0.25s ease;
+}
+
+.connectionActive {
+  stroke: rgba(175, 199, 45, 0.9);
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Markers
+   --------------------------------------------------------------------------- */
+
+.markerLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: $marker-size;
+  height: $marker-size;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, color 0.25s ease;
+
+  &:hover,
+  &:focus-visible,
+  &.markerActive {
+    transform: translate(-50%, -50%) scale(1.35);
+    z-index: 3;
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    .markerSymbol {
+      filter: drop-shadow(0 0 6px $brand-orange);
+    }
+  }
+}
+
+.markerSymbol {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.9));
+  transition: filter 0.25s ease;
+}
+
+.markerHome {
+  width: $marker-size * 1.5;
+  height: $marker-size * 1.5;
+  z-index: 2;
+
+  .markerSymbol {
+    filter: drop-shadow(0 0 10px rgba(250, 160, 35, 0.55));
+  }
+}
+
+.markerPulse {
+  position: absolute;
+  inset: -30%;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 160, 35, 0.45);
+  opacity: 0;
+  animation: markerPulse 3.2s ease-out infinite;
+}
+
+.markerHome .markerPulse {
+  border-color: rgba(250, 160, 35, 0.7);
+  animation-duration: 2.6s;
+}
+
+@keyframes markerPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+.markerLabel {
+  position: absolute;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  text-shadow: 0 0 5px #000, 0 1px 4px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+
+// Europe and South Asia are crowded, so each base can push its label aside.
+.markerLabelbottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 4px;
+}
+
+.markerLabeltop {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 4px;
+}
+
+.markerLabelleft {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 6px;
+}
+
+.markerLabelright {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 6px;
+}
+
+/* ---------------------------------------------------------------------------
+   Tooltip
+   --------------------------------------------------------------------------- */
+
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 120px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(10, 12, 16, 0.96);
+  border: 1px solid rgba(250, 160, 35, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  pointer-events: none;
+  z-index: 4;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(250, 160, 35, 0.4);
+  }
+}
+
+.marker:hover .tooltip,
+.marker:focus-visible .tooltip,
+.markerActive .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltipCountry {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.tooltipCity {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+}
+
+.tooltipMeta {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $brand-orange;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------------
+   Compact / responsive
+   --------------------------------------------------------------------------- */
+
+.mapCompact {
+  .marker {
+    width: $marker-size-compact;
+    height: $marker-size-compact;
+  }
+
+  .markerHome {
+    width: $marker-size-compact * 1.5;
+    height: $marker-size-compact * 1.5;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .map .marker {
+    width: 22px;
+    height: 22px;
+  }
+
+  .map .markerHome {
+    width: 32px;
+    height: 32px;
+  }
+
+  .markerLabel {
+    display: none;
+  }
+}
+
+// Below this width the continents are too small to keep the markers apart, so
+// the map keeps a usable minimum width and the viewport scrolls sideways.
+@media screen and (max-width: 768px) {
+  .mapViewport {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .mapViewport .map {
+    min-width: 640px;
+  }
+
+  .scrollHint {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .map {
+    border-radius: 12px;
+  }
+
+  .map .marker {
+    width: 18px;
+    height: 18px;
+  }
+
+  .map .markerHome {
+    width: 26px;
+    height: 26px;
+  }
+
+  .tooltip {
+    min-width: 96px;
+    padding: 6px 9px;
+  }
+
+  .tooltipCountry {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connection,
+  .markerPulse {
+    animation: none;
+  }
+
+  .markerPulse {
+    opacity: 0;
+  }
+}

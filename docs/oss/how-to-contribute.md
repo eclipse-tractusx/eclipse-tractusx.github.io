@@ -1,5 +1,5 @@
 ---
-title: How to contribute 
+title: How to contribute
 sidebar_position: 20
 ---
 
@@ -39,7 +39,7 @@ When community members do provide answers that require further clarification (ei
 100% correct), do so politely. The more welcome you make your community feel, the more likely it is that your project
 will be successful.
 
-Mail address: <tractusx-dev@eclipse.org>
+Mail address: [tractusx-dev@eclipse.org](mailto:tractusx-dev@eclipse.org)
 
 Every contributor should be subscribed to
 the [Eclipse Tractus-X Developer Mailingliste](https://accounts.eclipse.org/mailing-list/tractusx-dev). Committers have
