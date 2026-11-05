@@ -26,16 +26,13 @@ title: Deployment
  * SPDX-License-Identifier: CC-BY-4.0
 -->
 
-![Agents Kit Banner](/img/knowledge-agents/AgentsKit-Icon.png)
+![Agents Kit Banner](@site/static/img/kits/agents/agents-kit-logo.svg)
 
-This document describes the deployment of the (Knowledge) Agents KIT (=Keep It Together) depending on the role that the respective tenant/business partner has.
-It also provides a runbook for deploying a minimal stable environment for testing purposes.
-
-For more information see
+**Operating federated queries over the whole data space.**
 
 * Our [Adoption](../adoption-view/intro) guideline
 * The [Architecture](../software-development-view/architecture) documentation
-* The [EDC Deployment](agent_edc) description
+* The [EDC Deployment](agent-edc) description
 * The [(Data/Function) Provider Deployment](provider) description
 * The [AAS Bridge Deployment](bridge) description
 * The [Conformity](testbed) testbed
@@ -54,14 +51,15 @@ role that the business partner takes. The roles are described in more detail in 
 
 As a consumer, you just need to:
 
-* enable your [dataspace connector](agent_edc) to initiate/delegate the required Agent protocols (here: SparQL-over-Http).
-* (optionally) mount your connector/matchmaking agent as a remote repository into your enterprise graph infrastructure.
+* enable your [dataspace connector](agent-edc) to initiate/delegate the required Agent protocols (here: SparQL-over-Http).
+* (optionally) use a separate matchmaking agent to securely host your own business and meta data in the graph storage behind the connector layer
+* (optionally) mount your matchmaking agent as a remote repository into your enterprise graph infrastructure.
 
 ## Role: As A Skill Provider
 
 As a skill provider, you need to
 
-* enable your [dataspace connector](agent_edc)  to transfer/delegate the required Agent protocols.
+* enable your [dataspace connector](agent-edc)  to transfer/delegate the required Agent protocols.
 * (optionally) employ multiple data planes in case you want to expose hosted skills (skill assets that operate as stored procedures
 and which require computational resources at the provider side) instead of distributed skills (skill assets that are offered as query texts/files and which are executed at the consumer side).
 
@@ -69,7 +67,8 @@ and which require computational resources at the provider side) instead of distr
 
 As a provider, you need to
 
-* enable your [dataspace connector](agent_edc) to receive/internalize the required Agent protocols.
+* enable your [dataspace connector](agent-edc) to receive/internalize the required Agent protocols.
+* (optionally) use a separate matchmaking agent to securely publish your own business and meta data from the graph storage behind the connector layer
 
 Depending on the kind of provisioning, you will setup additional internal "agents" (endpoints).
 
@@ -88,38 +87,40 @@ As a function provider, you want to
 
 ### Sub-Role: As A Twin Provider
 
-As a function provider, you want to
+As a twin provider, you want to
 
 * [bridge](bridge) between the Knowledge Agent and Asset Administration Shell APIs.
 
 ## Runbook For Deploying and Smoke-Testing Knowledge Agents (Stable)
 
+The Stable Environment is a minimal example environment exhibiting all roles and capabilities of the Tractus-X/Catena-X dataspace.
+
 Knowledge Agents on Stable (Environment) is deployed on the following two tenants
 
 * App Provider 1 (BPNL000000000001)
-  * Agent-Enabled Dataspace Connector
-    * In-Memory Hashicorp-Vault Control Plane
-    * Hashicorp-Vault Agent Data Plane
-  * Provisioning Agent incl. Local Database
-  * Remoting Agent
+  * Dataspace Connector (Postgresl, Hashicorp-Vault) "provider-connector" see [manifest](#app-provider-1-dataspace-connector-manifest)
+  * Agent-Plane (Postgresql, Hashicorp-Vault) "provider-agent-plane" see [manifest](#app-provider-1-agent-plane-manifest)
+  * Provisioning Agent incl. Local Database "sql-agent" see [manifest](#4-deploy-app-provider-1-provisioning-agent)
+  * Remoting Agent (against a Public WebService) "api-agent" see [manifest](#5-deploy-app-provider-1-remoting-agent)
+  * AAS Bridge (against a prerecorded )"aas-bridge" see [manifest](#6-deploy-app-provider-1-aas-bridge)
 * App Consumer 4 (BPNL0000000005VV)
-  * Agent-Enabled Dataspace Connector
-    * In-Memory Hashicorp-Vault Control Plane
-    * Hashicorp-Vault Agent Data Plane
+  * Dataspace Connector (Postgresl, Hashicorp-Vault) "consumer-connector" see [manifest](#app-consumer-4-datspace-connector-manifest)
+  * Agent-Plane (Postgresql, Hashicorp-Vault) "consumer-agent-plane" see [manifest](#app-consumer-4-agent-plane-manifest)
+  * Matchmaking-Agent "consumer-agent" see [manifest](#app-consumer-4-matchmaking-agent-manifest)
 
 ### 1. Prepare the Two Tenants
 
-As a first step, we install two technical users for the dataspace connectors using the Stable portal at 'https://portal.stable'
+As a first step, two technical users are installed for the dataspace connectors using the Stable portal at 'https://portal.stable'
 
 * App Provider 1: sa4
 * App Consumer 4: sa5
 
-The generated secrets hare installed under the Stable vault at 'https://vault.demo/ui/vault/secrets/knowledge'
+The generated secrets should be installed under the Stable vault at 'https://vault.demo/ui/vault/secrets/knowledge'
 
-* stable-provider-miw
-* stable-consumer-miw
+* stable-provider-dim
+* stable-consumer-dim
 
-Further secrets are installed
+Further secrets should be installed
 
 * oem-cert
 * oem-key
@@ -128,21 +129,23 @@ Further secrets are installed
 * consumer-key
 * consumer-symmetric-key
 
-Finally an access token is generated.
+Finally, an access token to the vault has been generated.
 
 ### 2. Deploy Agent-Enabled Connector's
 
-Using Stable Argo 'https://argo.stable/settings/projects/project-knowledge' the following two applications are installed.
+Using Stable Argo 'https://argo.stable/settings/projects/project-knowledge' the following three applications have been installed.
 
 We give the complete manifests but hide the secrets.
 
-#### App Provider 1 Datspace Connector Manifest
+#### App Provider 1 Dataspace Connector Manifest
+
+Deployed as "provider-connector"
 
 ```yaml
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.11.16
+  targetRevision: 0.7.3
   plugin:
     env:
       - name: HELM_VALUES
@@ -165,86 +168,188 @@ source:
               transferProxyTokenSignerPrivateKey: oem-key
               transferProxyTokenSignerPublicKey: oem-cert
               transferProxyTokenEncryptionAesKey: oem-symmetric-key
+          iatp:
+              id: did:web:portal-backend.stable.demo:api:administration:staticdata:did:BPNL000000000001
+              trustedIssuers:
+              - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+              sts:
+              dim:
+                url: https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal
+              oauth:
+                token_url: https://bpnl000000000001-authentication.eu10.hana.ondemand.com/oauth/token
+                client:
+                  id: sa4
+                  secret_alias: stable-provider-dim
+          postgresql:
+              name: agent-postgresql
+              jdbcUrl: jdbc:postgresql://agent-postgresql:5432/provider
+              auth:
+                 database: provider
+                 username: provider_user
+                 password: ****
           controlplane:
             securityContext:
               readOnlyRootFilesystem: false
             image:
               pullPolicy: Always
-            ssi:
-              miw:
-                # -- MIW URL
-                url: "https://managed-identity-wallets-new.stable"
-                # -- The BPN of the issuer authority
-                authorityId: "BPNL00000003CRHK"
-              oauth:
-                # -- The URL (of Keycloak), where access tokens can be obtained
-                tokenurl: "https://centralidp.stable/auth/realms/CX-Central/protocol/openid-connect/token"
-                client:
-                  # -- The client ID for Keycloak
-                  id: "sa4"
-                  # -- The alias under which the client secret is stored in the vault.
-                  secretAlias: "stable-provider-miw"
             endpoints:
               management:
-                authKey: ****
-            ## Ingress declaration to expose the network service.
+                control:
+                  port: 8083
+                  path: "/control"
+                protocol:
+                  port: 8084
+                  path: "/api/v1/dsp"
+                management:
+                  port: 8081
+                  path: "/management"
+                  authKey: ***
+            bdrs:
+              server:
+                url: https://bpn-did-resolution-service.int.demo/api/directory
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-                hostname: "agent-provider-cp.stable"
+                hostname: "agent-provider-cp.stable.demo"
                 # -- EDC endpoints exposed by this ingress resource
                 endpoints:
                   - protocol
                   - management
-                  - control
+                  - api
                 # -- Enables TLS on the ingress resource
                 tls:
                   enabled: true
-          dataplanes:
-            dataplane:
-              securityContext:
-                readOnlyRootFilesystem: false
-              image:
-                pullPolicy: Always
-              configs:
-                dataspace.ttl: |-
-                  ################################################
-                  # Catena-X Agent Bootstrap
-                  ################################################
-                  @prefix : <GraphAsset?local=Dataspace> .
-                  @prefix cx: <https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/cx_ontology.ttl#> .
-                  @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
-                  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-                  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-                  @prefix bpnl: <bpn:legal:> .
-                  @base <GraphAsset?local=Dataspace> .
+          dataplane:
+            token:
+              signer:
+                privatekey_alias: consumer-key
+              verifier:
+                publickey_alias: consumer-cert
+  chart: tractusx-connector
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: product-knowledge
+```
 
-                  bpnl:BPNL000000000001 cx:hasBusinessPartnerNumber "BPNL000000000001"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-provider-cp.stable>;
-                                        cx-common:hasConnector <edcs://agent-provider-cp.stable>.
+#### App Provider 1 Agent Plane Manifest
 
-                  bpnl:BPNL0000000005VV cx:hasBusinessPartnerNumber "BPNL0000000005VV"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-consumer-cp.stable>;
-                                        cx-common:hasConnector <edcs://agent-consumer-cp.stable>.
-              agent:
-                #synchronization: 360000
-                connectors:
-                  - https://agent-provider-cp.stable
+Deployed as "provider-agent-plane"
 
-              ## Ingress declaration to expose the network service.
-              ingresses:
-                - enabled: true
-                  hostname: "agent-provider-dp.stable"
-                  # -- EDC endpoints exposed by this ingress resource
-                  endpoints:
-                    - public
-                    - default
-                    - control
-                    - callback
-                  # -- Enables TLS on the ingress resource
-                  tls:
-                    enabled: true
-  chart: agent-connector-memory
+```yaml
+project: project-knowledge
+source:
+  repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
+  targetRevision: 1.14.24
+  plugin:
+    env:
+      - name: HELM_VALUES
+        value: |
+          participant:
+            id: BPNL000000000001
+          nameOverride: agent-plane-provider
+          fullnameOverride: agent-plane-provider
+          vault:
+            hashicorp:
+              enabled: true
+              url: https://vault.demo
+              token: ****
+              healthCheck:
+                enabled: false
+                standbyOk: true
+              paths:
+                secret: /v1/knowledge
+            secretNames:
+              transferProxyTokenSignerPrivateKey: oem-key
+              transferProxyTokenSignerPublicKey: oem-cert
+              transferProxyTokenEncryptionAesKey: oem-symmetric-key
+          iatp:
+              id: did:web:portal-backend.stable.demo:api:administration:staticdata:did:BPNL000000000001
+              trustedIssuers:
+              - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+              sts:
+                dim:
+                  url: https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal
+                oauth:
+                  token_url: https://bpnl000000000001-authentication.eu10.hana.ondemand.com/oauth/token
+                  client:
+                    id: sa4
+                    secret_alias: stable-provider-dim
+          postgresql:
+              name: agent-postgresql
+              jdbcUrl: jdbc:postgresql://agent-postgresql:5432/provider
+              auth:
+                 database: provider
+                 username: provider_user
+                 password: ****
+          connector: provider-connector
+          controlplane:
+            endpoints:
+              control:
+                port: 8083
+                path: "/control"
+              protocol:
+                port: 8084
+                path: "/api/v1/dsp"
+              management:
+                port: 8081
+                path: "/management"
+                authKey: ***
+            bdrs:
+              server:
+                url: https://bpn-did-resolution-service.int.demo/api/directory
+            ingresses:
+              - enabled: true
+                # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
+                hostname: "agent-provider-cp.stable.demo"
+                # -- EDC endpoints exposed by this ingress resource
+                endpoints:
+                  - protocol
+                  - management
+                  - api
+                # -- Enables TLS on the ingress resource
+                tls:
+                  enabled: true
+          token:
+            signer:
+              privatekey_alias: oem-key
+            verifier:
+              publickey_alias: oem-cert
+          auth: {}
+          ingresses:
+           - enabled: true
+             hostname: "provider-agent.stable.demo"
+             endpoints:
+              - public
+              - default
+             tls:
+               enabled: true
+          configs:
+            dataspace.ttl: |-
+              #################################################################
+              # Catena-X Agent Bootstrap Graph in TTL/RDF/OWL FORMAT
+              #################################################################
+              @prefix : <GraphAsset?local=Dataspace> .
+              @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+              @prefix owl: <http://www.w3.org/2002/07/owl#> .
+              @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+              @prefix xml: <http://www.w3.org/XML/1998/namespace> .
+              @prefix json: <https://json-schema.org/draft/2020-12/schema#> .
+              @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+              @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+              @prefix bpnl: <bpn:legal:> .
+              @prefix bpns: <bpn:site:> .
+              @base <GraphAsset?local=Dataspace> .
+
+              bpnl:BPNL000000000001 cx-common:id "BPNL000000000001"^^xsd:string;
+                              cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
+
+              bpnl:BPNL0000000005VV cx-common:id  "BPNL0000000005VV"^^xsd:string;
+                              cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo>.
+          agent:
+            synchronization: 360000
+            connectors:
+              BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
+  chart: agent-plane
 destination:
   server: 'https://kubernetes.default.svc'
   namespace: product-knowledge
@@ -252,11 +357,13 @@ destination:
 
 #### App Consumer 4 Datspace Connector Manifest
 
+Deployed as "consumer-connector"
+
 ```yaml
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.11.16
+  targetRevision: 0.7.3
   plugin:
     env:
       - name: HELM_VALUES
@@ -279,94 +386,289 @@ source:
               transferProxyTokenSignerPrivateKey: consumer-key
               transferProxyTokenSignerPublicKey: consumer-cert
               transferProxyTokenEncryptionAesKey: consumer-symmetric-key
+          iatp:
+              id: did:web:portal-backend.stable.demo:api:administration:staticdata:did:BPNL0000000005VV
+              trustedIssuers:
+              - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+              sts:
+              dim:
+                url: https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal
+              oauth:
+                token_url: https://bpnl0000000005VV-authentication.eu10.hana.ondemand.com/oauth/token
+                client:
+                  id: sa5
+                  secret_alias: stable-consumer-dim
+          postgresql:
+              name: agent-postgresql2
+              jdbcUrl: jdbc:postgresql://agent-postgresql2:5432/consumer
+              auth:
+                 database: consumer
+                 username: consumer_user
+                 password: ****
           controlplane:
             securityContext:
               readOnlyRootFilesystem: false
             image:
               pullPolicy: Always
-            ssi:
-              miw:
-                # -- MIW URL
-                url: "https://managed-identity-wallets-new.stable"
-                # -- The BPN of the issuer authority
-                authorityId: "BPNL00000003CRHK"
-              oauth:
-                # -- The URL (of Keycloak), where access tokens can be obtained
-                tokenurl: "https://centralidp.stable/auth/realms/CX-Central/protocol/openid-connect/token"
-                client:
-                  # -- The client ID for Keycloak
-                  id: "sa5"
-                  # -- The alias under which the client secret is stored in the vault.
-                  secretAlias: "stable-consumer-miw"
             endpoints:
+              control:
+                port: 8083
+                path: "/control"
+              protocol:
+                port: 8084
+                path: "/api/v1/dsp"
               management:
+                port: 8081
+                path: "/management"
                 authKey: ***
-            ## Ingress declaration to expose the network service.
+            bdrs:
+              server:
+                url: https://bpn-did-resolution-service.int.demo/api/directory
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-                hostname: "agent-consumer-cp.stable"
+                hostname: "agent-consumer-cp.stable.demo"
                 # -- EDC endpoints exposed by this ingress resource
                 endpoints:
                   - protocol
                   - management
-                  - control
+                  - api
                 # -- Enables TLS on the ingress resource
                 tls:
                   enabled: true
-          dataplanes:
-            dataplane:
-              securityContext:
-                readOnlyRootFilesystem: false
-              image:
-                pullPolicy: Always
-              configs:
-                dataspace.ttl: |-
-                  ################################################
-                  # Catena-X Agent Bootstrap
-                  ################################################
-                  @prefix : <GraphAsset?local=Dataspace> .
-                  @prefix cx: <https://raw.githubusercontent.com/catenax-ng/product-knowledge/main/ontology/cx_ontology.ttl#> .
-                  @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
-                  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-                  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-                  @prefix bpnl: <bpn:legal:> .
-                  @base <GraphAsset?local=Dataspace> .
-
-                  bpnl:BPNL000000000001 cx:hasBusinessPartnerNumber "BPNL000000000001"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-provider-cp.stable>;
-                                        cx-common:hasConnector <edcs://agent-provider-cp.stable>.
-
-                  bpnl:BPNL0000000005VV cx:hasBusinessPartnerNumber "BPNL0000000005VV"^^xsd:string;
-                                        cx:hasConnector <edcs://agent-consumer-cp.stable>;
-                                        cx-common:hasConnector <edcs://agent-consumer-cp.stable>.
-              agent:
-                # synchronization: 360000
-                connectors:
-                  - https://agent-provider-cp.stable
-
-              ## Ingress declaration to expose the network service.
-              ingresses:
-                - enabled: true
-                  hostname: "agent-consumer-dp.stable"
-                  # -- EDC endpoints exposed by this ingress resource
-                  endpoints:
-                    - public
-                    - default
-                    - control
-                    - callback
-                  # -- Enables TLS on the ingress resource
-                  tls:
-                    enabled: true
-  chart: agent-connector-memory
+          dataplane:
+            token:
+              signer:
+                privatekey_alias: consumer-key
+              verifier:
+                publickey_alias: consumer-cert
+  chart: tractusx-connector
 destination:
   server: 'https://kubernetes.default.svc'
   namespace: product-knowledge
 ```
 
-### 3. Deploy App Provider 1 Provisioning Agent
+#### App Consumer 4 Agent Plane Manifest
 
-Using Stable Argo 'https://argo.stable/settings/projects/project-knowledge' the following application are installed.
+Deployed as "consumer-agent-plane"
+
+```yaml
+project: project-knowledge
+source:
+  repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
+  targetRevision: 1.14.24
+  plugin:
+    env:
+      - name: HELM_VALUES
+        value: |
+          participant:
+            id: BPNL0000000005VV
+          nameOverride: agent-plane-consumer
+          fullnameOverride: agent-plane-consumer
+          vault:
+            hashicorp:
+              enabled: true
+              url: https://vault.demo
+              token: ****
+              healthCheck:
+                enabled: false
+                standbyOk: true
+              paths:
+                secret: /v1/knowledge
+            secretNames:
+              transferProxyTokenSignerPrivateKey: consumer-key
+              transferProxyTokenSignerPublicKey: consumer-cert
+              transferProxyTokenEncryptionAesKey: consumer-symmetric-key
+          iatp:
+              id: did:web:portal-backend.stable.demo:api:administration:staticdata:did:BPNL0000000005VV
+              trustedIssuers:
+              - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
+              sts:
+              dim:
+                url: https://dis-integration-service-prod.eu10.dim.cloud.sap/api/v2.0.0/iatp/catena-x-portal
+              oauth:
+                token_url: https://bpnl0000000005VV-authentication.eu10.hana.ondemand.com/oauth/token
+                client:
+                  id: sa5
+                  secret_alias: stable-consumer-dim
+          postgresql:
+              name: agent-postgresql2
+              jdbcUrl: jdbc:postgresql://agent-postgresql2:5432/consumer
+              auth:
+                 database: consumer
+                 username: consumer_user
+                 password: ****
+          connector: consumer-connector
+          controlplane:
+            endpoints:
+              management:
+                control:
+                  port: 8083
+                  path: "/control"
+                protocol:
+                  port: 8084
+                  path: "/api/v1/dsp"
+                management:
+                  port: 8081
+                  path: "/management"
+                  authKey: ***
+            bdrs:
+              server:
+                url: https://bpn-did-resolution-service.int.demo/api/directory
+            ingresses:
+              - enabled: true
+                # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
+                hostname: "agent-consumer-cp.stable.demo"
+                # -- EDC endpoints exposed by this ingress resource
+                endpoints:
+                  - protocol
+                  - management
+                  - api
+                # -- Enables TLS on the ingress resource
+                tls:
+                  enabled: true
+          token:
+            signer:
+              privatekey_alias: consumer-key
+            verifier:
+              publickey_alias: consumer-cert
+          auth: {}
+          ingresses:
+           - enabled: true
+             hostname: "agent-consumer-dp.stable.demo"
+             endpoints:
+              - public
+              - default
+             tls:
+               enabled: true
+          configs:
+            dataspace.ttl: |-
+              #################################################################
+              # Catena-X Agent Bootstrap Graph in TTL/RDF/OWL FORMAT
+              #################################################################
+              @prefix : <GraphAsset?local=Dataspace> .
+              @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+              @prefix owl: <http://www.w3.org/2002/07/owl#> .
+              @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+              @prefix xml: <http://www.w3.org/XML/1998/namespace> .
+              @prefix json: <https://json-schema.org/draft/2020-12/schema#> .
+              @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+              @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+              @prefix bpnl: <bpn:legal:> .
+              @prefix bpns: <bpn:site:> .
+              @base <GraphAsset?local=Dataspace> .
+
+              bpnl:BPNL000000000001 cx-common:id "BPNL000000000001"^^xsd:string;
+                              cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
+
+              bpnl:BPNL0000000005VV cx-common:id  "BPNL0000000005VV"^^xsd:string;
+                              cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo>.
+          agent:
+            synchronization: 360000
+            connectors:
+              BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
+              BPNL0000000005VV: https://agent-consumer-cp.stable.demo-catena-x.net
+            matchmaking: https://consumer-agent.stable.demo-catena-x.net
+  chart: agent-plane
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: product-knowledge
+```
+
+### 3. Deploy Matchmaking Agent
+
+#### App Consumer 4 Matchmaking Agent Manifest
+
+Deployed as "consumer-agent"
+
+```yaml
+project: project-knowledge
+source:
+  repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
+  targetRevision: 1.14.24
+  plugin:
+    env:
+      - name: HELM_VALUES
+        value: |
+          participant:
+            id: BPNL0000000005VV
+          nameOverride: agent-plane-consumer
+          fullnameOverride: agent-plane-consumer
+          connector: consumer-connector
+          controlplane:
+            endpoints:
+              management:
+                control:
+                  port: 8083
+                  path: "/control"
+                protocol:
+                  port: 8084
+                  path: "/api/v1/dsp"
+                management:
+                  port: 8081
+                  path: "/management"
+                  authKey: ***
+            bdrs:
+              server:
+                url: https://bpn-did-resolution-service.int.demo/api/directory
+            ingresses:
+              - enabled: true
+                # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
+                hostname: "agent-consumer-cp.stable.demo"
+                # -- EDC endpoints exposed by this ingress resource
+                endpoints:
+                  - protocol
+                  - management
+                  - api
+                # -- Enables TLS on the ingress resource
+                tls:
+                  enabled: true
+          ingresses:
+          - enabled: true
+            hostname: "consumer-agent.stable.demo"
+            endpoints:
+              - default
+            tls:
+              enabled: true
+            certManager:
+              clusterIssuer: *clusterIssuer
+          configs:
+            # -- An example of an empty graph in ttl syntax
+            dataspace.ttl: |
+              #################################################################
+              # Catena-X Agent Bootstrap Graph in TTL/RDF/OWL FORMAT
+              #################################################################
+              @prefix : <GraphAsset?local=Dataspace> .
+              @prefix cx-common: <https://w3id.org/catenax/ontology/common#> .
+              @prefix owl: <http://www.w3.org/2002/07/owl#> .
+              @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+              @prefix xml: <http://www.w3.org/XML/1998/namespace> .
+              @prefix json: <https://json-schema.org/draft/2020-12/schema#> .
+              @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+              @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+              @prefix bpnl: <bpn:legal:> .
+              @prefix bpns: <bpn:site:> .
+              @base <GraphAsset?local=Dataspace> .
+
+              bpnl:BPNL000000000001 cx-common:id "BPNL000000000001"^^xsd:string;
+                              cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
+
+              bpnl:BPNL0000000005VV cx-common:id  "BPNL0000000005VV"^^xsd:string;
+                              cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo>.
+          agent:
+            synchronization: 360000
+            connectors:
+              BPNL000000000001: https://agent-provider-cp.stable.demo-catena-x.net
+              BPNL0000000005VV: https://agent-consumer-cp.stable.demo-catena-x.net
+  chart: matchmaking-agent
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: product-knowledge
+```
+
+### 4. Deploy App Provider 1 Provisioning Agent
+
+Using Stable Argo 'https://argo.stable/settings/projects/project-knowledge'  the following application has been installed.
 
 For simplicity, the provisioning agent exposes a builtin sample H2 database as a graph and therefore needs to write the file system with its non-root account.
 Therefore, some of the following settings are specific to stable and will not be used under productive settings.
@@ -375,7 +677,7 @@ Therefore, some of the following settings are specific to stable and will not be
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.11.16
+  targetRevision: 1.14.24
   plugin:
     env:
       - name: HELM_VALUES
@@ -440,9 +742,9 @@ destination:
   namespace: product-knowledge
 ```
 
-### 4. Deploy App Provider 1 Remoting Agent
+### 5. Deploy App Provider 1 Remoting Agent
 
-Using Stable Argo 'https://argo.stable/settings/projects/project-knowledge' the following application are installed.
+Using Stable Argo 'https://argo.stable/settings/projects/project-knowledge' the following application has been installed.
 
 For simplicity, the remoting agent exposes a simply public API as a graph.
 
@@ -450,7 +752,7 @@ For simplicity, the remoting agent exposes a simply public API as a graph.
 project: project-knowledge
 source:
   repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
-  targetRevision: 1.11.16
+  targetRevision: 1.14.24
   plugin:
     env:
       - name: HELM_VALUES
@@ -521,9 +823,48 @@ destination:
   namespace: product-knowledge
 ```
 
+### 6. Deploy App Provider 1 AAS Bridge
+
+Using [https://argo.stable.demo/settings/projects/project-knowledge](https://argo.stable.demo/settings/projects/project-knowledge) the following application has been installed.
+
+For simplicity, the aas bridge uses builtin-persistence.
+
+```yaml
+project: project-knowledge
+source:
+  repoURL: 'https://eclipse-tractusx.github.io/charts/dev'
+  targetRevision: 1.13.7
+  plugin:
+    env:
+      - name: HELM_VALUES
+        value: |
+          image:
+            pullPolicy: Always
+          aas:
+            persistence:
+              # -- The default sparql server is embedded
+              sparql: http://sparql.local
+            endpoints:
+              default:
+                path: "/"
+          ingresses:
+          - enabled: true
+            hostname: "aas-bridge.stable.demo"
+            annotations:
+              nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+            endpoints:
+              - default
+            tls:
+              enabled: true
+  chart: aas-bridge
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: product-knowledge
+```
+
 ### 5. Perform Smoke Tests
 
-We provide a [Postman collection](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/folder/2757771-f11c5dda-cc04-444f-b38b-3deb3c098478?action=share&creator=2757771&ctx=documentation&active-environment=2757771-31115ff3-61d7-4ad6-8310-1e50290a1c3a) and a corresponding [environment](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/environment/2757771-31115ff3-61d7-4ad6-8310-1e50290a1c3a?action=share&creator=2757771&active-environment=2757771-3a7489c5-7540-470b-8e44-04610511d9a9)
+This KIT provides a [Postman collection/folder](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/folder/2757771-3534e62a-e7c3-4f0b-9aad-75afc650d92e?action=share&source=copy-link&creator=2757771&ctx=documentation) and a corresponding [environment](https://www.postman.com/catena-x/workspace/catena-x-knowledge-agents/environment/2757771-31115ff3-61d7-4ad6-8310-1e50290a1c3a?action=share&creator=2757771&active-environment=2757771-3a7489c5-7540-470b-8e44-04610511d9a9)
 
 It consists of the following steps:
 
@@ -536,8 +877,9 @@ It consists of the following steps:
 * Create Data Graph Asset (Provider)
 * Create Function Graph Asset (Provider)
 * Show Own Catalogue (Provider)
+* Query AAS Bridge (Provider)
 * Show Remote Catalogue (Consumer)
 * Query Data Graph Asset (Consumer)
 * Query Function Graph Asset (Consumer)
 
-<sub><sup>(C) 2021,2023 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
+<sub><sup>(C) 2021 Contributors to the Eclipse Foundation. SPDX-License-Identifier: CC-BY-4.0</sup></sub>
