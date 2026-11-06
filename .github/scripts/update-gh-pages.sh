@@ -27,7 +27,9 @@
 # latest gh-pages commit and pushed again, so no workflow has to wait for a
 # shared lock and no change of another workflow is lost.
 #
-# Run it from a checkout of the gh-pages branch:
+# Run it from an empty directory. It fetches the latest gh-pages commit there
+# (only the files, no history) and creates the branch if it does not exist yet,
+# for example in a fork:
 #
 #   update-gh-pages.sh site <build-dir>
 #       Replace the production site with <build-dir>. The pull request previews
@@ -38,7 +40,11 @@
 #   update-gh-pages.sh remove <pr-number>
 #       Remove the preview in pr/<pr-number>.
 #
-# Environment: MAX_ATTEMPTS (default 10) limits the number of push attempts.
+# Environment:
+#   GITHUB_TOKEN       token with contents: write, used to fetch and push
+#   GITHUB_REPOSITORY  owner/name of the repository (set by GitHub Actions)
+#   GH_PAGES_REMOTE    overrides the remote URL, for example for local tests
+#   MAX_ATTEMPTS       number of push attempts (default 10)
 
 set -euo pipefail
 
@@ -81,13 +87,40 @@ if [ "${mode}" = "site" ] && [ -e "${source_dir}/pr" ]; then
   exit 1
 fi
 
-if [ "$(git rev-parse --abbrev-ref HEAD)" != "gh-pages" ]; then
-  echo "Run this script from a checkout of the gh-pages branch." >&2
+if [ -n "$(ls -A)" ]; then
+  echo "Run this script from an empty directory." >&2
   exit 1
 fi
 
+remote_url="${GH_PAGES_REMOTE:-https://github.com/${GITHUB_REPOSITORY:?GITHUB_REPOSITORY is not set}.git}"
+git -c init.defaultBranch=gh-pages init --quiet
+git remote add origin "${remote_url}"
+if [ -n "${GITHUB_TOKEN:-}" ]; then
+  # Same authentication as actions/checkout uses. The repository only lives in
+  # the runner's workspace, which is discarded after the job.
+  git config "http.https://github.com/.extraheader" \
+    "AUTHORIZATION: basic $(printf 'x-access-token:%s' "${GITHUB_TOKEN}" | base64 | tr -d '\n')"
+fi
 git config user.name 'github-actions[bot]'
 git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+# Makes the working directory match the latest gh-pages commit, or an empty
+# branch without history if gh-pages does not exist yet. Also drops the commit
+# of a previous attempt that was rejected.
+load_latest_gh_pages() {
+  if git ls-remote --exit-code --heads origin gh-pages > /dev/null; then
+    git fetch --quiet --depth=1 origin gh-pages
+    git checkout --quiet --force -B gh-pages FETCH_HEAD
+  else
+    # If the branch does exist and ls-remote only failed, the push below is
+    # rejected because it is not a fast-forward, and the next attempt retries.
+    echo "The gh-pages branch does not exist yet, it will be created."
+    git symbolic-ref HEAD refs/heads/gh-pages
+    git update-ref -d refs/heads/gh-pages 2> /dev/null || true
+    git read-tree --empty
+  fi
+  git clean --quiet -ffdx
+}
 
 apply_change() {
   case "${mode}" in
@@ -108,12 +141,7 @@ apply_change() {
 
 max_attempts="${MAX_ATTEMPTS:-10}"
 for attempt in $(seq 1 "${max_attempts}"); do
-  # Start from the latest published state, also dropping the commit of a
-  # previous attempt that was rejected.
-  git fetch --quiet --depth=1 origin gh-pages
-  git reset --quiet --hard FETCH_HEAD
-  git clean --quiet -ffdx
-
+  load_latest_gh_pages
   apply_change
 
   git add --all

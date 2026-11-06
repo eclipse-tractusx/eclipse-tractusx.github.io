@@ -56,17 +56,15 @@ jobs:
       - name: Build website
         run: npm run build
 
-      - name: Check out gh-pages branch
-        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
-        with:
-          ref: gh-pages
-          fetch-depth: 1
-          path: gh-pages
-
       # Replaces everything at the root of gh-pages with the new build, so pages
       # and hashed assets that no longer exist are removed. The pull request
       # previews in pr/ are kept. If another workflow pushed in the meantime,
-      # the change is applied again on top of it.
+      # the change is applied again on top of it. The script fetches gh-pages
+      # itself and creates the branch if it does not exist yet.
       - name: Publish to GitHub Pages
-        working-directory: gh-pages
-        run: ../.github/scripts/update-gh-pages.sh site ../build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir "${RUNNER_TEMP}/gh-pages"
+          cd "${RUNNER_TEMP}/gh-pages"
+          bash "${GITHUB_WORKSPACE}/.github/scripts/update-gh-pages.sh" site "${GITHUB_WORKSPACE}/build"

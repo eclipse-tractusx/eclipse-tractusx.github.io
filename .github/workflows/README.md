@@ -83,10 +83,11 @@ target, so pages and hashed assets that no longer exist do not pile up:
 
 ### Writing to `gh-pages` concurrently
 
-All three writing workflows use [`.github/scripts/update-gh-pages.sh`](../scripts/update-gh-pages.sh). It applies the
-change on top of the latest `gh-pages` commit and pushes it. If another workflow pushed in the meantime, the push is
-rejected; the script then fetches the new state, applies the change again and retries (up to 10 times, with an
-increasing delay). Because every workflow only touches its own part of the branch, nothing gets lost.
+All three writing workflows use [`.github/scripts/update-gh-pages.sh`](../scripts/update-gh-pages.sh). It fetches the
+latest `gh-pages` commit (files only, no history), applies the change on top of it and pushes it. If another workflow
+pushed in the meantime, the push is rejected; the script then fetches the new state, applies the change again and
+retries (up to 10 times, with an increasing delay). Because every workflow only touches its own part of the branch,
+nothing gets lost. If `gh-pages` does not exist yet, for example in a fork, the script creates it.
 
 Concurrency groups only order the runs that must not overlap:
 
@@ -101,6 +102,21 @@ Production deployments and previews of different pull requests do not wait for e
 > GitHub keeps at most one *waiting* run per concurrency group and cancels the previous waiting run when another one
 > arrives. Previously all three workflows shared one group, which could cancel a production deployment or a preview
 > removal. That is why the groups are now separate.
+
+### Testing changes to the preview workflows
+
+Because "Deploy pull request preview" always runs in the version of the default branch, a pull request to this
+repository cannot test changes to it. Test such changes in your fork instead:
+
+1. Enable GitHub Actions in your fork and push the changed workflows to the fork's `main` branch.
+2. Open a pull request inside your fork (from a branch of the fork to the fork's `main`).
+3. Check that "Build pull request preview" and then "Deploy pull request preview" succeed in the fork, that
+   `pr/<number>/` appears on the fork's `gh-pages` branch (created on the first run) and that the preview comment is
+   posted. Closing the pull request must remove `pr/<number>/` again.
+
+The preview URL in the comment points to `eclipse-tractusx.github.io`, and the site is built for that host, so check
+the content of the `gh-pages` branch rather than a Pages site of the fork. Pushing to the fork's `main` also runs the
+production deployment into the fork's `gh-pages` branch.
 
 ## The other workflows
 

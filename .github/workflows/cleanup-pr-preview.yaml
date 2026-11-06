@@ -55,18 +55,14 @@ jobs:
           sparse-checkout: .github/scripts
           persist-credentials: false
 
-      - name: Check out gh-pages branch
-        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
-        with:
-          ref: gh-pages
-          fetch-depth: 1
-          path: site
-
       - name: Remove the preview folder
-        working-directory: site
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: ../tools/.github/scripts/update-gh-pages.sh remove "${PR_NUMBER}"
+        run: |
+          mkdir "${RUNNER_TEMP}/gh-pages"
+          cd "${RUNNER_TEMP}/gh-pages"
+          bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" remove "${PR_NUMBER}"
 
       - name: Update the preview comment
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
