@@ -9,6 +9,12 @@ For new joiners there are [monthly meetings](https://eclipse-tractusx.github.io/
 
 This page provides information and links to relevant resources before you start contributing to Eclipse Tractus-X.
 
+:::tip Prefer video?
+
+Watch [Episode 1: Get your keys](/docs/contributor-journey#episode-1) of the Contributor Journey video series for a two-minute summary of this page.
+
+:::
+
 ## Create / configure accounts
 
 For contributing to the Eclipse Tractus-X project you need an Eclipse Foundation and a GitHub account. Contributing means e.g. creating a pull request, adding documentation, opening issues to commenting existing artifacts. So everything adding to the repositories. Without the accounts (properly configured) you have read-only permissions.
