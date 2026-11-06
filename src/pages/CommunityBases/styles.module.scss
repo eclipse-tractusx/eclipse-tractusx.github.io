@@ -338,19 +338,30 @@ $brand-green: #afc72d;
   font-size: 15px !important;
 }
 
-.homeBadge {
+.statusBadge {
   display: inline-flex;
   align-items: center;
   gap: 4px;
   flex-shrink: 0;
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(250, 160, 35, 0.16);
-  color: #b06f05;
+  border: 1px solid transparent;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.statusBadgePending {
+  background: transparent;
+  border: 1px dashed var(--ifm-color-emphasis-400);
+}
+
+.homeBadge {
+  background: rgba(250, 160, 35, 0.16);
+  color: #b06f05;
 
   [data-theme='dark'] & {
     color: $brand-orange;
@@ -366,18 +377,11 @@ $brand-green: #afc72d;
   margin-bottom: 20px;
 }
 
-.cardDescription {
-  margin: 0;
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: var(--ifm-color-emphasis-800);
-}
-
 .focusTags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 14px 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
