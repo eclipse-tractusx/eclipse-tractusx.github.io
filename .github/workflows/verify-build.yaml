@@ -57,6 +57,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Catches KIT docs that no sidebar links to and non-canonical folder
+      # layouts before they reach the published site (TRG 10-02).
+      - name: Validate KIT structure
+        run: npm run validate:kit-structure -- --verbose
+
       # The preview is served from a subfolder of the GitHub Pages site, so the
       # site has to be built with a matching baseUrl. Using the pull request
       # number keeps the path stable and unique, also for pull requests opened

@@ -28,7 +28,7 @@ import WorldMap from './WorldMap';
 import ClaimSymbol from './ClaimSymbol';
 import styles from './section.module.scss';
 
-export const COMMUNITY_BASES_ROUTE = '/CommunityBases';
+export const COMMUNITY_BASES_ROUTE = '/community-bases';
 
 /**
  * Home page teaser for the global community bases.

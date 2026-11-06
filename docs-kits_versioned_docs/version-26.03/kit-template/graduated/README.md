@@ -11,10 +11,10 @@ This directory contains the comprehensive template structure for creating a new 
 Before creating a new KIT, ensure you have:
 
 - A clear understanding of the business problem your KIT addresses
-- Familiarity with the [KIT Framework Documentation](https://eclipse-tractusx.github.io/documentation/kit-framework)
+- Familiarity with the [KIT Framework Documentation](https://eclipse-tractusx.github.io/kits/handbook/framework)
 - Read the [TRG 10.01 - KIT Architecture](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-01)
 - Read the [TRG 10.02 - KIT Content Structure](https://eclipse-tractusx.github.io/docs/release/trg-10/trg-10-02)
-- Reviewed existing KITs for reference at [Eclipse Tractus-X KITs](https://eclipse-tractusx.github.io/Kits)
+- Reviewed existing KITs for reference at [Eclipse Tractus-X KITs](https://eclipse-tractusx.github.io/kits)
 
 ### How to Use This Template
 
@@ -298,10 +298,10 @@ Your KIT **MUST** comply with these Tractus-X Release Guidelines (TRGs):
 
 ### Documentation
 
-- [KIT Framework Documentation](https://eclipse-tractusx.github.io/documentation/kit-framework) - Complete KIT structure and artifacts guide
-- [KIT Getting Started Guide](https://eclipse-tractusx.github.io/documentation/kit-getting-started) - Step-by-step KIT creation guide
-- [KIT Lifecycle Guide](https://eclipse-tractusx.github.io/documentation/kit-lifecycle) - Maturity levels and progression
-- [KIT Master Data Overview](https://eclipse-tractusx.github.io/documentation/kit-master-data-overview) - Master data structure and registration
+- [KIT Framework Documentation](https://eclipse-tractusx.github.io/kits/handbook/framework) - Complete KIT structure and artifacts guide
+- [KIT Getting Started Guide](https://eclipse-tractusx.github.io/kits/handbook/getting-started) - Step-by-step KIT creation guide
+- [KIT Lifecycle Guide](https://eclipse-tractusx.github.io/kits/handbook/lifecycle) - Maturity levels and progression
+- [KIT Master Data Overview](https://eclipse-tractusx.github.io/kits/handbook/master-data) - Master data structure and registration
 
 ### Examples
 
@@ -329,8 +329,8 @@ Browse existing KITs for reference:
 
 | Channel | Purpose | Frequency | Link |
 |---------|---------|-----------|------|
-| Alignment Day | Quarterly refinement sessions | Quarterly | [Release Process](https://eclipse-tractusx.github.io/docs/oss/release-process#alignment-day) |
-| Open Planning Day | Open planning sessions | Quarterly | [Release Process](https://eclipse-tractusx.github.io/docs/oss/release-process#open-planning-day) |
+| Alignment Day | Quarterly refinement sessions | Quarterly | [Release Process](https://eclipse-tractusx.github.io/docs/contribute/release-process#alignment-day) |
+| Open Planning Day | Open planning sessions | Quarterly | [Release Process](https://eclipse-tractusx.github.io/docs/contribute/release-process#open-planning-day) |
 | KIT Office Hours | Community alignment | Weekly | [Join Meeting](https://eclipse-tractusx.github.io/community/open-meetings#kits-office-hour) |
 | Matrix Chat | Daily support | Ongoing | [Join Chat](https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org) |
 
@@ -346,7 +346,7 @@ Before creating a KIT, follow the contribution process:
 6. **Review**: Get approval from responsible committer
 7. **Publish**: KIT published in target release changelog
 
-For detailed contribution guidelines, see [KIT Getting Started Guide](https://eclipse-tractusx.github.io/documentation/kit-getting-started#how-to-create-a-kit).
+For detailed contribution guidelines, see [KIT Getting Started Guide](https://eclipse-tractusx.github.io/kits/handbook/getting-started#how-to-create-a-kit).
 
 ---
 

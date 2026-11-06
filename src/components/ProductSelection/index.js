@@ -39,7 +39,7 @@ const ProductSelection = ({ options }) => {
       subtitle: 'Keep It Together (KITs)',
       description: 'Discover our collection of comprehensive documentation with specifications & blueprints which will enable you to build your own dataspace native applications.',
       icon: ExtensionIcon,
-      link: 'https://eclipse-tractusx.github.io/Kits',
+      link: 'https://eclipse-tractusx.github.io/kits',
       external: false,
       gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
       color: '#f5576c'

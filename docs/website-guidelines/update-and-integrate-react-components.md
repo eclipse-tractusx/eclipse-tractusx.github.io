@@ -19,7 +19,7 @@ This `index.js` is defined as a `React` component. Its content is being imported
 
 - ##### NewsTicker `.src/components/Newsticker/index.js`
 
-- #### AboutUsCard `./src/components/AboutUsCard/index.js`
+- #### AboutUsCard `./src/components/aboutCard/index.js`
 
 - #### KitsGalleryWithFilters `./src/components/KitsGalleryWithFilters/index.js`
 
@@ -29,13 +29,13 @@ If you want to make any change to the `Home` page, make sure you modify the righ
 
 ### AboutUs page
 
-In our folder structure, this page is developed in `./src/pages/AboutUs/index.js`
+In our folder structure, this page is developed in `./src/pages/about/index.js`
 
 This `index.js` is defined as a `React` component. Its content is being imported from other `React` components located in the folder `./src/components`. They are:
 
-- #### AboutUsHeader `./src/components/AboutUsHeader/index.js`
+- #### AboutUsHeader `./src/components/aboutHeader/index.js`
 
-- #### AboutUsContent `./src/components/AboutUsContent/index.js`
+- #### AboutUsContent `./src/components/aboutContent/index.js`
 
 If you want to make any change to the `AboutUs` page, make sure you modify the right component of the ones named above.
 

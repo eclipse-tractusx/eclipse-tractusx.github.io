@@ -27,7 +27,7 @@ The *skill provider* (in this example also the OEM), has to implement the skill 
 
 In the current example, a HI skill for a gearbox is implemented with the [SPARQL 1.1 Query Language ![(external link)](/icons/external-link.svg)](https://www.w3.org/TR/sparql11-query/) as a query. The query is a federated query, which means that the query is split into three parts: One general part, one for the *data provider*/OEM and one for the *calculation service provider*/supplier. In the first part, function assets (in the supplier's catalog/OEM's federated catalog) are resolved by the desired result type. Then, OEM-owned reliability assets are resolved by the required function arguments of resolved function assets. In the second part (at the OEM), the vehicle, subsequent the part of interest, the related load data asset and the supplier of the part are resolved. In the third part (at the supplier), the gathered data is fed back into the respective supplier EDC connector/agent to perform a HI calculation.
 
-For more information regarding skill development, registration and invocation options, see [Agents KIT's Operation View](../../../../knowledge-agents-kit/operation-view/agent-edc).
+For more information regarding skill development, registration and invocation options, see [Agents KIT's Operation View](../../../../knowledge-agents-kit/operations-view/agent-edc).
 
 ### FULL EXAMPLE
 
@@ -263,4 +263,4 @@ At the supplier's EDC connector, the graph asset of the HI calculation service i
 
 ## SKILL REGISTRATION AND INVOCATION
 
-For skill registration and invocation, have a look at the [general Development View](../../../software-development-view/skill#skill-registration).
+For skill registration and invocation, have a look at the [general Development View](../../../development-view/skill#skill-registration).

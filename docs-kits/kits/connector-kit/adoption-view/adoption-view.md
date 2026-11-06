@@ -463,7 +463,7 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 [dcp-url]: https://github.com/eclipse-dataspace-dcp/decentralized-claims-protocol
 
-[dev-view-url]: ../software-development-view/architecture.md
+[dev-view-url]: ../development-view/architecture.md
 
 [dsp-url]: https://github.com/eclipse-dataspace-protocol-base/DataspaceProtocol
 

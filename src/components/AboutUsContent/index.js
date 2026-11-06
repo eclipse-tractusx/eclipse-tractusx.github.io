@@ -52,7 +52,7 @@ const contributions = [
   },
 ];
 
-// Section anchors that other pages link to (e.g. /AboutUs#history-title).
+// Section anchors that other pages link to (e.g. /about#history-title).
 // Sections are plain JSX rather than Markdown headings, so the anchors are
 // registered here for the broken-anchor check to find them.
 const anchors = [
@@ -167,7 +167,7 @@ export default function AboutUsContent() {
                 developers, and service providers understand use cases and adopt
                 interoperable dataspace technologies across industries.
               </p>
-              <Link to="/Kits">Explore the KITs →</Link>
+              <Link to="/kits">Explore the KITs →</Link>
             </article>
           </div>
         </section>

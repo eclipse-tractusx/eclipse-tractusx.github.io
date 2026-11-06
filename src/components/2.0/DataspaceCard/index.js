@@ -70,7 +70,7 @@ export default function DataspaceCard({ dataspace, gradient }) {
           
           <div className={styles.button_group}>
             <Link 
-              to={`/Kits/dataspace?name=${encodeURIComponent(dataspace.name)}`}
+              to={`/kits/dataspace?name=${encodeURIComponent(dataspace.name)}`}
               className={styles.dataspace_link}
               style={{ 
                 '--link-gradient': dataspace.gradient || gradient,

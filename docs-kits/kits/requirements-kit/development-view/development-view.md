@@ -171,7 +171,7 @@ The sequence diagram illustrates the requirement exchange flow between a Custome
 
 #### Schema: Notification Schema
 
-**Purpose**: The notification format used for the requirements exchange is based on the [Industry Core Kit's standardized notification format](../../industry-core-kit/software-development-view/notifications.mdx). The following example illustrates a notification sent from a Customer to a Supplier when a new requirement is created:
+**Purpose**: The notification format used for the requirements exchange is based on the [Industry Core Kit's standardized notification format](../../industry-core-kit/development-view/notifications.mdx). The following example illustrates a notification sent from a Customer to a Supplier when a new requirement is created:
 
 ```json
 {

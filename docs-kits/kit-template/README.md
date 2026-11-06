@@ -3,7 +3,7 @@
 This folder contains the official KIT templates for the Eclipse Tractus-X ecosystem.
 Choose the template that matches your KIT's current maturity level.
 
-> **Before you start**, read the [KIT Lifecycle documentation](https://eclipse-tractusx.github.io/documentation/kit-lifecycle) to understand which level applies to your KIT.
+> **Before you start**, read the [KIT Lifecycle documentation](https://eclipse-tractusx.github.io/kits/handbook/lifecycle) to understand which level applies to your KIT.
 
 ---
 
@@ -16,7 +16,7 @@ Choose the template that matches your KIT's current maturity level.
 | | |
 |---|---|
 | **Maturity level** | Sandbox / MVP |
-| **Requirements** | [KIT Lifecycle — Sandbox Level](https://eclipse-tractusx.github.io/documentation/kit-lifecycle#-1-sandbox-level-mvp-kit) |
+| **Requirements** | [KIT Lifecycle — Sandbox Level](https://eclipse-tractusx.github.io/kits/handbook/lifecycle#-1-sandbox-level-mvp-kit) |
 | **Included views** | Adoption View, Development View, Changelog |
 | **Word template** | [`kit-template-sandbox.docx`](./sandbox/kit-template-sandbox.docx) |
 
@@ -29,7 +29,7 @@ Choose the template that matches your KIT's current maturity level.
 | | |
 |---|---|
 | **Maturity level** | Graduated |
-| **Requirements** | [KIT Lifecycle — Graduated Level](https://eclipse-tractusx.github.io/documentation/kit-lifecycle#-2-graduated-kit) |
+| **Requirements** | [KIT Lifecycle — Graduated Level](https://eclipse-tractusx.github.io/kits/handbook/lifecycle#-2-graduated-kit) |
 | **Included views** | Adoption View, Development View, Operations View, Documentation, Industry Extensions, Success Stories, Changelog |
 | **Word template** | [`kit-template-graduated.docx`](./graduated/kit-template-graduated.docx) |
 

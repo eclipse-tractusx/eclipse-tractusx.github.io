@@ -44,7 +44,7 @@
                return (
                  <Link 
                    key={industry.id}
-                   to={`/Kits/industry?id=${industry.id}&ref=architecture`}
+                   to={`/kits/industry?id=${industry.id}&ref=architecture`}
                    className={`${styles.hexagon} ${styles.hexagon_industry}`}
                    style={{
                      '--hexagon-gradient': industry.gradient,
@@ -76,7 +76,7 @@
 
            {/* Bottom rectangles */}
            <div className={styles.rectangle_column}>
-             <Link to="/Kits/cross-industry" className={styles.rectangle_link}>
+             <Link to="/kits/cross-industry" className={styles.rectangle_link}>
                <div className={`${styles.rectangle} ${styles.rectangle_cross_industry}`}>
                  <span>Cross-Industry Use Cases</span>
                  <div className={styles.rectangle_hover_indicator}>
@@ -86,7 +86,7 @@
                  </div>
                </div>
              </Link>
-             <Link to="/Kits/industry-core" className={styles.rectangle_link}>
+             <Link to="/kits/industry-core" className={styles.rectangle_link}>
                <div className={`${styles.rectangle} ${styles.rectangle_industry_core}`}>
                  <span>Industry Core Foundation</span>
                  <div className={styles.rectangle_hover_indicator}>
@@ -96,7 +96,7 @@
                  </div>
                </div>
              </Link>
-             <Link to="/Kits/dataspace-foundation" className={styles.rectangle_link}>
+             <Link to="/kits/dataspace-foundation" className={styles.rectangle_link}>
                <div className={`${styles.rectangle} ${styles.rectangle_industry}`}>
                  <span>Dataspace Foundation</span>
                  <div className={styles.rectangle_hover_indicator}>
@@ -116,7 +116,7 @@
          
          {/* Interactive CTA Button */}
          <div className={styles.button_container}>
-           <Link to="/documentation/kit-framework" className={styles.explore_button}>
+           <Link to="/kits/handbook/framework" className={styles.explore_button}>
              <span className={styles.button_text}>Click here to explore more about KITs</span>
              <svg className={styles.button_icon} width="20" height="20" viewBox="0 0 24 24" fill="none">
                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

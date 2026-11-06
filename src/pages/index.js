@@ -26,8 +26,6 @@ import Link from '@docusaurus/Link';
 
 import HomePageHeader from "@site/src/components/HomePageHeader/index";
 import AboutUsCard from "@site/src/components/AboutUsCard";
-import RoleBasedEnrtyComponent from "@site/src/components/RoleBasedEnrtyComponent";
-import { carouselRoleBased } from "@site/utils/carouselRoleBased";
 import KitsTitle from "@site/src/components/2.0/KitsTitle";
 import KitStatistics from "@site/src/components/2.0/KitStatistics";
 import KitsArchitecture from "@site/src/components/2.0/KitsArchitecture";
@@ -54,7 +52,7 @@ export default function Home() {
     descriptionHighlight: "Eclipse Tractus-X™",
     description: " We are a collaborative, open-source project driving the digital transformation of various industries. We enable secure, self-sovereign and efficient data exchange, powered by seamless collaboration across the supply chain and built on trusted open standards.",
     buttonText: "About Us",
-    link: "/AboutUs"
+    link: "/about"
   }
   const allKits = getAllKits();
   return (

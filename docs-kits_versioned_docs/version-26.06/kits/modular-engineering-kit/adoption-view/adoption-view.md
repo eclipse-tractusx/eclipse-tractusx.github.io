@@ -174,7 +174,7 @@ Currently, the creation of a whitepaper is not planned.
 
 > [!IMPORTANT]  Sandbox Maturity Notice – Tractus-X KIT Preview
 >
-> This Tractus-X KIT is currently released in a [Sandbox state](https://eclipse-tractusx.github.io/documentation/kit-lifecycle) within the Tractus-X ecosystem. What this means:
+> This Tractus-X KIT is currently released in a [Sandbox state](https://eclipse-tractusx.github.io/kits/handbook/lifecycle) within the Tractus-X ecosystem. What this means:
 >
 > - The KIT represents an early maturity level and is provided as a first preview.
 > - APIs, data models, interfaces, and documentation may evolve.

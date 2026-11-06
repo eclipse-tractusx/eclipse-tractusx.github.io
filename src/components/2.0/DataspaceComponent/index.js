@@ -108,7 +108,7 @@ export default function DataspaceComponent() {
         ) : (
           <div className={styles.container}>
             <div className={styles.card_wrapper}>
-              <Link className={styles.link_container} to={`/Kits/dataspace?name=${encodeURIComponent(name)}&ref=dataspaces`}>
+              <Link className={styles.link_container} to={`/kits/dataspace?name=${encodeURIComponent(name)}&ref=dataspaces`}>
                 <div 
                   className={styles.card_container}
                   style={{

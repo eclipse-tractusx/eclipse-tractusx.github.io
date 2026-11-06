@@ -25,4 +25,4 @@ This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses
 
 [edc-url]: https://github.com/eclipse-tractusx/tractusx-edc
 
-[sdv-url]: ../software-development-view/reference-impl.md
+[sdv-url]: ../development-view/reference-impl.md

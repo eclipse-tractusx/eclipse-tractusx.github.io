@@ -7,7 +7,7 @@ sidebar_position: 2
 
 To assess the business value of implementing PURIS, several factors must be taken into account. A structured evaluation involves analyzing different supply chain conditions in relation to PURIS usage scenarios and identifying the associated potential improvements. Once the potential benefits are identified, they must be weighed against the internal efforts and costs required for implementation.
 
-![approach-driving-value](../assets/approach-driving-value.svg)
+![approach-driving-value](../resources/approach-driving-value.svg)
 
 Figure 1: *Structured approach to deriving business value*
 
@@ -19,11 +19,11 @@ To fully realize the potential of PURIS, a holistic view of the supply chain is 
 
 Based on this, the following supply chain states can be distinguished:
 
-![supply-chain-conditions](../assets/supply-chain-conditions.svg)
+![supply-chain-conditions](../resources/supply-chain-conditions.svg)
 
 Figure 2: *Typical supply chain conditions – normal operation, isolated bottleneck, and widespread bottleneck.*  
 
-![potential-cost-reduction](../assets/potential-cost-reduction.svg)
+![potential-cost-reduction](../resources/potential-cost-reduction.svg)
 
 Figure 3: *Potential for cost reduction and the opportunities for improving operational efficiency with PURIS.*
 
@@ -90,7 +90,7 @@ By using PURIS data, both the customer’s current inventory levels and the dail
 
 From the supplier’s point of view, this transparency allows for more accurate planning and a reduction in the need to hold high safety stocks. In a trusted and transparent supply relationship, it is even conceivable to jointly optimize safety stocks between supplier and customer - potentially reducing inventory levels while maintaining supply reliability.
 
-![safety-stock-reduction](../assets/safety-stock-reduction.svg)
+![safety-stock-reduction](../resources/safety-stock-reduction.svg)
 
 Figure 4: *Reduction of safety stock through supply chain transparency*
 
@@ -108,13 +108,13 @@ A comprehensive evaluation of the business benefits - considering the PURIS usag
 
 Ultimately, the early prevention of bottlenecks should be a key focus when assessing business value, as every bottleneck situation leads to avoidable exceptional costs.
 
-![benefits-evaluation](../assets/benefits-evaluation.svg)
+![benefits-evaluation](../resources/benefits-evaluation.svg)
 
 Figure 5: *Evaluation of the benefits*
 
 ### Normal Operation (1.1 and 2.1)
 
-![normal-operation](../assets/normal-operation.svg)
+![normal-operation](../resources/normal-operation.svg)
 
 Figure 6: *Supply chain condition during normal operation*
 
@@ -126,7 +126,7 @@ With a monitoring approach, the likelihood of bottlenecks across all supply rela
 
 ### Isolated Bottleneck (1.2 and 2.2)
 
-![isolated-bottleneck](../assets/isolated-bottleneck.svg)
+![isolated-bottleneck](../resources/isolated-bottleneck.svg)
 
 Figure 7: *Supply chain condition during isolated bottleneck*
 
@@ -136,7 +136,7 @@ Fast access to data in time-critical situations expands the decision-making wind
 
 ### Widespread Bottleneck (1.3 and 2.3)
 
-![widespread-bottleneck](../assets/widespread-bottleneck.svg)
+![widespread-bottleneck](../resources/widespread-bottleneck.svg)
 
 Figure 8: *Supply chain condition during widespread bottleneck*
 
@@ -177,7 +177,7 @@ From a monitoring perspective, this transparency allows for early trend detectio
 
 Both perspectives - monitoring and bottleneck management - contribute to operational stability and efficiency. Their effectiveness depends on the willingness and ability of partners to share relevant data and align on common processes. In this context, trustful collaboration is not only a prerequisite but also a result of successful PURIS integration.
 
-![collaboration-model](../assets/collaboration-model.svg)
+![collaboration-model](../resources/collaboration-model.svg)
 
 Figure 9: *Monitoring and bottleneck management contribution to operational stability and efficiency*
 
