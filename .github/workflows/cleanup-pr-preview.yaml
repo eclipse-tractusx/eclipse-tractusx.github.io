@@ -28,11 +28,6 @@ on:
     types:
       - closed
 
-# Shared with the other workflows writing to gh-pages to avoid concurrent pushes.
-concurrency:
-  group: gh-pages-write
-  cancel-in-progress: false
-
 permissions:
   contents: read
 
@@ -40,30 +35,38 @@ jobs:
   cleanup:
     name: Remove preview from GitHub Pages
     runs-on: ubuntu-latest
+    # Same group as the deploy job of "Deploy pull request preview" for this
+    # pull request, so a deployment and the removal of the same preview never
+    # overlap. Other previews and the production deployment run in parallel;
+    # update-gh-pages.sh retries a push that was rejected.
+    concurrency:
+      group: gh-pages-pr-${{ github.event.pull_request.number }}
+      cancel-in-progress: false
     permissions:
       contents: write
       pull-requests: write
     steps:
+      # Taken from the default branch, never from the pull request.
+      - name: Check out deployment script
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          path: tools
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
       - name: Check out gh-pages branch
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           ref: gh-pages
           fetch-depth: 1
+          path: site
 
       - name: Remove the preview folder
+        working-directory: site
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: |
-          set -euo pipefail
-          if [ ! -d "pr/${PR_NUMBER}" ]; then
-            echo "No preview found for pull request ${PR_NUMBER}, nothing to do."
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git rm -r --quiet "pr/${PR_NUMBER}"
-          git commit -m "Remove preview of pull request ${PR_NUMBER}"
-          git push origin gh-pages
+        run: ../tools/.github/scripts/update-gh-pages.sh remove "${PR_NUMBER}"
 
       - name: Update the preview comment
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7

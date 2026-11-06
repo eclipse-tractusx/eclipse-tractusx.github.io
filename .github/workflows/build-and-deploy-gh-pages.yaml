@@ -25,10 +25,14 @@ on:
     branches:
       - main
 
-# Shared with the pull request preview workflows so that no two workflows push
-# to the gh-pages branch at the same time.
+# Only production deployments share this group, so they run one after the
+# other and an older build never overwrites a newer one. A deployment that is
+# still waiting is replaced by a newer one, which contains its changes anyway.
+# The preview workflows use their own groups. Concurrent pushes to gh-pages are
+# handled by .github/scripts/update-gh-pages.sh, which retries on top of the
+# latest state.
 concurrency:
-  group: gh-pages-write
+  group: gh-pages-production
   cancel-in-progress: false
 
 permissions:
@@ -52,36 +56,17 @@ jobs:
       - name: Build website
         run: npm run build
 
-      # The pull request previews live in the pr/ folder of the gh-pages branch.
-      # Publishing the root without them would delete every open preview, so they
-      # are carried over into the build output before it is published.
-      - name: Check out currently published site
-        id: published
-        continue-on-error: true
+      - name: Check out gh-pages branch
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           ref: gh-pages
           fetch-depth: 1
           path: gh-pages
 
-      - name: Preserve pull request previews
-        if: steps.published.outcome == 'success'
-        run: |
-          set -euo pipefail
-          if [ -d gh-pages/pr ]; then
-            cp -R gh-pages/pr ./build/pr
-          fi
-
-      # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          # The following lines assign commit authorship to the official
-          # GH-Actions bot for deploys to `gh-pages` branch:
-          # https://github.com/actions/checkout/issues/13#issuecomment-724415212
-          # The GH actions bot is used by default if you didn't specify the two fields.
-          # You can swap them out with your own user credentials.
-          user_name: github-actions[bot]
-          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+      # Replaces everything at the root of gh-pages with the new build, so pages
+      # and hashed assets that no longer exist are removed. The pull request
+      # previews in pr/ are kept. If another workflow pushed in the meantime,
+      # the change is applied again on top of it.
+      - name: Publish to GitHub Pages
+        working-directory: gh-pages
+        run: ../.github/scripts/update-gh-pages.sh site ../build
