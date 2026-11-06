@@ -95,7 +95,7 @@ As a twin provider, you want to
 
 The Stable Environment is a minimal example environment exhibiting all roles and capabilities of the Tractus-X/Catena-X dataspace.
 
-Knowledge Agents on Stable is deployed on the following two tenants
+Knowledge Agents on Stable (Environment) is deployed on the following two tenants
 
 * App Provider 1 (BPNL000000000001)
   * Dataspace Connector (Postgresl, Hashicorp-Vault) "provider-connector" see [manifest](#app-provider-1-dataspace-connector-manifest)
@@ -110,12 +110,12 @@ Knowledge Agents on Stable is deployed on the following two tenants
 
 ### 1. Prepare the Two Tenants
 
-As a first step, two technical users are installed for the dataspace connectors using the [https://portal.stable.demo.catena-x.net](https://portal.stable.demo.catena-x.net)
+As a first step, two technical users are installed for the dataspace connectors using the Stable portal at 'https://portal.stable'
 
 * App Provider 1: sa4
 * App Consumer 4: sa5
 
-The generated secrets should be installed under [https://vault.demo.catena-x.net/ui/vault/secrets/knowledge](https://vault.demo.catena-x.net/ui/vault/secrets/knowledge)
+The generated secrets should be installed under the Stable vault at 'https://vault.demo/ui/vault/secrets/knowledge'
 
 * stable-provider-dim
 * stable-consumer-dim
@@ -133,7 +133,7 @@ Finally, an access token to the vault has been generated.
 
 ### 2. Deploy Agent-Enabled Connector's
 
-Using [https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge](https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge) the following three applications have been installed.
+Using Stable Argo 'https://argo.stable/settings/projects/project-knowledge' the following three applications have been installed.
 
 We give the complete manifests but hide the secrets.
 
@@ -157,7 +157,7 @@ source:
           vault:
             hashicorp:
               enabled: true
-              url: https://vault.demo.catena-x.net
+              url: https://vault.demo
               token: ****
               healthCheck:
                 enabled: false
@@ -169,7 +169,7 @@ source:
               transferProxyTokenSignerPublicKey: oem-cert
               transferProxyTokenEncryptionAesKey: oem-symmetric-key
           iatp:
-              id: did:web:portal-backend.stable.demo.catena-x.net:api:administration:staticdata:did:BPNL000000000001
+              id: did:web:portal-backend.stable.demo:api:administration:staticdata:did:BPNL000000000001
               trustedIssuers:
               - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
               sts:
@@ -206,11 +206,11 @@ source:
                   authKey: ***
             bdrs:
               server:
-                url: https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory
+                url: https://bpn-did-resolution-service.int.demo/api/directory
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-                hostname: "agent-provider-cp.stable.demo.catena-x.net"
+                hostname: "agent-provider-cp.stable.demo"
                 # -- EDC endpoints exposed by this ingress resource
                 endpoints:
                   - protocol
@@ -251,7 +251,7 @@ source:
           vault:
             hashicorp:
               enabled: true
-              url: https://vault.demo.catena-x.net
+              url: https://vault.demo
               token: ****
               healthCheck:
                 enabled: false
@@ -263,7 +263,7 @@ source:
               transferProxyTokenSignerPublicKey: oem-cert
               transferProxyTokenEncryptionAesKey: oem-symmetric-key
           iatp:
-              id: did:web:portal-backend.stable.demo.catena-x.net:api:administration:staticdata:did:BPNL000000000001
+              id: did:web:portal-backend.stable.demo:api:administration:staticdata:did:BPNL000000000001
               trustedIssuers:
               - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
               sts:
@@ -296,11 +296,11 @@ source:
                 authKey: ***
             bdrs:
               server:
-                url: https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory
+                url: https://bpn-did-resolution-service.int.demo/api/directory
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-                hostname: "agent-provider-cp.stable.demo.catena-x.net"
+                hostname: "agent-provider-cp.stable.demo"
                 # -- EDC endpoints exposed by this ingress resource
                 endpoints:
                   - protocol
@@ -317,7 +317,7 @@ source:
           auth: {}
           ingresses:
            - enabled: true
-             hostname: "provider-agent.stable.demo.catena-x.net"
+             hostname: "provider-agent.stable.demo"
              endpoints:
               - public
               - default
@@ -344,7 +344,7 @@ source:
                               cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
 
               bpnl:BPNL0000000005VV cx-common:id  "BPNL0000000005VV"^^xsd:string;
-                              cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
+                              cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo>.
           agent:
             synchronization: 360000
             connectors:
@@ -375,7 +375,7 @@ source:
           vault:
             hashicorp:
               enabled: true
-              url: https://vault.demo.catena-x.net
+              url: https://vault.demo
               token: ****
               healthCheck:
                 enabled: false
@@ -387,7 +387,7 @@ source:
               transferProxyTokenSignerPublicKey: consumer-cert
               transferProxyTokenEncryptionAesKey: consumer-symmetric-key
           iatp:
-              id: did:web:portal-backend.stable.demo.catena-x.net:api:administration:staticdata:did:BPNL0000000005VV
+              id: did:web:portal-backend.stable.demo:api:administration:staticdata:did:BPNL0000000005VV
               trustedIssuers:
               - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
               sts:
@@ -423,11 +423,11 @@ source:
                 authKey: ***
             bdrs:
               server:
-                url: https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory
+                url: https://bpn-did-resolution-service.int.demo/api/directory
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-                hostname: "agent-consumer-cp.stable.demo.catena-x.net"
+                hostname: "agent-consumer-cp.stable.demo"
                 # -- EDC endpoints exposed by this ingress resource
                 endpoints:
                   - protocol
@@ -468,7 +468,7 @@ source:
           vault:
             hashicorp:
               enabled: true
-              url: https://vault.demo.catena-x.net
+              url: https://vault.demo
               token: ****
               healthCheck:
                 enabled: false
@@ -480,7 +480,7 @@ source:
               transferProxyTokenSignerPublicKey: consumer-cert
               transferProxyTokenEncryptionAesKey: consumer-symmetric-key
           iatp:
-              id: did:web:portal-backend.stable.demo.catena-x.net:api:administration:staticdata:did:BPNL0000000005VV
+              id: did:web:portal-backend.stable.demo:api:administration:staticdata:did:BPNL0000000005VV
               trustedIssuers:
               - did:web:dim-static-prod.dis-cloud-prod.cfapps.eu10-004.hana.ondemand.com:dim-hosted:2f45795c-d6cc-4038-96c9-63cedc0cd266:holder-iatp
               sts:
@@ -514,11 +514,11 @@ source:
                   authKey: ***
             bdrs:
               server:
-                url: https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory
+                url: https://bpn-did-resolution-service.int.demo/api/directory
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-                hostname: "agent-consumer-cp.stable.demo.catena-x.net"
+                hostname: "agent-consumer-cp.stable.demo"
                 # -- EDC endpoints exposed by this ingress resource
                 endpoints:
                   - protocol
@@ -535,7 +535,7 @@ source:
           auth: {}
           ingresses:
            - enabled: true
-             hostname: "agent-consumer-dp.stable.demo.catena-x.net"
+             hostname: "agent-consumer-dp.stable.demo"
              endpoints:
               - public
               - default
@@ -562,7 +562,7 @@ source:
                               cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
 
               bpnl:BPNL0000000005VV cx-common:id  "BPNL0000000005VV"^^xsd:string;
-                              cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
+                              cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo>.
           agent:
             synchronization: 360000
             connectors:
@@ -610,11 +610,11 @@ source:
                   authKey: ***
             bdrs:
               server:
-                url: https://bpn-did-resolution-service.int.demo.catena-x.net/api/directory
+                url: https://bpn-did-resolution-service.int.demo/api/directory
             ingresses:
               - enabled: true
                 # -- The hostname to be used to precisely map incoming traffic onto the underlying network service
-                hostname: "agent-consumer-cp.stable.demo.catena-x.net"
+                hostname: "agent-consumer-cp.stable.demo"
                 # -- EDC endpoints exposed by this ingress resource
                 endpoints:
                   - protocol
@@ -625,7 +625,7 @@ source:
                   enabled: true
           ingresses:
           - enabled: true
-            hostname: "consumer-agent.stable.demo.catena-x.net"
+            hostname: "consumer-agent.stable.demo"
             endpoints:
               - default
             tls:
@@ -654,7 +654,7 @@ source:
                               cx-common:hasConnector <edcs://agent-provider-cp.stable.demo.catena-x.ne>.
 
               bpnl:BPNL0000000005VV cx-common:id  "BPNL0000000005VV"^^xsd:string;
-                              cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo.catena-x.net>.
+                              cx-common:hasConnector <edcs://agent-consumer-cp.stable.demo>.
           agent:
             synchronization: 360000
             connectors:
@@ -668,7 +668,7 @@ destination:
 
 ### 4. Deploy App Provider 1 Provisioning Agent
 
-Using [https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge](https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge) the following application has been installed.
+Using Stable Argo 'https://argo.stable/settings/projects/project-knowledge'  the following application has been installed.
 
 For simplicity, the provisioning agent exposes a builtin sample H2 database as a graph and therefore needs to write the file system with its non-root account.
 Therefore, some of the following settings are specific to stable and will not be used under productive settings.
@@ -744,7 +744,7 @@ destination:
 
 ### 5. Deploy App Provider 1 Remoting Agent
 
-Using [https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge](https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge) the following application has been installed.
+Using Stable Argo 'https://argo.stable/settings/projects/project-knowledge' the following application has been installed.
 
 For simplicity, the remoting agent exposes a simply public API as a graph.
 
@@ -825,7 +825,7 @@ destination:
 
 ### 6. Deploy App Provider 1 AAS Bridge
 
-Using [https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge](https://argo.stable.demo.catena-x.net/settings/projects/project-knowledge) the following application has been installed.
+Using [https://argo.stable.demo/settings/projects/project-knowledge](https://argo.stable.demo/settings/projects/project-knowledge) the following application has been installed.
 
 For simplicity, the aas bridge uses builtin-persistence.
 
@@ -849,7 +849,7 @@ source:
                 path: "/"
           ingresses:
           - enabled: true
-            hostname: "aas-bridge.stable.demo.catena-x.net"
+            hostname: "aas-bridge.stable.demo"
             annotations:
               nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
             endpoints:
