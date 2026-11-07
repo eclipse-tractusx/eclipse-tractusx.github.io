@@ -110,7 +110,7 @@ The website id is not a secret, it is part of every tracked page. To build the s
 ## Access to the data
 
 The data is available in the Umami Cloud dashboard. As required by the policy, committers of the project and the
-Eclipse Foundation get access on request. Ask the account owner, see the feature team in
+Eclipse Foundation get access on request. Ask the account owner (@stephanbcbauer), see the feature team in
 [sig-release#1775](https://github.com/eclipse-tractusx/sig-release/issues/1775).
 
 ## Testing
