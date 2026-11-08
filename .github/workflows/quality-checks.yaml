@@ -26,5 +26,5 @@ on:
 jobs:
   check-quality:
     name: Check quality guidelines
-    uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-quality-checks.yaml@main
+    uses: eclipse-tractusx/sig-infra/.github/workflows/reusable-quality-checks.yaml@1a2be9d3b599c081a4a307d8124f33d209f7c54e # main
     secrets: inherit
