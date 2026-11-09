@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 150 150" style="enable-background:new 0 0 150 150;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#FFFFFF;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;}
+</style>
+<g>
+	<path class="st2" d="M64.9,140.4h-9.5c-1.2,0-2.2-1-2.2-2.2V92.5c0-1.2,1-2.2,2.2-2.2h9.5c1.2,0,2.2,1,2.2,2.2v45.7
+		C67.2,139.4,66.2,140.4,64.9,140.4z"/>
+	<path class="st2" d="M32.8,140.4h-9.5c-1.2,0-2.2-1-2.2-2.2V108c0-1.2,1-2.2,2.2-2.2h9.5c1.2,0,2.2,1,2.2,2.2v30.2
+		C35,139.4,34,140.4,32.8,140.4z"/>
+	<path class="st2" d="M97.1,140.4h-9.5c-1.2,0-2.2-1-2.2-2.2V61.6c0-1.2,1-2.2,2.2-2.2h9.5c1.2,0,2.2,1,2.2,2.2v76.6
+		C99.3,139.4,98.3,140.4,97.1,140.4z"/>
+	<path class="st2" d="M129.3,140.4h-9.5c-1.2,0-2.2-1-2.2-2.2v-54c0-1.2,1-2.2,2.2-2.2h9.5c1.2,0,2.2,1,2.2,2.2v54
+		C131.5,139.4,130.5,140.4,129.3,140.4z"/>
+</g>
+<g>
+	<circle class="st2" cx="22.4" cy="69.3" r="9"/>
+	<circle class="st2" cx="35.2" cy="20.4" r="9"/>
+	<circle class="st2" cx="77.6" cy="34.7" r="9"/>
+	<circle class="st2" cx="124.7" cy="24.1" r="9"/>
+	<line class="st2" x1="25.3" y1="59.9" x2="33.5" y2="30"/>
+	<line class="st2" x1="44" y1="22.4" x2="69" y2="31.2"/>
+	<line class="st2" x1="86.3" y1="32.2" x2="115.4" y2="26"/>
+</g>
+</svg>
