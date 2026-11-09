@@ -20,6 +20,7 @@
 import React, { useState } from 'react';
 import Link from '@docusaurus/Link';
 import { useHistory } from '@docusaurus/router';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import clsx from 'clsx';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import PublicIcon from '@mui/icons-material/Public';
@@ -43,9 +44,11 @@ export const COMMUNITY_BASES_ROUTE = '/CommunityBases';
 export default function CommunityMap() {
   const [activeId, setActiveId] = useState(null);
   const history = useHistory();
+  // history.push() does not add the site baseUrl (e.g. /pr/<number>/ in previews).
+  const basesUrl = useBaseUrl(COMMUNITY_BASES_ROUTE);
   const statistics = getBaseStatistics();
 
-  const goToBase = (base) => history.push(`${COMMUNITY_BASES_ROUTE}#${base.id}`);
+  const goToBase = (base) => history.push(`${basesUrl}#${base.id}`);
 
   return (
     <section className={styles.section}>
