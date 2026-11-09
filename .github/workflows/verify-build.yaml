@@ -18,15 +18,21 @@
 # SPDX-License-Identifier: Apache-2.0
 #*******************************************************************************/
 
-name: Verify website build
+# This is the only website build of a pull request. It checks that the site
+# builds (broken links fail the build) and its output is the preview: the
+# workflow "Deploy pull request preview" does not build anything, it publishes
+# the artifact uploaded here to https://eclipse-tractusx.github.io/pr/<PR-number>/.
+# Removing this workflow therefore also removes the previews.
+#
+# The job name "Build static website" is a required status check of the main
+# branch. Keep it when renaming the job.
+name: Build pull request preview
 
 on:
   pull_request:
     branches:
       - main
 
-# The build output of this workflow is picked up by "Deploy pull request preview",
-# which publishes it to https://eclipse-tractusx.github.io/pr/<PR-number>/.
 # Collapse superseded runs so rapid pushes do not queue up preview deployments.
 concurrency:
   group: verify-build-${{ github.event.pull_request.number }}
@@ -38,10 +44,8 @@ concurrency:
 permissions:
   contents: read
 
-# This job will try to build the website to find potential issues
-# before actually merging and deploying the page.
 # There are cases, where for example broken links will break the build, but
-# checking it on the local development server (npm start) will work smoothely.
+# checking it on the local development server (npm start) will work smoothly.
 jobs:
   build:
     name: Build static website
@@ -66,12 +70,7 @@ jobs:
         env:
           BASE_URL: /pr/${{ github.event.pull_request.number }}/
 
-      # The pull request number is written to a file because the privileged
-      # deployment workflow cannot trust any branch name it receives and has no
-      # reliable way to map a fork branch back to its pull request.
-      - name: Write preview metadata
-        run: echo "${{ github.event.pull_request.number }}" > ./build/.pr-number
-
+      # .nojekyll is a hidden file of the build output.
       - name: Upload preview build
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -79,3 +78,17 @@ jobs:
           path: ./build
           retention-days: 3
           include-hidden-files: true
+
+      # The pull request number is uploaded as a separate, tiny artifact
+      # because the privileged deployment workflow cannot trust any branch name
+      # it receives and has no reliable way to map a fork branch back to its
+      # pull request. It needs the number before downloading the build.
+      - name: Write pull request number
+        run: echo "${{ github.event.pull_request.number }}" > ./pr-number
+
+      - name: Upload pull request number
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pr-number
+          path: ./pr-number
+          retention-days: 3
