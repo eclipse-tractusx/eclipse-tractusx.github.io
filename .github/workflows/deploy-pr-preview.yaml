@@ -23,104 +23,161 @@ name: Deploy pull request preview
 # This workflow runs in the context of the base repository and therefore has
 # write access, also for pull requests opened from a fork. It must never check
 # out or execute code from the pull request. Everything it consumes comes from
-# the artifact uploaded by "Verify website build", which runs unprivileged.
+# the artifacts uploaded by "Build pull request preview", which runs
+# unprivileged. It does not build anything itself.
 on:
-  workflow_dispatch:
   workflow_run:
     workflows:
-      - Verify website build
+      - Build pull request preview
     types:
       - completed
-
-# All workflows writing to the gh-pages branch share this group so that they
-# never push concurrently and overwrite each other.
-concurrency:
-  group: gh-pages-write
-  cancel-in-progress: false
 
 permissions:
   contents: read
 
 jobs:
-  deploy:
-    name: Publish preview to GitHub Pages
+  # Finds out which pull request the build belongs to. The number is needed
+  # before the deploy job starts, because it names the deploy job's
+  # concurrency group.
+  prepare:
+    name: Identify pull request
     runs-on: ubuntu-latest
     if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
     permissions:
-      contents: write
-      pull-requests: write
+      actions: read
+      pull-requests: read
+    outputs:
+      number: ${{ steps.pr.outputs.number }}
     steps:
-      - name: Download preview build
+      - name: Download pull request number
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
-          name: pr-preview
-          path: ./build
+          name: pr-number
+          path: ./meta
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Everything inside the artifact is untrusted input. The pull request
-      # number is the only value taken from it and it is validated to be a plain
-      # number before it is used as a path segment.
-      - name: Read and validate pull request number
+      # The artifact is untrusted input. The number is only used if it is a
+      # plain number and if that pull request's latest commit is the commit
+      # this build was made from. Otherwise the build is outdated (a newer
+      # push will deploy) or the number does not belong to this build.
+      - name: Validate pull request number
         id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
           set -euo pipefail
-          pr_number="$(tr -dc '0-9' < ./build/.pr-number | head -c 10)"
-          if [ -z "${pr_number}" ]; then
+          pr_number="$(tr -dc '0-9' < ./meta/pr-number | head -c 10)"
+          if ! [[ "${pr_number}" =~ ^[1-9][0-9]*$ ]]; then
             echo "Artifact does not contain a valid pull request number." >&2
             exit 1
           fi
-          rm ./build/.pr-number
+          head_sha="$(gh api "repos/${{ github.repository }}/pulls/${pr_number}" --jq '.head.sha')"
+          if [ "${head_sha}" != "${RUN_HEAD_SHA}" ]; then
+            echo "Pull request ${pr_number} is at ${head_sha}, this build is from ${RUN_HEAD_SHA}. Skipping."
+            exit 0
+          fi
           echo "number=${pr_number}" >> "$GITHUB_OUTPUT"
 
-      - name: Verify the pull request is still open
+  deploy:
+    name: Publish preview to GitHub Pages
+    needs: prepare
+    if: needs.prepare.outputs.number != ''
+    runs-on: ubuntu-latest
+    # One group per pull request, shared with "Remove pull request preview".
+    # Deployments and the removal of the same preview therefore never overlap.
+    # Previews of different pull requests and the production deployment run in
+    # parallel; update-gh-pages.sh retries a push that was rejected.
+    concurrency:
+      group: gh-pages-pr-${{ needs.prepare.outputs.number }}
+      cancel-in-progress: false
+    permissions:
+      actions: read
+      contents: write
+      pull-requests: write
+    env:
+      PR_NUMBER: ${{ needs.prepare.outputs.number }}
+    steps:
+      # Checked again here, because the job may have waited in the concurrency
+      # group. A pending removal is replaced by a newer run of this job, so a
+      # pull request that was closed meanwhile is cleaned up here instead.
+      - name: Check pull request state
         id: check
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ steps.pr.outputs.number }}
         run: |
           set -euo pipefail
           state="$(gh api "repos/${{ github.repository }}/pulls/${PR_NUMBER}" --jq '.state')"
+          echo "Pull request ${PR_NUMBER} is ${state}."
           echo "state=${state}" >> "$GITHUB_OUTPUT"
 
-      - name: Deploy preview to GitHub Pages
-        if: steps.check.outputs.state == 'open'
-        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3
+      # Only the script is taken from the default branch, never anything from
+      # the pull request.
+      - name: Check out deployment script
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          destination_dir: pr/${{ steps.pr.outputs.number }}
-          # Replace the preview instead of merging it with the previous one.
-          # Keeping files caused stale, hashed assets from earlier pushes to
-          # pile up in pr/<number> and grow the Pages artifact beyond its
-          # size limit.
-          # Since destination_dir is set, the action only cleans up that
-          # folder, so the production site at the root and the previews of
-          # other pull requests stay untouched.
-          keep_files: false
-          user_name: github-actions[bot]
-          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          ref: ${{ github.event.repository.default_branch }}
+          path: tools
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
+      - name: Download preview build
+        if: steps.check.outputs.state == 'open'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: pr-preview
+          path: ./preview
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Replaces pr/<number> completely, so hashed assets of earlier pushes do
+      # not pile up. The production site and the other previews stay untouched.
+      # The script fetches gh-pages itself and creates it if it does not exist.
+      - name: Publish preview to GitHub Pages
+        if: steps.check.outputs.state == 'open'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir "${RUNNER_TEMP}/gh-pages"
+          cd "${RUNNER_TEMP}/gh-pages"
+          bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" preview "${PR_NUMBER}" "${GITHUB_WORKSPACE}/preview"
+
+      - name: Remove preview of closed pull request
+        if: steps.check.outputs.state != 'open'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir "${RUNNER_TEMP}/gh-pages"
+          cd "${RUNNER_TEMP}/gh-pages"
+          bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" remove "${PR_NUMBER}"
 
       - name: Comment preview URL on the pull request
-        if: steps.check.outputs.state == 'open'
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         env:
-          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          PR_STATE: ${{ steps.check.outputs.state }}
         with:
           script: |
             const marker = '<!-- pr-preview-comment -->';
             const prNumber = Number(process.env.PR_NUMBER);
             const url = `https://eclipse-tractusx.github.io/pr/${prNumber}/`;
-            const body = [
-              marker,
-              '## 🔍 Pull request preview',
-              '',
-              'The website was built from this pull request and is available here:',
-              '',
-              `🌐 **Preview URL:** ${url}`,
-              '',
-              '> This comment is updated automatically on every push. The preview is removed once the pull request is closed.',
-            ].join('\n');
+            const body = process.env.PR_STATE === 'open'
+              ? [
+                marker,
+                '## 🔍 Pull request preview',
+                '',
+                'The website was built from this pull request and is available here:',
+                '',
+                `🌐 **Preview URL:** ${url}`,
+                '',
+                '> This comment is updated automatically on every push. The preview is removed once the pull request is closed.',
+              ].join('\n')
+              : [
+                marker,
+                '## 🔍 Pull request preview',
+                '',
+                'This pull request is closed, so the preview has been removed.',
+              ].join('\n');
 
             const comments = await github.paginate(github.rest.issues.listComments, {
               owner: context.repo.owner,
@@ -137,7 +194,7 @@ jobs:
                 comment_id: existing.id,
                 body,
               });
-            } else {
+            } else if (process.env.PR_STATE === 'open') {
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
