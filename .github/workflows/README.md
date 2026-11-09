@@ -42,7 +42,7 @@ flowchart TD
 - **Pull request:** the site is built once, in "Build pull request preview". That build serves two purposes. It
   verifies that the site builds (broken links fail the build, although `npm start` may not show them), and its output
   is the preview. "Deploy pull request preview" does not build anything; it publishes the artifact of that run.
-  Removing "Build pull request preview" would therefore remove the previews as well.
+  "Remove pull request preview" would therefore remove the previews.
 - **Merge to `main`:** the site is built again in "Build and deploy gh-pages". This is not redundant: the preview was
   built with the base URL `/pr/<number>/` and from the pull request at that time, while production needs the base URL
   `/` and the current state of `main`.
