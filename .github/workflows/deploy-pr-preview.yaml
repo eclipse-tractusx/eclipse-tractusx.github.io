@@ -90,9 +90,14 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           destination_dir: pr/${{ steps.pr.outputs.number }}
-          # Never remove the production site at the root or the previews of
-          # other pull requests.
-          keep_files: true
+          # Replace the preview instead of merging it with the previous one.
+          # Keeping files caused stale, hashed assets from earlier pushes to
+          # pile up in pr/<number> and grow the Pages artifact beyond its
+          # size limit.
+          # Since destination_dir is set, the action only cleans up that
+          # folder, so the production site at the root and the previews of
+          # other pull requests stay untouched.
+          keep_files: false
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
 
