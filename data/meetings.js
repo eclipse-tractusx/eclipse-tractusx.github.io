@@ -195,6 +195,25 @@ export const meetings = [
       {title: "KIT Getting Started", url: "https://eclipse-tractusx.github.io/documentation/kit-getting-started"}
     ]
   },
+  {
+    id: 'starter-kit-open-meeting',
+    title: 'Eclipse Tractus-X Starter Kit Open Meeting',
+    icon: 'rocket_launch',
+    category: MEETING_CATEGORIES.GENERAL,
+    description: 'Open meeting for the Eclipse Tractus-X Starter Kit, a configuration wizard that generates a ready-to-use Docker Compose setup and documentation to get Tractus-X components running locally. We share the current status, discuss supported components and use cases, collect feedback from new adopters and coordinate contributions. Everyone is welcome!',
+    contact: CONTACTS.STEPHAN_BAUER,
+    additionalLinks: [
+      {title: 'Repository', url: 'https://github.com/eclipse-tractusx/tractusx-starter-kit'},
+    ],
+    recurrence: {
+      frequency: 'weekly',
+      interval: 2,
+      daysOfWeek: ['thursday'],
+      startTime: '13:00',
+      endTime: '13:30',
+      validFrom: '2026-11-12',
+    },
+  },
   // Product Regular Meetings
   {
     id: 'industry-core-hub-weekly',
@@ -395,64 +414,6 @@ export const meetings = [
       startDate: '2026-11-02',
       startTime: '08:30',
       endTime: '09:00',
-    },
-  },
-  // New entries for R26.12 - Alignment Day and Open Planning
-  {
-    id: 'alignment-day-r26-12',
-    title: 'Alignment Day for R26.12',
-    icon: 'handshake',
-    category: MEETING_CATEGORIES.ONE_TIME,
-    priority: MEETING_PRIORITIES.FEATURED,
-    description: 'Address open questions and unresolved dependencies for features planned for Release 26.12. This session focuses on alignment and clarifying blockers before open planning.',
-    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.THERESA_HILGER],
-    sessionLink: 'https://teams.microsoft.com/meet/36303060836975?p=PDgS8VJ76ypbOFmcxY',
-    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-release-planning:matrix.eclipse.org',
-    additionalLinks: [
-      {
-        title: 'Release Planning Board - Open Question',
-        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/43?filterQuery=-label%3Ametadata+label%3APrep-R26.12+label%3A%22open+question%22'
-      },
-      {
-        title: 'Timeline',
-        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A26.12'
-      },
-      {title: 'News Blog', url: '/blog/release-planning-R26.12'},
-    ],
-    recurrence: {
-      frequency: 'once',
-      startDate: '2026-07-30',
-      startTime: '09:05',
-      endTime: '10:00',
-    },
-  },
-  {
-    id: 'open-planning-r26-12',
-    title: 'Open Planning for R26.12',
-    icon: 'event_note',
-    category: MEETING_CATEGORIES.ONE_TIME,
-    priority: MEETING_PRIORITIES.FEATURED,
-    description: 'Finalize roadmap, prioritize features and align participants on deliverables for Release 26.12.',
-    contact: [CONTACTS.STEPHAN_BAUER, CONTACTS.THERESA_HILGER],
-    sessionLink: 'https://teams.microsoft.com/meet/311292893589704?p=bOzDbp9v4O4CKRGTVE',
-    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-release-planning:matrix.eclipse.org',
-    additionalLinks: [
-      {
-        title: 'Release Planning Board - Topic/Product',
-        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/28?filterQuery=-status%3ADone+has%3Atopic%2Fproduct+label%3A%22Prep-R26.12%22+status%3ABacklog'
-      },
-      {
-        title: 'Timeline',
-        url: 'https://github.com/orgs/eclipse-tractusx/projects/26/views/35?filterQuery=label%3Ametadata+milestone%3A26.12'
-      },
-      {title: 'News Blog', url: '/blog/release-planning-R26.12'},
-      {title: 'Detailed Agenda', url: '/blog/release-planning-R26.12#agenda-1'},
-    ],
-    recurrence: {
-      frequency: 'once',
-      startDate: '2026-08-13',
-      startTime: '09:05',
-      endTime: '10:30',
     },
   },
   {
