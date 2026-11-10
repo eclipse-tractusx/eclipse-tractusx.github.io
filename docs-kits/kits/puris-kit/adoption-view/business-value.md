@@ -42,14 +42,17 @@ A widespread bottleneck arises when an isolated issue impacts additional supply 
 ## PURIS Usage Scenarios
 
 PURIS can be applied in different ways depending on the specific needs and agreements between supply chain partners. The two core usage scenarios - shortage management and monitoring - represent the fundamental forms of application. However, companies have the flexibility to define a hybrid approach that combines elements of both. The chosen setup depends on factors such as the criticality of supplied parts, the maturity of collaboration, and the level of data exchange. This adaptability allows PURIS to support a wide range of operational contexts.
+Both usage scenarios are described in more detail in the [Use Cases](use-cases/use-cases.md) section.
 
 ### Shortage Management (Reactive Risk Handling)
 
 In this scenario, PURIS is used to respond to acute supply disruptions. When a bottleneck occurs, data is exchanged between partners to quickly understand the scope of the issue, and coordinate appropriate countermeasures. The process involves real-time communication, structured data interpretation, and rapid decision-making to stabilize the supply chain.
+See [Shortage Handling](use-cases/shortage-handling.md) for the detailed process.
 
 ### Monitoring (Proactive Risk Prevention)
 
 This scenario is based on continuous data exchange between supply chain partners. The goal is to maintain transparency over short-term supply and demand developments. By regularly monitoring material flows and order patterns, companies can detect irregularities early and initiate preventive actions. This process supports stable operations and enables early coordination in case of emerging risks. In case a risk occurs, PURIS can be used for detailing handling of the bottleneck as stated [before](#shortage-management-reactive-risk-handling).
+See [Monitoring](use-cases/monitoring.md) for more details.
 
 ## Potentials
 

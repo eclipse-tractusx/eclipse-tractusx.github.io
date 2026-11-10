@@ -10,6 +10,20 @@ sidebar_position: 1
 
 All notable changes to this KIT will be documented in this file.
 
+## [0.5.0] - unreleased
+
+### Added
+
+- Adoption View
+  - Use Cases: Added a new section describing the PURIS use cases Shortage Handling (incl. the generic shortage management process) and Monitoring.
+  - Differentiation of DCM & PURIS: Added a new section with the pages Production Context & Customer-Supplier Interaction in the Production Process, Dynamics and Cost Drivers, and Complexities, describing how DCM and PURIS complement each other along the production process.
+
+### Changed
+
+- Adoption View
+  - Moved the PURIS & DCM page from Integration Scenarios to the landing page of the new section Differentiation of DCM & PURIS.
+  - Business Value and Integration Scenarios now link to the new sections.
+
 ## [0.4.1] - 2026-03-18
 
 ### Added
