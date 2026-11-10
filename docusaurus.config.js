@@ -17,6 +17,19 @@ const siteUrl = process.env.SITE_URL || 'https://eclipse-tractusx.github.io';
 const rawBaseUrl = (process.env.BASE_URL || '/').replace(/^\/+|\/+$/g, '');
 const baseUrl = rawBaseUrl ? `/${rawBaseUrl}/` : '/';
 
+// Usage analytics, see src/clientModules/analytics.js. Umami is one of the analytics
+// tools approved by the Eclipse Foundation. Nothing is collected before the visitor
+// allowed cookies in the Eclipse Foundation cookie consent banner. The website id is
+// public (it is part of every tracked page anyway). Analytics stay off in pull request
+// previews, which are built with a different baseUrl. Set UMAMI_WEBSITE_ID to an
+// empty string to build without analytics.
+const umamiWebsiteId = process.env.UMAMI_WEBSITE_ID ?? 'f67aead1-a34a-4905-86bc-19632b489270';
+const umamiScriptUrl = process.env.UMAMI_SCRIPT_URL || 'https://cloud.umami.is/script.js';
+
+// Eclipse Foundation cookie consent banner, mandatory before any analytics data is
+// collected: https://webdev.eclipse.org/docs/solstice/?path=/docs/getting-started-embedding-analytics--docs
+const eclipseCookieConsentBase = 'https://www.eclipse.org/eclipse.org-common/themes/solstice/public';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Eclipse Tractus-X',
@@ -37,6 +50,20 @@ const config = {
       innerHTML: `(function(){try{if(localStorage.getItem('docusaurus.announcement.id')!=='${announcementBarId}'){localStorage.setItem('docusaurus.announcement.dismiss','false');}}catch(e){}})();`,
     },
   ],
+
+  stylesheets: [`${eclipseCookieConsentBase}/stylesheets/vendor/cookieconsent/cookieconsent.min.css`],
+  scripts: [{ src: `${eclipseCookieConsentBase}/javascript/vendor/cookieconsent/default.min.js`, defer: true }],
+  clientModules: [require.resolve('./src/clientModules/analytics.js')],
+
+  customFields: {
+    analytics: {
+      enabled: Boolean(umamiWebsiteId) && baseUrl === '/',
+      umamiWebsiteId,
+      umamiScriptUrl,
+      // Umami only sends data from these hosts, so local builds are never tracked.
+      domains: new URL(siteUrl).hostname,
+    },
+  },
 
   markdown: {
     mermaid: true,
@@ -419,15 +446,15 @@ const config = {
             items: [
               {
                 label: "About",
-                href: "http://www.eclipse.org",
+                href: "https://www.eclipse.org",
               },
               {
                 label: "Privacy Policy",
-                href: "http://www.eclipse.org/legal/privacy.php",
+                href: "https://www.eclipse.org/legal/privacy/",
               },
               {
                 label: "Terms of Use",
-                href: "http://www.eclipse.org/legal/termsofuse.php",
+                href: "https://www.eclipse.org/legal/terms-of-use/",
               },
               {
                 label: "Compliance",
@@ -435,11 +462,11 @@ const config = {
               },
               {
                 label: "Legal Resources",
-                href: "http://www.eclipse.org/legal",
+                href: "https://www.eclipse.org/legal/",
               },
               {
                 label: "Contact",
-                href: "https://www.eclipse.org/org/foundation/contact.php",
+                href: "https://www.eclipse.org/org/foundation/contact/",
               },
             ],
           },
@@ -533,7 +560,7 @@ const config = {
               </div>
             </a>
           </div>
-          <div>Copyright © ${new Date().getFullYear()} Eclipse Tractus-X. Built with Docusaurus.</div>
+          <div>Copyright © Eclipse Foundation AISBL. All Rights Reserved. Built with Docusaurus.</div>
         `,
       },
       prism: {
