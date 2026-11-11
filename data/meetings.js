@@ -67,13 +67,6 @@ export const CONTACTS = {
     github: 'lgblaumeiser',
     country: 'DE'
   },
-  SAAD_RAFIQ: {
-    name: 'Saad Rafiq',
-    title: 'Portal Product Owner',
-    email: 'saad.rafiq@cofinity-x.com',
-    github: 'saadrafiq12',
-    country: 'DE'
-  },
   MIKEL_GARCIA: {
     name: 'Mikel Garcia',
     title: 'Eclipse Tractus-X Project Lead',
@@ -282,24 +275,27 @@ export const meetings = [
       endTime: '16:00',
     },
   },
+  // Replaces the former 'portal-open-meeting': the Dataspace Management is the modernised Portal.
   {
-    id: 'portal-open-meeting',
-    title: 'Portal - Open Meeting',
+    id: 'dataspace-management-open-meeting',
+    title: 'Dataspace Management (Services & UI) - Open Meeting',
     icon: 'dashboard',
     category: MEETING_CATEGORIES.PRODUCT,
-    description: 'Open meeting for Portal product. Agenda is divided in alignment on development - features, bugs, maintenance - and Q&A.',
-    contact: CONTACTS.SAAD_RAFIQ,
-    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_YmIyYjgwOTQtZjI1Ny00YmM0LTlmOWQtODRjZWFmZWM1Y2E3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
-    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-portal:matrix.eclipse.org',
+    description: 'Weekly open meeting for the Dataspace Management, the modernised Portal of Eclipse Tractus-X: the Dataspace Management Services (backend) and the Dataspace Management UI. We align on development - features, bugs, architecture and maintenance - and answer your questions. It replaces the former Portal open meeting. Everyone is welcome!',
+    contact: CONTACTS.MATHIAS_MOSER,
+    matrixChatUrl: 'https://matrix.to/#/#tractusx:matrix.eclipse.org',
     additionalLinks: [
-      {title: 'Feature Board', url: 'https://github.com/orgs/eclipse-tractusx/projects/50/views/25'},
+      {title: 'dataspace-mgm-services Repository', url: 'https://github.com/eclipse-tractusx/dataspace-mgm-services'},
+      {title: 'dataspace-mgm-ui Repository', url: 'https://github.com/eclipse-tractusx/dataspace-mgm-ui'},
+      {title: 'Tractus-X Mailing List', url: 'https://accounts.eclipse.org/mailing-list/tractusx-dev'},
     ],
     recurrence: {
       frequency: 'weekly',
-      interval: 4,
-      daysOfWeek: ['tuesday'],
-      startTime: '10:30',
-      endTime: '11:00',
+      interval: 1,
+      daysOfWeek: ['friday'],
+      startTime: '14:00',
+      endTime: '15:00',
+      validFrom: '2026-11-20',
     },
   },
   {
