@@ -11,6 +11,8 @@ PURIS does not primarily reduce the probability of disruptions occurring. Instea
 
 As a result, organizations can reduce the potential business impact of disruption through earlier coordination, faster decision-making and more targeted mitigation measures.
 
+To reduce efforts in monitoring threshold values can be applied to days of supply or a projected stock on a per material and partner level to start collaboration in case of potential upcoming issues.
+
 ## NOTICE
 
 This work is licensed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode)

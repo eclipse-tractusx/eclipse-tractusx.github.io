@@ -5,11 +5,11 @@ description: PURIS Use Cases
 sidebar_position: 4
 ---
 
-:::info
+PURIS can be used within different use cases. Figure 1 below shows the generic [monitoring](monitoring.md) and [shortage process](shortage-handling.md).
 
-This section is under construction. Content will follow.
+![shortage-management-process](../../assets/shortage-management-process.png)
 
-:::
+Figure 1: *Generic operational shortage management process illustrating how customers and suppliers assess supply situations, exchange PURIS information, coordinate mitigation measures and collaboratively manage shortage situations until stabilization is achieved.*
 
 ## NOTICE
 

@@ -7,9 +7,7 @@ sidebar_position: 1
 
 ## Production Process in Context of DCM and PURIS
 
-The differences between PURIS and DCM become apparent when viewed along the production process.
-
-The production process can be structured into six phases: Planning, Call-Off & Commitment, Inbound, Material Provisioning, Production and Outbound.
+The differences between PURIS and DCM become apparent when viewed along the production process. The production process can be structured into six phases: Planning, Call-Off & Commitment, Inbound, Material Provisioning, Production and Outbound.
 
 Across these phases, the degree of flexibility continuously decreases while operational commitment and the potential cost of disruptions and actions to mitigate disruptions increase. DCM primarily supports demand-capacity alignment during the planning-oriented phases of the process. PURIS extends this perspective into operational execution by providing transparency into supply capability, supporting shortage management and enabling collaborative mitigation measures when supply risks materialize.
 
@@ -25,9 +23,7 @@ Customer and supplier processes are not strictly sequential. Instead, they opera
 
 On the customer side, activities typically include demand planning, call-off management, inbound monitoring, mitigation planning and production steering. On the supplier side, activities include capacity validation, supply preparation, inventory monitoring, operational production control and customer communication.
 
-The closer a potential shortage moves towards production, the more costly and comprehensive mitigation measures become for both parties.
-
-The interaction can be described as a bilateral exchange between consumer and provider, depending on the specific process step and information need. In this context, PURIS supports the operational management of deviations within the running customer-supplier relationship, while DCM supports earlier alignment of demand and capacity before operational supply risk materializes.
+The closer a potential shortage moves towards production, the more costly and comprehensive mitigation measures become for both parties (see Figure 2.). The interaction can be described as a bilateral exchange between consumer and provider, depending on the specific process step and information need. In this context, PURIS supports the operational management of deviations within the running customer-supplier relationship, while DCM supports earlier alignment of demand and capacity before operational supply risk materializes.
 
 ![customer-supplier-interaction](../../assets/customer-supplier-interaction.svg)
 

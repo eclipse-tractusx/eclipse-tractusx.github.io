@@ -25,11 +25,7 @@ The operational shortage management process typically includes the following ste
 - Reassess the supply situation
 - Continue coordinated shortage management until stabilization is achieved
 
-The generic operational shortage management process is illustrated in Figure 1.
-
-![shortage-management-process](../../assets/shortage-management-process.svg)
-
-Figure 1: *Generic operational shortage management process illustrating how customers and suppliers assess supply situations, exchange PURIS information, coordinate mitigation measures and collaboratively manage shortage situations until stabilization is achieved.*
+The generic operational shortage management process is illustrated on the [Use Cases](use-cases.md) overview page.
 
 ## NOTICE
 

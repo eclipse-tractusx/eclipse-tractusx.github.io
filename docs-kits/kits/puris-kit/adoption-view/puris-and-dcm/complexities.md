@@ -19,7 +19,7 @@ PURIS complexity in the bilateral context is mainly driven by three factors: tim
 | Primary Focus    | Planning stability and alignment                     | Short-term supply stabilization                                    |
 | Data Objects     | Forecast, demand, capacity, commitments              | Operational inventory, demand, production and delivery information |
 | Granularity      | Weekly Demand & Capacity Baskets                     | Daily Operational Supply, Demand and Production Information        |
-| Update Frequency | Regular, time-based                                  | Continuous, event-driven                                           |
+| Update Frequency | Regular, time-based                                  | Continuous, on-demand                                              |
 | Decision Context | Planned, with lead time                              | Time-critical, close to execution                                  |
 | Governance       | Collaborative balancing and early shortage detection | Operational optimization, shortage prevention and mitigation       |
 
