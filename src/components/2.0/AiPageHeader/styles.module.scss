@@ -26,7 +26,7 @@ $brand-green: #afc72d;
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 56px 0 0;
+  padding: 56px 0 64px;
   background:
     radial-gradient(70% 60% at 50% 0%, rgba(250, 160, 35, 0.14) 0%, rgba(250, 160, 35, 0) 70%),
     linear-gradient(180deg, #0b0d12 0%, #070809 100%);
@@ -153,67 +153,38 @@ $brand-green: #afc72d;
 }
 
 /* --------------------------------------------------------------------------
-   Section navigation
+   Back to the AI overview (sub-pages only)
    -------------------------------------------------------------------------- */
 
-.tabs {
+.back {
   display: flex;
-  justify-content: center;
-  gap: 4px;
-  margin-top: 40px;
-  overflow-x: auto;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.tab {
-  position: relative;
-  flex-shrink: 0;
-  padding: 14px 22px 16px;
-  color: rgba(255, 255, 255, 0.62);
-  font-family: 'Manrope', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  margin: -24px auto 28px 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
   transition: color 0.2s ease;
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: 14px;
-    right: 14px;
-    bottom: 0;
-    height: 3px;
-    border-radius: 3px 3px 0 0;
-    background: linear-gradient(90deg, $brand-orange 0%, $brand-green 100%);
-    transform: scaleX(0);
-    transition: transform 0.25s ease;
+  &:hover {
+    color: $brand-orange;
+    text-decoration: none;
   }
 
-  &:hover {
-    color: #ffffff;
-    text-decoration: none;
+  &:hover .backIcon {
+    transform: translateX(-3px);
   }
 
   &:focus-visible {
     outline: 2px solid $brand-orange;
-    outline-offset: -2px;
+    outline-offset: 4px;
     border-radius: 6px;
-  }
-
-  @media screen and (max-width: 600px) {
-    padding: 12px 14px 14px;
-    font-size: 14px;
   }
 }
 
-.tabActive {
-  color: #ffffff;
-
-  &::after {
-    transform: scaleX(1);
-  }
+.backIcon {
+  font-size: 18px !important;
+  transition: transform 0.2s ease;
 }

@@ -159,7 +159,7 @@ export default function AiMcpServersPage() {
     >
       <main className={styles.page}>
         <AiPageHeader
-          active="mcp-servers"
+          backToOverview
           eyebrow="MCP servers"
           title={
             <>

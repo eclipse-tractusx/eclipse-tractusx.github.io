@@ -26,7 +26,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { agents, agentTeams, mcpServers, ASSISTANTS } = require('../data/aiData');
+const { agents, agentTeams, agentProfiles, mcpServers, ASSISTANTS } = require('../data/aiData');
 
 const ROOT = path.join(__dirname, '..');
 const KEBAB_CASE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -82,6 +82,25 @@ function validateAgent(agent, context, errors) {
   }
 }
 
+// Every agent has a profile page (/AI/agents/<id>), so every agent needs its profile content.
+function validateProfiles(errors) {
+  agents.forEach((agent) => {
+    const label = `Profile "${agent.id}"`;
+    const profile = agentProfiles[agent.id];
+    if (!profile) {
+      errors.push(`${label}: missing in data/aiAgentProfiles.js`);
+      return;
+    }
+    requireFields(profile, ['mission', 'personality', 'skills'], label, errors);
+    (profile.skills || []).forEach((skill, index) => {
+      requireFields(skill, ['name', 'text'], `${label} skills[${index}]`, errors);
+    });
+  });
+  Object.keys(agentProfiles).forEach((id) => {
+    if (!agents.some((agent) => agent.id === id)) errors.push(`Profile "${id}": no agent with this id`);
+  });
+}
+
 function validateMcpServer(server, errors) {
   const label = `MCP server "${server.id || '?'}"`;
   requireFields(server, ['id', 'name', 'provider', 'origin', 'description', 'url', 'usedBy'], label, errors);
@@ -113,6 +132,7 @@ function validateAiData() {
     if (!agents.some((agent) => agent.team === team.id)) errors.push(`Team "${team.id}": has no agents`);
   });
   mcpServers.forEach((server) => validateMcpServer(server, errors));
+  validateProfiles(errors);
 
   return errors;
 }

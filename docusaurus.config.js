@@ -161,6 +161,24 @@ const config = {
       },
       {},
     ],
+    // -- AI agent profiles: one page per agent in data/aiData.js at /AI/agents/<id>,
+    //    all rendered by the same component --
+    function aiAgentProfilesPlugin(context) {
+      return {
+        name: 'ai-agent-profiles',
+        async contentLoaded({ actions }) {
+          const { agents } = require('./data/aiData');
+          agents.forEach((agent) => {
+            actions.addRoute({
+              path: `${context.baseUrl}AI/agents/${agent.id}`,
+              component: '@site/src/components/2.0/AgentProfile',
+              exact: true,
+              props: { agentId: agent.id },
+            });
+          });
+        },
+      };
+    },
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',

@@ -19,12 +19,13 @@
 
 import React from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import AiPageHeader from '@site/src/components/2.0/AiPageHeader';
 import AgentCard, { AgentTeamCard } from '@site/src/components/2.0/AgentCard';
 import {
   agents,
   agentTeams,
-  agentDefinitionUrl,
+  agentProfileUrl,
   getAiStatistics,
   getFeaturedAgents,
   getTeamMembers,
@@ -43,7 +44,7 @@ export default function AiAgentsPage() {
     >
       <main className={styles.page}>
         <AiPageHeader
-          active="agents"
+          backToOverview
           eyebrow="AI agents"
           title={
             <>
@@ -94,9 +95,7 @@ export default function AiAgentsPage() {
                   {agents.map((agent) => (
                     <tr key={agent.id}>
                       <td>
-                        <a href={agentDefinitionUrl(agent)} target="_blank" rel="noopener noreferrer">
-                          {agent.name}
-                        </a>
+                        <Link to={agentProfileUrl(agent)}>{agent.name}</Link>
                       </td>
                       <td>{agent.role}</td>
                       <td>

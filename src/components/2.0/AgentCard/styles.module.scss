@@ -51,6 +51,7 @@ $brand-green: #afc72d;
    -------------------------------------------------------------------------- */
 
 .media {
+  display: block;
   position: relative;
   aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -201,11 +202,14 @@ $brand-green: #afc72d;
   color: var(--ifm-color-emphasis-800);
 }
 
-.description {
-  margin: 14px 0 0;
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: var(--ifm-color-emphasis-800);
+.nameLink {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: $brand-orange;
+    text-decoration: none;
+  }
 }
 
 .tags {
@@ -235,8 +239,7 @@ $brand-green: #afc72d;
   padding-top: 18px;
 }
 
-.assistants,
-.handsOver {
+.assistants {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -263,24 +266,6 @@ $brand-green: #afc72d;
 
   [data-theme='dark'] & {
     color: $brand-green;
-  }
-}
-
-.handsOverLink {
-  padding: 2px 9px;
-  border-radius: 999px;
-  background: rgba(250, 160, 35, 0.14);
-  font-weight: 700;
-  color: #b06f05;
-  text-decoration: none;
-
-  &:hover {
-    background: rgba(250, 160, 35, 0.26);
-    text-decoration: none;
-  }
-
-  [data-theme='dark'] & {
-    color: $brand-orange;
   }
 }
 
@@ -313,6 +298,28 @@ $brand-green: #afc72d;
   }
 }
 
+.chatLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: linear-gradient(120deg, $brand-orange 0%, #f08a12 100%);
+  color: #10120f;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(250, 160, 35, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    color: #10120f;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(250, 160, 35, 0.32);
+  }
+}
+
 .linkIcon {
   font-size: 16px !important;
 }
@@ -321,9 +328,17 @@ $brand-green: #afc72d;
    Team members
    -------------------------------------------------------------------------- */
 
+.description {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+}
+
+// The team's agents as compact pills, each linking to its profile.
 .members {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 8px;
   margin: 16px 0 0;
   padding: 0;
@@ -331,28 +346,27 @@ $brand-green: #afc72d;
 }
 
 .member {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 9px 12px;
-  border-radius: 10px;
-  border: 1px solid var(--ifm-color-emphasis-200);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-300);
   background: var(--ifm-color-emphasis-100);
-}
-
-.memberName {
-  font-size: 14px;
-  font-weight: 700;
   color: var(--ifm-font-color-base);
+  font-size: 12.5px;
+  font-weight: 700;
   text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
 
   &:hover {
+    border-color: $brand-orange;
     color: $brand-orange;
     text-decoration: none;
   }
 }
 
-.memberRole {
-  font-size: 12.5px;
-  color: var(--ifm-color-emphasis-700);
+.memberIcon {
+  font-size: 15px !important;
+  color: $brand-orange;
 }
