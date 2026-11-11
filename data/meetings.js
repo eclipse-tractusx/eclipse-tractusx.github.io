@@ -202,6 +202,7 @@ export const meetings = [
     category: MEETING_CATEGORIES.GENERAL,
     description: 'Open meeting for the Eclipse Tractus-X Starter Kit, a configuration wizard that generates a ready-to-use Docker Compose setup and documentation to get Tractus-X components running locally. We share the current status, discuss supported components and use cases, collect feedback from new adopters and coordinate contributions. Everyone is welcome!',
     contact: CONTACTS.STEPHAN_BAUER,
+    sessionLink: 'https://teams.microsoft.com/meet/3178917802386527?p=WP5I65IKr41O0rdzYb',
     additionalLinks: [
       {title: 'Repository', url: 'https://github.com/eclipse-tractusx/tractusx-starter-kit'},
     ],
