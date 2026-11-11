@@ -369,6 +369,26 @@ const config = {
             ],
           },
           {
+            type: 'dropdown',
+            label: 'AI',
+            position: 'left',
+            to: '/AI',
+            items: [
+              {
+                to: '/AI',
+                label: 'Overview',
+              },
+              {
+                to: '/AI/agents',
+                label: 'Agents',
+              },
+              {
+                to: '/AI/mcp-servers',
+                label: 'MCP Servers',
+              },
+            ],
+          },
+          {
             type: 'doc',
             docId: 'developer',
             position: 'left',
