@@ -258,7 +258,9 @@ export default function AiMcpServersPage() {
                   Terminal
                 </p>
                 <CodeBlock language="bash">
-                  {`claude mcp add --transport http <server-name> <url> --scope project`}
+                  {`claude mcp add --transport http \\
+  <server-name> <url> \\
+  --scope project`}
                 </CodeBlock>
               </div>
             </div>

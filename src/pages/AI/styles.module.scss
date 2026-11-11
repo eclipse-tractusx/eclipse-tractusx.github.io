@@ -150,6 +150,8 @@ $brand-green: #afc72d;
 .table {
   display: table;
   width: 100%;
+  // On phones the wrapper scrolls sideways instead of squeezing the columns.
+  min-width: 760px;
   margin: 0;
   border-collapse: collapse;
   font-size: 14px;
@@ -344,6 +346,8 @@ $brand-green: #afc72d;
 .portraitImage {
   display: block;
   width: 100%;
+  // The width/height attributes reserve space; height: auto lets aspect-ratio keep it square.
+  height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 18px;
@@ -434,6 +438,7 @@ $brand-green: #afc72d;
 
 .crewLeadImage {
   width: 100%;
+  height: auto;
   max-width: 300px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
