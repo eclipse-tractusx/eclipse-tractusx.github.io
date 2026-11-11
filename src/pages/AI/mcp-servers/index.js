@@ -29,7 +29,7 @@ import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined';
 import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import AiPageHeader from '@site/src/components/2.0/AiPageHeader';
-import { mcpServers } from '@site/data/aiData';
+import { mcpServers } from '@site/data/aiAgents';
 import styles from '../styles.module.scss';
 
 const MCP_URL = 'https://modelcontextprotocol.io/';

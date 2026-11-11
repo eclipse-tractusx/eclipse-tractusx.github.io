@@ -40,7 +40,7 @@ import {
   getAiStatistics,
   getFeaturedAgents,
   getTeamMembers,
-} from '@site/data/aiData';
+} from '@site/data/aiAgents';
 import styles from './styles.module.scss';
 
 // The agent that routes questions to the others, see its definition in dataspace-mgm-services.
@@ -320,7 +320,7 @@ claude --agent connector-sensei`}
                     <code>REUSE.toml</code> for the picture.
                   </li>
                   <li>
-                    Add the agent to <code>data/aiData.js</code> of this website and a 720×720 WebP of its picture to{' '}
+                    Add the agent and its profile to <code>data/aiAgents.js</code> of this website and a 720×720 WebP of its picture to{' '}
                     <code>static/img/ai/agents/</code>.
                   </li>
                   <li>
@@ -330,11 +330,11 @@ claude --agent connector-sensei`}
                 <div className={styles.actions}>
                   <a
                     className={styles.buttonPrimary}
-                    href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/data/aiData.js"
+                    href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/data/aiAgents.js"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Open data/aiData.js
+                    Open data/aiAgents.js
                   </a>
                   <Link className={styles.buttonSecondary} to="/community/open-meetings">
                     Join an open meeting

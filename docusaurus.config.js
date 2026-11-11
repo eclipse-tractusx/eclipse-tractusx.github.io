@@ -161,13 +161,13 @@ const config = {
       },
       {},
     ],
-    // -- AI agent profiles: one page per agent in data/aiData.js at /AI/agents/<id>,
+    // -- AI agent profiles: one page per agent in data/aiAgents.js at /AI/agents/<id>,
     //    all rendered by the same component --
     function aiAgentProfilesPlugin(context) {
       return {
         name: 'ai-agent-profiles',
         async contentLoaded({ actions }) {
-          const { agents } = require('./data/aiData');
+          const { agents } = require('./data/aiAgents');
           agents.forEach((agent) => {
             actions.addRoute({
               path: `${context.baseUrl}AI/agents/${agent.id}`,

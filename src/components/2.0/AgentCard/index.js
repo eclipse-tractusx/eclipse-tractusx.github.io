@@ -25,7 +25,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
-import { agentChatHint, agentChatUrl, agentProfileUrl } from '@site/data/aiData';
+import { agentChatHint, agentChatUrl, agentProfileUrl } from '@site/data/aiAgents';
 import styles from './styles.module.scss';
 
 // At most this many expertise tags on a card; the profile page shows all of them.

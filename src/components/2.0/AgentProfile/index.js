@@ -46,9 +46,8 @@ import {
   agentDefinitionUrl,
   agentProfileUrl,
   getAgentById,
-  getAgentProfile,
   repositoryUrl,
-} from '@site/data/aiData';
+} from '@site/data/aiAgents';
 import styles from './styles.module.scss';
 
 function Portrait({ agent, className }) {
@@ -136,7 +135,7 @@ claude --agent ${agent.id}`}
 
 export default function AgentProfile({ agentId }) {
   const agent = getAgentById(agentId);
-  const profile = getAgentProfile(agentId);
+  const { profile } = agent;
   const team = agent.team ? agentTeams.find((entry) => entry.id === agent.team) : null;
 
   const handsOverTo = (agent.handsOverTo || []).map(getAgentById).filter(Boolean);
