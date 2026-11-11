@@ -57,6 +57,8 @@
  * there and add the entry below. `npm run validate:ai` checks the result.
  */
 
+const { agentProfiles } = require('./aiAgentProfiles');
+
 const GITHUB_ORG_URL = 'https://github.com/eclipse-tractusx';
 
 const ASSISTANTS = {
@@ -64,20 +66,19 @@ const ASSISTANTS = {
   COPILOT: 'GitHub Copilot',
 };
 
+// The order here is the order on the pages.
 const agents = [
   {
-    id: 'dataspace-captain',
-    name: 'Dataspace Captain',
-    repository: 'dataspace-mgm-services',
-    alsoIn: ['dataspace-mgm-ui'],
-    role: 'Captain of the Dataspace Management product, the new portal of OSP 2.0',
-    motto: 'Discover. Connect. Exchange. Govern.',
+    id: 'kit-master-builder',
+    name: 'KIT Master Builder',
+    repository: 'eclipse-tractusx.github.io',
+    role: 'Eclipse Tractus-X KIT architect and technical writer',
+    motto: "Let's build great KITs together!",
     description:
-      'Knows the Dataspace Management service and UI, their specifications and how both fit with connectors, wallets, issuers, BDRS and discovery. Ask it for the architecture overview, modules, permissions, Process Orchestration flows and the seams between UI and backend.',
-    expertise: ['OSP 2.0', 'Portal modules', 'Process Orchestration', 'UI architecture'],
+      'Creates, reviews and maintains KITs. Knows the KIT lifecycle, the master data, the legal requirements and the Tractus-X Release Guidelines, scaffolds complete KITs and guides them to graduation.',
+    expertise: ['KITs', 'KIT lifecycle', 'TRGs', 'Documentation'],
     assistants: [ASSISTANTS.CLAUDE_CODE, ASSISTANTS.COPILOT],
-    image: '/img/ai/agents/dataspace-captain.webp',
-    handsOverTo: ['connector-sensei', 'identity-keeper', 'umbrella-guardian', 'kit-master-builder'],
+    image: '/img/ai/agents/kit-master-builder.webp',
   },
   {
     id: 'connector-sensei',
@@ -115,16 +116,18 @@ const agents = [
     image: '/img/ai/agents/umbrella-guardian.webp',
   },
   {
-    id: 'kit-master-builder',
-    name: 'KIT Master Builder',
-    repository: 'eclipse-tractusx.github.io',
-    role: 'Eclipse Tractus-X KIT architect and technical writer',
-    motto: "Let's build great KITs together!",
+    id: 'dataspace-captain',
+    name: 'Dataspace Captain',
+    repository: 'dataspace-mgm-services',
+    alsoIn: ['dataspace-mgm-ui'],
+    role: 'Captain of the Dataspace Management product, the new portal of OSP 2.0',
+    motto: 'Discover. Connect. Exchange. Govern.',
     description:
-      'Creates, reviews and maintains KITs. Knows the KIT lifecycle, the master data, the legal requirements and the Tractus-X Release Guidelines, scaffolds complete KITs and guides them to graduation.',
-    expertise: ['KITs', 'KIT lifecycle', 'TRGs', 'Documentation'],
+      'Knows the Dataspace Management service and UI, their specifications and how both fit with connectors, wallets, issuers, BDRS and discovery. Ask it for the architecture overview, modules, permissions, Process Orchestration flows and the seams between UI and backend.',
+    expertise: ['OSP 2.0', 'Portal modules', 'Process Orchestration', 'UI architecture'],
     assistants: [ASSISTANTS.CLAUDE_CODE, ASSISTANTS.COPILOT],
-    image: '/img/ai/agents/kit-master-builder.webp',
+    image: '/img/ai/agents/dataspace-captain.webp',
+    handsOverTo: ['connector-sensei', 'identity-keeper', 'umbrella-guardian', 'kit-master-builder'],
   },
   {
     id: 'testlab-ai-master',
@@ -220,7 +223,19 @@ const repositoryUrl = (repository) => `${GITHUB_ORG_URL}/${repository}`;
 const agentDefinitionUrl = (agent) =>
   `${repositoryUrl(agent.repository)}/blob/main/.github/agents/${agent.id}.agent.md`;
 
+const agentProfileUrl = (agent) => `/AI/agents/${agent.id}`;
+
+// The GitHub agents tab, where you pick the repository and the custom agent from a dropdown.
+// GitHub does not document a URL that pre-selects them, so the pages say what to pick.
+// https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents
+const GITHUB_AGENTS_TAB_URL = 'https://github.com/copilot/agents';
+const agentChatUrl = () => GITHUB_AGENTS_TAB_URL;
+const agentChatHint = (agent) =>
+  `Opens the GitHub agents tab. Pick eclipse-tractusx/${agent.repository} and ${agent.name} in the dropdown.`;
+
 const getAgentById = (id) => agents.find((agent) => agent.id === id);
+
+const getAgentProfile = (id) => agentProfiles[id];
 
 /** Agents that have their own card (a picture and no team). */
 const getFeaturedAgents = () => agents.filter((agent) => !agent.team);
@@ -242,9 +257,15 @@ module.exports = {
   agents,
   agentTeams,
   mcpServers,
+  agentProfiles,
   repositoryUrl,
   agentDefinitionUrl,
+  agentProfileUrl,
+  agentChatUrl,
+  agentChatHint,
+  GITHUB_AGENTS_TAB_URL,
   getAgentById,
+  getAgentProfile,
   getFeaturedAgents,
   getTeamMembers,
   getAgentRepositories,

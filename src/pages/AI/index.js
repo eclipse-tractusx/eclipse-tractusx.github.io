@@ -34,6 +34,7 @@ import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import AiPageHeader from '@site/src/components/2.0/AiPageHeader';
 import {
   agentTeams,
+  agentProfileUrl,
   getAgentById,
   getAiStatistics,
   getFeaturedAgents,
@@ -70,7 +71,7 @@ const PRINCIPLES = [
 function AgentPortrait({ agent }) {
   const image = useBaseUrl(agent.image);
   return (
-    <Link to={`/AI/agents#${agent.id}`} className={styles.portrait}>
+    <Link to={agentProfileUrl(agent)} className={styles.portrait}>
       <img className={styles.portraitImage} src={image} alt="" width={720} height={720} loading="lazy" />
       <span className={styles.portraitName}>{agent.name}</span>
       <span className={styles.portraitRepo}>{agent.repository}</span>
@@ -96,7 +97,7 @@ function CrewMember({ agent }) {
   const image = useBaseUrl(agent.image);
   return (
     <li>
-      <Link to={`/AI/agents#${agent.id}`} className={styles.crewMember}>
+      <Link to={agentProfileUrl(agent)} className={styles.crewMember}>
         <img className={styles.crewMemberImage} src={image} alt="" width={64} height={64} loading="lazy" />
         <span>
           <span className={styles.crewMemberName}>{agent.name}</span>
@@ -149,7 +150,6 @@ export default function AiOverviewPage() {
     >
       <main className={styles.page}>
         <AiPageHeader
-          active="overview"
           eyebrow="AI at Eclipse Tractus-X"
           title={
             <>

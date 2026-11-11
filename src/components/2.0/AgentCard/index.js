@@ -22,10 +22,14 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
-import { agentDefinitionUrl, getAgentById, repositoryUrl } from '@site/data/aiData';
+import { agentChatHint, agentChatUrl, agentProfileUrl } from '@site/data/aiData';
 import styles from './styles.module.scss';
+
+// At most this many expertise tags on a card; the profile page shows all of them.
+const CARD_TAGS = 3;
 
 function Tags({ items }) {
   return (
@@ -52,44 +56,39 @@ function Assistants({ assistants }) {
   );
 }
 
-function HandsOverTo({ ids }) {
-  const crew = ids.map(getAgentById).filter(Boolean);
-  if (crew.length === 0) return null;
-
+/** Chat (GitHub agents tab) and a second action, side by side at the bottom of a card. */
+function CardActions({ agent, children }) {
   return (
-    <p className={styles.handsOver}>
-      <span className={styles.metaLabel}>Hands over to</span>
-      {crew.map((member) => (
-        <Link key={member.id} to={`/AI/agents#${member.id}`} className={styles.handsOverLink}>
-          {member.name}
-        </Link>
-      ))}
-    </p>
-  );
-}
-
-function ExternalLink({ href, icon, children }) {
-  return (
-    <a className={styles.link} href={href} target="_blank" rel="noopener noreferrer">
-      {icon}
+    <div className={styles.links}>
+      <a
+        className={styles.chatLink}
+        href={agentChatUrl(agent)}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={agentChatHint(agent)}
+      >
+        <ChatBubbleOutlineIcon className={styles.linkIcon} />
+        Chat
+      </a>
       {children}
-    </a>
+    </div>
   );
 }
 
-/** Large card with the agent's picture on top. */
+/** Large card with the agent's picture on top; the details are on its profile page. */
 export default function AgentCard({ agent }) {
   // Registers the card id so Docusaurus accepts /AI/agents#<id> links.
   useBrokenLinks().collectAnchor(agent.id);
   const image = useBaseUrl(agent.image);
+  const profileUrl = agentProfileUrl(agent);
 
   return (
     <article id={agent.id} className={styles.card}>
-      <div className={styles.media}>
+      <Link to={profileUrl} className={styles.media} tabIndex={-1} aria-hidden="true">
         <img
           className={styles.image}
           src={image}
-          alt={`Picture of the ${agent.name} agent`}
+          alt=""
           width={720}
           height={720}
           loading="lazy"
@@ -99,28 +98,28 @@ export default function AgentCard({ agent }) {
           <GitHubIcon className={styles.repoBadgeIcon} />
           {agent.repository}
         </span>
-      </div>
+      </Link>
 
       <div className={styles.body}>
-        <h3 className={styles.name}>{agent.name}</h3>
+        <h3 className={styles.name}>
+          <Link to={profileUrl} className={styles.nameLink}>
+            {agent.name}
+          </Link>
+        </h3>
         <p className={styles.role}>{agent.role}</p>
         {agent.motto && <p className={styles.motto}>“{agent.motto}”</p>}
-        <p className={styles.description}>{agent.description}</p>
-        <Tags items={agent.expertise} />
+        <Tags items={agent.expertise.slice(0, CARD_TAGS)} />
 
         <div className={styles.meta}>
           <Assistants assistants={agent.assistants} />
-          {agent.handsOverTo && <HandsOverTo ids={agent.handsOverTo} />}
         </div>
 
-        <div className={styles.links}>
-          <ExternalLink href={agentDefinitionUrl(agent)} icon={<DescriptionOutlinedIcon className={styles.linkIcon} />}>
-            Agent definition
-          </ExternalLink>
-          <ExternalLink href={repositoryUrl(agent.repository)} icon={<GitHubIcon className={styles.linkIcon} />}>
-            Repository
-          </ExternalLink>
-        </div>
+        <CardActions agent={agent}>
+          <Link className={styles.link} to={profileUrl}>
+            <PersonOutlineIcon className={styles.linkIcon} />
+            Profile
+          </Link>
+        </CardActions>
       </div>
     </article>
   );
@@ -153,16 +152,11 @@ export function AgentTeamCard({ team, members }) {
 
         <ul className={styles.members}>
           {members.map((member) => (
-            <li key={member.id} id={member.id} className={styles.member}>
-              <a
-                className={styles.memberName}
-                href={agentDefinitionUrl(member)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {member.name}
-              </a>
-              <span className={styles.memberRole}>{member.role}</span>
+            <li key={member.id}>
+              <Link className={styles.member} to={agentProfileUrl(member)} title={member.role}>
+                <PersonOutlineIcon className={styles.memberIcon} />
+                {member.name.replace(/^Testlab /, '')}
+              </Link>
             </li>
           ))}
         </ul>
@@ -171,17 +165,7 @@ export function AgentTeamCard({ team, members }) {
           <Assistants assistants={[...new Set(members.flatMap((member) => member.assistants))]} />
         </div>
 
-        <div className={styles.links}>
-          <ExternalLink
-            href={`${repositoryUrl(team.repository)}/tree/main/.github/agents`}
-            icon={<DescriptionOutlinedIcon className={styles.linkIcon} />}
-          >
-            Agent definitions
-          </ExternalLink>
-          <ExternalLink href={repositoryUrl(team.repository)} icon={<GitHubIcon className={styles.linkIcon} />}>
-            Repository
-          </ExternalLink>
-        </div>
+        <CardActions agent={{ repository: team.repository, name: 'one of its agents' }} />
       </div>
     </article>
   );

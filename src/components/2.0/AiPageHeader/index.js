@@ -19,25 +19,25 @@
 
 import React from 'react';
 import Link from '@docusaurus/Link';
-import clsx from 'clsx';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import styles from './styles.module.scss';
 
-export const AI_PAGES = [
-  { id: 'overview', label: 'Overview', to: '/AI' },
-  { id: 'agents', label: 'Agents', to: '/AI/agents' },
-  { id: 'mcp-servers', label: 'MCP Servers', to: '/AI/mcp-servers' },
-];
-
 /**
- * Dark hero shared by the AI pages, with the section navigation
- * (Overview, Agents, MCP Servers) below the intro.
+ * Dark hero shared by the AI pages. The pages are reached from the AI dropdown in the
+ * navbar; sub-pages pass `backToOverview` to show a link back to /AI.
  */
-export default function AiPageHeader({ active, eyebrow, title, subtitle, stats = [] }) {
+export default function AiPageHeader({ backToOverview = false, eyebrow, title, subtitle, stats = [] }) {
   return (
     <section className={styles.hero}>
       <div className={styles.glow} aria-hidden="true" />
       <div className={styles.container}>
+        {backToOverview && (
+          <Link to="/AI" className={styles.back}>
+            <ArrowBackIcon className={styles.backIcon} />
+            Back to AI overview
+          </Link>
+        )}
         <span className={styles.eyebrow}>
           <AutoAwesomeIcon className={styles.eyebrowIcon} />
           {eyebrow}
@@ -55,19 +55,6 @@ export default function AiPageHeader({ active, eyebrow, title, subtitle, stats =
             ))}
           </dl>
         )}
-
-        <nav className={styles.tabs} aria-label="AI pages">
-          {AI_PAGES.map((page) => (
-            <Link
-              key={page.id}
-              to={page.to}
-              className={clsx(styles.tab, active === page.id && styles.tabActive)}
-              aria-current={active === page.id ? 'page' : undefined}
-            >
-              {page.label}
-            </Link>
-          ))}
-        </nav>
       </div>
     </section>
   );
