@@ -406,17 +406,60 @@ const config = {
               },
             ],
           },
+          // Developer Hub, with Tutorials and the most used developer pages under it
+          // (same look as the KITs menu), so the top bar stays short.
           {
-            type: 'doc',
-            docId: 'developer',
-            position: 'left',
+            type: 'dropdown',
             label: 'Developer Hub',
-          },
-          {
-            type: 'doc',
-            docId: 'tutorials',
             position: 'left',
-            label: 'Tutorials',
+            to: '/docs/developer',
+            items: [
+              {
+                to: '/docs/developer',
+                label: 'DEVELOPER HUB',
+                className: 'kit-category-header kit-home-icon',
+              },
+              {
+                to: '/docs/getting-started',
+                label: 'Getting Started',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/tutorials',
+                label: 'Tutorials',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/release',
+                label: 'Release Guidelines (TRGs)',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/oss/how-to-contribute',
+                label: 'How to Contribute',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/category/open-source-development',
+                label: 'Open Source Development',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/github-checks',
+                label: 'Central GitHub Checks',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/dev_faq',
+                label: 'FAQ',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/dev_links',
+                label: 'Useful Links',
+                className: 'kit-nav-item',
+              },
+            ],
           },
           {
             to: '/community/open-meetings',
