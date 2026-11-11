@@ -108,6 +108,12 @@ export const CONTACTS = {
     github: 'AYaoZhan',
     country: 'ES'
   },
+  // email and country not public yet: add them once confirmed (country drives holiday detection)
+  WAHIDUL_AZAM: {
+    name: 'Md. Wahidul Azam',
+    title: 'Senior Software Engineer DSASS, TVS',
+    github: 'wahidulazam',
+  },
   THERESA_HILGER: {
     name: 'Theresa Hilger',
     title: 'Releasemanagemnt',
@@ -282,7 +288,7 @@ export const meetings = [
     icon: 'dashboard',
     category: MEETING_CATEGORIES.PRODUCT,
     description: 'Weekly open meeting for the Dataspace Management Stack, the modernised Portal of Eclipse Tractus-X: the Dataspace Management Services (backend) and the Dataspace Management UI. We align on development - features, bugs, architecture and maintenance - and answer your questions. It replaces the former Portal open meeting. Everyone is welcome!',
-    contact: CONTACTS.MATHIAS_MOSER,
+    contact: [CONTACTS.MATHIAS_MOSER, CONTACTS.WAHIDUL_AZAM],
     matrixChatUrl: 'https://matrix.to/#/#tractusx:matrix.eclipse.org',
     additionalLinks: [
       {title: 'dataspace-mgm-services Repository', url: 'https://github.com/eclipse-tractusx/dataspace-mgm-services'},
