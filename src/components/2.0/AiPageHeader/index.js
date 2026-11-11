@@ -20,6 +20,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import styles from './styles.module.scss';
 
@@ -27,7 +28,7 @@ import styles from './styles.module.scss';
  * Dark hero shared by the AI pages. The pages are reached from the AI dropdown in the
  * navbar; sub-pages pass `backToOverview` to show a link back to /AI.
  */
-export default function AiPageHeader({ backToOverview = false, eyebrow, title, subtitle, stats = [] }) {
+export default function AiPageHeader({ backToOverview = false, eyebrow, title, subtitle, stats = [], action }) {
   return (
     <section className={styles.hero}>
       <div className={styles.glow} aria-hidden="true" />
@@ -54,6 +55,13 @@ export default function AiPageHeader({ backToOverview = false, eyebrow, title, s
               </div>
             ))}
           </dl>
+        )}
+
+        {action && (
+          <Link to={action.to} className={styles.action}>
+            {action.label}
+            <ArrowForwardIcon className={styles.actionIcon} />
+          </Link>
         )}
       </div>
     </section>

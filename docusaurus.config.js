@@ -404,6 +404,10 @@ const config = {
                 to: '/AI/mcp-servers',
                 label: 'MCP Servers',
               },
+              {
+                to: '/AI/dataspace-4-ai',
+                label: 'Dataspace 4 AI',
+              },
             ],
           },
           // Developer Hub, with Tutorials and the most used developer pages under it

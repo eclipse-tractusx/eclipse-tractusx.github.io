@@ -188,3 +188,44 @@ $brand-green: #afc72d;
   font-size: 18px !important;
   transition: transform 0.2s ease;
 }
+
+/* --------------------------------------------------------------------------
+   Optional call to action below the stats (the Overview links to Dataspace 4 AI)
+   -------------------------------------------------------------------------- */
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 160, 35, 0.45);
+  background: rgba(250, 160, 35, 0.1);
+  color: $brand-orange;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background: rgba(250, 160, 35, 0.2);
+    color: $brand-orange;
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  &:hover .actionIcon {
+    transform: translateX(3px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $brand-orange;
+    outline-offset: 4px;
+  }
+}
+
+.actionIcon {
+  font-size: 18px !important;
+  transition: transform 0.2s ease;
+}
