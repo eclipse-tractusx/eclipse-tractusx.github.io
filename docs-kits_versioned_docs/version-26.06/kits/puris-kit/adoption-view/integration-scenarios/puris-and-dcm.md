@@ -27,7 +27,7 @@ Table 1: *Complementing Puris and DCM for Better Supply Chain Transparency*
 
 By combining these two perspectives, companies can gain a holistic view of supply and demand dynamics bridging strategic capacity planning with operational execution. This synergy supports proactive decision-making and strengthens the overall resilience of the supply chain.
 
-![puris-dcm-integrated-application](../../assets/puris-dcm-integrated-application.svg)
+![puris-dcm-integrated-application](../../resources/puris-dcm-integrated-application.svg)
 
 Figure 1: *Combination of PURIS and DCM for a better supply chain transparency*
 

@@ -95,7 +95,7 @@ __Parameters of the Demand Volatility metric are as follows:__
 | Relative Negative Deviation | No | Relative negative deviation threshold which triggers an alert | E.g. -30% (value 0,3) means an alert is triggered if the relative negative deviation between two measurement intervals for a respective calendar week decrease by 30% or more. Value can be set between 0 and 1. |
 | Relative Positive Deviation | No | Absolute negative deviation threshold which triggers an alert | E.g. 20% (value 0,2) means an alert is triggered if the relative positive deviation between two measurement intervals for a respective calendar week increase by 20% or more. Value can be set between 0 and 1. |
 
-For further details please refer to [Aspect Model WeekBasedCapacityGroup](../../software-development-view/model-capacity-group.md).
+For further details please refer to [Aspect Model WeekBasedCapacityGroup](../../development-view/model-capacity-group.md).
 
 ## Example of Demand Volatility Measurements
 

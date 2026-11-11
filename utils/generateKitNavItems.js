@@ -169,7 +169,7 @@ function generateKitNavItems() {
       value: '<hr style="margin: 8px 0; border-color: var(--ifm-color-emphasis-300);">'
     });
     items.push({
-      to: '/Kits/dataspace-foundation',
+      to: '/kits/dataspace-foundation',
       label: 'DATASPACE FOUNDATION',
       className: 'kit-category-header'
     });
@@ -193,7 +193,7 @@ function generateKitNavItems() {
       value: '<hr style="margin: 8px 0; border-color: var(--ifm-color-emphasis-300);">'
     });
     items.push({
-      to: '/Kits/industry-core',
+      to: '/kits/industry-core',
       label: 'INDUSTRY CORE FOUNDATION',
       className: 'kit-category-header'
     });
@@ -217,7 +217,7 @@ function generateKitNavItems() {
       value: '<hr style="margin: 8px 0; border-color: var(--ifm-color-emphasis-300);">'
     });
     items.push({
-      to: '/Kits/cross-industry',
+      to: '/kits/cross-industry',
       label: 'CROSS-INDUSTRY USE CASES',
       className: 'kit-category-header'
     });
@@ -244,7 +244,7 @@ function generateKitNavItems() {
       // industry is already the correct ID (e.g., "shop-floor"), use it directly
       const encodedIndustryId = encodeURIComponent(industry);
       items.push({
-        to: \`/Kits/industry?id=\${encodedIndustryId}\`,
+        to: \`/kits/industry?id=\${encodedIndustryId}\`,
         label: industry.toUpperCase(),
         className: 'kit-category-header'
       });

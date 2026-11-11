@@ -24,7 +24,7 @@ Key Information:
 - Dates and Times: Listed for each session below.
 - Resources: Visit our [open meetings page](/community/open-meetings) for all session links and additional documentation.
 - Preparation Materials: Ensure readiness by reviewing the provided templates, guidelines, and your own features.
-- Overall process description: [Release Planning Process](/docs/oss/release-process)
+- Overall process description: [Release Planning Process](/docs/contribute/release-process)
 
 We look forward to seeing you there and working together to make **R26.06** a success!
 

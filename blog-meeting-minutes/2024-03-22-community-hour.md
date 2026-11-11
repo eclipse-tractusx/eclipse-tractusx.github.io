@@ -23,7 +23,7 @@ tags: [community, meeting-minutes]
 
 ### FOSS
 
-- [Getting started](https://eclipse-tractusx.github.io/docs/oss/getting-started) guide improved
+- [Getting started](https://eclipse-tractusx.github.io/docs/contribute/getting-started) guide improved
   - Does make it easier for new-joiners
   - Please link to this guide instead of duplicating information
   - If anything is missing, feel free to raise a PR or open an issue

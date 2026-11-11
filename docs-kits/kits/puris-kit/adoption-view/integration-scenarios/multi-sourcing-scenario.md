@@ -9,9 +9,9 @@ In a multi-sourcing scenario, the same material or product is procured from mult
 
 In cases where supplier-specific information is maintained separately (e.g., through batch tracking or source-specific labeling), data provisioning is relatively straightforward. The origin of materials can be identified and shared without major transformation.
 
-![customer-multi-sourcing-part1](../../assets/customer-multi-sourcing-part1.svg)
+![customer-multi-sourcing-part1](../../resources/customer-multi-sourcing-part1.svg)
 
-![customer-multi-sourcing-part2](../../assets/customer-multi-sourcing-part2.svg)
+![customer-multi-sourcing-part2](../../resources/customer-multi-sourcing-part2.svg)
 
 Figure 1 and 2: *Customer multi sourcing scenarios*
 

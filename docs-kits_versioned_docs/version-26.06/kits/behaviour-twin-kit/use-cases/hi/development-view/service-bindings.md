@@ -19,7 +19,7 @@ Applies to role: *HI calculation service provider*
 
 ### OVERVIEW
 
-For general information about service bindings, have a look at the [generalized Service Bindings section](../../../software-development-view/service-bindings) and the [Agents KIT's Operation View](../../../../knowledge-agents-kit/operation-view/provider). In the current section, only a dedicated example is shown.
+For general information about service bindings, have a look at the [generalized Service Bindings section](../../../development-view/service-bindings) and the [Agents KIT's Operation View](../../../../knowledge-agents-kit/operations-view/provider). In the current section, only a dedicated example is shown.
 
 ### SERVICE MAPPING CONFIGURATION (FULL EXAMPLE)
 
@@ -398,4 +398,4 @@ The property `sh:shapesGraph` contains the graph shape of the offered data, writ
 
 #### POLICY AND CONTRACT FOR THE GRAPH ASSET
 
-All assets, including graph assets, must have a related policy and contract definition. These are described in the use-case-independent [general Contracts And Policies section](../../../software-development-view/contracts-and-policies).
+All assets, including graph assets, must have a related policy and contract definition. These are described in the use-case-independent [general Contracts And Policies section](../../../development-view/contracts-and-policies).

@@ -5,7 +5,7 @@
 This template is the starting point for a new Sandbox or MVP-level KIT.
 Follow the steps below to get started.
 
-Information of requirements can be found here: https://eclipse-tractusx.github.io/documentation/kit-lifecycle#-1-sandbox-level-mvp-kit
+Information of requirements can be found here: https://eclipse-tractusx.github.io/kits/handbook/lifecycle#-1-sandbox-level-mvp-kit
 
 ---
 

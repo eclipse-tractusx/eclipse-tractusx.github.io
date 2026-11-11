@@ -120,7 +120,7 @@ The Catena-X data space aims to support a parallel phase of two major versions o
 
 More information about backward compatibility and versioning can be found here:
 - [Life Cycle Management 101](https://catena-x.net/fileadmin/_online_media_/231006_Whitepaper_LifeCycleManagement.pdf) from the Catena-X Standard Library,
-- [Digital Twin KIT - Registration at EDC](../digital-twin-kit/software-development-view#registration-at-edc) with details about versioning of EDC assets (for submodels as well as for Notification assets) including examples.
+- [Digital Twin KIT - Registration at EDC](../digital-twin-kit/development-view#registration-at-edc) with details about versioning of EDC assets (for submodels as well as for Notification assets) including examples.
 
 ## Building Block View
 
@@ -132,13 +132,13 @@ A shared technical foundation offers significant advantages for dataspace partic
 
 ### Digital Twins
 
-![Building Block View of the Industry Core](./assets/ic-arch-view-blocks.svg)
+![Building Block View of the Industry Core](./resources/ic-arch-view-blocks.svg)
 
 ### Notifications
 
 With notifications, the Industry Core defines a message-based data sharing within Catena-X. The message is sent from one Catena-X partner - called sender - to another Catena-X partner - called receiver - using simple messages in JSON format via Catena-X connector, as shown in the following figure:
 
-![Notifications Flow](./assets/notifications_process.svg)
+![Notifications Flow](./resources/notifications_process.svg)
 
 - In the context of this KIT, notifications are messages in JSON format with a standardized data format consisting of a standardized header and a use-case-specific content.
 - The notification API consists of a set of operations that can be used to exchange notifications between sender and receiver. Each operation has a defined request, i.e., the notification, and a response which consists of HTTP error codes. Operations can use notifications with different data formats. It is not required to use the same notification data format for all operations.
@@ -157,7 +157,7 @@ As all use cases use the same underlying notification technology based on Indust
 ## Runtime View
 
 The runtime patterns represent a subset of the interactions specified in the Digital Twin KIT.
-Its ["Interaction Patterns" section](../digital-twin-kit/software-development-view/interaction-patterns)
+Its ["Interaction Patterns" section](../digital-twin-kit/development-view/interaction-patterns)
 describes the interaction between a Data Provider and Data Consumer including the necessary configuration steps.
 Since the Discovery Services according to CX-0053 are not part of the Industry Core, all calls going to the components
 `DiscoveryFinder` and `BPN Discovery Service` can be omitted.
@@ -170,7 +170,7 @@ A formal definition of the Industry Core's content is given in the standards CX-
 
 The Industry Core standards share a common set of base technologies. And while the Industry Core does provide Business-relevant capabilities for Data Consumers, it can likewise serve as a launchpad for new use-cases.
 
-![Locating the Industry Core standards in the Catena-X landscape](./assets/ic-arch-view-stds.svg)
+![Locating the Industry Core standards in the Catena-X landscape](./resources/ic-arch-view-stds.svg)
 
 The Interoperability Layer the Industry Core Standards build on defines API structures of Data Providers and relevant
 core services hosted centrally. They depend on the EDC Discovery Service defined in standard CX-0001 to discover a

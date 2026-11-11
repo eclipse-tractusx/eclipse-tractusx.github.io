@@ -72,7 +72,7 @@ export default function KitsFooter({ disclaimer, simple = false, title = 'Want t
               </a>
               {!simple && (
                 <>
-                  <Link to="/documentation/kit-framework" className={styles.link}>
+                  <Link to="/kits/handbook/framework" className={styles.link}>
                     <SchoolIcon className={styles.linkIcon} />
                     Learn the KIT Framework
                   </Link>
@@ -84,11 +84,11 @@ export default function KitsFooter({ disclaimer, simple = false, title = 'Want t
                     <Code className={styles.linkIcon} />
                     Our Code 
                   </a>
-                  <Link to="/documentation/kit-getting-started" className={styles.link}>
+                  <Link to="/kits/handbook/getting-started" className={styles.link}>
                     <AddIcon className={styles.linkIcon} />
                     Create a KIT
                   </Link>
-                  <Link to="/Contribute" className={styles.link}>
+                  <Link to="/contribute" className={styles.link}>
                     <RocketLaunchIcon className={styles.linkIcon} />
                     Contribute
                   </Link>
@@ -118,7 +118,7 @@ export default function KitsFooter({ disclaimer, simple = false, title = 'Want t
             margin: '0 0 0.5rem 0',
             opacity: 0.9
           }}>
-            All data shown is available at the <Link to="/documentation/kit-master-data-overview">master data documentation</Link>. All the KIT logos and logo licenses can be found to download at our <Link to="/documentation/kit-3d-logo-library">KIT Logo Gallery</Link>.
+            All data shown is available at the <Link to="/kits/handbook/master-data">master data documentation</Link>. All the KIT logos and logo licenses can be found to download at our <Link to="/kits/handbook/logo-library">KIT Logo Gallery</Link>.
           </p>
           <p className={styles.copyright}>
             Our KITs are licensed under the non-code <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/blob/main/LICENSE_non-code" target="_blank" rel="noopener noreferrer">CC-BY-4.0</a> License.

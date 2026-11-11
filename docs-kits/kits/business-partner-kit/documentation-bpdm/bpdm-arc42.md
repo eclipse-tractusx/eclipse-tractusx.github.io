@@ -732,7 +732,7 @@ UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
 
 The chart versions named here are the ones the umbrella currently depends on; the authoritative
 list is the `dependencies` section of [charts/bpdm/Chart.yaml](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/charts/bpdm/Chart.yaml).
-Installation and configuration are described in the [Operation View](../software-operation-view.md)
+Installation and configuration are described in the [Operation View](../operations-view/operations-view.md)
 and in [INSTALL.md](https://github.com/eclipse-tractusx/bpdm/blob/release/7.5.x/INSTALL.md).
 
 ## Crosscutting Concepts

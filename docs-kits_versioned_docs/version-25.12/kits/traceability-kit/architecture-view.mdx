@@ -31,7 +31,7 @@ This KIT describes two core capabilities of Traceability:
 
 This overview shows the two core capabilities of Traceability and the Catena-X Core Services onto which Traceability is built and which are required by the Traceability architecture.
 
-![Architecture - Level 1](./assets/architecture_level_1.svg)
+![Architecture - Level 1](./resources/architecture_level_1.svg)
 
 ### Traceability Components
 
@@ -58,7 +58,7 @@ This capability focusses on how data providers must prepare and publish their da
 
 The following diagram shows a basic data processing flow how a company's internal data can be transformed into a Traceability-compliant format. Implementations of data providers can deviate from this basic flow as it's just one way to do it. But it should give a basic idea what the essential steps are.
 
-![Data Processing Flow](./assets/data_provisioning_data_flow.png)
+![Data Processing Flow](./resources/data_provisioning_data_flow.png)
 
 ### Digital Twins and Aspect Models
 
@@ -73,7 +73,7 @@ Data provisioning of Traceability is built on the data provisioning of the [Indu
 
 and an additional **digital twin** qualityTask (please find discription of DT qualityTask in the Traceability Adoption View and CX-0125 Traceability Standard)
 
-Details about the listed aspect models, i.e., the SAMM data model as well as example data, can be found in the [Developer View](software-development-view/data-provider.mdx).
+Details about the listed aspect models, i.e., the SAMM data model as well as example data, can be found in the [Developer View](./development-view/data-provider.mdx).
 
 > :raised_hand: Beware that the aspect models **_SoftwareInformation_** and **_CertificateSigningRequests_** are not standardized yet, but MAY be released as standardized aspect models in future releases of the CX-0125 Traceability Use Case Standard.
 
@@ -86,12 +86,12 @@ To enable data sovereignty, access and usage policies are important to protect t
 
 To decide which company has access to the data assets, access policy should be used. Note that without protecting data assets with access policies, they become publicly available in the Catena-X network which is not recommended. Therefore, every asset should be protected and only be made available for specific companies, identified through their business partner number (BPN).
 
-Implementation details and examples can be found [in the Industry Core KIT](../industry-core-kit/software-development-view/policies).
+Implementation details and examples can be found [in the Industry Core KIT](../industry-core-kit/development-view/policies).
 
 ### Usage Policies
 To decide which company can use the data asset under specific conditions, usage policies (or contract policies) are used. Therefore, they are more specific than access policies and only used just after access is granted. Currently, the usage policies aren't technically enforced but based on a legal framework (keep this in mind when publishing data assets).
 
-Implementation details and examples can be found [in the Industry Core KIT](../industry-core-kit/software-development-view/policies.mdx).
+Implementation details and examples can be found [in the Industry Core KIT](../industry-core-kit/development-view/policies.mdx).
 
 ## Traceability App
 
@@ -122,7 +122,7 @@ Notifications are - in contrast to classical data offers - a way to push data fr
 
 The notification itself has various states. The states and their cycle are described in the following figure:
 
-![Notification State Model](./assets/notification-state-model.svg)
+![Notification State Model](./resources/notification-state-model.svg)
 
 ### Block Information
 
@@ -132,7 +132,7 @@ Catena-X is to be used to transfer this information in a standardized manner and
 
 #### Block Notification Interaction
 
-The interaction of block notifications is based on events that can be triggered by both the sender and the recipient. These events are represented by a status model and are used to track the progress of the parts that need to be blocked or respectively sorted out by the customer. Details about these status model and the Open API specification for Block Notifications are available in the [Developer View](software-development-view/data-provider.mdx).
+The interaction of block notifications is based on events that can be triggered by both the sender and the recipient. These events are represented by a status model and are used to track the progress of the parts that need to be blocked or respectively sorted out by the customer. Details about these status model and the Open API specification for Block Notifications are available in the [Developer View](./development-view/data-provider.mdx).
 
 > :raised_hand: Note that (from the current 25.09 release on) the Block Notification has always to be referred to the initial problem/defect via a problem ID. The initial problem/defect is the problem the Block Notification, as delemitation, was requested for. The infomation has to be provided via the data field "problemID" in the relevant notification. In this way, the Block Notification for a part can always be assigned to the correct defect, in the event of multiple defects for one particular part. This assignment is particularly also important in the event of an update.
 
@@ -149,7 +149,7 @@ In order to inform the recipient of this error, the block status of the affected
 
 > :raised_hand: The CANCELED status can also be updated by the recipient if it has been determined that the part(s) are faultless and therefore does not need to be sorted out.
 
-![Block State Model Interaction](./assets/block-notification-state-model-interaction.svg)
+![Block State Model Interaction](./resources/block-notification-state-model-interaction.svg)
 
 ## Runtime View
 

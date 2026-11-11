@@ -1,4 +1,5 @@
 ---
+id: adoption-view
 title: Adoption View
 sidebar_position: 1
 ---

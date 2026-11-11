@@ -9,7 +9,7 @@ sidebar_position: 3
 
 To ensure a productive implementation of PURIS, several preparatory and execution steps must be taken. A successful onboarding process requires the consideration of both business and technical aspects.
 
-![integration-path](../assets/integration-path.svg)
+![integration-path](../resources/integration-path.svg)
 
 Figure 1: *Puris integration path*
 
@@ -50,7 +50,7 @@ Table 2: *Standards that are recommended to be used for PURIS implementation. Pl
 
 For implementation, it is recommended to align these standards with the existing IT architecture and business processes. Special attention should be given to multi-sourcing and multi-customer scenarios, which are common in complex supply chains.
 
-Further technical guidance and documentation can be found [here](/docs-kits/kits/puris-kit/software-development-view/).
+Further technical guidance and documentation can be found [here](/docs-kits/kits/puris-kit/development-view/).
 
 #### Use Case Definition (Business Side)
 
@@ -94,7 +94,7 @@ The internal integration of PURIS is highly individual and depends on company-sp
 
 Since PURIS defines the standard for information (data and semantics) exchange, it does not prescribe how data should be visualized or processed on the partner side. Companies are free to choose between internal solutions, third-party software, or the open-source PURIS-FOSS Application.
 
-![participation-options](../assets/participation-options.svg)
+![participation-options](../resources/participation-options.svg)
 
 Figure 2: *Puris participation options*
 

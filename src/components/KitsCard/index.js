@@ -26,7 +26,7 @@ import styles from "./styles.module.css";
 export default function KitsCard({title, subtitle, cardTitle, cardSubtitle, img}) {
   return (
     <section className={styles.kits_card}>
-      <Link className={styles.link} to="/icons">
+      <Link className={styles.link} to="/kits/handbook/icon-library">
         <div className={styles.container}>
           <div className={styles.information_container}>
             <h2 className={styles.title}>

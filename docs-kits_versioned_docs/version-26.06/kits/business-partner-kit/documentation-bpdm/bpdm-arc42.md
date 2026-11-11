@@ -1081,7 +1081,7 @@ In this scenario the operating environment itself operates a backend service or 
 As of now the [Central-IDP](https://github.com/eclipse-tractusx/portal-iam) in release 3.1.0 is not fully compatible with the standard configuration of the BPDM rights and role concepts.
 Therefore, the standard configuration of the BPDM deployment will **not** work with Central-IDP out of the box.
 BPDM standard configuration needs to be adapted to be compatible.
-This can be done over the application.yml files locally or in case of a Helm deployment these configuration overwrites can be placed in the `applicationConfig` values of the BPDM components (see [INSTALL](../software-operation-view.md) instructions).
+This can be done over the application.yml files locally or in case of a Helm deployment these configuration overwrites can be placed in the `applicationConfig` values of the BPDM components (see [INSTALL](../operations-view/operations-view.md) instructions).
 [Here](#helm-configuration) a full Helm configuration for the needed adaptions is given.
 
 #### Pool and Gate Clients

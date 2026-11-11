@@ -15,14 +15,14 @@ As part of Factory-X MaaS, data exchange between a data consumer and a data prov
 
 Figure 11:  MaaS MX-Port Hercules Overview
 
-Data exchange is standardized, secure, interoperable, and data sovereignty is guaranteed. The standards used by MX-Port Hercules are listed in the standards section (Chapter [Standards](../adoption-view.md#standards)).
+Data exchange is standardized, secure, interoperable, and data sovereignty is guaranteed. The standards used by MX-Port Hercules are listed in the standards section (Chapter [Standards](../adoption-view/adoption-view.md#standards)).
 
-Semantic models (Chapter [Semantic Model](../adoption-view.md#semantic-model)) are used for data exchange.  Figure 12 shows an example of an AAS for a machine with submodels such as *Capability Description*, which is used to describe specific manufacturing capabilities.
+Semantic models (Chapter [Semantic Model](../adoption-view/adoption-view.md#semantic-model)) are used for data exchange.  Figure 12 shows an example of an AAS for a machine with submodels such as *Capability Description*, which is used to describe specific manufacturing capabilities.
 ![Image](../resources/svg-img/TruLaser%20Cell%205030%20machine%20modeled%20as%20AAS.svg)
 
 Figure 12:  TruLaser Cell 5030 machine modelled as AAS
 
-Figure 13 depicts a generic configuration of the MX-Port Hercules for a given provider and consumer. For the two MX-Ports, the individual layers of the [MX-Port Concept](https://factory-x.org/wp-content/uploads/MX-Port-Concept-V1.10.pdf) are illustrated. The figure also lists the Architecture Decision Records (ADRs) that are being fulfilled when using this configuration (Chapter [Standards](../adoption-view.md#standards)).
+Figure 13 depicts a generic configuration of the MX-Port Hercules for a given provider and consumer. For the two MX-Ports, the individual layers of the [MX-Port Concept](https://factory-x.org/wp-content/uploads/MX-Port-Concept-V1.10.pdf) are illustrated. The figure also lists the Architecture Decision Records (ADRs) that are being fulfilled when using this configuration (Chapter [Standards](../adoption-view/adoption-view.md#standards)).
 
 ![Image](../resources/svg-img/MX-Port%20Hercules%20conceptual%20view.svg)
 
@@ -60,7 +60,7 @@ In addition to the MX-Port configuration Hercules, data exchange between a data 
 
 Figure 15:  MaaS MX-Port Leo Overview.
 
-As with Hercules, data exchange is also standardized, secure, interoperable, and data sovereignty is also guaranteed when using the MX-Port configuration Leo. The standards used by MX-Port Leo are listed in the standards section (Chapter [Standards](../adoption-view.md#standards)).
+As with Hercules, data exchange is also standardized, secure, interoperable, and data sovereignty is also guaranteed when using the MX-Port configuration Leo. The standards used by MX-Port Leo are listed in the standards section (Chapter [Standards](../adoption-view/adoption-view.md#standards)).
 
 Figure 16 shows a generic configuration of the MX-Port Leo for a given provider and consumer. For the two MX-Ports, the individual layers of the [MX-Port Concept](https://factory-x.org/wp-content/uploads/MX-Port-Concept-V1.10.pdf) are shown.
 

@@ -368,7 +368,7 @@ export default function KitsGalleryWithCategories({
             <p className={styles.noMatchSubtext}>
               Want to contribute? Start building KITs and join the Eclipse Tractus-X community!
             </p>
-            <Link to="/documentation/kit-getting-started" className={styles.ctaButton}>
+            <Link to="/kits/handbook/getting-started" className={styles.ctaButton}>
               <RocketLaunchIcon sx={{ fontSize: 20, marginRight: '0.5rem' }} />
               Get Started with KIT Development
             </Link>
