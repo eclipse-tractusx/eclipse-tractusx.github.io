@@ -217,6 +217,33 @@
   font-weight: bold;
 }
 
+/* Keep every top-level label on one line ("About Us", "Developer Hub"), and the dropdown
+   arrow of KITs, AI and Developer Hub to the right of its label instead of below it. */
+.navbar__items > .navbar__item.navbar__link,
+.navbar__items > .navbar__item.dropdown > .navbar__link {
+  white-space: nowrap;
+}
+
+.navbar__items > .navbar__item.dropdown > .navbar__link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar__items > .navbar__item.dropdown > .navbar__link::after {
+  top: 0;
+  transform: none;
+  margin-left: 0.4em;
+}
+
+/* Small desktops, before the mobile menu takes over at 996px: tighter spacing so the
+   one-line labels still fit next to the icons on the right. */
+@media screen and (min-width: 997px) and (max-width: 1150px) {
+  .navbar__items > .navbar__item.navbar__link,
+  .navbar__items > .navbar__item.dropdown > .navbar__link {
+    margin: 0 6px;
+  }
+}
+
 .navbar-icon-link {
   display: inline-flex;
   align-items: center;
