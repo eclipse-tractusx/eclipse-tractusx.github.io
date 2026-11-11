@@ -238,7 +238,7 @@ The release process is supported by various open meetings where the community co
 
 Individual products have their own regular sync meetings:
 
-- [Dataspace Management (Services & UI) Open Meeting](https://eclipse-tractusx.github.io/community/open-meetings#dataspace-management-open-meeting)
+- [Dataspace Management Stack Open Meeting](https://eclipse-tractusx.github.io/community/open-meetings#dataspace-management-stack-open-meeting)
 - [Connector Open Meeting](https://eclipse-tractusx.github.io/community/open-meetings#edc-weekly)
 - [BPDM Open Meeting](https://eclipse-tractusx.github.io/community/open-meetings#bpdm-open-meeting)
 - [Industry Core Hub Weekly](https://eclipse-tractusx.github.io/community/open-meetings#industry-core-hub-weekly) (also covers Tractus-X SDK topics)

@@ -277,11 +277,11 @@ export const meetings = [
   },
   // Replaces the former 'portal-open-meeting': the Dataspace Management is the modernised Portal.
   {
-    id: 'dataspace-management-open-meeting',
-    title: 'Dataspace Management (Services & UI) - Open Meeting',
+    id: 'dataspace-management-stack-open-meeting',
+    title: 'Dataspace Management Stack - Open Meeting',
     icon: 'dashboard',
     category: MEETING_CATEGORIES.PRODUCT,
-    description: 'Weekly open meeting for the Dataspace Management, the modernised Portal of Eclipse Tractus-X: the Dataspace Management Services (backend) and the Dataspace Management UI. We align on development - features, bugs, architecture and maintenance - and answer your questions. It replaces the former Portal open meeting. Everyone is welcome!',
+    description: 'Weekly open meeting for the Dataspace Management Stack, the modernised Portal of Eclipse Tractus-X: the Dataspace Management Services (backend) and the Dataspace Management UI. We align on development - features, bugs, architecture and maintenance - and answer your questions. It replaces the former Portal open meeting. Everyone is welcome!',
     contact: CONTACTS.MATHIAS_MOSER,
     matrixChatUrl: 'https://matrix.to/#/#tractusx:matrix.eclipse.org',
     additionalLinks: [
