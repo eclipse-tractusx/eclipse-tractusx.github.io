@@ -23,9 +23,18 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
-import { agentChatHint, agentChatUrl, agentProfileUrl } from '@site/data/aiAgents';
+import {
+  agentChatHint,
+  agentChatUrl,
+  agentDefinitionUrl,
+  agentProfileUrl,
+  teamAgentsFolderUrl,
+  teamProfileUrl,
+} from '@site/data/aiAgents';
 import styles from './styles.module.scss';
 
 // At most this many expertise tags on a card; the profile page shows all of them.
@@ -56,7 +65,17 @@ function Assistants({ assistants }) {
   );
 }
 
-/** Chat (GitHub agents tab) and a second action, side by side at the bottom of a card. */
+/** "Open agent": the agent definition (.agent.md) on GitHub, in a new tab. */
+function OpenAgentLink({ href, label = 'Open agent', title }) {
+  return (
+    <a className={styles.link} href={href} target="_blank" rel="noopener noreferrer" title={title}>
+      <OpenInNewIcon className={styles.linkIcon} />
+      {label}
+    </a>
+  );
+}
+
+/** Chat (GitHub agents tab) and the other actions, side by side at the bottom of a card. */
 function CardActions({ agent, children }) {
   return (
     <div className={styles.links}>
@@ -119,6 +138,7 @@ export default function AgentCard({ agent }) {
             <PersonOutlineIcon className={styles.linkIcon} />
             Profile
           </Link>
+          <OpenAgentLink href={agentDefinitionUrl(agent)} title={`Opens ${agent.id}.agent.md on GitHub`} />
         </CardActions>
       </div>
     </article>
@@ -128,10 +148,11 @@ export default function AgentCard({ agent }) {
 /** Card for a team of agents that share a repository and have no pictures. */
 export function AgentTeamCard({ team, members }) {
   useBrokenLinks().collectAnchor(team.id);
+  const profileUrl = teamProfileUrl(team);
 
   return (
     <article id={team.id} className={styles.card}>
-      <div className={`${styles.media} ${styles.teamMedia}`}>
+      <Link to={profileUrl} className={`${styles.media} ${styles.teamMedia}`} tabIndex={-1} aria-hidden="true">
         <div className={styles.teamGrid} aria-hidden="true">
           {members.map((member) => (
             <span key={member.id} className={styles.teamBadge}>
@@ -144,10 +165,14 @@ export function AgentTeamCard({ team, members }) {
           <GitHubIcon className={styles.repoBadgeIcon} />
           {team.repository}
         </span>
-      </div>
+      </Link>
 
       <div className={styles.body}>
-        <h3 className={styles.name}>{team.name}</h3>
+        <h3 className={styles.name}>
+          <Link to={profileUrl} className={styles.nameLink}>
+            {team.name}
+          </Link>
+        </h3>
         <p className={styles.description}>{team.description}</p>
 
         <ul className={styles.members}>
@@ -165,7 +190,17 @@ export function AgentTeamCard({ team, members }) {
           <Assistants assistants={[...new Set(members.flatMap((member) => member.assistants))]} />
         </div>
 
-        <CardActions agent={{ repository: team.repository, name: 'one of its agents' }} />
+        <CardActions agent={{ repository: team.repository, name: 'one of its agents' }}>
+          <Link className={styles.link} to={profileUrl}>
+            <GroupsOutlinedIcon className={styles.linkIcon} />
+            Team profile
+          </Link>
+          <OpenAgentLink
+            href={teamAgentsFolderUrl(team)}
+            label="Open agents"
+            title={`Opens the .github/agents folder of ${team.repository} on GitHub`}
+          />
+        </CardActions>
       </div>
     </article>
   );

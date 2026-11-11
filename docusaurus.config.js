@@ -167,13 +167,22 @@ const config = {
       return {
         name: 'ai-agent-profiles',
         async contentLoaded({ actions }) {
-          const { agents } = require('./data/aiAgents');
+          const { agents, agentTeams } = require('./data/aiAgents');
           agents.forEach((agent) => {
             actions.addRoute({
               path: `${context.baseUrl}AI/agents/${agent.id}`,
               component: '@site/src/components/2.0/AgentProfile',
               exact: true,
               props: { agentId: agent.id },
+            });
+          });
+          // One team profile page per team, e.g. /AI/agents/testlab.
+          agentTeams.forEach((team) => {
+            actions.addRoute({
+              path: `${context.baseUrl}AI/agents/${team.id}`,
+              component: '@site/src/components/2.0/AgentTeamProfile',
+              exact: true,
+              props: { teamId: team.id },
             });
           });
         },

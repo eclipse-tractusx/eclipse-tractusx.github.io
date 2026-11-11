@@ -1,0 +1,355 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+// Team profile page. The hero and page frame come from ../AgentProfile/styles.module.scss;
+// this file adds the team portrait, the workflow and the member cards.
+
+$brand-orange: #faa023;
+$brand-green: #afc72d;
+
+/* Hero portrait: one robot badge per member ------------------------------ */
+.teamPortrait {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 18%;
+  background:
+    radial-gradient(70% 70% at 30% 20%, rgba(250, 160, 35, 0.28) 0%, rgba(250, 160, 35, 0) 70%),
+    linear-gradient(180deg, #11141b 0%, #070809 100%);
+}
+
+.teamBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc((100% - 28px) / 3);
+  aspect-ratio: 1 / 1;
+  border-radius: 22%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: $brand-orange;
+
+  svg {
+    width: 55%;
+    height: 55%;
+  }
+}
+
+/* Blocks ------------------------------------------------------------------ */
+.block {
+  padding-top: 56px;
+
+  &:first-child {
+    padding-top: 48px;
+  }
+}
+
+.blockTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.blockIcon {
+  color: $brand-orange;
+  font-size: 28px !important;
+}
+
+.note {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* How the team works: the steps in order ---------------------------------- */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flowStep {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  counter-increment: step;
+
+  &::before {
+    content: counter(step);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(250, 160, 35, 0.16);
+    color: $brand-orange;
+    font-size: 13px;
+    font-weight: 800;
+  }
+}
+
+.flowTitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.flowText {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.flowAgent {
+  margin-top: auto;
+  padding-top: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #b06f05;
+
+  [data-theme='dark'] & {
+    color: $brand-orange;
+  }
+}
+
+/* Member cards ------------------------------------------------------------ */
+.members {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.member {
+  padding: 26px 28px;
+  border-radius: 18px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  scroll-margin-top: 90px;
+
+  &:target {
+    border-color: $brand-orange;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 20px;
+  }
+}
+
+.memberHead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.memberAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background:
+    radial-gradient(70% 70% at 30% 20%, rgba(250, 160, 35, 0.3) 0%, rgba(250, 160, 35, 0) 70%),
+    #11141b;
+  color: $brand-orange;
+
+  svg {
+    font-size: 30px;
+  }
+}
+
+.memberHeading {
+  min-width: 0;
+}
+
+.memberName {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: $brand-orange;
+      text-decoration: none;
+    }
+  }
+}
+
+.memberRole {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.motto {
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  border-left: 3px solid $brand-orange;
+  border-radius: 0 10px 10px 0;
+  background: var(--ifm-color-emphasis-100);
+  font-size: 15px;
+  font-style: italic;
+}
+
+.memberGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 32px;
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.label {
+  margin: 18px 0 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.text {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.traits {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ifm-color-emphasis-800);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 8px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: $brand-orange;
+    }
+  }
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: help;
+}
+
+.memberActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-font-color-base);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    border-color: $brand-orange;
+    color: $brand-orange;
+    text-decoration: none;
+  }
+}
+
+.actionIcon {
+  font-size: 16px !important;
+}
+
+.back {
+  display: flex;
+  justify-content: center;
+  padding: 48px 0 80px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+}

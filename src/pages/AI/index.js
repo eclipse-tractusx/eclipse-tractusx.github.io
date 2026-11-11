@@ -36,6 +36,7 @@ import AiPageHeader from '@site/src/components/2.0/AiPageHeader';
 import {
   agentTeams,
   agentProfileUrl,
+  teamProfileUrl,
   getAgentById,
   getAiStatistics,
   getFeaturedAgents,
@@ -83,7 +84,7 @@ function AgentPortrait({ agent }) {
 function TeamPortrait({ team }) {
   const members = getTeamMembers(team.id);
   return (
-    <Link to={`/AI/agents#${team.id}`} className={styles.portrait}>
+    <Link to={teamProfileUrl(team)} className={styles.portrait}>
       <span className={`${styles.portraitImage} ${styles.portraitTeam}`} aria-hidden="true">
         <SmartToyOutlinedIcon />
         {members.length}

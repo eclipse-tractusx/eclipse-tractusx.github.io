@@ -30,7 +30,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import HistoryEduOutlinedIcon from '@mui/icons-material/HistoryEduOutlined';
@@ -47,6 +47,7 @@ import {
   agentProfileUrl,
   getAgentById,
   repositoryUrl,
+  teamProfileUrl,
 } from '@site/data/aiAgents';
 import styles from './styles.module.scss';
 
@@ -166,7 +167,11 @@ export default function AgentProfile({ agentId }) {
                 <span className={styles.repoChip}>
                   <GitHubIcon className={styles.repoChipIcon} />
                   eclipse-tractusx/{agent.repository}
-                  {team && <span className={styles.teamTag}>{team.name}</span>}
+                  {team && (
+                    <Link to={teamProfileUrl(team)} className={styles.teamTag}>
+                      {team.name}
+                    </Link>
+                  )}
                 </span>
                 <h1 className={styles.name}>{agent.name}</h1>
                 <p className={styles.role}>{agent.role}</p>
@@ -183,9 +188,15 @@ export default function AgentProfile({ agentId }) {
                     <ChatBubbleOutlineIcon className={styles.buttonIcon} />
                     Chat on GitHub
                   </a>
-                  <a className={styles.ghostButton} href={agentDefinitionUrl(agent)} target="_blank" rel="noopener noreferrer">
-                    <DescriptionOutlinedIcon className={styles.buttonIcon} />
-                    Agent definition
+                  <a
+                    className={styles.ghostButton}
+                    href={agentDefinitionUrl(agent)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`Opens ${agent.id}.agent.md on GitHub`}
+                  >
+                    <OpenInNewIcon className={styles.buttonIcon} />
+                    Open agent
                   </a>
                   <a className={styles.ghostButton} href={repositoryUrl(agent.repository)} target="_blank" rel="noopener noreferrer">
                     <GitHubIcon className={styles.buttonIcon} />

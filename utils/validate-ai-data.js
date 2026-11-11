@@ -125,8 +125,21 @@ function validateAiData() {
 
   agents.forEach((agent) => validateAgent(agent, context, errors));
   agentTeams.forEach((team) => {
-    requireFields(team, ['id', 'name', 'repository', 'description'], `Team "${team.id || '?'}"`, errors);
-    if (!agents.some((agent) => agent.team === team.id)) errors.push(`Team "${team.id}": has no agents`);
+    const label = `Team "${team.id || '?'}"`;
+    requireFields(team, ['id', 'name', 'repository', 'description'], label, errors);
+    const members = agents.filter((agent) => agent.team === team.id);
+    if (members.length === 0) errors.push(`${label}: has no agents`);
+    // The team profile lives at /AI/agents/<team id>, next to the agent profiles.
+    if (context.agentIds.has(team.id)) errors.push(`${label}: id is also an agent id`);
+    if (team.lead && !members.some((member) => member.id === team.lead)) {
+      errors.push(`${label}: lead "${team.lead}" is not a member`);
+    }
+    (team.workflow || []).forEach((step, index) => {
+      requireFields(step, ['title', 'text'], `${label} workflow[${index}]`, errors);
+      if (step.agent && !members.some((member) => member.id === step.agent)) {
+        errors.push(`${label} workflow[${index}]: "${step.agent}" is not a member`);
+      }
+    });
   });
   mcpServers.forEach((server) => validateMcpServer(server, errors));
   validateProfiles(errors);
