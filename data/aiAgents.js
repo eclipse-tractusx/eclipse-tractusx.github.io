@@ -54,6 +54,14 @@
  *   }
  * }
  *
+ * Team entry (agents that share a repository; shown as one card and one team profile
+ * page at /AI/agents/<team id>):
+ * {
+ *   id: string, name: string, repository: string, description: string,
+ *   lead?: string         id of the member that coordinates the others
+ *   workflow?: { title: string, text: string, agent?: string }[]  how the team works
+ * }
+ *
  * MCP server entry:
  * {
  *   id: string, name: string, provider: string, description: string,
@@ -415,6 +423,33 @@ const agentTeams = [
     repository: 'tractusx-testlab',
     description:
       'Five GitHub Copilot agents that build the Tractus-X Testlab together: the AI Master plans and delegates, the specialists build, test and document.',
+    lead: 'testlab-ai-master',
+    // How the team works, from the AI Master's and the Architect's definitions.
+    workflow: [
+      {
+        title: 'Requirements',
+        text: 'The Chief Architect, the human, brings a feature request, bug report or epic.',
+      },
+      {
+        title: 'Plan',
+        text: 'The Architect analyzes the impact and breaks the work into packages with dependencies, risks and trade-offs.',
+        agent: 'testlab-architect',
+      },
+      {
+        title: 'Delegate',
+        text: 'The AI Master sends each work package to the right specialist, in parallel where the files do not overlap.',
+        agent: 'testlab-ai-master',
+      },
+      {
+        title: 'Build',
+        text: 'The Master writes the backend, the Test Master the tests and the Docs Master the documentation.',
+      },
+      {
+        title: 'Review and deliver',
+        text: 'The AI Master reviews every delivery against its checklist, runs the quality gates and reports back.',
+        agent: 'testlab-ai-master',
+      },
+    ],
   },
 ];
 
@@ -444,6 +479,12 @@ const agentDefinitionUrl = (agent) =>
   `${repositoryUrl(agent.repository)}/blob/main/.github/agents/${agent.id}.agent.md`;
 
 const agentProfileUrl = (agent) => `/AI/agents/${agent.id}`;
+
+/** Team profile page; team ids never collide with agent ids (validate:ai checks it). */
+const teamProfileUrl = (team) => `/AI/agents/${team.id}`;
+
+/** The folder with all agent definitions of a team's repository. */
+const teamAgentsFolderUrl = (team) => `${repositoryUrl(team.repository)}/tree/main/.github/agents`;
 
 // The GitHub agents tab, where you pick the repository and the custom agent from a dropdown.
 // GitHub does not document a URL that pre-selects them, so the pages say what to pick.
@@ -478,6 +519,8 @@ module.exports = {
   repositoryUrl,
   agentDefinitionUrl,
   agentProfileUrl,
+  teamProfileUrl,
+  teamAgentsFolderUrl,
   agentChatUrl,
   agentChatHint,
   GITHUB_AGENTS_TAB_URL,
