@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([["33290"],{336003(e){e.exports=JSON.parse('{"agentId":"testlab-architect"}')}}]);
