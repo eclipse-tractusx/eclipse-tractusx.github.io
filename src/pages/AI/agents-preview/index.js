@@ -44,7 +44,7 @@ import {
   agentTeams,
   getFeaturedAgents,
   getTeamMembers,
-} from '@site/data/aiData';
+} from '@site/data/aiAgents';
 import styles from './styles.module.scss';
 
 /** Every dimension of the card design, with its options. The first option is today's design. */

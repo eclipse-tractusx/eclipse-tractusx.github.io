@@ -30,7 +30,7 @@ import {
   getFeaturedAgents,
   getTeamMembers,
   repositoryUrl,
-} from '@site/data/aiData';
+} from '@site/data/aiAgents';
 import styles from '../styles.module.scss';
 
 export default function AiAgentsPage() {

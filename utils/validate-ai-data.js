@@ -18,15 +18,15 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-// Checks data/aiData.js before the build: required fields, unique ids, known
-// teams and hand-over targets, and that every agent picture exists in /static
-// and has a license entry in its folder's REUSE.toml.
+// Checks data/aiAgents.js before the build: required fields, unique ids, known
+// teams and hand-over targets, every agent's profile, and that every agent picture
+// exists in /static and has a license entry in its folder's REUSE.toml.
 // Usage: node utils/validate-ai-data.js [--silent]
 
 const fs = require('fs');
 const path = require('path');
 
-const { agents, agentTeams, agentProfiles, mcpServers, ASSISTANTS } = require('../data/aiData');
+const { agents, agentTeams, mcpServers, ASSISTANTS } = require('../data/aiAgents');
 
 const ROOT = path.join(__dirname, '..');
 const KEBAB_CASE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -82,22 +82,19 @@ function validateAgent(agent, context, errors) {
   }
 }
 
-// Every agent has a profile page (/AI/agents/<id>), so every agent needs its profile content.
+// Every agent has a profile page (/AI/agents/<id>), so every agent needs its `profile`.
 function validateProfiles(errors) {
   agents.forEach((agent) => {
-    const label = `Profile "${agent.id}"`;
-    const profile = agentProfiles[agent.id];
+    const label = `Agent "${agent.id}" profile`;
+    const { profile } = agent;
     if (!profile) {
-      errors.push(`${label}: missing in data/aiAgentProfiles.js`);
+      errors.push(`${label}: missing "profile"`);
       return;
     }
     requireFields(profile, ['mission', 'personality', 'skills'], label, errors);
     (profile.skills || []).forEach((skill, index) => {
       requireFields(skill, ['name', 'text'], `${label} skills[${index}]`, errors);
     });
-  });
-  Object.keys(agentProfiles).forEach((id) => {
-    if (!agents.some((agent) => agent.id === id)) errors.push(`Profile "${id}": no agent with this id`);
   });
 }
 
@@ -140,12 +137,12 @@ function validateAiData() {
 if (require.main === module) {
   const errors = validateAiData();
   if (errors.length > 0) {
-    console.error(`❌ data/aiData.js has ${errors.length} problem(s):`);
+    console.error(`❌ data/aiAgents.js has ${errors.length} problem(s):`);
     errors.forEach((error) => console.error(`  - ${error}`));
     process.exit(1);
   }
   if (!silent) {
-    console.log(`✅ data/aiData.js is valid: ${agents.length} agents, ${agentTeams.length} team(s), ${mcpServers.length} MCP server(s).`);
+    console.log(`✅ data/aiAgents.js is valid: ${agents.length} agents, ${agentTeams.length} team(s), ${mcpServers.length} MCP server(s).`);
   }
 }
 
