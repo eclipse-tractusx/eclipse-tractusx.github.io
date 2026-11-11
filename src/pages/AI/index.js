@@ -31,6 +31,7 @@ import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
 import TerminalIcon from '@mui/icons-material/Terminal';
 import ExtensionOutlinedIcon from '@mui/icons-material/ExtensionOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
+import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import AiPageHeader from '@site/src/components/2.0/AiPageHeader';
 import {
   agentTeams,
@@ -162,6 +163,7 @@ export default function AiOverviewPage() {
             { label: 'Repositories', value: statistics.repositories },
             { label: 'AI assistants', value: statistics.assistants },
           ]}
+          action={{ label: 'Why AI needs dataspaces', to: '/AI/dataspace-4-ai' }}
         />
 
         <section className={styles.section}>
@@ -284,6 +286,16 @@ claude --agent connector-sensei`}
                 <span>
                   <span className={styles.exploreTitle}>MCP servers</span>
                   <span className={styles.exploreText}>The tools our agents connect to</span>
+                </span>
+                <ArrowForwardIcon className={styles.crewArrow} />
+              </Link>
+              <Link to="/AI/dataspace-4-ai" className={styles.exploreCard}>
+                <span className={styles.iconTile}>
+                  <ShareOutlinedIcon />
+                </span>
+                <span>
+                  <span className={styles.exploreTitle}>Dataspace 4 AI</span>
+                  <span className={styles.exploreText}>Why AI needs data shared with trust</span>
                 </span>
                 <ArrowForwardIcon className={styles.crewArrow} />
               </Link>
