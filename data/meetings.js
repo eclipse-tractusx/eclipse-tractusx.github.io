@@ -289,6 +289,7 @@ export const meetings = [
     category: MEETING_CATEGORIES.PRODUCT,
     description: 'Weekly open meeting for the Dataspace Management Stack, the modernised Portal of Eclipse Tractus-X: the Dataspace Management Services (backend) and the Dataspace Management UI. We align on development - features, bugs, architecture and maintenance - and answer your questions. It replaces the former Portal open meeting. Everyone is welcome!',
     contact: [CONTACTS.MATHIAS_MOSER, CONTACTS.WAHIDUL_AZAM],
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_YWI4ZDE2MmQtYmYyMy00N2YxLWEzMmYtN2ZiNzk1MWQ3ZGM4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-portal:matrix.eclipse.org',
     additionalLinks: [
       {title: 'dataspace-mgm-services Repository', url: 'https://github.com/eclipse-tractusx/dataspace-mgm-services'},
