@@ -302,7 +302,7 @@ export const meetings = [
       daysOfWeek: ['friday'],
       startTime: '14:00',
       endTime: '15:00',
-      validFrom: '2026-11-20',
+      validFrom: '2026-11-14',
     },
   },
   {
@@ -447,33 +447,6 @@ export const meetings = [
       startDate: '2026-11-11',
       startTime: '09:05',
       endTime: '10:30',
-    },
-  },
-  // Hackathon II — on-site, full-day developer event at ARENA2036, no online session link.
-  // Participation is by email, so the register button opens a pre-filled mail to the organizer.
-  // Times are preliminary (full day); adjust once the agenda is published.
-  {
-    id: 'hackathon-ii-2026',
-    title: 'Second International Eclipse Tractus-X Hackathon',
-    icon: 'code',
-    category: MEETING_CATEGORIES.ONE_TIME,
-    priority: MEETING_PRIORITIES.HIGHLIGHT,
-    description: 'The Second International Eclipse Tractus-X Hackathon at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany) — a free, full-day design thinking and programming hackathon, with the option to join online. The mission: re-architecting the Eclipse Tractus-X Portal — simpler, easier to maintain, more performant, and easier to use for data space onboardings with Tractus-X technology. Interested in joining? Send an email to mathias.moser@catena-x.net.',
-    contact: [CONTACTS.MATHIAS_MOSER],
-    location: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
-    onsite: true,
-    registrationLink: 'mailto:mathias.moser@catena-x.net?subject=Eclipse%20Tractus-X%20Hackathon%20II%20%E2%80%94%20November%206%2C%202026',
-    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-dev:matrix.eclipse.org',
-    additionalLinks: [
-      { title: 'News Blog', url: '/blog/hackathon-ii-11-2026' },
-      { title: 'Looking Back: Hackathon I in Bilbao', url: '/blog/first-international-hackathon' },
-      { title: 'Tractus-X Mailing List', url: 'https://accounts.eclipse.org/mailing-list/tractusx-dev' },
-    ],
-    recurrence: {
-      frequency: 'once',
-      startDate: '2026-11-06',
-      startTime: '09:00',
-      endTime: '17:00',
     },
   },
   // Community Days — on-site event at ARENA2036, no online session link.
