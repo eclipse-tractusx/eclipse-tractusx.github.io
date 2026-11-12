@@ -67,13 +67,6 @@ export const CONTACTS = {
     github: 'lgblaumeiser',
     country: 'DE'
   },
-  SAAD_RAFIQ: {
-    name: 'Saad Rafiq',
-    title: 'Portal Product Owner',
-    email: 'saad.rafiq@cofinity-x.com',
-    github: 'saadrafiq12',
-    country: 'DE'
-  },
   MIKEL_GARCIA: {
     name: 'Mikel Garcia',
     title: 'Eclipse Tractus-X Project Lead',
@@ -114,6 +107,12 @@ export const CONTACTS = {
     email: 'ayao@lksnext.com',
     github: 'AYaoZhan',
     country: 'ES'
+  },
+  // email and country not public yet: add them once confirmed (country drives holiday detection)
+  WAHIDUL_AZAM: {
+    name: 'Md. Wahidul Azam',
+    title: 'Senior Software Engineer DSASS, TVS',
+    github: 'wahidulazam',
   },
   THERESA_HILGER: {
     name: 'Theresa Hilger',
@@ -282,24 +281,28 @@ export const meetings = [
       endTime: '16:00',
     },
   },
+  // Replaces the former 'portal-open-meeting': the Dataspace Management is the modernised Portal.
   {
-    id: 'portal-open-meeting',
-    title: 'Portal - Open Meeting',
+    id: 'dataspace-management-stack-open-meeting',
+    title: 'Dataspace Management Stack - Open Meeting',
     icon: 'dashboard',
     category: MEETING_CATEGORIES.PRODUCT,
-    description: 'Open meeting for Portal product. Agenda is divided in alignment on development - features, bugs, maintenance - and Q&A.',
-    contact: CONTACTS.SAAD_RAFIQ,
-    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_YmIyYjgwOTQtZjI1Ny00YmM0LTlmOWQtODRjZWFmZWM1Y2E3%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%22a8b7a5ee-66ff-4695-afa2-08f893d8aaf6%22%7d',
+    description: 'Weekly open meeting for the Dataspace Management Stack, the modernised Portal of Eclipse Tractus-X: the Dataspace Management Services (backend) and the Dataspace Management UI. We align on development - features, bugs, architecture and maintenance - and answer your questions. It replaces the former Portal open meeting. Everyone is welcome!',
+    contact: [CONTACTS.MATHIAS_MOSER, CONTACTS.WAHIDUL_AZAM],
+    sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_YWI4ZDE2MmQtYmYyMy00N2YxLWEzMmYtN2ZiNzk1MWQ3ZGM4%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-portal:matrix.eclipse.org',
     additionalLinks: [
-      {title: 'Feature Board', url: 'https://github.com/orgs/eclipse-tractusx/projects/50/views/25'},
+      {title: 'dataspace-mgm-services Repository', url: 'https://github.com/eclipse-tractusx/dataspace-mgm-services'},
+      {title: 'dataspace-mgm-ui Repository', url: 'https://github.com/eclipse-tractusx/dataspace-mgm-ui'},
+      {title: 'Tractus-X Mailing List', url: 'https://accounts.eclipse.org/mailing-list/tractusx-dev'},
     ],
     recurrence: {
       frequency: 'weekly',
-      interval: 4,
-      daysOfWeek: ['tuesday'],
-      startTime: '10:30',
-      endTime: '11:00',
+      interval: 1,
+      daysOfWeek: ['friday'],
+      startTime: '14:00',
+      endTime: '15:00',
+      validFrom: '2026-11-14',
     },
   },
   {
@@ -444,33 +447,6 @@ export const meetings = [
       startDate: '2026-11-11',
       startTime: '09:05',
       endTime: '10:30',
-    },
-  },
-  // Hackathon II — on-site, full-day developer event at ARENA2036, no online session link.
-  // Participation is by email, so the register button opens a pre-filled mail to the organizer.
-  // Times are preliminary (full day); adjust once the agenda is published.
-  {
-    id: 'hackathon-ii-2026',
-    title: 'Second International Eclipse Tractus-X Hackathon',
-    icon: 'code',
-    category: MEETING_CATEGORIES.ONE_TIME,
-    priority: MEETING_PRIORITIES.HIGHLIGHT,
-    description: 'The Second International Eclipse Tractus-X Hackathon at ARENA2036 e.V. (Pfaffenwaldring 19, 70569 Stuttgart, Germany) — a free, full-day design thinking and programming hackathon, with the option to join online. The mission: re-architecting the Eclipse Tractus-X Portal — simpler, easier to maintain, more performant, and easier to use for data space onboardings with Tractus-X technology. Interested in joining? Send an email to mathias.moser@catena-x.net.',
-    contact: [CONTACTS.MATHIAS_MOSER],
-    location: 'ARENA2036 e.V., Pfaffenwaldring 19, 70569 Stuttgart, Germany',
-    onsite: true,
-    registrationLink: 'mailto:mathias.moser@catena-x.net?subject=Eclipse%20Tractus-X%20Hackathon%20II%20%E2%80%94%20November%206%2C%202026',
-    matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-dev:matrix.eclipse.org',
-    additionalLinks: [
-      { title: 'News Blog', url: '/blog/hackathon-ii-11-2026' },
-      { title: 'Looking Back: Hackathon I in Bilbao', url: '/blog/first-international-hackathon' },
-      { title: 'Tractus-X Mailing List', url: 'https://accounts.eclipse.org/mailing-list/tractusx-dev' },
-    ],
-    recurrence: {
-      frequency: 'once',
-      startDate: '2026-11-06',
-      startTime: '09:00',
-      endTime: '17:00',
     },
   },
   // Community Days — on-site event at ARENA2036, no online session link.
