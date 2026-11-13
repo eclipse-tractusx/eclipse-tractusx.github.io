@@ -212,7 +212,9 @@
   list-style: none;
 }
 
+/* Positioned, so its visually hidden text stays inside the chip and can't widen the page */
 .topic {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -418,14 +420,16 @@
     justify-content: center;
   }
 
+  /* minmax(0, …) keeps the scrolling chips from widening the page */
   .layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
   }
 
   /* Topics become a row of chips that scrolls sideways */
   .topics {
     position: static;
+    min-width: 0;
   }
 
   .topicsTitle {
