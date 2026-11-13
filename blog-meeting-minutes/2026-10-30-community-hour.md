@@ -2,6 +2,7 @@
 slug: community-office-hour-2026-10-30
 title: Community Office Hour 2026-10-30
 authors:
+    - carlos_rodriguez
     - stephan_bauer
 tags: [community, meeting-minutes]
 ---
