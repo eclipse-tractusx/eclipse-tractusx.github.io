@@ -11,6 +11,12 @@ Tractus-X follows a quarterly release cycle with releases typically occurring in
 
 :::
 
+:::tip Prefer video?
+
+Watch [Episode 3: The release train](/docs/contributor-journey#episode-3) of the Contributor Journey video series for a short overview of the release process.
+
+:::
+
 ## Release Timeline Overview
 
 The release process consists of several key phases that span approximately 3-4 months:

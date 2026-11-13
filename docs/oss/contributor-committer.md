@@ -5,6 +5,12 @@ sidebar_position: 39
 
 In Eclipse projects there are a different roles critical to know. We show the most important ones for more information see the [Handbook](https://www.eclipse.org/projects/handbook/#roles). You can also checkout this [training video](https://youtu.be/Yna8V2sOqws) on the Eclipse YouTube Channel.
 
+:::tip Prefer video?
+
+Watch [Episode 4: Level up](/docs/contributor-journey#episode-4) of the Contributor Journey video series for a short overview of the roles and the committer election.
+
+:::
+
 ## Contributor
 
 Everybody who has an Eclipse account and a signed ECA is a Eclipse contributor.

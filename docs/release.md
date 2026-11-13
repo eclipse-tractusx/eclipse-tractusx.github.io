@@ -8,6 +8,12 @@ record. The TRGs are indexed by topic for specialist subjects.
 
 You find the overarching Changelog [here](release/trg-0) to see when new TRGs have been added.
 
+:::tip Prefer video?
+
+Watch [Episode 5: The rulebook](/docs/contributor-journey#episode-5) for a short tour through the TRGs, and [Episode 8: Safety first](/docs/contributor-journey#episode-8) for the security guidelines.
+
+:::
+
 ## Process
 
 This TRG process is open for all and has the main goal of providing reasonable defaults for workflows and requirements on being able to easily contribute, maintain and run products/components across Eclipse Tractus-X.

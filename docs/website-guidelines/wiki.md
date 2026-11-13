@@ -13,6 +13,12 @@ sidebar_position: 2
     *********************************************************
 ```
 
+:::tip Prefer video?
+
+Watch [Episode 7: Write the docs](/docs/contributor-journey#episode-7) of the Contributor Journey video series for a short introduction to contributing to this website.
+
+:::
+
 This documentation website was developed with [Docusaurus 2.0](https://docusaurus.io/) for the simplicity and benefits it offers for maintenance, upgrades, and contributions that can be performed in a simple and intuitive manner.
 
 ### How to add/update documentation
