@@ -115,6 +115,11 @@
   border-radius: 10px;
   background: var(--ifm-background-surface-color);
   box-shadow: var(--ifm-global-shadow-md);
+
+  // `display: flex` above would otherwise override the `hidden` attribute.
+  &[hidden] {
+    display: none;
+  }
 }
 
 .amountLabel {
