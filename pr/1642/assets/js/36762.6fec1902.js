@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([["36762"],{337089(e,c,t){t.d(c,{createArchitectureServices:()=>s.S});var s=t(245796);t(504954)}}]);
