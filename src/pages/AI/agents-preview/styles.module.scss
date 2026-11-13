@@ -1,0 +1,759 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+// Design preview of the agent cards. Each configurator dimension maps to one class:
+// .layout<Option>, .picture<Option>, .accent<Option>; details and actions switch the markup.
+
+$brand-orange: #faa023;
+$brand-green: #afc72d;
+
+.page {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @media screen and (max-width: 600px) {
+    padding: 0 16px;
+  }
+}
+
+.section {
+  padding: 48px 0 88px;
+}
+
+.accent {
+  background: linear-gradient(120deg, $brand-orange 0%, $brand-green 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.icon {
+  font-size: 16px !important;
+}
+
+/* --------------------------------------------------------------------------
+   Workbench: cards on the left, configurator on the right
+   -------------------------------------------------------------------------- */
+
+.workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 32px;
+  align-items: start;
+
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(250, 160, 35, 0.4);
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+
+  @media screen and (max-width: 1100px) {
+    position: static;
+    order: -1;
+  }
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+
+  svg {
+    color: $brand-orange;
+    font-size: 20px !important;
+  }
+}
+
+.dimension {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.dimensionLabel {
+  display: block;
+  margin-bottom: 8px;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.option {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    border-color: $brand-orange;
+    color: $brand-orange;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $brand-orange;
+    outline-offset: 2px;
+  }
+}
+
+.optionActive {
+  border-color: $brand-orange;
+  background: rgba(250, 160, 35, 0.14);
+  color: $brand-orange;
+}
+
+.hint {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.combination {
+  padding-top: 16px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.combinationCode {
+  display: block;
+  padding: 8px 10px;
+  font-size: 11.5px;
+  line-height: 1.6;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.panelActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.copy,
+.reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.copy {
+  border: none;
+  background: linear-gradient(120deg, $brand-orange 0%, #f08a12 100%);
+  color: #10120f;
+}
+
+.reset {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  color: var(--ifm-font-color-base);
+
+  &:hover {
+    border-color: $brand-orange;
+    color: $brand-orange;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Card (shared)
+   -------------------------------------------------------------------------- */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+
+  &:hover {
+    border-color: rgba(250, 160, 35, 0.55);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    transform: translateY(-4px);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:hover .image {
+    transform: scale(1.04);
+  }
+}
+
+.cardClickable {
+  cursor: pointer;
+}
+
+.stretched {
+  color: inherit;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:focus-visible::after {
+    outline: 2px solid $brand-orange;
+    outline-offset: -2px;
+    border-radius: 18px;
+  }
+}
+
+.media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: #0b0d12;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.imageEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(70% 70% at 30% 20%, rgba(250, 160, 35, 0.28) 0%, rgba(250, 160, 35, 0) 70%),
+    linear-gradient(180deg, #11141b 0%, #070809 100%);
+  color: $brand-orange;
+
+  svg {
+    width: 36%;
+    height: 36%;
+  }
+}
+
+.repo {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100% - 28px);
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(11, 13, 18, 0.72);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 22px 22px;
+}
+
+.name {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.role {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.motto {
+  margin: 4px 0 0;
+  padding-left: 12px;
+  border-left: 3px solid $brand-orange;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.description {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  padding: 3px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.assistants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 4px 0 0;
+}
+
+.assistant {
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(175, 199, 45, 0.18);
+  font-size: 12px;
+  font-weight: 700;
+  color: #5f7000;
+
+  [data-theme='dark'] & {
+    color: $brand-green;
+  }
+}
+
+/* Actions ---------------------------------------------------------------- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.chat,
+.profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+}
+
+.chat {
+  background: linear-gradient(120deg, $brand-orange 0%, #f08a12 100%);
+  color: #10120f;
+
+  &:hover {
+    color: #10120f;
+  }
+}
+
+.profile {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-font-color-base);
+
+  &:hover {
+    border-color: $brand-orange;
+    color: $brand-orange;
+  }
+}
+
+// "On hover": the buttons sit on the picture and fade in on hover (always shown on touch screens).
+.actionsHover {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+
+  .profile {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(11, 13, 18, 0.72);
+    color: #ffffff;
+  }
+
+  .card:hover &,
+  .card:focus-within & {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (hover: none) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// "Whole card": a round Chat icon in the corner; the card itself opens the profile.
+.actionsCard {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+
+  .chat {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Picture variants
+   -------------------------------------------------------------------------- */
+
+.picturePortrait .media {
+  aspect-ratio: 3 / 4;
+}
+
+.pictureAvatar {
+  align-items: center;
+  text-align: center;
+
+  .media {
+    width: 148px;
+    margin: 26px auto 0;
+    border-radius: 50%;
+    border: 3px solid rgba(250, 160, 35, 0.55);
+    box-shadow: 0 0 0 6px rgba(250, 160, 35, 0.08);
+  }
+
+  .repo {
+    position: static;
+    display: none;
+  }
+
+  .motto {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .tags,
+  .assistants,
+  .actions {
+    justify-content: center;
+  }
+
+  .body {
+    align-items: center;
+  }
+}
+
+// "Poster": the picture fills the card; the text sits on a dark gradient at the bottom.
+.picturePoster {
+  min-height: 460px;
+  justify-content: flex-end;
+  border-color: rgba(255, 255, 255, 0.08);
+  background: #0b0d12;
+  color: #ffffff;
+
+  .media {
+    position: absolute;
+    inset: 0;
+    aspect-ratio: auto;
+  }
+
+  .repo {
+    top: 14px;
+    bottom: auto;
+  }
+
+  .body {
+    position: relative;
+    z-index: 1;
+    flex: 0;
+    padding-top: 80px;
+    background: linear-gradient(180deg, rgba(7, 8, 9, 0) 0%, rgba(7, 8, 9, 0.88) 38%, rgba(7, 8, 9, 0.96) 100%);
+  }
+
+  .role,
+  .motto,
+  .description {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .tag {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .assistant {
+    color: $brand-green;
+  }
+
+  .profile {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+  }
+
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accent variants
+   -------------------------------------------------------------------------- */
+
+.accentGlow {
+  border-color: rgba(250, 160, 35, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(250, 160, 35, 0.12),
+    0 12px 40px rgba(250, 160, 35, 0.12);
+}
+
+.accentGradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  height: 4px;
+  background: linear-gradient(90deg, $brand-orange 0%, $brand-green 100%);
+}
+
+/* --------------------------------------------------------------------------
+   Layout variants
+   -------------------------------------------------------------------------- */
+
+.cards {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+
+.layoutGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  @media screen and (max-width: 1300px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.layoutGrid4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+
+  .name {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 1300px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.layoutList {
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  .card:not(.picturePoster):not(.pictureAvatar) {
+    flex-direction: row;
+
+    .media {
+      width: 240px;
+      flex-shrink: 0;
+    }
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+
+      .media {
+        width: 100%;
+      }
+    }
+  }
+
+  .pictureAvatar {
+    flex-direction: row;
+    text-align: left;
+
+    .media {
+      width: 120px;
+      margin: 22px 0 22px 22px;
+      flex-shrink: 0;
+    }
+
+    .body {
+      align-items: flex-start;
+    }
+
+    .tags,
+    .assistants,
+    .actions {
+      justify-content: flex-start;
+    }
+  }
+
+  .picturePoster {
+    min-height: 300px;
+  }
+}
+
+.layoutSpotlight {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  .featured {
+    grid-column: span 2;
+    grid-row: span 2;
+
+    .name {
+      font-size: 30px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+
+    .featured {
+      grid-column: auto;
+      grid-row: auto;
+    }
+  }
+}
+
+// Spotlight with square pictures: the large card shows the picture beside the text.
+.layoutSpotlight .featured.pictureSquare,
+.layoutSpotlight .featured.picturePortrait {
+  @media screen and (min-width: 901px) {
+    flex-direction: row;
+
+    .media {
+      width: 52%;
+      flex-shrink: 0;
+      aspect-ratio: auto;
+    }
+
+    .body {
+      justify-content: center;
+      padding: 32px;
+    }
+  }
+}
+
+.layoutStrip {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  scroll-snap-type: x mandatory;
+
+  .card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .card {
+      flex-basis: 82%;
+    }
+  }
+}
