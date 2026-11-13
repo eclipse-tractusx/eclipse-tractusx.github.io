@@ -1,0 +1,152 @@
+/* Copyright (c) 2026 Contributors to the Eclipse Foundation
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* Uses the About Us tokens (--about-*) from the page, with fallbacks of their light values. */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  border: 1px solid var(--about-border, #dce0e5);
+  border-radius: 16px;
+  background: var(--ifm-background-color);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  /* Leave room for the sticky navbar when jumping to a question */
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1.5rem);
+}
+
+.item:hover {
+  border-color: color-mix(in srgb, var(--about-orange, #925200) 45%, var(--about-border, #dce0e5));
+}
+
+.item[open] {
+  border-color: color-mix(in srgb, var(--about-orange, #925200) 55%, var(--about-border, #dce0e5));
+  background: var(--about-surface, #f6f7f9);
+  box-shadow: 0 10px 28px -22px #00000059;
+}
+
+.summary {
+  position: relative;
+  display: block;
+  padding: 1.15rem 4rem 1.15rem 1.5rem;
+  border-radius: 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary:focus-visible {
+  outline: 2px solid var(--about-orange, #925200);
+  outline-offset: 2px;
+}
+
+/* Chevron in a round badge, turned when the answer is open */
+.summary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  width: 2rem;
+  height: 2rem;
+  background: var(--about-orange, #925200);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3E%3C/svg%3E") center / 1.4rem no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z'/%3E%3C/svg%3E") center / 1.4rem no-repeat;
+  transform: translateY(-50%);
+  transition: transform 0.25s ease;
+}
+
+/* The round badge behind the chevron */
+.summary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--about-orange, #925200) 12%, transparent);
+  transform: translateY(-50%);
+}
+
+.item[open] > .summary::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.question {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.answer {
+  padding: 0 1.5rem 1.35rem;
+  animation: reveal 0.25s ease;
+}
+
+.answer p {
+  max-width: 72ch;
+  color: var(--about-muted, #505a68);
+  line-height: 1.8;
+  margin-bottom: 0.85rem;
+}
+
+.answer a {
+  color: var(--about-orange, #925200);
+  font-weight: 600;
+}
+
+.permalink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+}
+
+.permalink svg {
+  font-size: 1rem;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .summary::after,
+  .answer {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .summary {
+    padding: 1rem 3.5rem 1rem 1.1rem;
+  }
+
+  .summary::before,
+  .summary::after {
+    right: 0.9rem;
+  }
+
+  .question {
+    font-size: 1rem;
+  }
+
+  .answer {
+    padding: 0 1.1rem 1.1rem;
+  }
+}
