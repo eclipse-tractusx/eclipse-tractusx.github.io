@@ -114,6 +114,19 @@ export default function AboutUsFaqPage() {
   const allOpen = visibleIds.length > 0 && visibleIds.every((id) => openIds.has(id));
   const searching = query.trim() !== '';
 
+  // A search can be shared as /AboutUs/faq?q=<words>.
+  useEffect(() => {
+    const initial = new URLSearchParams(window.location.search).get('q');
+    if (initial) setQuery(initial);
+  }, []);
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (query.trim()) url.searchParams.set('q', query);
+    else url.searchParams.delete('q');
+    if (url.href !== window.location.href) window.history.replaceState(window.history.state, '', url);
+  }, [query]);
+
   // Open the question named in the URL hash, on load and when the hash changes.
   useEffect(() => {
     const openFromHash = () => {
