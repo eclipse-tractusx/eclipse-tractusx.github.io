@@ -29,7 +29,7 @@ import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined';
 import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import AiPageHeader from '@site/src/components/2.0/AiPageHeader';
-import { mcpServers } from '@site/data/aiAgents';
+import { mcpServers, isMcpServerAvailable, repositoryUrl } from '@site/data/aiAgents';
 import styles from '../styles.module.scss';
 
 const MCP_URL = 'https://modelcontextprotocol.io/';
@@ -76,24 +76,49 @@ function McpFlow() {
   );
 }
 
+function serverLinkLabel(server) {
+  if (!isMcpServerAvailable(server)) return 'Follow the repository';
+  return server.origin === 'tractus-x' ? 'Read the guide' : 'Open the server';
+}
+
 function McpServerCard({ server }) {
+  const available = isMcpServerAvailable(server);
   return (
-    <article className={clsx(styles.panel, styles.serverCard)}>
+    <article className={clsx(styles.panel, styles.serverCard, !available && styles.serverCardSoon)}>
       <header className={styles.serverHeader}>
         <span className={styles.iconTile}>
           <HubOutlinedIcon />
         </span>
         <div>
           <h3 className={styles.serverName}>{server.name}</h3>
-          <p className={styles.serverProvider}>by {server.provider}</p>
+          <p className={styles.serverProvider}>
+            by {server.provider}
+            {server.repository && (
+              <>
+                {' · '}
+                <a href={repositoryUrl(server.repository)} target="_blank" rel="noopener noreferrer">
+                  {server.repository}
+                </a>
+              </>
+            )}
+          </p>
         </div>
-        <span className={styles.originBadge}>{ORIGIN_LABELS[server.origin]}</span>
+        <span className={clsx(styles.originBadge, !available && styles.soonBadge)}>
+          {available ? ORIGIN_LABELS[server.origin] : 'Coming soon'}
+        </span>
       </header>
 
       <p className={styles.serverText}>{server.description}</p>
+      {server.highlights && (
+        <ul className={styles.serverHighlights}>
+          {server.highlights.map((highlight) => (
+            <li key={highlight}>{highlight}</li>
+          ))}
+        </ul>
+      )}
       {server.license && <p className={styles.serverMeta}>License: {server.license}</p>}
 
-      {server.usedBy.map((usage) => (
+      {(server.usedBy || []).map((usage) => (
         <p key={usage.repository} className={styles.usedBy}>
           <span className={styles.usedByLabel}>Used in {usage.repository}</span>
           {usage.note}{' '}
@@ -106,7 +131,7 @@ function McpServerCard({ server }) {
       <div className={styles.actions}>
         <a className={styles.buttonSecondary} href={server.url} target="_blank" rel="noopener noreferrer">
           <OpenInNewIcon className={styles.buttonIcon} />
-          Open the server
+          {serverLinkLabel(server)}
         </a>
       </div>
     </article>
@@ -115,12 +140,35 @@ function McpServerCard({ server }) {
 
 function TractusXServers({ servers }) {
   if (servers.length > 0) {
+    const available = servers.filter(isMcpServerAvailable);
+    const comingSoon = servers.filter((server) => !isMcpServerAvailable(server));
     return (
-      <div className={styles.serverGrid}>
-        {servers.map((server) => (
-          <McpServerCard key={server.id} server={server} />
-        ))}
-      </div>
+      <>
+        {available.length > 0 && (
+          <div className={styles.serverGrid}>
+            {available.map((server) => (
+              <McpServerCard key={server.id} server={server} />
+            ))}
+          </div>
+        )}
+        {comingSoon.length > 0 && (
+          <>
+            <h3 className={styles.serverSubTitle}>Coming soon</h3>
+            <div className={styles.serverGrid}>
+              {comingSoon.map((server) => (
+                <McpServerCard key={server.id} server={server} />
+              ))}
+            </div>
+          </>
+        )}
+        <p className={styles.note}>
+          Building an MCP server for a Tractus-X product?{' '}
+          <a href={MCP_BUILD_SERVER_URL} target="_blank" rel="noopener noreferrer">
+            Start with the MCP guide
+          </a>{' '}
+          and tell the community in an <Link to="/community/open-meetings">open meeting</Link>, so we can list it here.
+        </p>
+      </>
     );
   }
 
@@ -155,7 +203,7 @@ export default function AiMcpServersPage() {
   return (
     <Layout
       title="MCP Servers"
-      description="The Model Context Protocol (MCP) servers used by the Eclipse Tractus-X AI agents, and how to connect one in Claude Code or GitHub Copilot."
+      description="The Model Context Protocol (MCP) servers of Eclipse Tractus-X products, the ones the Tractus-X AI agents use, and how to connect one in Claude Code or GitHub Copilot."
     >
       <main className={styles.page}>
         <AiPageHeader
@@ -166,7 +214,7 @@ export default function AiMcpServersPage() {
               Connect our agents to <span className={styles.accent}>your tools</span>
             </>
           }
-          subtitle="MCP servers give AI agents standard access to tools and data. Here are the servers our agents use today and how to connect one yourself."
+          subtitle="MCP servers give AI agents standard access to tools and data. Here are the servers Tractus-X products offer, the ones our agents use, and how to connect one yourself."
         />
 
         <section className={styles.section}>
@@ -190,6 +238,19 @@ export default function AiMcpServersPage() {
         <section className={styles.section}>
           <div className={styles.container}>
             <header className={styles.sectionHeader}>
+              <span className={styles.sectionEyebrow}>From the community</span>
+              <h2 className={styles.sectionTitle}>Eclipse Tractus-X MCP servers</h2>
+              <p className={styles.sectionLead}>
+                MCP servers that Tractus-X products ship, so any AI assistant can work with the dataspace.
+              </p>
+            </header>
+            <TractusXServers servers={tractusXServers} />
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <div className={styles.container}>
+            <header className={styles.sectionHeader}>
               <span className={styles.sectionEyebrow}>In use</span>
               <h2 className={styles.sectionTitle}>MCP servers our agents use</h2>
               <p className={styles.sectionLead}>Servers that agents in Tractus-X repositories are configured to call.</p>
@@ -199,16 +260,6 @@ export default function AiMcpServersPage() {
                 <McpServerCard key={server.id} server={server} />
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className={styles.section}>
-          <div className={styles.container}>
-            <header className={styles.sectionHeader}>
-              <span className={styles.sectionEyebrow}>From the community</span>
-              <h2 className={styles.sectionTitle}>Eclipse Tractus-X MCP servers</h2>
-            </header>
-            <TractusXServers servers={tractusXServers} />
           </div>
         </section>
 

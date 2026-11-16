@@ -668,6 +668,34 @@ $brand-green: #afc72d;
   flex-direction: column;
 }
 
+.serverCardSoon {
+  border-style: dashed;
+}
+
+.soonBadge {
+  background: rgba(255, 166, 0, 0.16);
+  color: #9a5b00;
+
+  [data-theme='dark'] & {
+    color: #ffc266;
+  }
+}
+
+.serverSubTitle {
+  margin: 36px 0 16px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.serverHighlights {
+  margin: 14px 0 0;
+  padding-left: 20px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-800);
+}
+
 .serverHeader {
   display: flex;
   align-items: flex-start;

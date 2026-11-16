@@ -26,7 +26,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { agents, agentTeams, mcpServers, ASSISTANTS } = require('../data/aiAgents');
+const { agents, agentTeams, mcpServers, isMcpServerAvailable, ASSISTANTS } = require('../data/aiAgents');
 
 const ROOT = path.join(__dirname, '..');
 const KEBAB_CASE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -100,11 +100,20 @@ function validateProfiles(errors) {
 
 function validateMcpServer(server, errors) {
   const label = `MCP server "${server.id || '?'}"`;
-  requireFields(server, ['id', 'name', 'provider', 'origin', 'description', 'url', 'usedBy'], label, errors);
+  requireFields(server, ['id', 'name', 'provider', 'origin', 'description', 'url'], label, errors);
   if (server.id && !KEBAB_CASE.test(server.id)) errors.push(`${label}: id must be kebab-case`);
   if (server.origin && !['tractus-x', 'external'].includes(server.origin)) {
     errors.push(`${label}: origin must be "tractus-x" or "external"`);
   }
+  if (server.status && !['available', 'coming-soon'].includes(server.status)) {
+    errors.push(`${label}: status must be "available" or "coming-soon"`);
+  }
+  if (server.origin === 'external') requireFields(server, ['usedBy'], label, errors);
+  if (server.origin === 'tractus-x') requireFields(server, ['repository'], label, errors);
+  if (server.repository && !REPOSITORY_NAME.test(server.repository)) {
+    errors.push(`${label}: invalid repository "${server.repository}"`);
+  }
+  if (server.highlights && !Array.isArray(server.highlights)) errors.push(`${label}: highlights must be a list`);
   if (server.url && !server.url.startsWith('https://')) errors.push(`${label}: url must use https`);
   (server.usedBy || []).forEach((usage, index) => {
     requireFields(usage, ['repository', 'note', 'url'], `${label} usedBy[${index}]`, errors);
@@ -155,7 +164,7 @@ if (require.main === module) {
     process.exit(1);
   }
   if (!silent) {
-    console.log(`✅ data/aiAgents.js is valid: ${agents.length} agents, ${agentTeams.length} team(s), ${mcpServers.length} MCP server(s).`);
+    console.log(`✅ data/aiAgents.js is valid: ${agents.length} agents, ${agentTeams.length} team(s), ${mcpServers.length} MCP server(s) (${mcpServers.filter(isMcpServerAvailable).length} available).`);
   }
 }
 
