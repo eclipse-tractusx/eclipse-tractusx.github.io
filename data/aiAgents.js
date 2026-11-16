@@ -66,9 +66,12 @@
  * {
  *   id: string, name: string, provider: string, description: string,
  *   origin: 'tractus-x' | 'external',
- *   url: string           where the server is published,
+ *   status?: 'available' | 'coming-soon'   default 'available'
+ *   repository?: string   Tractus-X repository that ships the server (required for 'tractus-x')
+ *   url: string           where the server is published or documented,
  *   license?: string,
- *   usedBy: { repository: string, note: string, url: string }[]
+ *   highlights?: string[] short facts shown as a list (tools, transport, auth)
+ *   usedBy?: { repository: string, note: string, url: string }[]   required for 'external'
  * }
  *
  * To add an agent: put its definition and picture in .github/agents/ of its
@@ -471,7 +474,49 @@ const mcpServers = [
       },
     ],
   },
+  {
+    id: 'industry-core-hub-mcp-addon',
+    name: 'Industry Core Hub MCP Addon',
+    provider: 'Industry Core Hub',
+    origin: 'tractus-x',
+    status: 'available',
+    repository: 'industry-core-hub',
+    description:
+      'An add-on of the Industry Core Hub backend that offers its dataspace features as MCP tools. AI clients can find partners, browse digital twins, fetch submodels and Digital Product Passports, and share catalog parts in natural-language chat. The hub uses its own dataspace credentials for every EDC and DTR call.',
+    url: `${GITHUB_ORG_URL}/industry-core-hub/blob/main/docs/developer/MCP-ADDON-GUIDE.md`,
+    license: 'Apache-2.0',
+    highlights: [
+      '18 tools: 9 read-only and 9 write tools',
+      'Write tools show a preview first and run only when confirmed',
+      'Streamable HTTP at /addons/mcp-addon/mcp',
+      'Keycloak OAuth 2.0 or the hub API key; every call is audited',
+    ],
+  },
+  {
+    id: 'tractusx-edc-mcp-server',
+    name: 'Tractus-X EDC MCP Server',
+    provider: 'Tractus-X EDC',
+    origin: 'tractus-x',
+    status: 'coming-soon',
+    repository: 'tractusx-edc',
+    description:
+      'An MCP server for the Tractus-X EDC connector, so AI agents can work with the connector through one standard protocol.',
+    url: `${GITHUB_ORG_URL}/tractusx-edc`,
+  },
+  {
+    id: 'dataspace-mgm-services-mcp-server',
+    name: 'Dataspace Management Stack MCP Server',
+    provider: 'Dataspace Management Stack (Services)',
+    origin: 'tractus-x',
+    status: 'coming-soon',
+    repository: 'dataspace-mgm-services',
+    description:
+      'An MCP server for the Dataspace Management Stack services, so AI agents can work with the stack through one standard protocol.',
+    url: `${GITHUB_ORG_URL}/dataspace-mgm-services`,
+  },
 ];
+
+const isMcpServerAvailable = (server) => (server.status || 'available') === 'available';
 
 const repositoryUrl = (repository) => `${GITHUB_ORG_URL}/${repository}`;
 
@@ -510,7 +555,7 @@ const getAiStatistics = () => ({
   agents: agents.length,
   repositories: new Set(agents.flatMap((agent) => [agent.repository, ...(agent.alsoIn || [])])).size,
   assistants: new Set(agents.flatMap((agent) => agent.assistants)).size,
-  mcpServers: mcpServers.length,
+  mcpServers: mcpServers.filter(isMcpServerAvailable).length,
 });
 
 module.exports = {
@@ -519,6 +564,7 @@ module.exports = {
   agents,
   agentTeams,
   mcpServers,
+  isMcpServerAvailable,
   repositoryUrl,
   agentDefinitionUrl,
   agentProfileUrl,

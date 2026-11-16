@@ -286,7 +286,7 @@ claude --agent connector-sensei`}
                 </span>
                 <span>
                   <span className={styles.exploreTitle}>MCP servers</span>
-                  <span className={styles.exploreText}>The tools our agents connect to</span>
+                  <span className={styles.exploreText}>Tractus-X MCP servers and the tools our agents use</span>
                 </span>
                 <ArrowForwardIcon className={styles.crewArrow} />
               </Link>
