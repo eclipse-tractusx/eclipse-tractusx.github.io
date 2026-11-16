@@ -89,7 +89,7 @@
   height: 3.25rem;
   padding: 0 3rem 0 3.1rem;
   border: 1px solid var(--about-border);
-  border-radius: 999px;
+  border-radius: 5px;
   background: var(--about-surface);
   color: var(--ifm-font-color-base);
   font: inherit;
@@ -128,7 +128,7 @@
   display: inline-flex;
   padding: 0.35rem;
   border: 0;
-  border-radius: 50%;
+  border-radius: 5px;
   background: transparent;
   color: var(--about-muted);
   cursor: pointer;
@@ -146,7 +146,7 @@
   height: 3.25rem;
   padding: 0 1.4rem;
   border: 1px solid var(--about-border);
-  border-radius: 999px;
+  border-radius: 5px;
   background: var(--ifm-background-color);
   color: var(--ifm-font-color-base);
   font: inherit;
@@ -219,7 +219,7 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.65rem 0.85rem;
-  border-radius: 10px;
+  border-radius: 5px;
   color: var(--ifm-font-color-base);
   font-size: 0.92rem;
   font-weight: 600;
@@ -242,7 +242,7 @@
   margin-left: auto;
   min-width: 1.75rem;
   padding: 0.1rem 0.5rem;
-  border-radius: 999px;
+  border-radius: 5px;
   background: var(--about-surface);
   border: 1px solid var(--about-border);
   color: var(--about-muted);
@@ -382,7 +382,7 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 50%;
+  border-radius: 5px;
   background: color-mix(in srgb, var(--about-orange) 12%, transparent);
   color: var(--about-orange);
 }
@@ -447,7 +447,7 @@
   .topic {
     flex: none;
     border: 1px solid var(--about-border);
-    border-radius: 999px;
+    border-radius: 5px;
     white-space: nowrap;
   }
 

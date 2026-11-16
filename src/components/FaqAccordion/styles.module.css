@@ -65,7 +65,7 @@
   transition: transform 0.25s ease;
 }
 
-/* The round badge behind the chevron */
+/* The badge behind the chevron */
 .summary::before {
   content: '';
   position: absolute;
@@ -73,7 +73,7 @@
   right: 1.25rem;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border-radius: 5px;
   background: color-mix(in srgb, var(--about-orange, #925200) 12%, transparent);
   transform: translateY(-50%);
 }
