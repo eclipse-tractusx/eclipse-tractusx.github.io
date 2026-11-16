@@ -486,13 +486,16 @@ const teamProfileUrl = (team) => `/AI/agents/${team.id}`;
 /** The folder with all agent definitions of a team's repository. */
 const teamAgentsFolderUrl = (team) => `${repositoryUrl(team.repository)}/tree/main/.github/agents`;
 
-// The GitHub agents tab, where you pick the repository and the custom agent from a dropdown.
-// GitHub does not document a URL that pre-selects them, so the pages say what to pick.
-// https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/create-custom-agents
+// The Agents tab of the agent's own repository on GitHub, with the custom agent pre-selected
+// through the `agent` query parameter (the file name of its `.agent.md` without the suffix).
+// If GitHub does not pre-select it, the hint says which agent to pick in the dropdown.
+// https://github.blog/changelog/2026-01-26-introducing-the-agents-tab-in-your-repository/
 const GITHUB_AGENTS_TAB_URL = 'https://github.com/copilot/agents';
-const agentChatUrl = () => GITHUB_AGENTS_TAB_URL;
+const repositoryAgentsTabUrl = (repository) => `${repositoryUrl(repository)}/agents`;
+const agentChatUrl = (agent) =>
+  `${repositoryAgentsTabUrl(agent.repository)}?agent=${encodeURIComponent(agent.id)}`;
 const agentChatHint = (agent) =>
-  `Opens the GitHub agents tab. Pick eclipse-tractusx/${agent.repository} and ${agent.name} in the dropdown.`;
+  `Opens the Agents tab of eclipse-tractusx/${agent.repository} with ${agent.name} selected. If it is not selected, pick ${agent.name} in the agent dropdown.`;
 
 const getAgentById = (id) => agents.find((agent) => agent.id === id);
 
@@ -521,6 +524,7 @@ module.exports = {
   agentProfileUrl,
   teamProfileUrl,
   teamAgentsFolderUrl,
+  repositoryAgentsTabUrl,
   agentChatUrl,
   agentChatHint,
   GITHUB_AGENTS_TAB_URL,
