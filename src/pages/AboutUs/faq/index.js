@@ -31,6 +31,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import HubOutlinedIcon from '@mui/icons-material/HubOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
+import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import EventOutlinedIcon from '@mui/icons-material/EventOutlined';
@@ -45,6 +46,7 @@ const categoryIcons = {
   'about-the-project': InfoOutlinedIcon,
   'technology-and-kits': HubOutlinedIcon,
   'community-and-contributing': GroupsOutlinedIcon,
+  security: SecurityOutlinedIcon,
 };
 
 const contactChannels = [
@@ -161,7 +163,7 @@ export default function AboutUsFaqPage() {
   return (
     <Layout
       title="FAQ"
-      description="Frequently asked questions about Eclipse Tractus-X: the project, its technology and KITs, and how to join the community and contribute."
+      description="Frequently asked questions about Eclipse Tractus-X: the project, its technology and KITs, security, and how to join the community and contribute."
     >
       <Head>
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>

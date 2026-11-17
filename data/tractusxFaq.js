@@ -108,10 +108,20 @@ export const faqCategories = [
     questions: [
       {
         id: 'what-does-tractus-x-build',
-        question: 'What software does Eclipse Tractus-X build?',
+        question: 'What software and tools does Eclipse Tractus-X build?',
         answer: [
-          'Reference implementations, libraries, demonstrators and services for dataspaces. These include connectors, identity components, the Digital Twin Registry, the Portal, the Industry Core Hub and the Tractus-X SDK, alongside solutions for traceability, sustainability and supply chains.',
+          'Reference implementations, libraries, demonstrators and services for dataspaces. These include connectors such as Tractus-X EDC, identity components, the Digital Twin Registry, the Portal, the Industry Core Hub and solutions for traceability, sustainability and supply chains.',
+          'We also build tools that make it easier to develop, test and run these components: the Tractus-X SDK, a middleware that simplifies building applications on top of the connector, the Digital Twin Registry and data sources; the [Tractus-X Umbrella Helm Chart](https://github.com/eclipse-tractusx/tractus-x-umbrella) for local test and sandbox environments; the testdata-provider; and tooling to build semantic models.',
           'Browse all of them in the [product overview](/community/products).',
+        ],
+      },
+      {
+        id: 'use-in-production',
+        question: 'Can I use Eclipse Tractus-X in production?',
+        answer: [
+          'Yes, but check the maturity of each component first. Some components are ready and used in production today, for example Tractus-X EDC. Others are newer or still in development and have a different maturity level. The [product overview](/community/products) and the [KIT Lifecycle](/documentation/kit-lifecycle) help you see where a component or KIT stands.',
+          'Using open-source software in production is always at your own risk. The software is provided “as is”, without warranties, under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0), and open-source communities are not liable when the operation of the software goes wrong. You, or the provider you work with, are responsible for operating it.',
+          'What the community does make sure of is that the software is safe, performant and easy to use, following the [Release Guidelines](/docs/release) and testing every release end to end. Many KITs also provide an Operation View with guidelines for running them in production.',
         ],
       },
       {
@@ -201,13 +211,6 @@ export const faqCategories = [
         ],
       },
       {
-        id: 'report-a-vulnerability',
-        question: 'How do I report a security vulnerability?',
-        answer: [
-          'Please do not report vulnerabilities in public GitHub issues. Open the Security tab of the affected repository and choose “Report a vulnerability” to create a private GitHub security advisory. In severe cases you can also contact the [Eclipse Foundation Security Team](https://www.eclipse.org/security/).',
-        ],
-      },
-      {
         id: 'what-are-trgs',
         question: 'What are the Tractus-X Release Guidelines (TRGs)?',
         answer: [
@@ -220,6 +223,53 @@ export const faqCategories = [
         question: 'Where in the world is the community?',
         answer: [
           'All over the world. The [Community Bases](/CommunityBases) map shows the countries where the project has an established community presence, with the contributors, committers, adopters and partner organizations that build, run and promote Tractus-X locally.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'security',
+    title: 'Security',
+    description: 'How we keep the software and its supply chain secure, and how to report a vulnerability.',
+    questions: [
+      {
+        id: 'security-approach',
+        question: 'How does Eclipse Tractus-X take care of security?',
+        answer: [
+          'Security is built into how we develop and release software, not added at the end. Every feature of a release must follow the [Tractus-X Release Guidelines (TRGs)](/docs/release), and several of them are about security: automated security scans, hardened containers and Helm charts, checks of third-party content and a security policy in every repository.',
+          'All code changes go through pull requests, and every pull request is reviewed, first for content by the product team and then by a committer. See the [code review guidelines](/docs/oss/code-reviews). Before each release, the components are tested together in an end-to-end test phase, described in the [release process](/docs/oss/release-process).',
+        ],
+      },
+      {
+        id: 'security-scans',
+        question: 'Which security scans run on the repositories?',
+        answer: [
+          '[CodeQL](/docs/release/trg-8/trg-8-01) analyzes the source code for vulnerabilities. [KICS](/docs/release/trg-8/trg-8-02) checks infrastructure as code, such as Kubernetes files, Helm charts and GitHub Actions. [TruffleHog](/docs/release/trg-8/trg-8-03) searches the whole repository history for leaked secrets such as passwords and API keys. [Trivy](/docs/release/trg-8/trg-8-04) scans the published container images, and [Dependabot](/docs/release/trg-8/trg-8-05) keeps dependencies, base images and GitHub Actions up to date.',
+          'The scans run on pull requests and at least once a week, so new vulnerabilities in existing code are found too. Findings appear in the GitHub security dashboard, and high-severity findings may only be dismissed with a justification.',
+        ],
+      },
+      {
+        id: 'secure-containers',
+        question: 'How are the container images and Helm charts hardened?',
+        answer: [
+          'Containers build on [official, regularly scanned base images](/docs/release/trg-4/trg-4-02), run as a [non-root user](/docs/release/trg-4/trg-4-03) and are encouraged to use a [read-only root filesystem](/docs/release/trg-4/trg-4-07), so unprivileged access cannot be abused to install malicious software.',
+          'Helm charts make security-relevant settings such as TLS, signing keys and secrets configurable, and ship secrets with empty values instead of defaults. See the [application configuration guideline](/docs/release/trg-5/trg-5-06).',
+        ],
+      },
+      {
+        id: 'supply-chain-security',
+        question: 'How is the software supply chain protected?',
+        answer: [
+          'All third-party content, such as libraries, is checked and approved by the Eclipse Foundation IP team, for example with the Eclipse Dash License Tool, and documented in the NOTICE or DEPENDENCIES file. See [IP checks for third-party content](/docs/release/trg-7/trg-7-04).',
+          'Contributors need a GitHub account with two-factor authentication and a signed [Eclipse Contributor Agreement](https://www.eclipse.org/legal/ECA.php), and only elected committers can merge changes. Repositories that are no longer maintained or no longer meet the guidelines, including the security guidelines, are [archived](/docs/release/trg-7/trg-7-09).',
+        ],
+      },
+      {
+        id: 'report-a-vulnerability',
+        question: 'How do I report a security vulnerability?',
+        answer: [
+          'Please do not report vulnerabilities in public GitHub issues. Open the Security tab of the affected repository and choose “Report a vulnerability” to create a private GitHub security advisory. In severe cases you can also contact the [Eclipse Foundation Security Team](https://www.eclipse.org/security/).',
+          'Every repository explains this in its SECURITY.md file, which the [legal documentation guideline (TRG 7.01)](/docs/release/trg-7/trg-7-01) requires.',
         ],
       },
     ],
