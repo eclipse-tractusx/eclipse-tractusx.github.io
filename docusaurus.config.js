@@ -423,6 +423,10 @@ const config = {
                 label: 'MCP Servers',
               },
               {
+                to: '/AI/related-projects',
+                label: 'Related Projects',
+              },
+              {
                 to: '/AI/dataspace-4-ai',
                 label: 'Dataspace 4 AI',
               },
