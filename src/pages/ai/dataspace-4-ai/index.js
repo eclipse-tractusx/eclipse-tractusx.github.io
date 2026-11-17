@@ -199,7 +199,7 @@ const NEXT_STEPS = [
   {
     title: 'Our AI agents',
     text: 'The open-source agents that know the Tractus-X products.',
-    to: '/AI/agents',
+    to: '/ai/agents',
   },
 ];
 

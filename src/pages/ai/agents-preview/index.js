@@ -17,10 +17,10 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-// Design preview of the agent cards (/AI/agents-preview). Not linked anywhere and not
+// Design preview of the agent cards (/ai/agents-preview). Not linked anywhere and not
 // indexed: it shows the real agents in different layouts so the team can pick one with
 // the configurator. The choice is kept in the URL, e.g.
-// /AI/agents-preview?layout=spotlight&picture=poster&details=standard&actions=hover&accent=glow
+// /ai/agents-preview?layout=spotlight&picture=poster&details=standard&actions=hover&accent=glow
 // Remove this page once a design is chosen and built into src/components/2.0/AgentCard.
 
 import React, { useCallback, useMemo, useState } from 'react';

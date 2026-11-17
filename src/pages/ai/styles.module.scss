@@ -17,7 +17,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-// Shared by the three AI pages (/AI, /AI/agents, /AI/mcp-servers).
+// Shared by the three AI pages (/ai, /ai/agents, /ai/mcp-servers).
 // Everything below the hero follows the site's light/dark theme.
 
 $brand-orange: #faa023;
@@ -124,7 +124,7 @@ $brand-green: #afc72d;
 }
 
 /* --------------------------------------------------------------------------
-   Agent grid (/AI/agents)
+   Agent grid (/ai/agents)
    -------------------------------------------------------------------------- */
 
 .agentGrid {
@@ -302,7 +302,7 @@ $brand-green: #afc72d;
 }
 
 /* --------------------------------------------------------------------------
-   Overview (/AI)
+   Overview (/ai)
    -------------------------------------------------------------------------- */
 
 // Row of agent portraits under "Meet the agents".
@@ -597,7 +597,7 @@ $brand-green: #afc72d;
 }
 
 /* --------------------------------------------------------------------------
-   MCP servers (/AI/mcp-servers)
+   MCP servers (/ai/mcp-servers)
    -------------------------------------------------------------------------- */
 
 // Agent  <->  MCP server  <->  tools and data

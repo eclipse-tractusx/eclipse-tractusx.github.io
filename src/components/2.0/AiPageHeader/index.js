@@ -26,7 +26,7 @@ import styles from './styles.module.scss';
 
 /**
  * Dark hero shared by the AI pages. The pages are reached from the AI dropdown in the
- * navbar; sub-pages pass `backToOverview` to show a link back to /AI.
+ * navbar; sub-pages pass `backToOverview` to show a link back to /ai.
  */
 export default function AiPageHeader({ backToOverview = false, eyebrow, title, subtitle, stats = [], action }) {
   return (
@@ -34,7 +34,7 @@ export default function AiPageHeader({ backToOverview = false, eyebrow, title, s
       <div className={styles.glow} aria-hidden="true" />
       <div className={styles.container}>
         {backToOverview && (
-          <Link to="/AI" className={styles.back}>
+          <Link to="/ai" className={styles.back}>
             <ArrowBackIcon className={styles.backIcon} />
             Back to AI overview
           </Link>

@@ -21,15 +21,15 @@
  * AI AGENTS MASTER DATA: the AI agents of Eclipse Tractus-X, their profiles, and the
  * MCP servers they use.
  *
- * This one file feeds the AI pages (/AI, /AI/agents, /AI/agents/<id>, /AI/mcp-servers, /AI/mcp-servers/<id>).
+ * This one file feeds the AI pages (/ai, /ai/agents, /ai/agents/<id>, /ai/mcp-servers, /ai/mcp-servers/<id>).
  * It is CommonJS so that the website, the profile route plugin in docusaurus.config.js
  * and `npm run validate:ai` (utils/validate-ai-data.js) can all load it.
  *
  * Agent entry:
  * {
  *   id: string            unique, kebab-case, the file name of the agent definition
- *                         (.github/agents/<id>.agent.md), the anchor on /AI/agents and the
- *                         profile page /AI/agents/<id>
+ *                         (.github/agents/<id>.agent.md), the anchor on /ai/agents and the
+ *                         profile page /ai/agents/<id>
  *   name: string          display name
  *   repository: string    repository name in the eclipse-tractusx GitHub organization
  *   alsoIn?: string[]     other repositories that ship the same agent
@@ -55,7 +55,7 @@
  * }
  *
  * Team entry (agents that share a repository; shown as one card and one team profile
- * page at /AI/agents/<team id>):
+ * page at /ai/agents/<team id>):
  * {
  *   id: string, name: string, repository: string, description: string,
  *   lead?: string         id of the member that coordinates the others
@@ -72,7 +72,7 @@
  *   license?: string,
  *   highlights?: string[] short facts shown as a list (tools, transport, auth)
  *   usedBy?: { repository: string, note: string, url: string }[]   required for 'external'
- *   details?: {           detail page /AI/mcp-servers/<id> (available servers only)
+ *   details?: {           detail page /ai/mcp-servers/<id> (available servers only)
  *     facts: { label: string, value: string }[]          transport, endpoint, auth, ...
  *     toolsNote?: string
  *     toolGroups: { title: string, text?: string, tools: {
@@ -696,7 +696,7 @@ const isMcpServerAvailable = (server) => (server.status || 'available') === 'ava
 
 /** Detail page of an available MCP server that has `details`; added by the plugin in docusaurus.config.js. */
 const hasMcpServerDetails = (server) => isMcpServerAvailable(server) && Boolean(server.details);
-const mcpServerDetailsUrl = (server) => `/AI/mcp-servers/${server.id}`;
+const mcpServerDetailsUrl = (server) => `/ai/mcp-servers/${server.id}`;
 const getMcpServerById = (id) => mcpServers.find((server) => server.id === id);
 
 const repositoryUrl = (repository) => `${GITHUB_ORG_URL}/${repository}`;
@@ -704,10 +704,10 @@ const repositoryUrl = (repository) => `${GITHUB_ORG_URL}/${repository}`;
 const agentDefinitionUrl = (agent) =>
   `${repositoryUrl(agent.repository)}/blob/main/.github/agents/${agent.id}.agent.md`;
 
-const agentProfileUrl = (agent) => `/AI/agents/${agent.id}`;
+const agentProfileUrl = (agent) => `/ai/agents/${agent.id}`;
 
 /** Team profile page; team ids never collide with agent ids (validate:ai checks it). */
-const teamProfileUrl = (team) => `/AI/agents/${team.id}`;
+const teamProfileUrl = (team) => `/ai/agents/${team.id}`;
 
 /** The folder with all agent definitions of a team's repository. */
 const teamAgentsFolderUrl = (team) => `${repositoryUrl(team.repository)}/tree/main/.github/agents`;

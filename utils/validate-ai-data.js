@@ -82,7 +82,7 @@ function validateAgent(agent, context, errors) {
   }
 }
 
-// Every agent has a profile page (/AI/agents/<id>), so every agent needs its `profile`.
+// Every agent has a profile page (/ai/agents/<id>), so every agent needs its `profile`.
 function validateProfiles(errors) {
   agents.forEach((agent) => {
     const label = `Agent "${agent.id}" profile`;
@@ -121,7 +121,7 @@ function validateMcpServer(server, errors) {
   if (server.details) validateMcpServerDetails(server, label, errors);
 }
 
-// The detail page /AI/mcp-servers/<id> is only built for available servers.
+// The detail page /ai/mcp-servers/<id> is only built for available servers.
 function validateMcpServerDetails(server, label, errors) {
   const { details } = server;
   if (!isMcpServerAvailable(server)) errors.push(`${label}: only available servers can have "details"`);
@@ -169,7 +169,7 @@ function validateAiData() {
     requireFields(team, ['id', 'name', 'repository', 'description'], label, errors);
     const members = agents.filter((agent) => agent.team === team.id);
     if (members.length === 0) errors.push(`${label}: has no agents`);
-    // The team profile lives at /AI/agents/<team id>, next to the agent profiles.
+    // The team profile lives at /ai/agents/<team id>, next to the agent profiles.
     if (context.agentIds.has(team.id)) errors.push(`${label}: id is also an agent id`);
     if (team.lead && !members.some((member) => member.id === team.lead)) {
       errors.push(`${label}: lead "${team.lead}" is not a member`);
