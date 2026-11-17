@@ -21,7 +21,7 @@
  * AI AGENTS MASTER DATA: the AI agents of Eclipse Tractus-X, their profiles, and the
  * MCP servers they use.
  *
- * This one file feeds the AI pages (/AI, /AI/agents, /AI/agents/<id>, /AI/mcp-servers).
+ * This one file feeds the AI pages (/AI, /AI/agents, /AI/agents/<id>, /AI/mcp-servers, /AI/mcp-servers/<id>).
  * It is CommonJS so that the website, the profile route plugin in docusaurus.config.js
  * and `npm run validate:ai` (utils/validate-ai-data.js) can all load it.
  *
@@ -72,6 +72,15 @@
  *   license?: string,
  *   highlights?: string[] short facts shown as a list (tools, transport, auth)
  *   usedBy?: { repository: string, note: string, url: string }[]   required for 'external'
+ *   details?: {           detail page /AI/mcp-servers/<id> (available servers only)
+ *     facts: { label: string, value: string }[]          transport, endpoint, auth, ...
+ *     toolsNote?: string
+ *     toolGroups: { title: string, text?: string, tools: {
+ *       name: string, text: string, write?: boolean, usedBy?: string }[] }[]
+ *     features?: { title: string, text: string }[]       how it behaves (safety, sessions, ...)
+ *     setup: { title: string, text?: string, language: string, code: string }[]
+ *     links: { label: string, url: string }[]
+ *   }
  * }
  *
  * To add an agent: put its definition and picture in .github/agents/ of its
@@ -473,6 +482,89 @@ const mcpServers = [
         url: `${GITHUB_ORG_URL}/tractusx-testlab/blob/main/.github/instructions/sonarqube_mcp.instructions.md`,
       },
     ],
+    details: {
+      facts: [
+        { label: 'Transport', value: 'stdio (default) or Streamable HTTP(S)' },
+        { label: 'Runs as', value: 'Docker image sonarsource/sonarqube-mcp or a JAR' },
+        { label: 'Connects to', value: 'SonarQube Cloud or SonarQube Server' },
+        { label: 'Authentication', value: 'A SonarQube user token' },
+      ],
+      toolsNote:
+        'A selection of the tools that matter for code changes. The server has more groups (system, webhooks, portfolios, architecture and more), and toolsets or a read-only mode can limit what an agent sees.',
+      toolGroups: [
+        {
+          title: 'Analysis',
+          tools: [
+            { name: 'analyze_code_snippet', text: 'Analyze a file with the SonarQube analyzers and report quality and security issues.' },
+            { name: 'analyze_file_list', text: 'Analyze a list of files through a running SonarQube for IDE.', usedBy: 'tractusx-testlab' },
+            { name: 'toggle_automatic_analysis', text: 'Turn the automatic analysis of SonarQube for IDE on or off.', usedBy: 'tractusx-testlab' },
+          ],
+        },
+        {
+          title: 'Issues and Security Hotspots',
+          tools: [
+            { name: 'search_sonar_issues_in_projects', text: "Search the issues in the organization's projects.", usedBy: 'tractusx-testlab' },
+            { name: 'change_sonar_issue_status', text: 'Accept an issue, mark it as a false positive or reopen it.', write: true },
+            { name: 'search_security_hotspots', text: 'Search the Security Hotspots of a project.' },
+            { name: 'show_security_hotspot', text: 'Show a Security Hotspot with its rule, code context and comments.' },
+            { name: 'change_security_hotspot_status', text: 'Review a Security Hotspot by changing its status.', write: true },
+          ],
+        },
+        {
+          title: 'Projects and Quality Gates',
+          tools: [
+            { name: 'search_my_sonarqube_projects', text: 'Find projects and their exact project keys.', usedBy: 'tractusx-testlab' },
+            { name: 'list_branches', text: 'List the analyzed branches of a project.' },
+            { name: 'list_pull_requests', text: 'List the pull requests of a project.' },
+            { name: 'get_project_quality_gate_status', text: 'Get the Quality Gate status of a project.' },
+            { name: 'list_quality_gates', text: 'List all Quality Gates.' },
+          ],
+        },
+        {
+          title: 'Coverage, measures and rules',
+          tools: [
+            { name: 'search_files_by_coverage', text: 'Find the files with the lowest test coverage.' },
+            { name: 'get_file_coverage_details', text: 'Show the uncovered lines and branches of one file.' },
+            { name: 'get_component_measures', text: 'Get the measures of a project, directory or file.' },
+            { name: 'show_rule', text: 'Show the details of a SonarQube rule.' },
+          ],
+        },
+      ],
+      features: [
+        { title: 'How the Testlab agents use it', text: 'At the start of a task they turn automatic analysis off, at the end they analyze the files they changed and turn it back on. They look up project keys instead of guessing them.' },
+        { title: 'Limit the tools', text: 'Toolsets and a read-only mode narrow the tools an agent sees, so it only gets what the task needs.' },
+      ],
+      setup: [
+        {
+          title: 'Claude Code (SonarQube Cloud)',
+          language: 'bash',
+          code: `claude mcp add sonarqube \\
+  --env SONARQUBE_TOKEN=$SONAR_TOKEN \\
+  --env SONARQUBE_ORG=$SONAR_ORG \\
+  -- docker run --init --pull=always -i --rm -e SONARQUBE_TOKEN -e SONARQUBE_ORG sonarsource/sonarqube-mcp`,
+        },
+        {
+          title: 'MCP client configuration (SonarQube Cloud)',
+          language: 'json',
+          code: `{
+  "mcpServers": {
+    "sonarqube": {
+      "command": "docker",
+      "args": ["run", "--init", "--pull=always", "-i", "--rm", "-e", "SONARQUBE_TOKEN", "-e", "SONARQUBE_ORG", "sonarsource/sonarqube-mcp"],
+      "env": {
+        "SONARQUBE_TOKEN": "<your-token>",
+        "SONARQUBE_ORG": "<your-org>"
+      }
+    }
+  }
+}`,
+        },
+      ],
+      links: [
+        { label: 'README and full tool list', url: 'https://github.com/SonarSource/sonarqube-mcp-server' },
+        { label: 'Testlab usage instructions', url: `${GITHUB_ORG_URL}/tractusx-testlab/blob/main/.github/instructions/sonarqube_mcp.instructions.md` },
+      ],
+    },
   },
   {
     id: 'industry-core-hub-mcp-addon',
@@ -491,6 +583,90 @@ const mcpServers = [
       'Streamable HTTP at /addons/mcp-addon/mcp',
       'Keycloak OAuth 2.0 or the hub API key; every call is audited',
     ],
+    details: {
+      facts: [
+        { label: 'Transport', value: 'Streamable HTTP' },
+        { label: 'Endpoint', value: '{hostname}/addons/mcp-addon/mcp' },
+        { label: 'Authentication', value: 'Keycloak OAuth 2.0 or the hub API key as a bearer token' },
+        { label: 'Runs in', value: 'The Industry Core Hub backend (FastMCP, in-process)' },
+        { label: 'Tools', value: '18 (9 read-only, 9 write)' },
+        { label: 'Release', value: 'On main, not in a release yet' },
+      ],
+      toolGroups: [
+        {
+          title: 'Read-only tools',
+          text: 'Run right away and change nothing.',
+          tools: [
+            { name: 'list_known_partners', text: 'List the business partners registered in this hub.' },
+            { name: 'list_my_catalog_parts', text: 'List catalog parts, optionally per manufacturer, with their sharing status.' },
+            { name: 'list_partner_twins', text: "Find a partner's digital twins through EDC negotiation and a DTR lookup." },
+            { name: 'get_twin_details', text: 'Fetch the full AAS shell descriptor of one twin.' },
+            { name: 'list_twin_submodels', text: "List a twin's submodel descriptors (metadata only, no data)." },
+            { name: 'fetch_submodel', text: "Fetch a submodel payload from a partner's twin." },
+            { name: 'fetch_partner_dpp', text: "Find and fetch the Digital Product Passport of a partner's twin." },
+            { name: 'fetch_dpp', text: 'Fetch the Digital Product Passports hosted by this hub.' },
+            { name: 'get_session_summary', text: 'Show what the session knows so far: BPNLs, twin ids and catalog part ids.' },
+          ],
+        },
+        {
+          title: 'Write tools',
+          text: 'Show a preview on the first call and run only when called again with the same arguments.',
+          tools: [
+            { name: 'create_catalog_part', text: 'Register a new catalog part as a draft.', write: true },
+            { name: 'update_catalog_part', text: 'Update the fields of an existing catalog part.', write: true },
+            { name: 'create_serialized_part', text: 'Register a serialized part; creates a missing catalog part or partner mapping.', write: true },
+            { name: 'register_business_partner', text: 'Register a business partner by BPNL and name.', write: true },
+            { name: 'create_catalog_part_twin', text: 'Create a PartType digital twin in the DTR for a catalog part.', write: true },
+            { name: 'create_serialized_part_twin', text: 'Create a PartInstance digital twin with its SerialPart aspect.', write: true },
+            { name: 'attach_twin_aspect', text: 'Add a submodel aspect to an existing twin.', write: true },
+            { name: 'share_catalog_part', text: 'Share a catalog part with a partner: submodel, DTR shell, EDC asset, policy and contract in one step.', write: true },
+            { name: 'share_dpp', text: "Share an existing Digital Product Passport's twin with a partner.", write: true },
+          ],
+        },
+      ],
+      features: [
+        { title: 'Preview, then confirm', text: 'Every write tool first returns a preview. It runs only when the client calls it again with identical arguments. Trusted automation can turn this off.' },
+        { title: "The hub's own credentials", text: 'The hub calls the EDC, the DTR and the submodel services with its own dataspace credentials. The user is never impersonated in the dataspace, only recorded in the audit log.' },
+        { title: 'Audit log', text: 'Every tool call is recorded with the tool, session, user, outcome and duration. Admins read it at /v1/addons/mcp-addon/audit.' },
+        { title: 'Sessions', text: 'Each MCP session remembers the partners, twins and parts it has seen. Idle sessions expire; Redis shares them across replicas.' },
+      ],
+      setup: [
+        {
+          title: 'Claude Desktop',
+          text: 'Add the endpoint to claude_desktop_config.json. With OAuth on, the client opens Keycloak in the browser.',
+          language: 'json',
+          code: `{
+  "mcpServers": {
+    "ichub": {
+      "url": "https://ichub.example.com/addons/mcp-addon/mcp"
+    }
+  }
+}`,
+        },
+        {
+          title: 'Claude Code',
+          language: 'bash',
+          code: 'claude mcp add --transport http ichub https://ichub.example.com/addons/mcp-addon/mcp',
+        },
+        {
+          title: 'VS Code (.vscode/mcp.json)',
+          language: 'json',
+          code: `{
+  "servers": {
+    "ichub": {
+      "type": "http",
+      "url": "https://ichub.example.com/addons/mcp-addon/mcp"
+    }
+  }
+}`,
+        },
+      ],
+      links: [
+        { label: 'MCP Addon guide', url: `${GITHUB_ORG_URL}/industry-core-hub/blob/main/docs/developer/MCP-ADDON-GUIDE.md` },
+        { label: 'ADR 0005: MCP Addon', url: `${GITHUB_ORG_URL}/industry-core-hub/blob/main/docs/architecture/decision-records/0005-mcp-addon.md` },
+        { label: 'Repository', url: `${GITHUB_ORG_URL}/industry-core-hub` },
+      ],
+    },
   },
   {
     id: 'tractusx-edc-mcp-server',
@@ -517,6 +693,11 @@ const mcpServers = [
 ];
 
 const isMcpServerAvailable = (server) => (server.status || 'available') === 'available';
+
+/** Detail page of an available MCP server that has `details`; added by the plugin in docusaurus.config.js. */
+const hasMcpServerDetails = (server) => isMcpServerAvailable(server) && Boolean(server.details);
+const mcpServerDetailsUrl = (server) => `/AI/mcp-servers/${server.id}`;
+const getMcpServerById = (id) => mcpServers.find((server) => server.id === id);
 
 const repositoryUrl = (repository) => `${GITHUB_ORG_URL}/${repository}`;
 
@@ -565,6 +746,9 @@ module.exports = {
   agentTeams,
   mcpServers,
   isMcpServerAvailable,
+  hasMcpServerDetails,
+  mcpServerDetailsUrl,
+  getMcpServerById,
   repositoryUrl,
   agentDefinitionUrl,
   agentProfileUrl,

@@ -118,6 +118,37 @@ function validateMcpServer(server, errors) {
   (server.usedBy || []).forEach((usage, index) => {
     requireFields(usage, ['repository', 'note', 'url'], `${label} usedBy[${index}]`, errors);
   });
+  if (server.details) validateMcpServerDetails(server, label, errors);
+}
+
+// The detail page /AI/mcp-servers/<id> is only built for available servers.
+function validateMcpServerDetails(server, label, errors) {
+  const { details } = server;
+  if (!isMcpServerAvailable(server)) errors.push(`${label}: only available servers can have "details"`);
+  requireFields(details, ['facts', 'toolGroups', 'setup', 'links'], `${label} details`, errors);
+  (details.facts || []).forEach((fact, index) => {
+    requireFields(fact, ['label', 'value'], `${label} details.facts[${index}]`, errors);
+  });
+  const toolNames = new Set();
+  (details.toolGroups || []).forEach((group, groupIndex) => {
+    const groupLabel = `${label} details.toolGroups[${groupIndex}]`;
+    requireFields(group, ['title', 'tools'], groupLabel, errors);
+    (group.tools || []).forEach((tool, index) => {
+      requireFields(tool, ['name', 'text'], `${groupLabel} tools[${index}]`, errors);
+      if (toolNames.has(tool.name)) errors.push(`${groupLabel}: duplicate tool "${tool.name}"`);
+      toolNames.add(tool.name);
+    });
+  });
+  (details.features || []).forEach((feature, index) => {
+    requireFields(feature, ['title', 'text'], `${label} details.features[${index}]`, errors);
+  });
+  (details.setup || []).forEach((step, index) => {
+    requireFields(step, ['title', 'language', 'code'], `${label} details.setup[${index}]`, errors);
+  });
+  (details.links || []).forEach((link, index) => {
+    requireFields(link, ['label', 'url'], `${label} details.links[${index}]`, errors);
+    if (link.url && !link.url.startsWith('https://')) errors.push(`${label} details.links[${index}]: url must use https`);
+  });
 }
 
 function validateAiData() {
