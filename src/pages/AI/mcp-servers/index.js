@@ -29,7 +29,13 @@ import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined';
 import ConstructionOutlinedIcon from '@mui/icons-material/ConstructionOutlined';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import AiPageHeader from '@site/src/components/2.0/AiPageHeader';
-import { mcpServers, isMcpServerAvailable, repositoryUrl } from '@site/data/aiAgents';
+import {
+  mcpServers,
+  isMcpServerAvailable,
+  hasMcpServerDetails,
+  mcpServerDetailsUrl,
+  repositoryUrl,
+} from '@site/data/aiAgents';
 import styles from '../styles.module.scss';
 
 const MCP_URL = 'https://modelcontextprotocol.io/';
@@ -129,6 +135,12 @@ function McpServerCard({ server }) {
       ))}
 
       <div className={styles.actions}>
+        {hasMcpServerDetails(server) && (
+          <Link className={styles.buttonPrimary} to={mcpServerDetailsUrl(server)}>
+            See the tools
+            <ArrowForwardIcon className={styles.buttonIcon} />
+          </Link>
+        )}
         <a className={styles.buttonSecondary} href={server.url} target="_blank" rel="noopener noreferrer">
           <OpenInNewIcon className={styles.buttonIcon} />
           {serverLinkLabel(server)}

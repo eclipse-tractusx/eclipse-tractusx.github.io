@@ -167,7 +167,7 @@ const config = {
       return {
         name: 'ai-agent-profiles',
         async contentLoaded({ actions }) {
-          const { agents, agentTeams } = require('./data/aiAgents');
+          const { agents, agentTeams, mcpServers, hasMcpServerDetails } = require('./data/aiAgents');
           agents.forEach((agent) => {
             actions.addRoute({
               path: `${context.baseUrl}AI/agents/${agent.id}`,
@@ -183,6 +183,15 @@ const config = {
               component: '@site/src/components/2.0/AgentTeamProfile',
               exact: true,
               props: { teamId: team.id },
+            });
+          });
+          // One detail page per available MCP server with details, e.g. /AI/mcp-servers/industry-core-hub-mcp-addon.
+          mcpServers.filter(hasMcpServerDetails).forEach((server) => {
+            actions.addRoute({
+              path: `${context.baseUrl}AI/mcp-servers/${server.id}`,
+              component: '@site/src/components/2.0/McpServerProfile',
+              exact: true,
+              props: { serverId: server.id },
             });
           });
         },
