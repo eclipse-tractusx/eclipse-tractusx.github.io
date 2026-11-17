@@ -2,6 +2,7 @@
 slug: community-office-hour-2026-11-06
 title: Community Office Hour 2026-11-06
 authors:
+    - theresa_hilger
     - stephan_bauer
 tags: [community, meeting-minutes]
 ---

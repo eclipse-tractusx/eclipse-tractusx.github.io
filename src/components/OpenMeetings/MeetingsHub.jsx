@@ -1889,9 +1889,11 @@ function MeetingDrawer({ meeting, timezone, onClose, onDownload }) {
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--om-fg)' }}>{c.name || getContactDisplay(c)}</div>
                         {c.title && <div style={{ fontSize: 12, color: 'var(--om-dimmed)', marginBottom: 2 }}>{c.title}</div>}
-                        <a href={`mailto:${c.email}`} style={{ fontSize: 12, color: 'var(--om-muted)' }}>
-                          {c.email}
-                        </a>
+                        {c.email && (
+                          <a href={`mailto:${c.email}`} style={{ fontSize: 12, color: 'var(--om-muted)' }}>
+                            {c.email}
+                          </a>
+                        )}
                         <div className={styles.contactSocials}>
                           {c.github && (
                             <a href={`https://github.com/${c.github}`} target="_blank" rel="noopener noreferrer" className={styles.socialLink} title="GitHub">
