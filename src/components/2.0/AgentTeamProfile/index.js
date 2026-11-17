@@ -17,7 +17,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-// Profile page of a team of agents (/AI/agents/<team id>), e.g. the Testlab AI team:
+// Profile page of a team of agents (/ai/agents/<team id>), e.g. the Testlab AI team:
 // the team, how it works together, and every member with its mission, personality and
 // skills. The route is added per team by the ai-agent-profiles plugin in docusaurus.config.js.
 
@@ -128,9 +128,9 @@ export default function AgentTeamProfile({ teamId }) {
         <section className={profileStyles.hero}>
           <div className={profileStyles.container}>
             <nav className={profileStyles.breadcrumb} aria-label="Breadcrumb">
-              <Link to="/AI">AI</Link>
+              <Link to="/ai">AI</Link>
               <span aria-hidden="true">/</span>
-              <Link to="/AI/agents">Agents</Link>
+              <Link to="/ai/agents">Agents</Link>
               <span aria-hidden="true">/</span>
               <span aria-current="page">{team.name}</span>
             </nav>
@@ -241,7 +241,7 @@ export default function AgentTeamProfile({ teamId }) {
             </section>
 
             <nav className={styles.back} aria-label="Other agents">
-              <Link to="/AI/agents" className={profileStyles.pagerAll}>
+              <Link to="/ai/agents" className={profileStyles.pagerAll}>
                 All agents
                 <ArrowForwardIcon fontSize="small" />
               </Link>

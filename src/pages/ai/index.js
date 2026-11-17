@@ -164,7 +164,7 @@ export default function AiOverviewPage() {
             { label: 'Repositories', value: statistics.repositories },
             { label: 'AI assistants', value: statistics.assistants },
           ]}
-          action={{ label: 'Why AI needs dataspaces', to: '/AI/dataspace-4-ai' }}
+          action={{ label: 'Why AI needs dataspaces', to: '/ai/dataspace-4-ai' }}
         />
 
         <section className={styles.section}>
@@ -270,7 +270,7 @@ claude --agent connector-sensei`}
         <section className={styles.section}>
           <div className={styles.container}>
             <div className={styles.explore}>
-              <Link to="/AI/agents" className={styles.exploreCard}>
+              <Link to="/ai/agents" className={styles.exploreCard}>
                 <span className={styles.iconTile}>
                   <SmartToyOutlinedIcon />
                 </span>
@@ -280,7 +280,7 @@ claude --agent connector-sensei`}
                 </span>
                 <ArrowForwardIcon className={styles.crewArrow} />
               </Link>
-              <Link to="/AI/mcp-servers" className={styles.exploreCard}>
+              <Link to="/ai/mcp-servers" className={styles.exploreCard}>
                 <span className={styles.iconTile}>
                   <HubOutlinedIcon />
                 </span>
@@ -290,7 +290,7 @@ claude --agent connector-sensei`}
                 </span>
                 <ArrowForwardIcon className={styles.crewArrow} />
               </Link>
-              <Link to="/AI/dataspace-4-ai" className={styles.exploreCard}>
+              <Link to="/ai/dataspace-4-ai" className={styles.exploreCard}>
                 <span className={styles.iconTile}>
                   <ShareOutlinedIcon />
                 </span>
