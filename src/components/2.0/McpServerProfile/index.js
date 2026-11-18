@@ -17,7 +17,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-// Detail page of one MCP server (/AI/mcp-servers/<id>): what it is, its tools, how it
+// Detail page of one MCP server (/ai/mcp-servers/<id>): what it is, its tools, how it
 // behaves and how to connect it. The route is added per available server with `details`
 // by the ai-agent-profiles plugin in docusaurus.config.js.
 
@@ -152,9 +152,9 @@ export default function McpServerProfile({ serverId }) {
         <section className={profileStyles.hero}>
           <div className={profileStyles.container}>
             <nav className={profileStyles.breadcrumb} aria-label="Breadcrumb">
-              <Link to="/AI">AI</Link>
+              <Link to="/ai">AI</Link>
               <span aria-hidden="true">/</span>
-              <Link to="/AI/mcp-servers">MCP Servers</Link>
+              <Link to="/ai/mcp-servers">MCP Servers</Link>
               <span aria-hidden="true">/</span>
               <span aria-current="page">{server.name}</span>
             </nav>
@@ -304,7 +304,7 @@ export default function McpServerProfile({ serverId }) {
             </div>
 
             <nav className={styles.back} aria-label="MCP servers">
-              <Link to="/AI/mcp-servers" className={profileStyles.pagerAll}>
+              <Link to="/ai/mcp-servers" className={profileStyles.pagerAll}>
                 <ArrowBackIcon fontSize="inherit" /> All MCP servers
               </Link>
             </nav>

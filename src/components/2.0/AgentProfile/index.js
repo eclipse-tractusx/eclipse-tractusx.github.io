@@ -17,7 +17,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-// Profile page of one AI agent (/AI/agents/<id>). The route is added per agent by the
+// Profile page of one AI agent (/ai/agents/<id>). The route is added per agent by the
 // ai-agent-profiles plugin in docusaurus.config.js, which passes the agent id.
 
 import React from 'react';
@@ -153,9 +153,9 @@ export default function AgentProfile({ agentId }) {
         <section className={styles.hero}>
           <div className={styles.container}>
             <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-              <Link to="/AI">AI</Link>
+              <Link to="/ai">AI</Link>
               <span aria-hidden="true">/</span>
-              <Link to="/AI/agents">Agents</Link>
+              <Link to="/ai/agents">Agents</Link>
               <span aria-hidden="true">/</span>
               <span aria-current="page">{agent.name}</span>
             </nav>
@@ -294,7 +294,7 @@ export default function AgentProfile({ agentId }) {
               <span className={styles.pagerName}>{previous.name}</span>
             </span>
           </Link>
-          <Link to="/AI/agents" className={styles.pagerAll}>
+          <Link to="/ai/agents" className={styles.pagerAll}>
             All agents
           </Link>
           <Link to={agentProfileUrl(next)} className={clsx(styles.pagerLink, styles.pagerNext)}>

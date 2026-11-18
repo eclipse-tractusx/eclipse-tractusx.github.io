@@ -96,7 +96,7 @@ function CardActions({ agent, children }) {
 
 /** Large card with the agent's picture on top; the details are on its profile page. */
 export default function AgentCard({ agent }) {
-  // Registers the card id so Docusaurus accepts /AI/agents#<id> links.
+  // Registers the card id so Docusaurus accepts /ai/agents#<id> links.
   useBrokenLinks().collectAnchor(agent.id);
   const image = useBaseUrl(agent.image);
   const profileUrl = agentProfileUrl(agent);

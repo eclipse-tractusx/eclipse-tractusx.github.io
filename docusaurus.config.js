@@ -161,7 +161,7 @@ const config = {
       },
       {},
     ],
-    // -- AI agent profiles: one page per agent in data/aiAgents.js at /AI/agents/<id>,
+    // -- AI agent profiles: one page per agent in data/aiAgents.js at /ai/agents/<id>,
     //    all rendered by the same component --
     function aiAgentProfilesPlugin(context) {
       return {
@@ -170,25 +170,25 @@ const config = {
           const { agents, agentTeams, mcpServers, hasMcpServerDetails } = require('./data/aiAgents');
           agents.forEach((agent) => {
             actions.addRoute({
-              path: `${context.baseUrl}AI/agents/${agent.id}`,
+              path: `${context.baseUrl}ai/agents/${agent.id}`,
               component: '@site/src/components/2.0/AgentProfile',
               exact: true,
               props: { agentId: agent.id },
             });
           });
-          // One team profile page per team, e.g. /AI/agents/testlab.
+          // One team profile page per team, e.g. /ai/agents/testlab.
           agentTeams.forEach((team) => {
             actions.addRoute({
-              path: `${context.baseUrl}AI/agents/${team.id}`,
+              path: `${context.baseUrl}ai/agents/${team.id}`,
               component: '@site/src/components/2.0/AgentTeamProfile',
               exact: true,
               props: { teamId: team.id },
             });
           });
-          // One detail page per available MCP server with details, e.g. /AI/mcp-servers/industry-core-hub-mcp-addon.
+          // One detail page per available MCP server with details, e.g. /ai/mcp-servers/industry-core-hub-mcp-addon.
           mcpServers.filter(hasMcpServerDetails).forEach((server) => {
             actions.addRoute({
-              path: `${context.baseUrl}AI/mcp-servers/${server.id}`,
+              path: `${context.baseUrl}ai/mcp-servers/${server.id}`,
               component: '@site/src/components/2.0/McpServerProfile',
               exact: true,
               props: { serverId: server.id },
@@ -408,26 +408,26 @@ const config = {
             type: 'dropdown',
             label: 'AI',
             position: 'left',
-            to: '/AI',
+            to: '/ai',
             items: [
               {
-                to: '/AI',
+                to: '/ai',
                 label: 'Overview',
               },
               {
-                to: '/AI/agents',
+                to: '/ai/agents',
                 label: 'Agents',
               },
               {
-                to: '/AI/mcp-servers',
+                to: '/ai/mcp-servers',
                 label: 'MCP Servers',
               },
               {
-                to: '/AI/related-projects',
+                to: '/ai/related-projects',
                 label: 'Related Projects',
               },
               {
-                to: '/AI/dataspace-4-ai',
+                to: '/ai/dataspace-4-ai',
                 label: 'Dataspace 4 AI',
               },
             ],
