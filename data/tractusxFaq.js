@@ -69,6 +69,14 @@ export const faqCategories = [
         ],
       },
       {
+        id: 'why-eclipse-tractus-x',
+        question: 'Why Eclipse Tractus-X?',
+        answer: [
+          'Because sovereign data exchange only works when everybody can rely on the same open building blocks. Eclipse Tractus-X gives companies, industry initiatives and solution providers a vendor-neutral place to build them together: the software is open source, the KITs explain how to use it, and the work happens in the open under the governance of the Eclipse Foundation.',
+          'Instead of every company building its own connector or digital twin infrastructure, the community shares the effort, reuses the results across industries and dataspaces, and feeds improvements back into the project. See [how we work together](/AboutUs#contribution-title).',
+        ],
+      },
+      {
         id: 'relation-to-catena-x',
         question: 'How is Eclipse Tractus-X related to Catena-X?',
         answer: [
@@ -156,11 +164,19 @@ export const faqCategories = [
         ],
       },
       {
-        id: 'release-cadence',
-        question: 'How often is Eclipse Tractus-X released?',
+        id: 'container-images',
+        question: 'Where are the container images hosted?',
         answer: [
-          'Tractus-X follows a quarterly release cycle, with releases typically in March, June, September and December. Releases are named R{YY}.{MM}, for example R24.03 for March 2024.',
-          'Read how a release is planned and tested in the [release process](/docs/oss/release-process), and what changed in the [changelog](/blog-changelog).',
+          'All container images released for an Eclipse Tractus-X product are published in one central registry: the [tractusx organization on Docker Hub](https://hub.docker.com/u/tractusx). See the [container registries guideline (TRG 4.05)](/docs/release/trg-4/trg-4-05).',
+        ],
+      },
+      {
+        id: 'release-cadence',
+        question: 'How does the release process work, and where is it described?',
+        answer: [
+          'The official process is described on the [release process](/docs/oss/release-process) page. Tractus-X follows a quarterly release cycle, with releases typically in March, June, September and December. Releases are named R{YY}.{MM}, for example R24.03 for March 2024.',
+          'Each release goes through the same phases. In the planning phase, open questions are clarified on the Alignment Day, and on the Open Planning Day the community agrees on the features of the release and assigns them a milestone, so there are no surprise features. Then the features are developed, reviewed by committers and checked against the [Release Guidelines](/docs/release). Before the release, the components are deployed and tested together in an end-to-end test phase.',
+          'You can follow every step on the open [release planning board](https://github.com/orgs/eclipse-tractusx/projects/26), and see what changed in the [changelog](/blog-changelog).',
         ],
       },
     ],
@@ -187,6 +203,14 @@ export const faqCategories = [
         ],
       },
       {
+        id: 'contributor-role',
+        question: 'How do I get the contributor role?',
+        answer: [
+          'Once you have an Eclipse account and a signed ECA, you are an Eclipse contributor with read access. To become an official project contributor, with the triage role on the GitHub repositories, contact the project leads or the committers in the [Tractus-X Matrix space](https://chat.eclipse.org/#/room/#tractusx:matrix.eclipse.org). A committer adds you to the project, and you accept the GitHub invitation to the automotive-tractusx-contributors team.',
+          'See [extended contributor permissions](/docs/getting-started#extended-contributor-permissions) in the Getting Started guide.',
+        ],
+      },
+      {
         id: 'project-roles',
         question: 'What is the difference between a contributor and a committer?',
         answer: [
@@ -195,11 +219,43 @@ export const faqCategories = [
         ],
       },
       {
+        id: 'become-a-committer',
+        question: 'How do I become a committer?',
+        answer: [
+          'By contributing. Eclipse projects follow the meritocracy principle: the more you contribute, the more responsibility you can take. Once you have made enough good contributions, such as code, reviews, bug reports, TRG work and community engagement, an existing committer can nominate you together with you.',
+          'The election runs for one week on the [Eclipse project page](https://projects.eclipse.org/projects/automotive.tractusx). The committers vote, the project leads and the Project Management Committee decide, and after the paperwork with the Eclipse Foundation you are a committer. The [committer election process](/docs/oss/committer-election-process) explains every step and includes a nomination template.',
+        ],
+      },
+      {
         id: 'where-to-ask-questions',
         question: 'Where can I ask questions?',
         answer: [
           'For quick questions, join the [Tractus-X Matrix space](https://chat.eclipse.org/#/room/#automotive.tractusx:matrix.eclipse.org). For a first contact with the community or a product team, write to the developer mailing list [tractusx-dev@eclipse.org](mailto:tractusx-dev@eclipse.org).',
           'You can also meet the community in the [open meetings](/community/open-meetings), for example the weekly Community Office Hour on Fridays or the NewJoiner Office Hour.',
+        ],
+      },
+      {
+        id: 'office-hours',
+        question: 'What are the office hours?',
+        answer: [
+          'Office hours are open online meetings where anyone can join, ask questions and hear what is going on in the project. The Community Office Hour takes place every Friday and is open to all interests. The NewJoiner Office Hour introduces new members to the essentials of the project, and the KITs Community Office Hour is for everyone who wants to develop or contribute KITs.',
+          'Find the times and links on the [open meetings](/community/open-meetings) page.',
+        ],
+      },
+      {
+        id: 'community-days',
+        question: 'What are the Eclipse Tractus-X Community Days?',
+        answer: [
+          'The Community Days are the project’s in-person community event, held at ARENA2036 in Stuttgart, Germany, since 2023. For two days, contributors, committers, adopters and partners from Tractus-X and other -X initiatives meet for keynotes, technical deep dives, hands-on workshops, coding challenges and networking.',
+          'Upcoming editions are announced in the [news blog](/blog) and on the [open meetings](/community/open-meetings) page.',
+        ],
+      },
+      {
+        id: 'add-to-roadmap',
+        question: 'How do I add an item to the roadmap?',
+        answer: [
+          'Create a feature issue with the feature template and add it to the open [release planning board](https://github.com/orgs/eclipse-tractusx/projects/26). Fill in every section of the template, set the topic or product, and find a contributor and a committer to be assigned. Leave the milestone empty: it is set during the planning.',
+          'If something is unclear, label the feature “open question” at least three days before the Alignment Day. On the Open Planning Day, which is open to everyone, the community prioritizes the features and assigns them to the upcoming release. See the [release process](/docs/oss/release-process).',
         ],
       },
       {
@@ -236,16 +292,34 @@ export const faqCategories = [
         id: 'security-approach',
         question: 'How does Eclipse Tractus-X take care of security?',
         answer: [
-          'Security is built into how we develop and release software, not added at the end. Every feature of a release must follow the [Tractus-X Release Guidelines (TRGs)](/docs/release), and several of them are about security: automated security scans, hardened containers and Helm charts, checks of third-party content and a security policy in every repository.',
-          'All code changes go through pull requests, and every pull request is reviewed, first for content by the product team and then by a committer. See the [code review guidelines](/docs/oss/code-reviews). Before each release, the components are tested together in an end-to-end test phase, described in the [release process](/docs/oss/release-process).',
+          'Security is built into how we develop and release software. Eclipse Tractus-X is governed by the Eclipse Foundation, so some security processes are run and required by the Eclipse Foundation, and others are rules and measures that the project members set for themselves.',
+          'Every repository must follow the security guidelines of [TRG 8](/docs/release/trg-8/trg-8-01), and every feature of a release must follow the [Release Guidelines](/docs/release). All code changes go through pull requests that are reviewed by the product team and then by a committer, see the [code review guidelines](/docs/oss/code-reviews).',
+          'The [release process](/docs/oss/release-process) defines strictly what can go into a release. Features are agreed on in the Open Planning, so there are no surprise features, and before each release the components are tested together in a live environment during the end-to-end test phase.',
+        ],
+      },
+      {
+        id: 'security-team',
+        question: 'Who takes care of security in the project?',
+        answer: [
+          'In the past, Eclipse Tractus-X had a dedicated security team. Today all committers are members of the security team and share the responsibility for the security of the repositories, especially the project leads. All committers are listed on the [Eclipse project page](https://projects.eclipse.org/projects/automotive.tractusx/who).',
+          'The Eclipse Foundation Security Team supports the project with security practices, finding vulnerabilities and incident management, and it has already helped in several incidents, for example in the [Trivy incident](https://mikael.barbero.tech/blog/post/2026-03-24-stop-trusting-mutable-references/). It also notifies the project leads when it detects a critical vulnerability in one of the repositories.',
+          'Security team volunteers are welcome! With a dedicated team, the project can do more threat modelling, vulnerability monitoring across all repositories, risk assessments and penetration tests of components that need a higher level of assurance. Tractus-X EDC, for example, has been pentested several times, which improved its quality. Interested? Let the committers know in the [Tractus-X Matrix space](https://chat.eclipse.org/#/room/#tractusx:matrix.eclipse.org).',
         ],
       },
       {
         id: 'security-scans',
         question: 'Which security scans run on the repositories?',
         answer: [
-          '[CodeQL](/docs/release/trg-8/trg-8-01) analyzes the source code for vulnerabilities. [KICS](/docs/release/trg-8/trg-8-02) checks infrastructure as code, such as Kubernetes files, Helm charts and GitHub Actions. [TruffleHog](/docs/release/trg-8/trg-8-03) searches the whole repository history for leaked secrets such as passwords and API keys. [Trivy](/docs/release/trg-8/trg-8-04) scans the published container images, and [Dependabot](/docs/release/trg-8/trg-8-05) keeps dependencies, base images and GitHub Actions up to date.',
-          'The scans run on pull requests and at least once a week, so new vulnerabilities in existing code are found too. Findings appear in the GitHub security dashboard, and high-severity findings may only be dismissed with a justification.',
+          '[CodeQL](/docs/release/trg-8/trg-8-01) runs static code analysis. [KICS](/docs/release/trg-8/trg-8-02) checks infrastructure as code, such as Kubernetes files, Helm charts and GitHub Actions. [TruffleHog](/docs/release/trg-8/trg-8-03) searches the whole repository history for leaked secrets. [Trivy](/docs/release/trg-8/trg-8-04) scans dependencies and the published container images, and [Dependabot](/docs/release/trg-8/trg-8-05) keeps dependencies, base images and GitHub Actions up to date.',
+          'On top of that, [SonarQube](https://sonarcloud.io/organizations/eclipse-tractusx/projects) checks code quality, zizmor finds mutable references in GitHub Actions workflows so that actions are pinned, and OWASP ZAP is used for API penetration tests, for example of the Tractus-X Identity Hub.',
+          'The scans run on pull requests and on a regular schedule. Their findings are collected in the Security tab of each repository, which only committers can see, so they can fix vulnerabilities and move to secure third-party libraries before anybody can exploit them.',
+        ],
+      },
+      {
+        id: 'project-glasswing',
+        question: 'Does Eclipse Tractus-X use AI to find vulnerabilities?',
+        answer: [
+          'Yes. Eclipse Tractus-X is part of [Project Glasswing](https://www.anthropic.com/glasswing), an initiative to secure critical open-source software. Our code bases are scanned and constantly verified with Claude Mythos from Anthropic, in addition to the automated security scans.',
         ],
       },
       {
@@ -260,16 +334,17 @@ export const faqCategories = [
         id: 'supply-chain-security',
         question: 'How is the software supply chain protected?',
         answer: [
-          'All third-party content, such as libraries, is checked and approved by the Eclipse Foundation IP team, for example with the Eclipse Dash License Tool, and documented in the NOTICE or DEPENDENCIES file. See [IP checks for third-party content](/docs/release/trg-7/trg-7-04).',
-          'Contributors need a GitHub account with two-factor authentication and a signed [Eclipse Contributor Agreement](https://www.eclipse.org/legal/ECA.php), and only elected committers can merge changes. Repositories that are no longer maintained or no longer meet the guidelines, including the security guidelines, are [archived](/docs/release/trg-7/trg-7-09).',
+          'Every contributor needs an Eclipse account and must sign the [Eclipse Contributor Agreement (ECA)](https://www.eclipse.org/projects/handbook/#contributing-eca), a binding agreement between the contributor as a natural person and the Eclipse Foundation, tied to the Eclipse Code of Conduct. This makes it much harder to slip malicious code, such as trojans, into the project. Committers can also [verify their identity](https://www.eclipse.org/projects/handbook/#identity-verification), and only committers can merge changes.',
+          'All third-party content, such as libraries, is checked and approved by the Eclipse Foundation IP team and documented in the NOTICE or DEPENDENCIES file. See [IP checks for third-party content](/docs/release/trg-7/trg-7-04).',
+          'Repositories that are no longer maintained or do not keep their third-party libraries up to date with the latest security updates are [deprecated and archived](/docs/release/trg-7/trg-7-09).',
         ],
       },
       {
         id: 'report-a-vulnerability',
         question: 'How do I report a security vulnerability?',
         answer: [
-          'Please do not report vulnerabilities in public GitHub issues. Open the Security tab of the affected repository and choose “Report a vulnerability” to create a private GitHub security advisory. In severe cases you can also contact the [Eclipse Foundation Security Team](https://www.eclipse.org/security/).',
-          'Every repository explains this in its SECURITY.md file, which the [legal documentation guideline (TRG 7.01)](/docs/release/trg-7/trg-7-01) requires.',
+          'Please do not report vulnerabilities in public GitHub issues. Use one of the private channels instead: open the Security tab of the affected repository and choose “Report a vulnerability” to create a private GitHub security advisory (for example in the [Industry Core Hub](https://github.com/eclipse-tractusx/industry-core-hub/security/advisories)), or report it to the [Eclipse Foundation Security Team](https://gitlab.eclipse.org/security/vulnerability-reports/).',
+          'You can also reach the project through [Eclipse Tractus-X sig-security](https://github.com/eclipse-tractusx/sig-security/issues/new/choose) or the [Eclipse HelpDesk](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/issues). Every repository explains this in its SECURITY.md file, which the [legal documentation guideline (TRG 7.01)](/docs/release/trg-7/trg-7-01) requires.',
         ],
       },
     ],

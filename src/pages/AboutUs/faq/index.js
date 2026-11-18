@@ -163,7 +163,7 @@ export default function AboutUsFaqPage() {
   return (
     <Layout
       title="FAQ"
-      description="Frequently asked questions about Eclipse Tractus-X: the project, its technology and KITs, security, and how to join the community and contribute."
+      description="Frequently asked questions about Eclipse Tractus-X: the project, its technology and KITs, releases, security, and how to join the community and contribute."
     >
       <Head>
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
