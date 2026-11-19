@@ -55,7 +55,7 @@ export default function TractusXAccelerator() {
       </p>
       <ul className={styles.focusAreas}>
         {acceleratorFocusAreas.map((area) => (
-          <li key={area}>{area}</li>
+          <li key={area.id}>{area.title}</li>
         ))}
       </ul>
       <span className={styles.partnersLabel}>Partners</span>
