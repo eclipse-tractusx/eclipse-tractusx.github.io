@@ -17,7 +17,8 @@ The website runs under the Eclipse Foundation, so it follows the
 [Eclipse Foundation Hosted Services Privacy and Acceptable Usage Policy](https://www.eclipse.org/org/documents/eclipse-foundation-hosted-services-privacy-and-acceptable-usage-policy.pdf)
 (v1.1) and the [Eclipse webdev guide on embedding analytics](https://webdev.eclipse.org/docs/solstice/?path=/docs/getting-started-embedding-analytics--docs).
 The approach was clarified with the Eclipse Foundation in
-[eclipsefdn/helpdesk#7844](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/work_items/7844).
+[eclipsefdn/helpdesk#7844](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/work_items/7844), which also serves as the
+formal approval required by the policy for analytics on this GitHub Pages site.
 
 | Requirement | How it is met |
 |---|---|
@@ -27,7 +28,7 @@ The approach was clarified with the Eclipse Foundation in
 | Use all available IP anonymisation features | Umami does not store IP addresses and sets no cookies |
 | No personal information is transmitted to the analytics platform | Query strings and fragments are removed from URLs, paths that are not a page of the site are sent as `/404`, referrers are reduced to their origin, search terms are never sent (see below) |
 | Footer with the Eclipse Foundation copyright notice and the links to the Eclipse Foundation website, Privacy Policy, Terms of Use, Compliance and Legal | Footer in [`docusaurus.config.js`](docusaurus.config.js) |
-| All committers and the Eclipse Foundation get equal access to the data on request | Organizational: request access from the account owner (see [Access to the data](#access-to-the-data)) |
+| All committers and the Eclipse Foundation get equal access to the data on request | Organizational: a read-only share link of the Umami dashboard on request (see [Access to the data](#access-to-the-data)) |
 
 ## How it works
 
@@ -43,7 +44,7 @@ flowchart TD
 
 1. **Consent banner.** [`docusaurus.config.js`](docusaurus.config.js) loads the banner script and stylesheet from
    `www.eclipse.org` on every page. The banner stores the decision in the cookie `eclipse_cookieconsent_status`
-   (`allow` or `deny`). Visitors can change their decision at any time with the "Cookie settings" button that the
+   (`allow` or `deny`) for 90 days, see [Known limitations](#known-limitations). Visitors can change their decision at any time with the "Cookie settings" button that the
    banner shows at the bottom of the page.
 2. **Loading Umami.** [`src/clientModules/analytics.js`](src/clientModules/analytics.js) runs on every page. It only
    adds the Umami script when the consent cookie is `allow`, either on page load or right after the visitor clicked
@@ -110,7 +111,9 @@ The website id is not a secret, it is part of every tracked page. To build the s
 ## Access to the data
 
 The data is available in the Umami Cloud dashboard. As required by the policy, committers of the project and the
-Eclipse Foundation get access on request. Ask the account owner (@stephanbcbauer), see the feature team in
+Eclipse Foundation get access on request, through a read-only share link of the dashboard (agreed with the Eclipse
+Foundation in [eclipsefdn/helpdesk#7844](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/work_items/7844)). Ask the
+account owner (@stephanbcbauer), see the feature team in
 [sig-release#1775](https://github.com/eclipse-tractusx/sig-release/issues/1775).
 
 ## Testing
@@ -128,9 +131,14 @@ Requests are only sent on `eclipse-tractusx.github.io`. To test locally, start t
 
 ## Known limitations
 
-- The banner stores the visitor's decision for the browser session only. Its 90-day cookie is set for the domain
-  `.github.io`, which browsers reject because it is a public suffix, so the banner is shown again in every new
-  browser session.
+- The banner sets its 90-day cookie for the domain `.github.io`, which browsers reject because it is a public
+  suffix. Only its session cookie remains, so the banner would be shown again in every new browser session. As a
+  workaround, agreed with the Eclipse Foundation in
+  [eclipsefdn/helpdesk#7844](https://gitlab.eclipse.org/eclipsefdn/helpdesk/-/work_items/7844),
+  [`src/clientModules/cookieConsent.js`](src/clientModules/cookieConsent.js) writes the same cookie again for 90 days
+  as a host-only cookie after "Allow" or "Deny" was clicked. It can be removed once the shared banner library
+  ([`eclipsefdn.cookie-consent.js`](https://gitlab.eclipse.org/eclipsefdn/software-dev/frameworks-and-tools/solstice-assets/-/blob/main/js/privacy/eclipsefdn.cookie-consent.js))
+  sets a host-only cookie for public suffixes.
 - Changes to the analytics must keep this page and the requirements above in sync.
 
 ## NOTICE

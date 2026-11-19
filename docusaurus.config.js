@@ -53,7 +53,10 @@ const config = {
 
   stylesheets: [`${eclipseCookieConsentBase}/stylesheets/vendor/cookieconsent/cookieconsent.min.css`],
   scripts: [{ src: `${eclipseCookieConsentBase}/javascript/vendor/cookieconsent/default.min.js`, defer: true }],
-  clientModules: [require.resolve('./src/clientModules/analytics.js')],
+  clientModules: [
+    require.resolve('./src/clientModules/cookieConsent.js'),
+    require.resolve('./src/clientModules/analytics.js'),
+  ],
 
   customFields: {
     analytics: {
