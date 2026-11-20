@@ -34,7 +34,6 @@ export default function ProductCard({ product }) {
     <Link
       to={`/Products/detail?id=${product.id}`}
       className={`${styles.card}`}
-      style={category ? { '--cat-grad': category.gradient, '--cat-accent': category.accent } : undefined}
     >
       <div className={styles.cardTop}>
         <span className={styles.category}><span className={styles.catDot} aria-hidden="true" />{category?.name}</span>

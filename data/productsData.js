@@ -40,33 +40,29 @@
  * }
  */
 
-// accent / gradient: the category's colour in the views (the category gradients of #1542).
+// route: the category's own page (the four routes of #1542).
 const productCategories = [
   {
     id: 'use-cases',
-    accent: '#667eea',
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    route: '/Products/use-cases',
     name: 'Use Cases',
     description: 'End-user applications and frontends that implement specific business use cases across the Tractus-X ecosystem.',
   },
   {
     id: 'dataspace-foundation',
-    accent: '#f093fb',
-    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    route: '/Products/dataspace-foundation',
     name: 'Dataspace Foundation',
     description: 'Core infrastructure components that enable the creation and operation of secure, interoperable dataspaces.',
   },
   {
     id: 'industry-core-foundation',
-    accent: '#4facfe',
-    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    route: '/Products/industry-core',
     name: 'Industry Core Foundation',
     description: 'Components that provide industry-specific data exchange, semantic modeling, and relationship tracking capabilities.',
   },
   {
     id: 'qa-testing-tools',
-    accent: '#43e97b',
-    gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    route: '/Products/qa-testing',
     name: 'QA / Testing & Tools',
     description: 'Development, testing, and quality assurance tools that support the Tractus-X development lifecycle.',
   },

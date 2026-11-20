@@ -20,7 +20,7 @@
  ********************************************************************************/
 
 /* Detail page. Same look as the overview (#1542): Docusaurus tokens, orange primary,
-   12px cards with a 1px border, no gradients or glass. */
+   12px cards with a 1px border and the glass of the KIT 2.0 cards (see the end of this file). */
 .page {
   --surface: var(--ifm-background-surface-color);
   --line: var(--ifm-color-emphasis-200);
@@ -132,3 +132,10 @@
   .facts { gap: 1.5rem; }
   .people { grid-template-columns: 1fr; }
 }
+
+/* Glass of the KIT 2.0 cards (DataspaceCard) */
+.card, .tree, .person, .agent, .btnGhost { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); }
+.page { --surface: rgba(255, 255, 255, 0.72); }
+[data-theme='dark'] .card, [data-theme='dark'] .tree, [data-theme='dark'] .person, [data-theme='dark'] .agent, [data-theme='dark'] .btnGhost { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); }
+[data-theme='dark'] .node { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
+[data-theme='dark'] .nodeLead { background: rgba(255, 255, 255, 0.08); }

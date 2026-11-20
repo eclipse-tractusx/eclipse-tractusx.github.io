@@ -25,8 +25,10 @@ import ProductArchitecture from './ProductArchitecture';
 import ProductCard from './ProductCard';
 import styles from './styles.module.css';
 
-export default function ProductsOverview() {
-  const [category, setCategory] = useState('all');
+// categoryId: set on the category pages (/Products/use-cases etc.), which open with that filter.
+export default function ProductsOverview({ categoryId = 'all' }) {
+  const [category, setCategory] = useState(categoryId);
+  const page = productCategories.find(c => c.id === categoryId);
   const [query, setQuery] = useState('');
 
   // Navbar links use /Products#<category-id>.
@@ -56,14 +58,23 @@ export default function ProductsOverview() {
     <div className={styles.page}>
       <header className={styles.hero}>
         <div className={styles.heroInner}>
-          <p className={styles.overline}>Eclipse Tractus-X</p>
-          <h1 className={styles.title}>
-            <em>Open Source Software</em> of the dataspace
-          </h1>
-          <p className={styles.lead}>
-            Open-source reference implementations that power Catena-X and Manufacturing-X, grouped as in the
-            Tractus-X classification.
-          </p>
+          <p className={styles.overline}>{page ? 'Eclipse Tractus-X Open Source Software' : 'Eclipse Tractus-X'}</p>
+          {page ? (
+            <>
+              <h1 className={styles.title}><em>{page.name}</em></h1>
+              <p className={styles.lead}>{page.description}</p>
+            </>
+          ) : (
+            <>
+              <h1 className={styles.title}>
+                <em>Open Source Software</em> of the dataspace
+              </h1>
+              <p className={styles.lead}>
+                Open-source reference implementations that power Catena-X and Manufacturing-X, grouped as in the
+                Tractus-X classification.
+              </p>
+            </>
+          )}
           <div className={styles.stats}>
             <div className={styles.stat}><span className={styles.statValue}>{products.length}</span><span className={styles.statLabel}>Projects</span></div>
             <div className={styles.stat}><span className={styles.statValue}>{active}</span><span className={styles.statLabel}>Active</span></div>
@@ -90,7 +101,6 @@ export default function ProductsOverview() {
               type="button"
               aria-pressed={category === c.id}
               className={`${styles.chip} ${category === c.id ? styles.chipActive : ''}`}
-              style={c.gradient ? { '--cat-grad': c.gradient, '--cat-accent': c.accent } : undefined}
               onClick={() => setCategory(c.id)}
             >
               {c.name}

@@ -21,7 +21,8 @@
 
 /* Styles taken from the first Products PR (#1542): plain Docusaurus tokens, orange primary,
    bordered cards with a 12px radius, a soft lift and an orange border on hover, and the
-   centred page header. No gradients, no glass. */
+   centred page header. No gradients. Cards, panels and tiles use the glass of the KIT 2.0 cards
+   (src/components/2.0/DataspaceCard): a translucent surface, 10px blur and a soft shadow. */
 .page { max-width: 1200px; margin: 0 auto; padding: 0 2rem 3rem; }
 [data-theme='dark'] .page { --card-bg: #1e1e1e; --card-border: rgba(255, 255, 255, 0.08); }
 .page { --card-bg: var(--ifm-background-surface-color); --card-border: var(--ifm-color-emphasis-200); --muted: var(--ifm-color-emphasis-600); }
@@ -98,3 +99,10 @@
   .title { font-size: 2rem; }
   .grid { grid-template-columns: 1fr; }
 }
+
+/* Glass of the KIT 2.0 cards (DataspaceCard) */
+.card, .chip, .search { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); }
+.page { --card-bg: rgba(255, 255, 255, 0.72); }
+[data-theme='dark'] .page { --card-bg: rgba(255, 255, 255, 0.05); --card-border: rgba(255, 255, 255, 0.1); }
+[data-theme='dark'] .card:hover { border-color: var(--ifm-color-primary); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+.chipActive, .chipActive:hover { background: var(--ifm-color-primary); }

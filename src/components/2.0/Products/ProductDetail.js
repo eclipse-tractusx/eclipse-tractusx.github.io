@@ -68,7 +68,7 @@ export default function ProductDetail({ product }) {
           <nav className={styles.crumbs} aria-label="Breadcrumb">
             <Link to="/Products">Open Source Software</Link>
             <span aria-hidden="true">/</span>
-            <Link to={`/Products#${product.category}`}>{category?.name}</Link>
+            <Link to={category?.route || '/Products'}>{category?.name}</Link>
           </nav>
           <div className={styles.chips}>
             <span className={styles.chip}>{category?.name}</span>
@@ -136,7 +136,7 @@ export default function ProductDetail({ product }) {
             <h2 className={styles.cardTitle}>At a glance</h2>
             <dl className={styles.glance}>
               <dt>Category</dt>
-              <dd><Link to={`/Products#${product.category}`}>{category?.name}</Link></dd>
+              <dd><Link to={category?.route || '/Products'}>{category?.name}</Link></dd>
               <dt>Status</dt>
               <dd>{STATUS[product.status]}</dd>
               <dt>Relevant for</dt>

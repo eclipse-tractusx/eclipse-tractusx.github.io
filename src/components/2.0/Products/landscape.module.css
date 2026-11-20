@@ -110,3 +110,9 @@
   .tiles { grid-template-columns: 1fr 1fr; }
   .rail .tiles { grid-template-columns: 1fr 1fr; }
 }
+
+/* Glass of the KIT 2.0 cards (DataspaceCard) */
+.cluster, .column, .segmented { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); }
+.cluster, .column { background: rgba(255, 255, 255, 0.72); }
+[data-theme='dark'] .cluster, [data-theme='dark'] .column { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); }
+[data-theme='dark'] .tile { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
