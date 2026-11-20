@@ -26,7 +26,20 @@ import TractusXSvg from '../../../static/img/logo_tractus-x.svg'
 
 import styles from "./styles.module.css";
 
-export default function AboutUsHeader() {
+const defaultSubtitle =
+  "Many organizations. One open-source community. We bring together " +
+  "industry initiatives, technology projects, and companies to build " +
+  "dataspaces that work across industries.";
+
+/**
+ * Hero of the About Us section. The About Us page uses the defaults; its
+ * subpages (e.g. the FAQ) pass their own title, subtitle and a breadcrumb.
+ */
+export default function AboutUsHeader({
+  title = "About Eclipse Tractus-X",
+  subtitle = defaultSubtitle,
+  breadcrumb = null,
+}) {
   return (
       <header className={styles.about_header}>
       {/* ThemedImage Docusaurus component that handles the BG depending on the theme displayed */}
@@ -45,12 +58,9 @@ export default function AboutUsHeader() {
             <TractusXSvg className={styles.svg} aria-hidden="true"/>
           </div>
           <div className={styles.information_container}>
-            <h1 className="headers-title-h1">About Eclipse Tractus-X</h1>
-            <p className={styles.subtitle}>
-              Many organizations. One open-source community. We bring together
-              industry initiatives, technology projects, and companies to build
-              dataspaces that work across industries.
-            </p>
+            {breadcrumb}
+            <h1 className="headers-title-h1">{title}</h1>
+            <p className={styles.subtitle}>{subtitle}</p>
           </div>
         </div>
     </header>
