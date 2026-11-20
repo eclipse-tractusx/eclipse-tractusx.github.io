@@ -2,11 +2,137 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes</id>
     <title>Eclipse Tractus-X Blog</title>
-    <updated>2026-11-13T00:00:00.000Z</updated>
+    <updated>2026-11-20T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes"/>
     <subtitle>Eclipse Tractus-X Blog</subtitle>
     <icon>https://eclipse-tractusx.github.io/pr/1650/img/logo_tractus-x-min.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Community Office Hour 2026-11-20]]></title>
+        <id>https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20</id>
+        <link href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20"/>
+        <updated>2026-11-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Community Office Hour Meeting Minutes]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="community-office-hour-meeting-minutes">Community Office Hour Meeting Minutes<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#community-office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Community Office Hour Meeting Minutes" title="Direct link to Community Office Hour Meeting Minutes" translate="no">​</a></h2>
+<p>Status updates discussed in meeting:</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="executive-summary">Executive Summary<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#executive-summary" class="hash-link" aria-label="Direct link to Executive Summary" title="Direct link to Executive Summary" translate="no">​</a></h2>
+<ul>
+<li class="">The FAQ proposal is ready for review and was moved to in progress. The proposed AI website section was demonstrated, with community feedback and contributions invited.</li>
+<li class="">The 26.12 testing phase was extended by one week. Development for 27.03 is underway for products and KITs.</li>
+<li class="">Open GitHub Actions pinning pull requests need committer reviews. <strong>sig-infra</strong>'s own pinning and Dependabot configuration must be checked to clarify the rollout to dependent repositories.</li>
+<li class="">Gateway API work is blocked by uncertainty over which repositories remain maintained and require support. A final mailing-list request was proposed to establish the remaining scope.</li>
+<li class="">The GitHub security team membership issue is resolved: the team now contains five people rather than the entire committer group.</li>
+<li class="">A possible Java/OpenJDK vulnerability was raised. Applicability to the project's actual runtime images remained unconfirmed; the discussion ended in an investigation state, not a confirmed finding or an all-clear.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="topics-discussed">Topics Discussed<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#topics-discussed" class="hash-link" aria-label="Direct link to Topics Discussed" title="Direct link to Topics Discussed" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-faq-section">New FAQ section<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#new-faq-section" class="hash-link" aria-label="Direct link to New FAQ section" title="Direct link to New FAQ section" translate="no">​</a></h3>
+<ul>
+<li class="">The FAQ pull request is ready for review and was moved to in progress.</li>
+<li class="">The demonstration showed searchable questions and categories covering project basics, governance, production use, KITs, contribution roles, community meetings and vulnerability reporting.</li>
+<li class="">The content is maintained through reusable JSON data, allowing questions and categories to be extended.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ai-website-proposal-and-related-website-work">AI website proposal and related website work<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#ai-website-proposal-and-related-website-work" class="hash-link" aria-label="Direct link to AI website proposal and related website work" title="Direct link to AI website proposal and related website work" translate="no">​</a></h3>
+<ul>
+<li class="">The proposed AI section includes an overview, agent profiles, MCP services, related projects and an explanation of why AI needs data spaces.</li>
+<li class="">Agent profiles describe expertise, skills and ways to interact with the agents. An embedded website chatbot remains an idea requiring clarification.</li>
+<li class="">MCP documentation is intended to explain available tools and connection options. Existing or prospective integrations across Tractus-X components were discussed.</li>
+<li class="">A SonarQube/SonarCloud MCP example illustrated how agents could request code-quality analysis during development. This was a demonstration, not a newly agreed project-wide requirement.</li>
+<li class="">The related-projects page and parts of the explanatory content are still being developed.</li>
+<li class="">Contributors can leave review suggestions or create a stacked pull request targeting the proposal branch for larger changes.</li>
+<li class="">A separate decentralized community-bases website update could not be demonstrated because its preview did not render correctly.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="developer-toolbox-wizard-and-tractusx-starter-kit">Developer toolbox, wizard and tractusx-starter-kit<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#developer-toolbox-wizard-and-tractusx-starter-kit" class="hash-link" aria-label="Direct link to Developer toolbox, wizard and tractusx-starter-kit" title="Direct link to Developer toolbox, wizard and tractusx-starter-kit" translate="no">​</a></h3>
+<ul>
+<li class="">The toolbox concept aims to make components easy to start using Docker, rather than requiring an Umbrella deployment.</li>
+<li class="">A small pull request was offered to add a GitHub workflow to <strong>tractusx-starter-kit</strong> for community review.</li>
+<li class="">Detailed scope and usage of the particular workflow contribution were not fully settled during the discussion.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-planning-2612-and-2703">Release planning: 26.12 and 27.03<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#release-planning-2612-and-2703" class="hash-link" aria-label="Direct link to Release planning: 26.12 and 27.03" title="Direct link to Release planning: 26.12 and 27.03" translate="no">​</a></h3>
+<ul>
+<li class="">The 26.12 testing phase, originally due to finish on November 20, was extended by one week.</li>
+<li class="">KIT contributors were reminded to submit their release pull requests in time for review. KITs missing the release window will not receive the 2026.12 tag.</li>
+<li class="">The 27.03 release is in the development phase for products and KITs following the planning event.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="restructuring-the-release-process">Restructuring the release process<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#restructuring-the-release-process" class="hash-link" aria-label="Direct link to Restructuring the release process" title="Direct link to Restructuring the release process" translate="no">​</a></h3>
+<ul>
+<li class="">A contact list containing approximately 100 people has been supplied for the workshop.</li>
+<li class="">The list needs to be filtered before invitations are sent.</li>
+<li class="">@stephanbcbauer -&gt; not sure if the workshop could still take place in 2026, maybe early 2027 as a possible alternative. -&gt; No date was agreed.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="github-actions-pinning-and-sig-infra">GitHub Actions pinning and <strong>sig-infra</strong><a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#github-actions-pinning-and-sig-infra" class="hash-link" aria-label="Direct link to github-actions-pinning-and-sig-infra" title="Direct link to github-actions-pinning-and-sig-infra" translate="no">​</a></h3>
+<ul>
+<li class="">Many pinning pull requests remain open. @stephanbcbauer has merged those within his permissions but cannot approve his own pull requests; reviews from other committers are required.</li>
+<li class="">Volunteers offered to review several pull requests.</li>
+<li class="">The <strong>sig-infra</strong> discussion distinguished two layers:<!-- -->
+<ul>
+<li class="">Pinning and updating the actions used inside <strong>sig-infra</strong>'s reusable workflows.</li>
+<li class="">Updating pinned references to those workflows in consuming repositories.</li>
+</ul>
+</li>
+<li class="">Dependabot, as supporting updates to pinned references when appropriately configured. <strong>sig-infra</strong>'s actual configuration still needs checking.</li>
+<li class="">Automatic merging of dependency updates was suggested as a way to avoid maintenance delays, but was not agreed.</li>
+<li class="">@stephanbcbauer proposed resolving <strong>sig-infra</strong> first, then proceeding with the dependent repositories.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="trufflehog-workflow-scan-scope">TruffleHog workflow scan scope<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#trufflehog-workflow-scan-scope" class="hash-link" aria-label="Direct link to TruffleHog workflow scan scope" title="Direct link to TruffleHog workflow scan scope" translate="no">​</a></h3>
+<ul>
+<li class="">Website pull-request scans were reported to take more than two hours because of broad scan scope, including history.</li>
+<li class="">A pull request is available to separate comprehensive scanning from smaller pull-request scans.</li>
+<li class="">Participants discussed scanning pull-request changes rather than repeatedly scanning the full history, while ensuring main-branch changes are also covered.</li>
+<li class="">A corresponding TRG update was requested. The final scan policy was not agreed.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="github-security-team-membership">GitHub security team membership<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#github-security-team-membership" class="hash-link" aria-label="Direct link to GitHub security team membership" title="Direct link to GitHub security team membership" translate="no">​</a></h3>
+<ul>
+<li class="">Eclipse has corrected the team membership issue.</li>
+<li class="">The security team now lists five people rather than the entire developer/committer group.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gateway-api-support-and-repository-maintenance">Gateway API support and repository maintenance<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#gateway-api-support-and-repository-maintenance" class="hash-link" aria-label="Direct link to Gateway API support and repository maintenance" title="Direct link to Gateway API support and repository maintenance" translate="no">​</a></h3>
+<ul>
+<li class="">Further Gateway API work requires a reliable list of maintained components that still need it.</li>
+<li class="">Implementation is not the only cost: installation, configuration variants and routing behavior require substantial testing.</li>
+<li class="">EDC and Identity Hub were reported to have Gateway API support already, with working deployments checked regularly by a participant.</li>
+<li class="">Two approaches were discussed: clean up deprecated repositories first, or ask maintainers and users to identify missing Gateway API support directly.</li>
+<li class="">Deprecating or archiving unmaintained repositories was advocated, but no repository-specific archival decisions were recorded.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="umbrella-integration-product-overview-and-contributor-guidance">Umbrella integration, product overview and contributor guidance<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#umbrella-integration-product-overview-and-contributor-guidance" class="hash-link" aria-label="Direct link to Umbrella integration, product overview and contributor guidance" title="Direct link to Umbrella integration, product overview and contributor guidance" translate="no">​</a></h3>
+<ul>
+<li class="">The Umbrella pull request concerning DTR basics integration was reported merged.</li>
+<li class="">A repository/product overview is in progress. Its presentation needs revision, and the committer list in the original draft was reported as incorrect.</li>
+<li class="">Agent-specific TRGs were proposed to define repository guidance, boundaries and checks such as dependency and IP-related checks. -&gt; No concrete scope or owner was agreed.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="possible-javaopenjdk-vulnerability">Possible Java/OpenJDK vulnerability<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#possible-javaopenjdk-vulnerability" class="hash-link" aria-label="Direct link to Possible Java/OpenJDK vulnerability" title="Direct link to Possible Java/OpenJDK vulnerability" translate="no">​</a></h3>
+<ul>
+<li class="">Participants raised a recently publicized vulnerability described as involving HotSpot and Base64-related processing.</li>
+<li class="">No CVE identifier, authoritative advisory or reliable affected-version mapping was established in the meeting.</li>
+<li class="">EDC, Identity Hub and DTR were discussed as components whose Java runtime or base images may need checking.</li>
+<li class="">Participants questioned whether Oracle Java version information also applied to Eclipse Temurin distributions. Using a different distribution was not accepted as sufficient evidence of non-applicability.</li>
+<li class="">The proposed response was to identify the actual runtime images, verify affected and fixed versions, and update/rebuild images if necessary.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="action-items">Action Items<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-20#action-items" class="hash-link" aria-label="Direct link to Action Items" title="Direct link to Action Items" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@stephanbcbauer and @mgarciaLKS: Revisit the <strong>sig-infra</strong> pinning discussion and clarify the outstanding setup.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@stephanbcbauer: Check or enable Dependabot and verify action pinning in <strong>sig-infra</strong>; aim to address this on November 20.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@stephanbcbauer: Notify reviewers when the <strong>sig-infra</strong> prerequisite is resolved.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Volunteer committers: Review the open GitHub Actions pinning pull requests.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@matbmoser: Submit the offered small GitHub workflow pull request for tractusx-starter-kit.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@mgarciaLKS: Review the website TruffleHog workflow pull request.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Unassigned: Update the relevant TRG to reflect the agreed scanning approach once clarified.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@matbmoser: Prepare the mailing-list email template requesting outstanding Gateway API requirements.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@ther3sa, @stephanbcbauer: Filter the release-process workshop contact list before sending invitations.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@matbmoser: Correct the committer list and revise the presentation.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->@all: Investigate the Java vulnerability against actual runtime/base-image versions and update affected images if required.</li>
+</ul>]]></content>
+        <author>
+            <name>Theresa Hilger</name>
+            <email>theresa.hilger@catena-x.net</email>
+            <uri>https://github.com/ther3sa</uri>
+        </author>
+        <author>
+            <name>Stephan Bauer</name>
+            <uri>https://catena-x.net/</uri>
+        </author>
+        <category label="community" term="community"/>
+        <category label="meeting-minutes" term="meeting-minutes"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Community Office Hour 2026-11-13]]></title>
         <id>https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2026-11-13</id>
@@ -1315,49 +1441,6 @@ Friendly reminder from Mathias Moser that this is a high priority for the commun
         <author>
             <name>Arno Weiß</name>
             <uri>https://github.com/arnoweiss</uri>
-        </author>
-        <category label="community" term="community"/>
-        <category label="meeting-minutes" term="meeting-minutes"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Community Office Hour 2024-08-02]]></title>
-        <id>https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2024-08-02</id>
-        <link href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2024-08-02"/>
-        <updated>2024-08-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Office Hour meeting minutes]]></summary>
-        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="office-hour-meeting-minutes">Office Hour meeting minutes<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2024-08-02#office-hour-meeting-minutes" class="hash-link" aria-label="Direct link to Office Hour meeting minutes" title="Direct link to Office Hour meeting minutes" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure">Infrastructure<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2024-08-02#infrastructure" class="hash-link" aria-label="Direct link to Infrastructure" title="Direct link to Infrastructure" translate="no">​</a></h3>
-<ul>
-<li class="">Discussion on catenax-ng<!-- -->
-<ul>
-<li class="">@matbmoser: please cross-check your own repository, if you reference it!</li>
-<li class="">@lgblaumeiser: we noticed that the R24.03 MIW needs catenax-ng resources. It temporarily stays up. (see <a href="https://github.com/eclipse-tractusx/managed-identity-wallet/issues/342" target="_blank" rel="noopener noreferrer" class="">issue</a>)</li>
-</ul>
-</li>
-<li class="">Consortia teams are gone. Thanks, it was a pleasure!</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-team">Security team<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2024-08-02#security-team" class="hash-link" aria-label="Direct link to Security team" title="Direct link to Security team" translate="no">​</a></h3>
-<ul>
-<li class="">@matbmoser: Please do check for your security issues on the tab. High and critical issues need to be fixed. We should check this on high level / project level regularly in this meeting</li>
-<li class="">@tom-rm-meyer-ISST: For Truffle Hog, make sure that the workflow runs before merging. (see <a href="https://github.com/eclipse-tractusx/puris/pull/531" target="_blank" rel="noopener noreferrer" class="">e.g.</a>)</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="foss">FOSS<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2024-08-02#foss" class="hash-link" aria-label="Direct link to FOSS" title="Direct link to FOSS" translate="no">​</a></h3>
-<ul>
-<li class="">@AngelikaWittek is gone. Thanks for your work!</li>
-</ul>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-planning--community">Open planning / community<a href="https://eclipse-tractusx.github.io/pr/1650/community/meeting-minutes/community-office-hour-2024-08-02#open-planning--community" class="hash-link" aria-label="Direct link to Open planning / community" title="Direct link to Open planning / community" translate="no">​</a></h3>
-<ul>
-<li class="">@stephanbcbauer:<!-- -->
-<ul>
-<li class="">Refinement Phase went well overall. Committers please join the planning meetings.</li>
-<li class="">Some QGates are still open, please check.</li>
-<li class="">Review together the <a href="https://github.com/eclipse-tractusx/tractus-x-release/pull/34" target="_blank" rel="noopener noreferrer" class="">release preparation</a></li>
-</ul>
-</li>
-</ul>]]></content>
-        <author>
-            <name>Tom Meyer</name>
-            <uri>https://github.com/tom-rm-meyer-ISST</uri>
         </author>
         <category label="community" term="community"/>
         <category label="meeting-minutes" term="meeting-minutes"/>
