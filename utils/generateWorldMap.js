@@ -65,6 +65,9 @@ const MIN_RING_AREA = 0.5;
 const HIGHLIGHTED_COUNTRIES = {
   Germany: 'DE',
   Spain: 'ES',
+  Portugal: 'PT',
+  Italy: 'IT',
+  Romania: 'RO',
   'United Kingdom': 'GB',
   'United States of America': 'US',
   China: 'CN',

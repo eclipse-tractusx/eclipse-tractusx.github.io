@@ -33,7 +33,10 @@ import WorldMap from '@site/src/components/CommunityMap/WorldMap';
 import ClaimSymbol from '@site/src/components/CommunityMap/ClaimSymbol';
 import {
   communityBases,
+  COMMUNITY_SIZE_LABELS,
   getBasesByRegion,
+  isEstablishedBase,
+  isPendingBase,
   getBaseStatistics,
   REGION_ORDER,
 } from '@site/data/communityBases';
@@ -102,18 +105,19 @@ function PartnerList({ base }) {
 function BaseCard({ base, isActive, onHover, cardRef }) {
   // Registers the card id so Docusaurus accepts /CommunityBases#<id> deep links.
   useBrokenLinks().collectAnchor(base.id);
+  const established = isEstablishedBase(base);
 
   return (
     <article
       id={base.id}
       ref={cardRef}
-      className={clsx(styles.card, base.homeBase && styles.cardHome, isActive && styles.cardActive)}
+      className={clsx(styles.card, established && styles.cardHome, isActive && styles.cardActive)}
       onMouseEnter={() => onHover(base.id)}
       onMouseLeave={() => onHover(null)}
     >
       <header className={styles.cardHeader}>
         <span className={styles.cardSymbol}>
-          <ClaimSymbol brand={base.homeBase} />
+          <ClaimSymbol brand={established} />
         </span>
         <div className={styles.cardHeading}>
           <h3 className={styles.cardTitle}>{base.country}</h3>
@@ -122,26 +126,22 @@ function BaseCard({ base, isActive, onHover, cardRef }) {
             {base.city ? `${base.city} - ${base.region}` : base.region}
           </p>
         </div>
-        {base.homeBase && (
-          <span className={styles.homeBadge}>
-            <StarIcon className={styles.homeBadgeIcon} />
-            Home base
-          </span>
-        )}
+        <span
+          className={clsx(
+            styles.statusBadge,
+            established && styles.homeBadge,
+            isPendingBase(base) && styles.statusBadgePending,
+          )}
+        >
+          {established && <StarIcon className={styles.homeBadgeIcon} />}
+          {base.status}
+        </span>
       </header>
 
       <div className={styles.cardBody}>
-        <p className={styles.cardDescription}>{base.description}</p>
-
-        {base.focus && base.focus.length > 0 && (
-          <ul className={styles.focusTags}>
-            {base.focus.map((topic) => (
-              <li key={topic} className={styles.focusTag}>
-                {topic}
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul className={styles.focusTags}>
+          <li className={styles.focusTag}>{COMMUNITY_SIZE_LABELS[base.size]}</li>
+        </ul>
       </div>
 
       <div className={styles.cardPartners}>
@@ -225,10 +225,10 @@ export default function CommunityBasesPage() {
               Eclipse Tractus-X <span className={styles.accent}>bases</span> around the world
             </h1>
             <p className={styles.heroSubtitle}>
-              Our mission is to build solid Eclipse Tractus-X bases wherever the community grows. A
-              base is more than a pin on a map: it is a local group of contributors, committers,
-              adopters and partner organizations that build, run and promote the dataspace together.
-              Pick a claim on the map to see who is behind it.
+              Eclipse Tractus-X is a global community without a single centre. Our mission is to
+              build solid bases wherever the community grows: some are already established, others
+              are on their way. The size of each claim on the map shows how big the community is
+              there - pick one to see who is behind it.
             </p>
 
             <dl className={styles.stats}>
@@ -259,6 +259,7 @@ export default function CommunityBasesPage() {
             onHover={setActiveId}
             onSelect={handleSelect}
             showLabels
+            showLegend
             fullBleed
             className={styles.heroMap}
           />
