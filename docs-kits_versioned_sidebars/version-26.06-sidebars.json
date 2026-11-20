@@ -32,6 +32,17 @@
           "items": [
             "kits/ai-service-kit/development-view/development-view"
           ]
+        },
+        {
+          "type": "category",
+          "label": "Operation View",
+          "link": {
+            "type": "doc",
+            "id": "kits/ai-service-kit/operation-view/operation-view"
+          },
+          "items": [
+            "kits/ai-service-kit/operation-view/operation-view"
+          ]
         }
       ]
     },
