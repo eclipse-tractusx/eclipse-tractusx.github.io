@@ -370,11 +370,11 @@ const config = {
           },
           {
             type: 'dropdown',
-            label: 'Products',
+            label: 'Open Source Software',
             position: 'left',
             to: '/Products',
             items: [
-              { to: '/Products', label: 'All products' },
+              { to: '/Products', label: 'All Open Source Software' },
               { to: '/Products#use-cases', label: 'Use Cases' },
               { to: '/Products#dataspace-foundation', label: 'Dataspace Foundation' },
               { to: '/Products#industry-core-foundation', label: 'Industry Core Foundation' },

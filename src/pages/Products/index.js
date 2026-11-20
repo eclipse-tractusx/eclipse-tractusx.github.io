@@ -28,8 +28,8 @@ export default function ProductsPage() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Products | ${siteConfig.title}`}
-      description="The Eclipse Tractus-X products: open-source reference implementations for Catena-X and Manufacturing-X."
+      title={`Open Source Software | ${siteConfig.title}`}
+      description="Eclipse Tractus-X Open Source Software: reference implementations for Catena-X and Manufacturing-X."
     >
       <ProductsOverview />
     </Layout>

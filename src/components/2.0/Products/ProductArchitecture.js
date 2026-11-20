@@ -43,7 +43,7 @@ export default function ProductArchitecture({ products, onSelectCategory }) {
                 >
                   {cat.name}
                 </a>
-                <div className={styles.layerCount}>{items.length} products</div>
+                <div className={styles.layerCount}>{items.length} projects</div>
                 <p className={styles.layerText}>{cat.description}</p>
               </div>
               <div className={styles.layerBody}>

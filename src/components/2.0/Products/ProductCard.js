@@ -33,10 +33,9 @@ export default function ProductCard({ product }) {
   return (
     <Link
       to={`/Products/detail?id=${product.id}`}
-      className={`${styles.card} ${styles.cardGlass}`}
+      className={`${styles.card}`}
       style={category ? { '--cat-grad': category.gradient, '--cat-accent': category.accent } : undefined}
     >
-      <span className={styles.cardBar} aria-hidden="true" />
       <div className={styles.cardTop}>
         <span className={styles.category}><span className={styles.catDot} aria-hidden="true" />{category?.name}</span>
         {STATUS[product.status] && (

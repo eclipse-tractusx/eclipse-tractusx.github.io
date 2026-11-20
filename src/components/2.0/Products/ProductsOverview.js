@@ -55,20 +55,17 @@ export default function ProductsOverview() {
   return (
     <div className={styles.page}>
       <header className={styles.hero}>
-        <span className={`${styles.orb} ${styles.orbA}`} aria-hidden="true" />
-        <span className={`${styles.orb} ${styles.orbB}`} aria-hidden="true" />
-        <span className={`${styles.orb} ${styles.orbC}`} aria-hidden="true" />
         <div className={styles.heroInner}>
           <p className={styles.overline}>Eclipse Tractus-X</p>
           <h1 className={styles.title}>
-            <em>Products</em> of the dataspace
+            <em>Open Source Software</em> of the dataspace
           </h1>
           <p className={styles.lead}>
             Open-source reference implementations that power Catena-X and Manufacturing-X, grouped as in the
-            Tractus-X product classification.
+            Tractus-X classification.
           </p>
           <div className={styles.stats}>
-            <div className={styles.stat}><span className={styles.statValue}>{products.length}</span><span className={styles.statLabel}>Products</span></div>
+            <div className={styles.stat}><span className={styles.statValue}>{products.length}</span><span className={styles.statLabel}>Projects</span></div>
             <div className={styles.stat}><span className={styles.statValue}>{active}</span><span className={styles.statLabel}>Active</span></div>
             <div className={styles.stat}><span className={styles.statValue}>{repos}</span><span className={styles.statLabel}>Repositories</span></div>
             <div className={styles.stat}><span className={styles.statValue}>{productCategories.length}</span><span className={styles.statLabel}>Categories</span></div>
@@ -79,13 +76,13 @@ export default function ProductsOverview() {
       <section className={styles.section}>
         <h2 className={styles.h2}>Architecture</h2>
         <p className={styles.sectionLead}>
-          Each row is a product category. Open a product, or pick a category to filter the list below.
+          Each row is a category. Open a project, or pick a category to filter the list below.
         </p>
         <ProductArchitecture products={products} onSelectCategory={setCategory} />
       </section>
 
       <section className={styles.section} id="all">
-        <h2 className={styles.h2}>All products</h2>
+        <h2 className={styles.h2}>All Open Source Software</h2>
         <div className={styles.filters} role="group" aria-label="Filter by category">
           {[{ id: 'all', name: 'All' }, ...productCategories].map(c => (
             <button
@@ -102,8 +99,8 @@ export default function ProductsOverview() {
           <input
             className={styles.search}
             type="search"
-            placeholder="Search products"
-            aria-label="Search products"
+            placeholder="Search Open Source Software"
+            aria-label="Search Open Source Software"
             value={query}
             onChange={e => setQuery(e.target.value)}
           />
@@ -113,7 +110,7 @@ export default function ProductsOverview() {
             {shown.map(p => <ProductCard key={p.id} product={p} />)}
           </div>
         ) : (
-          <p className={styles.empty}>No product matches.</p>
+          <p className={styles.empty}>No Open Source Software matches.</p>
         )}
       </section>
     </div>

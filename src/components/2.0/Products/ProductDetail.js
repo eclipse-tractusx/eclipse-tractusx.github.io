@@ -28,8 +28,8 @@ export default function ProductDetail({ product }) {
   if (!product) {
     return (
       <div className={styles.page}>
-        <h1 className={styles.title}>Product not found</h1>
-        <p className={styles.lead}><Link to="/Products">Back to all products</Link></p>
+        <h1 className={styles.title}>Open Source Software not found</h1>
+        <p className={styles.lead}><Link to="/Products">Back to all Open Source Software</Link></p>
       </div>
     );
   }
@@ -38,11 +38,9 @@ export default function ProductDetail({ product }) {
   return (
     <div className={styles.page} style={category ? { '--cat-grad': category.gradient, '--cat-accent': category.accent } : undefined}>
       <header className={`${styles.hero} ${styles.heroDetail}`}>
-        <span className={`${styles.orb} ${styles.orbA}`} aria-hidden="true" />
-        <span className={`${styles.orb} ${styles.orbB}`} aria-hidden="true" />
         <div className={styles.heroInner}>
           <nav className={styles.crumbs} aria-label="Breadcrumb">
-            <Link to="/Products">Products</Link> / <Link to={`/Products#${product.category}`}>{category?.name}</Link>
+            <Link to="/Products">Open Source Software</Link> / <Link to={`/Products#${product.category}`}>{category?.name}</Link>
           </nav>
           <p className={styles.overline}>{category?.name}</p>
           <h1 className={styles.title}>{product.name}</h1>
@@ -57,10 +55,10 @@ export default function ProductDetail({ product }) {
           {product.agents?.length > 0 && (
             <>
               <h2 className={styles.h2} style={{ marginTop: 40 }}>AI agents</h2>
-              <p className={styles.sectionLead}>Agents defined in the repositories of this product.</p>
+              <p className={styles.sectionLead}>Agents defined in the repositories of this project.</p>
               <div className={styles.agents}>
                 {product.agents.map(a => (
-                  <a key={a.id} className={`${styles.card} ${styles.cardGlass}`} href={a.url} target="_blank" rel="noopener noreferrer">
+                  <a key={a.id} className={`${styles.card}`} href={a.url} target="_blank" rel="noopener noreferrer">
                     <h3 className={styles.cardName}>{a.name}</h3>
                     <p className={styles.cardText}>{a.description}</p>
                     <span className={styles.cardFoot}>{a.repository}</span>

@@ -32,8 +32,8 @@ export default function ProductDetailPage() {
   const product = id ? getProductById(id) : null;
   return (
     <Layout
-      title={`${product?.name || 'Product'} | ${siteConfig.title}`}
-      description={product?.description || 'Eclipse Tractus-X product'}
+      title={`${product?.name || 'Open Source Software'} | ${siteConfig.title}`}
+      description={product?.description || 'Eclipse Tractus-X Open Source Software'}
     >
       <ProductDetail product={product} />
     </Layout>
