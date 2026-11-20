@@ -1,0 +1,372 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+$brand-orange: #faa023;
+$brand-green: #afc72d;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  scroll-margin-top: 90px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+
+  &:hover {
+    border-color: rgba(250, 160, 35, 0.55);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    transform: translateY(-4px);
+  }
+
+  &:hover .image {
+    transform: scale(1.04);
+  }
+
+  &:target {
+    border-color: $brand-orange;
+    box-shadow: 0 0 0 3px rgba(250, 160, 35, 0.25);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Picture
+   -------------------------------------------------------------------------- */
+
+.media {
+  display: block;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #0b0d12;
+
+  // Darkens the bottom edge so the repository badge stays readable.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 30%;
+    background: linear-gradient(180deg, rgba(7, 8, 9, 0) 0%, rgba(7, 8, 9, 0.72) 100%);
+    pointer-events: none;
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.repoBadge {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100% - 32px);
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(11, 13, 18, 0.72);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.repoBadgeIcon {
+  font-size: 14px !important;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Team picture (agents without their own picture)
+   -------------------------------------------------------------------------- */
+
+.teamMedia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(70% 70% at 30% 20%, rgba(250, 160, 35, 0.28) 0%, rgba(250, 160, 35, 0) 70%),
+    radial-gradient(70% 70% at 80% 90%, rgba(175, 199, 45, 0.22) 0%, rgba(175, 199, 45, 0) 70%),
+    linear-gradient(180deg, #11141b 0%, #070809 100%);
+}
+
+// Three badges per row, the last row centered.
+.teamGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  width: 64%;
+}
+
+.teamBadge {
+  width: calc((100% - 28px) / 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 22%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: $brand-orange;
+
+  &:nth-child(even) {
+    color: $brand-green;
+  }
+}
+
+.teamBadgeIcon {
+  font-size: 40px !important;
+}
+
+.teamCount {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(250, 160, 35, 0.18);
+  color: $brand-orange;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Body
+   -------------------------------------------------------------------------- */
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px 24px 24px;
+}
+
+.name {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.role {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.motto {
+  margin: 14px 0 0;
+  padding-left: 12px;
+  border-left: 3px solid $brand-orange;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.nameLink {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: $brand-orange;
+    text-decoration: none;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.assistants {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 12.5px;
+}
+
+.metaLabel {
+  margin-right: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.assistant {
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(175, 199, 45, 0.18);
+  font-weight: 700;
+  color: #5f7000;
+
+  [data-theme='dark'] & {
+    color: $brand-green;
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-font-color-base);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: $brand-orange;
+    color: $brand-orange;
+    text-decoration: none;
+  }
+}
+
+.chatLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: linear-gradient(120deg, $brand-orange 0%, #f08a12 100%);
+  color: #10120f;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(250, 160, 35, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    color: #10120f;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(250, 160, 35, 0.32);
+  }
+}
+
+.linkIcon {
+  font-size: 16px !important;
+}
+
+/* --------------------------------------------------------------------------
+   Team members
+   -------------------------------------------------------------------------- */
+
+.description {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+}
+
+// The team's agents as compact pills, each linking to its profile.
+.members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.member {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-base);
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: $brand-orange;
+    color: $brand-orange;
+    text-decoration: none;
+  }
+}
+
+.memberIcon {
+  font-size: 15px !important;
+  color: $brand-orange;
+}

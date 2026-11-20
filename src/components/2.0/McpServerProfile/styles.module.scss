@@ -1,0 +1,441 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+// MCP server detail page. The hero, page frame and side column come from
+// ../AgentProfile/styles.module.scss; this file adds the facts, stats and tool catalog.
+
+$brand-orange: #faa023;
+$brand-green: #afc72d;
+$mono: 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+/* Hero -------------------------------------------------------------------- */
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 48px;
+  align-items: start;
+
+  @media screen and (max-width: 996px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.heroText {
+  max-width: 680px;
+  margin: 18px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.statValue {
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(120deg, $brand-orange 0%, $brand-green 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.facts {
+  margin: 0;
+  padding: 8px 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+}
+
+.fact {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  dt {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  dd {
+    margin: 4px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Sections ---------------------------------------------------------------- */
+.section {
+  padding: 26px 28px;
+  border-radius: 18px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+
+  @media screen and (max-width: 600px) {
+    padding: 20px;
+  }
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.sectionLead {
+  margin: 0 0 18px;
+  font-size: 15px;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* Tool catalog ------------------------------------------------------------ */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.search {
+  position: relative;
+  flex: 1 1 240px;
+
+  input {
+    width: 100%;
+    padding: 10px 14px 10px 38px;
+    border-radius: 10px;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    background: var(--ifm-background-color);
+    color: var(--ifm-font-color-base);
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
+      border-color: $brand-orange;
+      box-shadow: 0 0 0 3px rgba(250, 160, 35, 0.2);
+    }
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 18px !important;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.filters {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.filter {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--ifm-font-color-base);
+  }
+}
+
+.filterActive {
+  background: rgba(250, 160, 35, 0.16);
+  color: var(--ifm-font-color-base);
+}
+
+.toolGroup {
+  margin-top: 22px;
+}
+
+.toolGroupTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.toolCount {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-200);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.toolGroupText {
+  margin: 4px 0 0;
+  font-size: 13.5px;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.toolGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-left: 3px solid $brand-green;
+  background: var(--ifm-color-emphasis-100);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--ifm-color-emphasis-300);
+  }
+}
+
+.toolWrite {
+  border-left-color: $brand-orange;
+}
+
+.toolHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.toolName {
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: $mono;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+  overflow-wrap: anywhere;
+}
+
+.toolKind {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+
+  svg {
+    font-size: 13px;
+  }
+}
+
+.kindRead {
+  background: rgba(175, 199, 45, 0.16);
+  color: #5d6c0c;
+
+  [data-theme='dark'] & {
+    color: $brand-green;
+  }
+}
+
+.kindWrite {
+  background: rgba(250, 160, 35, 0.16);
+  color: #9a5b00;
+
+  [data-theme='dark'] & {
+    color: #ffc266;
+  }
+}
+
+.toolText {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.toolUsedBy {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px dashed var(--ifm-color-emphasis-400);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.noTools,
+.toolsNote {
+  margin: 18px 0 0;
+  font-size: 13.5px;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* How it works ------------------------------------------------------------ */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature {
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.featureTitle {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.featureText {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* Connect it -------------------------------------------------------------- */
+.setup {
+  margin-top: 16px;
+
+  &:first-of-type {
+    margin-top: 8px;
+  }
+
+  pre {
+    margin-bottom: 0;
+  }
+}
+
+.setupTitle {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.setupText {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* Side column ------------------------------------------------------------- */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+.chipIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(250, 160, 35, 0.12);
+  color: $brand-orange;
+}
+
+.back {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 80px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+}

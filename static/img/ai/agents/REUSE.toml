@@ -1,0 +1,47 @@
+version = 1
+
+# Agent pictures shown on /AI and /AI/agents. Each file is a 720x720 WebP copy of the
+# picture in .github/agents/ of the agent's repository; the license and copyright
+# notices are taken over from that repository's .github/agents/REUSE.toml.
+
+[[annotations]]
+# Dataspace Captain avatar: AI-generated image, curated by the contributor.
+# Source: https://github.com/eclipse-tractusx/dataspace-mgm-ui/blob/main/.github/agents/dataspace-captain-large.jpg
+path = ["dataspace-captain.webp"]
+precedence = "closest"
+SPDX-FileCopyrightText = ["2026 Catena-X Automotive Network e.V.", "2026 Contributors to the Eclipse Foundation"]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+# Connector Sensei avatar: generated using Artificial Intelligence and curated by the contributor.
+# Logos and references are copyright of Eclipse Tractus-X.
+# Source: https://github.com/eclipse-tractusx/tractusx-edc/blob/main/.github/agents/connector-sensei-large.jpg
+path = ["connector-sensei.webp"]
+precedence = "closest"
+SPDX-FileCopyrightText = ["2026 Catena-X Automotive Network e.V.", "2026 Contributors to the Eclipse Foundation"]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+# Identity Keeper avatar: AI-generated portrait provided and curated by the contributor.
+# Source: https://github.com/eclipse-tractusx/tractusx-identityhub/blob/main/.github/agents/identity-keeper-large.png
+path = ["identity-keeper.webp"]
+precedence = "closest"
+SPDX-FileCopyrightText = ["2026 Catena-X Automotive Network e.V.", "2026 Contributors to the Eclipse Foundation"]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+# Umbrella Guardian avatar: generated using Artificial Intelligence, Tool: ChatGPT Codex, Model: gpt-Astra-6.
+# References and logos are copyright of Eclipse Tractus-X.
+# Source: https://github.com/eclipse-tractusx/tractus-x-umbrella/blob/main/.github/agents/umbrella-guardian.png
+path = ["umbrella-guardian.webp"]
+precedence = "closest"
+SPDX-FileCopyrightText = ["2026 Catena-X Automotive Network e.V.", "2026 Contributors of the Eclipse Foundation"]
+SPDX-License-Identifier = ["CC-BY-4.0", "CC0-1.0"]
+
+[[annotations]]
+# KIT Master Builder avatar.
+# Source: .github/agents/kit-master-builder-large.jpg in this repository
+path = ["kit-master-builder.webp"]
+precedence = "closest"
+SPDX-FileCopyrightText = ["2026 Catena-X Automotive Network e.V.", "2026 Contributors of the Eclipse Foundation"]
+SPDX-License-Identifier = "CC-BY-4.0"
