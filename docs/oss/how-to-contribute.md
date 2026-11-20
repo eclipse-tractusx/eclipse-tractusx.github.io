@@ -9,6 +9,12 @@ also the [Eclipse Foundation Project Handbook](https://www.eclipse.org/projects/
 
 This page will contain guidelines and good practices on contributions to Eclipse Tractus-X.
 
+:::tip Prefer video?
+
+Watch [Episode 2: Say hello & your first PR](/docs/contributor-journey#episode-2) of the Contributor Journey video series.
+
+:::
+
 ## Repo permissions
 
 All Eclipse Tractus-X repositories are publicly visible, so everybody can read repository contents.
