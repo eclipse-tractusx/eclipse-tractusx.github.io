@@ -369,6 +369,19 @@ const config = {
             ],
           },
           {
+            type: 'dropdown',
+            label: 'Products',
+            position: 'left',
+            to: '/Products',
+            items: [
+              { to: '/Products', label: 'All products' },
+              { to: '/Products#use-cases', label: 'Use Cases' },
+              { to: '/Products#dataspace-foundation', label: 'Dataspace Foundation' },
+              { to: '/Products#industry-core-foundation', label: 'Industry Core Foundation' },
+              { to: '/Products#qa-testing-tools', label: 'QA / Testing & Tools' },
+            ],
+          },
+          {
             type: 'doc',
             docId: 'developer',
             position: 'left',
