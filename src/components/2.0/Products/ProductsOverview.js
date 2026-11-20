@@ -74,9 +74,9 @@ export default function ProductsOverview() {
       </header>
 
       <section className={styles.section}>
-        <h2 className={styles.h2}>Architecture</h2>
+        <h2 className={styles.h2}>Landscape</h2>
         <p className={styles.sectionLead}>
-          Each row is a category. Open a project, or pick a category to filter the list below.
+          Use cases build on the two foundations; QA, testing and tools support all of them. Switch to see the projects by relevance.
         </p>
         <ProductArchitecture products={products} onSelectCategory={setCategory} />
       </section>

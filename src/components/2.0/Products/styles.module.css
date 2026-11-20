@@ -52,30 +52,9 @@
 .section { margin-top: 3rem; }
 .sectionLead { font-size: 0.95rem; color: var(--muted); margin: 0 0 1.5rem; }
 
-/* Architecture: one bordered layer per category */
-.arch { display: flex; flex-direction: column; gap: 1rem; border: 2px solid var(--ifm-color-card-border); border-radius: 12px; padding: 1.5rem; background: var(--ifm-background-color); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08); }
-.layer { display: grid; grid-template-columns: 240px 1fr; border: 2px solid var(--ifm-color-card-border); border-radius: 8px; }
-.layerHead { padding: 1rem; border-right: 2px solid var(--ifm-color-card-border); }
-.layerIndex { display: none; }
-.layerName { display: block; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ifm-font-color-base); text-decoration: none; margin: 0 0 0.25rem; transition: color 0.2s ease; }
-.layerName:hover { color: var(--ifm-color-primary); text-decoration: none; }
-.layerCount { font-size: 0.75rem; color: var(--muted); }
-.layerText { font-size: 0.8rem; line-height: 1.5; color: var(--muted); margin: 0.5rem 0 0; }
-.layerBody { padding: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; align-content: center; }
-.tile {
-  display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.5rem 0.75rem;
-  border: 2px solid var(--ifm-color-emphasis-300); border-radius: 6px; background: var(--ifm-background-surface-color);
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.03em; line-height: 1.2; color: var(--ifm-font-color-base);
-  text-decoration: none; transition: all 0.2s ease;
-}
-.tile:hover { transform: translateY(-2px); border-color: var(--ifm-color-primary); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); color: var(--ifm-font-color-base); text-decoration: none; }
-.tile:focus-visible, .card:focus-visible, .chip:focus-visible, .link:focus-visible, .layerName:focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: 2px; }
-.tilePhase { border-style: dashed; opacity: 0.75; }
 .dots { display: inline-flex; gap: 3px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-.legend { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: center; margin-top: 1.5rem; font-size: 0.8rem; }
-.legendItem { display: inline-flex; align-items: center; gap: 0.5rem; }
-.legendDashed { width: 20px; height: 14px; border: 2px dashed var(--ifm-color-emphasis-400); border-radius: 3px; display: inline-block; }
+.card:focus-visible, .chip:focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: 2px; }
 
 /* Filters */
 .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; align-items: center; }
@@ -106,29 +85,11 @@
 .badgePhase { border-style: dashed; }
 .empty { color: var(--muted); padding: 2rem 0; }
 
-/* Detail */
-.crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
-.crumbs a { color: var(--ifm-color-primary); }
-.detail { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 2.5rem; margin-top: 3rem; }
-.panel { border: 1px solid var(--card-border); border-radius: 12px; background: var(--card-bg); padding: 1.5rem; margin-bottom: 1.25rem; }
-.panelTitle { font-size: 1.05rem; font-weight: 700; margin: 0 0 0.9rem; }
-.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
-.link { color: var(--ifm-color-primary); font-weight: 500; }
-.person { display: flex; align-items: center; gap: 0.75rem; }
-.avatar { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--card-border); }
-.personName { font-weight: 700; line-height: 1.2; display: block; }
-.personHandle { font-size: 0.8rem; color: var(--muted); }
-.relRow { display: flex; align-items: center; gap: 0.5rem; }
-.agents { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-top: 0.75rem; }
-
 @media (prefers-reduced-motion: reduce) {
-  .card, .tile, .chip { transition: none; }
-  .card:hover, .tile:hover { transform: none; }
+  .card, .chip { transition: none; }
+  .card:hover:hover { transform: none; }
 }
 @media (max-width: 900px) {
-  .layer { grid-template-columns: 1fr; }
-  .layerHead { border-right: 0; border-bottom: 2px solid var(--ifm-color-card-border); }
-  .detail { grid-template-columns: 1fr; gap: 1.5rem; }
   .search { margin-left: 0; width: 100%; }
 }
 @media (max-width: 768px) {
