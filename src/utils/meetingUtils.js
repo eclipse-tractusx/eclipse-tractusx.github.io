@@ -35,6 +35,52 @@ const DAY_MAP = {
   'sunday': 0,
 };
 
+// Ordinal labels for monthly recurrences (recurrence.weekOfMonth)
+const WEEK_OF_MONTH_LABELS = {
+  1: 'first',
+  2: 'second',
+  3: 'third',
+  4: 'fourth',
+  '-1': 'last',
+};
+
+/**
+ * Human-readable ordinal for a monthly recurrence's weekOfMonth
+ * (1–4 = first–fourth, -1 = last), e.g. 'first'. Unknown values return ''.
+ */
+export function getWeekOfMonthLabel(weekOfMonth) {
+  return WEEK_OF_MONTH_LABELS[String(weekOfMonth)] || '';
+}
+
+/**
+ * Whether a source-timezone calendar date (yyyy-MM-dd) is an occurrence of a
+ * monthly recurrence. Monthly meetings take place on the n-th weekday of the
+ * month: recurrence.daysOfWeek names the weekday, recurrence.weekOfMonth the
+ * week (1–4, or -1 for the last one), recurrence.interval the number of months
+ * between sessions (counted from validFrom's month).
+ */
+export function isMonthlyOccurrence(dateStr, recurrence) {
+  const date = parse(dateStr, 'yyyy-MM-dd', new Date());
+  const dayName = Object.keys(DAY_MAP).find(key => DAY_MAP[key] === date.getDay());
+  if (!recurrence.daysOfWeek || !recurrence.daysOfWeek.includes(dayName)) return false;
+
+  const weekOfMonth = recurrence.weekOfMonth || 1;
+  if (weekOfMonth === -1) {
+    // Last weekday of the month: one week later is already next month
+    if (addDays(date, 7).getMonth() === date.getMonth()) return false;
+  } else if (Math.ceil(date.getDate() / 7) !== weekOfMonth) {
+    return false;
+  }
+
+  const interval = recurrence.interval || 1;
+  if (interval > 1) {
+    const from = parse(recurrence.validFrom || dateStr, 'yyyy-MM-dd', new Date());
+    const monthsDiff = (date.getFullYear() - from.getFullYear()) * 12 + (date.getMonth() - from.getMonth());
+    if (monthsDiff % interval !== 0) return false;
+  }
+  return true;
+}
+
 /**
  * Convert a time string (HH:mm) and date to a Date object in the source timezone
  */
@@ -166,6 +212,8 @@ export function generateCalendarEvents(meetings, startDate, endDate, timezone = 
                 if (weeksDiff % recurrence.interval !== 0) {
                   includeEvent = false;
                 }
+              } else if (recurrence.frequency === 'monthly') {
+                includeEvent = isMonthlyOccurrence(sourceDateStr, recurrence);
               }
 
               if (includeEvent) {
@@ -244,6 +292,12 @@ export function getScheduleDescription(meeting, timezone = SOURCE_TIMEZONE) {
     const intervalText = interval === 1 ? 'Every' : `Every ${interval} weeks on`;
     const days = recurrence.daysOfWeek.map(d => d.charAt(0).toUpperCase() + d.slice(1)).join(', ');
     scheduleText = `${intervalText} ${days}`;
+  } else if (recurrence.frequency === 'monthly') {
+    const interval = recurrence.interval || 1;
+    const ordinal = getWeekOfMonthLabel(recurrence.weekOfMonth || 1);
+    const days = recurrence.daysOfWeek.map(d => d.charAt(0).toUpperCase() + d.slice(1)).join(', ');
+    const monthText = interval === 1 ? 'every month' : `every ${interval} months`;
+    scheduleText = `${ordinal.charAt(0).toUpperCase() + ordinal.slice(1)} ${days} of ${monthText}`;
   }
 
   if (recurrence.validFrom && recurrence.validUntil) {

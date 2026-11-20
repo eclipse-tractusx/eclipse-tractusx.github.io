@@ -40,6 +40,7 @@ import {
   getCategoryColor,
   formatTimeRange,
   getTimezoneAbbreviation,
+  getWeekOfMonthLabel,
 } from '@site/src/utils/meetingUtils';
 import { detectTimezone, foldICSLine, VTIMEZONE_EUROPE_BERLIN } from '@site/src/utils/calendarUtils';
 import { addDays, format, startOfDay, endOfDay, addMonths, startOfMonth, endOfMonth, isSameDay, differenceInDays, differenceInHours, differenceInMinutes, isAfter, isBefore, startOfWeek, getDay } from 'date-fns';
@@ -380,6 +381,12 @@ function generateICSBlob(meeting, timezone, recurring) {
       } else if (rec.frequency === 'weekly') {
         const byDay = (rec.daysOfWeek || []).map(d => DAY_MAP_RRULE[d]).filter(Boolean).join(',');
         rrule = `RRULE:FREQ=WEEKLY;BYDAY=${byDay}`;
+        if (rec.interval && rec.interval > 1) rrule += `;INTERVAL=${rec.interval}`;
+      } else if (rec.frequency === 'monthly') {
+        // n-th weekday of the month, e.g. BYDAY=1TH (first Thursday), -1TH (last)
+        const week = rec.weekOfMonth || 1;
+        const byDay = (rec.daysOfWeek || []).map(d => DAY_MAP_RRULE[d]).filter(Boolean).map(d => `${week}${d}`).join(',');
+        rrule = `RRULE:FREQ=MONTHLY;BYDAY=${byDay}`;
         if (rec.interval && rec.interval > 1) rrule += `;INTERVAL=${rec.interval}`;
       }
       if (rec.validUntil) {
@@ -1519,6 +1526,11 @@ function CalendarConfigurator({ meeting, timezone: hubTimezone, allMeetings, onC
     const rec = selected.recurrence;
     const days = (rec.daysOfWeek || []).map(d => d.charAt(0).toUpperCase() + d.slice(1)).join(', ');
     const interval = rec.interval || 1;
+    if (rec.frequency === 'monthly') {
+      const ordinal = getWeekOfMonthLabel(rec.weekOfMonth || 1);
+      if (interval === 1) return `Repeats every month on the ${ordinal} ${days}`;
+      return `Repeats every ${interval} months on the ${ordinal} ${days}`;
+    }
     if (interval === 1) return `Repeats every week on ${days}`;
     return `Repeats every ${interval} weeks on ${days}`;
   };

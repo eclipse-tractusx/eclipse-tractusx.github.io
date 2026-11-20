@@ -98,12 +98,28 @@ The `recurrence` object defines when and how often a meeting occurs:
 ```javascript
 recurrence: {
   frequency: 'weekly',
-  interval: 1,              // Every week (use 2 for bi-weekly, 4 for monthly, etc.)
+  interval: 1,              // Every week (use 2 for bi-weekly; for monthly, see below)
   daysOfWeek: ['monday'],   // Can be multiple days: ['monday', 'wednesday']
   startTime: '10:00',       // 24-hour format in Europe/Berlin timezone
   endTime: '11:00',
   validFrom: '2025-01-01',  // Optional: when this schedule starts
   validUntil: '2025-12-31', // Optional: when this schedule ends
+}
+```
+
+:::
+
+:::info Monthly Meetings
+
+```javascript
+recurrence: {
+  frequency: 'monthly',
+  interval: 1,              // Every month (use 2 for every other month)
+  daysOfWeek: ['thursday'],
+  weekOfMonth: 1,           // 1–4 = first–fourth weekday of the month, -1 = last
+  startTime: '09:30',
+  endTime: '10:30',
+  validFrom: '2027-01-07',  // Optional: when this schedule starts
 }
 ```
 

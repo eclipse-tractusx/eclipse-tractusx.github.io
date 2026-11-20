@@ -41,6 +41,13 @@ export const MEETING_PRIORITIES = {
 //                          non-clickable "Registration Coming Soon" notice instead of a
 //                          button that leads nowhere. Remove it once registrationLink is set.
 
+// Recurrence:
+// frequency:   'once' | 'daily' | 'weekly' | 'monthly' (null recurrence = on-demand)
+// interval:    weeks (weekly) or months (monthly) between sessions, default 1
+// daysOfWeek:  e.g. ['thursday']
+// weekOfMonth: monthly only — 1–4 for the first–fourth weekday of the month, -1 for the last
+// startTime / endTime: 'HH:mm' in Europe/Berlin; validFrom / validUntil: 'yyyy-MM-dd'
+
 // Contact persons — centralized to avoid duplication
 // country: ISO 3166-1 alpha-2 code — used for public holiday detection per meeting
 export const CONTACTS = {
@@ -182,12 +189,16 @@ export const meetings = [
     contact: CONTACTS.MATHIAS_MOSER,
     sessionLink: 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjI2YjA0MmItNWNiNS00OGQ0LWJjNGMtOTFmMjg0YzNlZjlh%40thread.v2/0?context=%7b%22Tid%22%3a%221ad22c6d-2f08-4f05-a0ba-e17f6ce88380%22%2c%22Oid%22%3a%2279a55f91-092d-4603-8fa9-c88b54ff2fe9%22%7d',
     matrixChatUrl: 'https://chat.eclipse.org/#/room/#tractusx-kits:matrix.eclipse.org',
+    // Monthly from January 2027 (weekly until November 2026): first Thursday of every month.
+    // December's first Thursday (3 Dec 2026) is the first day of the Community Days.
     recurrence: {
-      frequency: 'weekly',
+      frequency: 'monthly',
       interval: 1,
       daysOfWeek: ['thursday'],
+      weekOfMonth: 1,
       startTime: '09:30',
       endTime: '10:30',
+      validFrom: '2027-01-07',
     },
     additionalLinks: [
       {title: "Kanban Board KIT Office Hour", url: "https://github.com/orgs/eclipse-tractusx/projects/92"},
