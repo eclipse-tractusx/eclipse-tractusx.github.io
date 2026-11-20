@@ -14,7 +14,8 @@ when it runs and how the workflows depend on each other.
 | [Markdown linting for documentation](lint-on-pull-request.yaml) | pull request to `main` | Runs markdownlint on `docs/` and `docs-kits/kits/` | no |
 | [Quality Checks (Release Guidelines)](quality-checks.yaml) | every pull request, manual | Tractus-X release guideline checks | no |
 | [3rd Party dependency check (Eclipse Dash)](dash.yaml) | pull request changing `package*.json`, manual | License check of npm dependencies | no |
-| [TruffleHog](trufflehog.yml) | push to `main`, pull request, daily, manual | Scans for leaked secrets | no |
+| [TruffleHog](trufflehog.yml) | push to `main`, pull request | Scans the new commits for leaked secrets | no |
+| [TruffleHog (full history)](trufflehog-full.yml) | weekly, manual | Scans the full history of `main` for leaked secrets | no |
 | [Generate Kit Template Documents](generate-kit-word.yaml) | pull request changing the KIT template, manual | Generates the KIT template Word documents | no |
 
 `pages-build-deployment` also shows up in the Actions tab. It is not defined here: GitHub runs it on every push to
@@ -139,8 +140,16 @@ a dependency has a restricted license. Can be started manually.
 
 ### TruffleHog
 
-Scans the repository history for leaked secrets with [TruffleHog](https://github.com/trufflesecurity/trufflehog), only
-reporting verified findings. Runs on pushes to `main`, on pull requests, daily at midnight (UTC) and manually.
+Scans for leaked secrets with [TruffleHog](https://github.com/trufflesecurity/trufflehog) and reports verified and
+unknown findings. It only scans the commits that are new: for a pull request the commits between its base and head,
+for a push to `main` the pushed commits. The checkout is shallow, with just enough history for those commits, instead of
+the full history of all branches. `--fail-on-scan-errors` makes the check fail when TruffleHog cannot scan, instead of
+passing with nothing scanned.
+
+### TruffleHog (full history)
+
+Scans the full history of `main` every Monday at 03:00 (UTC) and manually. It fetches only `main`, not `gh-pages` with
+the pull request previews or other branches. It is not a required check.
 
 ### Generate Kit Template Documents
 
