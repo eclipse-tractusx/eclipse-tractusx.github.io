@@ -36,13 +36,19 @@ export default function ProductDetail({ product }) {
   const category = productCategories.find(c => c.id === product.category);
   const rel = relevanceTypes.filter(r => product.relevance.includes(r.id));
   return (
-    <div className={styles.page}>
-      <nav className={styles.crumbs} aria-label="Breadcrumb">
-        <Link to="/Products">Products</Link> / <Link to={`/Products#${product.category}`}>{category?.name}</Link>
-      </nav>
-      <p className={styles.overline}>{category?.name}</p>
-      <h1 className={styles.title}>{product.name}</h1>
-      <p className={styles.lead}>{product.description}</p>
+    <div className={styles.page} style={category ? { '--cat-grad': category.gradient, '--cat-accent': category.accent } : undefined}>
+      <header className={`${styles.hero} ${styles.heroDetail}`}>
+        <span className={`${styles.orb} ${styles.orbA}`} aria-hidden="true" />
+        <span className={`${styles.orb} ${styles.orbB}`} aria-hidden="true" />
+        <div className={styles.heroInner}>
+          <nav className={styles.crumbs} aria-label="Breadcrumb">
+            <Link to="/Products">Products</Link> / <Link to={`/Products#${product.category}`}>{category?.name}</Link>
+          </nav>
+          <p className={styles.overline}>{category?.name}</p>
+          <h1 className={styles.title}>{product.name}</h1>
+          <p className={styles.lead}>{product.description}</p>
+        </div>
+      </header>
 
       <div className={styles.detail}>
         <div>
@@ -54,7 +60,7 @@ export default function ProductDetail({ product }) {
               <p className={styles.sectionLead}>Agents defined in the repositories of this product.</p>
               <div className={styles.agents}>
                 {product.agents.map(a => (
-                  <a key={a.id} className={styles.card} href={a.url} target="_blank" rel="noopener noreferrer">
+                  <a key={a.id} className={`${styles.card} ${styles.cardGlass}`} href={a.url} target="_blank" rel="noopener noreferrer">
                     <h3 className={styles.cardName}>{a.name}</h3>
                     <p className={styles.cardText}>{a.description}</p>
                     <span className={styles.cardFoot}>{a.repository}</span>

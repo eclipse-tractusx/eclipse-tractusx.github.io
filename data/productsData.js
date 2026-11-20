@@ -32,31 +32,41 @@
  *   status: 'active' | 'phase-out' | 'tbd',
  *   repositories: { name: string, url: string }[],
  *   contacts: { name: string, role: string, github: string }[],
- *   committers: { github: string, name?: string }[] (Eclipse Tractus-X committers behind the repositories),
+ *   committers: { github: string, name?: string }[] (Eclipse Tractus-X committers behind the repositories;
+ *           only people on https://projects.eclipse.org/projects/automotive.tractusx/who, with the name written there),
  *   agents: { id: string, name: string, description: string, repository: string, url: string, avatar?: string }[]
  *           (AI agents defined in the repositories under .github/agents),
  *   details: string (longer description / overview),
  * }
  */
 
+// accent / gradient: the category's colour in the views (the category gradients of #1542).
 const productCategories = [
   {
     id: 'use-cases',
+    accent: '#667eea',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     name: 'Use Cases',
     description: 'End-user applications and frontends that implement specific business use cases across the Tractus-X ecosystem.',
   },
   {
     id: 'dataspace-foundation',
+    accent: '#f093fb',
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     name: 'Dataspace Foundation',
     description: 'Core infrastructure components that enable the creation and operation of secure, interoperable dataspaces.',
   },
   {
     id: 'industry-core-foundation',
+    accent: '#4facfe',
+    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     name: 'Industry Core Foundation',
     description: 'Components that provide industry-specific data exchange, semantic modeling, and relationship tracking capabilities.',
   },
   {
     id: 'qa-testing-tools',
+    accent: '#43e97b',
+    gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
     name: 'QA / Testing & Tools',
     description: 'Development, testing, and quality assurance tools that support the Tractus-X development lifecycle.',
   },
@@ -86,7 +96,7 @@ const products = [
     ],
     contacts: [],
     committers: [
-      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'matbmoser', name: 'Mathias Brunkow Moser' },
       { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
       { github: 'mgarciaLKS', name: 'Mikel Garcia' },
     ],
@@ -165,7 +175,7 @@ const products = [
     committers: [
       { github: 'lgblaumeiser', name: 'Lars Geyer-Blaumeiser' },
       { github: 'AndrYurk', name: 'Andrii Yurkevych' },
-      { github: 'bmg13' },
+      { github: 'bmg13', name: 'Gonçalo Monteiro' },
       { github: 'ndr-brt', name: 'Andrea Bertagnolli' },
       { github: 'rafaelmag110', name: 'Rafael Magalhães' },
       { github: 'Phil91', name: 'Phil Schneider' },
@@ -185,9 +195,9 @@ const products = [
     ],
     contacts: [],
     committers: [
-      { github: 'AYaoZhan' },
+      { github: 'AYaoZhan', name: 'Angel Yao' },
       { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
-      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'matbmoser', name: 'Mathias Brunkow Moser' },
       { github: 'saudkhan116', name: 'Saud Khan' },
       { github: 'mgarciaLKS', name: 'Mikel Garcia' },
       { github: 'stephanbcbauer', name: 'Stephan Bauer' },
@@ -207,9 +217,9 @@ const products = [
     ],
     contacts: [],
     committers: [
-      { github: 'AYaoZhan' },
+      { github: 'AYaoZhan', name: 'Angel Yao' },
       { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
-      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'matbmoser', name: 'Mathias Brunkow Moser' },
       { github: 'saudkhan116', name: 'Saud Khan' },
       { github: 'mgarciaLKS', name: 'Mikel Garcia' },
       { github: 'stephanbcbauer', name: 'Stephan Bauer' },
@@ -276,7 +286,7 @@ const products = [
       { github: 'manojava-gk', name: 'Manojava Koushik' },
       { github: 'ntruchsess', name: 'Norbert Truchsess' },
       { github: 'typecastcloud', name: 'Karsten Thiems' },
-      { github: 'dhiren-singh-007', name: 'Dhiren Singh' },
+      { github: 'dhiren-singh-007', name: 'Dhirender Singh' },
       { github: 'saadanzari', name: 'Saad Bin Rafiq' },
     ],
     agents: [],
@@ -295,7 +305,7 @@ const products = [
     contacts: [],
     committers: [
       { github: 'nicoprow', name: 'Nico Koprowski' },
-      { github: 'SujitMBRDI', name: 'Karne Sujit' },
+      { github: 'SujitMBRDI', name: 'Sujit Karne' },
     ],
     agents: [],
     details: 'BPDM provides the golden record process for cleansing, deduplicating, and enriching business partner data across the Catena-X ecosystem.',
@@ -314,7 +324,7 @@ const products = [
     committers: [
       { github: 'lgblaumeiser', name: 'Lars Geyer-Blaumeiser' },
       { github: 'AndrYurk', name: 'Andrii Yurkevych' },
-      { github: 'bmg13' },
+      { github: 'bmg13', name: 'Gonçalo Monteiro' },
       { github: 'nitin-vavdiya', name: 'Nitin Vavdiya' },
       { github: 'ndr-brt', name: 'Andrea Bertagnolli' },
       { github: 'rafaelmag110', name: 'Rafael Magalhães' },
@@ -368,7 +378,7 @@ const products = [
     ],
     contacts: [],
     committers: [
-      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'matbmoser', name: 'Mathias Brunkow Moser' },
     ],
     agents: [],
     details: 'The AAS Suite provides a standardized digital representation of assets following the Asset Administration Shell specification from the Industrial Digital Twin Association (IDTA).',
@@ -387,7 +397,7 @@ const products = [
     ],
     contacts: [],
     committers: [
-      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'matbmoser', name: 'Mathias Brunkow Moser' },
       { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
       { github: 'mgarciaLKS', name: 'Mikel Garcia' },
     ],
@@ -464,7 +474,7 @@ const products = [
       { github: 'ds-jhartmann', name: 'Jaro Hartmann' },
       { github: 'mgarciaLKS', name: 'Mikel Garcia' },
       { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
-      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'matbmoser', name: 'Mathias Brunkow Moser' },
       { github: 'stephanbcbauer', name: 'Stephan Bauer' },
       { github: 'saudkhan116', name: 'Saud Khan' },
     ],
@@ -493,7 +503,7 @@ const products = [
     committers: [
       { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
       { github: 'nitin-vavdiya', name: 'Nitin Vavdiya' },
-      { github: 'AYaoZhan' },
+      { github: 'AYaoZhan', name: 'Angel Yao' },
       { github: 'mgarciaLKS', name: 'Mikel Garcia' },
     ],
     agents: [],
@@ -511,7 +521,7 @@ const products = [
     ],
     contacts: [],
     committers: [
-      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'matbmoser', name: 'Mathias Brunkow Moser' },
       { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
       { github: 'mgarciaLKS', name: 'Mikel Garcia' },
     ],
@@ -530,8 +540,8 @@ const products = [
     ],
     contacts: [],
     committers: [
-      { github: 'matbmoser', name: 'Mathias Moser' },
-      { github: 'AYaoZhan' },
+      { github: 'matbmoser', name: 'Mathias Brunkow Moser' },
+      { github: 'AYaoZhan', name: 'Angel Yao' },
       { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
     ],
     agents: [
@@ -600,7 +610,7 @@ const products = [
     ],
     contacts: [],
     committers: [
-      { github: 'matbmoser', name: 'Mathias Moser' },
+      { github: 'matbmoser', name: 'Mathias Brunkow Moser' },
       { github: 'saudkhan116', name: 'Saud Khan' },
       { github: 'CDiezRodriguez', name: 'Carlos Diez Rodriguez' },
     ],
@@ -619,9 +629,7 @@ const products = [
     ],
     contacts: [],
     committers: [
-      { github: 'matbmoser', name: 'Mathias Moser' },
-      { github: 'sb3nz' },
-      { github: 'seb-l0' },
+      { github: 'matbmoser', name: 'Mathias Brunkow Moser' },
       { github: 'lgblaumeiser', name: 'Lars Geyer-Blaumeiser' },
     ],
     agents: [

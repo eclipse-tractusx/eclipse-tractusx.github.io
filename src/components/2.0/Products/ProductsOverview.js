@@ -54,19 +54,27 @@ export default function ProductsOverview() {
 
   return (
     <div className={styles.page}>
-      <p className={styles.overline}>Eclipse Tractus-X</p>
-      <h1 className={styles.title}>
-        <em>Products</em> of the dataspace
-      </h1>
-      <p className={styles.lead}>
-        Open-source reference implementations that power Catena-X and Manufacturing-X, grouped as in the
-        Tractus-X product classification.
-      </p>
-      <div className={styles.stats}>
-        <div className={styles.stat}><span className={styles.statValue}>{products.length}</span><span className={styles.statLabel}>Products</span></div>
-        <div className={styles.stat}><span className={styles.statValue}>{active}</span><span className={styles.statLabel}>Active</span></div>
-        <div className={styles.stat}><span className={styles.statValue}>{repos}</span><span className={styles.statLabel}>Repositories</span></div>
-      </div>
+      <header className={styles.hero}>
+        <span className={`${styles.orb} ${styles.orbA}`} aria-hidden="true" />
+        <span className={`${styles.orb} ${styles.orbB}`} aria-hidden="true" />
+        <span className={`${styles.orb} ${styles.orbC}`} aria-hidden="true" />
+        <div className={styles.heroInner}>
+          <p className={styles.overline}>Eclipse Tractus-X</p>
+          <h1 className={styles.title}>
+            <em>Products</em> of the dataspace
+          </h1>
+          <p className={styles.lead}>
+            Open-source reference implementations that power Catena-X and Manufacturing-X, grouped as in the
+            Tractus-X product classification.
+          </p>
+          <div className={styles.stats}>
+            <div className={styles.stat}><span className={styles.statValue}>{products.length}</span><span className={styles.statLabel}>Products</span></div>
+            <div className={styles.stat}><span className={styles.statValue}>{active}</span><span className={styles.statLabel}>Active</span></div>
+            <div className={styles.stat}><span className={styles.statValue}>{repos}</span><span className={styles.statLabel}>Repositories</span></div>
+            <div className={styles.stat}><span className={styles.statValue}>{productCategories.length}</span><span className={styles.statLabel}>Categories</span></div>
+          </div>
+        </div>
+      </header>
 
       <section className={styles.section}>
         <h2 className={styles.h2}>Architecture</h2>
@@ -85,6 +93,7 @@ export default function ProductsOverview() {
               type="button"
               aria-pressed={category === c.id}
               className={`${styles.chip} ${category === c.id ? styles.chipActive : ''}`}
+              style={c.gradient ? { '--cat-grad': c.gradient, '--cat-accent': c.accent } : undefined}
               onClick={() => setCategory(c.id)}
             >
               {c.name}

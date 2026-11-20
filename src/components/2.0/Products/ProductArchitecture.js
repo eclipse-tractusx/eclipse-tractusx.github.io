@@ -33,8 +33,9 @@ export default function ProductArchitecture({ products, onSelectCategory }) {
         {productCategories.map(cat => {
           const items = products.filter(p => p.category === cat.id);
           return (
-            <div key={cat.id} className={styles.layer}>
+            <div key={cat.id} className={styles.layer} style={{ '--cat-grad': cat.gradient, '--cat-accent': cat.accent }}>
               <div className={styles.layerHead}>
+                <span className={styles.layerIndex} aria-hidden="true">{String(productCategories.indexOf(cat) + 1).padStart(2, '0')}</span>
                 <a
                   href={`#${cat.id}`}
                   className={styles.layerName}
@@ -43,6 +44,7 @@ export default function ProductArchitecture({ products, onSelectCategory }) {
                   {cat.name}
                 </a>
                 <div className={styles.layerCount}>{items.length} products</div>
+                <p className={styles.layerText}>{cat.description}</p>
               </div>
               <div className={styles.layerBody}>
                 {items.map(p => (
