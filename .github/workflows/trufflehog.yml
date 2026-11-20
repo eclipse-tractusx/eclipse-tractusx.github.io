@@ -17,7 +17,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #*******************************************************************************/
 
-# Incremental secret scan: only the commits a pull request or a push to main adds.
+# Incremental secret scan: only the commits, a pull request or a push to main adds.
 # The full history of main is scanned weekly by trufflehog-full.yml.
 # See https://github.com/eclipse-tractusx/sig-release/issues/1797
 

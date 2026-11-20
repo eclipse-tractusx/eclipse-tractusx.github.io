@@ -148,7 +148,7 @@ passing with nothing scanned.
 
 ### TruffleHog (full history)
 
-Scans the full history of `main` every Monday at 03:00 (UTC) and manually. It fetches only `main`, not `gh-pages` with
+Scans the full history of `main` every Monday at 03:00 (UTC) and it manually only fetches `main`, not `gh-pages` with
 the pull request previews or other branches. It is not a required check.
 
 ### Generate Kit Template Documents
