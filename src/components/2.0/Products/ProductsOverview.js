@@ -99,7 +99,7 @@ export default function ProductsOverview() {
           <input
             className={styles.search}
             type="search"
-            placeholder="Search Open Source Software"
+            placeholder="Search"
             aria-label="Search Open Source Software"
             value={query}
             onChange={e => setQuery(e.target.value)}
