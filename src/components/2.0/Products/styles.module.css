@@ -1,0 +1,108 @@
+/*********************************************************************************
+ * Eclipse Tractus-X - eclipse-tractusx.github.io
+ *
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+/* Styles taken from the first Products PR (#1542): plain Docusaurus tokens, orange primary,
+   bordered cards with a 12px radius, a soft lift and an orange border on hover, and the
+   centred page header. No gradients. Cards, panels and tiles use the glass of the KIT 2.0 cards
+   (src/components/2.0/DataspaceCard): a translucent surface, 10px blur and a soft shadow. */
+.page { max-width: 1200px; margin: 0 auto; padding: 0 2rem 3rem; }
+[data-theme='dark'] .page { --card-bg: #1e1e1e; --card-border: rgba(255, 255, 255, 0.08); }
+.page { --card-bg: var(--ifm-background-surface-color); --card-border: var(--ifm-color-emphasis-200); --muted: var(--ifm-color-emphasis-600); }
+
+/* Header */
+.hero {
+  margin: 0 -2rem;
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--ifm-background-color) 0%, var(--ifm-background-surface-color) 100%);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+[data-theme='dark'] .hero { background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%); border-bottom-color: rgba(255, 255, 255, 0.06); }
+.heroInner { max-width: 720px; margin: 0 auto; }
+.heroDetail { text-align: left; }
+.heroDetail .heroInner { max-width: 1200px; padding: 0 2rem; }
+.overline { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ifm-color-primary); margin: 0 0 0.75rem; }
+.title { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 1rem; }
+.title em { font-style: normal; color: var(--ifm-color-primary); }
+.lead { font-size: 1.1rem; line-height: 1.6; color: var(--ifm-color-emphasis-700); margin: 0 auto; }
+.heroDetail .lead { margin: 0; max-width: 760px; }
+.stats { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 2rem; }
+.stat { display: flex; align-items: center; gap: 0.5rem; }
+.statValue { font-size: 1rem; font-weight: 700; color: var(--ifm-color-primary); }
+.statLabel { font-size: 0.82rem; color: var(--ifm-color-emphasis-600); }
+
+.h2 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 0.5rem; }
+.section { margin-top: 3rem; }
+.sectionLead { font-size: 0.95rem; color: var(--muted); margin: 0 0 1.5rem; }
+
+.dots { display: inline-flex; gap: 3px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.card:focus-visible, .chip:focus-visible { outline: 2px solid var(--ifm-color-primary); outline-offset: 2px; }
+
+/* Filters */
+.filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; align-items: center; }
+.chip { font: inherit; font-size: 0.82rem; font-weight: 600; padding: 0.4rem 0.9rem; border-radius: 8px; color: inherit; cursor: pointer; background: var(--card-bg); border: 1px solid var(--card-border); transition: all 0.2s ease; }
+.chip:hover { border-color: var(--ifm-color-primary); color: var(--ifm-color-primary); }
+.chipActive, .chipActive:hover { background: var(--ifm-color-primary); border-color: var(--ifm-color-primary); color: #1a1a1a; }
+.search { font: inherit; margin-left: auto; padding: 0.45rem 0.9rem; min-width: 240px; border-radius: 8px; color: inherit; background: var(--card-bg); border: 1px solid var(--card-border); }
+.search:focus { outline: 2px solid var(--ifm-color-primary); outline-offset: 1px; }
+
+/* Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+.card {
+  display: flex; flex-direction: column; gap: 0.75rem; height: 100%; padding: 1.5rem;
+  border: 1px solid var(--card-border); border-radius: 12px; background: var(--card-bg);
+  color: var(--ifm-font-color-base); text-decoration: none; cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border-color: var(--ifm-color-primary); color: var(--ifm-font-color-base); text-decoration: none; }
+[data-theme='dark'] .card:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); }
+.cardTop { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+.category { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--muted); }
+.catDot { width: 8px; height: 8px; border-radius: 50%; background: var(--ifm-color-primary); }
+.cardName { font-size: 0.95rem; font-weight: 700; line-height: 1.3; margin: 0; }
+.cardText { margin: 0; font-size: 0.82rem; line-height: 1.5; color: var(--ifm-color-emphasis-700); flex: 1; }
+.cardFoot { display: flex; justify-content: space-between; align-items: center; margin-top: 0.25rem; padding-top: 0.75rem; border-top: 1px solid var(--card-border); font-size: 0.72rem; color: var(--muted); }
+.badge { font-size: 0.65rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 6px; background: rgba(245, 158, 11, 0.12); color: #d97706; border: 1px solid rgba(245, 158, 11, 0.3); white-space: nowrap; }
+[data-theme='dark'] .badge { color: #fbbf24; }
+.badgePhase { border-style: dashed; }
+.empty { color: var(--muted); padding: 2rem 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .chip { transition: none; }
+  .card:hover:hover { transform: none; }
+}
+@media (max-width: 900px) {
+  .search { margin-left: 0; width: 100%; }
+}
+@media (max-width: 768px) {
+  .page { padding: 0 1rem 2rem; }
+  .hero { margin: 0 -1rem; padding: 2.5rem 1rem 2rem; }
+  .title { font-size: 2rem; }
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* Glass of the KIT 2.0 cards (DataspaceCard) */
+.card, .chip, .search { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06); }
+.page { --card-bg: rgba(255, 255, 255, 0.72); }
+[data-theme='dark'] .page { --card-bg: rgba(255, 255, 255, 0.05); --card-border: rgba(255, 255, 255, 0.1); }
+[data-theme='dark'] .card:hover { border-color: var(--ifm-color-primary); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+.chipActive, .chipActive:hover { background: var(--ifm-color-primary); }

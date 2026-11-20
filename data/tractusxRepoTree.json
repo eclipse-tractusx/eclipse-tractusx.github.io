@@ -1,0 +1,373 @@
+{
+  "generatedAt": "2026-11-20T14:18:29.379Z",
+  "source": ".tractusx files of github.com/eclipse-tractusx",
+  "trees": {
+    ".eclipsefdn": {
+      "product": ".eclipsefdn",
+      "url": "https://github.com/eclipse-tractusx/.eclipsefdn",
+      "repoCategory": "support",
+      "repositories": []
+    },
+    ".github": {
+      "product": ".github",
+      "url": "https://github.com/eclipse-tractusx/.github",
+      "repoCategory": "support",
+      "repositories": []
+    },
+    "aas-suite": {
+      "product": "aas-suite",
+      "url": "https://github.com/eclipse-tractusx/aas-suite",
+      "repoCategory": "product",
+      "repositories": []
+    },
+    "api-hub": {
+      "product": "api-hub",
+      "url": "https://github.com/eclipse-tractusx/api-hub",
+      "repoCategory": "special",
+      "repositories": []
+    },
+    "bpdm": {
+      "product": "BPDM",
+      "url": "https://github.com/eclipse-tractusx/bpdm",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "bpn-did-resolution-service": {
+      "product": "Tractus-X BPN DID Resolution Service",
+      "url": "https://github.com/eclipse-tractusx/bpn-did-resolution-service",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "charts": {
+      "product": "Eclipse-Tractusx Charts",
+      "url": "https://github.com/eclipse-tractusx/charts",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "data-exchange-test-service": {
+      "product": "E2E_Data_Exchange_Test_Service",
+      "url": "https://github.com/eclipse-tractusx/data-exchange-test-service",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "dataspace-mgm-service": {
+      "product": null,
+      "url": "https://github.com/eclipse-tractusx/dataspace-mgm-service",
+      "repoCategory": null,
+      "repositories": [
+        {
+          "name": "dataspace-mgm-services",
+          "url": "https://github.com/eclipse-tractusx/dataspace-mgm-services",
+          "usage": null,
+          "declared": false,
+          "linked": true
+        },
+        {
+          "name": "dataspace-mgm-ui",
+          "url": "https://github.com/eclipse-tractusx/dataspace-mgm-ui",
+          "usage": null,
+          "declared": false,
+          "linked": true
+        }
+      ]
+    },
+    "eclipse-tractusx.github.io": {
+      "product": "eclipse-tractusx.github.io",
+      "url": "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io",
+      "repoCategory": "support",
+      "repositories": []
+    },
+    "eclipse-tractusx.github.io.largefiles": {
+      "product": "eclipse-tractusx.github.io.largefiles",
+      "url": "https://github.com/eclipse-tractusx/eclipse-tractusx.github.io.largefiles",
+      "repoCategory": "support",
+      "repositories": []
+    },
+    "engineering-use-case-demonstrator": {
+      "product": "engineering-use-case-demonstrator",
+      "url": "https://github.com/eclipse-tractusx/engineering-use-case-demonstrator",
+      "repoCategory": "support",
+      "repositories": []
+    },
+    "industry-core-hub": {
+      "product": "industry-core-hub",
+      "url": "https://github.com/eclipse-tractusx/industry-core-hub",
+      "repoCategory": "product",
+      "repositories": []
+    },
+    "item-relationship-service": {
+      "product": "Item Relationship Service",
+      "url": "https://github.com/eclipse-tractusx/item-relationship-service",
+      "repoCategory": "Product",
+      "repositories": []
+    },
+    "knowledge-agents": {
+      "product": "knowledge-agents",
+      "url": "https://github.com/eclipse-tractusx/knowledge-agents",
+      "repoCategory": null,
+      "repositories": [
+        {
+          "name": "knowledge-agents-aas-bridge",
+          "url": "https://github.com/eclipse-tractusx/knowledge-agents-aas-bridge",
+          "usage": "Tractus-X Knowledge Agents AAS Bridges (KA-AAS)",
+          "declared": true,
+          "linked": true
+        },
+        {
+          "name": "knowledge-agents-edc",
+          "url": "https://github.com/eclipse-tractusx/knowledge-agents-edc",
+          "usage": "Tractus-X Knowledge Agents EDC Extensions (KA-EDC)",
+          "declared": true,
+          "linked": true
+        }
+      ]
+    },
+    "managed-service-orchestrator": {
+      "product": "managed-service-orchestrator",
+      "url": "https://github.com/eclipse-tractusx/managed-service-orchestrator",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "managed-simple-data-exchanger": {
+      "product": "managed-simple-data-exchanger",
+      "url": "https://github.com/eclipse-tractusx/managed-simple-data-exchanger",
+      "repoCategory": null,
+      "repositories": [
+        {
+          "name": "managed-simple-data-exchanger-backend",
+          "url": "https://github.com/eclipse-tractusx/managed-simple-data-exchanger-backend",
+          "usage": "backend code for the sde",
+          "declared": true,
+          "linked": true
+        },
+        {
+          "name": "managed-simple-data-exchanger-frontend",
+          "url": "https://github.com/eclipse-tractusx/managed-simple-data-exchanger-frontend",
+          "usage": "frontend code for the sde",
+          "declared": true,
+          "linked": true
+        }
+      ]
+    },
+    "portal": {
+      "product": "portal",
+      "url": "https://github.com/eclipse-tractusx/portal",
+      "repoCategory": null,
+      "repositories": [
+        {
+          "name": "portal-assets",
+          "url": "https://github.com/eclipse-tractusx/portal-assets",
+          "usage": "documentation and static image content for the portal",
+          "declared": true,
+          "linked": true
+        },
+        {
+          "name": "portal-backend",
+          "url": "https://github.com/eclipse-tractusx/portal-backend",
+          "usage": "backend code for the portal",
+          "declared": true,
+          "linked": true
+        },
+        {
+          "name": "portal-frontend",
+          "url": "https://github.com/eclipse-tractusx/portal-frontend",
+          "usage": "frontend code for the portal",
+          "declared": true,
+          "linked": true
+        },
+        {
+          "name": "portal-frontend-registration",
+          "url": "https://github.com/eclipse-tractusx/portal-frontend-registration",
+          "usage": "frontend code for the portal registration",
+          "declared": true,
+          "linked": true
+        },
+        {
+          "name": "portal-shared-components",
+          "url": "https://github.com/eclipse-tractusx/portal-shared-components",
+          "usage": "shared UI components",
+          "declared": true,
+          "linked": true
+        }
+      ]
+    },
+    "portal-iam": {
+      "product": "iam",
+      "url": "https://github.com/eclipse-tractusx/portal-iam",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "puris": {
+      "product": "PURIS",
+      "url": "https://github.com/eclipse-tractusx/puris",
+      "repoCategory": "product",
+      "repositories": []
+    },
+    "sd-factory": {
+      "product": "Self-Description Factory",
+      "url": "https://github.com/eclipse-tractusx/sd-factory",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "sig-architecture": {
+      "product": "sig-architecture",
+      "url": "https://github.com/eclipse-tractusx/sig-architecture",
+      "repoCategory": "special",
+      "repositories": []
+    },
+    "sig-infra": {
+      "product": "sig-infra",
+      "url": "https://github.com/eclipse-tractusx/sig-infra",
+      "repoCategory": "special",
+      "repositories": [
+        {
+          "name": "app-dashboard",
+          "url": "https://github.com/eclipse-tractusx/app-dashboard",
+          "usage": null,
+          "declared": false,
+          "linked": true
+        }
+      ]
+    },
+    "sig-release": {
+      "product": "sig-release",
+      "url": "https://github.com/eclipse-tractusx/sig-release",
+      "repoCategory": "special",
+      "repositories": []
+    },
+    "sig-security": {
+      "product": "sig-security",
+      "url": "https://github.com/eclipse-tractusx/sig-security",
+      "repoCategory": "special",
+      "repositories": []
+    },
+    "sldt-bpn-discovery": {
+      "product": "BPN Discovery",
+      "url": "https://github.com/eclipse-tractusx/sldt-bpn-discovery",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "sldt-digital-twin-registry": {
+      "product": "Digital Twin Registry",
+      "url": "https://github.com/eclipse-tractusx/sldt-digital-twin-registry",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "sldt-discovery-finder": {
+      "product": "Discovery Finder",
+      "url": "https://github.com/eclipse-tractusx/sldt-discovery-finder",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "sldt-semantic-hub": {
+      "product": "Semantic Hub",
+      "url": "https://github.com/eclipse-tractusx/sldt-semantic-hub",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "sldt-semantic-models": {
+      "product": "Semantic Models",
+      "url": "https://github.com/eclipse-tractusx/sldt-semantic-models",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "ssi-credential-issuer": {
+      "product": "SSI Credential Issuer",
+      "url": "https://github.com/eclipse-tractusx/ssi-credential-issuer",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "ssi-dim-wallet-stub": {
+      "product": "SSI DIM Wallet Stub",
+      "url": "https://github.com/eclipse-tractusx/ssi-dim-wallet-stub",
+      "repoCategory": "product",
+      "repositories": []
+    },
+    "testdata-provider": {
+      "product": "testdata-provider",
+      "url": "https://github.com/eclipse-tractusx/testdata-provider",
+      "repoCategory": "support",
+      "repositories": []
+    },
+    "traceability-foss": {
+      "product": "Traceability FOSS",
+      "url": "https://github.com/eclipse-tractusx/traceability-foss",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "tractus-x-release": {
+      "product": "Tractus-X-Release",
+      "url": "https://github.com/eclipse-tractusx/tractus-x-release",
+      "repoCategory": "support",
+      "repositories": []
+    },
+    "tractus-x-umbrella": {
+      "product": "tractus-x-umbrella",
+      "url": "https://github.com/eclipse-tractusx/tractus-x-umbrella",
+      "repoCategory": "support",
+      "repositories": []
+    },
+    "tractusx-edc": {
+      "product": "Tractus-X EDC",
+      "url": "https://github.com/eclipse-tractusx/tractusx-edc",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "tractusx-edc-dashboard": {
+      "product": "EDC Dashboard - Policy Builder",
+      "url": "https://github.com/eclipse-tractusx/tractusx-edc-dashboard",
+      "repoCategory": "support",
+      "repositories": []
+    },
+    "tractusx-edc-kafka-extension": {
+      "product": "Eclipse Tractus-X EDC Kafka Extension",
+      "url": "https://github.com/eclipse-tractusx/tractusx-edc-kafka-extension",
+      "repoCategory": null,
+      "repositories": []
+    },
+    "tractusx-identityhub": {
+      "product": "tractusx-identityhub",
+      "url": "https://github.com/eclipse-tractusx/tractusx-identityhub",
+      "repoCategory": "product",
+      "repositories": []
+    },
+    "tractusx-sdk": {
+      "product": "tractusx-sdk",
+      "url": "https://github.com/eclipse-tractusx/tractusx-sdk",
+      "repoCategory": "library",
+      "repositories": [
+        {
+          "name": "tractusx-sdk-services",
+          "url": "https://github.com/eclipse-tractusx/tractusx-sdk-services",
+          "usage": "Eclipse Tractus-X Software Development KIT Services - Microservices which build on top of the SDK",
+          "declared": true,
+          "linked": false
+        }
+      ]
+    },
+    "tractusx-sdk-services": {
+      "product": "tractusx-sdk-services",
+      "url": "https://github.com/eclipse-tractusx/tractusx-sdk-services",
+      "repoCategory": "product",
+      "repositories": []
+    },
+    "tractusx-starter-kit": {
+      "product": "tractusx-starter-kit",
+      "url": "https://github.com/eclipse-tractusx/tractusx-starter-kit",
+      "repoCategory": "product",
+      "repositories": []
+    },
+    "tractusx-testlab": {
+      "product": "tractusx-testlab",
+      "url": "https://github.com/eclipse-tractusx/tractusx-testlab",
+      "repoCategory": "library",
+      "repositories": []
+    },
+    "tutorial-resources": {
+      "product": "tutorial-resources",
+      "url": "https://github.com/eclipse-tractusx/tutorial-resources",
+      "repoCategory": "support",
+      "repositories": []
+    }
+  }
+}
