@@ -173,6 +173,18 @@
   flex-direction: column;
 }
 
+.acceleratorLogo {
+  display: block;
+  width: min(100%, 260px);
+  margin: 0 0 1rem;
+}
+
+.acceleratorLogo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .accelerator .acceleratorIntro {
   margin: 0 0 0.75rem;
 }
