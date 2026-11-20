@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([["3212"],{420838(e){e.exports=JSON.parse('{"serverId":"sonarqube-mcp-server"}')}}]);
