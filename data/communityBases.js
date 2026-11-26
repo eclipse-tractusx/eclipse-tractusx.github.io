@@ -131,6 +131,7 @@ export const communityBases = [
       { name: 'Catena-X', url: 'https://catena-x.net' },
       { name: 'ARENA2036', url: 'https://arena2036.de' },
       { name: 'Fraunhofer ISST', url: 'https://www.isst.fraunhofer.de' },
+      { name: 'Internacional Data Spaces Association (IDSA)', url: 'https://internationaldataspaces.org' },
     ],
   },
   {
