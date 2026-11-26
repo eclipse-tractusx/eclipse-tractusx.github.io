@@ -26,7 +26,7 @@ import VerifiedIcon from '@mui/icons-material/VerifiedOutlined';
 import HubIcon from '@mui/icons-material/HubOutlined';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunchOutlined';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownwardRounded';
-import { adopterProfiles, products } from '@site/data/productsData';
+import { products } from '@site/data/productsData';
 import { JoinCta } from './PageHero';
 import ArchitectureView from './ArchitectureView';
 import ProductBrowser from './ProductBrowser';
@@ -149,27 +149,6 @@ export default function ProductsOverview() {
                 <strong>Business value is the core.</strong> Every product we keep must help an adopter reach
                 a working use case.
               </p>
-            </div>
-            <div className={styles.evidence}>
-              <h3 className={styles.evidenceTitle}>Evidence today</h3>
-              <dl className={styles.evidenceList}>
-                <div>
-                  <dt>{statistics.products}</dt>
-                  <dd>products in the portfolio</dd>
-                </div>
-                <div>
-                  <dt>7</dt>
-                  <dd>other initiatives reuse components</dd>
-                </div>
-                <div>
-                  <dt>{adopterProfiles.length}</dt>
-                  <dd>adopter profiles served</dd>
-                </div>
-                <div>
-                  <dt>{statistics.committers}</dt>
-                  <dd>committers in the community</dd>
-                </div>
-              </dl>
             </div>
             <ul className={`${styles.pillars} ${styles.pillarsRow}`}>
               {PILLARS.map(({ icon: Icon, title, text, link }) => (

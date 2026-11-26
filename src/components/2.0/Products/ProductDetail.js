@@ -42,6 +42,7 @@ import { KindLabel, MaturityBadge, ProductMark } from './ProductCard';
 import RepoTree, { buildRepoGroups } from './RepoTree';
 import Releases, { Downloads } from './Releases';
 import MediaGallery from './MediaGallery';
+import BackButton from './BackButton';
 import {
   HERO_BACKGROUNDS,
   getCategory,
@@ -295,13 +296,16 @@ export default function ProductDetail({ product }) {
     <main className={styles.page}>
       <header className={styles.hero} style={{ '--hero-image': `url(${heroBackground})` }}>
         <div className={styles.container}>
-          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-            <Link to="/Products">Open Source Software</Link>
-            <ChevronRightIcon className={styles.breadcrumbSep} />
-            {category && <Link to={category.route}>{category.name}</Link>}
-            <ChevronRightIcon className={styles.breadcrumbSep} />
-            <span>{product.name}</span>
-          </nav>
+          <div className={styles.heroNav}>
+            <BackButton fallback={category ? category.route : '/Products'} />
+            <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+              <Link to="/Products">Open Source Software</Link>
+              <ChevronRightIcon className={styles.breadcrumbSep} />
+              {category && <Link to={category.route}>{category.name}</Link>}
+              <ChevronRightIcon className={styles.breadcrumbSep} />
+              <span>{product.name}</span>
+            </nav>
+          </div>
 
           <div className={styles.heroMain}>
             <ProductMark product={product} className={styles.heroMark} />
@@ -342,7 +346,7 @@ export default function ProductDetail({ product }) {
                 )}
                 <button type="button" className={styles.buttonGhost} onClick={() => selectTab('releases')}>
                   <DownloadIcon className={styles.buttonIcon} />
-                  Get it
+                  Download
                 </button>
               </div>
             </div>
@@ -398,7 +402,7 @@ export default function ProductDetail({ product }) {
                   <Section icon={NewReleasesIcon} title="Latest releases">
                     <Releases repositories={releaseRepos} />
                   </Section>
-                  <Section icon={DownloadIcon} title="Get it">
+                  <Section icon={DownloadIcon} title="Download">
                     <Downloads downloads={product.downloads} repositories={product.repositories} />
                   </Section>
                 </>

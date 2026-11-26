@@ -22,6 +22,7 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import clsx from 'clsx';
 import ChevronRightIcon from '@mui/icons-material/ChevronRightRounded';
+import BackButton from './BackButton';
 import styles from './styles.module.scss';
 
 /**
@@ -48,14 +49,17 @@ export default function PageHero({
       {!background && <div className={styles.heroGrid} aria-hidden="true" />}
       <div className={styles.container}>
         {breadcrumb && (
-          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-            {breadcrumb.map((item, index) => (
-              <React.Fragment key={item.label}>
-                {index > 0 && <ChevronRightIcon className={styles.breadcrumbSep} />}
-                {item.to ? <Link to={item.to}>{item.label}</Link> : <span>{item.label}</span>}
-              </React.Fragment>
-            ))}
-          </nav>
+          <div className={styles.heroNav}>
+            <BackButton fallback={[...breadcrumb].reverse().find((item) => item.to)?.to || '/Products'} />
+            <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+              {breadcrumb.map((item, index) => (
+                <React.Fragment key={item.label}>
+                  {index > 0 && <ChevronRightIcon className={styles.breadcrumbSep} />}
+                  {item.to ? <Link to={item.to}>{item.label}</Link> : <span>{item.label}</span>}
+                </React.Fragment>
+              ))}
+            </nav>
+          </div>
         )}
         <div className={styles.heroInner}>
           <div className={styles.heroCopy}>

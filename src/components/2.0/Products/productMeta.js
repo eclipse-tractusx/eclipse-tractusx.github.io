@@ -51,7 +51,7 @@ export const CATEGORY_ICONS = {
 
 // Header backgrounds from the Eclipse Tractus-X background set (static/img/backgrounds).
 export const HERO_BACKGROUNDS = {
-  overview: '/img/backgrounds/tx-bg-twin-arcs.jpg',
+  overview: '/img/backgrounds/tx-bg-horizon.jpg',
   detail: '/img/backgrounds/tx-bg-subtle-ember.jpg',
   'use-cases': '/img/backgrounds/tx-bg-dual-glow.jpg',
   'dataspace-foundation': '/img/backgrounds/tx-bg-fold.jpg',

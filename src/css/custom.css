@@ -562,9 +562,3 @@ div[class*="blogPostPage"],
 [data-theme='dark'] .kit-home-icon::before {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fbb24d"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>');
 }
-
-/* Keep the "Open Source Software" dropdown label on one line */
-.navbar__item--nowrap,
-.navbar__item--nowrap > .navbar__link {
-  white-space: nowrap;
-}

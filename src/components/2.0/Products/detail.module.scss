@@ -72,6 +72,18 @@ $radius-control: 4px;
   }
 }
 
+/* Header navigation: back button left of the breadcrumb */
+.heroNav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+
+  .breadcrumb {
+    margin-bottom: 0;
+  }
+}
+
 .breadcrumbSep {
   font-size: 16px !important;
   color: rgba(255, 255, 255, 0.35);

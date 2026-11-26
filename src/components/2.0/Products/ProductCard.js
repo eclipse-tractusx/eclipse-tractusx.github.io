@@ -25,6 +25,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import FolderIcon from '@mui/icons-material/FolderOutlined';
 import SmartToyIcon from '@mui/icons-material/SmartToyOutlined';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForwardRounded';
+import DownloadIcon from '@mui/icons-material/DownloadRounded';
 import { CATEGORY_ICONS, KIND_ICONS, getDetailUrl, getKind, getKinds, getMaturity } from './productMeta';
 import styles from './styles.module.scss';
 
@@ -152,6 +153,14 @@ export default function ProductCard({ product, showKind = true }) {
             GitHub
           </a>
         )}
+        <Link
+          className={styles.cardAction}
+          to={`${detailUrl}#releases`}
+          aria-label={`Download ${product.name}`}
+        >
+          <DownloadIcon />
+          Download
+        </Link>
         <Link className={clsx(styles.cardAction, styles.cardActionPrimary)} to={detailUrl} tabIndex={-1}>
           Open
           <ArrowForwardIcon />

@@ -115,13 +115,14 @@ export default function ArchitectureView({ highlight = null }) {
           <Chips items={getProductsByCategory('use-cases')} highlight={highlight} />
         </div>
 
-        <Link to="/community/intro" className={styles.community}>
+        <Link to="/community/open-meetings" className={styles.community}>
           <FavoriteIcon className={styles.communityIcon} />
           <span className={styles.communityName}>Community</span>
           <span className={styles.communityText}>
             Experts from independent companies, research institutes and the Catena-X and other -X initiatives
             build it together.
           </span>
+          <span className={styles.communityLink}>Join our open meetings →</span>
         </Link>
 
         <div className={clsx(styles.block, styles.tools)}>

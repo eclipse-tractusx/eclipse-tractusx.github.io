@@ -106,6 +106,50 @@ $radius-control: 4px;
   }
 }
 
+/* Back button, shared with the product page */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+
+  svg {
+    font-size: 20px;
+  }
+
+  &:hover {
+    border-color: $brand-orange;
+    background: rgba(250, 160, 35, 0.15);
+    color: $brand-orange;
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $brand-orange;
+    outline-offset: 2px;
+  }
+}
+
+/* Header navigation: back button left of the breadcrumb */
+.heroNav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+
+  .breadcrumb {
+    margin-bottom: 0;
+  }
+}
+
 .breadcrumbSep {
   font-size: 16px !important;
   color: rgba(255, 255, 255, 0.35);
@@ -1337,7 +1381,7 @@ $card-min: 330px;
 
 .introBlock {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 48px;
   margin-bottom: 72px;
 
@@ -1346,6 +1390,10 @@ $card-min: 330px;
     gap: 28px;
     margin-bottom: 56px;
   }
+}
+
+.introText {
+  max-width: 860px;
 }
 
 .introText p {
@@ -1552,64 +1600,13 @@ $card-min: 330px;
   }
 }
 
-/* Overview introduction: statement + evidence, pillars below */
+/* Overview introduction: statement, pillars below */
 .introBlock {
   align-items: start;
 }
 
 .introText strong {
   color: var(--ifm-font-color-base);
-}
-
-.evidence {
-  position: relative;
-  padding: 26px 28px;
-  border-radius: $radius-card;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-color-emphasis-100);
-
-  &::before {
-    content: '';
-    display: block;
-    width: 72px;
-    height: 3px;
-    margin-bottom: 18px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, $brand-orange 0%, $brand-green 100%);
-  }
-}
-
-.evidenceTitle {
-  margin: 0 0 14px;
-  font-family: 'Manrope', sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-}
-
-.evidenceList {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0;
-
-  > div {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-
-  dt {
-    min-width: 36px;
-    font-family: 'Manrope', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-  }
-
-  dd {
-    margin: 0;
-    font-size: 14.5px;
-    color: var(--ifm-color-emphasis-700);
-  }
 }
 
 .pillarsRow {
