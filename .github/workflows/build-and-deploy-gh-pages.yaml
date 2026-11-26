@@ -37,6 +37,8 @@ concurrency:
 
 permissions:
   contents: write
+  # To tell pull requests that their preview was removed to make space.
+  pull-requests: write
 
 jobs:
   deploy:
@@ -61,10 +63,32 @@ jobs:
       # previews in pr/ are kept. If another workflow pushed in the meantime,
       # the change is applied again on top of it. The script fetches gh-pages
       # itself and creates the branch if it does not exist yet.
+      # If the site and the previews together exceed the space limit of
+      # GitHub Pages (GH_PAGES_LIMIT_MB in update-gh-pages.sh), the oldest
+      # previews are removed, so previews can never stop the website from being
+      # deployed.
       - name: Publish to GitHub Pages
+        id: publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir "${RUNNER_TEMP}/gh-pages"
           cd "${RUNNER_TEMP}/gh-pages"
           bash "${GITHUB_WORKSPACE}/.github/scripts/update-gh-pages.sh" site "${GITHUB_WORKSPACE}/build"
+
+      - name: Tell pull requests about removed previews
+        if: steps.publish.outputs.evicted-previews != ''
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          EVICTED: ${{ steps.publish.outputs.evicted-previews }}
+          SITE_MB: ${{ steps.publish.outputs.site-mb }}
+          PREVIEWS_MB: ${{ steps.publish.outputs.previews-mb }}
+          LIMIT_MB: ${{ steps.publish.outputs.limit-mb }}
+        with:
+          script: |
+            const preview = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/preview-comment.js`);
+            const env = process.env;
+            const space = { siteMb: env.SITE_MB, previewsMb: env.PREVIEWS_MB, limitMb: env.LIMIT_MB };
+            for (const prNumber of preview.numbers(env.EVICTED)) {
+              await preview.update({ github, context, space, prNumber, state: 'removed', reason: 'evicted' });
+            }
