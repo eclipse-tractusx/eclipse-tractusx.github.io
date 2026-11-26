@@ -69,7 +69,15 @@ $brand-green: #afc72d;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.5);
 
+  align-items: center;
+
+  // Padding grows the tap target to at least 24 px; the negative margin keeps the text in place.
   a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    margin-inline: -6px;
+    padding-inline: 6px;
     color: rgba(255, 255, 255, 0.72);
     text-decoration: none;
 
@@ -160,7 +168,10 @@ $brand-green: #afc72d;
 }
 
 .teamTag {
-  padding: 1px 8px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 1px 10px;
   border-radius: 999px;
   background: rgba(250, 160, 35, 0.18);
   color: $brand-orange;

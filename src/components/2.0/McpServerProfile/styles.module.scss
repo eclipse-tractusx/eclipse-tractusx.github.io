@@ -53,6 +53,18 @@ $mono: 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace;
   padding: 0;
   list-style: none;
 
+  @media screen and (max-width: 600px) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+
+    li {
+      flex-direction: column;
+      gap: 2px;
+      padding: 10px 12px;
+    }
+  }
+
   li {
     display: flex;
     align-items: baseline;
@@ -281,7 +293,9 @@ $mono: 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 13px;
   font-weight: 700;
   color: var(--ifm-font-color-base);
-  overflow-wrap: anywhere;
+  // Names wrap after an underscore (see breakAtUnderscores), never inside a word.
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .toolKind {

@@ -64,11 +64,26 @@ function Section({ icon, title, lead, children }) {
   );
 }
 
+// Lets a long snake_case tool name wrap after an underscore instead of inside a word.
+function breakAtUnderscores(name) {
+  const parts = name.split('_');
+  return parts.map((part, index) => (
+    <React.Fragment key={index}>
+      {part}
+      {index < parts.length - 1 && (
+        <>
+          _<wbr />
+        </>
+      )}
+    </React.Fragment>
+  ));
+}
+
 function ToolCard({ tool }) {
   return (
     <li className={clsx(styles.tool, tool.write && styles.toolWrite)}>
       <div className={styles.toolHead}>
-        <code className={styles.toolName}>{tool.name}</code>
+        <code className={styles.toolName}>{breakAtUnderscores(tool.name)}</code>
         <span className={clsx(styles.toolKind, tool.write ? styles.kindWrite : styles.kindRead)}>
           {tool.write ? <EditOutlinedIcon /> : <VisibilityOutlinedIcon />}
           {tool.write ? 'Write' : 'Read'}

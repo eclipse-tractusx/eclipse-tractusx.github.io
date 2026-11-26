@@ -462,8 +462,9 @@ $brand-green: #afc72d;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 280px;
-  height: 280px;
+  // Shrinks on narrow phones; the margin leaves room for the ring's glowing dots.
+  width: min(280px, calc(100% - 24px));
+  aspect-ratio: 1;
 
   @media screen and (max-width: 996px) {
     order: 1;
@@ -517,8 +518,8 @@ $brand-green: #afc72d;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 210px;
-  height: 210px;
+  width: 75%;
+  height: 75%;
   border-radius: 50%;
   border: 1px solid rgba(250, 160, 35, 0.35);
   background:

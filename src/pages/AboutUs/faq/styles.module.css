@@ -441,6 +441,10 @@
     gap: 0.5rem;
     overflow-x: auto;
     padding-bottom: 0.25rem;
+    /* The fade hints that more topics are off screen; the padding lets the last one scroll clear of it */
+    padding-right: 2rem;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent);
     scrollbar-width: none;
   }
 
