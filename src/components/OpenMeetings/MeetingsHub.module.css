@@ -295,7 +295,7 @@
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  border-radius: var(--om-radius-sm);
+  border-radius: 5px;
   border: none;
   font-size: 13px;
   font-weight: 600;
@@ -808,7 +808,7 @@
 
 .todayScrollBtn {
   padding: 4px !important;
-  border-radius: 8px !important;
+  border-radius: 5px !important;
 }
 
 .todayScrollBtn:disabled {
@@ -2022,7 +2022,7 @@
   padding: 10px 12px;
   background: var(--om-surface);
   border: 1px solid var(--om-border);
-  border-radius: var(--om-radius-sm);
+  border-radius: 5px;
   font-size: 13px;
   color: var(--om-muted);
   transition: all 0.15s;
@@ -2580,7 +2580,7 @@
   padding: 12px 14px;
   background: var(--om-surface-hover);
   border: 1px solid var(--om-border);
-  border-radius: var(--om-radius-sm);
+  border-radius: 5px;
   cursor: pointer;
   transition: border-color 0.2s, background 0.15s;
   font-family: inherit;
