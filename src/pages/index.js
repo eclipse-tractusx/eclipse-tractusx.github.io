@@ -43,8 +43,10 @@ import SectionDivider from "@site/src/components/SectionDivider";
 import ProductSelection from "@site/src/components/ProductSelection";
 import CommunityMap from "@site/src/components/CommunityMap";
 import OrganizationCarousel from "@site/src/components/OrganizationCarousel";
+import AiSpotlight from "@site/src/components/AiSpotlight";
 import CategoryIcon from '@mui/icons-material/Category';
 import ExtensionIcon from '@mui/icons-material/Extension';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -71,6 +73,8 @@ export default function Home() {
         <CommunityMap />
         <SectionDivider title="Our Products" icon={CategoryIcon} />
         <ProductSelection />
+        <SectionDivider title="AI" icon={AutoAwesomeIcon} disableAnimation />
+        <AiSpotlight />
         <SectionDivider title="KITs" icon={ExtensionIcon} color="#f5576c" disableAnimation />
         <KitsTitle />
         <KitsArchitecture industries={industries}/>

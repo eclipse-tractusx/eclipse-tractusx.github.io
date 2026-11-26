@@ -32,7 +32,7 @@ $mono: 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace;
   align-items: start;
 
   @media screen and (max-width: 996px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 32px;
   }
 }
@@ -349,7 +349,7 @@ $mono: 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace;
   margin-top: 8px;
 
   @media screen and (max-width: 600px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
