@@ -87,64 +87,75 @@ function serverLinkLabel(server) {
   return server.origin === 'tractus-x' ? 'Read the guide' : 'Open the server';
 }
 
+function countTools(server) {
+  return (server.details?.toolGroups || []).reduce((total, group) => total + group.tools.length, 0);
+}
+
 function McpServerCard({ server }) {
   const available = isMcpServerAvailable(server);
+  const toolCount = countTools(server);
   return (
-    <article className={clsx(styles.panel, styles.serverCard, !available && styles.serverCardSoon)}>
-      <header className={styles.serverHeader}>
-        <span className={styles.iconTile}>
-          <HubOutlinedIcon />
-        </span>
-        <div>
-          <h3 className={styles.serverName}>{server.name}</h3>
-          <p className={styles.serverProvider}>
-            by {server.provider}
-            {server.repository && (
-              <>
-                {' · '}
-                <a href={repositoryUrl(server.repository)} target="_blank" rel="noopener noreferrer">
-                  {server.repository}
-                </a>
-              </>
-            )}
-          </p>
-        </div>
-        <span className={clsx(styles.originBadge, !available && styles.soonBadge)}>
-          {available ? ORIGIN_LABELS[server.origin] : 'Coming soon'}
-        </span>
-      </header>
+    <article className={clsx(styles.serverCard, !available && styles.serverCardSoon)}>
+      <div className={styles.serverStrip}>
+        <span className={clsx(styles.serverLed, available && styles.serverLedOn)} aria-hidden="true" />
+        <span className={styles.serverStatus}>{available ? 'Available' : 'Coming soon'}</span>
+        <code className={styles.serverId}>{server.id}</code>
+        {toolCount > 0 && <span className={styles.serverTools}>{toolCount} tools</span>}
+      </div>
+      <div className={styles.serverBody}>
+        <header className={styles.serverHeader}>
+          <span className={styles.iconTile}>
+            <HubOutlinedIcon />
+          </span>
+          <div>
+            <h3 className={styles.serverName}>{server.name}</h3>
+            <p className={styles.serverProvider}>
+              by {server.provider}
+              {server.repository && (
+                <>
+                  {' · '}
+                  <a href={repositoryUrl(server.repository)} target="_blank" rel="noopener noreferrer">
+                    {server.repository}
+                  </a>
+                </>
+              )}
+            </p>
+          </div>
+          <span className={styles.originBadge}>{ORIGIN_LABELS[server.origin]}</span>
+        </header>
 
-      <p className={styles.serverText}>{server.description}</p>
-      {server.highlights && (
-        <ul className={styles.serverHighlights}>
-          {server.highlights.map((highlight) => (
-            <li key={highlight}>{highlight}</li>
-          ))}
-        </ul>
-      )}
-      {server.license && <p className={styles.serverMeta}>License: {server.license}</p>}
-
-      {(server.usedBy || []).map((usage) => (
-        <p key={usage.repository} className={styles.usedBy}>
-          <span className={styles.usedByLabel}>Used in {usage.repository}</span>
-          {usage.note}{' '}
-          <a href={usage.url} target="_blank" rel="noopener noreferrer">
-            See how
-          </a>
-        </p>
-      ))}
-
-      <div className={styles.actions}>
-        {hasMcpServerDetails(server) && (
-          <Link className={styles.buttonPrimary} to={mcpServerDetailsUrl(server)}>
-            See the tools
-            <ArrowForwardIcon className={styles.buttonIcon} />
-          </Link>
+        <p className={styles.serverText}>{server.description}</p>
+        {server.highlights && (
+          <ul className={styles.serverHighlights}>
+            {server.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
         )}
-        <a className={styles.buttonSecondary} href={server.url} target="_blank" rel="noopener noreferrer">
-          <OpenInNewIcon className={styles.buttonIcon} />
-          {serverLinkLabel(server)}
-        </a>
+        {server.license && <p className={styles.serverMeta}>License: {server.license}</p>}
+
+        {(server.usedBy || []).map((usage) => (
+          <p key={usage.repository} className={styles.usedBy}>
+            <span className={styles.usedByLabel}>Used in {usage.repository}</span>
+            {usage.note}{' '}
+            <a href={usage.url} target="_blank" rel="noopener noreferrer">
+              See how
+            </a>
+          </p>
+        ))}
+
+        <div className={styles.actions}>
+          {hasMcpServerDetails(server) && (
+            <Link className={styles.buttonPrimary} to={mcpServerDetailsUrl(server)}>
+              See the tools
+              <ArrowForwardIcon className={styles.buttonIcon} />
+            </Link>
+          )}
+          <a className={styles.buttonSecondary} href={server.url} target="_blank" rel="noopener noreferrer">
+            <OpenInNewIcon className={styles.buttonIcon} />
+            {serverLinkLabel(server)}
+          </a>
+        </div>
       </div>
     </article>
   );

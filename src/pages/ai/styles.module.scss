@@ -663,21 +663,136 @@ $brand-green: #afc72d;
   }
 }
 
+// MCP server cards look like a server module: a status strip with a light,
+// a dot-grid surface and a connector edge, unlike the plain panels elsewhere.
 .serverCard {
+  position: relative;
   display: flex;
   flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background:
+    radial-gradient(circle, var(--ifm-color-emphasis-200) 1px, transparent 1.2px) 0 0 / 16px 16px,
+    var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  // Connector edge on the left.
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    background: linear-gradient(180deg, $brand-orange 0%, $brand-green 100%);
+  }
+
+  &:hover {
+    border-color: rgba(250, 160, 35, 0.55);
+    box-shadow: 0 12px 36px rgba(250, 160, 35, 0.12);
+  }
 }
 
 .serverCardSoon {
   border-style: dashed;
+
+  &::before {
+    background: var(--ifm-color-emphasis-300);
+  }
+
+  .serverBody {
+    opacity: 0.85;
+  }
 }
 
-.soonBadge {
-  background: rgba(255, 166, 0, 0.16);
-  color: #9a5b00;
+.serverStrip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px 10px 24px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+  font-size: 12px;
+}
 
-  [data-theme='dark'] & {
-    color: #ffc266;
+.serverLed {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--ifm-color-emphasis-400);
+}
+
+.serverLedOn {
+  background: #3ecf6e;
+  box-shadow: 0 0 0 0 rgba(62, 207, 110, 0.6);
+  animation: serverPulse 2.4s ease-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes serverPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(62, 207, 110, 0.55);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgba(62, 207, 110, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(62, 207, 110, 0);
+  }
+}
+
+.serverStatus {
+  flex-shrink: 0;
+  font-weight: 800;
+  white-space: nowrap;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.serverId {
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.serverTools {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 5px;
+  background: rgba(250, 160, 35, 0.14);
+  color: $brand-orange;
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 700;
+}
+
+.serverBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 24px 28px 28px 30px;
+
+  // Keep the buttons at the bottom so cards in a row line up.
+  > div:last-child {
+    margin-top: auto;
+    padding-top: 22px;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 20px 20px 22px 24px;
   }
 }
 
@@ -689,11 +804,30 @@ $brand-green: #afc72d;
 }
 
 .serverHighlights {
-  margin: 14px 0 0;
-  padding-left: 20px;
-  font-size: 13.5px;
-  line-height: 1.6;
+  display: grid;
+  gap: 6px;
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-color);
+  list-style: none;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 12.5px;
+  line-height: 1.5;
   color: var(--ifm-color-emphasis-800);
+
+  li {
+    position: relative;
+    padding-left: 16px;
+  }
+
+  li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: $brand-orange;
+  }
 }
 
 .serverHeader {
