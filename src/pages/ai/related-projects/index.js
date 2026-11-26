@@ -232,6 +232,58 @@ export default function RelatedProjects() {
           </div>
         </section>
 
+        <section id="shared-core" className={clsx(styles.section, projectStyles.coreSection)} aria-labelledby="shared-core-heading">
+          <div className={styles.container}>
+            <div className={clsx(styles.sectionHeader, projectStyles.centeredHeader)}>
+              <span className={styles.sectionEyebrow}>One shared core</span>
+              <h2 id="shared-core-heading" className={styles.sectionTitle}>Why we should build on the same core</h2>
+              <p className={styles.sectionLead}>
+                When every AI project builds its own data-exchange stack, the result is islands that cannot talk to
+                each other. A shared core turns separate projects into one ecosystem.
+              </p>
+            </div>
+            <div className={projectStyles.hub}>
+              <ul className={clsx(projectStyles.hubSide, projectStyles.hubLeft)}>
+                {CORE_REASONS.slice(0, 2).map((item) => (
+                  <li key={item.title} className={projectStyles.hubReason}>
+                    <span className={projectStyles.gainIcon} aria-hidden="true">{item.icon}</span>
+                    <h3 className={projectStyles.gainTitle}>{item.title}</h3>
+                    <p className={projectStyles.gainText}>{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+              <div className={projectStyles.hubCore}>
+                <div className={projectStyles.hubRing} aria-hidden="true" />
+                <div className={projectStyles.hubCenter}>
+                  <span className={projectStyles.hubLabel}>Tractus-X</span>
+                  <span className={projectStyles.hubName}>shared core</span>
+                  <ul className={projectStyles.hubParts}>
+                    <li>Connector</li>
+                    <li>Identity</li>
+                    <li>Usage policies</li>
+                    <li>Semantic models</li>
+                    <li>KITs (use cases)</li>
+                  </ul>
+                </div>
+              </div>
+              <ul className={clsx(projectStyles.hubSide, projectStyles.hubRight)}>
+                {CORE_REASONS.slice(2).map((item) => (
+                  <li key={item.title} className={projectStyles.hubReason}>
+                    <span className={projectStyles.gainIcon} aria-hidden="true">{item.icon}</span>
+                    <h3 className={projectStyles.gainTitle}>{item.title}</h3>
+                    <p className={projectStyles.gainText}>{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={clsx(styles.actions, projectStyles.centeredActions)}>
+              <Link className={styles.buttonSecondary} to="/ai/dataspace-4-ai">
+                Learn about Dataspace 4 AI
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section id="explore" className={styles.section} aria-labelledby="explore-heading">
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
@@ -284,57 +336,6 @@ export default function RelatedProjects() {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="shared-core" className={clsx(styles.section, projectStyles.coreSection)} aria-labelledby="shared-core-heading">
-          <div className={styles.container}>
-            <div className={clsx(styles.sectionHeader, projectStyles.centeredHeader)}>
-              <span className={styles.sectionEyebrow}>One shared core</span>
-              <h2 id="shared-core-heading" className={styles.sectionTitle}>Why we should build on the same core</h2>
-              <p className={styles.sectionLead}>
-                When every AI project builds its own data-exchange stack, the result is islands that cannot talk to
-                each other. A shared core turns separate projects into one ecosystem.
-              </p>
-            </div>
-            <div className={projectStyles.hub}>
-              <ul className={clsx(projectStyles.hubSide, projectStyles.hubLeft)}>
-                {CORE_REASONS.slice(0, 2).map((item) => (
-                  <li key={item.title} className={projectStyles.hubReason}>
-                    <span className={projectStyles.gainIcon} aria-hidden="true">{item.icon}</span>
-                    <h3 className={projectStyles.gainTitle}>{item.title}</h3>
-                    <p className={projectStyles.gainText}>{item.text}</p>
-                  </li>
-                ))}
-              </ul>
-              <div className={projectStyles.hubCore}>
-                <div className={projectStyles.hubRing} aria-hidden="true" />
-                <div className={projectStyles.hubCenter}>
-                  <span className={projectStyles.hubLabel}>Tractus-X</span>
-                  <span className={projectStyles.hubName}>shared core</span>
-                  <ul className={projectStyles.hubParts}>
-                    <li>Connector</li>
-                    <li>Identity</li>
-                    <li>Usage policies</li>
-                    <li>Semantic models</li>
-                  </ul>
-                </div>
-              </div>
-              <ul className={clsx(projectStyles.hubSide, projectStyles.hubRight)}>
-                {CORE_REASONS.slice(2).map((item) => (
-                  <li key={item.title} className={projectStyles.hubReason}>
-                    <span className={projectStyles.gainIcon} aria-hidden="true">{item.icon}</span>
-                    <h3 className={projectStyles.gainTitle}>{item.title}</h3>
-                    <p className={projectStyles.gainText}>{item.text}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className={clsx(styles.actions, projectStyles.centeredActions)}>
-              <Link className={styles.buttonSecondary} to="/ai/dataspace-4-ai">
-                Learn about Dataspace 4 AI
-              </Link>
             </div>
           </div>
         </section>
