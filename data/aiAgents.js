@@ -472,7 +472,7 @@ const mcpServers = [
     provider: 'SonarSource',
     origin: 'external',
     description:
-      'Connects AI agents to SonarQube Server or Cloud for code quality and security analysis, so they check their own changes before handing them over.',
+      'Connects AI agents to SonarQube Server or Cloud for code quality and security analysis, so they check their own changes before handing them over. Pointed at the Tractus-X organization eclipse-tractusx on SonarQube Cloud, they check against the same rules and Quality Gates as the Tractus-X CI.',
     url: 'https://github.com/SonarSource/sonarqube-mcp-server',
     license: 'SONAR Source-Available License v1.0',
     usedBy: [
