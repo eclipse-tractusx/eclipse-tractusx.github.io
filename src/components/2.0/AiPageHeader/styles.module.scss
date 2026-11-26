@@ -193,13 +193,20 @@ $brand-green: #afc72d;
    Optional call to action below the stats (the Overview links to Dataspace 4 AI)
    -------------------------------------------------------------------------- */
 
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
 .action {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 32px;
   padding: 12px 22px;
-  border-radius: 999px;
+  border-radius: 5px;
   border: 1px solid rgba(250, 160, 35, 0.45);
   background: rgba(250, 160, 35, 0.1);
   color: $brand-orange;
@@ -215,17 +222,22 @@ $brand-green: #afc72d;
     transform: translateY(-2px);
   }
 
-  &:hover .actionIcon {
-    transform: translateX(3px);
-  }
-
   &:focus-visible {
     outline: 2px solid $brand-orange;
     outline-offset: 4px;
   }
 }
 
-.actionIcon {
-  font-size: 18px !important;
-  transition: transform 0.2s ease;
+// Main call to action: filled, so it stands out from the outlined secondary one.
+.actionPrimary {
+  border-color: transparent;
+  background: linear-gradient(120deg, $brand-orange 0%, #f08a12 100%);
+  color: #10120f;
+  box-shadow: 0 8px 24px rgba(250, 160, 35, 0.25);
+
+  &:hover {
+    background: linear-gradient(120deg, $brand-orange 0%, #f08a12 100%);
+    color: #10120f;
+    box-shadow: 0 12px 32px rgba(250, 160, 35, 0.35);
+  }
 }

@@ -32,6 +32,8 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 import ExtensionOutlinedIcon from '@mui/icons-material/ExtensionOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import AiPageHeader from '@site/src/components/2.0/AiPageHeader';
 import {
   agentTeams,
@@ -164,7 +166,10 @@ export default function AiOverviewPage() {
             { label: 'Repositories', value: statistics.repositories },
             { label: 'AI assistants', value: statistics.assistants },
           ]}
-          action={{ label: 'Why AI needs dataspaces', to: '/ai/dataspace-4-ai' }}
+          actions={[
+            { label: 'Add your IPCEI AI project', to: '/ai/related-projects#add-your-project', primary: true },
+            { label: 'Why AI needs dataspaces', to: '/ai/dataspace-4-ai' },
+          ]}
         />
 
         <section className={styles.section}>
@@ -299,6 +304,52 @@ claude --agent connector-sensei`}
                   <span className={styles.exploreText}>Why AI needs data shared with trust</span>
                 </span>
                 <ArrowForwardIcon className={styles.crewArrow} />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.section} aria-labelledby="ipcei-heading">
+          <div className={styles.container}>
+            <div className={styles.ipcei}>
+              <div className={styles.ipceiIntro}>
+                <span className={styles.sectionEyebrow}>Related projects</span>
+                <h2 id="ipcei-heading" className={styles.ipceiTitle}>
+                  Building AI, <span className={styles.accent}>together.</span>
+                </h2>
+                <p className={styles.ipceiText}>
+                  IPCEI AI projects and other AI initiatives can build on the same open Tractus-X core: the
+                  connector, identities and usage policies that let partners share data for AI with trust.
+                  Join the community and get your project listed.
+                </p>
+                <div className={styles.actions}>
+                  <Link className={styles.buttonPrimary} to="/ai/related-projects#add-your-project">
+                    Add your IPCEI AI project
+                  </Link>
+                  <Link className={styles.buttonSecondary} to="/ai/related-projects">
+                    See related projects
+                  </Link>
+                </div>
+              </div>
+              <Link
+                to="/ai/related-projects"
+                className={styles.ipceiSlots}
+                aria-label="See the related projects page"
+              >
+                {['01', '02', '03'].map((slot) => (
+                  <span key={slot} className={styles.ipceiSlot}>
+                    <HandshakeOutlinedIcon className={styles.ipceiSlotIcon} aria-hidden="true" />
+                    <span className={styles.ipceiSlotLines} aria-hidden="true">
+                      <span />
+                      <span />
+                    </span>
+                    <span className={styles.ipceiSlotLabel}>Possible project · {slot}</span>
+                  </span>
+                ))}
+                <span className={`${styles.ipceiSlot} ${styles.ipceiSlotAdd}`}>
+                  <AddRoundedIcon className={styles.ipceiAddIcon} aria-hidden="true" />
+                  <span className={styles.ipceiSlotLabel}>Your project</span>
+                </span>
               </Link>
             </div>
           </div>

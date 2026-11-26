@@ -137,7 +137,7 @@ export default function RelatedProjects() {
           eyebrow="AI · Related Projects"
           title={<>Building AI, <span className={styles.accent}>together.</span></>}
           subtitle="A home for IPCEI AI projects and other AI initiatives in Eclipse Tractus-X. Join the community, share the same core and help shape what comes next."
-          action={{ to: '#add-your-project', label: 'Add your IPCEI AI project' }}
+          action={{ to: '#add-your-project', label: 'Add your IPCEI AI project', primary: true }}
         />
 
         <section className={styles.section} aria-labelledby="projects-heading">
