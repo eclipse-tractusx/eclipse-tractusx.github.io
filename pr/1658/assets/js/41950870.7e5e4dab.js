@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([["25294"],{127477(e){e.exports={teamId:"testlab"}}}]);
