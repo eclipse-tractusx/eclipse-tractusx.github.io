@@ -111,6 +111,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  min-height: 28px;
   font-size: 0.8rem;
 }
 

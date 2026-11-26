@@ -23,7 +23,9 @@ $brand-orange: #faa023;
 $brand-green: #afc72d;
 
 .page {
+  // clip, not hidden: hidden makes <main> a scroll container that iOS Safari still pans sideways.
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .container {
@@ -169,7 +171,7 @@ $brand-green: #afc72d;
   list-style: none;
 
   @media screen and (max-width: 996px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -247,7 +249,7 @@ $brand-green: #afc72d;
   }
 
   @media screen and (max-width: 600px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -303,12 +305,12 @@ $brand-green: #afc72d;
 
 .flow {
   display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: stretch;
   gap: 12px;
 
   @media screen and (max-width: 760px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -381,7 +383,7 @@ $brand-green: #afc72d;
   gap: 20px;
 
   @media screen and (max-width: 760px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

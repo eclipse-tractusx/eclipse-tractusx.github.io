@@ -99,7 +99,7 @@ $brand-green: #afc72d;
   }
 
   @media screen and (max-width: 600px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -242,7 +242,7 @@ $brand-green: #afc72d;
   gap: 8px 32px;
 
   @media screen and (max-width: 900px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
