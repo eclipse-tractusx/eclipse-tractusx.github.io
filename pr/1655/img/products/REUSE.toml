@@ -1,0 +1,40 @@
+version = 1
+
+# Product logos shown on /Products. Each file is a copy (resized, or for the SVGs cropped
+# to the mark without the word) of the logo in the product's repository; the license and
+# copyright notices are taken over from that repository.
+
+[[annotations]]
+# Source: https://github.com/eclipse-tractusx/industry-core-hub/blob/main/docs/media/IndustryCoreHubLogo.png
+path = ["industry-core-hub.png"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2025 Contributors to the Eclipse Foundation"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+# Source: https://github.com/eclipse-tractusx/puris/blob/main/frontend/public/puris-logo.svg
+path = ["puris-mark.svg"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2024 Contributors to the Eclipse Foundation"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+# Source: https://github.com/eclipse-tractusx/traceability-foss/blob/main/docs/trace-x-logo.svg
+path = ["trace-x-mark.svg"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2023 Contributors to the Eclipse Foundation"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+# Source: https://github.com/eclipse-tractusx/item-relationship-service/blob/main/docs/logo/IRS_Logo.png
+path = ["irs.png"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2023 Contributors to the Eclipse Foundation"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+# Source: https://github.com/eclipse-tractusx/tractusx-testlab/blob/main/docs/media/test-lab-app-logo-black-claim.png
+path = ["testlab.png"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2025 Contributors to the Eclipse Foundation"
+SPDX-License-Identifier = "CC-BY-4.0"
