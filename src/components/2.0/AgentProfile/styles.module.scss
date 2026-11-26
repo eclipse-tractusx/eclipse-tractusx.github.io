@@ -227,7 +227,7 @@ $brand-green: #afc72d;
   align-items: center;
   gap: 8px;
   padding: 13px 24px;
-  border-radius: 12px;
+  border-radius: 5px;
   background: linear-gradient(120deg, $brand-orange 0%, #f08a12 100%);
   color: #10120f;
   font-size: 15px;
@@ -249,7 +249,7 @@ $brand-green: #afc72d;
   align-items: center;
   gap: 8px;
   padding: 13px 20px;
-  border-radius: 12px;
+  border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.22);
   color: #ffffff;
   font-size: 14px;
@@ -652,7 +652,7 @@ $brand-green: #afc72d;
 
 .pagerAll {
   padding: 10px 18px;
-  border-radius: 999px;
+  border-radius: 5px;
   border: 1px solid var(--ifm-color-emphasis-300);
   color: var(--ifm-font-color-base);
   font-size: 14px;
