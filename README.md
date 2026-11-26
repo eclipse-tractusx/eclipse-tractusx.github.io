@@ -29,14 +29,17 @@ This also works for pull requests opened from a fork: the preview is keyed by th
 number rather than the branch name, and the build and the deployment are split into two workflows so
 that code from a fork is never executed with write permissions.
 
-To keep the previews small enough for GitHub Pages, they only contain the KIT versions `Next`, the
-latest KIT release and any older KIT release that the pull request changes. Older KIT releases are
-left out otherwise (see [the workflow documentation](.github/workflows/README.md#what-the-preview-contains)).
+To keep the previews small enough for GitHub Pages, a preview only contains the pages the pull
+request changes; every other page of the preview opens on the live website. The comment lists the
+changed pages (see [the workflow documentation](.github/workflows/README.md#what-the-preview-contains)).
 
-To reproduce a preview build locally, set the same base URL and KIT versions that CI uses:
+To reproduce a preview build locally, set the same base URL and KIT versions that CI uses, and
+optionally remove the pages the branch does not change:
 
 ```bash
-BASE_URL=/pr/1234/ DOCS_KITS_VERSIONS=current npm run build && npm run serve
+BASE_URL=/pr/1234/ DOCS_KITS_VERSIONS=current npm run build
+git diff --name-only main... > changed-files.txt && node utils/prune-preview.js --changed-files changed-files.txt
+npm run serve
 ```
 
 ## Linting

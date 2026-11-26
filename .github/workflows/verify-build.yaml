@@ -119,8 +119,18 @@ jobs:
           BASE_URL: /pr/${{ github.event.pull_request.number }}/
           DOCS_KITS_VERSIONS: ${{ steps.kit-versions.outputs.versions }}
 
+      # The preview only keeps the pages the pull request changes. Every other
+      # path of the preview falls back to the live website through the 404.html
+      # of production (see utils/prune-preview.js and docusaurus.config.js).
+      - name: Keep only the changed pages
+        run: |
+          set -euo pipefail
+          git diff --name-only HEAD^1 HEAD > "${RUNNER_TEMP}/changed-files.txt"
+          echo "Files changed by the pull request: $(wc -l < "${RUNNER_TEMP}/changed-files.txt")"
+          node utils/prune-preview.js --changed-files "${RUNNER_TEMP}/changed-files.txt"
+
       - name: Report preview size
-        run: echo "::notice title=Preview size::$(du -sh ./build | cut -f1) for KIT versions ${{ steps.kit-versions.outputs.versions }} and the latest release"
+        run: echo "::notice title=Preview size::$(du -sh ./build | cut -f1) with $(jq length ./build/.preview-pages.json) changed pages"
 
       # .nojekyll is a hidden file of the build output.
       - name: Upload preview build

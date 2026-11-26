@@ -40,11 +40,19 @@
 #   update-gh-pages.sh remove <pr-number>
 #       Remove the preview in pr/<pr-number>.
 #
+# Every preview gets a pr/<pr-number>/.deployed-at file with the time of its
+# deployment. If PREVIEW_BUDGET_MB is set, the site and preview modes remove the
+# oldest previews until all previews together fit into the budget, so previews
+# can never grow the GitHub Pages site beyond what it can deploy. The preview
+# that is being deployed is never removed. A removed preview comes back with
+# the next push to its pull request.
+#
 # Environment:
 #   GITHUB_TOKEN       token with contents: write, used to fetch and push
 #   GITHUB_REPOSITORY  owner/name of the repository (set by GitHub Actions)
 #   GH_PAGES_REMOTE    overrides the remote URL, for example for local tests
 #   MAX_ATTEMPTS       number of push attempts (default 10)
+#   PREVIEW_BUDGET_MB  maximum size of all previews together in MB (default: no limit)
 
 set -euo pipefail
 
@@ -122,16 +130,44 @@ load_latest_gh_pages() {
   git clean --quiet -ffdx
 }
 
+# Lists the previews as "<deployed-at> <pr-number>", oldest first. Previews
+# without a timestamp were deployed before timestamps existed and count as oldest.
+list_previews_oldest_first() {
+  local dir number deployed_at
+  for dir in pr/*/; do
+    [ -d "${dir}" ] || continue
+    number="$(basename "${dir}")"
+    deployed_at="$(tr -dc '0-9' < "${dir}.deployed-at" 2> /dev/null || true)"
+    echo "${deployed_at:-0} ${number}"
+  done | sort -n
+}
+
+enforce_preview_budget() {
+  local budget="${PREVIEW_BUDGET_MB:-}" size deployed_at number
+  [ -n "${budget}" ] && [ -d pr ] || return 0
+  while read -r deployed_at number; do
+    size="$(du -sm pr | cut -f1)"
+    [ "${size}" -gt "${budget}" ] || break
+    [ "${number}" != "${pr_number:-}" ] || continue
+    echo "Previews use ${size} MB of ${budget} MB, removing the oldest preview pr/${number} (deployed at ${deployed_at})."
+    rm -rf "pr/${number}"
+    removed_previews+=("${number}")
+  done < <(list_previews_oldest_first)
+}
+
 apply_change() {
   case "${mode}" in
     site)
       find . -mindepth 1 -maxdepth 1 ! -name .git ! -name pr -exec rm -rf {} +
       cp -R "${source_dir}/." .
+      enforce_preview_budget
       ;;
     preview)
       rm -rf "pr/${pr_number}"
       mkdir -p "pr/${pr_number}"
       cp -R "${source_dir}/." "pr/${pr_number}/"
+      date +%s > "pr/${pr_number}/.deployed-at"
+      enforce_preview_budget
       ;;
     remove)
       rm -rf "pr/${pr_number}"
@@ -141,18 +177,26 @@ apply_change() {
 
 max_attempts="${MAX_ATTEMPTS:-10}"
 for attempt in $(seq 1 "${max_attempts}"); do
+  removed_previews=()
   load_latest_gh_pages
   apply_change
+  commit_message="${message}"
+  if [ "${#removed_previews[@]}" -gt 0 ]; then
+    commit_message+=$'\n\n'"Remove previews to stay within ${PREVIEW_BUDGET_MB} MB: ${removed_previews[*]}"
+  fi
 
   git add --all
   if git diff --cached --quiet; then
     echo "Nothing to publish, gh-pages is already up to date."
     exit 0
   fi
-  git commit --quiet --message "${message}"
+  git commit --quiet --message "${commit_message}"
 
   if git push --quiet origin HEAD:gh-pages; then
     echo "Published to gh-pages (attempt ${attempt}): ${message}"
+    if [ -n "${GITHUB_OUTPUT:-}" ]; then
+      echo "removed-previews=${removed_previews[*]}" >> "${GITHUB_OUTPUT}"
+    fi
     exit 0
   fi
 

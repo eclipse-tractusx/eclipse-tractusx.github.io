@@ -61,9 +61,13 @@ jobs:
       # previews in pr/ are kept. If another workflow pushed in the meantime,
       # the change is applied again on top of it. The script fetches gh-pages
       # itself and creates the branch if it does not exist yet.
+      # If the previews together exceed PREVIEW_BUDGET_MB, the oldest ones are
+      # removed, so previews can never stop the website from being deployed.
+      # Keep the value in sync with "Deploy pull request preview".
       - name: Publish to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PREVIEW_BUDGET_MB: 1000
         run: |
           mkdir "${RUNNER_TEMP}/gh-pages"
           cd "${RUNNER_TEMP}/gh-pages"

@@ -98,6 +98,14 @@ jobs:
       pull-requests: write
     env:
       PR_NUMBER: ${{ needs.prepare.outputs.number }}
+      # A preview normally only contains the pages its pull request changes and
+      # stays far below MAX_PREVIEW_MB. Larger previews (for example a change to
+      # a component, which affects every page) are not published, the build can
+      # be downloaded from the workflow run instead.
+      MAX_PREVIEW_MB: 300
+      # Maximum size of all previews together. update-gh-pages.sh removes the
+      # oldest previews beyond it. Keep in sync with "Build and deploy gh-pages".
+      PREVIEW_BUDGET_MB: 1000
     steps:
       # Checked again here, because the job may have waited in the concurrency
       # group. A pending removal is replaced by a newer run of this job, so a
@@ -131,11 +139,25 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Replaces pr/<number> completely, so hashed assets of earlier pushes do
-      # not pile up. The production site and the other previews stay untouched.
-      # The script fetches gh-pages itself and creates it if it does not exist.
-      - name: Publish preview to GitHub Pages
+      - name: Check preview size
+        id: size
         if: steps.check.outputs.state == 'open'
+        run: |
+          set -euo pipefail
+          size="$(du -sm ./preview | cut -f1)"
+          echo "The preview has ${size} MB, the limit is ${MAX_PREVIEW_MB} MB."
+          echo "mb=${size}" >> "$GITHUB_OUTPUT"
+          if [ "${size}" -gt "${MAX_PREVIEW_MB}" ]; then
+            echo "too-large=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Replaces pr/<number> completely, so hashed assets of earlier pushes do
+      # not pile up. The production site stays untouched; the oldest other
+      # previews are removed if all previews exceed PREVIEW_BUDGET_MB. The script
+      # fetches gh-pages itself and creates it if it does not exist.
+      - name: Publish preview to GitHub Pages
+        id: publish
+        if: steps.check.outputs.state == 'open' && steps.size.outputs.too-large != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -143,8 +165,10 @@ jobs:
           cd "${RUNNER_TEMP}/gh-pages"
           bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" preview "${PR_NUMBER}" "${GITHUB_WORKSPACE}/preview"
 
-      - name: Remove preview of closed pull request
-        if: steps.check.outputs.state != 'open'
+      # Also removes an older, smaller preview of the same pull request, so the
+      # preview never shows an outdated state.
+      - name: Remove preview of closed pull request or oversized preview
+        if: steps.check.outputs.state != 'open' || steps.size.outputs.too-large == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -152,53 +176,102 @@ jobs:
           cd "${RUNNER_TEMP}/gh-pages"
           bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" remove "${PR_NUMBER}"
 
+      # .preview-pages.json comes from the pull request build and is untrusted:
+      # only plain paths are used, and only as links below the preview URL.
       - name: Comment preview URL on the pull request
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         env:
           PR_STATE: ${{ steps.check.outputs.state }}
+          PREVIEW_MB: ${{ steps.size.outputs.mb }}
+          TOO_LARGE: ${{ steps.size.outputs.too-large }}
+          REMOVED_PREVIEWS: ${{ steps.publish.outputs.removed-previews }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
         with:
           script: |
+            const fs = require('fs');
             const marker = '<!-- pr-preview-comment -->';
             const prNumber = Number(process.env.PR_NUMBER);
-            const url = `https://eclipse-tractusx.github.io/pr/${prNumber}/`;
-            const body = process.env.PR_STATE === 'open'
-              ? [
+            const site = 'https://eclipse-tractusx.github.io';
+            const url = `${site}/pr/${prNumber}/`;
+            const maxListed = 15;
+
+            let pages = [];
+            try {
+              const parsed = JSON.parse(fs.readFileSync('preview/.preview-pages.json', 'utf8'));
+              if (Array.isArray(parsed)) {
+                pages = parsed.filter((page) => typeof page === 'string' && /^\/[A-Za-z0-9._~\/%-]{0,300}$/.test(page) && !page.includes('..'));
+              }
+            } catch {
+              // No list of changed pages, for example a build of an older version of the workflow.
+            }
+            const pageList = pages.slice(0, maxListed).map((page) => `- [\`${page}\`](${url}${page.slice(1)})`);
+            if (pages.length > maxListed) {
+              pageList.push(`- … and ${pages.length - maxListed} more`);
+            }
+
+            let body;
+            if (process.env.PR_STATE !== 'open') {
+              body = [marker, '## 🔍 Pull request preview', '', 'This pull request is closed, so the preview has been removed.'].join('\n');
+            } else if (process.env.TOO_LARGE === 'true') {
+              body = [
                 marker,
                 '## 🔍 Pull request preview',
                 '',
-                'The website was built from this pull request and is available here:',
+                `The preview has ${process.env.PREVIEW_MB} MB, more than the ${process.env.MAX_PREVIEW_MB} MB a preview may use on GitHub Pages, so it is not published. This happens when a change affects every page, for example a change to a component, a style or the configuration.`,
+                '',
+                `📦 Download the \`pr-preview\` artifact from the [build](${process.env.RUN_URL}) and serve it locally, or build the preview locally as described in the README.`,
+              ].join('\n');
+            } else {
+              body = [
+                marker,
+                '## 🔍 Pull request preview',
                 '',
                 `🌐 **Preview URL:** ${url}`,
                 '',
-                '> This comment is updated automatically on every push. The preview is removed once the pull request is closed.',
-              ].join('\n')
-              : [
+                pages.length > 0
+                  ? 'The preview only contains the pages this pull request changes:'
+                  : 'This pull request does not change any page of the website.',
+                '',
+                ...pageList,
+                '',
+                '> All other pages of the preview open on the live website. This comment is updated automatically on every push. The preview is removed once the pull request is closed, or earlier if newer previews need the space; push again to bring it back.',
+              ].join('\n');
+            }
+
+            async function upsertComment(issueNumber, text, createIfMissing) {
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                per_page: 100,
+              });
+              const existing = comments.find((comment) => comment.body?.startsWith(marker));
+              if (existing) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existing.id,
+                  body: text,
+                });
+              } else if (createIfMissing) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: text,
+                });
+              }
+            }
+
+            await upsertComment(prNumber, body, process.env.PR_STATE === 'open');
+
+            // Previews removed to make space for this one.
+            const removed = (process.env.REMOVED_PREVIEWS || '').split(' ').filter((n) => /^[1-9][0-9]{0,9}$/.test(n));
+            for (const number of removed) {
+              await upsertComment(Number(number), [
                 marker,
                 '## 🔍 Pull request preview',
                 '',
-                'This pull request is closed, so the preview has been removed.',
-              ].join('\n');
-
-            const comments = await github.paginate(github.rest.issues.listComments, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber,
-              per_page: 100,
-            });
-            const existing = comments.find((comment) => comment.body?.startsWith(marker));
-
-            if (existing) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existing.id,
-                body,
-              });
-            } else if (process.env.PR_STATE === 'open') {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: prNumber,
-                body,
-              });
+                `The preview was removed to make space for newer previews on GitHub Pages. Push a new commit to publish it again.`,
+              ].join('\n'), false);
             }

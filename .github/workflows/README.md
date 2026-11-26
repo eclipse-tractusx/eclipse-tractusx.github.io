@@ -8,7 +8,7 @@ when it runs and how the workflows depend on each other.
 | Workflow (file) | Trigger | Purpose | Writes to `gh-pages` |
 |---|---|---|---|
 | [Build and deploy gh-pages](build-and-deploy-gh-pages.yaml) | push to `main` | Builds and publishes the production site | yes (root) |
-| [Build pull request preview](verify-build.yaml) | pull request to `main` | Checks that the complete site builds, produces a smaller preview | no |
+| [Build pull request preview](verify-build.yaml) | pull request to `main` | Checks that the complete site builds, produces a preview with only the changed pages | no |
 | [Deploy pull request preview](deploy-pr-preview.yaml) | "Build pull request preview" completed | Publishes the preview of a pull request | yes (`pr/<number>/`) |
 | [Remove pull request preview](cleanup-pr-preview.yaml) | pull request closed or merged | Deletes the preview of a pull request | yes (`pr/<number>/`) |
 | [Markdown linting for documentation](lint-on-pull-request.yaml) | pull request to `main` | Runs markdownlint on `docs/` and `docs-kits/kits/` | no |
@@ -26,11 +26,11 @@ cancels an older one that has not finished.
 
 ```mermaid
 flowchart TD
-    PR["Pull request opened or updated"] --> BUILD["Build pull request preview<br/>(complete build as check +<br/>preview build with BASE_URL=/pr/N/)"]
+    PR["Pull request opened or updated"] --> BUILD["Build pull request preview<br/>(complete build as check +<br/>preview build with BASE_URL=/pr/N/,<br/>pruned to the changed pages)"]
     PR --> LINT["Markdown linting"]
     PR --> CHECKS["Quality Checks, TruffleHog,<br/>Dash, Kit Word documents"]
     BUILD -- "artifacts: pr-preview, pr-number" --> DEPLOY["Deploy pull request preview<br/>(no build, no PR code)"]
-    DEPLOY -- "pr/N/" --> GHP[("gh-pages branch")]
+    DEPLOY -- "pr/N/, removes oldest previews<br/>beyond the budget" --> GHP[("gh-pages branch")]
     CLOSE["Pull request closed or merged"] --> CLEAN["Remove pull request preview"]
     CLEAN -- "deletes pr/N/" --> GHP
     MERGE["Push to main"] --> PROD["Build and deploy gh-pages<br/>(npm ci + build with BASE_URL=/)"]
@@ -44,7 +44,8 @@ flowchart TD
   - `Build static website` builds the complete site, exactly like production. It verifies that the site builds (broken
     links fail the build, although `npm start` may not show them) and is a required status check. Its output is not
     kept.
-  - `Build preview` builds a smaller site with the base URL `/pr/<number>/`. Its output is the preview. "Deploy pull
+  - `Build preview` builds the site with the base URL `/pr/<number>/` and removes every page the pull request does not
+    change. Its output is the preview. "Deploy pull
     request preview" does not build anything; it publishes the artifact of that job. Removing the job would therefore
     remove the previews.
 - **Merge to `main`:** the site is built again in "Build and deploy gh-pages". This is not redundant: the preview was
@@ -55,29 +56,54 @@ flowchart TD
 
 The previews and the production site share the `gh-pages` branch and with it the
 [size limit of GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits).
-Most of the site's size comes from the frozen KIT releases in `docs-kits_versioned_docs/`: each release is a full copy
-of all KITs with their images, several hundred MB. With all of them, a few open pull requests were enough to exceed the
-limit, so `gh-pages` could no longer be published.
+A complete build is well over 1 GB, mostly because of the frozen KIT releases in `docs-kits_versioned_docs/`. With
+complete previews, a few open pull requests were enough to exceed the limit, and then not even the production site
+could be published.
 
-The preview therefore only contains the KIT versions that a pull request can change:
+A preview therefore only contains what the pull request changes. Every other path of the preview falls back to the
+live website:
 
-- `Next` (`docs-kits/`, served at `/docs-kits/next/`),
-- the latest KIT release (served at `/docs-kits/`, linked from the KIT gallery and many pages),
-- every older KIT release that the pull request changes in `docs-kits_versioned_docs/` or
-  `docs-kits_versioned_sidebars/`.
+1. `Build preview` builds the site with the base URL `/pr/<number>/`. It only builds the KIT versions `Next`, the latest
+   release (both are needed so every KIT page keeps its path) and older releases that the pull request changes in
+   `docs-kits_versioned_docs/` or `docs-kits_versioned_sidebars/`. They are selected with the environment variable
+   `DOCS_KITS_VERSIONS` of [`docusaurus.config.js`](../../docusaurus.config.js).
+2. [`utils/prune-preview.js`](../../utils/prune-preview.js) then removes the pages that the changed files
+   (`git diff` of the pull request) do not affect, with their page chunks and the images that only they use:
+   - a changed Markdown page keeps itself; another changed file in a content folder (an image, a partial) keeps the
+     pages of its folder,
+   - a change inside a KIT keeps that whole KIT in that version,
+   - blog lists, tags and feeds are kept only if the pull request changes that blog, and only their first page,
+   - a change outside the content folders (components, styles, `data/`, `static/`, configuration) can affect every
+     page, so it keeps all pages except the older KIT releases,
+   - changes that do not end up on the website (`.github/`, `README.md`, ...) only keep the home page.
 
-All other pages are complete. Links to the KIT releases that were left out show "Page not found" in the preview; they
-work in production. The `Build preview` job reports the size of the preview as a notice in the workflow run.
+   It writes the affected pages to `.preview-pages.json`; the preview comment links them.
+3. GitHub Pages answers a path that does not exist with the `404.html` at the root, which belongs to the production
+   site. A small script in the production pages sends every `/pr/<number>/<path>` that ends there to `/<path>` on the
+   live website. Navigating inside the preview to a removed page also ends there: Docusaurus cannot load the page
+   and reloads it. The preview's announcement bar tells visitors which pull request they are looking at.
 
-The selection uses the environment variable `DOCS_KITS_VERSIONS` of [`docusaurus.config.js`](../../docusaurus.config.js)
-(comma separated, `current` is `Next`), which sets the `onlyIncludeVersions` option of the KIT docs. To build such a
-preview locally:
+A preview with only content changes is a few dozen MB instead of over 1 GB. Two limits protect `gh-pages` from the
+rest:
+
+- **`MAX_PREVIEW_MB`** (300) in "Deploy pull request preview": a larger preview is not published, and an older preview
+  of the pull request is removed. The comment links the build, whose `pr-preview` artifact can be served locally.
+- **`PREVIEW_BUDGET_MB`** (1000) in "Deploy pull request preview" and "Build and deploy gh-pages": `update-gh-pages.sh`
+  removes the oldest previews (by `pr/<number>/.deployed-at`) until all previews fit. The preview being deployed is
+  never removed. If a preview deployment removes other previews, it updates their comments. A new push brings a
+  preview back.
+
+The `Build preview` job reports the size of the preview as a notice in the workflow run. To build and prune a preview
+locally:
 
 ```bash
 BASE_URL=/pr/1234/ DOCS_KITS_VERSIONS=current npm run build
+git diff --name-only main... > changed-files.txt
+node utils/prune-preview.js --changed-files changed-files.txt
 ```
 
-Without the variable, all KIT versions are built.
+The fallback to the live website needs the production `404.html`, so `npm run serve` shows "Page not found" for the
+removed pages instead.
 
 ### Why the preview needs two workflows
 
@@ -110,7 +136,7 @@ The previews are available at `https://eclipse-tractusx.github.io/pr/<number>/`.
 target, so pages and hashed assets that no longer exist do not pile up:
 
 - the production deployment replaces everything at the root except `pr/`,
-- a preview deployment replaces only `pr/<number>/`,
+- a preview deployment replaces only `pr/<number>/` (and removes the oldest previews beyond the budget),
 - the removal deletes only `pr/<number>/`.
 
 ### Writing to `gh-pages` concurrently
