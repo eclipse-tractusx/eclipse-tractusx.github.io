@@ -538,8 +538,10 @@ $brand-green: #afc72d;
 .hubName {
   margin-bottom: 10px;
   font-family: 'Manrope', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .hubParts {
