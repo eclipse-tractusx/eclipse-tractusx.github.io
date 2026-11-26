@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([["2853"],{890884(e,s,c){c.d(s,{createTreemapServices:()=>t.d});var t=c(916527);c(504954)}}]);
