@@ -22,7 +22,6 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import clsx from 'clsx';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import HubOutlinedIcon from '@mui/icons-material/HubOutlined';
 import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
@@ -145,26 +144,26 @@ export default function RelatedProjects() {
               <span className={styles.sectionEyebrow}>Community showcase</span>
               <h2 id="projects-heading" className={styles.sectionTitle}>Space for what&apos;s next</h2>
               <p className={styles.sectionLead}>
-                Project details are not published yet. These three placeholders reserve space for future
-                community contributions, not announced projects or release commitments.
+                These projects are in preparation and open for collaboration. Details will be published as
+                they mature; these cards are not announced projects or release commitments.
               </p>
             </div>
             <div className={projectStyles.grid}>
               {[1, 2, 3].map((slot) => (
                 <article key={slot} className={clsx(styles.panel, projectStyles.placeholder)}>
                   <div className={projectStyles.cardHeader}>
-                    <span className={styles.iconTile} aria-hidden="true"><LockOutlinedIcon /></span>
-                    <span className={projectStyles.badge}>Not yet revealed</span>
+                    <span className={styles.iconTile} aria-hidden="true"><HandshakeOutlinedIcon /></span>
+                    <span className={projectStyles.badge}>Open for collaboration</span>
                   </div>
                   <div className={projectStyles.redacted} aria-hidden="true">
                     <span />
                     <span />
                     <span />
                   </div>
-                  <h3 className={styles.principleTitle}>Project to be revealed · 0{slot}</h3>
+                  <h3 className={styles.principleTitle}>Project in preparation · 0{slot}</h3>
                   <p className={styles.principleText}>
-                    A place for an IPCEI AI project or another Eclipse Tractus-X AI initiative. Details will
-                    appear here when contributed.
+                    An IPCEI AI project or another Eclipse Tractus-X AI initiative in preparation. Details
+                    will appear here as it takes shape.
                   </p>
                 </article>
               ))}
