@@ -18,14 +18,21 @@
 # SPDX-License-Identifier: Apache-2.0
 #*******************************************************************************/
 
-# This is the only website build of a pull request. It checks that the site
-# builds (broken links fail the build) and its output is the preview: the
-# workflow "Deploy pull request preview" does not build anything, it publishes
-# the artifact uploaded here to https://eclipse-tractusx.github.io/pr/<PR-number>/.
-# Removing this workflow therefore also removes the previews.
+# Builds the website of a pull request twice, in parallel:
 #
-# The job name "Build static website" is a required status check of the main
-# branch. Keep it when renaming the job.
+# - "Build static website" builds the complete site, like production does, and
+#   only checks that it builds (broken links fail the build). It is a required
+#   status check of the main branch. Keep the job name when renaming the job.
+# - "Build preview" builds a smaller site that is published as the preview. The
+#   workflow "Deploy pull request preview" does not build anything, it publishes
+#   the artifact uploaded here to https://eclipse-tractusx.github.io/pr/<PR-number>/.
+#   Removing this job therefore also removes the previews.
+#
+# The previews share the gh-pages branch, and with it the size limit of GitHub
+# Pages, with the production site. Every frozen KIT release is a full copy of
+# all KITs (several hundred MB), so the preview only contains the KIT versions
+# a pull request can change: "Next", the latest release and any older release
+# the pull request touches. Older KIT releases are left out otherwise.
 name: Build pull request preview
 
 on:
@@ -61,6 +68,47 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build website
+        run: npm run build
+
+  preview:
+    name: Build preview
+    runs-on: ubuntu-latest
+    steps:
+      # For a pull request the checkout is the merge commit of the pull request
+      # into main. Its first parent is main, so the second commit is enough to
+      # find out what the pull request changes.
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Older KIT releases are only part of the preview if the pull request
+      # changes them. Releases that no longer exist (for example a release that
+      # is removed by the pull request) are skipped.
+      - name: Select KIT versions
+        id: kit-versions
+        run: |
+          set -euo pipefail
+          changed="$(git diff --name-only HEAD^1 HEAD -- docs-kits_versioned_docs docs-kits_versioned_sidebars \
+            | sed -nE 's#^docs-kits_versioned_docs/version-([^/]+)/.*#\1#p; s#^docs-kits_versioned_sidebars/version-(.+)-sidebars\.json$#\1#p' \
+            | sort -u)"
+          versions="current"
+          for version in ${changed}; do
+            if jq -e --arg v "${version}" 'index($v) != null' docs-kits_versions.json > /dev/null; then
+              versions="${versions},${version}"
+            fi
+          done
+          echo "KIT versions in the preview (the latest release is always included): ${versions}"
+          echo "versions=${versions}" >> "$GITHUB_OUTPUT"
+
       # The preview is served from a subfolder of the GitHub Pages site, so the
       # site has to be built with a matching baseUrl. Using the pull request
       # number keeps the path stable and unique, also for pull requests opened
@@ -69,6 +117,10 @@ jobs:
         run: npm run build
         env:
           BASE_URL: /pr/${{ github.event.pull_request.number }}/
+          DOCS_KITS_VERSIONS: ${{ steps.kit-versions.outputs.versions }}
+
+      - name: Report preview size
+        run: echo "::notice title=Preview size::$(du -sh ./build | cut -f1) for KIT versions ${{ steps.kit-versions.outputs.versions }} and the latest release"
 
       # .nojekyll is a hidden file of the build output.
       - name: Upload preview build

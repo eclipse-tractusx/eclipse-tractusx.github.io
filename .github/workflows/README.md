@@ -8,7 +8,7 @@ when it runs and how the workflows depend on each other.
 | Workflow (file) | Trigger | Purpose | Writes to `gh-pages` |
 |---|---|---|---|
 | [Build and deploy gh-pages](build-and-deploy-gh-pages.yaml) | push to `main` | Builds and publishes the production site | yes (root) |
-| [Build pull request preview](verify-build.yaml) | pull request to `main` | Checks that the site builds, produces the preview | no |
+| [Build pull request preview](verify-build.yaml) | pull request to `main` | Checks that the complete site builds, produces a smaller preview | no |
 | [Deploy pull request preview](deploy-pr-preview.yaml) | "Build pull request preview" completed | Publishes the preview of a pull request | yes (`pr/<number>/`) |
 | [Remove pull request preview](cleanup-pr-preview.yaml) | pull request closed or merged | Deletes the preview of a pull request | yes (`pr/<number>/`) |
 | [Markdown linting for documentation](lint-on-pull-request.yaml) | pull request to `main` | Runs markdownlint on `docs/` and `docs-kits/kits/` | no |
@@ -26,7 +26,7 @@ cancels an older one that has not finished.
 
 ```mermaid
 flowchart TD
-    PR["Pull request opened or updated"] --> BUILD["Build pull request preview<br/>(npm ci + build with BASE_URL=/pr/N/)"]
+    PR["Pull request opened or updated"] --> BUILD["Build pull request preview<br/>(complete build as check +<br/>preview build with BASE_URL=/pr/N/)"]
     PR --> LINT["Markdown linting"]
     PR --> CHECKS["Quality Checks, TruffleHog,<br/>Dash, Kit Word documents"]
     BUILD -- "artifacts: pr-preview, pr-number" --> DEPLOY["Deploy pull request preview<br/>(no build, no PR code)"]
@@ -38,15 +38,46 @@ flowchart TD
     GHP --> PAGES["pages-build-deployment (GitHub)<br/>publishes eclipse-tractusx.github.io"]
 ```
 
-### One build per pull request, one per merge
+### Two builds per pull request, one per merge
 
-- **Pull request:** the site is built once, in "Build pull request preview". That build serves two purposes. It
-  verifies that the site builds (broken links fail the build, although `npm start` may not show them), and its output
-  is the preview. "Deploy pull request preview" does not build anything; it publishes the artifact of that run.
-  "Remove pull request preview" would therefore remove the previews.
+- **Pull request:** "Build pull request preview" builds the site twice, in two parallel jobs:
+  - `Build static website` builds the complete site, exactly like production. It verifies that the site builds (broken
+    links fail the build, although `npm start` may not show them) and is a required status check. Its output is not
+    kept.
+  - `Build preview` builds a smaller site with the base URL `/pr/<number>/`. Its output is the preview. "Deploy pull
+    request preview" does not build anything; it publishes the artifact of that job. Removing the job would therefore
+    remove the previews.
 - **Merge to `main`:** the site is built again in "Build and deploy gh-pages". This is not redundant: the preview was
   built with the base URL `/pr/<number>/` and from the pull request at that time, while production needs the base URL
   `/` and the current state of `main`.
+
+### What the preview contains
+
+The previews and the production site share the `gh-pages` branch and with it the
+[size limit of GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits).
+Most of the site's size comes from the frozen KIT releases in `docs-kits_versioned_docs/`: each release is a full copy
+of all KITs with their images, several hundred MB. With all of them, a few open pull requests were enough to exceed the
+limit, so `gh-pages` could no longer be published.
+
+The preview therefore only contains the KIT versions that a pull request can change:
+
+- `Next` (`docs-kits/`, served at `/docs-kits/next/`),
+- the latest KIT release (served at `/docs-kits/`, linked from the KIT gallery and many pages),
+- every older KIT release that the pull request changes in `docs-kits_versioned_docs/` or
+  `docs-kits_versioned_sidebars/`.
+
+All other pages are complete. Links to the KIT releases that were left out show "Page not found" in the preview; they
+work in production. The `Build preview` job reports the size of the preview as a notice in the workflow run.
+
+The selection uses the environment variable `DOCS_KITS_VERSIONS` of [`docusaurus.config.js`](../../docusaurus.config.js)
+(comma separated, `current` is `Next`), which sets the `onlyIncludeVersions` option of the KIT docs. To build such a
+preview locally:
+
+```bash
+BASE_URL=/pr/1234/ DOCS_KITS_VERSIONS=current npm run build
+```
+
+Without the variable, all KIT versions are built.
 
 ### Why the preview needs two workflows
 
@@ -54,7 +85,7 @@ A pull request from a fork must not get write access to the repository, because 
 therefore split:
 
 1. **Build pull request preview** runs the pull request's code with read-only permissions and no secrets. It uploads
-   the build output (`pr-preview`) and the pull request number (`pr-number`) as artifacts.
+   the preview build (`pr-preview`) and the pull request number (`pr-number`) as artifacts.
 2. **Deploy pull request preview** is started by the completion of the build (`workflow_run`) and runs with write
    access, in the context of the base repository. It never checks out or runs code from the pull request. It treats the
    artifacts as untrusted input: the pull request number must be a plain number, and that pull request's latest commit

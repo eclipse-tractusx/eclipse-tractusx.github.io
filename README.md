@@ -17,7 +17,7 @@ This will install all dependencies necessary and run the website on [http://loca
 
 ## Pull request previews
 
-Every pull request against `main` is built by the `Verify website build` workflow. When the build
+Every pull request against `main` is built by the `Build pull request preview` workflow. When the build
 succeeds, the `Deploy pull request preview` workflow publishes the result to
 
 `https://eclipse-tractusx.github.io/pr/<pull-request-number>/`
@@ -29,10 +29,14 @@ This also works for pull requests opened from a fork: the preview is keyed by th
 number rather than the branch name, and the build and the deployment are split into two workflows so
 that code from a fork is never executed with write permissions.
 
-To reproduce a preview build locally, set the same base URL that CI uses:
+To keep the previews small enough for GitHub Pages, they only contain the KIT versions `Next`, the
+latest KIT release and any older KIT release that the pull request changes. Older KIT releases are
+left out otherwise (see [the workflow documentation](.github/workflows/README.md#what-the-preview-contains)).
+
+To reproduce a preview build locally, set the same base URL and KIT versions that CI uses:
 
 ```bash
-BASE_URL=/pr/1234/ npm run build && npm run serve
+BASE_URL=/pr/1234/ DOCS_KITS_VERSIONS=current npm run build && npm run serve
 ```
 
 ## Linting

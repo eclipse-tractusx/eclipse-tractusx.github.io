@@ -26,6 +26,24 @@ const baseUrl = rawBaseUrl ? `/${rawBaseUrl}/` : '/';
 const umamiWebsiteId = process.env.UMAMI_WEBSITE_ID ?? 'f67aead1-a34a-4905-86bc-19632b489270';
 const umamiScriptUrl = process.env.UMAMI_SCRIPT_URL || 'https://cloud.umami.is/script.js';
 
+// Every frozen KIT release (docs-kits_versioned_docs/) is a full copy of all KITs, so
+// each one adds several hundred MB to the build. Pull request previews share the
+// size-limited gh-pages branch, so they only build the KIT versions listed in
+// DOCS_KITS_VERSIONS (comma separated, "current" is the unreleased "Next" version).
+// The latest release is always kept, because it is served at /docs-kits/ and linked
+// from all over the site. Unset builds every version, as production does.
+const docsKitsReleases = require('./docs-kits_versions.json');
+const docsKitsOnlyIncludeVersions = (() => {
+  const requested = (process.env.DOCS_KITS_VERSIONS || '')
+    .split(',')
+    .map((version) => version.trim())
+    .filter(Boolean);
+  if (requested.length === 0) {
+    return undefined;
+  }
+  return [...new Set(['current', docsKitsReleases[0], ...requested])].filter(Boolean);
+})();
+
 // Eclipse Foundation cookie consent banner, mandatory before any analytics data is
 // collected: https://webdev.eclipse.org/docs/solstice/?path=/docs/getting-started-embedding-analytics--docs
 const eclipseCookieConsentBase = 'https://www.eclipse.org/eclipse.org-common/themes/solstice/public';
@@ -170,6 +188,7 @@ const config = {
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
         exclude: ['**/kit-template/**'],
+        ...(docsKitsOnlyIncludeVersions && { onlyIncludeVersions: docsKitsOnlyIncludeVersions }),
       },
     ],
     // -- documentation-kits --
