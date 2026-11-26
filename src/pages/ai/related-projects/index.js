@@ -37,7 +37,7 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
-import LayersOutlinedIcon from '@mui/icons-material/LayersOutlined';
+import SchemaOutlinedIcon from '@mui/icons-material/SchemaOutlined';
 import BuildOutlinedIcon from '@mui/icons-material/BuildOutlined';
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
 import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
@@ -58,7 +58,7 @@ const TOPICS = [
     text: 'Let agents from different companies talk to each other (agent-to-agent) with verified identities, signed messages and usage policies, over the dataspace.',
   },
   {
-    icon: <LayersOutlinedIcon />,
+    icon: <SchemaOutlinedIcon />,
     title: 'Semantics and data layers',
     size: 'wide',
     text: 'Use shared semantic models and the digital twin layer so AI understands what the data means, not only what it looks like.',

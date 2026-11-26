@@ -192,6 +192,7 @@ $brand-green: #afc72d;
 
 .topicIcon {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   width: 40px;
