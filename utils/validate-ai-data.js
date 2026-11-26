@@ -142,6 +142,17 @@ function validateMcpServerDetails(server, label, errors) {
   (details.features || []).forEach((feature, index) => {
     requireFields(feature, ['title', 'text'], `${label} details.features[${index}]`, errors);
   });
+  if (details.prerequisites) {
+    const prerequisites = details.prerequisites;
+    requireFields(prerequisites, ['title', 'steps'], `${label} details.prerequisites`, errors);
+    if (prerequisites.steps && (!Array.isArray(prerequisites.steps) || prerequisites.steps.length === 0)) {
+      errors.push(`${label} details.prerequisites: steps must be a non-empty list`);
+    }
+    (prerequisites.links || []).forEach((link, index) => {
+      requireFields(link, ['label', 'url'], `${label} details.prerequisites.links[${index}]`, errors);
+      if (link.url && !link.url.startsWith('https://')) errors.push(`${label} details.prerequisites.links[${index}]: url must use https`);
+    });
+  }
   (details.setup || []).forEach((step, index) => {
     requireFields(step, ['title', 'language', 'code'], `${label} details.setup[${index}]`, errors);
   });

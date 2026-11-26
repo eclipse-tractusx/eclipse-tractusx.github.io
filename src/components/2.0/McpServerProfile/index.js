@@ -244,6 +244,32 @@ export default function McpServerProfile({ serverId }) {
                 )}
 
                 <Section icon={<CableOutlinedIcon />} title="Connect it">
+                  {details.prerequisites && (
+                    <div className={styles.prerequisites}>
+                      <h3 className={styles.setupTitle}>{details.prerequisites.title}</h3>
+                      {details.prerequisites.text && (
+                        <p className={styles.setupText}>{details.prerequisites.text}</p>
+                      )}
+                      <ol className={styles.prerequisiteSteps}>
+                        {details.prerequisites.steps.map((step) => (
+                          <li key={step}>{step}</li>
+                        ))}
+                      </ol>
+                      {details.prerequisites.note && (
+                        <p className={styles.prerequisiteNote}>{details.prerequisites.note}</p>
+                      )}
+                      {details.prerequisites.links && (
+                        <div className={styles.prerequisiteLinks}>
+                          {details.prerequisites.links.map((link) => (
+                            <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">
+                              {link.label}
+                              <OpenInNewIcon fontSize="inherit" />
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
                   {details.setup.map((step) => (
                     <div key={step.title} className={styles.setup}>
                       <h3 className={styles.setupTitle}>{step.title}</h3>

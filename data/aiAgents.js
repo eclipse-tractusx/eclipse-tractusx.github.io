@@ -488,6 +488,7 @@ const mcpServers = [
         { label: 'Runs as', value: 'Docker image sonarsource/sonarqube-mcp or a JAR' },
         { label: 'Connects to', value: 'SonarQube Cloud or SonarQube Server' },
         { label: 'Authentication', value: 'A SonarQube user token' },
+        { label: 'Tractus-X organization', value: 'eclipse-tractusx on SonarQube Cloud' },
       ],
       toolsNote:
         'A selection of the tools that matter for code changes. The server has more groups (system, webhooks, portfolios, architecture and more), and toolsets or a read-only mode can limit what an agent sees.',
@@ -534,13 +535,30 @@ const mcpServers = [
         { title: 'How the Testlab agents use it', text: 'At the start of a task they turn automatic analysis off, at the end they analyze the files they changed and turn it back on. They look up project keys instead of guessing them.' },
         { title: 'Limit the tools', text: 'Toolsets and a read-only mode narrow the tools an agent sees, so it only gets what the task needs.' },
       ],
+      prerequisites: {
+        title: 'Get your SonarQube Cloud token',
+        text: 'All Tractus-X repositories are analyzed in the SonarQube Cloud organization eclipse-tractusx, so the organization is already filled in below. You only need your own token.',
+        steps: [
+          'Sign in to SonarQube Cloud (sonarcloud.io) with your GitHub account.',
+          'Open your avatar in the top right, then My Account and the Security tab.',
+          'Enter a name for the token, for example "mcp-server", pick an expiry date and select Generate Token.',
+          'Copy the token right away, it is only shown once. Keep it out of Git: put it in an environment variable (SONAR_TOKEN) or your password manager.',
+        ],
+        note: 'The token acts as you. Reading the public Tractus-X projects works with any account; changing the status of an issue or Security Hotspot needs the matching permission on that project.',
+        links: [
+          { label: 'Open the Security tab in SonarQube Cloud', url: 'https://sonarcloud.io/account/security' },
+          { label: 'Tractus-X organization on SonarQube Cloud', url: 'https://sonarcloud.io/organizations/eclipse-tractusx/projects' },
+        ],
+      },
       setup: [
         {
           title: 'Claude Code (SonarQube Cloud)',
           language: 'bash',
-          code: `claude mcp add sonarqube \\
+          code: `export SONAR_TOKEN=<your-token>
+
+claude mcp add sonarqube \\
   --env SONARQUBE_TOKEN=$SONAR_TOKEN \\
-  --env SONARQUBE_ORG=$SONAR_ORG \\
+  --env SONARQUBE_ORG=eclipse-tractusx \\
   -- docker run --init --pull=always -i --rm -e SONARQUBE_TOKEN -e SONARQUBE_ORG sonarsource/sonarqube-mcp`,
         },
         {
@@ -553,11 +571,20 @@ const mcpServers = [
       "args": ["run", "--init", "--pull=always", "-i", "--rm", "-e", "SONARQUBE_TOKEN", "-e", "SONARQUBE_ORG", "sonarsource/sonarqube-mcp"],
       "env": {
         "SONARQUBE_TOKEN": "<your-token>",
-        "SONARQUBE_ORG": "<your-org>"
+        "SONARQUBE_ORG": "eclipse-tractusx"
       }
     }
   }
 }`,
+        },
+        {
+          title: 'Let agents check their own code',
+          text: 'With the organization set to eclipse-tractusx, the agent checks against the same organization, rules and Quality Gates as the Tractus-X CI. Before it hands over a change, it looks up the project key, analyzes the files it changed, fixes what SonarQube finds and reports the Quality Gate status. Add a prompt like this to your task or to the agent instructions of your repository:',
+          language: 'text',
+          code: `Before you finish, check your changes with the SonarQube MCP server:
+1. Find the project key of this repository in the eclipse-tractusx organization.
+2. Analyze every file you changed and fix the issues SonarQube reports.
+3. Show the Quality Gate status of the project and any issues left in the files you touched.`,
         },
       ],
       links: [
