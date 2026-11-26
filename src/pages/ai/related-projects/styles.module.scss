@@ -1,0 +1,678 @@
+/*********************************************************************************
+ * Copyright (c) 2026 Contributors to the Eclipse Foundation
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
+$brand-orange: #faa023;
+$brand-green: #afc72d;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+
+  @media screen and (max-width: 996px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.placeholder {
+  border-style: dashed;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.redacted {
+  display: grid;
+  gap: 10px;
+  margin: 28px 0;
+
+  span {
+    height: 12px;
+    border-radius: 6px;
+    background: var(--ifm-color-emphasis-200);
+  }
+
+  span:nth-child(2) {
+    width: 85%;
+  }
+
+  span:last-child {
+    width: 60%;
+  }
+}
+
+// Third slot: an empty, inviting card that links to the contribution section.
+.addCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+  color: inherit;
+  border-width: 2px;
+  background: transparent;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: inherit;
+    text-decoration: none;
+    border-color: #faa023;
+    background: rgba(250, 160, 35, 0.05);
+    transform: translateY(-2px);
+  }
+
+  &:hover .addIcon,
+  &:focus-visible .addIcon {
+    background: rgba(250, 160, 35, 0.2);
+  }
+}
+
+.addIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  border: 2px dashed rgba(250, 160, 35, 0.6);
+  background: rgba(250, 160, 35, 0.1);
+  color: #faa023;
+  transition: background-color 0.2s ease;
+
+  svg {
+    font-size: 32px;
+  }
+}
+
+.addCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: #faa023;
+  font-size: 14px;
+  font-weight: 700;
+
+  svg {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .addCard {
+    transition: none;
+
+    &:hover,
+    &:focus-visible {
+      transform: none;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Things to explore: bento grid with mixed tile sizes
+   -------------------------------------------------------------------------- */
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 16px;
+
+  @media screen and (max-width: 996px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.topic {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: rgba(250, 160, 35, 0.5);
+    transform: translateY(-2px);
+  }
+}
+
+.topicNumber {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ifm-color-emphasis-400);
+}
+
+.topicIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(250, 160, 35, 0.12);
+  color: $brand-orange;
+
+  svg {
+    font-size: 22px;
+  }
+}
+
+.topicTitle {
+  margin: 0 0 6px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.topicText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+}
+
+// Featured tile: two by two, warm gradient, bigger type.
+.topic_feature {
+  grid-column: span 2;
+  grid-row: span 2;
+  justify-content: flex-end;
+  min-height: 320px;
+  padding: 32px;
+  border-color: rgba(250, 160, 35, 0.35);
+  background:
+    radial-gradient(70% 70% at 100% 0%, rgba(250, 160, 35, 0.28) 0%, rgba(250, 160, 35, 0) 70%),
+    radial-gradient(60% 60% at 0% 100%, rgba(175, 199, 45, 0.16) 0%, rgba(175, 199, 45, 0) 70%),
+    var(--ifm-card-background-color, var(--ifm-background-surface-color));
+
+  .topicIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: $brand-orange;
+    color: #10120f;
+
+    svg {
+      font-size: 30px;
+    }
+  }
+
+  .topicTitle {
+    font-size: clamp(22px, 2.4vw, 30px);
+  }
+
+  .topicText {
+    max-width: 440px;
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 600px) {
+    grid-column: span 1;
+    min-height: 0;
+  }
+}
+
+// Wide tile: icon beside the text.
+.topic_wide {
+  grid-column: span 2;
+  flex-direction: row;
+  align-items: flex-start;
+
+  @media screen and (max-width: 600px) {
+    grid-column: span 1;
+    flex-direction: column;
+  }
+}
+
+// Banner tile across the whole row, with a green accent.
+.topic_banner {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 32px;
+  border-style: dashed;
+  border-color: rgba(175, 199, 45, 0.45);
+  background:
+    linear-gradient(90deg, rgba(175, 199, 45, 0.1) 0%, rgba(175, 199, 45, 0) 60%),
+    var(--ifm-card-background-color, var(--ifm-background-surface-color));
+
+  .topicIcon {
+    flex-shrink: 0;
+    background: rgba(175, 199, 45, 0.16);
+    color: $brand-green;
+  }
+
+  .topicText {
+    max-width: 760px;
+  }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   What your project gains: sticky intro on the left, open list on the right
+   -------------------------------------------------------------------------- */
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+  gap: 56px;
+  align-items: start;
+
+  @media screen and (max-width: 996px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.splitIntro {
+  position: sticky;
+  top: 96px;
+
+  @media screen and (max-width: 996px) {
+    position: static;
+  }
+}
+
+.splitTitle {
+  margin: 0 0 16px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.gains {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gain {
+  padding: 22px 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.gainIcon {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: $brand-orange;
+
+  svg {
+    font-size: 26px;
+  }
+}
+
+.gainTitle {
+  margin: 0 0 6px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.gainText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* --------------------------------------------------------------------------
+   One shared core: reasons around a central hub
+   -------------------------------------------------------------------------- */
+
+.coreSection {
+  background:
+    radial-gradient(50% 60% at 50% 55%, rgba(250, 160, 35, 0.07) 0%, rgba(250, 160, 35, 0) 70%);
+}
+
+.centeredHeader {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.centeredActions {
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.hub {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+
+  @media screen and (max-width: 996px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hubSide {
+  display: grid;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hubLeft {
+  text-align: right;
+
+  @media screen and (max-width: 996px) {
+    order: 2;
+    text-align: left;
+  }
+}
+
+.hubRight {
+  @media screen and (max-width: 996px) {
+    order: 3;
+  }
+}
+
+.hubReason {
+  position: relative;
+
+  // Connector line towards the hub (desktop only).
+  &::after {
+    content: '';
+    position: absolute;
+    top: 13px;
+    width: 32px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(250, 160, 35, 0), rgba(250, 160, 35, 0.6));
+
+    @media screen and (max-width: 996px) {
+      display: none;
+    }
+  }
+}
+
+.hubLeft .hubReason::after {
+  right: -40px;
+}
+
+.hubRight .hubReason::after {
+  left: -40px;
+  transform: scaleX(-1);
+}
+
+.hubCore {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 280px;
+
+  @media screen and (max-width: 996px) {
+    order: 1;
+    margin: 0 auto;
+  }
+}
+
+.hubRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(250, 160, 35, 0.45);
+  animation: hubSpin 40s linear infinite;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $brand-orange;
+    box-shadow: 0 0 12px rgba(250, 160, 35, 0.8);
+  }
+
+  &::before {
+    top: -5px;
+    left: calc(50% - 5px);
+  }
+
+  &::after {
+    bottom: 30px;
+    right: 24px;
+    background: $brand-green;
+    box-shadow: 0 0 12px rgba(175, 199, 45, 0.8);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes hubSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hubCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 160, 35, 0.35);
+  background:
+    radial-gradient(circle at 50% 30%, rgba(250, 160, 35, 0.22) 0%, rgba(250, 160, 35, 0.04) 70%),
+    var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  box-shadow: 0 0 60px rgba(250, 160, 35, 0.15);
+  text-align: center;
+}
+
+.hubLabel {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $brand-orange;
+}
+
+.hubName {
+  margin-bottom: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hubParts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  max-width: 170px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--ifm-color-emphasis-100);
+    color: var(--ifm-color-emphasis-800);
+    font-size: 11px;
+    font-weight: 700;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Add your project: full-width band with a numbered timeline
+   -------------------------------------------------------------------------- */
+
+.join {
+  margin-top: 88px;
+  padding: 88px 0;
+  border-top: 1px solid rgba(250, 160, 35, 0.25);
+  background:
+    radial-gradient(60% 90% at 15% 0%, rgba(250, 160, 35, 0.14) 0%, rgba(250, 160, 35, 0) 70%),
+    radial-gradient(50% 80% at 90% 100%, rgba(175, 199, 45, 0.1) 0%, rgba(175, 199, 45, 0) 70%),
+    var(--ifm-background-surface-color);
+
+  @media screen and (max-width: 600px) {
+    padding: 56px 0;
+  }
+}
+
+.joinHeader {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.joinTitle {
+  margin: 0 0 14px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  // The line that joins the three step numbers.
+  &::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(100% / 6);
+    right: calc(100% / 6);
+    height: 2px;
+    background: linear-gradient(90deg, $brand-orange, $brand-green);
+    opacity: 0.5;
+  }
+
+  @media screen and (max-width: 996px) {
+    grid-template-columns: 1fr;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.step {
+  position: relative;
+  text-align: center;
+}
+
+.stepNumber {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  border: 2px solid $brand-orange;
+  background: var(--ifm-background-surface-color);
+  color: $brand-orange;
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.stepTitle {
+  margin: 0 0 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.stepText {
+  max-width: 300px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.stepLinks {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 700;
+
+  a {
+    color: $brand-orange;
+  }
+}
