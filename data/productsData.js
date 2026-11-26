@@ -41,6 +41,8 @@
  *   details: string (longer description / overview),
  *
  *   Optional, shown only when present:
+ *   isNew: true (recently added to the portfolio; shows a "New" badge and sorts first in its
+ *           group. Remove it once the product has been part of a release or two),
  *   logo: string (path under /static or URL; square works best, shown on the card and the detail page),
  *   deprecation: { ticket: string, reason: string, alternative?: string } (when maturity is 'deprecated'),
  *   documentation: string (URL of the product documentation),
@@ -823,6 +825,7 @@ const products = [
     relevance: ['development-testing'],
     kind: ['library', 'tooling'],
     maturity: 'incubating',
+    isNew: true,
     logo: '/img/products/testlab.png',
     repositories: [
       { name: 'tractusx-testlab', url: 'https://github.com/eclipse-tractusx/tractusx-testlab' },
@@ -844,6 +847,7 @@ const products = [
     relevance: ['development-testing'],
     kind: 'tooling',
     maturity: 'incubating',
+    isNew: true,
     repositories: [
       { name: 'tractus-x-umbrella-iac', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella-iac' },
     ],

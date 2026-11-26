@@ -25,6 +25,7 @@ import CloseIcon from '@mui/icons-material/CloseRounded';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForwardRounded';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import WarningIcon from '@mui/icons-material/WarningAmberRounded';
+import NewIcon from '@mui/icons-material/AutoAwesomeRounded';
 import { productCategories, productKinds, maturityLevels, DEPRECATION_NOTICE } from '@site/data/productsData';
 import ProductCard, { MaturityBadge } from './ProductCard';
 import { CATEGORY_ICONS, KIND_ICONS, getKinds, groupByKind, matchesSearch } from './productMeta';
@@ -33,7 +34,7 @@ import styles from './styles.module.scss';
 const ALL = 'all';
 
 /** A row of filter buttons with counts. Options without products are left out. */
-function FilterRow({ label, options, value, onChange }) {
+function FilterRow({ label, options, value, onChange, children }) {
   return (
     <div className={styles.filterRow} role="group" aria-label={label}>
       <span className={styles.filterLabel}>{label}</span>
@@ -61,6 +62,7 @@ function FilterRow({ label, options, value, onChange }) {
             </button>
           );
         })}
+      {children}
     </div>
   );
 }
@@ -103,13 +105,18 @@ export default function ProductBrowser({ items, title, grouped = false, onReset 
   const [search, setSearch] = useState('');
   const [kind, setKind] = useState(ALL);
   const [maturity, setMaturity] = useState(ALL);
+  const [onlyNew, setOnlyNew] = useState(false);
   const query = search.trim().toLowerCase();
 
   const searched = useMemo(() => items.filter((product) => matchesSearch(product, query)), [items, query]);
   const byKind = (product) => kind === ALL || getKinds(product).includes(kind);
-  const byMaturity = (product) => maturity === ALL || product.maturity === maturity;
+  const byMaturity = (product) =>
+    (maturity === ALL || product.maturity === maturity) && (!onlyNew || product.isNew);
   const visible = searched.filter((product) => byKind(product) && byMaturity(product));
-  const filtered = query || kind !== ALL || maturity !== ALL;
+  const filtered = query || kind !== ALL || maturity !== ALL || onlyNew;
+  const newCount = searched.filter(
+    (product) => product.isNew && byKind(product) && (maturity === ALL || product.maturity === maturity),
+  ).length;
 
   const kindOptions = [
     { id: ALL, label: 'All', count: searched.filter(byMaturity).length },
@@ -123,14 +130,20 @@ export default function ProductBrowser({ items, title, grouped = false, onReset 
     })),
   ];
   const maturityOptions = [
-    { id: ALL, label: 'All', count: searched.filter(byKind).length },
+    {
+      id: ALL,
+      label: 'All',
+      count: searched.filter((product) => byKind(product) && (!onlyNew || product.isNew)).length,
+    },
     ...maturityLevels.map((level) => ({
       id: level.id,
       label: level.label,
       description: level.description,
       dot: true,
       tone: level.id === 'deprecated' ? 'deprecated' : null,
-      count: searched.filter((product) => byKind(product) && product.maturity === level.id).length,
+      count: searched.filter(
+        (product) => byKind(product) && product.maturity === level.id && (!onlyNew || product.isNew),
+      ).length,
     })),
   ];
 
@@ -138,6 +151,7 @@ export default function ProductBrowser({ items, title, grouped = false, onReset 
     setSearch('');
     setKind(ALL);
     setMaturity(ALL);
+    setOnlyNew(false);
   };
 
   const categories = grouped
@@ -188,7 +202,24 @@ export default function ProductBrowser({ items, title, grouped = false, onReset 
 
       <div className={styles.filters}>
         <FilterRow label="Type" options={kindOptions} value={kind} onChange={setKind} />
-        <FilterRow label="Maturity" options={maturityOptions} value={maturity} onChange={setMaturity} />
+        <FilterRow label="Maturity" options={maturityOptions} value={maturity} onChange={setMaturity}>
+          {(newCount > 0 || onlyNew) && (
+            <>
+              <span className={styles.filterDivider} aria-hidden="true" />
+              <button
+                type="button"
+                className={clsx(styles.filterChip, styles.filterChip_new, onlyNew && styles.filterChipOn)}
+                aria-pressed={onlyNew}
+                onClick={() => setOnlyNew(!onlyNew)}
+                title="Only products added to the portfolio recently"
+              >
+                <NewIcon className={styles.filterChipIcon} />
+                New
+                <span className={styles.filterCount}>{newCount}</span>
+              </button>
+            </>
+          )}
+        </FilterRow>
         <details className={styles.maturityHelp}>
           <summary>
             <InfoIcon className={styles.maturityHelpIcon} />

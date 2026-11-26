@@ -24,7 +24,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBackRounded';
 import styles from './styles.module.scss';
 
 /**
- * Round back button for the left of a page header. It goes back in the browser history
+ * Back button for the left of a page header. It goes back in the browser history
  * when the visitor came from another page of the site, and to `fallback` (the parent
  * page) when they opened this page directly.
  */

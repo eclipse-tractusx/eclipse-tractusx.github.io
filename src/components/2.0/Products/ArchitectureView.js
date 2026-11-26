@@ -47,6 +47,7 @@ function Chips({ items, highlight }) {
             title={product.description}
           >
             {product.name}
+            {product.isNew && <span className={styles.chipNew}>New</span>}
             {product.agents.length > 0 && (
               <SmartToyIcon className={styles.chipAgent} aria-label="has an AI agent" />
             )}
@@ -158,6 +159,7 @@ export default function ArchitectureView({ highlight = null }) {
         <span className={styles.legendCycle}>
           Cycle: KITs → use case apps → core technology → tools → KITs
         </span>
+        <span className={styles.chipNew}>New</span> recently added
         <SmartToyIcon className={styles.legendIcon} /> has an AI agent
         <span className={styles.legendMuted}>dashed</span> incubating or phase-out
         <span className={clsx(styles.legendMuted, styles.legendDeprecated)}>struck</span> deprecated

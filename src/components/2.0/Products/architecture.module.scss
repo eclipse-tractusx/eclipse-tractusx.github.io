@@ -478,6 +478,21 @@ $arc-space: 8px;
   opacity: 0.35;
 }
 
+.chipNew {
+  display: inline-block;
+  margin-left: 2px;
+  padding: 0 5px;
+  border-radius: 3px;
+  background: $brand-green;
+  color: #1b1f06;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
 .chipAgent {
   font-size: 14px !important;
   color: #7a8c12;

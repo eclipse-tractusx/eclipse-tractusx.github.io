@@ -91,25 +91,27 @@ $radius-control: 4px;
 
 .heroMain {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  align-items: center;
+  gap: 36px;
 
   @media screen and (max-width: 600px) {
     flex-direction: column;
-    gap: 14px;
+    align-items: flex-start;
+    gap: 18px;
   }
 }
 
-// Larger product mark on the dark header (overrides the card size).
+// The product logo is the visual of the header: shown big, left of the title.
 .heroMain .heroMark {
-  width: 104px;
-  height: 104px;
+  flex: none;
+  width: 184px;
+  height: 184px;
   border: 1px solid rgba(250, 160, 35, 0.35);
   background: rgba(250, 160, 35, 0.1);
   color: $brand-orange;
 
   svg {
-    font-size: 52px;
+    font-size: 88px;
   }
 
   // Logos come with their own tile: show them as they are.
@@ -117,14 +119,24 @@ $radius-control: 4px;
     padding: 0;
     border: 0;
     background: transparent;
+    filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.45));
+  }
+
+  @media screen and (max-width: 996px) {
+    width: 140px;
+    height: 140px;
+
+    svg {
+      font-size: 68px;
+    }
   }
 
   @media screen and (max-width: 600px) {
-    width: 72px;
-    height: 72px;
+    width: 112px;
+    height: 112px;
 
     svg {
-      font-size: 36px;
+      font-size: 54px;
     }
   }
 }

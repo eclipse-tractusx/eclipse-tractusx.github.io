@@ -25,6 +25,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import FolderIcon from '@mui/icons-material/FolderOutlined';
 import SmartToyIcon from '@mui/icons-material/SmartToyOutlined';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForwardRounded';
+import NewIcon from '@mui/icons-material/AutoAwesomeRounded';
 import DownloadIcon from '@mui/icons-material/DownloadRounded';
 import { CATEGORY_ICONS, KIND_ICONS, getDetailUrl, getKind, getKinds, getMaturity } from './productMeta';
 import styles from './styles.module.scss';
@@ -41,6 +42,19 @@ export function MaturityBadge({ maturity, onDark = false, className }) {
     >
       <span className={styles.statusDot} aria-hidden="true" />
       {level?.label || maturity}
+    </span>
+  );
+}
+
+/** Marks a product that was added to the portfolio recently (`isNew` in the product data). */
+export function NewBadge({ className }) {
+  return (
+    <span
+      className={clsx(styles.newBadge, className)}
+      title="Recently added to the Eclipse Tractus-X portfolio"
+    >
+      <NewIcon className={styles.newBadgeIcon} aria-hidden="true" />
+      New
     </span>
   );
 }
@@ -101,7 +115,14 @@ export default function ProductCard({ product, showKind = true }) {
   const detailUrl = getDetailUrl(product);
 
   return (
-    <article className={clsx(styles.card, product.maturity === 'deprecated' && styles.cardDeprecated)}>
+    <article
+      className={clsx(
+        styles.card,
+        product.isNew && styles.cardNew,
+        product.maturity === 'deprecated' && styles.cardDeprecated,
+      )}
+    >
+      {product.isNew && <NewBadge className={styles.cardNewBadge} />}
       <div className={styles.cardBody}>
         <ProductMark product={product} className={styles.cardMedia} />
         <div className={styles.cardContent}>

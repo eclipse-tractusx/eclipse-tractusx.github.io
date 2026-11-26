@@ -114,7 +114,7 @@ $radius-control: 4px;
   flex: none;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: $radius-control;
   border: 1px solid rgba(255, 255, 255, 0.25);
   background: rgba(0, 0, 0, 0.35);
   color: #fff;
@@ -624,6 +624,18 @@ $card-min: 330px;
 .filterChip_deprecated.filterChipOn {
   border-color: #d9534f;
   background: rgba(220, 60, 60, 0.12);
+}
+
+.filterChip_new.filterChipOn {
+  border-color: $brand-green;
+  background: rgba(175, 199, 45, 0.16);
+}
+
+.filterDivider {
+  width: 1px;
+  height: 18px;
+  margin: 0 4px;
+  background: var(--ifm-color-emphasis-300);
 }
 
 .filterChipIcon {
@@ -1639,4 +1651,44 @@ $card-min: 330px;
   background:
     radial-gradient(55% 60% at 50% 45%, rgba(5, 6, 8, 0.55) 0%, rgba(5, 6, 8, 0) 100%),
     linear-gradient(180deg, rgba(5, 6, 8, 0.35) 0%, rgba(5, 6, 8, 0) 40%, rgba(5, 6, 8, 0.45) 100%);
+}
+
+/* "New" marker: recently added products (isNew in the product data) */
+.newBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 2px 8px 2px 6px;
+  border-radius: $radius-control;
+  background: $brand-green;
+  color: #1b1f06;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.newBadgeIcon {
+  font-size: 12px !important;
+}
+
+.cardNew {
+  border-color: rgba(175, 199, 45, 0.6);
+
+  .cardMedia {
+    background: linear-gradient(160deg, rgba(175, 199, 45, 0.24) 0%, transparent 65%),
+      rgba(250, 160, 35, 0.07);
+  }
+}
+
+.cardNewBadge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }

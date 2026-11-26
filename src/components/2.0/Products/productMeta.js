@@ -103,6 +103,7 @@ export function sortProducts(list) {
   return [...list].sort(
     (a, b) =>
       kindOrder.indexOf(getKinds(a)[0]) - kindOrder.indexOf(getKinds(b)[0]) ||
+      Number(Boolean(b.isNew)) - Number(Boolean(a.isNew)) ||
       MATURITY_ORDER.indexOf(a.maturity) - MATURITY_ORDER.indexOf(b.maturity) ||
       a.name.localeCompare(b.name),
   );
@@ -161,6 +162,7 @@ export function matchesSearch(product, query) {
     product.description,
     ...getKinds(product).map((kindId) => getKind(kindId)?.label),
     getMaturity(product.maturity)?.label,
+    product.isNew && 'new',
     ...product.repositories.map((repository) => repository.name),
     ...product.committers.map((committer) => `${committer.name || ''} ${committer.github}`),
     ...product.agents.map((agent) => agent.name),

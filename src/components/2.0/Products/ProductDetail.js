@@ -38,7 +38,7 @@ import PolicyIcon from '@mui/icons-material/PolicyOutlined';
 import ReportIcon from '@mui/icons-material/ReportGmailerrorredOutlined';
 import WarningIcon from '@mui/icons-material/WarningAmberRounded';
 import { getProductById, getProductsByCategory, relevanceTypes } from '@site/data/productsData';
-import { KindLabel, MaturityBadge, ProductMark } from './ProductCard';
+import { KindLabel, MaturityBadge, NewBadge, ProductMark } from './ProductCard';
 import RepoTree, { buildRepoGroups } from './RepoTree';
 import Releases, { Downloads } from './Releases';
 import MediaGallery from './MediaGallery';
@@ -248,6 +248,12 @@ export default function ProductDetail({ product }) {
     ? [
         { id: 'overview', label: 'Overview', icon: InfoIcon },
         {
+          id: 'people',
+          label: 'People',
+          icon: GroupsIcon,
+          count: product.committers.length,
+        },
+        {
           id: 'releases',
           label: 'Releases & downloads',
           icon: NewReleasesIcon,
@@ -258,12 +264,6 @@ export default function ProductDetail({ product }) {
           icon: PhotoLibraryIcon,
         },
         { id: 'security', label: 'Security', icon: ShieldIcon },
-        {
-          id: 'people',
-          label: 'People',
-          icon: GroupsIcon,
-          count: product.committers.length,
-        },
       ].filter(Boolean)
     : [];
 
@@ -312,6 +312,7 @@ export default function ProductDetail({ product }) {
             <div className={styles.heroText}>
               <div className={styles.heroTitleRow}>
                 <h1 className={styles.heroTitle}>{product.name}</h1>
+                {product.isNew && <NewBadge />}
                 <MaturityBadge maturity={product.maturity} onDark />
               </div>
               {product.subtitle && <p className={styles.heroSubtitle}>{product.subtitle}</p>}
