@@ -192,6 +192,52 @@ export default function AiOverviewPage() {
           </div>
         </section>
 
+        <section className={styles.section} aria-labelledby="ipcei-heading">
+          <div className={styles.container}>
+            <div className={styles.ipcei}>
+              <div className={styles.ipceiIntro}>
+                <span className={styles.sectionEyebrow}>Related projects</span>
+                <h2 id="ipcei-heading" className={styles.ipceiTitle}>
+                  Building AI, <span className={styles.accent}>together.</span>
+                </h2>
+                <p className={styles.ipceiText}>
+                  IPCEI AI projects and other AI initiatives can build on the same open Tractus-X core: the
+                  connector, identities and usage policies that let partners share data for AI with trust.
+                  Join the community and get your project listed.
+                </p>
+                <div className={styles.actions}>
+                  <Link className={styles.buttonPrimary} to="/ai/related-projects#add-your-project">
+                    Add your IPCEI AI project
+                  </Link>
+                  <Link className={styles.buttonSecondary} to="/ai/related-projects">
+                    See related projects
+                  </Link>
+                </div>
+              </div>
+              <Link
+                to="/ai/related-projects"
+                className={styles.ipceiSlots}
+                aria-label="See the related projects page"
+              >
+                {['01', '02', '03'].map((slot) => (
+                  <span key={slot} className={styles.ipceiSlot}>
+                    <HandshakeOutlinedIcon className={styles.ipceiSlotIcon} aria-hidden="true" />
+                    <span className={styles.ipceiSlotLines} aria-hidden="true">
+                      <span />
+                      <span />
+                    </span>
+                    <span className={styles.ipceiSlotLabel}>Possible project · {slot}</span>
+                  </span>
+                ))}
+                <span className={`${styles.ipceiSlot} ${styles.ipceiSlotAdd}`}>
+                  <AddRoundedIcon className={styles.ipceiAddIcon} aria-hidden="true" />
+                  <span className={styles.ipceiSlotLabel}>Your project</span>
+                </span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className={styles.section}>
           <div className={styles.container}>
             <header className={styles.sectionHeader}>
@@ -304,52 +350,6 @@ claude --agent connector-sensei`}
                   <span className={styles.exploreText}>Why AI needs data shared with trust</span>
                 </span>
                 <ArrowForwardIcon className={styles.crewArrow} />
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.section} aria-labelledby="ipcei-heading">
-          <div className={styles.container}>
-            <div className={styles.ipcei}>
-              <div className={styles.ipceiIntro}>
-                <span className={styles.sectionEyebrow}>Related projects</span>
-                <h2 id="ipcei-heading" className={styles.ipceiTitle}>
-                  Building AI, <span className={styles.accent}>together.</span>
-                </h2>
-                <p className={styles.ipceiText}>
-                  IPCEI AI projects and other AI initiatives can build on the same open Tractus-X core: the
-                  connector, identities and usage policies that let partners share data for AI with trust.
-                  Join the community and get your project listed.
-                </p>
-                <div className={styles.actions}>
-                  <Link className={styles.buttonPrimary} to="/ai/related-projects#add-your-project">
-                    Add your IPCEI AI project
-                  </Link>
-                  <Link className={styles.buttonSecondary} to="/ai/related-projects">
-                    See related projects
-                  </Link>
-                </div>
-              </div>
-              <Link
-                to="/ai/related-projects"
-                className={styles.ipceiSlots}
-                aria-label="See the related projects page"
-              >
-                {['01', '02', '03'].map((slot) => (
-                  <span key={slot} className={styles.ipceiSlot}>
-                    <HandshakeOutlinedIcon className={styles.ipceiSlotIcon} aria-hidden="true" />
-                    <span className={styles.ipceiSlotLines} aria-hidden="true">
-                      <span />
-                      <span />
-                    </span>
-                    <span className={styles.ipceiSlotLabel}>Possible project · {slot}</span>
-                  </span>
-                ))}
-                <span className={`${styles.ipceiSlot} ${styles.ipceiSlotAdd}`}>
-                  <AddRoundedIcon className={styles.ipceiAddIcon} aria-hidden="true" />
-                  <span className={styles.ipceiSlotLabel}>Your project</span>
-                </span>
               </Link>
             </div>
           </div>
