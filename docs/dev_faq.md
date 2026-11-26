@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title: Developer Questions
 sidebar_position: 1
 ---
 

@@ -488,7 +488,7 @@ const config = {
               },
               {
                 to: '/docs/dev_faq',
-                label: 'FAQ',
+                label: 'Developer Questions',
                 className: 'kit-nav-item',
               },
               {
