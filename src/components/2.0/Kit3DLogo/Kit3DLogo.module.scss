@@ -96,13 +96,13 @@
 /* Main download button (left side of split button) */
 .downloadButtonMain {
   width: 36px;
-  border-radius: 10px 0 0 10px;
+  border-radius: 5px 0 0 5px;
 }
 
 /* Dropdown arrow button (right side of split button) */
 .downloadButtonDropdown {
   width: 24px;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 5px 5px 0;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -240,7 +240,7 @@
   flex: 1;
   padding: 10px 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   background: var(--ifm-color-primary);
   color: white;
   font-size: 14px;
@@ -338,7 +338,7 @@
   flex-shrink: 0;
   padding: 6px 14px;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   background: var(--ifm-color-primary);
   color: white;
   font-size: 13px;

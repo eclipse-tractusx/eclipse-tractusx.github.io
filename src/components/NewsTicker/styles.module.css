@@ -42,7 +42,7 @@
 .button {
   flex: 0 0 auto;
   padding: 0.35rem 1rem;
-  border-radius: 999px;
+  border-radius: 5px;
   background-color: var(--ifm-color-primary);
   color: var(--ifm-background-color);
   font-size: 13px;
