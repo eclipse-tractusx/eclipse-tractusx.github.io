@@ -574,6 +574,12 @@ const config = {
                 href: "https://www.eclipse.org/legal/privacy/",
               },
               {
+                // Reopens the Eclipse Foundation cookie banner. Its script finds the class
+                // toolbar-manage-cookies, opens the banner on click and hides its own floating
+                // "Cookie settings" tab, which covered page content on phones.
+                html: '<button type="button" class="footer__link-item toolbar-manage-cookies">Cookie settings</button>',
+              },
+              {
                 label: "Terms of Use",
                 href: "https://www.eclipse.org/legal/terms-of-use/",
               },

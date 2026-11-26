@@ -296,6 +296,35 @@
   margin-top: 60px;
 }
 
+/* The cookie banner's floating "Cookie settings" tab sat on top of page content on phones (no hover to tuck
+   it away). "Cookie settings" in the footer reopens the banner instead. The banner script hides the tab
+   itself when it finds the footer button, but only if the footer is already rendered when it starts. */
+.cc-revoke {
+  display: none !important;
+}
+
+/* "Cookie settings" in the footer is a button (it opens the cookie banner) styled like the links next to it */
+.footer button.toolbar-manage-cookies {
+  padding: 0;
+  border: 0;
+  background: none;
+  /* Not the font shorthand: it would reset the line-height Infima gives .footer__link-item */
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.footer button.toolbar-manage-cookies:hover {
+  text-decoration: underline;
+}
+
+.footer button.toolbar-manage-cookies:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
 .footer-logo-divider {
   width: 1px;
   background-color: rgba(255, 255, 255, 0.3);
