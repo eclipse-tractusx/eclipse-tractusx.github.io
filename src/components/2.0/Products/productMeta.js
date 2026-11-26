@@ -97,13 +97,76 @@ export function getMaturity(levelId) {
 
 const MATURITY_ORDER = maturityLevels.map((level) => level.id);
 
-/** Products in kind order, and inside a kind by maturity (deprecated last), then by name. */
+/** Deprecated products carry a `deprecation` entry (TRG 7.09) in the product data. */
+export const isDeprecated = (product) => Boolean(product.deprecation);
+
+/*
+ * Activity: worked out from GitHub, never set by hand. A product is active when a person
+ * committed to the main branch of one of its repositories in the last STALE_AFTER_DAYS
+ * days; dependency updates by bots do not count, they keep coming to unmaintained
+ * repositories too. Deprecated (in the product data) or with all repositories archived
+ * beats both.
+ */
+export const STALE_AFTER_DAYS = 180;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+export const ACTIVITY_LEVELS = [
+  {
+    id: 'active',
+    label: 'Active',
+    description: 'A person committed to the main branch in the last six months.',
+  },
+  {
+    id: 'stale',
+    label: 'Stale',
+    description:
+      'No commit by a person on the main branch for more than six months. Dependency updates by bots do not count.',
+  },
+  {
+    id: 'deprecated',
+    label: 'Deprecated',
+    description:
+      'Proposed for archiving under TRG 7.09, or all repositories are archived. No more security fixes.',
+  },
+];
+
+export const getActivity = (id) => ACTIVITY_LEVELS.find((level) => level.id === id);
+
+export const daysSince = (iso) => Math.floor((Date.now() - new Date(iso).getTime()) / DAY_MS);
+
+/** How long ago, in words: "today", "3 days ago", "7 months ago", "1.8 years ago". */
+export function timeAgo(iso) {
+  const days = daysSince(iso);
+  if (days <= 0) return 'today';
+  if (days === 1) return 'yesterday';
+  if (days < 45) return `${days} days ago`;
+  if (days < 548) return `${Math.round(days / 30.4)} months ago`;
+  return `${(days / 365).toFixed(1)} years ago`;
+}
+
+/**
+ * The activity of a product from what GitHub says about its repositories:
+ * `facts` = { lastCommit: { date, login } | null, archived: boolean }, or undefined while
+ * unknown. Returns { id, lastCommit, archived } or null.
+ */
+export function activityOf(product, facts) {
+  const lastCommit = facts?.lastCommit || null;
+  if (isDeprecated(product) || facts?.archived) {
+    return { id: 'deprecated', lastCommit, archived: Boolean(facts?.archived) };
+  }
+  if (!facts) return null;
+  const active = lastCommit?.date && daysSince(lastCommit.date) <= STALE_AFTER_DAYS;
+  return { id: active ? 'active' : 'stale', lastCommit, archived: false };
+}
+
+/** Products in kind order, and inside a kind new first, deprecated last, then by maturity and name. */
 export function sortProducts(list) {
   const kindOrder = productKinds.map((kind) => kind.id);
   return [...list].sort(
     (a, b) =>
       kindOrder.indexOf(getKinds(a)[0]) - kindOrder.indexOf(getKinds(b)[0]) ||
       Number(Boolean(b.isNew)) - Number(Boolean(a.isNew)) ||
+      Number(isDeprecated(a)) - Number(isDeprecated(b)) ||
       MATURITY_ORDER.indexOf(a.maturity) - MATURITY_ORDER.indexOf(b.maturity) ||
       a.name.localeCompare(b.name),
   );
@@ -162,6 +225,7 @@ export function matchesSearch(product, query) {
     product.description,
     ...getKinds(product).map((kindId) => getKind(kindId)?.label),
     getMaturity(product.maturity)?.label,
+    isDeprecated(product) && 'deprecated',
     product.isNew && 'new',
     ...product.repositories.map((repository) => repository.name),
     ...product.committers.map((committer) => `${committer.name || ''} ${committer.github}`),

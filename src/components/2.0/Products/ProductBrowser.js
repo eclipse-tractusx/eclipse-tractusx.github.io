@@ -27,8 +27,23 @@ import InfoIcon from '@mui/icons-material/InfoOutlined';
 import WarningIcon from '@mui/icons-material/WarningAmberRounded';
 import NewIcon from '@mui/icons-material/AutoAwesomeRounded';
 import { productCategories, productKinds, maturityLevels, DEPRECATION_NOTICE } from '@site/data/productsData';
-import ProductCard, { MaturityBadge } from './ProductCard';
-import { CATEGORY_ICONS, KIND_ICONS, getKinds, groupByKind, matchesSearch } from './productMeta';
+import ProductCard, {
+  ACTIVITY_ICONS,
+  ActivityBadge,
+  MaturityBadge,
+  MaturityMeter,
+  fallbackActivity,
+} from './ProductCard';
+import {
+  ACTIVITY_LEVELS,
+  CATEGORY_ICONS,
+  KIND_ICONS,
+  STALE_AFTER_DAYS,
+  getKinds,
+  groupByKind,
+  matchesSearch,
+} from './productMeta';
+import { useProductActivity } from './liveData';
 import styles from './styles.module.scss';
 
 const ALL = 'all';
@@ -55,8 +70,7 @@ function FilterRow({ label, options, value, onChange, children }) {
               onClick={() => onChange(option.id)}
               title={option.description}
             >
-              {Icon && <Icon className={styles.filterChipIcon} />}
-              {option.dot && <span className={clsx(styles.filterDot, styles[`dot_${option.id}`])} />}
+              {Icon && <Icon className={clsx(styles.filterChipIcon, option.iconClass)} />}
               {option.label}
               <span className={styles.filterCount}>{option.count}</span>
             </button>
@@ -68,18 +82,18 @@ function FilterRow({ label, options, value, onChange, children }) {
 }
 
 /** The products of one category (or of the whole list), in kind sub-groups. */
-function KindGroups({ items }) {
+function KindGroups({ items, activity }) {
   return (
     <div className={styles.kindGroups}>
       {groupByKind(items).map((kind) => (
-        <KindGroup key={kind.id} kind={kind} />
+        <KindGroup key={kind.id} kind={kind} activity={activity} />
       ))}
     </div>
   );
 }
 
 // Small groups sit side by side: each group asks for room for its own number of cards.
-function KindGroup({ kind }) {
+function KindGroup({ kind, activity }) {
   const Icon = KIND_ICONS[kind.id];
   return (
     <div className={styles.kindGroup} style={{ '--cards': kind.items.length }}>
@@ -90,7 +104,12 @@ function KindGroup({ kind }) {
       </div>
       <div className={styles.cards}>
         {kind.items.map((product) => (
-          <ProductCard key={product.id} product={product} showKind={false} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            activity={activity.get(product.id)}
+            showKind={false}
+          />
         ))}
       </div>
     </div>
@@ -98,52 +117,66 @@ function KindGroup({ kind }) {
 }
 
 /**
- * Search, type and maturity filters, and the product cards in kind sub-groups. With
- * `grouped`, the cards are first grouped by category and each group links to its page.
+ * Search, type, maturity and activity filters, and the product cards in kind sub-groups.
+ * With `grouped`, the cards are first grouped by category and each group links to its page.
  */
 export default function ProductBrowser({ items, title, grouped = false, onReset }) {
   const [search, setSearch] = useState('');
   const [kind, setKind] = useState(ALL);
   const [maturity, setMaturity] = useState(ALL);
   const [onlyNew, setOnlyNew] = useState(false);
+  const [activityFilter, setActivityFilter] = useState(ALL);
+  const activity = useProductActivity(items);
   const query = search.trim().toLowerCase();
 
+  const activityOf = (product) => (activity.get(product.id) || fallbackActivity(product))?.id;
   const searched = useMemo(() => items.filter((product) => matchesSearch(product, query)), [items, query]);
-  const byKind = (product) => kind === ALL || getKinds(product).includes(kind);
-  const byMaturity = (product) =>
-    (maturity === ALL || product.maturity === maturity) && (!onlyNew || product.isNew);
-  const visible = searched.filter((product) => byKind(product) && byMaturity(product));
-  const filtered = query || kind !== ALL || maturity !== ALL || onlyNew;
-  const newCount = searched.filter(
-    (product) => product.isNew && byKind(product) && (maturity === ALL || product.maturity === maturity),
-  ).length;
+  // Each filter row counts what the other rows let through.
+  const tests = {
+    kind: (product) => kind === ALL || getKinds(product).includes(kind),
+    maturity: (product) => maturity === ALL || product.maturity === maturity,
+    isNew: (product) => !onlyNew || product.isNew,
+    activity: (product) => activityFilter === ALL || activityOf(product) === activityFilter,
+  };
+  const passes = (product, skip) =>
+    Object.entries(tests).every(([name, test]) => name === skip || test(product));
+  const count = (skip, extra) => searched.filter((product) => passes(product, skip) && extra(product)).length;
+
+  const visible = searched.filter((product) => passes(product));
+  const filtered = query || kind !== ALL || maturity !== ALL || onlyNew || activityFilter !== ALL;
+  const newCount = count('isNew', (product) => product.isNew);
 
   const kindOptions = [
-    { id: ALL, label: 'All', count: searched.filter(byMaturity).length },
+    { id: ALL, label: 'All', count: count('kind', () => true) },
     ...productKinds.map((option) => ({
       id: option.id,
       label: option.label,
       description: option.description,
       icon: KIND_ICONS[option.id],
-      count: searched.filter((product) => byMaturity(product) && getKinds(product).includes(option.id))
-        .length,
+      count: count('kind', (product) => getKinds(product).includes(option.id)),
     })),
   ];
   const maturityOptions = [
-    {
-      id: ALL,
-      label: 'All',
-      count: searched.filter((product) => byKind(product) && (!onlyNew || product.isNew)).length,
-    },
+    { id: ALL, label: 'All', count: count('maturity', () => true) },
     ...maturityLevels.map((level) => ({
       id: level.id,
       label: level.label,
       description: level.description,
-      dot: true,
+      icon: (props) => <MaturityMeter maturity={level.id} {...props} />,
+      iconClass: styles.filterChipIcon_maturity,
+      count: count('maturity', (product) => product.maturity === level.id),
+    })),
+  ];
+  const activityOptions = [
+    { id: ALL, label: 'All', count: count('activity', () => true) },
+    ...ACTIVITY_LEVELS.map((level) => ({
+      id: level.id,
+      label: level.label,
+      description: level.description,
+      icon: ACTIVITY_ICONS[level.id],
+      iconClass: styles[`filterChipIcon_${level.id}`],
       tone: level.id === 'deprecated' ? 'deprecated' : null,
-      count: searched.filter(
-        (product) => byKind(product) && product.maturity === level.id && (!onlyNew || product.isNew),
-      ).length,
+      count: count('activity', (product) => activityOf(product) === level.id),
     })),
   ];
 
@@ -152,6 +185,7 @@ export default function ProductBrowser({ items, title, grouped = false, onReset 
     setKind(ALL);
     setMaturity(ALL);
     setOnlyNew(false);
+    setActivityFilter(ALL);
   };
 
   const categories = grouped
@@ -220,11 +254,23 @@ export default function ProductBrowser({ items, title, grouped = false, onReset 
             </>
           )}
         </FilterRow>
+        <FilterRow
+          label="Activity"
+          options={activityOptions}
+          value={activityFilter}
+          onChange={setActivityFilter}
+        />
         <details className={styles.maturityHelp}>
           <summary>
             <InfoIcon className={styles.maturityHelpIcon} />
-            What the maturity levels mean
+            What maturity and activity mean
           </summary>
+          <p className={styles.maturityIntro}>
+            <strong>Maturity</strong> says how far a product has come; the teams set it.{' '}
+            <strong>Activity</strong> is worked out from GitHub every day: a product is active when a person
+            committed to the main branch of one of its repositories in the last{' '}
+            {Math.round(STALE_AFTER_DAYS / 30)} months. Dependency updates by bots do not count.
+          </p>
           <dl className={styles.maturityList}>
             {maturityLevels.map((level) => (
               <div key={level.id}>
@@ -234,11 +280,19 @@ export default function ProductBrowser({ items, title, grouped = false, onReset 
                 <dd>{level.description}</dd>
               </div>
             ))}
+            {ACTIVITY_LEVELS.map((level) => (
+              <div key={level.id}>
+                <dt>
+                  <ActivityBadge activity={{ id: level.id }} />
+                </dt>
+                <dd>{level.description}</dd>
+              </div>
+            ))}
           </dl>
         </details>
       </div>
 
-      {maturity === 'deprecated' && (
+      {activityFilter === 'deprecated' && (
         <div className={styles.notice} role="note">
           <WarningIcon className={styles.noticeIcon} />
           <div>
@@ -270,13 +324,13 @@ export default function ProductBrowser({ items, title, grouped = false, onReset 
                     <ArrowForwardIcon className={styles.groupLinkIcon} />
                   </Link>
                 </div>
-                <KindGroups items={group.items} />
+                <KindGroups items={group.items} activity={activity} />
               </div>
             );
           })
         : visible.length > 0 && (
             <div className={styles.group}>
-              <KindGroups items={visible} />
+              <KindGroups items={visible} activity={activity} />
             </div>
           )}
 

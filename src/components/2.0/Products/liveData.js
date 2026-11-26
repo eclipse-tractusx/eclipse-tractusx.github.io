@@ -19,6 +19,7 @@
 
 import { useEffect, useState } from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { activityOf, isDeprecated } from './productMeta';
 
 /*
  * Live data for the product pages:
@@ -61,16 +62,73 @@ function writeCache(key, value) {
   }
 }
 
+/**
+ * The value under `key` when it is younger than `maxAge`, otherwise `load()`. When loading
+ * fails (GitHub's limit, no network), an older value is better than none, so it is used.
+ */
 async function cached(key, maxAge, load, keep = () => true) {
   const hit = readCache(key, maxAge);
   if (hit !== undefined) return hit;
-  const value = await load();
+  let value;
+  try {
+    value = await load();
+  } catch (error) {
+    const old = readCache(key, Infinity);
+    if (old !== undefined) return old;
+    throw error;
+  }
   if (keep(value)) writeCache(key, value);
   return value;
 }
 
+/* GitHub's limit for visitors ---------------------------------------------------- */
+
+/** Thrown while GitHub's hourly limit for visitors without sign-in is used up. */
+export class RateLimited extends Error {
+  constructor(resetAt) {
+    super('GitHub rate limit');
+    this.resetAt = resetAt;
+  }
+}
+
+const LIMIT_KEY = `${PREFIX}limited-until`;
+
+// Remembered across pages, so that no page asks again before the limit resets.
+function limitedUntil() {
+  try {
+    const until = Number(window.localStorage.getItem(LIMIT_KEY));
+    return until > Date.now() ? until : 0;
+  } catch (error) {
+    return 0;
+  }
+}
+
+function rememberLimit(response) {
+  const reset = Number(response.headers.get('x-ratelimit-reset')) * 1000;
+  const until = reset > Date.now() ? reset : Date.now() + 10 * 60 * 1000;
+  try {
+    window.localStorage.setItem(LIMIT_KEY, String(until));
+  } catch (error) {
+    // Storage blocked: this page still waits.
+  }
+  return until;
+}
+
+/** The time the limit resets, such as "14:32". */
+export const resetTime = (resetAt) =>
+  new Date(resetAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
 async function getJson(url) {
+  const fromGitHub = url.startsWith('https://api.github.com/');
+  if (fromGitHub && limitedUntil()) throw new RateLimited(limitedUntil());
   const response = await fetch(url, { headers: { Accept: 'application/json' } });
+  if (
+    fromGitHub &&
+    (response.status === 403 || response.status === 429) &&
+    response.headers.get('x-ratelimit-remaining') === '0'
+  ) {
+    throw new RateLimited(rememberLimit(response));
+  }
   if (!response.ok) throw new Error(`${response.status} ${url}`);
   return {
     status: response.status,
@@ -81,20 +139,43 @@ async function getJson(url) {
 
 const github = (path) => getJson(`https://api.github.com/repos/${ORG}/${path}`);
 
-/** Runs `load` once per `deps` change and reports { status, data }. */
+/**
+ * Runs `load` once per `deps` change and reports { status, data }. While GitHub's limit is
+ * used up, status is 'limited' with `resetAt`, and `load` runs again once it resets. `load`
+ * can also return data with a `retryAt` (some answers missing because of the limit) to be
+ * run again then.
+ */
 function useLive(load, deps) {
   const [state, setState] = useState({ status: 'loading', data: null });
+  const [attempt, setAttempt] = useState(0);
   useEffect(() => {
     let cancelled = false;
-    setState({ status: 'loading', data: null });
+    let timer;
+    const retryAt = (at) => {
+      timer = window.setTimeout(() => setAttempt((count) => count + 1), Math.max(at - Date.now(), 0) + 3000);
+    };
+    if (attempt === 0) setState({ status: 'loading', data: null });
     load()
-      .then((data) => !cancelled && setState({ status: 'ready', data }))
-      .catch(() => !cancelled && setState({ status: 'error', data: null }));
+      .then((data) => {
+        if (cancelled) return;
+        setState({ status: 'ready', data });
+        if (data?.retryAt) retryAt(data.retryAt);
+      })
+      .catch((error) => {
+        if (cancelled) return;
+        if (error instanceof RateLimited) {
+          setState({ status: 'limited', data: null, resetAt: error.resetAt });
+          retryAt(error.resetAt);
+        } else {
+          setState({ status: 'error', data: null });
+        }
+      });
     return () => {
       cancelled = true;
+      window.clearTimeout(timer);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
+  }, [...deps, attempt]);
   return state;
 }
 
@@ -207,9 +288,10 @@ export function useProductPeople(repositories = [], fallback = []) {
     return { live: true, committers, contributors: others, all: contributors };
   }, [repos.join(',')]);
 
-  if (state.status === 'error') {
+  if (state.status === 'error' || state.status === 'limited') {
     return {
-      status: 'error',
+      status: state.status,
+      resetAt: state.resetAt,
       live: false,
       committers: fallback.map((person) => ({
         login: person.github,
@@ -244,12 +326,81 @@ async function commitActivity(repo) {
   return null;
 }
 
+/* Last commit by a person ---------------------------------------------------- */
+
+// Bots keep sending dependency updates to unmaintained repositories, so only commits by
+// people count. GitHub's "pushed at" date is no help either: it moves with every branch
+// a bot pushes.
+const isBotCommit = (commit) =>
+  (commit.author && isBot(commit.author)) || /\[bot\]|dependabot|renovate/i.test(commit.commit.author.name);
+
+/** The newest commit by a person on the main branch: { date, login }, or null. */
+function loadLastCommit(repo) {
+  return cached(`last-commit:${repo}`, 6 * HOUR, async () => {
+    const { data } = await github(`${repo}/commits?per_page=50`);
+    const commit = (data || []).find((entry) => !isBotCommit(entry));
+    return commit ? { date: commit.commit.committer.date, login: commit.author?.login || null } : null;
+  });
+}
+
+const newest = (commits) =>
+  commits
+    .filter(Boolean)
+    .reduce((latest, commit) => (!latest || commit.date > latest.date ? commit : latest), null);
+
+/**
+ * Active, stale or deprecated for each product of `list`, as a Map from product id to
+ * { id, lastCommit, archived }. From the build snapshot (all repositories of a product)
+ * when there is one. Otherwise live from GitHub, cached for six hours: all repositories for
+ * a single product, the leading repository of each product for a list (one request per
+ * product). Products not known yet are missing from the Map.
+ */
+export function useProductActivity(list = []) {
+  const snapshotUrl = useBaseUrl(SNAPSHOT_PATH);
+  const state = useLive(async () => {
+    const snapshot = await loadSnapshot(snapshotUrl);
+    let retryAt = null;
+    const entries = await Promise.all(
+      list.map(async (product) => {
+        const repos = product.repositories.map((repository) => repoName(repository.url));
+        let facts;
+        if (
+          inSnapshot(snapshot, repos) &&
+          repos.every((repo) => 'lastCommit' in snapshot.repos[repo].stats)
+        ) {
+          const stats = repos.map((repo) => snapshot.repos[repo].stats);
+          facts = {
+            lastCommit: newest(stats.map((repo) => repo.lastCommit)),
+            archived: stats.every((repo) => repo.archived),
+          };
+        } else if (!isDeprecated(product) && repos.length) {
+          // One product (its own page): all its repositories. A list: the leading one each.
+          const asked = list.length === 1 ? repos : repos.slice(0, 1);
+          const answers = await Promise.allSettled(asked.map((repo) => loadLastCommit(repo)));
+          const known = answers.filter((answer) => answer.status === 'fulfilled');
+          if (known.length)
+            facts = { lastCommit: newest(known.map((answer) => answer.value)), archived: false };
+          answers.forEach((answer) => {
+            if (answer.reason instanceof RateLimited) retryAt = answer.reason.resetAt;
+          });
+        }
+        return [product.id, activityOf(product, facts)];
+      }),
+    );
+    return { map: new Map(entries.filter(([, activity]) => activity)), retryAt };
+  }, [list.map((product) => product.id).join(',')]);
+  const map = state.data?.map || EMPTY;
+  // When GitHub's limit stopped some answers: when they come (the hook asks again then).
+  return state.data?.retryAt ? Object.assign(new Map(map), { retryAt: state.data.retryAt }) : map;
+}
+const EMPTY = new Map();
+
 async function loadRepoStats(repo, withReleases) {
   return cached(
     `repo:${repo}:${withReleases ? 'r' : ''}`,
     HOUR,
     async () => {
-      const [info, pulls, activity, releases] = await Promise.all([
+      const [info, pulls, activity, releases, lastCommit] = await Promise.all([
         github(repo).then(({ data }) => data),
         github(`${repo}/pulls?state=open&per_page=1`).then(
           ({ headers, data }) => lastPage(headers) ?? data.length,
@@ -262,6 +413,7 @@ async function loadRepoStats(repo, withReleases) {
                 .map((release) => ({ tag: release.tag_name, date: release.published_at })),
             )
           : Promise.resolve(null),
+        loadLastCommit(repo).catch(() => null),
       ]);
       return {
         repo,
@@ -271,6 +423,7 @@ async function loadRepoStats(repo, withReleases) {
         openIssues: Math.max(0, info.open_issues_count - pulls),
         openPulls: pulls,
         pushedAt: info.pushed_at,
+        lastCommit,
         createdAt: info.created_at,
         language: info.language,
         license: info.license?.spdx_id,
@@ -299,7 +452,36 @@ export function useRepoStats(repositories = []) {
     }
     const results = await Promise.allSettled(repos.map((repo, index) => loadRepoStats(repo, index === 0)));
     const stats = results.filter((result) => result.status === 'fulfilled').map((result) => result.value);
-    if (stats.length === 0) throw new Error('no repository answered');
-    return { stats, missing: repos.length - stats.length, collectedAt: null };
+    const limit = results.find((result) => result.reason instanceof RateLimited);
+    if (stats.length === 0) throw limit ? limit.reason : new Error('no repository answered');
+    return {
+      stats,
+      missing: repos.length - stats.length,
+      collectedAt: null,
+      retryAt: limit ? limit.reason.resetAt : null,
+    };
   }, [repos.join(',')]);
+}
+
+/* Releases -------------------------------------------------------------------- */
+
+/** The latest `count` releases of a repository, newest first, cached for an hour. */
+export function useReleases(repo, count) {
+  return useLive(
+    () =>
+      cached(`releases:${repo}:${count}`, HOUR, async () => {
+        const { data } = await github(`${repo}/releases?per_page=${count + 1}`);
+        return data
+          .filter((release) => !release.draft)
+          .slice(0, count)
+          .map((release) => ({
+            tag: release.tag_name,
+            name: release.name,
+            date: release.published_at,
+            prerelease: release.prerelease,
+            url: release.html_url,
+          }));
+      }),
+    [repo, count],
+  );
 }

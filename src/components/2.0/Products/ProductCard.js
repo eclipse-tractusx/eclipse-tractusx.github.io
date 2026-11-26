@@ -27,21 +27,84 @@ import SmartToyIcon from '@mui/icons-material/SmartToyOutlined';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForwardRounded';
 import NewIcon from '@mui/icons-material/AutoAwesomeRounded';
 import DownloadIcon from '@mui/icons-material/DownloadRounded';
-import { CATEGORY_ICONS, KIND_ICONS, getDetailUrl, getKind, getKinds, getMaturity } from './productMeta';
+import TrendingDownIcon from '@mui/icons-material/TrendingDownRounded';
+import ActiveIcon from '@mui/icons-material/CheckCircleRounded';
+import StaleIcon from '@mui/icons-material/HourglassBottomRounded';
+import DeprecatedIcon from '@mui/icons-material/BlockRounded';
+import {
+  CATEGORY_ICONS,
+  KIND_ICONS,
+  getActivity,
+  getDetailUrl,
+  getKind,
+  getKinds,
+  getMaturity,
+  isDeprecated,
+  timeAgo,
+} from './productMeta';
 import styles from './styles.module.scss';
 
 const MAX_AVATARS = 3;
 
-/** Maturity label. Cards show it only when a product is not "mature". */
+const MATURITY_STEPS = { incubating: 1, mature: 2, productive: 3 };
+
+/** Maturity as a small three-step meter (phase-out: a falling arrow). */
+export function MaturityMeter({ maturity, className }) {
+  if (maturity === 'phase-out') {
+    return <TrendingDownIcon className={clsx(styles.maturityIcon, className)} aria-hidden="true" />;
+  }
+  const steps = MATURITY_STEPS[maturity] || 0;
+  return (
+    <span className={clsx(styles.meter, className)} aria-hidden="true">
+      {[1, 2, 3].map((step) => (
+        <span key={step} className={clsx(styles.meterBar, step <= steps && styles.meterOn)} />
+      ))}
+    </span>
+  );
+}
+
+/** How far a product has come (set in the product data). Neutral, so it never reads as a status. */
 export function MaturityBadge({ maturity, onDark = false, className }) {
   const level = getMaturity(maturity);
+  if (!level) return null;
   return (
     <span
-      className={clsx(styles.status, styles[`status_${maturity}`], onDark && styles.statusOnDark, className)}
-      title={level?.description}
+      className={clsx(styles.maturity, onDark && styles.maturityOnDark, className)}
+      title={`Maturity: ${level.description}`}
     >
-      <span className={styles.statusDot} aria-hidden="true" />
-      {level?.label || maturity}
+      <MaturityMeter maturity={maturity} />
+      {level.label}
+    </span>
+  );
+}
+
+export const ACTIVITY_ICONS = { active: ActiveIcon, stale: StaleIcon, deprecated: DeprecatedIcon };
+
+/** What a product's page shows before GitHub has answered. */
+export const fallbackActivity = (product) => (isDeprecated(product) ? { id: 'deprecated' } : null);
+
+/**
+ * Active, stale or deprecated, worked out from GitHub (see activityOf in productMeta).
+ * With `withAge`, also how long ago a person last committed.
+ */
+export function ActivityBadge({ activity, onDark = false, withAge = false, className }) {
+  const level = activity && getActivity(activity.id);
+  if (!level) return null;
+  const Icon = ACTIVITY_ICONS[activity.id];
+  const when = activity.lastCommit?.date ? timeAgo(activity.lastCommit.date) : null;
+  return (
+    <span
+      className={clsx(
+        styles.activity,
+        styles[`activity_${activity.id}`],
+        onDark && styles.activityOnDark,
+        className,
+      )}
+      title={`${level.description}${when ? ` Last commit by a person: ${when}.` : ''}`}
+    >
+      <Icon className={styles.activityIcon} aria-hidden="true" />
+      {level.label}
+      {withAge && when && <span className={styles.activityAge}>last commit {when}</span>}
     </span>
   );
 }
@@ -109,7 +172,8 @@ export function AvatarStack({ committers }) {
   );
 }
 
-export default function ProductCard({ product, showKind = true }) {
+export default function ProductCard({ product, activity, showKind = true }) {
+  const status = activity || fallbackActivity(product);
   const repoCount = product.repositories.length;
   const agentNames = product.agents.map((agent) => agent.name).join(', ');
   const detailUrl = getDetailUrl(product);
@@ -119,7 +183,7 @@ export default function ProductCard({ product, showKind = true }) {
       className={clsx(
         styles.card,
         product.isNew && styles.cardNew,
-        product.maturity === 'deprecated' && styles.cardDeprecated,
+        status?.id === 'deprecated' && styles.cardDeprecated,
       )}
     >
       {product.isNew && <NewBadge className={styles.cardNewBadge} />}
@@ -155,7 +219,8 @@ export default function ProductCard({ product, showKind = true }) {
               .map((kindId) => (
                 <KindLabel key={kindId} kind={kindId} />
               ))}
-            {product.maturity !== 'mature' && <MaturityBadge maturity={product.maturity} />}
+            <MaturityBadge maturity={product.maturity} />
+            <ActivityBadge activity={status} />
           </div>
           <p className={styles.cardDescription}>{product.description}</p>
           <div className={styles.cardMetaRow}>

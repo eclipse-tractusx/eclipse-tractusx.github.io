@@ -17,7 +17,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import LocalOfferIcon from '@mui/icons-material/LocalOfferOutlined';
 import OpenInNewIcon from '@mui/icons-material/OpenInNewRounded';
@@ -27,6 +27,7 @@ import SailingIcon from '@mui/icons-material/SailingOutlined';
 import ViewInArIcon from '@mui/icons-material/ViewInArOutlined';
 import Inventory2Icon from '@mui/icons-material/Inventory2Outlined';
 import DownloadIcon from '@mui/icons-material/DownloadRounded';
+import { resetTime, useReleases } from './liveData';
 import styles from './detail.module.scss';
 
 const ORG = 'eclipse-tractusx';
@@ -45,54 +46,6 @@ const formatDate = (iso) =>
     month: 'short',
     year: 'numeric',
   });
-
-/**
- * Latest releases of a repository, read live from the GitHub API (no token, so the
- * public rate limit applies). Results are cached for the browser session.
- */
-function useReleases(repo) {
-  const [state, setState] = useState({ status: 'loading', releases: [] });
-
-  useEffect(() => {
-    let cancelled = false;
-    const key = `tx-releases:${repo}`;
-    const cached = window.sessionStorage.getItem(key);
-    if (cached) {
-      setState({ status: 'ready', releases: JSON.parse(cached) });
-      return undefined;
-    }
-    setState({ status: 'loading', releases: [] });
-    fetch(`https://api.github.com/repos/${ORG}/${repo}/releases?per_page=${SHOWN + 1}`, {
-      headers: { Accept: 'application/vnd.github+json' },
-    })
-      .then((response) => {
-        if (!response.ok) throw new Error(String(response.status));
-        return response.json();
-      })
-      .then((data) => {
-        const releases = data
-          .filter((release) => !release.draft)
-          .slice(0, SHOWN)
-          .map((release) => ({
-            tag: release.tag_name,
-            name: release.name,
-            date: release.published_at,
-            prerelease: release.prerelease,
-            url: release.html_url,
-          }));
-        window.sessionStorage.setItem(key, JSON.stringify(releases));
-        if (!cancelled) setState({ status: 'ready', releases });
-      })
-      .catch(() => {
-        if (!cancelled) setState({ status: 'error', releases: [] });
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [repo]);
-
-  return state;
-}
 
 function CopyButton({ text }) {
   const [copied, setCopied] = useState(false);
@@ -166,7 +119,8 @@ export function Downloads({ downloads = [], repositories }) {
 
 export default function Releases({ repositories }) {
   const [repo, setRepo] = useState(repositories[0]);
-  const { status, releases } = useReleases(repo);
+  const { status, data, resetAt } = useReleases(repo, SHOWN);
+  const releases = data || [];
   const repoUrl = `https://github.com/${ORG}/${repo}`;
 
   return (
@@ -196,9 +150,13 @@ export default function Releases({ repositories }) {
         </ul>
       )}
 
-      {status === 'error' && (
+      {(status === 'error' || status === 'limited') && (
         <p className={styles.muted}>
-          The releases could not be loaded from GitHub right now.{' '}
+          {status === 'limited'
+            ? `GitHub's limit for visitors without sign-in is used up until ${resetTime(
+                resetAt,
+              )}; the releases load by themselves then.`
+            : 'The releases could not be loaded from GitHub right now.'}{' '}
           <a href={`${repoUrl}/releases`} target="_blank" rel="noopener noreferrer">
             Open them on GitHub
           </a>

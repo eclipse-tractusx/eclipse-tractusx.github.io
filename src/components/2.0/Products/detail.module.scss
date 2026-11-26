@@ -1713,16 +1713,15 @@ $radius-control: 4px;
   }
 }
 
-.health_quiet {
-  border-left-color: #c98a00;
+.health_stale {
+  border-left-color: #b07800;
 
   .healthIcon {
-    color: #c98a00;
+    color: #b07800;
   }
 }
 
-.health_dormant,
-.health_archived {
+.health_deprecated {
   border-left-color: #b3261e;
 
   .healthIcon {
@@ -1739,8 +1738,15 @@ $radius-control: 4px;
     }
   }
 
-  .health_dormant,
-  .health_archived {
+  .health_stale {
+    border-left-color: #e8b04a;
+
+    .healthIcon {
+      color: #e8b04a;
+    }
+  }
+
+  .health_deprecated {
     border-left-color: #f08a80;
 
     .healthIcon {

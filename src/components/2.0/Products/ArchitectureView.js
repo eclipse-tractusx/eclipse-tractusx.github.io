@@ -25,7 +25,7 @@ import SmartToyIcon from '@mui/icons-material/SmartToyOutlined';
 import FavoriteIcon from '@mui/icons-material/FavoriteRounded';
 import MenuBookIcon from '@mui/icons-material/MenuBookOutlined';
 import { getProductsByCategory } from '@site/data/productsData';
-import { CATEGORY_ICONS, getCategory, getDetailUrl } from './productMeta';
+import { CATEGORY_ICONS, getCategory, getDetailUrl, isDeprecated } from './productMeta';
 import styles from './architecture.module.scss';
 
 const STANDARDS = ['Catena-X and other -X initiatives', 'Eclipse Dataspace Working Group', 'IDSA', 'IDTA'];
@@ -40,7 +40,7 @@ function Chips({ items, highlight }) {
             className={clsx(
               styles.chip,
               (product.maturity === 'phase-out' || product.maturity === 'incubating') && styles.chipMuted,
-              product.maturity === 'deprecated' && styles.chipDeprecated,
+              isDeprecated(product) && styles.chipDeprecated,
               highlight && (highlight.has(product.id) ? styles.chipOn : styles.chipOff),
             )}
             to={getDetailUrl(product)}

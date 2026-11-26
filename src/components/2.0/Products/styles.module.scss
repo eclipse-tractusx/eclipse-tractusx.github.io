@@ -649,30 +649,33 @@ $card-min: 330px;
   color: var(--ifm-color-emphasis-600);
 }
 
-.filterDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+// Status colours for the filter icons (same as the activity badges).
+.filterChipIcon_active {
+  color: #3f8f2f !important;
+
+  [data-theme='dark'] & {
+    color: #7cc46a !important;
+  }
 }
 
-.dot_mature {
-  background: $brand-green;
+.filterChipIcon_stale {
+  color: #b07800 !important;
+
+  [data-theme='dark'] & {
+    color: #e8b04a !important;
+  }
 }
 
-.dot_growing {
-  box-shadow: inset 0 0 0 1.5px $brand-green;
+.filterChipIcon_deprecated {
+  color: #b3261e !important;
+
+  [data-theme='dark'] & {
+    color: #f08a80 !important;
+  }
 }
 
-.dot_incubating {
-  background: #6f8fe8;
-}
-
-.dot_phase-out {
-  background: $brand-orange;
-}
-
-.dot_deprecated {
-  background: #e05a52;
+.filterChipIcon_maturity {
+  color: var(--ifm-color-emphasis-800) !important;
 }
 
 .maturityHelp {
@@ -699,6 +702,12 @@ $card-min: 330px;
 
 .maturityHelpIcon {
   font-size: 16px !important;
+}
+
+.maturityIntro {
+  max-width: 760px;
+  margin: 12px 0 0;
+  line-height: 1.55;
 }
 
 .maturityList {
@@ -1101,86 +1110,136 @@ $card-min: 330px;
    Maturity badge (shared with the detail page)
    -------------------------------------------------------------------------- */
 
-.status {
+/* Maturity (set in the product data): neutral, with a three-step meter */
+.maturity {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   flex-shrink: 0;
   padding: 2px 7px;
   border-radius: $radius-control;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-800);
   font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.06em;
+  line-height: 1.5;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.statusDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+.maturityOnDark {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.meter {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 1.5px;
+  height: 10px;
+}
+
+.meterBar {
+  width: 3px;
+  border-radius: 1px;
   background: currentColor;
-}
+  opacity: 0.25;
 
-.status_mature,
-.status_growing {
-  background: rgba(175, 199, 45, 0.18);
-  color: #5f7000;
+  &:nth-child(1) {
+    height: 4px;
+  }
 
-  [data-theme='dark'] & {
-    color: $brand-green;
+  &:nth-child(2) {
+    height: 7px;
+  }
+
+  &:nth-child(3) {
+    height: 10px;
   }
 }
 
-.status_growing .statusDot {
-  background: transparent;
-  box-shadow: inset 0 0 0 1.5px currentColor;
+.meterOn {
+  opacity: 1;
 }
 
-.status_incubating {
-  background: rgba(90, 130, 230, 0.14);
-  color: #3a5bb8;
+.maturityIcon {
+  font-size: 13px !important;
+}
+
+/* Activity (worked out from GitHub): status colours, always with an icon and a label */
+.activity {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 2px 7px 2px 5px;
+  border-radius: $radius-control;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.activityIcon {
+  font-size: 13px !important;
+}
+
+.activityAge {
+  margin-left: 2px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  opacity: 0.85;
+}
+
+.activity_active {
+  background: rgba(63, 143, 47, 0.12);
+  color: #2f7a22;
 
   [data-theme='dark'] & {
-    color: #9fb6ff;
+    background: rgba(124, 196, 106, 0.14);
+    color: #8fd27d;
   }
 }
 
-.status_phase-out {
-  background: rgba(250, 160, 35, 0.16);
-  color: #b06f05;
+.activity_stale {
+  background: rgba(201, 138, 0, 0.14);
+  color: #8a5d00;
 
   [data-theme='dark'] & {
-    color: $brand-orange;
+    background: rgba(232, 176, 74, 0.14);
+    color: #e8b04a;
   }
 }
 
-.status_deprecated {
-  background: rgba(220, 60, 60, 0.14);
+.activity_deprecated {
+  background: rgba(220, 60, 60, 0.12);
   color: #b3261e;
 
   [data-theme='dark'] & {
+    background: rgba(240, 138, 128, 0.14);
     color: #ff8a80;
   }
 }
 
 // Bright tones for badges on the dark headers.
-.statusOnDark {
-  &.status_mature,
-  &.status_growing {
-    color: $brand-green;
+.activityOnDark {
+  &.activity_active {
+    background: rgba(124, 196, 106, 0.16);
+    color: #9be08a;
   }
 
-  &.status_incubating {
-    color: #9fb6ff;
+  &.activity_stale {
+    background: rgba(232, 176, 74, 0.16);
+    color: #f0bf63;
   }
 
-  &.status_phase-out {
-    color: $brand-orange;
-  }
-
-  &.status_deprecated {
-    color: #ff8a80;
+  &.activity_deprecated {
+    background: rgba(255, 138, 128, 0.16);
+    color: #ff9a90;
   }
 }
 

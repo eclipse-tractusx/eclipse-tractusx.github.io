@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "prestart": "node utils/generateProductStats.js --max-age-hours=12",
     "start": "npm run pre-build:kit-master-data && npm run pre-render:kit-logos && docusaurus start",
     "build": "npm run pre-build:kit-master-data && npm run pre-render:kit-logos && docusaurus build",
     "swizzle": "docusaurus swizzle",

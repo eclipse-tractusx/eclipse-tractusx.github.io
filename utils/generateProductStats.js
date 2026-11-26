@@ -26,13 +26,17 @@
  *
  *   { generatedAt,
  *     committers: [{ github, name, lead }],          Eclipse Tractus-X committers and leads
- *     repos: { "<repo>": { stats: {...}, contributors: [{ login, contributions }] } } }
+ *     repos: { "<repo>": { stats: {..., lastCommit: { date, login } }, contributors: [{ login, contributions }] } } }
  *
  * The repositories are those listed under `repositories` in data/productsData.js. The
  * deploy workflow runs it with GITHUB_TOKEN before every build and once a day. Without a
  * token it does nothing, and the pages read the APIs in the browser instead.
  *
- * Usage: GITHUB_TOKEN=... node utils/generateProductStats.js
+ * Usage: GITHUB_TOKEN=... node utils/generateProductStats.js [--max-age-hours=<n>]
+ *
+ * `npm start` runs it with --max-age-hours=12: with a token set (GITHUB_TOKEN=$(gh auth token)
+ * npm start), the local preview gets all numbers from the file too, collected again when the
+ * file is older than 12 hours.
  */
 
 const fs = require('fs');
@@ -130,10 +134,22 @@ async function commitActivity(repo) {
   return null;
 }
 
+// Only commits by people count as activity: bots keep sending dependency updates to
+// unmaintained repositories, and GitHub's "pushed at" moves with every branch they push.
+const isBotCommit = (commit) =>
+  (commit.author && isBot(commit.author)) || /\[bot\]|dependabot|renovate/i.test(commit.commit.author.name);
+
+/** The newest commit by a person on the main branch: { date, login }, or null. */
+async function lastCommit(repo) {
+  const { data } = await github(`${repo}/commits?per_page=100`);
+  const commit = (data || []).find((entry) => !isBotCommit(entry));
+  return commit ? { date: commit.commit.committer.date, login: commit.author?.login || null } : null;
+}
+
 async function repository(repo) {
   const { data: info } = await github(repo);
   if (!info) return null;
-  const [pulls, activity, releases, contributors] = await Promise.all([
+  const [pulls, activity, releases, contributors, last] = await Promise.all([
     githubAll(`${repo}/pulls?state=open`).then((list) => list.length),
     commitActivity(repo),
     githubAll(`${repo}/releases`).then((list) =>
@@ -146,6 +162,7 @@ async function repository(repo) {
         .filter((user) => user.login && !isBot(user))
         .map((user) => ({ login: user.login, contributions: user.contributions })),
     ),
+    lastCommit(repo),
   ]);
   return {
     stats: {
@@ -156,6 +173,7 @@ async function repository(repo) {
       openIssues: Math.max(0, info.open_issues_count - pulls),
       openPulls: pulls,
       pushedAt: info.pushed_at,
+      lastCommit: last,
       createdAt: info.created_at,
       language: info.language,
       license: info.license?.spdx_id || null,
@@ -170,9 +188,19 @@ async function repository(repo) {
 async function main() {
   if (!token) {
     console.log(
-      'generateProductStats: no GITHUB_TOKEN, skipped (the product pages read the APIs in the browser).',
+      'generateProductStats: no GITHUB_TOKEN, skipped (the product pages read the APIs in the browser; with GITHUB_TOKEN=$(gh auth token) they read one file).',
     );
     return;
+  }
+  const maxAge = Number((process.argv.find((arg) => arg.startsWith('--max-age-hours=')) || '').split('=')[1]);
+  if (maxAge && fs.existsSync(OUT)) {
+    const hours = (Date.now() - fs.statSync(OUT).mtimeMs) / 3600000;
+    if (hours < maxAge) {
+      console.log(
+        `generateProductStats: ${path.relative(process.cwd(), OUT)} is ${hours.toFixed(1)} hours old, kept.`,
+      );
+      return;
+    }
   }
   const repos = productRepositories();
   console.log(`generateProductStats: ${repos.length} repositories`);

@@ -64,6 +64,9 @@ function MeetingCard({ meeting, general }) {
         </span>
       </p>
       {meeting.contact && <p className={styles.meetingHost}>Host: {contactNames(meeting.contact)}</p>}
+      {!meeting.sessionLink && (
+        <p className={styles.meetingHost}>By invitation: ask the host in the chat to join.</p>
+      )}
       <div className={styles.agentActions}>
         {meeting.sessionLink && (
           <a

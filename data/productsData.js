@@ -31,7 +31,9 @@
  *   relevance: string[] (tags for color coding),
  *   kind: 'operating-service' | 'participant-component' | 'application' | 'library' | 'tooling' | 'demonstrator' | 'documentation'
  *         or a list of them, the first one first (what the product is; see productKinds),
- *   maturity: 'mature' | 'growing' | 'incubating' | 'phase-out' | 'deprecated' (see maturityLevels),
+ *   maturity: 'productive' | 'mature' | 'incubating' | 'phase-out' (see maturityLevels; left out for
+ *           deprecated products). Whether a product is active or stale is not set here: the pages
+ *           work it out from the last commit on GitHub (see src/components/2.0/Products/productMeta.js),
  *   repositories: { name: string, url: string }[],
  *   contacts: { name: string, role: string, github: string }[],
  *   committers: { github: string, name?: string }[] (Eclipse Tractus-X committers behind the repositories;
@@ -46,7 +48,7 @@
  *   isNew: true (recently added to the portfolio; shows a "New" badge and sorts first in its
  *           group. Remove it once the product has been part of a release or two),
  *   logo: string (path under /static or URL; square works best, shown on the card and the detail page),
- *   deprecation: { ticket: string, reason: string, alternative?: string } (when maturity is 'deprecated'),
+ *   deprecation: { ticket: string, reason: string, alternative?: string } (marks the product as deprecated),
  *   documentation: string (URL of the product documentation),
  *   screenshots: { src: string, alt: string, caption?: string }[],
  *   videos: { title: string, youtube?: string (video id), src?: string (mp4 URL) }[],
@@ -203,14 +205,14 @@ const productKinds = [
 // filter of the product list and the detail page.
 const maturityLevels = [
   {
-    id: 'mature',
-    label: 'Mature',
+    id: 'productive',
+    label: 'Productive',
     description: 'Part of the Eclipse Tractus-X release, runs in productive dataspaces and has an active team of maintainers.',
   },
   {
-    id: 'growing',
-    label: 'Growing',
-    description: 'Released and maintained. Features and adoption are still growing, so expect changes between releases.',
+    id: 'mature',
+    label: 'Mature',
+    description: 'Released, maintained and ready to build on. Not yet proven in productive dataspaces, so expect changes between releases.',
   },
   {
     id: 'incubating',
@@ -221,11 +223,6 @@ const maturityLevels = [
     id: 'phase-out',
     label: 'Phase-out',
     description: 'Still available, but being replaced or reduced. Plan the move to its successor.',
-  },
-  {
-    id: 'deprecated',
-    label: 'Deprecated',
-    description: 'Not maintained and proposed for archiving under TRG 7.09. No more security fixes; existing Helm charts and container images stay available.',
   },
 ];
 
@@ -352,7 +349,7 @@ const products = [
     category: 'use-cases',
     relevance: ['dataspace-participants'],
     kind: 'application',
-    maturity: 'mature',
+    maturity: 'productive',
     logo: '/img/products/puris-mark.svg',
     repositories: [
       { name: 'puris', url: 'https://github.com/eclipse-tractusx/puris' },
@@ -374,7 +371,6 @@ const products = [
     category: 'use-cases',
     relevance: ['dataspace-participants'],
     kind: 'application',
-    maturity: 'deprecated',
     deprecation: deprecation('traceability-foss'),
     logo: '/img/products/trace-x-mark.svg',
     repositories: [
@@ -401,7 +397,6 @@ const products = [
     category: 'use-cases',
     relevance: ['dataspace-participants'],
     kind: 'participant-component',
-    maturity: 'deprecated',
     deprecation: deprecation('knowledge-agents'),
     repositories: [
       { name: 'knowledge-agents', url: 'https://github.com/eclipse-tractusx/knowledge-agents' },
@@ -422,8 +417,8 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     kind: 'participant-component',
-    maturity: 'mature',
-    meetings: ['edc-weekly'],
+    maturity: 'productive',
+    meetings: ['edc-contributor-weekly'],
     repositories: [
       { name: 'tractusx-edc', url: 'https://github.com/eclipse-tractusx/tractusx-edc' },
       { name: 'tractusx-edc-dashboard', url: 'https://github.com/eclipse-tractusx/tractusx-edc-dashboard' },
@@ -450,7 +445,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['development-testing'],
     kind: 'operating-service',
-    maturity: 'growing',
+    maturity: 'mature',
     meetings: ['identity-hub-weekly'],
     repositories: [
       { name: 'tractusx-identityhub', url: 'https://github.com/eclipse-tractusx/tractusx-identityhub' },
@@ -475,7 +470,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['development-testing'],
     kind: 'participant-component',
-    maturity: 'growing',
+    maturity: 'mature',
     meetings: ['identity-hub-weekly'],
     repositories: [
       { name: 'tractusx-identityhub', url: 'https://github.com/eclipse-tractusx/tractusx-identityhub' },
@@ -500,7 +495,6 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     kind: 'operating-service',
-    maturity: 'deprecated',
     deprecation: deprecation('sd-factory'),
     repositories: [
       { name: 'sd-factory', url: 'https://github.com/eclipse-tractusx/sd-factory' },
@@ -520,7 +514,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     kind: 'participant-component',
-    maturity: 'mature',
+    maturity: 'productive',
     repositories: [
       { name: 'sldt-digital-twin-registry', url: 'https://github.com/eclipse-tractusx/sldt-digital-twin-registry' },
     ],
@@ -573,7 +567,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     kind: 'operating-service',
-    maturity: 'mature',
+    maturity: 'productive',
     meetings: ['bpdm-open-meeting'],
     repositories: [
       { name: 'bpdm', url: 'https://github.com/eclipse-tractusx/bpdm' },
@@ -594,7 +588,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     kind: 'operating-service',
-    maturity: 'mature',
+    maturity: 'productive',
     repositories: [
       { name: 'bpn-did-resolution-service', url: 'https://github.com/eclipse-tractusx/bpn-did-resolution-service' },
     ],
@@ -618,7 +612,7 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     kind: 'operating-service',
-    maturity: 'mature',
+    maturity: 'productive',
     repositories: [
       { name: 'sldt-bpn-discovery', url: 'https://github.com/eclipse-tractusx/sldt-bpn-discovery' },
     ],
@@ -637,7 +631,6 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['catena-x-operative'],
     kind: 'operating-service',
-    maturity: 'deprecated',
     deprecation: deprecation('sldt-discovery-finder'),
     repositories: [
       { name: 'sldt-discovery-finder', url: 'https://github.com/eclipse-tractusx/sldt-discovery-finder' },
@@ -657,7 +650,6 @@ const products = [
     category: 'dataspace-foundation',
     relevance: ['dataspace-participants'],
     kind: 'participant-component',
-    maturity: 'deprecated',
     deprecation: deprecation('aas-suite'),
     repositories: [
       { name: 'aas-suite', url: 'https://github.com/eclipse-tractusx/aas-suite' },
@@ -679,7 +671,7 @@ const products = [
     category: 'industry-core-foundation',
     relevance: ['catena-x-operative', 'dataspace-participants'],
     kind: 'application',
-    maturity: 'growing',
+    maturity: 'mature',
     meetings: ['industry-core-hub-weekly'],
     logo: '/img/products/industry-core-hub.png',
     repositories: [
@@ -702,7 +694,6 @@ const products = [
     category: 'industry-core-foundation',
     relevance: ['catena-x-demo'],
     kind: 'application',
-    maturity: 'deprecated',
     deprecation: deprecation('managed-simple-data-exchanger-backend'),
     repositories: [
       { name: 'managed-simple-data-exchanger-backend', url: 'https://github.com/eclipse-tractusx/managed-simple-data-exchanger-backend' },
@@ -723,7 +714,7 @@ const products = [
     category: 'industry-core-foundation',
     relevance: ['dataspace-participants'],
     kind: 'participant-component',
-    maturity: 'mature',
+    maturity: 'productive',
     logo: '/img/products/irs.png',
     repositories: [
       { name: 'item-relationship-service', url: 'https://github.com/eclipse-tractusx/item-relationship-service' },
@@ -744,7 +735,6 @@ const products = [
     category: 'industry-core-foundation',
     relevance: ['catena-x-operative'],
     kind: 'operating-service',
-    maturity: 'deprecated',
     deprecation: deprecation('sldt-semantic-hub'),
     repositories: [
       { name: 'sldt-semantic-hub', url: 'https://github.com/eclipse-tractusx/sldt-semantic-hub' },
@@ -766,7 +756,7 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['development-testing'],
     kind: 'tooling',
-    maturity: 'mature',
+    maturity: 'productive',
     meetings: ['umbrella-helm-chart-sync'],
     repositories: [
       { name: 'tractus-x-umbrella', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella' },
@@ -791,7 +781,7 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['catena-x-demo'],
     kind: 'demonstrator',
-    maturity: 'mature',
+    maturity: 'productive',
     repositories: [
       { name: 'ssi-dim-wallet-stub', url: 'https://github.com/eclipse-tractusx/ssi-dim-wallet-stub' },
     ],
@@ -813,7 +803,7 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['development-testing'],
     kind: 'library',
-    maturity: 'growing',
+    maturity: 'productive',
     meetings: ['industry-core-hub-weekly'],
     repositories: [
       { name: 'tractusx-sdk', url: 'https://github.com/eclipse-tractusx/tractusx-sdk' },
@@ -875,7 +865,6 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['catena-x-demo'],
     kind: 'demonstrator',
-    maturity: 'deprecated',
     meetings: ['industry-core-hub-weekly'],
     deprecation: deprecation('tractusx-sdk-services'),
     repositories: [
@@ -897,7 +886,7 @@ const products = [
     category: 'qa-testing-tools',
     relevance: ['development-testing', 'dataspace-participants'],
     kind: 'documentation',
-    maturity: 'mature',
+    maturity: 'productive',
     repositories: [
       { name: 'eclipse-tractusx.github.io', url: 'https://github.com/eclipse-tractusx/eclipse-tractusx.github.io' },
     ],

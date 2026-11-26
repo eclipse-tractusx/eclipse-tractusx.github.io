@@ -41,22 +41,31 @@ import PolicyIcon from '@mui/icons-material/PolicyOutlined';
 import ReportIcon from '@mui/icons-material/ReportGmailerrorredOutlined';
 import WarningIcon from '@mui/icons-material/WarningAmberRounded';
 import { getProductById, getProductsByCategory, relevanceTypes } from '@site/data/productsData';
-import { KindLabel, MaturityBadge, NewBadge, ProductMark } from './ProductCard';
+import {
+  ActivityBadge,
+  KindLabel,
+  MaturityBadge,
+  NewBadge,
+  ProductMark,
+  fallbackActivity,
+} from './ProductCard';
 import RepoTree, { buildRepoGroups } from './RepoTree';
 import Releases, { Downloads } from './Releases';
 import MediaGallery, { Lightbox } from './MediaGallery';
 import Contributors from './Contributors';
 import OfficeHours from './OfficeHours';
 import Statistics from './Statistics';
-import { useProductPeople } from './liveData';
+import { resetTime, useProductActivity, useProductPeople } from './liveData';
 import BackButton from './BackButton';
 import {
   HERO_BACKGROUNDS,
   getCategory,
   getDetailUrl,
   getKinds,
+  getActivity,
   getMaturity,
   routeExists,
+  timeAgo,
 } from './productMeta';
 import styles from './detail.module.scss';
 
@@ -267,9 +276,13 @@ function PeopleTab({ product, people }) {
         title="Contributors"
         count={people.status === 'ready' ? people.contributors.length : undefined}
       >
-        {people.status === 'error' ? (
+        {people.status === 'error' || people.status === 'limited' ? (
           <p className={styles.muted}>
-            GitHub did not answer (it allows a limited number of requests per hour without sign-in).{' '}
+            {people.status === 'limited'
+              ? `GitHub's limit for visitors without sign-in is used up until ${resetTime(
+                  people.resetAt,
+                )}; the contributors load by themselves then.`
+              : 'GitHub did not answer.'}{' '}
             {graphUrl && (
               <a href={graphUrl} target="_blank" rel="noopener noreferrer">
                 See the contributors on GitHub
@@ -295,6 +308,8 @@ export default function ProductDetail({ product, loading = false }) {
   const closeLogo = useCallback(() => setLogoOpen(false), []);
   const heroBackground = useBaseUrl(HERO_BACKGROUNDS.detail);
   const people = useProductPeople(product?.repositories, product?.committers);
+  const activityMap = useProductActivity(product ? [product] : []);
+  const activity = product ? activityMap.get(product.id) || fallbackActivity(product) : null;
 
   const hasMedia = Boolean(product?.screenshots?.length || product?.videos?.length);
   const tabs = product
@@ -391,6 +406,7 @@ export default function ProductDetail({ product, loading = false }) {
                 <h1 className={styles.heroTitle}>{product.name}</h1>
                 {product.isNew && <NewBadge />}
                 <MaturityBadge maturity={product.maturity} onDark />
+                <ActivityBadge activity={activity} onDark withAge />
               </div>
               {product.subtitle && <p className={styles.heroSubtitle}>{product.subtitle}</p>}
               <div className={styles.heroKinds}>
@@ -460,9 +476,7 @@ export default function ProductDetail({ product, loading = false }) {
         <div className={styles.container}>
           <div className={styles.layout}>
             <div className={styles.main} role="tabpanel" id={`panel-${tab}`} aria-labelledby={`tab-${tab}`}>
-              {product.maturity === 'deprecated' && product.deprecation && (
-                <DeprecationNotice product={product} />
-              )}
+              {product.deprecation && <DeprecationNotice product={product} />}
 
               {tab === 'overview' && (
                 <>
@@ -495,7 +509,7 @@ export default function ProductDetail({ product, loading = false }) {
               {tab === 'security' && primaryRepo && <SecurityTab product={product} repo={primaryRepo.url} />}
 
               {tab === 'people' && <PeopleTab product={product} people={people} />}
-              {tab === 'statistics' && <Statistics product={product} people={people} />}
+              {tab === 'statistics' && <Statistics product={product} people={people} activity={activity} />}
             </div>
 
             <aside className={styles.aside}>
@@ -519,11 +533,37 @@ export default function ProductDetail({ product, loading = false }) {
                       ))}
                     </dd>
                   </div>
+                  {product.maturity && (
+                    <div className={styles.factBlock}>
+                      <dt>Maturity</dt>
+                      <dd>
+                        <MaturityBadge maturity={product.maturity} />
+                        <span className={styles.factNote}>{getMaturity(product.maturity)?.description}</span>
+                      </dd>
+                    </div>
+                  )}
                   <div className={styles.factBlock}>
-                    <dt>Maturity</dt>
+                    <dt>Activity</dt>
                     <dd>
-                      <MaturityBadge maturity={product.maturity} />
-                      <span className={styles.factNote}>{getMaturity(product.maturity)?.description}</span>
+                      {activity ? (
+                        <>
+                          <ActivityBadge activity={activity} />
+                          <span className={styles.factNote}>
+                            {activity.lastCommit?.date
+                              ? `Last commit by a person ${timeAgo(activity.lastCommit.date)}${
+                                  activity.lastCommit.login ? ` (${activity.lastCommit.login})` : ''
+                                }. `
+                              : ''}
+                            {getActivity(activity.id)?.description}
+                          </span>
+                        </>
+                      ) : (
+                        <span className={styles.factNote}>
+                          {activityMap.retryAt
+                            ? `GitHub's limit for visitors is used up until ${resetTime(activityMap.retryAt)}; filled in then.`
+                            : 'Asking GitHub…'}
+                        </span>
+                      )}
                     </dd>
                   </div>
                   <div className={styles.fact}>

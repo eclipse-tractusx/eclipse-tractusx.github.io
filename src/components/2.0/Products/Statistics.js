@@ -23,25 +23,14 @@ import TimelineIcon from '@mui/icons-material/TimelineRounded';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEventsOutlined';
 import BuildIcon from '@mui/icons-material/BuildOutlined';
 import FolderIcon from '@mui/icons-material/FolderOutlined';
-import CheckCircleIcon from '@mui/icons-material/CheckCircleRounded';
-import ScheduleIcon from '@mui/icons-material/ScheduleRounded';
-import BedtimeIcon from '@mui/icons-material/BedtimeOutlined';
-import ArchiveIcon from '@mui/icons-material/ArchiveOutlined';
-import { useRepoStats } from './liveData';
+import { resetTime, useRepoStats } from './liveData';
+import { ACTIVITY_ICONS } from './ProductCard';
+import { STALE_AFTER_DAYS, getActivity, timeAgo } from './productMeta';
 import styles from './detail.module.scss';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const TOP = 10;
 
-const daysSince = (iso) => Math.floor((Date.now() - new Date(iso).getTime()) / DAY_MS);
-const ago = (iso) => {
-  const days = daysSince(iso);
-  if (days <= 0) return 'today';
-  if (days === 1) return 'yesterday';
-  if (days < 45) return `${days} days ago`;
-  if (days < 548) return `${Math.round(days / 30.4)} months ago`;
-  return `${(days / 365).toFixed(1)} years ago`;
-};
 const shortDate = (iso) =>
   new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 const number = (value) => new Intl.NumberFormat('en-GB').format(value);
@@ -55,24 +44,30 @@ function weeklyCommits(stats) {
   return [...byWeek.entries()].sort((a, b) => a[0] - b[0]).map(([week, total]) => ({ week, total }));
 }
 
-function maintenance(stats, weeks) {
-  if (stats.every((repo) => repo.archived)) {
-    return { tone: 'archived', icon: ArchiveIcon, label: 'Archived', text: 'All repositories are archived.' };
-  }
-  const lastPush = Math.min(...stats.map((repo) => daysSince(repo.pushedAt)));
+/** The activity signal: the same rule as the badges (see activityOf in productMeta), explained. */
+function signal(activity, weeks) {
+  const level = getActivity(activity.id);
   const recent = weeks.slice(-4).reduce((sum, week) => sum + week.total, 0);
-  if (recent > 0 || lastPush <= 30) {
-    return {
-      tone: 'active',
-      icon: CheckCircleIcon,
-      label: 'Actively maintained',
-      text: recent > 0 ? `${recent} commits in the last four weeks.` : 'Changes in the last 30 days.',
-    };
-  }
-  if (lastPush <= 180) {
-    return { tone: 'quiet', icon: ScheduleIcon, label: 'Quiet', text: 'No commits in the last month.' };
-  }
-  return { tone: 'dormant', icon: BedtimeIcon, label: 'Dormant', text: 'No commits in the last six months.' };
+  const last = activity.lastCommit?.date
+    ? `Last commit by a person ${timeAgo(activity.lastCommit.date)}${
+        activity.lastCommit.login ? ` (${activity.lastCommit.login})` : ''
+      }.`
+    : '';
+  const texts = {
+    active: weeks.length ? `${last} ${recent} commits in the last four weeks.` : last,
+    stale: `${last || 'No commit by a person among the latest commits.'} Stale after ${Math.round(
+      STALE_AFTER_DAYS / 30,
+    )} months without one; bot updates do not count.`,
+    deprecated: activity.archived
+      ? 'All repositories are archived.'
+      : `Proposed for archiving under TRG 7.09; no more security fixes. ${last}`,
+  };
+  return {
+    tone: activity.id,
+    icon: ACTIVITY_ICONS[activity.id],
+    label: level.label,
+    text: texts[activity.id],
+  };
 }
 
 function releaseFacts(releases) {
@@ -246,28 +241,32 @@ function Block({ icon: Icon, title, note, children }) {
   );
 }
 
-export default function Statistics({ product, people }) {
-  const { status, data } = useRepoStats(product.repositories);
+export default function Statistics({ product, people, activity }) {
+  const { status, data, resetAt } = useRepoStats(product.repositories);
 
   if (status === 'loading') return <p className={styles.muted}>Loading live numbers from GitHub…</p>;
-  if (status === 'error') {
+  if (status === 'limited') {
     return (
       <p className={styles.muted}>
-        GitHub did not answer (it allows a limited number of requests per hour without sign-in). Try again
-        later.
+        GitHub&apos;s limit for visitors without sign-in is used up until {resetTime(resetAt)}. The numbers
+        load by themselves then. The published site reads them from a file collected every day, so visitors do
+        not see this.
       </p>
     );
+  }
+  if (status === 'error') {
+    return <p className={styles.muted}>GitHub did not answer. Try again later.</p>;
   }
 
   const { stats, missing } = data;
   const weeks = weeklyCommits(stats);
   const commitsYear = weeks.reduce((sum, week) => sum + week.total, 0);
-  const health = maintenance(stats, weeks);
+  const health = activity && signal(activity, weeks);
   const releases = releaseFacts(stats[0].releases);
-  const lastPush = stats.reduce((latest, repo) => (repo.pushedAt > latest ? repo.pushedAt : latest), '');
+  const lastCommit = activity?.lastCommit;
   const sum = (key) => stats.reduce((total, repo) => total + repo[key], 0);
   const committerLogins = new Set(people.committers.map((person) => person.login.toLowerCase()));
-  const HealthIcon = health.icon;
+  const HealthIcon = health?.icon;
 
   return (
     <>
@@ -279,21 +278,29 @@ export default function Statistics({ product, people }) {
             ? `From GitHub, collected ${shortDate(data.collectedAt)}`
             : 'Live from GitHub, refreshed every hour'
         }, for ${stats.length} ${stats.length === 1 ? 'repository' : 'repositories'}.${
-          missing ? ` ${missing} did not answer.` : ''
+          missing
+            ? ` ${missing} did not answer${data.retryAt ? `; they load by themselves after ${resetTime(data.retryAt)}` : ''}.`
+            : ''
         }`}
       >
-        <div className={clsx(styles.health, styles[`health_${health.tone}`])}>
-          <HealthIcon className={styles.healthIcon} />
-          <div>
-            <strong>{health.label}</strong>
-            <span>{health.text}</span>
+        {health && (
+          <div className={clsx(styles.health, styles[`health_${health.tone}`])}>
+            <HealthIcon className={styles.healthIcon} />
+            <div>
+              <strong>{health.label}</strong>
+              <span>{health.text}</span>
+            </div>
           </div>
-        </div>
+        )}
         <dl className={styles.statTiles}>
-          <Tile label="Last change" value={ago(lastPush)} note={shortDate(lastPush)} />
+          <Tile
+            label="Last commit"
+            value={lastCommit?.date ? timeAgo(lastCommit.date) : '–'}
+            note={lastCommit?.date ? `by a person, ${shortDate(lastCommit.date)}` : 'by a person'}
+          />
           <Tile
             label="Last release"
-            value={releases ? ago(releases.last.date) : 'none'}
+            value={releases ? timeAgo(releases.last.date) : 'none'}
             note={releases ? releases.last.tag : 'in the leading repository'}
           />
           <Tile
@@ -343,7 +350,7 @@ export default function Statistics({ product, people }) {
             <thead>
               <tr>
                 <th>Repository</th>
-                <th>Last change</th>
+                <th>Last commit</th>
                 <th>Open issues</th>
                 <th>Open PRs</th>
                 <th>Stars</th>
@@ -359,7 +366,7 @@ export default function Statistics({ product, people }) {
                     </a>
                     {repo.archived && <span className={styles.deprecatedTag}>Archived</span>}
                   </td>
-                  <td>{ago(repo.pushedAt)}</td>
+                  <td>{repo.lastCommit?.date ? timeAgo(repo.lastCommit.date) : '–'}</td>
                   <td>{number(repo.openIssues)}</td>
                   <td>{number(repo.openPulls)}</td>
                   <td>{number(repo.stars)}</td>
