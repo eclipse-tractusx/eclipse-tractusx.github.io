@@ -35,6 +35,7 @@ import ShieldIcon from '@mui/icons-material/ShieldOutlined';
 import GroupsIcon from '@mui/icons-material/GroupsOutlined';
 import DiversityIcon from '@mui/icons-material/Diversity3Outlined';
 import ZoomInIcon from '@mui/icons-material/ZoomInRounded';
+import InsightsIcon from '@mui/icons-material/InsightsOutlined';
 import SmartToyIcon from '@mui/icons-material/SmartToyOutlined';
 import PolicyIcon from '@mui/icons-material/PolicyOutlined';
 import ReportIcon from '@mui/icons-material/ReportGmailerrorredOutlined';
@@ -46,6 +47,8 @@ import Releases, { Downloads } from './Releases';
 import MediaGallery, { Lightbox } from './MediaGallery';
 import Contributors from './Contributors';
 import OfficeHours from './OfficeHours';
+import Statistics from './Statistics';
+import { useProductPeople } from './liveData';
 import BackButton from './BackButton';
 import {
   HERO_BACKGROUNDS,
@@ -208,33 +211,50 @@ function SecurityTab({ product, repo }) {
   );
 }
 
-function PeopleTab({ product }) {
+function PeopleTab({ product, people }) {
+  const graphUrl =
+    product.repositories[0] && `${product.repositories[0].url.replace(/\/+$/, '')}/graphs/contributors`;
+  if (people.status === 'loading') {
+    return <p className={styles.muted}>Loading the people behind {product.name} from GitHub and Eclipse…</p>;
+  }
   return (
     <>
-      <Section icon={GroupsIcon} title="Committers" count={product.committers.length}>
-        {product.committers.length === 0 ? (
-          <p className={styles.muted}>No committers listed for this product yet.</p>
+      <Section icon={GroupsIcon} title="Committers" count={people.committers.length}>
+        <p className={styles.sourceNote}>
+          {people.live
+            ? 'Eclipse Tractus-X committers who committed to the repositories of this product, read live from Eclipse and GitHub.'
+            : 'Eclipse or GitHub did not answer, so this is the list kept in the product data.'}
+        </p>
+        {people.committers.length === 0 ? (
+          <p className={styles.muted}>No committer has committed to these repositories yet.</p>
         ) : (
           <ul className={styles.people}>
-            {product.committers.map((committer) => (
-              <li key={committer.github}>
+            {people.committers.map((committer) => (
+              <li key={committer.login}>
                 <a
                   className={styles.person}
-                  href={`https://github.com/${committer.github}`}
+                  href={`https://github.com/${committer.login}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <img
                     className={styles.personAvatar}
-                    src={`https://github.com/${committer.github}.png?size=80`}
+                    src={`https://github.com/${committer.login}.png?size=80`}
                     alt=""
                     loading="lazy"
                     width="36"
                     height="36"
                   />
                   <span className={styles.personText}>
-                    <span className={styles.personName}>{committer.name || committer.github}</span>
-                    <span className={styles.personHandle}>@{committer.github}</span>
+                    <span className={styles.personName}>
+                      {committer.name || committer.login}
+                      {committer.lead && <span className={styles.leadTag}>Project lead</span>}
+                    </span>
+                    <span className={styles.personHandle}>
+                      @{committer.login}
+                      {committer.contributions !== null &&
+                        ` · ${committer.contributions} ${committer.contributions === 1 ? 'commit' : 'commits'}`}
+                    </span>
                   </span>
                 </a>
               </li>
@@ -242,8 +262,26 @@ function PeopleTab({ product }) {
           </ul>
         )}
       </Section>
-      <Section icon={DiversityIcon} title="Contributors">
-        <Contributors repositories={product.repositories} committers={product.committers} />
+      <Section
+        icon={DiversityIcon}
+        title="Contributors"
+        count={people.status === 'ready' ? people.contributors.length : undefined}
+      >
+        {people.status === 'error' ? (
+          <p className={styles.muted}>
+            GitHub did not answer (it allows a limited number of requests per hour without sign-in).{' '}
+            {graphUrl && (
+              <a href={graphUrl} target="_blank" rel="noopener noreferrer">
+                See the contributors on GitHub
+              </a>
+            )}
+          </p>
+        ) : (
+          <>
+            <p className={styles.sourceNote}>Everyone else who committed, by number of commits.</p>
+            <Contributors people={people.contributors} graphUrl={graphUrl} />
+          </>
+        )}
       </Section>
     </>
   );
@@ -256,6 +294,7 @@ export default function ProductDetail({ product }) {
   const [logoOpen, setLogoOpen] = useState(false);
   const closeLogo = useCallback(() => setLogoOpen(false), []);
   const heroBackground = useBaseUrl(HERO_BACKGROUNDS.detail);
+  const people = useProductPeople(product?.repositories, product?.committers);
 
   const hasMedia = Boolean(product?.screenshots?.length || product?.videos?.length);
   const tabs = product
@@ -265,8 +304,10 @@ export default function ProductDetail({ product }) {
           id: 'people',
           label: 'People',
           icon: GroupsIcon,
-          count: product.committers.length,
+          count:
+            people.status === 'ready' ? people.committers.length + people.contributors.length : undefined,
         },
+        { id: 'statistics', label: 'Statistics', icon: InsightsIcon },
         {
           id: 'releases',
           label: 'Releases & downloads',
@@ -453,7 +494,8 @@ export default function ProductDetail({ product }) {
 
               {tab === 'security' && primaryRepo && <SecurityTab product={product} repo={primaryRepo.url} />}
 
-              {tab === 'people' && <PeopleTab product={product} />}
+              {tab === 'people' && <PeopleTab product={product} people={people} />}
+              {tab === 'statistics' && <Statistics product={product} people={people} />}
             </div>
 
             <aside className={styles.aside}>
@@ -490,7 +532,7 @@ export default function ProductDetail({ product }) {
                   </div>
                   <div className={styles.fact}>
                     <dt>Committers</dt>
-                    <dd>{product.committers.length}</dd>
+                    <dd>{people.status === 'loading' ? '…' : people.committers.length}</dd>
                   </div>
                   {product.relevance.length > 0 && (
                     <div className={styles.factBlock}>

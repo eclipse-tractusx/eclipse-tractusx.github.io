@@ -1464,12 +1464,6 @@ $radius-control: 4px;
 }
 
 /* Contributors: compact avatar chips, read live from GitHub */
-.contributorsNote {
-  margin: -4px 0 14px;
-  color: var(--ifm-color-emphasis-700);
-  font-size: 13.5px;
-}
-
 .contributors {
   display: flex;
   flex-wrap: wrap;
@@ -1590,4 +1584,350 @@ $radius-control: 4px;
 
 .meetingCard .agentPrimary {
   background: $brand-orange;
+}
+
+.contributorsFoot {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 14px;
+
+  .showMore {
+    margin-top: 0;
+  }
+}
+
+.contributorsGraph {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Where live numbers come from */
+.sourceNote {
+  margin: -4px 0 14px;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 13.5px;
+}
+
+.leadTag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 6px;
+  border-radius: 3px;
+  background: rgba(250, 160, 35, 0.16);
+  color: #8a5300;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  vertical-align: 1px;
+
+  [data-theme='dark'] & {
+    color: $brand-orange;
+  }
+}
+
+/* Statistics tab ---------------------------------------------------------------- */
+
+.statTiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin: 0 0 18px;
+}
+
+.statTile {
+  padding: 12px 14px;
+  border-radius: $radius-card;
+  border: 1px solid var(--ifm-color-emphasis-200);
+
+  dt {
+    margin-bottom: 4px;
+    color: var(--ifm-color-emphasis-700);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  dd {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+}
+
+.statTileValue {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.statTileNote {
+  margin-top: 2px;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Maintenance signal: status colour always comes with an icon and a label.
+.health {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border-radius: $radius-card;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-left-width: 4px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  strong {
+    font-size: 15px;
+  }
+
+  span {
+    color: var(--ifm-color-emphasis-700);
+    font-size: 13.5px;
+  }
+}
+
+.healthIcon {
+  font-size: 26px !important;
+}
+
+.health_active {
+  border-left-color: #3f8f2f;
+
+  .healthIcon {
+    color: #3f8f2f;
+  }
+}
+
+.health_quiet {
+  border-left-color: #c98a00;
+
+  .healthIcon {
+    color: #c98a00;
+  }
+}
+
+.health_dormant,
+.health_archived {
+  border-left-color: #b3261e;
+
+  .healthIcon {
+    color: #b3261e;
+  }
+}
+
+[data-theme='dark'] {
+  .health_active {
+    border-left-color: #7cc46a;
+
+    .healthIcon {
+      color: #7cc46a;
+    }
+  }
+
+  .health_dormant,
+  .health_archived {
+    border-left-color: #f08a80;
+
+    .healthIcon {
+      color: #f08a80;
+    }
+  }
+}
+
+// Weekly commits: one series, so no legend; the section title names it.
+.chart {
+  --chart-mark: #b86e00;
+  position: relative;
+  padding: 12px 12px 4px;
+  border-radius: $radius-card;
+  border: 1px solid var(--ifm-color-emphasis-200);
+
+  [data-theme='dark'] & {
+    --chart-mark: #faa023;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.chartGrid {
+  stroke: var(--ifm-color-emphasis-200);
+  stroke-width: 1;
+}
+
+.chartAxis {
+  fill: var(--ifm-color-emphasis-600);
+  font-size: 11px;
+}
+
+.chartBar {
+  fill: var(--chart-mark);
+  transition: opacity 0.15s ease;
+}
+
+.chartBarDim {
+  opacity: 0.35;
+}
+
+.chartHit {
+  fill: transparent;
+  cursor: default;
+}
+
+.chartTip {
+  position: absolute;
+  top: 4px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  padding: 6px 10px;
+  border-radius: $radius-control;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  font-size: 12.5px;
+  white-space: nowrap;
+  pointer-events: none;
+
+  span {
+    color: var(--ifm-color-emphasis-700);
+  }
+}
+
+// Top contributors: one bar per person, scaled to the first.
+.topList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topRow {
+  --chart-mark: #b86e00;
+  display: grid;
+  grid-template-columns: 22px minmax(140px, 220px) minmax(0, 1fr) 52px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+
+  [data-theme='dark'] & {
+    --chart-mark: #faa023;
+  }
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 22px minmax(0, 1fr) 52px;
+
+    .topBarTrack {
+      display: none;
+    }
+  }
+}
+
+.topRank {
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 700;
+  text-align: right;
+}
+
+.topWho {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: inherit;
+  font-weight: 600;
+
+  img {
+    border-radius: 3px;
+  }
+
+  > span:first-of-type {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .leadTag {
+    margin-left: 0;
+  }
+}
+
+.topBarTrack {
+  height: 10px;
+}
+
+.topBar {
+  display: block;
+  height: 100%;
+  min-width: 2px;
+  border-radius: 0 4px 4px 0;
+  background: var(--chart-mark);
+}
+
+.topValue {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  text-align: right;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.repoTable {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+
+  th,
+  td {
+    padding: 8px 10px;
+    border: 0;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  th {
+    color: var(--ifm-color-emphasis-700);
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  tr,
+  tr:nth-child(2n) {
+    background: transparent;
+  }
+
+  td:nth-child(n + 3):nth-child(-n + 5),
+  th:nth-child(n + 3):nth-child(-n + 5) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .deprecatedTag {
+    margin-left: 8px;
+  }
 }
