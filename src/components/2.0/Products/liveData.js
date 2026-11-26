@@ -26,8 +26,9 @@ import { activityOf, isDeprecated } from './productMeta';
  * - the Eclipse projects API for the Eclipse Tractus-X committers and project leads,
  * - the GitHub API for contributors, repository numbers and commit activity.
  *
- * The deploy workflow collects all of it once per build and once a day into
- * /generated/product-stats.json (utils/generateProductStats.js), so a visitor reads one
+ * The workflows collect all of it into /generated/product-stats.json
+ * (utils/generateProductStats.js): the deployment once per build, and "Update product
+ * statistics" every day straight into gh-pages, without a build. So a visitor reads one
  * file. When the file is missing (local development, pull request previews) or does not
  * know a repository, the browser asks the APIs itself; those answers are cached in
  * localStorage because GitHub allows 60 requests per hour without a token.
@@ -184,12 +185,21 @@ function useLive(load, deps) {
 const SNAPSHOT_PATH = '/generated/product-stats.json';
 let snapshotPromise = null;
 
-/** The numbers collected at build time, or null when the site was built without them. */
+const fetchSnapshot = (url) =>
+  fetch(url)
+    .then((response) => (response.ok ? response.json() : null))
+    .catch(() => null);
+
+/**
+ * The collected numbers (refreshed every day by the workflow "Update product statistics"),
+ * or null when there are none. A pull request preview (/pr/<number>/) has no file of its
+ * own and reads the one of the production site.
+ */
 function loadSnapshot(url) {
   if (!snapshotPromise) {
-    snapshotPromise = fetch(url)
-      .then((response) => (response.ok ? response.json() : null))
-      .catch(() => null);
+    snapshotPromise = fetchSnapshot(url).then(
+      (snapshot) => snapshot || (url !== SNAPSHOT_PATH ? fetchSnapshot(SNAPSHOT_PATH) : null),
+    );
   }
   return snapshotPromise;
 }

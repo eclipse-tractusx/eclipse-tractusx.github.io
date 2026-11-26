@@ -32,7 +32,12 @@
  * deploy workflow runs it with GITHUB_TOKEN before every build and once a day. Without a
  * token it does nothing, and the pages read the APIs in the browser instead.
  *
- * Usage: GITHUB_TOKEN=... node utils/generateProductStats.js [--max-age-hours=<n>]
+ * Usage: GITHUB_TOKEN=... node utils/generateProductStats.js [--max-age-hours=<n>] [--strict]
+ *
+ * The workflow "Update product statistics" runs it with --strict every day and publishes
+ * the file to gh-pages on its own, without building the site. With --strict it fails, and
+ * writes nothing, when it has no token or fewer than 90% of the repositories answered, so a
+ * bad run never replaces good numbers.
  *
  * `npm start` runs it with --max-age-hours=12: with a token set (GITHUB_TOKEN=$(gh auth token)
  * npm start), the local preview gets all numbers from the file too, collected again when the
@@ -49,6 +54,7 @@ const OUT = path.join(__dirname, '..', 'static', 'generated', 'product-stats.jso
 const TIMEOUT_MS = 20000;
 
 const token = process.env.GITHUB_TOKEN;
+const strict = process.argv.includes('--strict');
 const headers = {
   'User-Agent': 'eclipse-tractusx.github.io-product-stats',
   Accept: 'application/vnd.github+json',
@@ -187,6 +193,7 @@ async function repository(repo) {
 
 async function main() {
   if (!token) {
+    if (strict) throw new Error('no GITHUB_TOKEN');
     console.log(
       'generateProductStats: no GITHUB_TOKEN, skipped (the product pages read the APIs in the browser; with GITHUB_TOKEN=$(gh auth token) they read one file).',
     );
@@ -224,6 +231,13 @@ async function main() {
     });
   }
 
+  const collected = Object.keys(result.repos).length;
+  if (strict && (collected < repos.length * 0.9 || result.committers.length === 0)) {
+    throw new Error(
+      `only ${collected} of ${repos.length} repositories and ${result.committers.length} committers answered`,
+    );
+  }
+
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify(result));
   console.log(
@@ -232,6 +246,7 @@ async function main() {
 }
 
 main().catch((error) => {
-  // Never fail the build: the pages fall back to the live APIs.
   console.warn(`generateProductStats: ${error.message}`);
+  // Without --strict it never fails the build: the pages fall back to the live APIs.
+  if (strict) process.exitCode = 1;
 });

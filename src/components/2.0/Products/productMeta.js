@@ -54,7 +54,7 @@ export const HERO_BACKGROUNDS = {
   overview: '/img/backgrounds/tx-bg-horizon.jpg',
   detail: '/img/backgrounds/tx-bg-subtle-ember.jpg',
   'use-cases': '/img/backgrounds/tx-bg-dual-glow.jpg',
-  'dataspace-foundation': '/img/backgrounds/tx-bg-fold.jpg',
+  'dataspace-foundation': '/img/backgrounds/tx-bg-cancri-waves.jpg',
   'industry-core-foundation': '/img/backgrounds/tx-bg-fold-green.jpg',
   'qa-testing-tools': '/img/backgrounds/tx-bg-fold-ember.jpg',
 };

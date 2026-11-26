@@ -11,6 +11,7 @@ when it runs and how the workflows depend on each other.
 | [Build pull request preview](verify-build.yaml) | pull request to `main` | Checks that the site builds, produces the preview | no |
 | [Deploy pull request preview](deploy-pr-preview.yaml) | "Build pull request preview" completed | Publishes the preview of a pull request | yes (`pr/<number>/`) |
 | [Remove pull request preview](cleanup-pr-preview.yaml) | pull request closed or merged | Deletes the preview of a pull request | yes (`pr/<number>/`) |
+| [Update product statistics](update-product-stats.yaml) | daily, manual | Refreshes the numbers on the product pages without a build | yes (`generated/`) |
 | [Markdown linting for documentation](lint-on-pull-request.yaml) | pull request to `main` | Runs markdownlint on `docs/` and `docs-kits/kits/` | no |
 | [Quality Checks (Release Guidelines)](quality-checks.yaml) | every pull request, manual | Tractus-X release guideline checks | no |
 | [3rd Party dependency check (Eclipse Dash)](dash.yaml) | pull request changing `package*.json`, manual | License check of npm dependencies | no |
@@ -35,6 +36,8 @@ flowchart TD
     CLEAN -- "deletes pr/N/" --> GHP
     MERGE["Push to main"] --> PROD["Build and deploy gh-pages<br/>(npm ci + build with BASE_URL=/)"]
     PROD -- "root, keeps pr/" --> GHP
+    DAILY["Every day"] --> STATS["Update product statistics<br/>(no build)"]
+    STATS -- "generated/" --> GHP
     GHP --> PAGES["pages-build-deployment (GitHub)<br/>publishes eclipse-tractusx.github.io"]
 ```
 
@@ -70,6 +73,7 @@ version.
 ```text
 gh-pages
 ├── index.html, assets/, docs/, ...   production site, replaced by "Build and deploy gh-pages"
+├── generated/product-stats.json      numbers for the product pages, replaced by "Update product statistics"
 └── pr/
     ├── 1605/                         preview of pull request 1605
     └── 1627/                         preview of pull request 1627
@@ -78,13 +82,14 @@ gh-pages
 The previews are available at `https://eclipse-tractusx.github.io/pr/<number>/`. Each deployment replaces its whole
 target, so pages and hashed assets that no longer exist do not pile up:
 
-- the production deployment replaces everything at the root except `pr/`,
+- the production deployment replaces everything at the root except `pr/` (and `generated/` when the build has none),
 - a preview deployment replaces only `pr/<number>/`,
-- the removal deletes only `pr/<number>/`.
+- the removal deletes only `pr/<number>/`,
+- the product statistics update replaces only `generated/`.
 
 ### Writing to `gh-pages` concurrently
 
-All three writing workflows use [`.github/scripts/update-gh-pages.sh`](../scripts/update-gh-pages.sh). It fetches the
+All four writing workflows use [`.github/scripts/update-gh-pages.sh`](../scripts/update-gh-pages.sh). It fetches the
 latest `gh-pages` commit (files only, no history), applies the change on top of it and pushes it. If another workflow
 pushed in the meantime, the push is rejected; the script then fetches the new state, applies the change again and
 retries (up to 10 times, with an increasing delay). Because every workflow only touches its own part of the branch,
@@ -97,6 +102,7 @@ Concurrency groups only order the runs that must not overlap:
 | `gh-pages-production` | Build and deploy gh-pages | Production deployments run one after the other, so an older build never overwrites a newer one. A waiting deployment is replaced by a newer one, which contains its changes. |
 | `gh-pages-pr-<number>` | deploy job of Deploy pull request preview, Remove pull request preview | Deployment and removal of the same preview never overlap. If a removal is replaced by a later deployment, that deployment sees the closed pull request and removes the preview itself. |
 | `verify-build-<number>` | Build pull request preview | A new push to a pull request cancels the running build of the previous push. |
+| `product-stats` | Update product statistics | Updates run one after the other. |
 
 Production deployments and previews of different pull requests do not wait for each other.
 
@@ -118,6 +124,24 @@ repository cannot test changes to it. Test such changes in your fork instead:
 The preview URL in the comment points to `eclipse-tractusx.github.io`, and the site is built for that host, so check
 the content of the `gh-pages` branch rather than a Pages site of the fork. Pushing to the fork's `main` also runs the
 production deployment into the fork's `gh-pages` branch.
+
+## Update product statistics
+
+The product pages (`/Products`) show numbers from GitHub and Eclipse: whether a product is active or stale, its
+committers and contributors, commit activity, releases and open issues. Visitors do not call those APIs themselves
+(GitHub allows 60 requests per hour without sign-in); the pages read `generated/product-stats.json` instead.
+
+[`utils/generateProductStats.js`](../../utils/generateProductStats.js) collects that file with the workflow token. It
+runs in two places:
+
+- **Build and deploy gh-pages** runs it before every build, so a new deployment starts with current numbers.
+- **Update product statistics** runs it every day at 04:17 (UTC) and on demand, and replaces only `generated/` on
+  `gh-pages` (`update-gh-pages.sh data`). There is no build: it takes about two minutes, and the new numbers are live
+  once GitHub Pages has published the branch. With `--strict` it fails, and publishes nothing, when fewer than 90% of
+  the repositories or no committers answered, so a bad run never replaces good numbers.
+
+Pull request previews have no file of their own and read the one of the production site. Locally, run
+`GITHUB_TOKEN=$(gh auth token) npm start` to collect it once; without a token the pages ask the APIs in the browser.
 
 ## The other workflows
 

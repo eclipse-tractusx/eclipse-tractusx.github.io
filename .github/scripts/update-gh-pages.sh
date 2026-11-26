@@ -33,12 +33,15 @@
 #
 #   update-gh-pages.sh site <build-dir>
 #       Replace the production site with <build-dir>. The pull request previews
-#       in pr/ are kept.
+#       in pr/ are kept, and so is generated/ when <build-dir> has none.
 #   update-gh-pages.sh preview <pr-number> <build-dir>
 #       Replace the preview in pr/<pr-number> with <build-dir>. The production
 #       site and the other previews are kept.
 #   update-gh-pages.sh remove <pr-number>
 #       Remove the preview in pr/<pr-number>.
+#   update-gh-pages.sh data <data-dir>
+#       Replace generated/ (data the site reads at run time, such as the product
+#       statistics) with <data-dir>. Everything else is kept.
 #
 # Environment:
 #   GITHUB_TOKEN       token with contents: write, used to fetch and push
@@ -71,13 +74,18 @@ case "${mode}" in
     pr_number="$2"
     message="Remove preview of pull request ${pr_number}"
     ;;
+  data)
+    [ "$#" -eq 2 ] || usage
+    source_dir="$(cd "$2" && pwd)"
+    message="Update generated data"
+    ;;
   *)
     usage
     ;;
 esac
 
 # The pull request number becomes a path segment, so it must be a plain number.
-if [ "${mode}" != "site" ] && ! [[ "${pr_number}" =~ ^[1-9][0-9]{0,9}$ ]]; then
+if { [ "${mode}" = "preview" ] || [ "${mode}" = "remove" ]; } && ! [[ "${pr_number}" =~ ^[1-9][0-9]{0,9}$ ]]; then
   echo "Invalid pull request number: '${pr_number}'" >&2
   exit 2
 fi
@@ -125,7 +133,10 @@ load_latest_gh_pages() {
 apply_change() {
   case "${mode}" in
     site)
-      find . -mindepth 1 -maxdepth 1 ! -name .git ! -name pr -exec rm -rf {} +
+      find . -mindepth 1 -maxdepth 1 ! -name .git ! -name pr ! -name generated -exec rm -rf {} +
+      if [ -d "${source_dir}/generated" ]; then
+        rm -rf generated
+      fi
       cp -R "${source_dir}/." .
       ;;
     preview)
@@ -135,6 +146,11 @@ apply_change() {
       ;;
     remove)
       rm -rf "pr/${pr_number}"
+      ;;
+    data)
+      rm -rf generated
+      mkdir -p generated
+      cp -R "${source_dir}/." generated/
       ;;
   esac
 }

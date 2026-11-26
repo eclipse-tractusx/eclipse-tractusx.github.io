@@ -24,11 +24,6 @@ on:
   push:
     branches:
       - main
-  # Rebuild once a day so the live numbers on the product pages (People and Statistics
-  # tabs, collected by utils/generateProductStats.js) stay current without a commit.
-  schedule:
-    - cron: '17 4 * * *'
-  workflow_dispatch:
 
 # Only production deployments share this group, so they run one after the
 # other and an older build never overwrites a newer one. A deployment that is
@@ -58,8 +53,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Contributors, committers and repository numbers for the product pages. Uses the
-      # workflow token for the GitHub API limit; never fails the build.
+      # Contributors, committers and repository numbers for the product pages, so a new
+      # deployment starts with current numbers. Between deployments, "Update product
+      # statistics" refreshes them every day. Uses the workflow token for the GitHub API
+      # limit; never fails the build.
       - name: Collect product statistics
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
