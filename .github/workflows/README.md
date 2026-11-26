@@ -9,8 +9,8 @@ when it runs and how the workflows depend on each other.
 |---|---|---|---|
 | [Build and deploy gh-pages](build-and-deploy-gh-pages.yaml) | push to `main` | Builds and publishes the production site | yes (root) |
 | [Build pull request preview](verify-build.yaml) | pull request to `main` | Checks that the complete site builds, produces a preview with only the changed pages | no |
-| [Deploy pull request preview](deploy-pr-preview.yaml) | "Build pull request preview" completed | Publishes the preview of a pull request | yes (`pr/<number>/`) |
-| [Remove pull request preview](cleanup-pr-preview.yaml) | pull request closed or merged | Deletes the preview of a pull request | yes (`pr/<number>/`) |
+| [Deploy pull request preview](deploy-pr-preview.yaml) | "Build pull request preview" completed, manual | Publishes the preview of a pull request | yes (`pr/<number>/`) |
+| [Remove pull request preview](cleanup-pr-preview.yaml) | pull request closed or merged, daily, manual | Deletes the preview of a pull request, or of all closed pull requests | yes (`pr/`) |
 | [Markdown linting for documentation](lint-on-pull-request.yaml) | pull request to `main` | Runs markdownlint on `docs/` and `docs-kits/kits/` | no |
 | [Quality Checks (Release Guidelines)](quality-checks.yaml) | every pull request, manual | Tractus-X release guideline checks | no |
 | [3rd Party dependency check (Eclipse Dash)](dash.yaml) | pull request changing `package*.json`, manual | License check of npm dependencies | no |
@@ -30,9 +30,11 @@ flowchart TD
     PR --> LINT["Markdown linting"]
     PR --> CHECKS["Quality Checks, TruffleHog,<br/>Dash, Kit Word documents"]
     BUILD -- "artifacts: pr-preview, pr-number" --> DEPLOY["Deploy pull request preview<br/>(no build, no PR code)"]
-    DEPLOY -- "pr/N/, removes oldest previews<br/>beyond the budget" --> GHP[("gh-pages branch")]
-    CLOSE["Pull request closed or merged"] --> CLEAN["Remove pull request preview"]
+    DISPATCH["Manual run (pull request number)"] --> DEPLOY
+    DEPLOY -- "pr/N/ if it fits, removes oldest<br/>previews beyond the space limit" --> GHP[("gh-pages branch")]
+    CLOSE["Pull request closed or merged,<br/>daily, manual run"] --> CLEAN["Remove pull request preview"]
     CLEAN -- "deletes pr/N/" --> GHP
+    DEPLOY & CLEAN -. "updates" .-> COMMENT["Preview comment on the pull request<br/>(commit, pages, space, removal reason)"]
     MERGE["Push to main"] --> PROD["Build and deploy gh-pages<br/>(npm ci + build with BASE_URL=/)"]
     PROD -- "root, keeps pr/" --> GHP
     GHP --> PAGES["pages-build-deployment (GitHub)<br/>publishes eclipse-tractusx.github.io"]
@@ -83,15 +85,48 @@ live website:
    live website. Navigating inside the preview to a removed page also ends there: Docusaurus cannot load the page
    and reloads it. The preview's announcement bar tells visitors which pull request they are looking at.
 
-A preview with only content changes is a few dozen MB instead of over 1 GB. Two limits protect `gh-pages` from the
-rest:
+A preview with only content changes is a few dozen MB instead of over 1 GB.
+
+### Space on GitHub Pages
+
+Every write to `gh-pages` checks the space, so previews can never stop the production site from being published:
 
 - **`MAX_PREVIEW_MB`** (300) in "Deploy pull request preview": a larger preview is not published, and an older preview
   of the pull request is removed. The comment links the build, whose `pr-preview` artifact can be served locally.
-- **`PREVIEW_BUDGET_MB`** (1000) in "Deploy pull request preview" and "Build and deploy gh-pages": `update-gh-pages.sh`
-  removes the oldest previews (by `pr/<number>/.deployed-at`) until all previews fit. The preview being deployed is
-  never removed. If a preview deployment removes other previews, it updates their comments. A new push brings a
-  preview back.
+- **`GH_PAGES_LIMIT_MB`** (2500, `0` turns the check off) in
+  [`update-gh-pages.sh`](../scripts/update-gh-pages.sh): the space the production site and all previews may use
+  together. Published Pages artifacts of about 3.3 GB still deployed, larger ones failed. Before pushing, the script
+  measures the production site and the previews:
+  - a preview that does not fit next to the production site on its own is not published (and its older version is
+    removed). The comment says so, and no other preview is removed for it,
+  - otherwise the oldest previews of other pull requests (by `pr/<number>/.deployed-at`) are removed until everything
+    fits. The production deployment does the same; its site always gets the space.
+- Each run shows the space used in its job summary.
+
+Every pull request has one preview comment, which is updated (not posted again):
+
+- after a deployment, with the commit the preview was built from, the time, the build, the changed pages and the space
+  on GitHub Pages,
+- when the preview is not published (too large, no space), with the reason and the commit,
+- when the preview is removed, with the reason (pull request closed, removed manually, removed to make space) and the
+  commit of the last preview.
+
+The preview's announcement bar also shows the commit.
+
+To publish or remove a preview by hand, run the workflows from the Actions tab or with `gh`:
+
+```bash
+# Publishes the latest build of the pull request's current commit again,
+# for example after its preview was removed to make space.
+gh workflow run deploy-pr-preview.yaml -f pr_number=1234
+# Removes one preview, or without a number the previews of all closed pull requests.
+gh workflow run cleanup-pr-preview.yaml -f pr_number=1234
+gh workflow run cleanup-pr-preview.yaml
+```
+
+The build keeps its artifacts for 7 days. After that, re-run the build of the pull request or push a new commit. Once a
+day, "Remove pull request preview" removes the previews of closed pull requests that are still there and checks the
+space limit.
 
 The `Build preview` job reports the size of the preview as a notice in the workflow run. To build and prune a preview
 locally:
@@ -136,8 +171,8 @@ The previews are available at `https://eclipse-tractusx.github.io/pr/<number>/`.
 target, so pages and hashed assets that no longer exist do not pile up:
 
 - the production deployment replaces everything at the root except `pr/`,
-- a preview deployment replaces only `pr/<number>/` (and removes the oldest previews beyond the budget),
-- the removal deletes only `pr/<number>/`.
+- a preview deployment replaces only `pr/<number>/` (and removes the oldest previews beyond the space limit),
+- the removal deletes only the selected `pr/<number>/` folders.
 
 ### Writing to `gh-pages` concurrently
 
@@ -152,7 +187,7 @@ Concurrency groups only order the runs that must not overlap:
 | Group | Used by | Effect |
 |---|---|---|
 | `gh-pages-production` | Build and deploy gh-pages | Production deployments run one after the other, so an older build never overwrites a newer one. A waiting deployment is replaced by a newer one, which contains its changes. |
-| `gh-pages-pr-<number>` | deploy job of Deploy pull request preview, Remove pull request preview | Deployment and removal of the same preview never overlap. If a removal is replaced by a later deployment, that deployment sees the closed pull request and removes the preview itself. |
+| `gh-pages-pr-<number>` | deploy job of Deploy pull request preview, Remove pull request preview | Deployment and removal of the same preview never overlap. If a removal is replaced by a later deployment, that deployment sees the closed pull request and removes the preview itself. The daily and manual removal of all closed pull requests uses `gh-pages-pr-sweep`. |
 | `verify-build-<number>` | Build pull request preview | A new push to a pull request cancels the running build of the previous push. |
 
 Production deployments and previews of different pull requests do not wait for each other.

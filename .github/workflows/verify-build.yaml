@@ -118,6 +118,8 @@ jobs:
         env:
           BASE_URL: /pr/${{ github.event.pull_request.number }}/
           DOCS_KITS_VERSIONS: ${{ steps.kit-versions.outputs.versions }}
+          # Shown in the announcement bar of the preview.
+          PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha }}
 
       # The preview only keeps the pages the pull request changes. Every other
       # path of the preview falls back to the live website through the 404.html
@@ -138,7 +140,7 @@ jobs:
         with:
           name: pr-preview
           path: ./build
-          retention-days: 3
+          retention-days: 7
           include-hidden-files: true
 
       # The pull request number is uploaded as a separate, tiny artifact
@@ -153,4 +155,4 @@ jobs:
         with:
           name: pr-number
           path: ./pr-number
-          retention-days: 3
+          retention-days: 7

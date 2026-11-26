@@ -14,6 +14,8 @@ const siteUrl = process.env.SITE_URL || 'https://eclipse-tractusx.github.io';
 const rawBaseUrl = (process.env.BASE_URL || '/').replace(/^\/+|\/+$/g, '');
 const baseUrl = rawBaseUrl ? `/${rawBaseUrl}/` : '/';
 const previewPullRequest = (baseUrl.match(/^\/pr\/(\d+)\/$/) || [])[1];
+const previewCommit = /^[0-9a-f]{40}$/.test(process.env.PREVIEW_COMMIT || '') ? process.env.PREVIEW_COMMIT : null;
+const previewPullRequestUrl = `https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/${previewPullRequest}`;
 
 // Change this id to show the announcement bar again to everyone who closed it.
 const announcementBarId = previewPullRequest ? `pr-preview-${previewPullRequest}` : 'announcementBar-v26.09';
@@ -338,7 +340,7 @@ const config = {
       announcementBar: {
         id: announcementBarId,
         content: previewPullRequest
-          ? `🔍 Preview of <a href="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/${previewPullRequest}">pull request #${previewPullRequest}</a>. It only contains the pages the pull request changes, all other pages open on the <a href="https://eclipse-tractusx.github.io/">live website</a>.`
+          ? `🔍 Preview of <a href="${previewPullRequestUrl}">pull request #${previewPullRequest}</a>${previewCommit ? ` at commit <a href="${previewPullRequestUrl}/commits/${previewCommit}"><code>${previewCommit.slice(0, 7)}</code></a>` : ''}. It only contains the pages the pull request changes, all other pages open on the <a href="https://eclipse-tractusx.github.io/">live website</a>.`
           : `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
       },
       navbar: {
