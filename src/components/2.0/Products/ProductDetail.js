@@ -17,7 +17,7 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import clsx from 'clsx';
@@ -33,6 +33,8 @@ import DownloadIcon from '@mui/icons-material/DownloadRounded';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibraryOutlined';
 import ShieldIcon from '@mui/icons-material/ShieldOutlined';
 import GroupsIcon from '@mui/icons-material/GroupsOutlined';
+import DiversityIcon from '@mui/icons-material/Diversity3Outlined';
+import ZoomInIcon from '@mui/icons-material/ZoomInRounded';
 import SmartToyIcon from '@mui/icons-material/SmartToyOutlined';
 import PolicyIcon from '@mui/icons-material/PolicyOutlined';
 import ReportIcon from '@mui/icons-material/ReportGmailerrorredOutlined';
@@ -41,7 +43,9 @@ import { getProductById, getProductsByCategory, relevanceTypes } from '@site/dat
 import { KindLabel, MaturityBadge, NewBadge, ProductMark } from './ProductCard';
 import RepoTree, { buildRepoGroups } from './RepoTree';
 import Releases, { Downloads } from './Releases';
-import MediaGallery from './MediaGallery';
+import MediaGallery, { Lightbox } from './MediaGallery';
+import Contributors from './Contributors';
+import OfficeHours from './OfficeHours';
 import BackButton from './BackButton';
 import {
   HERO_BACKGROUNDS,
@@ -205,42 +209,52 @@ function SecurityTab({ product, repo }) {
 }
 
 function PeopleTab({ product }) {
-  if (product.committers.length === 0) {
-    return <p className={styles.muted}>No committers listed for this product yet.</p>;
-  }
   return (
-    <Section icon={GroupsIcon} title="Committers" count={product.committers.length}>
-      <ul className={styles.people}>
-        {product.committers.map((committer) => (
-          <li key={committer.github}>
-            <a
-              className={styles.person}
-              href={`https://github.com/${committer.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                className={styles.personAvatar}
-                src={`https://github.com/${committer.github}.png?size=80`}
-                alt=""
-                loading="lazy"
-                width="36"
-                height="36"
-              />
-              <span className={styles.personText}>
-                <span className={styles.personName}>{committer.name || committer.github}</span>
-                <span className={styles.personHandle}>@{committer.github}</span>
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </Section>
+    <>
+      <Section icon={GroupsIcon} title="Committers" count={product.committers.length}>
+        {product.committers.length === 0 ? (
+          <p className={styles.muted}>No committers listed for this product yet.</p>
+        ) : (
+          <ul className={styles.people}>
+            {product.committers.map((committer) => (
+              <li key={committer.github}>
+                <a
+                  className={styles.person}
+                  href={`https://github.com/${committer.github}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    className={styles.personAvatar}
+                    src={`https://github.com/${committer.github}.png?size=80`}
+                    alt=""
+                    loading="lazy"
+                    width="36"
+                    height="36"
+                  />
+                  <span className={styles.personText}>
+                    <span className={styles.personName}>{committer.name || committer.github}</span>
+                    <span className={styles.personHandle}>@{committer.github}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </Section>
+      <Section icon={DiversityIcon} title="Contributors">
+        <Contributors repositories={product.repositories} committers={product.committers} />
+      </Section>
+    </>
   );
 }
 
+const noop = () => {};
+
 export default function ProductDetail({ product }) {
   const [tab, setTab] = useState('overview');
+  const [logoOpen, setLogoOpen] = useState(false);
+  const closeLogo = useCallback(() => setLogoOpen(false), []);
   const heroBackground = useBaseUrl(HERO_BACKGROUNDS.detail);
 
   const hasMedia = Boolean(product?.screenshots?.length || product?.videos?.length);
@@ -294,6 +308,15 @@ export default function ProductDetail({ product }) {
 
   return (
     <main className={styles.page}>
+      {logoOpen && (
+        <Lightbox
+          shots={[{ src: product.logo, alt: `${product.name} logo` }]}
+          index={0}
+          onClose={closeLogo}
+          onMove={noop}
+          className={styles.lightboxLogo}
+        />
+      )}
       <header className={styles.hero} style={{ '--hero-image': `url(${heroBackground})` }}>
         <div className={styles.container}>
           <div className={styles.heroNav}>
@@ -308,7 +331,20 @@ export default function ProductDetail({ product }) {
           </div>
 
           <div className={styles.heroMain}>
-            <ProductMark product={product} className={styles.heroMark} />
+            {product.logo ? (
+              <button
+                type="button"
+                className={styles.heroMarkButton}
+                onClick={() => setLogoOpen(true)}
+                aria-label={`Show the ${product.name} logo larger`}
+                title="Show larger"
+              >
+                <ProductMark product={product} className={styles.heroMark} />
+                <ZoomInIcon className={styles.heroMarkZoom} aria-hidden="true" />
+              </button>
+            ) : (
+              <ProductMark product={product} className={styles.heroMark} />
+            )}
             <div className={styles.heroText}>
               <div className={styles.heroTitleRow}>
                 <h1 className={styles.heroTitle}>{product.name}</h1>
@@ -421,6 +457,7 @@ export default function ProductDetail({ product }) {
             </div>
 
             <aside className={styles.aside}>
+              <OfficeHours product={product} />
               {product.agents.map((agent) => (
                 <AgentCard key={agent.id} agent={agent} />
               ))}

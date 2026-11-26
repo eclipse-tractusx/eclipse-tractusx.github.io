@@ -141,6 +141,48 @@ $radius-control: 4px;
   }
 }
 
+.heroMarkButton {
+  position: relative;
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: $radius-card;
+
+  .heroMark {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover .heroMark,
+  &:focus-visible .heroMark {
+    transform: scale(1.03);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $brand-orange;
+    outline-offset: 4px;
+  }
+}
+
+.heroMarkZoom {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 4px;
+  border-radius: $radius-control;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 26px !important;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  .heroMarkButton:hover &,
+  .heroMarkButton:focus-visible & {
+    opacity: 1;
+  }
+}
+
 .heroText {
   min-width: 0;
 }
@@ -1404,4 +1446,148 @@ $radius-control: 4px;
   [data-theme='dark'] & {
     color: #ff8a80;
   }
+}
+
+/* Product logo in the lightbox: big, square, centred */
+.lightboxLogo {
+  align-items: center;
+
+  img {
+    width: min(70vmin, 640px);
+    height: auto;
+    border-radius: $radius-card;
+  }
+
+  figcaption {
+    justify-content: center;
+  }
+}
+
+/* Contributors: compact avatar chips, read live from GitHub */
+.contributorsNote {
+  margin: -4px 0 14px;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 13.5px;
+}
+
+.contributors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contributor {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px 4px 4px;
+  border-radius: $radius-control;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  color: inherit;
+  font-size: 13px;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $brand-orange;
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.contributorAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
+}
+
+.contributorName {
+  font-weight: 600;
+}
+
+.contributorCount {
+  padding: 0 6px;
+  border-radius: 3px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.showMore {
+  margin-top: 14px;
+  padding: 6px 12px;
+  border-radius: $radius-control;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $brand-orange;
+    color: $brand-orange;
+  }
+}
+
+/* Office hour card in the side column (meetings from data/meetings.js) */
+.meetingCard {
+  padding: 16px 18px;
+  border-radius: $radius-card;
+  border: 1px solid rgba(250, 160, 35, 0.35);
+  background: linear-gradient(160deg, rgba(250, 160, 35, 0.1) 0%, transparent 60%);
+}
+
+.meetingTitle {
+  margin: 4px 0 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.meetingWhen {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0 0 4px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.meetingWhenIcon {
+  margin-top: 1px;
+  font-size: 16px !important;
+  color: $brand-orange;
+}
+
+.meetingZone {
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 400;
+}
+
+.meetingHost {
+  margin: 0 0 12px 22px;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 12.5px;
+}
+
+.inlineIcon {
+  font-size: 16px !important;
+}
+
+.meetingCard .agentKicker {
+  color: #a05f00;
+
+  [data-theme='dark'] & {
+    color: $brand-orange;
+  }
+}
+
+.meetingCard .agentPrimary {
+  background: $brand-orange;
 }

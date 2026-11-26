@@ -46,6 +46,7 @@ $brand-green: #afc72d;
   gap: 14px;
   min-height: 76px;
   padding: 14px 16px;
+  overflow: hidden;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.035);
@@ -60,10 +61,6 @@ $brand-green: #afc72d;
     border-color: rgba(250, 160, 35, 0.6);
     background: rgba(250, 160, 35, 0.07);
     transform: translateX(3px);
-
-    .arrow {
-      opacity: 1;
-    }
   }
 
   &:focus-visible {
@@ -72,22 +69,23 @@ $brand-green: #afc72d;
   }
 }
 
-// Layer accent: a thin brand bar on the left edge.
+// Layer accent: a brand bar along the whole left edge, shown on hover and on the current page.
 .layer::before {
   content: '';
   position: absolute;
-  left: -1px;
-  top: 12px;
-  bottom: 12px;
+  left: 0;
+  top: 0;
+  bottom: 0;
   width: 3px;
-  border-radius: 0 2px 2px 0;
-  background: rgba(255, 255, 255, 0.16);
-  transition: background 0.2s ease;
+  background: linear-gradient(180deg, $brand-orange 0%, $brand-green 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .layer:hover::before,
+.layer:focus-visible::before,
 .active::before {
-  background: linear-gradient(180deg, $brand-orange 0%, $brand-green 100%);
+  opacity: 1;
 }
 
 .active {
@@ -140,16 +138,6 @@ $brand-green: #afc72d;
   color: transparent;
 }
 
-.arrow {
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  font-size: 14px !important;
-  color: $brand-orange;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
 // Tools column: stands beside the three layers.
 .side {
   flex-direction: column;
@@ -186,21 +174,19 @@ $brand-green: #afc72d;
 }
 
 .side::before {
-  top: -1px;
+  top: 0;
   bottom: auto;
-  left: 12px;
-  right: 12px;
+  left: 0;
+  right: 0;
   width: auto;
   height: 3px;
-  border-radius: 0 0 2px 2px;
+  background: linear-gradient(90deg, $brand-orange 0%, $brand-green 100%);
 
   @media screen and (max-width: 600px) {
-    left: -1px;
     right: auto;
-    top: 12px;
-    bottom: 12px;
+    bottom: 0;
     width: 3px;
     height: auto;
-    border-radius: 0 2px 2px 0;
+    background: linear-gradient(180deg, $brand-orange 0%, $brand-green 100%);
   }
 }

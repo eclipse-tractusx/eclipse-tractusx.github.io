@@ -20,7 +20,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForwardRounded';
 import { products } from '@site/data/productsData';
 import { CATEGORY_ICONS, getCategory } from './productMeta';
 import styles from './landscape.module.scss';
@@ -46,7 +45,6 @@ function Layer({ id, active, side }) {
         <span className={styles.tagline}>{category.tagline}</span>
       </span>
       <span className={styles.count}>{count}</span>
-      <ArrowForwardIcon className={styles.arrow} />
     </Link>
   );
 }

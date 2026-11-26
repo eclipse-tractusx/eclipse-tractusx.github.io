@@ -1692,3 +1692,41 @@ $card-min: 330px;
   pointer-events: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
+
+/* Download shortcut: icon in the top-right corner of a card */
+.cardDownload {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: $radius-control;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  color: var(--ifm-color-emphasis-700);
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+
+  svg {
+    font-size: 18px;
+  }
+
+  &:hover {
+    border-color: $brand-orange;
+    background: rgba(250, 160, 35, 0.1);
+    color: $brand-orange;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $brand-orange;
+    outline-offset: 2px;
+  }
+}
+
+// Keep the title and the AI chip clear of the download icon.
+.cardTitleRow {
+  padding-right: 34px;
+}

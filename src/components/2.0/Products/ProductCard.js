@@ -123,6 +123,14 @@ export default function ProductCard({ product, showKind = true }) {
       )}
     >
       {product.isNew && <NewBadge className={styles.cardNewBadge} />}
+      <Link
+        className={styles.cardDownload}
+        to={`${detailUrl}#releases`}
+        aria-label={`Download ${product.name}`}
+        title="Download"
+      >
+        <DownloadIcon />
+      </Link>
       <div className={styles.cardBody}>
         <ProductMark product={product} className={styles.cardMedia} />
         <div className={styles.cardContent}>
@@ -174,14 +182,6 @@ export default function ProductCard({ product, showKind = true }) {
             GitHub
           </a>
         )}
-        <Link
-          className={styles.cardAction}
-          to={`${detailUrl}#releases`}
-          aria-label={`Download ${product.name}`}
-        >
-          <DownloadIcon />
-          Download
-        </Link>
         <Link className={clsx(styles.cardAction, styles.cardActionPrimary)} to={detailUrl} tabIndex={-1}>
           Open
           <ArrowForwardIcon />

@@ -34,7 +34,8 @@ function Thumb({ shot, onOpen }) {
   );
 }
 
-function Lightbox({ shots, index, onClose, onMove }) {
+/** Full-screen view of one image of a list; also used for the product logo. */
+export function Lightbox({ shots, index, onClose, onMove, className }) {
   const shot = shots[index];
   const src = useBaseUrl(shot.src);
 
@@ -54,13 +55,18 @@ function Lightbox({ shots, index, onClose, onMove }) {
 
   return (
     <div className={styles.lightbox} role="dialog" aria-modal="true" aria-label={shot.alt} onClick={onClose}>
-      <figure className={styles.lightboxFigure} onClick={(event) => event.stopPropagation()}>
+      <figure
+        className={`${styles.lightboxFigure} ${className || ''}`}
+        onClick={(event) => event.stopPropagation()}
+      >
         <img src={src} alt={shot.alt} />
         <figcaption>
           {shot.caption || shot.alt}
-          <span className={styles.lightboxCount}>
-            {index + 1} / {shots.length}
-          </span>
+          {shots.length > 1 && (
+            <span className={styles.lightboxCount}>
+              {index + 1} / {shots.length}
+            </span>
+          )}
         </figcaption>
       </figure>
       <button type="button" className={styles.lightboxClose} onClick={onClose} aria-label="Close">

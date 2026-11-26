@@ -41,6 +41,8 @@
  *   details: string (longer description / overview),
  *
  *   Optional, shown only when present:
+ *   meetings: string[] (ids of the open meetings in data/meetings.js where the product is discussed;
+ *           shown as office hours on the product page),
  *   isNew: true (recently added to the portfolio; shows a "New" badge and sorts first in its
  *           group. Remove it once the product has been part of a release or two),
  *   logo: string (path under /static or URL; square works best, shown on the card and the detail page),
@@ -421,6 +423,7 @@ const products = [
     relevance: ['catena-x-operative'],
     kind: 'participant-component',
     maturity: 'mature',
+    meetings: ['edc-weekly'],
     repositories: [
       { name: 'tractusx-edc', url: 'https://github.com/eclipse-tractusx/tractusx-edc' },
       { name: 'tractusx-edc-dashboard', url: 'https://github.com/eclipse-tractusx/tractusx-edc-dashboard' },
@@ -448,6 +451,7 @@ const products = [
     relevance: ['development-testing'],
     kind: 'operating-service',
     maturity: 'growing',
+    meetings: ['identity-hub-weekly'],
     repositories: [
       { name: 'tractusx-identityhub', url: 'https://github.com/eclipse-tractusx/tractusx-identityhub' },
     ],
@@ -472,6 +476,7 @@ const products = [
     relevance: ['development-testing'],
     kind: 'participant-component',
     maturity: 'growing',
+    meetings: ['identity-hub-weekly'],
     repositories: [
       { name: 'tractusx-identityhub', url: 'https://github.com/eclipse-tractusx/tractusx-identityhub' },
     ],
@@ -538,6 +543,7 @@ const products = [
     relevance: ['catena-x-operative'],
     kind: 'operating-service',
     maturity: 'phase-out',
+    meetings: ['dataspace-management-stack-open-meeting'],
     repositories: [
       { name: 'portal', url: 'https://github.com/eclipse-tractusx/portal' },
       { name: 'portal-frontend', url: 'https://github.com/eclipse-tractusx/portal-frontend' },
@@ -568,6 +574,7 @@ const products = [
     relevance: ['catena-x-operative'],
     kind: 'operating-service',
     maturity: 'mature',
+    meetings: ['bpdm-open-meeting'],
     repositories: [
       { name: 'bpdm', url: 'https://github.com/eclipse-tractusx/bpdm' },
     ],
@@ -673,6 +680,7 @@ const products = [
     relevance: ['catena-x-operative', 'dataspace-participants'],
     kind: 'application',
     maturity: 'growing',
+    meetings: ['industry-core-hub-weekly'],
     logo: '/img/products/industry-core-hub.png',
     repositories: [
       { name: 'industry-core-hub', url: 'https://github.com/eclipse-tractusx/industry-core-hub' },
@@ -759,6 +767,7 @@ const products = [
     relevance: ['development-testing'],
     kind: 'tooling',
     maturity: 'mature',
+    meetings: ['umbrella-helm-chart-sync'],
     repositories: [
       { name: 'tractus-x-umbrella', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella' },
     ],
@@ -805,6 +814,7 @@ const products = [
     relevance: ['development-testing'],
     kind: 'library',
     maturity: 'growing',
+    meetings: ['industry-core-hub-weekly'],
     repositories: [
       { name: 'tractusx-sdk', url: 'https://github.com/eclipse-tractusx/tractusx-sdk' },
     ],
@@ -825,6 +835,7 @@ const products = [
     relevance: ['development-testing'],
     kind: ['library', 'tooling'],
     maturity: 'incubating',
+    meetings: ['industry-core-hub-weekly'],
     isNew: true,
     logo: '/img/products/testlab.png',
     repositories: [
@@ -847,6 +858,7 @@ const products = [
     relevance: ['development-testing'],
     kind: 'tooling',
     maturity: 'incubating',
+    meetings: ['umbrella-helm-chart-sync'],
     isNew: true,
     repositories: [
       { name: 'tractus-x-umbrella-iac', url: 'https://github.com/eclipse-tractusx/tractus-x-umbrella-iac' },
@@ -864,6 +876,7 @@ const products = [
     relevance: ['catena-x-demo'],
     kind: 'demonstrator',
     maturity: 'deprecated',
+    meetings: ['industry-core-hub-weekly'],
     deprecation: deprecation('tractusx-sdk-services'),
     repositories: [
       { name: 'tractusx-sdk-services', url: 'https://github.com/eclipse-tractusx/tractusx-sdk-services' },
