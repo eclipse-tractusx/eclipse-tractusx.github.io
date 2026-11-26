@@ -146,12 +146,12 @@ export default function RelatedProjects() {
               <span className={styles.sectionEyebrow}>Community showcase</span>
               <h2 id="projects-heading" className={styles.sectionTitle}>Space for what&apos;s next</h2>
               <p className={styles.sectionLead}>
-                These projects are in preparation and open for collaboration. Details will be published as
-                they mature; these cards are not announced projects or release commitments.
+                Room for AI projects that build on Eclipse Tractus-X. These cards mark possible projects open
+                for collaboration, not announced projects or release commitments.
               </p>
             </div>
             <div className={projectStyles.grid}>
-              {[1, 2].map((slot) => (
+              {[1, 2, 3, 4, 5].map((slot) => (
                 <article key={slot} className={clsx(styles.panel, projectStyles.placeholder)}>
                   <div className={projectStyles.cardHeader}>
                     <span className={styles.iconTile} aria-hidden="true"><HandshakeOutlinedIcon /></span>
@@ -162,10 +162,10 @@ export default function RelatedProjects() {
                     <span />
                     <span />
                   </div>
-                  <h3 className={styles.principleTitle}>Project in preparation · 0{slot}</h3>
+                  <h3 className={styles.principleTitle}>Possible project · 0{slot}</h3>
                   <p className={styles.principleText}>
-                    An IPCEI AI project or another Eclipse Tractus-X AI initiative in preparation. Details
-                    will appear here as it takes shape.
+                    A slot for an IPCEI AI project or another Eclipse Tractus-X AI initiative. Details will
+                    appear here once a project joins.
                   </p>
                 </article>
               ))}
