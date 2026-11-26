@@ -35,6 +35,8 @@ import SyncAltOutlinedIcon from '@mui/icons-material/SyncAltOutlined';
 import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import AiPageHeader from '@site/src/components/2.0/AiPageHeader';
 import styles from '../styles.module.scss';
 import projectStyles from './styles.module.scss';
@@ -149,7 +151,7 @@ export default function RelatedProjects() {
               </p>
             </div>
             <div className={projectStyles.grid}>
-              {[1, 2, 3].map((slot) => (
+              {[1, 2].map((slot) => (
                 <article key={slot} className={clsx(styles.panel, projectStyles.placeholder)}>
                   <div className={projectStyles.cardHeader}>
                     <span className={styles.iconTile} aria-hidden="true"><HandshakeOutlinedIcon /></span>
@@ -167,6 +169,19 @@ export default function RelatedProjects() {
                   </p>
                 </article>
               ))}
+              <Link
+                to="#add-your-project"
+                className={clsx(styles.panel, projectStyles.placeholder, projectStyles.addCard)}
+              >
+                <span className={projectStyles.addIcon} aria-hidden="true"><AddRoundedIcon /></span>
+                <h3 className={styles.principleTitle}>Add your project here</h3>
+                <p className={styles.principleText}>
+                  Working on AI in Eclipse Tractus-X? This space is open for your project.
+                </p>
+                <span className={projectStyles.addCta}>
+                  Get involved <ArrowForwardRoundedIcon aria-hidden="true" />
+                </span>
+              </Link>
             </div>
           </div>
         </section>
