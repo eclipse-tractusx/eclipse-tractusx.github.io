@@ -1,0 +1,173 @@
+/* Copyright (c) 2026 Contributors to the Eclipse Foundation
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+.teaser {
+  --teaser-surface: #f6f7f9;
+  --teaser-border: #dce0e5;
+  --teaser-muted: #505a68;
+  --teaser-orange: #925200;
+  padding: 6rem 0;
+  background: var(--ifm-background-color);
+}
+
+:global([data-theme='dark']) .teaser {
+  --teaser-surface: #12151a;
+  --teaser-border: #323944;
+  --teaser-muted: #b6beca;
+  --teaser-orange: #ffba56;
+}
+
+.container {
+  width: min(1200px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 850px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--teaser-orange);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.title {
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+  padding: 2.5rem;
+  border: 1px solid var(--teaser-border);
+  border-radius: 24px;
+  background: var(--teaser-surface);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: block;
+  width: 100%;
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.focusAreas {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+  color: var(--teaser-muted);
+}
+
+.focusAreas li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  line-height: 1.6;
+}
+
+.focusAreas svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  font-size: 1.2rem;
+  color: var(--teaser-orange);
+}
+
+/* Same outlined button as the About Us card on the homepage. */
+.outlinedbutton {
+  display: inline-block;
+  padding: 0.6rem 2rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.outlinedbutton:hover,
+.outlinedbutton:focus-visible {
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 25%);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .outlinedbutton {
+    transition: none;
+  }
+
+  .outlinedbutton:hover,
+  .outlinedbutton:focus-visible {
+    transform: none;
+  }
+}
+
+@media (max-width: 996px) {
+  .teaser {
+    padding: 4rem 0;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .brand {
+    align-items: center;
+  }
+
+  .logo {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 2rem);
+  }
+
+  .card {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .outlinedbutton {
+    display: block;
+    text-align: center;
+  }
+}

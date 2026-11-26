@@ -17,10 +17,10 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-// Dedicated page of the Tractus-X Accelerator.
+// Dedicated page of the Tractus-X Accelerator, in the look of the About Us page.
 //
 // Section order: hero, purpose, what we offer, who it is for, how to join, events,
-// partners and funding, brand assets, stay in touch. Program facts come from
+// partners and funding, stay in touch. Program facts come from
 // data/tractusxAccelerator.js; please keep new copy to facts the Accelerator owners
 // have confirmed.
 
@@ -29,22 +29,21 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import SchoolIcon from '@mui/icons-material/School';
-import ScienceIcon from '@mui/icons-material/Science';
-import Diversity3Icon from '@mui/icons-material/Diversity3';
-import PolicyIcon from '@mui/icons-material/Policy';
-import ForumIcon from '@mui/icons-material/Forum';
-import CodeIcon from '@mui/icons-material/Code';
-import BusinessIcon from '@mui/icons-material/Business';
-import GroupsIcon from '@mui/icons-material/Groups';
-import DownloadIcon from '@mui/icons-material/Download';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ThemedImage from '@theme/ThemedImage';
+import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
+import Diversity3OutlinedIcon from '@mui/icons-material/Diversity3Outlined';
+import PolicyOutlinedIcon from '@mui/icons-material/PolicyOutlined';
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
+import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import ChatIcon from '@mui/icons-material/Chat';
-import ArticleIcon from '@mui/icons-material/Article';
+import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
+import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import { tractusxOrganizations } from '@site/data/tractusxOrganizations';
 import { upcomingEvents, getUpcomingEvents } from '@site/data/upcomingEvents';
 import {
@@ -56,15 +55,16 @@ import {
   splitAcceleratorEvents,
 } from '@site/data/tractusxAccelerator';
 import FundingBadge from '@site/src/components/FundingBadge';
+import heroStyles from '@site/src/components/AboutUsHeader/styles.module.css';
 import styles from './styles.module.scss';
 
 // Icons for the `icon` keys of acceleratorFocusAreas.
 const focusIcons = {
-  school: SchoolIcon,
-  science: ScienceIcon,
-  mentoring: Diversity3Icon,
-  policy: PolicyIcon,
-  forum: ForumIcon,
+  school: SchoolOutlinedIcon,
+  science: ScienceOutlinedIcon,
+  mentoring: Diversity3OutlinedIcon,
+  policy: PolicyOutlinedIcon,
+  forum: ForumOutlinedIcon,
 };
 
 // The Community Office Hour is featured on the open meetings page.
@@ -72,33 +72,23 @@ const OFFICE_HOUR = '/community/open-meetings';
 const MAILING_LIST = 'https://accounts.eclipse.org/mailing-list/tractusx-dev';
 const MATRIX = 'https://matrix.to/#/#tractusx-dev:matrix.eclipse.org';
 
-const sections = [
-  { id: 'purpose', label: 'Purpose' },
-  { id: 'offer', label: 'What we offer' },
-  { id: 'audience', label: 'Who it is for' },
-  { id: 'join', label: 'How to join' },
-  { id: 'events', label: 'Events' },
-  { id: 'partners', label: 'Partners' },
-  { id: 'brand', label: 'Brand assets' },
-];
-
 const audiences = [
   {
-    icon: CodeIcon,
+    icon: CodeOutlinedIcon,
     title: 'Projects',
     description:
       'Open-source projects that want to join Eclipse Tractus-X or grow inside it, with guidance on qualification, releases and quality.',
     cta: { label: 'Read the release process', to: '/docs/oss/release-process' },
   },
   {
-    icon: GroupsIcon,
+    icon: GroupsOutlinedIcon,
     title: 'Developers',
     description:
       'Developers who want to make their first contribution or take on more responsibility, with mentoring from experienced community members.',
     cta: { label: 'How to contribute', to: '/docs/oss/how-to-contribute' },
   },
   {
-    icon: BusinessIcon,
+    icon: BusinessOutlinedIcon,
     title: 'Organizations',
     description:
       'Companies and institutions that want to adopt the dataspace technology and actively participate in the open-source community.',
@@ -106,8 +96,7 @@ const audiences = [
   },
 ];
 
-// TODO(accelerator owners): replace or extend with the confirmed cohort steps
-// (application, selection, duration) once they are published.
+// TODO(accelerator owners): confirm or extend these steps.
 const joinSteps = [
   {
     title: 'Meet the community',
@@ -139,13 +128,13 @@ const channels = [
     href: MAILING_LIST,
   },
   {
-    icon: ChatIcon,
+    icon: ChatOutlinedIcon,
     title: 'Matrix',
     text: 'Chat with the community in the Tractus-X developer channel.',
     href: MATRIX,
   },
   {
-    icon: ArticleIcon,
+    icon: ArticleOutlinedIcon,
     title: 'TX News blog',
     text: 'Event invitations, recaps and project news.',
     to: '/blog',
@@ -156,6 +145,8 @@ const partners = acceleratorPartnerIds
   .map((id) => tractusxOrganizations.find((organization) => organization.id === id))
   .filter(Boolean);
 
+const logoSrc = (id) => acceleratorLogos.find((logo) => logo.id === id).src;
+
 const formatDate = (date) =>
   new Date(`${date}T12:00:00`).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -163,369 +154,247 @@ const formatDate = (date) =>
     day: 'numeric',
   });
 
-/** Section wrapper with an anchor and a heading. */
-function Section({ id, eyebrow, title, intro, children, muted = false }) {
+/** Section with an eyebrow, a heading and an optional intro, as on the About Us page. */
+function Section({ id, eyebrow, title, intro, children }) {
   // Register the anchor so in-page links pass Docusaurus' broken anchor check.
   useBrokenLinks().collectAnchor(id);
   return (
-    <section id={id} className={`${styles.section} ${muted ? styles.sectionMuted : ''}`} aria-labelledby={`${id}-title`}>
-      <div className={styles.container}>
-        <header className={styles.sectionHeader}>
-          {eyebrow && <span className={styles.sectionEyebrow}>{eyebrow}</span>}
-          <h2 id={`${id}-title`} className={styles.sectionTitle}>
-            {title}
-          </h2>
-          {intro && <p className={styles.sectionIntro}>{intro}</p>}
-        </header>
-        {children}
+    <section id={id} className={styles.section} aria-labelledby={`${id}-title`}>
+      <div className={styles.sectionHeading}>
+        <p className={styles.eyebrow}>{eyebrow}</p>
+        <h2 id={`${id}-title`}>{title}</h2>
+        {intro && <p>{intro}</p>}
       </div>
+      {children}
     </section>
   );
 }
 
 /** One event card; `past` events link to their blog post as a recap. */
-function EventCard({ event, past = false }) {
+function EventCard({ event, label }) {
   return (
-    <article className={`${styles.eventCard} ${past ? styles.eventPast : ''}`}>
-      <span className={styles.eventBadge}>{past ? 'Past event' : 'Upcoming'}</span>
-      <h3 className={styles.eventTitle}>{event.title}</h3>
+    <article className={styles.infoCard}>
+      <span className={styles.badge}>{label}</span>
+      <h3>{event.title}</h3>
       <p className={styles.eventMeta}>
         <span>
-          <CalendarTodayIcon aria-hidden="true" />
-          {event.endDate ? `${formatDate(event.date)} - ${formatDate(event.endDate)}` : formatDate(event.date)}
+          <CalendarTodayOutlinedIcon aria-hidden="true" />
+          {event.endDate ? `${formatDate(event.date)} – ${formatDate(event.endDate)}` : formatDate(event.date)}
         </span>
         <span>
-          <LocationOnIcon aria-hidden="true" />
+          <LocationOnOutlinedIcon aria-hidden="true" />
           {event.location}
         </span>
       </p>
-      {event.summary && <p className={styles.cardText}>{event.summary}</p>}
-      {event.blogSlug && (
-        <Link className={styles.textLink} to={`/blog/${event.blogSlug}`}>
-          {past ? 'Read about the event' : 'Event details'}
-          <ArrowForwardIcon aria-hidden="true" />
-        </Link>
-      )}
+      {event.summary && <p>{event.summary}</p>}
+      {event.blogSlug && <Link to={`/blog/${event.blogSlug}`}>Read more →</Link>}
     </article>
   );
 }
 
-/** Preview and download link of one logo variant, on a matching background. */
-function LogoDownload({ logo }) {
-  const src = useBaseUrl(logo.src);
-  return (
-    <li className={styles.logoTile}>
-      <span className={logo.theme === 'dark' ? styles.logoPreviewDark : styles.logoPreviewLight}>
-        <img src={src} alt={`Tractus-X Accelerator logo, ${logo.label.toLowerCase()}`} loading="lazy" />
-      </span>
-      <a className={styles.logoDownload} href={src} download>
-        <DownloadIcon className={styles.logoDownloadIcon} aria-hidden="true" />
-        {logo.label}
-      </a>
-    </li>
-  );
-}
-
 export default function AcceleratorPage() {
-  const heroLogo = useBaseUrl(acceleratorLogos.find((logo) => logo.id === 'color-light-text').src);
+  const lightLogo = useBaseUrl(logoSrc('color-dark-text'));
+  const darkLogo = useBaseUrl(logoSrc('color-light-text'));
   const { upcoming, past } = splitAcceleratorEvents(acceleratorEvents);
   const acceleratorEventIds = new Set(acceleratorEvents.map((event) => event.id));
   // The next community event outside the Accelerator, from the site-wide calendar.
   const nextCommunityEvent = getUpcomingEvents(upcomingEvents).find(
     (event) => !acceleratorEventIds.has(event.id)
   );
-
-  const facts = [
-    { value: acceleratorPeriod.replace(' - ', ' – '), label: 'Program period' },
-    { value: String(acceleratorFocusAreas.length), label: 'Focus areas' },
-    { value: String(partners.length), label: 'Partners' },
-    { value: 'BMWE', label: 'Public funding' },
-  ];
+  const period = acceleratorPeriod.replace(' - ', ' – ');
 
   return (
     <Layout
       title="Tractus-X Accelerator"
-      description="The Tractus-X Accelerator is a cohort-based support program that lowers the barriers to joining and actively contributing to the Eclipse Tractus-X open-source community."
+      description="The Tractus-X Accelerator is a support program that lowers the barriers to joining and actively contributing to the Eclipse Tractus-X open-source community."
     >
-      <main className={styles.page}>
-        {/* Hero */}
-        <section className={styles.hero}>
-          <div className={styles.container}>
-            <span className={styles.eyebrow}>
-              <RocketLaunchIcon aria-hidden="true" />
-              {acceleratorPeriod}
-            </span>
-            <h1 className={styles.heroTitle}>
-              <span className={styles.visuallyHidden}>Tractus-X Accelerator</span>
-              <img className={styles.heroLogo} src={heroLogo} alt="" aria-hidden="true" />
-            </h1>
-            <p className={styles.heroSubtitle}>
-              A cohort-based support program for projects, developers and organizations. It lowers
-              the technical and organizational barriers to entry and helps more people take an
-              active part in the Eclipse Tractus-X open-source community.
+      <header className={heroStyles.about_header}>
+        <ThemedImage
+          alt=""
+          sources={{
+            light: useBaseUrl('/img/main-bg-light.png'),
+            dark: useBaseUrl('/img/main_bg-min.png'),
+          }}
+          className={heroStyles.hero_bg}
+        />
+        <div className={`${heroStyles.container} ${styles.heroContainer}`}>
+          <div className={styles.heroLogo}>
+            <ThemedImage alt="" aria-hidden="true" sources={{ light: lightLogo, dark: darkLogo }} />
+          </div>
+          <div className={heroStyles.information_container}>
+            <p className={styles.heroEyebrow}>
+              <RocketLaunchOutlinedIcon aria-hidden="true" /> {period}
+            </p>
+            <h1 className="headers-title-h1">Tractus-X Accelerator</h1>
+            <p className={heroStyles.subtitle}>
+              A support program for projects, developers and organizations. It lowers the technical
+              and organizational barriers to entry and helps more people take an active part in the
+              Eclipse Tractus-X open-source community.
             </p>
             <div className={styles.heroActions}>
-              <Link className={styles.primaryButton} to="#join">
+              <Link className={styles.outlinedbutton} to="#join">
                 How to join
-                <ArrowForwardIcon aria-hidden="true" />
               </Link>
-              <Link className={styles.secondaryButton} to={OFFICE_HOUR}>
-                Join an open meeting
+              <Link className={styles.textButton} to={OFFICE_HOUR}>
+                Join an open meeting →
               </Link>
             </div>
-            <dl className={styles.facts}>
-              {facts.map(({ value, label }) => (
-                <div key={label} className={styles.fact}>
-                  <dt>{label}</dt>
-                  <dd>{value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
-        </section>
+        </div>
+      </header>
 
-        {/* In-page navigation */}
-        <nav className={styles.subnav} aria-label="On this page">
-          <div className={styles.container}>
-            <ul>
-              {sections.map(({ id, label }) => (
-                <li key={id}>
-                  <a href={`#${id}`}>{label}</a>
+      <main className={styles.content}>
+        <div className={styles.container}>
+          <section className={styles.intro} aria-labelledby="purpose-title">
+            <p className={styles.eyebrow}>Why the Accelerator</p>
+            <h2 id="purpose-title">Making it easier to take part</h2>
+            <p className={styles.lead}>
+              Eclipse Tractus-X builds open-source dataspace technology together with a growing,
+              international community. Joining that work, as a new project, a developer or an
+              organization, means learning the technology, the repositories and the community's
+              governance, release and quality processes.
+            </p>
+            <p>
+              The Tractus-X Accelerator lowers these technical and organizational barriers to entry.
+              It combines proven approaches from startup acceleration with the requirements of
+              industrial open-source ecosystems, so that more people move from interest to active,
+              lasting participation. It runs {period} and is supported by the German Federal
+              Ministry for Economic Affairs and Energy (BMWE).
+            </p>
+          </section>
+
+          <Section
+            id="offer"
+            eyebrow="What we offer"
+            title="Five focus areas"
+            intro="Together, they shorten the way from a first contact to an active contribution."
+          >
+            <ol className={styles.cards}>
+              {acceleratorFocusAreas.map(({ id, icon, title, description }, index) => {
+                const Icon = focusIcons[icon] || RocketLaunchOutlinedIcon;
+                return (
+                  <li key={id} className={styles.card}>
+                    <div className={styles.stepHeader}>
+                      <Icon aria-hidden="true" />
+                      <span className={styles.stepNumber}>0{index + 1}</span>
+                    </div>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                  </li>
+                );
+              })}
+            </ol>
+          </Section>
+
+          <Section id="audience" eyebrow="Who it is for" title="Projects, developers and organizations">
+            <ul className={styles.cards}>
+              {audiences.map(({ icon: Icon, title, description, cta }) => (
+                <li key={title} className={styles.infoCard}>
+                  <Icon className={styles.cardIcon} aria-hidden="true" />
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                  <Link to={cta.to}>{cta.label} →</Link>
                 </li>
               ))}
             </ul>
-          </div>
-        </nav>
+          </Section>
 
-        <Section id="purpose" eyebrow="Why the Accelerator" title="Making it easier to take part">
-          <div className={styles.purpose}>
-            <div className={styles.purposeText}>
-              <p>
-                Eclipse Tractus-X builds open-source dataspace technology together with a growing,
-                international community. Joining that work, as a new project, a developer or an
-                organization, means learning the technology, the repositories and the community's
-                governance, release and quality processes.
-              </p>
-              <p>
-                The Tractus-X Accelerator lowers these technical and organizational barriers to
-                entry. It combines proven approaches from startup acceleration with the
-                requirements of industrial open-source ecosystems, so that more people move from
-                interest to active, lasting participation.
-              </p>
-            </div>
-            <aside className={styles.purposeAside} aria-label="At a glance">
-              <span className={styles.purposeAsideLabel}>At a glance</span>
-              <ul className={styles.glance}>
-                <li>Cohort-based support program</li>
-                <li>For projects, developers and organizations</li>
-                <li>Runs {acceleratorPeriod.replace(' - ', ' – ')}</li>
-                <li>Supported by the German Federal Ministry for Economic Affairs and Energy (BMWE)</li>
-              </ul>
-            </aside>
-          </div>
-        </Section>
-
-        <Section
-          id="offer"
-          eyebrow="What we offer"
-          title="Five focus areas"
-          intro="The Accelerator works on five areas that, together, shorten the way from a first contact to an active contribution."
-          muted
-        >
-          <ul className={`${styles.cards} ${styles.cardsThree}`}>
-            {acceleratorFocusAreas.map(({ id, icon, title, description }) => {
-              const Icon = focusIcons[icon] || RocketLaunchIcon;
-              return (
-                <li key={id} className={styles.card}>
-                  <span className={styles.cardIcon}>
-                    <Icon aria-hidden="true" />
-                  </span>
-                  <h3 className={styles.cardTitle}>{title}</h3>
-                  <p className={styles.cardText}>{description}</p>
+          <Section
+            id="join"
+            eyebrow="How to join"
+            title="Your way into the community"
+            intro="You don't need an invitation to start. These steps use the community's open channels."
+          >
+            <ol className={`${styles.cards} ${styles.cardsFour}`}>
+              {joinSteps.map(({ title, text, link }, index) => (
+                <li key={title} className={styles.card}>
+                  <div className={styles.stepHeader}>
+                    <span className={styles.stepNumber}>0{index + 1}</span>
+                  </div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <Link to={link.to}>{link.label} →</Link>
                 </li>
-              );
-            })}
-            <li className={`${styles.card} ${styles.cardCta}`}>
-              <h3 className={styles.cardTitle}>Ready to take part?</h3>
-              <p className={styles.cardText}>
-                Start with the community's open channels and find your way in.
-              </p>
-              <Link className={styles.textLink} to="#join">
-                How to join
-                <ArrowForwardIcon aria-hidden="true" />
-              </Link>
-            </li>
-          </ul>
-        </Section>
+              ))}
+            </ol>
+          </Section>
 
-        <Section id="audience" eyebrow="Who it is for" title="Projects, developers and organizations">
-          <ul className={`${styles.cards} ${styles.cardsThree} ${styles.cardsAudience}`}>
-            {audiences.map(({ icon: Icon, title, description, cta }) => (
-              <li key={title} className={styles.card}>
-                <span className={styles.cardIcon}>
-                  <Icon aria-hidden="true" />
-                </span>
-                <h3 className={styles.cardTitle}>{title}</h3>
-                <p className={styles.cardText}>{description}</p>
-                <Link className={styles.textLink} to={cta.to}>
-                  {cta.label}
-                  <ArrowForwardIcon aria-hidden="true" />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Section>
-
-        <Section
-          id="join"
-          eyebrow="How to join"
-          title="Your way into the community"
-          intro="You don't need an invitation to start. These steps use the community's open channels; more details on the Accelerator cohorts will follow on this page."
-          muted
-        >
-          <ol className={styles.steps}>
-            {joinSteps.map(({ title, text, link }, index) => (
-              <li key={title} className={styles.step}>
-                <span className={styles.stepNumber} aria-hidden="true">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className={styles.cardTitle}>{title}</h3>
-                <p className={styles.cardText}>{text}</p>
-                <Link className={styles.textLink} to={link.to}>
-                  {link.label}
-                  <ArrowForwardIcon aria-hidden="true" />
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </Section>
-
-        <Section id="events" eyebrow="Events" title="Build together">
-          <h3 className={styles.subheading}>Upcoming Accelerator events</h3>
-          {upcoming.length > 0 ? (
-            <div className={styles.events}>
+          <Section id="events" eyebrow="Events" title="Build together">
+            <div className={styles.twoColumns}>
               {upcoming.map((event) => (
-                <EventCard key={event.id} event={event} />
+                <EventCard key={event.id} event={event} label="Upcoming Accelerator event" />
+              ))}
+              {upcoming.length === 0 && (
+                <article className={styles.infoCard}>
+                  <span className={styles.badge}>Upcoming Accelerator events</span>
+                  <h3>Stay tuned</h3>
+                  <p>
+                    The next Accelerator event will be announced on the TX News blog, the mailing
+                    list and in the Community Office Hour.
+                  </p>
+                  <Link to="/blog">Go to the blog →</Link>
+                </article>
+              )}
+              {nextCommunityEvent && (
+                <EventCard event={{ ...nextCommunityEvent, summary: null }} label="Next community event" />
+              )}
+              {past.map((event) => (
+                <EventCard key={event.id} event={event} label="Past Accelerator event" />
               ))}
             </div>
-          ) : (
-            <div className={styles.emptyState}>
-              <p>
-                The next Accelerator event will be announced on the TX News blog, the mailing list
-                and in the Community Office Hour.
-              </p>
-              <Link className={styles.textLink} to="/blog">
-                Go to the blog
-                <ArrowForwardIcon aria-hidden="true" />
-              </Link>
-            </div>
-          )}
+          </Section>
 
-          {nextCommunityEvent && (
-            <>
-              <h3 className={styles.subheading}>Next community event</h3>
-              <div className={styles.events}>
-                <EventCard event={{ ...nextCommunityEvent, summary: null }} />
-              </div>
-            </>
-          )}
-
-          {past.length > 0 && (
-            <>
-              <h3 className={styles.subheading}>Past Accelerator events</h3>
-              <div className={styles.events}>
-                {past.map((event) => (
-                  <EventCard key={event.id} event={event} past />
-                ))}
-              </div>
-            </>
-          )}
-        </Section>
-
-        <Section
-          id="partners"
-          eyebrow="Partners and funding"
-          title="Who makes it happen"
-          intro="The partners of the Tractus-X Accelerator and its public funding."
-          muted
-        >
-          <ul className={styles.partners}>
-            {partners.map(({ id, name, logo, url, acceleratorLogoScale }) => (
-              <li key={id}>
-                <a href={url} title={name} target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={logo}
-                    alt={`${name} logo`}
-                    loading="lazy"
-                    style={
-                      acceleratorLogoScale
-                        ? { transform: `scale(${acceleratorLogoScale})` }
-                        : undefined
-                    }
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className={styles.funding}>
+          <Section
+            id="partners"
+            eyebrow="Partners and funding"
+            title="Who makes it happen"
+            intro="The partners of the Tractus-X Accelerator and its public funding."
+          >
+            <ul className={styles.partners}>
+              {partners.map(({ id, name, logo, url, acceleratorLogoScale }) => (
+                <li key={id}>
+                  <a href={url} title={name} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={logo}
+                      alt={`${name} logo`}
+                      loading="lazy"
+                      style={
+                        acceleratorLogoScale
+                          ? { transform: `scale(${acceleratorLogoScale})` }
+                          : undefined
+                      }
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
             <FundingBadge />
-          </div>
-        </Section>
+          </Section>
 
-        <Section
-          id="brand"
-          eyebrow="Brand assets"
-          title="Accelerator logo"
-          intro="Use the variant that matches your background. Each file is an SVG."
-        >
-          <ul className={styles.logos}>
-            {acceleratorLogos.map((logo) => (
-              <LogoDownload key={logo.id} logo={logo} />
-            ))}
-          </ul>
-        </Section>
-
-        <section className={styles.contact} aria-labelledby="contact-title">
-          <div className={styles.container}>
-            <div className={styles.contactPanel}>
-              <div>
-                <h2 id="contact-title" className={styles.contactTitle}>
-                  Stay in touch
-                </h2>
-                <p className={styles.contactText}>
-                  Questions about the Accelerator? Bring them to the Community Office Hour or reach
-                  the community on these channels.
-                </p>
-              </div>
-              <ul className={styles.channels}>
-                {channels.map(({ icon: Icon, title, text, href, to }) => {
-                  const content = (
-                    <>
-                      <Icon className={styles.channelIcon} aria-hidden="true" />
-                      <span>
-                        <span className={styles.channelTitle}>{title}</span>
-                        <span className={styles.channelText}>{text}</span>
-                      </span>
-                    </>
-                  );
-                  return (
-                    <li key={title}>
-                      {href ? (
-                        <a className={styles.channel} href={href} target="_blank" rel="noopener noreferrer">
-                          {content}
-                        </a>
-                      ) : (
-                        <Link className={styles.channel} to={to}>
-                          {content}
-                        </Link>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        </section>
+          <Section
+            id="contact"
+            eyebrow="Stay in touch"
+            title="Questions about the Accelerator?"
+            intro="Bring them to the Community Office Hour or reach the community on these channels."
+          >
+            <ul className={styles.cards}>
+              {channels.map(({ icon: Icon, title, text, href, to }) => (
+                <li key={title} className={styles.infoCard}>
+                  <Icon className={styles.cardIcon} aria-hidden="true" />
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  {href ? (
+                    <a href={href} target="_blank" rel="noopener noreferrer">
+                      Open {title} →
+                    </a>
+                  ) : (
+                    <Link to={to}>Read the blog →</Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </Section>
+        </div>
       </main>
     </Layout>
   );

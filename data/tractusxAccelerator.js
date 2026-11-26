@@ -96,8 +96,7 @@ export function splitAcceleratorEvents(events = acceleratorEvents, now = new Dat
   };
 }
 
-// Accelerator logo variants in static/img/accelerator. `light` and `dark` name the
-// site theme each variant is made for; `mono` variants are single-color.
+// Accelerator logos in static/img/accelerator, one per site theme.
 export const acceleratorLogos = [
   {
     id: "color-dark-text",
@@ -110,19 +109,5 @@ export const acceleratorLogos = [
     label: "Full color, for dark backgrounds",
     src: "/img/accelerator/tractus-x-accelerator-logo-color-light-text.svg",
     theme: "dark",
-  },
-  {
-    id: "black",
-    label: "Black, for light backgrounds",
-    src: "/img/accelerator/tractus-x-accelerator-logo-black.svg",
-    theme: "light",
-    mono: true,
-  },
-  {
-    id: "white",
-    label: "White, for dark backgrounds",
-    src: "/img/accelerator/tractus-x-accelerator-logo-white.svg",
-    theme: "dark",
-    mono: true,
   },
 ];
