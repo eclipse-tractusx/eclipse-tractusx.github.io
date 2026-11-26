@@ -191,6 +191,42 @@ const config = {
       },
       {},
     ],
+    // -- AI agent profiles: one page per agent in data/aiAgents.js at /ai/agents/<id>,
+    //    all rendered by the same component --
+    function aiAgentProfilesPlugin(context) {
+      return {
+        name: 'ai-agent-profiles',
+        async contentLoaded({ actions }) {
+          const { agents, agentTeams, mcpServers, hasMcpServerDetails } = require('./data/aiAgents');
+          agents.forEach((agent) => {
+            actions.addRoute({
+              path: `${context.baseUrl}ai/agents/${agent.id}`,
+              component: '@site/src/components/2.0/AgentProfile',
+              exact: true,
+              props: { agentId: agent.id },
+            });
+          });
+          // One team profile page per team, e.g. /ai/agents/testlab.
+          agentTeams.forEach((team) => {
+            actions.addRoute({
+              path: `${context.baseUrl}ai/agents/${team.id}`,
+              component: '@site/src/components/2.0/AgentTeamProfile',
+              exact: true,
+              props: { teamId: team.id },
+            });
+          });
+          // One detail page per available MCP server with details, e.g. /ai/mcp-servers/industry-core-hub-mcp-addon.
+          mcpServers.filter(hasMcpServerDetails).forEach((server) => {
+            actions.addRoute({
+              path: `${context.baseUrl}ai/mcp-servers/${server.id}`,
+              component: '@site/src/components/2.0/McpServerProfile',
+              exact: true,
+              props: { serverId: server.id },
+            });
+          });
+        },
+      };
+    },
     // ------------DOCUSAURUS MULTI-INSTANCE PLUGIN--------------
     [
       '@docusaurus/plugin-content-docs',
@@ -413,16 +449,87 @@ const config = {
             ],
           },
           {
-            type: 'doc',
-            docId: 'developer',
+            type: 'dropdown',
+            label: 'AI',
             position: 'left',
-            label: 'Developer Hub',
+            to: '/ai',
+            items: [
+              {
+                to: '/ai',
+                label: 'Overview',
+              },
+              {
+                to: '/ai/agents',
+                label: 'Agents',
+              },
+              {
+                to: '/ai/mcp-servers',
+                label: 'MCP Servers',
+              },
+              {
+                to: '/ai/related-projects',
+                label: 'Related Projects',
+              },
+              {
+                to: '/ai/dataspace-4-ai',
+                label: 'Dataspace 4 AI',
+              },
+            ],
           },
+          // Developer Hub, with Tutorials and the most used developer pages under it
+          // (same look as the KITs menu), so the top bar stays short.
           {
-            type: 'doc',
-            docId: 'tutorials',
+            type: 'dropdown',
+            label: 'Developer Hub',
             position: 'left',
-            label: 'Tutorials',
+            to: '/docs/developer',
+            items: [
+              {
+                to: '/docs/developer',
+                label: 'DEVELOPER HUB',
+                className: 'kit-category-header kit-home-icon',
+              },
+              {
+                to: '/docs/getting-started',
+                label: 'Getting Started',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/tutorials',
+                label: 'Tutorials',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/release',
+                label: 'Release Guidelines (TRGs)',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/oss/how-to-contribute',
+                label: 'How to Contribute',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/category/open-source-development',
+                label: 'Open Source Development',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/github-checks',
+                label: 'Central GitHub Checks',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/dev_faq',
+                label: 'Developer Questions',
+                className: 'kit-nav-item',
+              },
+              {
+                to: '/docs/dev_links',
+                label: 'Useful Links',
+                className: 'kit-nav-item',
+              },
+            ],
           },
           {
             to: '/community/open-meetings',
