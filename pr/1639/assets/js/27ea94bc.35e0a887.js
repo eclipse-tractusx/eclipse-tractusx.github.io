@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([["74427"],{233133(e){e.exports=JSON.parse('{"serverId":"industry-core-hub-mcp-addon"}')}}]);
