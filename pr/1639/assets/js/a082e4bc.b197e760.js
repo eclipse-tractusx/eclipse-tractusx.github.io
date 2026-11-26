@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([["83225"],{659081(e){e.exports=JSON.parse('{"metadata":{"permalink":"/pr/1639/blog/page/2","page":2,"postsPerPage":10,"totalPages":5,"totalCount":43,"previousPage":"/pr/1639/blog","nextPage":"/pr/1639/blog/page/3","blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
