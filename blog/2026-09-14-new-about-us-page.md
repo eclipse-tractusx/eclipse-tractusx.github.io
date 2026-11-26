@@ -41,7 +41,7 @@ A timeline takes you from the **initial contribution by the Catena-X consortia i
 
 ### 🚀 The Tractus-X Accelerator (2026 – 2029)
 
-The newest milestone on the timeline is the **Tractus-X Accelerator**, a cohort-based support program for projects, developers and organizations, supported by the German Federal Ministry for Economic Affairs and Energy (BMWE). It lowers the technical and organizational barriers to entry and focuses on:
+The newest milestone on the timeline is the **Tractus-X Accelerator**, a support program for projects, developers and organizations, supported by the German Federal Ministry for Economic Affairs and Energy (BMWE). It lowers the technical and organizational barriers to entry and focuses on:
 
 - Structured onboarding and qualification of new projects and developers
 - Test and development infrastructure

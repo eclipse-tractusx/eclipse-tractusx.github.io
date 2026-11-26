@@ -319,9 +319,20 @@ const config = {
         items: [
           {to: 'blog', label: 'News', position: 'left'},
           {
+            type: 'dropdown',
             to: "/AboutUs",
             position: "left",
             label: "About Us",
+            items: [
+              {
+                to: '/AboutUs',
+                label: 'About Eclipse Tractus-X',
+              },
+              {
+                to: '/accelerator',
+                label: 'Tractus-X Accelerator',
+              },
+            ],
           },
           {
             type: 'dropdown',

@@ -17,296 +17,259 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-// Dedicated "Tractus-X Accelerator" page, styled like the Community Bases page:
-// a dark hero, then content that follows the regular light/dark theme.
+// Tractus-X Accelerator page, in the look of the About Us page: the themed hero of
+// AboutUsHeader, then eyebrow sections and bordered cards with the same tokens as
+// src/components/AboutUsContent/styles.module.css.
 
-$brand-orange: #faa023;
+.content {
+  --about-surface: #f6f7f9;
+  --about-border: #dce0e5;
+  --about-muted: #505a68;
+  --about-orange: #925200;
+  background: var(--ifm-background-color);
 
-.page {
-  overflow-x: hidden;
-  padding-bottom: 80px;
+  :global([data-theme='dark']) & {
+    --about-surface: #12151a;
+    --about-border: #323944;
+    --about-muted: #b6beca;
+    --about-orange: #ffba56;
+  }
 }
 
 .container {
-  max-width: 1240px;
+  width: min(1200px, calc(100% - 3rem));
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 4.5rem 0;
+}
 
-  @media screen and (max-width: 600px) {
-    padding: 0 16px;
+/* Hero ------------------------------------------------------------------- */
+
+.heroContainer {
+  --about-orange: #925200;
+
+  :global([data-theme='dark']) & {
+    --about-orange: #ffba56;
   }
 }
 
-/* --------------------------------------------------------------------------
-   Hero
-   -------------------------------------------------------------------------- */
+.heroLogo {
+  flex: 0 0 300px;
 
-.hero {
-  padding: 72px 0 64px;
-  background:
-    radial-gradient(90% 60% at 50% 0%, rgba(250, 160, 35, 0.14) 0%, rgba(250, 160, 35, 0) 70%),
-    linear-gradient(180deg, #0b0d12 0%, #070809 100%);
-  color: #ffffff;
-  text-align: center;
-
-  @media screen and (max-width: 996px) {
-    padding: 48px 0 44px;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 }
 
-.eyebrow {
+.heroEyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(250, 160, 35, 0.35);
-  background: rgba(250, 160, 35, 0.08);
-  color: $brand-orange;
-  font-family: 'Manrope', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.eyebrowIcon {
-  font-size: 16px !important;
-}
-
-.heroTitle {
-  margin: 22px 0 0;
-  font-family: 'Manrope', sans-serif;
-  font-size: 48px;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+  color: var(--about-orange);
+  font-size: 0.8rem;
   font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
-  color: #ffffff;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 
-  @media screen and (max-width: 996px) {
-    font-size: 34px;
-  }
-
-  @media screen and (max-width: 600px) {
-    font-size: 27px;
-  }
-}
-
-// The logo is the page heading, so it scales with the same breakpoints.
-.heroLogo {
-  display: block;
-  width: min(100%, 520px);
-  height: auto;
-  margin: 0 auto;
-
-  @media screen and (max-width: 600px) {
-    width: min(100%, 320px);
-  }
-}
-
-.heroSubtitle {
-  max-width: 820px;
-  margin: 14px auto 0;
-  font-size: 16px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.68);
-
-  @media screen and (max-width: 600px) {
-    font-size: 14px;
+  svg {
+    font-size: 1.1rem;
   }
 }
 
 .heroActions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 28px;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 1.75rem;
 }
 
-.primaryButton {
-  display: inline-flex;
-  align-items: center;
-  padding: 13px 26px;
-  border-radius: 12px;
-  background: linear-gradient(120deg, $brand-orange 0%, #f08a12 100%);
-  color: #10120f;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 8px 24px rgba(250, 160, 35, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+// Same outlined button as the About Us card on the homepage.
+.outlinedbutton {
+  display: inline-block;
+  padding: 0.6rem 2rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 
-  &:hover {
-    color: #10120f;
-    text-decoration: none;
+  &:hover,
+  &:focus-visible {
+    background-color: var(--ifm-color-primary);
+    color: var(--ifm-background-color);
+    box-shadow: 0 6px 18px rgb(0 0 0 / 25%);
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(250, 160, 35, 0.35);
+    text-decoration: none;
   }
 }
 
-.secondaryButton {
-  display: inline-flex;
-  align-items: center;
-  padding: 13px 26px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #ffffff;
-  font-size: 15px;
+.textButton {
+  color: var(--about-orange);
   font-weight: 700;
-  text-decoration: none;
-  transition: all 0.25s ease;
+}
 
-  &:hover {
-    border-color: $brand-orange;
-    color: $brand-orange;
-    text-decoration: none;
-    transform: translateY(-2px);
+/* Sections --------------------------------------------------------------- */
+
+.intro {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+
+  > p:last-child {
+    color: var(--about-muted);
+    line-height: 1.8;
   }
 }
 
-/* --------------------------------------------------------------------------
-   Sections
-   -------------------------------------------------------------------------- */
+.eyebrow {
+  color: var(--about-orange);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.intro h2,
+.sectionHeading h2 {
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
 
 .section {
-  padding: 56px 0 0;
+  margin-top: 5rem;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem);
 }
 
-.sectionTitle {
-  margin: 0 0 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  font-family: 'Manrope', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
+.sectionHeading {
+  max-width: 780px;
+  margin-bottom: 2rem;
 
-  @media screen and (max-width: 600px) {
-    font-size: 21px;
-  }
-
-  // Space headings that follow other content in the same section.
-  * + & {
-    margin-top: 48px;
+  > p:last-child {
+    color: var(--about-muted);
   }
 }
 
-.sectionIntro {
-  max-width: 820px;
-  margin: 0 0 24px;
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--ifm-color-emphasis-700);
-}
+/* Cards ------------------------------------------------------------------ */
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
+}
 
-  @media screen and (max-width: 600px) {
-    grid-template-columns: 1fr;
+.cardsFour {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.twoColumns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.card,
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  border: 1px solid var(--about-border);
+  border-radius: 16px;
+
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  p {
+    line-height: 1.8;
+    color: var(--about-muted);
+  }
+
+  a {
+    margin-top: auto;
+    color: var(--about-orange);
+    font-weight: 700;
   }
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 24px;
-  border-radius: 16px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+.infoCard {
+  background: var(--about-surface);
+}
 
-  &:hover {
-    border-color: rgba(250, 160, 35, 0.5);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    transform: translateY(-3px);
+.stepHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: var(--about-orange);
+
+  svg {
+    font-size: 2rem;
   }
+}
+
+.stepNumber {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--about-muted);
 }
 
 .cardIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  background: rgba(250, 160, 35, 0.12);
-  color: $brand-orange;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--about-orange);
 }
 
-.cardTitle {
-  margin: 0;
-  font-family: 'Manrope', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+.badge {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  color: var(--about-orange);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.cardText {
-  margin: 0;
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: var(--ifm-color-emphasis-800);
-}
-
-/* --------------------------------------------------------------------------
-   Upcoming event
-   -------------------------------------------------------------------------- */
-
-.event {
+.eventMeta {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 24px;
-  border-radius: 16px;
-  border: 1px solid rgba(250, 160, 35, 0.28);
-  background:
-    radial-gradient(80% 120% at 0% 0%, rgba(250, 160, 35, 0.12) 0%, rgba(250, 160, 35, 0) 60%),
-    var(--ifm-card-background-color, var(--ifm-background-surface-color));
-  color: inherit;
-  text-decoration: none;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  font-size: 0.95rem;
 
-  &:hover {
-    border-color: $brand-orange;
-    color: inherit;
-    text-decoration: none;
-    transform: translateY(-2px);
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  svg {
+    font-size: 1.1rem;
+    color: var(--about-orange);
   }
 }
 
-.eventDate {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: $brand-orange;
-}
-
-.eventTitle {
-  display: block;
-  margin-top: 4px;
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-/* --------------------------------------------------------------------------
-   Partners
-   -------------------------------------------------------------------------- */
+/* Partners and funding --------------------------------------------------- */
 
 .partners {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-  margin: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 0 1.5rem;
   padding: 0;
   list-style: none;
 
@@ -314,16 +277,16 @@ $brand-orange: #faa023;
     display: grid;
     place-items: center;
     height: 110px;
-    padding: 16px 20px;
-    border: 1px solid var(--ifm-color-emphasis-200);
-    border-radius: 14px;
-    // Logos are designed for light backgrounds, so keep the tile white in both themes.
-    background: #ffffff;
-    transition: border-color 0.2s ease;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--about-border);
+    border-radius: 16px;
+    // Partner logos are made for light backgrounds, so the tile stays white in both themes.
+    background: #fff;
+    transition: border-color 200ms ease;
 
     &:hover,
     &:focus-visible {
-      border-color: $brand-orange;
+      border-color: var(--ifm-color-primary);
     }
   }
 
@@ -334,69 +297,61 @@ $brand-orange: #faa023;
   }
 }
 
-/* --------------------------------------------------------------------------
-   Logo downloads
-   -------------------------------------------------------------------------- */
+/* Responsive ------------------------------------------------------------- */
 
-.logos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+@media (prefers-reduced-motion: reduce) {
+  .outlinedbutton {
+    transition: none;
 
-.logoTile {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 14px;
-}
+    &:hover,
+    &:focus-visible {
+      transform: none;
+    }
+  }
 
-%logoPreview {
-  display: grid;
-  place-items: center;
-  height: 130px;
-  padding: 20px 24px;
-
-  img {
-    max-width: 100%;
-    max-height: 90px;
+  .partners a {
+    transition: none;
   }
 }
 
-// Each variant is shown on the background it is made for, in both site themes.
-.logoPreviewLight {
-  @extend %logoPreview;
-  background: #ffffff;
-}
-
-.logoPreviewDark {
-  @extend %logoPreview;
-  background: #0b0d12;
-}
-
-.logoDownload {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
-  color: var(--ifm-font-color-base);
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-
-  &:hover {
-    color: $brand-orange;
-    text-decoration: none;
+@media (max-width: 1100px) {
+  .cardsFour {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.logoDownloadIcon {
-  font-size: 18px !important;
-  color: $brand-orange;
+@media (max-width: 996px) {
+  .heroLogo {
+    flex: auto;
+    width: 240px;
+  }
+
+  .heroActions {
+    justify-content: center;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cardsFour,
+  .partners {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 2rem);
+    padding: 3rem 0;
+  }
+
+  .section {
+    margin-top: 3rem;
+  }
+
+  .cardsFour,
+  .twoColumns {
+    grid-template-columns: 1fr;
+  }
 }

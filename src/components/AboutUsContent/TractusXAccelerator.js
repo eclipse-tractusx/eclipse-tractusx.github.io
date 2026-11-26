@@ -45,7 +45,7 @@ export default function TractusXAccelerator() {
         />
       </Link>
       <p className={styles.acceleratorIntro}>
-        The Tractus-X Accelerator is a cohort-based support program for projects, developers and
+        The Tractus-X Accelerator is a support program for projects, developers and
         organizations. It systematically lowers the technical and organizational barriers to entry
         and sustainably increases active participation in the open-source community.
       </p>
@@ -55,7 +55,7 @@ export default function TractusXAccelerator() {
       </p>
       <ul className={styles.focusAreas}>
         {acceleratorFocusAreas.map((area) => (
-          <li key={area}>{area}</li>
+          <li key={area.id}>{area.title}</li>
         ))}
       </ul>
       <span className={styles.partnersLabel}>Partners</span>

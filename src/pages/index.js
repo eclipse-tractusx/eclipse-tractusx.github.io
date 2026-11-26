@@ -26,6 +26,7 @@ import Link from '@docusaurus/Link';
 
 import HomePageHeader from "@site/src/components/HomePageHeader/index";
 import AboutUsCard from "@site/src/components/AboutUsCard";
+import AcceleratorTeaser from "@site/src/components/AcceleratorTeaser";
 import RoleBasedEnrtyComponent from "@site/src/components/RoleBasedEnrtyComponent";
 import { carouselRoleBased } from "@site/utils/carouselRoleBased";
 import KitsTitle from "@site/src/components/2.0/KitsTitle";
@@ -66,6 +67,7 @@ export default function Home() {
       <main>
         <AboutUsCard {...aboutInput} />
         <OrganizationCarousel title="Our Community Partners" subtitle="Leading organizations that support and contribute to our open source project" />
+        <AcceleratorTeaser />
         <CommunitySneakPeek />
         <UpcomingEvents />
         <CommunityMap />
