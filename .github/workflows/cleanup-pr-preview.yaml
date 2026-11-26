@@ -27,6 +27,19 @@ on:
   pull_request_target:
     types:
       - closed
+  # Removes the preview of one pull request, or, without a number, the
+  # previews of all closed pull requests (like the daily run below).
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Pull request whose preview to remove. Leave empty to remove the previews of all closed pull requests.
+        required: false
+        type: string
+  # Safety net: removes previews whose removal failed or that were published
+  # after their pull request was closed, and checks the space limit of GitHub
+  # Pages, even if no pull request is opened or closed for a while.
+  schedule:
+    - cron: '23 4 * * *'
 
 permissions:
   contents: read
@@ -40,14 +53,14 @@ jobs:
     # overlap. Other previews and the production deployment run in parallel;
     # update-gh-pages.sh retries a push that was rejected.
     concurrency:
-      group: gh-pages-pr-${{ github.event.pull_request.number }}
+      group: gh-pages-pr-${{ github.event.pull_request.number || inputs.pr_number || 'sweep' }}
       cancel-in-progress: false
     permissions:
       contents: write
       pull-requests: write
     steps:
       # Taken from the default branch, never from the pull request.
-      - name: Check out deployment script
+      - name: Check out deployment scripts
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           ref: ${{ github.event.repository.default_branch }}
@@ -55,41 +68,81 @@ jobs:
           sparse-checkout: .github/scripts
           persist-credentials: false
 
-      - name: Remove the preview folder
+      - name: Select previews to remove
+        id: select
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          CLOSED_PR_NUMBER: ${{ github.event.pull_request.number }}
+          INPUT_PR_NUMBER: ${{ inputs.pr_number }}
+        run: |
+          set -euo pipefail
+          if [ -n "${CLOSED_PR_NUMBER}" ]; then
+            numbers="${CLOSED_PR_NUMBER}"
+            reason="closed"
+          elif [ -n "${INPUT_PR_NUMBER}" ]; then
+            if ! [[ "${INPUT_PR_NUMBER}" =~ ^[1-9][0-9]{0,9}$ ]]; then
+              echo "::error::'${INPUT_PR_NUMBER}' is not a pull request number."
+              exit 1
+            fi
+            numbers="${INPUT_PR_NUMBER}"
+            reason="manual"
+          else
+            numbers=""
+            reason="closed"
+            previews="$(gh api "repos/${REPO}/contents/pr?ref=gh-pages" --jq '.[] | select(.type == "dir") | .name' 2> /dev/null || true)"
+            for number in ${previews}; do
+              [[ "${number}" =~ ^[1-9][0-9]{0,9}$ ]] || continue
+              state="$(gh api "repos/${REPO}/pulls/${number}" --jq '.state' 2> /dev/null || echo missing)"
+              echo "Preview pr/${number}: pull request is ${state}."
+              if [ "${state}" != "open" ]; then
+                numbers="${numbers} ${number}"
+              fi
+            done
+          fi
+          echo "Previews to remove: ${numbers:-none}"
+          echo "numbers=${numbers}" >> "$GITHUB_OUTPUT"
+          echo "reason=${reason}" >> "$GITHUB_OUTPUT"
+
+      # Without numbers, only the space limit of GitHub Pages is enforced.
+      - name: Remove previews
+        id: remove
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          NUMBERS: ${{ steps.select.outputs.numbers }}
         run: |
           mkdir "${RUNNER_TEMP}/gh-pages"
           cd "${RUNNER_TEMP}/gh-pages"
-          bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" remove "${PR_NUMBER}"
+          # shellcheck disable=SC2086 # NUMBERS is a validated list of numbers.
+          bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" remove ${NUMBERS}
 
-      - name: Update the preview comment
+      # Every pull request whose preview was removed gets its comment updated
+      # with the reason. A closed pull request without a preview only gets an
+      # existing comment updated.
+      - name: Update preview comments
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          CLOSED_PR_NUMBER: ${{ github.event.pull_request.number }}
+          REASON: ${{ steps.select.outputs.reason }}
+          REMOVED: ${{ steps.remove.outputs.removed-previews }}
+          EVICTED: ${{ steps.remove.outputs.evicted-previews }}
+          SITE_MB: ${{ steps.remove.outputs.site-mb }}
+          PREVIEWS_MB: ${{ steps.remove.outputs.previews-mb }}
+          LIMIT_MB: ${{ steps.remove.outputs.limit-mb }}
         with:
           script: |
-            const marker = '<!-- pr-preview-comment -->';
-            const prNumber = context.payload.pull_request.number;
+            const preview = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
+            const env = process.env;
+            const space = { siteMb: env.SITE_MB, previewsMb: env.PREVIEWS_MB, limitMb: env.LIMIT_MB };
+            const removed = preview.numbers(env.REMOVED);
 
-            const comments = await github.paginate(github.rest.issues.listComments, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber,
-              per_page: 100,
-            });
-            const existing = comments.find((comment) => comment.body?.startsWith(marker));
-            if (!existing) {
-              return;
+            for (const prNumber of removed) {
+              await preview.update({ github, context, space, prNumber, state: 'removed', reason: env.REASON });
             }
-
-            await github.rest.issues.updateComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: existing.id,
-              body: [
-                marker,
-                '## 🔍 Pull request preview',
-                '',
-                'This pull request is closed, so the preview has been removed.',
-              ].join('\n'),
-            });
+            const closed = preview.numbers(env.CLOSED_PR_NUMBER)[0];
+            if (closed && !removed.includes(closed)) {
+              await preview.update({ github, context, space, prNumber: closed, state: 'removed', reason: 'closed', create: false });
+            }
+            for (const prNumber of preview.numbers(env.EVICTED)) {
+              await preview.update({ github, context, space, prNumber, state: 'removed', reason: 'evicted' });
+            }

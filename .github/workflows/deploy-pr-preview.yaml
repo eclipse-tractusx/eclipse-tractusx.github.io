@@ -31,41 +31,104 @@ on:
       - Build pull request preview
     types:
       - completed
+  # Publishes the latest successful build of a pull request again, for example
+  # after its preview was removed to make space. The build's artifacts are kept
+  # for 7 days; after that, re-run the build or push a new commit.
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Number of the pull request whose preview to publish
+        required: true
+        type: string
 
 permissions:
   contents: read
 
 jobs:
-  # Finds out which pull request the build belongs to. The number is needed
-  # before the deploy job starts, because it names the deploy job's
+  # Finds out which pull request and which build to publish. The number is
+  # needed before the deploy job starts, because it names the deploy job's
   # concurrency group.
   prepare:
     name: Identify pull request
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request')
     permissions:
       actions: read
       pull-requests: read
     outputs:
       number: ${{ steps.pr.outputs.number }}
+      run-id: ${{ steps.build.outputs.run-id }}
+      run-url: ${{ steps.build.outputs.run-url }}
+      head-sha: ${{ steps.build.outputs.head-sha }}
     steps:
+      # A manual run publishes the latest successful build of the pull
+      # request's current commit, if its artifacts still exist.
+      - name: Find build
+        id: build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_PR_NUMBER: ${{ inputs.pr_number }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          if [ "${EVENT_NAME}" = "workflow_run" ]; then
+            run_id="${RUN_ID}"
+            run_url="${RUN_URL}"
+            head_sha="${RUN_HEAD_SHA}"
+          else
+            if ! [[ "${INPUT_PR_NUMBER}" =~ ^[1-9][0-9]{0,9}$ ]]; then
+              echo "::error::'${INPUT_PR_NUMBER}' is not a pull request number."
+              exit 1
+            fi
+            head_sha="$(gh api "repos/${REPO}/pulls/${INPUT_PR_NUMBER}" --jq '.head.sha')"
+            run="$(gh api "repos/${REPO}/actions/workflows/verify-build.yaml/runs?event=pull_request&status=success&head_sha=${head_sha}&per_page=1" \
+              --jq '.workflow_runs[0] | select(. != null) | "\(.id) \(.html_url)"')"
+            if [ -z "${run}" ]; then
+              echo "::error::There is no successful build of commit ${head_sha} of pull request ${INPUT_PR_NUMBER}. Wait for \"Build pull request preview\" to finish, or push a new commit."
+              exit 1
+            fi
+            run_id="${run%% *}"
+            run_url="${run#* }"
+            artifacts=" $(gh api "repos/${REPO}/actions/runs/${run_id}/artifacts" --jq '[.artifacts[] | select(.expired | not) | .name] | join(" ")') "
+            for name in pr-preview pr-number; do
+              if [[ "${artifacts}" != *" ${name} "* ]]; then
+                echo "::error::The artifacts of the build ${run_url} have expired. Re-run that build (gh run rerun ${run_id} --repo ${REPO}); it then publishes the preview automatically."
+                exit 1
+              fi
+            done
+          fi
+          {
+            echo "run-id=${run_id}"
+            echo "run-url=${run_url}"
+            echo "head-sha=${head_sha}"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Download pull request number
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: pr-number
           path: ./meta
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ steps.build.outputs.run-id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # The artifact is untrusted input. The number is only used if it is a
-      # plain number and if that pull request's latest commit is the commit
-      # this build was made from. Otherwise the build is outdated (a newer
-      # push will deploy) or the number does not belong to this build.
+      # plain number, if it is the requested pull request (manual run) and if
+      # that pull request's latest commit is the commit this build was made
+      # from. Otherwise the build is outdated (a newer push will deploy) or the
+      # number does not belong to this build.
       - name: Validate pull request number
         id: pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          REPO: ${{ github.repository }}
+          INPUT_PR_NUMBER: ${{ inputs.pr_number }}
+          HEAD_SHA: ${{ steps.build.outputs.head-sha }}
         run: |
           set -euo pipefail
           pr_number="$(tr -dc '0-9' < ./meta/pr-number | head -c 10)"
@@ -73,9 +136,13 @@ jobs:
             echo "Artifact does not contain a valid pull request number." >&2
             exit 1
           fi
-          head_sha="$(gh api "repos/${{ github.repository }}/pulls/${pr_number}" --jq '.head.sha')"
-          if [ "${head_sha}" != "${RUN_HEAD_SHA}" ]; then
-            echo "Pull request ${pr_number} is at ${head_sha}, this build is from ${RUN_HEAD_SHA}. Skipping."
+          if [ -n "${INPUT_PR_NUMBER}" ] && [ "${pr_number}" != "${INPUT_PR_NUMBER}" ]; then
+            echo "::error::The build belongs to pull request ${pr_number}, not ${INPUT_PR_NUMBER}."
+            exit 1
+          fi
+          head_sha="$(gh api "repos/${REPO}/pulls/${pr_number}" --jq '.head.sha')"
+          if [ "${head_sha}" != "${HEAD_SHA}" ]; then
+            echo "Pull request ${pr_number} is at ${head_sha}, this build is from ${HEAD_SHA}. Skipping."
             exit 0
           fi
           echo "number=${pr_number}" >> "$GITHUB_OUTPUT"
@@ -98,6 +165,12 @@ jobs:
       pull-requests: write
     env:
       PR_NUMBER: ${{ needs.prepare.outputs.number }}
+      # A preview normally only contains the pages its pull request changes and
+      # stays far below MAX_PREVIEW_MB. Larger previews (for example a change to
+      # a component, which affects every page) are not published, so a single
+      # pull request cannot take the space of all others. The build can be
+      # downloaded from the workflow run instead.
+      MAX_PREVIEW_MB: 300
     steps:
       # Checked again here, because the job may have waited in the concurrency
       # group. A pending removal is replaced by a newer run of this job, so a
@@ -112,9 +185,9 @@ jobs:
           echo "Pull request ${PR_NUMBER} is ${state}."
           echo "state=${state}" >> "$GITHUB_OUTPUT"
 
-      # Only the script is taken from the default branch, never anything from
+      # Only the scripts are taken from the default branch, never anything from
       # the pull request.
-      - name: Check out deployment script
+      - name: Check out deployment scripts
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           ref: ${{ github.event.repository.default_branch }}
@@ -128,14 +201,31 @@ jobs:
         with:
           name: pr-preview
           path: ./preview
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ needs.prepare.outputs.run-id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Replaces pr/<number> completely, so hashed assets of earlier pushes do
-      # not pile up. The production site and the other previews stay untouched.
-      # The script fetches gh-pages itself and creates it if it does not exist.
-      - name: Publish preview to GitHub Pages
+      - name: Check preview size
+        id: size
         if: steps.check.outputs.state == 'open'
+        run: |
+          set -euo pipefail
+          size="$(du -sm ./preview | cut -f1)"
+          echo "The preview has ${size} MB, a single preview may use ${MAX_PREVIEW_MB} MB."
+          echo "mb=${size}" >> "$GITHUB_OUTPUT"
+          if [ "${size}" -gt "${MAX_PREVIEW_MB}" ]; then
+            echo "::warning title=Preview too large::The preview has ${size} MB, more than ${MAX_PREVIEW_MB} MB. It is not published."
+            echo "too-large=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Replaces pr/<number> completely, so hashed assets of earlier pushes do
+      # not pile up. Before pushing, the script checks the space left on GitHub
+      # Pages (GH_PAGES_LIMIT_MB in update-gh-pages.sh): it removes the oldest
+      # previews of other pull requests if needed, and does not publish a
+      # preview that does not fit on its own. The script fetches gh-pages itself
+      # and creates it if it does not exist.
+      - name: Publish preview to GitHub Pages
+        id: publish
+        if: steps.check.outputs.state == 'open' && steps.size.outputs.too-large != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -143,8 +233,11 @@ jobs:
           cd "${RUNNER_TEMP}/gh-pages"
           bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" preview "${PR_NUMBER}" "${GITHUB_WORKSPACE}/preview"
 
-      - name: Remove preview of closed pull request
-        if: steps.check.outputs.state != 'open'
+      # Also removes an older, smaller preview of the same pull request, so the
+      # preview never shows an outdated state.
+      - name: Remove preview of closed pull request or oversized preview
+        id: remove
+        if: steps.check.outputs.state != 'open' || steps.size.outputs.too-large == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -152,53 +245,41 @@ jobs:
           cd "${RUNNER_TEMP}/gh-pages"
           bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" remove "${PR_NUMBER}"
 
-      - name: Comment preview URL on the pull request
+      # Shows the state of the preview and the commit it was built from, and
+      # tells the pull requests whose previews were removed to make space.
+      - name: Update preview comments
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         env:
           PR_STATE: ${{ steps.check.outputs.state }}
+          HEAD_SHA: ${{ needs.prepare.outputs.head-sha }}
+          RUN_URL: ${{ needs.prepare.outputs.run-url }}
+          PREVIEW_MB: ${{ steps.size.outputs.mb }}
+          TOO_LARGE: ${{ steps.size.outputs.too-large }}
+          NO_SPACE: ${{ steps.publish.outputs.no-space }}
+          REMOVED: ${{ steps.remove.outputs.removed-previews }}
+          EVICTED: ${{ steps.publish.outputs.evicted-previews }} ${{ steps.remove.outputs.evicted-previews }}
+          SITE_MB: ${{ steps.publish.outputs.site-mb || steps.remove.outputs.site-mb }}
+          PREVIEWS_MB: ${{ steps.publish.outputs.previews-mb || steps.remove.outputs.previews-mb }}
+          LIMIT_MB: ${{ steps.publish.outputs.limit-mb || steps.remove.outputs.limit-mb }}
         with:
           script: |
-            const marker = '<!-- pr-preview-comment -->';
-            const prNumber = Number(process.env.PR_NUMBER);
-            const url = `https://eclipse-tractusx.github.io/pr/${prNumber}/`;
-            const body = process.env.PR_STATE === 'open'
-              ? [
-                marker,
-                '## 🔍 Pull request preview',
-                '',
-                'The website was built from this pull request and is available here:',
-                '',
-                `🌐 **Preview URL:** ${url}`,
-                '',
-                '> This comment is updated automatically on every push. The preview is removed once the pull request is closed.',
-              ].join('\n')
-              : [
-                marker,
-                '## 🔍 Pull request preview',
-                '',
-                'This pull request is closed, so the preview has been removed.',
-              ].join('\n');
+            const preview = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
+            const env = process.env;
+            const prNumber = Number(env.PR_NUMBER);
+            const space = { siteMb: env.SITE_MB, previewsMb: env.PREVIEWS_MB, limitMb: env.LIMIT_MB };
+            const common = { github, context, space, headSha: env.HEAD_SHA, runUrl: env.RUN_URL, previewMb: env.PREVIEW_MB, maxPreviewMb: env.MAX_PREVIEW_MB };
 
-            const comments = await github.paginate(github.rest.issues.listComments, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber,
-              per_page: 100,
-            });
-            const existing = comments.find((comment) => comment.body?.startsWith(marker));
+            if (env.PR_STATE !== 'open') {
+              const removed = preview.numbers(env.REMOVED).includes(prNumber);
+              await preview.update({ ...common, prNumber, state: 'removed', reason: 'closed', create: removed });
+            } else if (env.TOO_LARGE === 'true') {
+              await preview.update({ ...common, prNumber, state: 'too-large' });
+            } else if (env.NO_SPACE === 'true') {
+              await preview.update({ ...common, prNumber, state: 'no-space' });
+            } else {
+              await preview.update({ ...common, prNumber, state: 'published', pagesFile: 'preview/.preview-pages.json' });
+            }
 
-            if (existing) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existing.id,
-                body,
-              });
-            } else if (process.env.PR_STATE === 'open') {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: prNumber,
-                body,
-              });
+            for (const number of preview.numbers(env.EVICTED)) {
+              await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'evicted' });
             }

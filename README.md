@@ -17,22 +17,34 @@ This will install all dependencies necessary and run the website on [http://loca
 
 ## Pull request previews
 
-Every pull request against `main` is built by the `Verify website build` workflow. When the build
+Every pull request against `main` is built by the `Build pull request preview` workflow. When the build
 succeeds, the `Deploy pull request preview` workflow publishes the result to
 
 `https://eclipse-tractusx.github.io/pr/<pull-request-number>/`
 
-and posts (or updates) a comment on the pull request with the link. The preview is refreshed on
-every push and removed automatically once the pull request is closed or merged.
+and posts (or updates) a comment on the pull request with the link and the commit the preview was
+built from. The preview is refreshed on every push and removed automatically once the pull request
+is closed or merged; the comment then says why the preview is gone.
 
 This also works for pull requests opened from a fork: the preview is keyed by the pull request
 number rather than the branch name, and the build and the deployment are split into two workflows so
 that code from a fork is never executed with write permissions.
 
-To reproduce a preview build locally, set the same base URL that CI uses:
+To keep the previews small enough for GitHub Pages, a preview only contains the pages the pull
+request changes; every other page of the preview opens on the live website. The comment lists the
+changed pages (see [the workflow documentation](.github/workflows/README.md#what-the-preview-contains)).
+Every deployment also checks the space left on GitHub Pages and removes the oldest previews if
+needed, so the website itself can always be published. A removed preview can be published again
+with `gh workflow run deploy-pr-preview.yaml -f pr_number=<number>`
+(see [Space on GitHub Pages](.github/workflows/README.md#space-on-github-pages)).
+
+To reproduce a preview build locally, set the same base URL and KIT versions that CI uses, and
+optionally remove the pages the branch does not change:
 
 ```bash
-BASE_URL=/pr/1234/ npm run build && npm run serve
+BASE_URL=/pr/1234/ DOCS_KITS_VERSIONS=current npm run build
+git diff --name-only main... > changed-files.txt && node utils/prune-preview.js --changed-files changed-files.txt
+npm run serve
 ```
 
 ## Linting

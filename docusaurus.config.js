@@ -5,9 +5,6 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 const { generateKitNavItems } = require('./utils/generated/kitNavItems.js');
 
-// Change this id to show the announcement bar again to everyone who closed it.
-const announcementBarId = 'announcementBar-v26.09';
-
 // The site is normally served from the root of https://eclipse-tractusx.github.io.
 // Pull request previews are deployed into a subfolder of the same GitHub Pages
 // site (for example /pr/1234/), so both values can be overridden via environment
@@ -16,6 +13,20 @@ const siteUrl = process.env.SITE_URL || 'https://eclipse-tractusx.github.io';
 // Docusaurus requires a baseUrl with leading and trailing slashes.
 const rawBaseUrl = (process.env.BASE_URL || '/').replace(/^\/+|\/+$/g, '');
 const baseUrl = rawBaseUrl ? `/${rawBaseUrl}/` : '/';
+const previewPullRequest = (baseUrl.match(/^\/pr\/(\d+)\/$/) || [])[1];
+const previewCommit = /^[0-9a-f]{40}$/.test(process.env.PREVIEW_COMMIT || '') ? process.env.PREVIEW_COMMIT : null;
+const previewPullRequestUrl = `https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/pull/${previewPullRequest}`;
+
+// Change this id to show the announcement bar again to everyone who closed it.
+const announcementBarId = previewPullRequest ? `pr-preview-${previewPullRequest}` : 'announcementBar-v26.09';
+
+// A pull request preview only contains the pages the pull request changes (see
+// utils/prune-preview.js). GitHub Pages answers every other /pr/<number>/... path
+// with the 404.html of the production site, which is built with baseUrl "/". A
+// production page can therefore only be shown below /pr/ as that 404 page, so this
+// script sends the visitor to the same page on the live website. It also catches
+// links to previews that were removed.
+const previewFallbackScript = String.raw`(function(){var m=location.pathname.match(/^\/pr\/\d+(\/.*)$/);if(m){location.replace(m[1]+location.search+location.hash);}})();`;
 
 // Usage analytics, see src/clientModules/analytics.js. Umami is one of the analytics
 // tools approved by the Eclipse Foundation. Nothing is collected before the visitor
@@ -25,6 +36,24 @@ const baseUrl = rawBaseUrl ? `/${rawBaseUrl}/` : '/';
 // empty string to build without analytics.
 const umamiWebsiteId = process.env.UMAMI_WEBSITE_ID ?? 'f67aead1-a34a-4905-86bc-19632b489270';
 const umamiScriptUrl = process.env.UMAMI_SCRIPT_URL || 'https://cloud.umami.is/script.js';
+
+// Every frozen KIT release (docs-kits_versioned_docs/) is a full copy of all KITs, so
+// each one makes the build slower and bigger. Pull request previews only build the KIT
+// versions listed in DOCS_KITS_VERSIONS (comma separated, "current" is the unreleased
+// "Next" version). "current" and the latest release are always built, so every KIT page
+// keeps the same path as on the live website (/docs-kits/next/... and /docs-kits/...).
+// Unset builds every version, as production does.
+const docsKitsReleases = require('./docs-kits_versions.json');
+const docsKitsOnlyIncludeVersions = (() => {
+  const requested = (process.env.DOCS_KITS_VERSIONS || '')
+    .split(',')
+    .map((version) => version.trim())
+    .filter(Boolean);
+  if (requested.length === 0) {
+    return undefined;
+  }
+  return [...new Set(['current', docsKitsReleases[0], ...requested])].filter(Boolean);
+})();
 
 // Eclipse Foundation cookie consent banner, mandatory before any analytics data is
 // collected: https://webdev.eclipse.org/docs/solstice/?path=/docs/getting-started-embedding-analytics--docs
@@ -49,6 +78,7 @@ const config = {
       attributes: {},
       innerHTML: `(function(){try{if(localStorage.getItem('docusaurus.announcement.id')!=='${announcementBarId}'){localStorage.setItem('docusaurus.announcement.dismiss','false');}}catch(e){}})();`,
     },
+    ...(baseUrl === '/' ? [{ tagName: 'script', attributes: {}, innerHTML: previewFallbackScript }] : []),
   ],
 
   stylesheets: [`${eclipseCookieConsentBase}/stylesheets/vendor/cookieconsent/cookieconsent.min.css`],
@@ -206,6 +236,7 @@ const config = {
         routeBasePath: 'docs-kits',
         sidebarPath: require.resolve('./sidebarsDocsKits.js'),
         exclude: ['**/kit-template/**'],
+        ...(docsKitsOnlyIncludeVersions && { onlyIncludeVersions: docsKitsOnlyIncludeVersions }),
       },
     ],
     // -- documentation-kits --
@@ -344,7 +375,9 @@ const config = {
       },
       announcementBar: {
         id: announcementBarId,
-        content: `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
+        content: previewPullRequest
+          ? `🔍 Preview of <a href="${previewPullRequestUrl}">pull request #${previewPullRequest}</a>${previewCommit ? ` at commit <a href="${previewPullRequestUrl}/commits/${previewCommit}"><code>${previewCommit.slice(0, 7)}</code></a>` : ''}. It only contains the pages the pull request changes, all other pages open on the <a href="https://eclipse-tractusx.github.io/">live website</a>.`
+          : `🎉️ Get to know us on our new <b><a href="/AboutUs">About Us</a></b> page (<a href="/blog/new-about-us-page">read more</a>) · New <b><a href="/">Homepage</a></b> information 🥳️`,
       },
       navbar: {
         title: 'Eclipse Tractus-X',
