@@ -22,7 +22,6 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import clsx from 'clsx';
-import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import HubOutlinedIcon from '@mui/icons-material/HubOutlined';
 import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
 import GavelOutlinedIcon from '@mui/icons-material/GavelOutlined';
@@ -37,9 +36,70 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import LayersOutlinedIcon from '@mui/icons-material/LayersOutlined';
+import BuildOutlinedIcon from '@mui/icons-material/BuildOutlined';
+import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
+import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
+import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
+import DeveloperModeOutlinedIcon from '@mui/icons-material/DeveloperModeOutlined';
+import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
+import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined';
 import AiPageHeader from '@site/src/components/2.0/AiPageHeader';
 import styles from '../styles.module.scss';
 import projectStyles from './styles.module.scss';
+
+// Topics an AI project can pick up and work on together with the community.
+const TOPICS = [
+  {
+    icon: <ForumOutlinedIcon />,
+    title: 'A2A trusted communication',
+    size: 'feature',
+    text: 'Let agents from different companies talk to each other (agent-to-agent) with verified identities, signed messages and usage policies, over the dataspace.',
+  },
+  {
+    icon: <LayersOutlinedIcon />,
+    title: 'Semantics and data layers',
+    size: 'wide',
+    text: 'Use shared semantic models and the digital twin layer so AI understands what the data means, not only what it looks like.',
+  },
+  {
+    icon: <BuildOutlinedIcon />,
+    title: 'Skills and tools',
+    text: 'Build reusable agent skills and MCP tools that work on Tractus-X components and can be shared across repositories.',
+  },
+  {
+    icon: <CodeOutlinedIcon />,
+    title: 'SDKs',
+    text: 'Make it easy to connect AI applications to the dataspace with libraries for discovery, contract negotiation and data transfer.',
+  },
+  {
+    icon: <FactCheckOutlinedIcon />,
+    title: 'TCKs',
+    text: 'Write Technology Compatibility Kits that test whether AI services and agents follow the shared standards, so partners can trust them.',
+  },
+  {
+    icon: <LightbulbOutlinedIcon />,
+    title: 'AI best practices',
+    text: 'Collect and share what works: prompt and agent design, evaluation, security reviews and how to document AI in a KIT.',
+  },
+  {
+    icon: <DeveloperModeOutlinedIcon />,
+    title: 'AI development',
+    text: 'Use AI to build Tractus-X itself: coding agents that know the repositories, review changes and follow the release guidelines.',
+  },
+  {
+    icon: <ScienceOutlinedIcon />,
+    title: 'Federated learning and compute-to-data',
+    text: 'Train and run models where the data lives, so partners can join forces on AI without handing over their raw data.',
+  },
+  {
+    icon: <BalanceOutlinedIcon />,
+    title: 'Responsible and compliant AI',
+    size: 'banner',
+    text: 'Explore traceability, transparency and audit trails that help AI services meet regulation such as the EU AI Act.',
+  },
+];
 
 // What a project gains when it joins Eclipse Tractus-X.
 const MOTIVES = [
@@ -109,20 +169,6 @@ const CORE_REASONS = [
   },
 ];
 
-function ReasonGrid({ items }) {
-  return (
-    <div className={styles.principles}>
-      {items.map((item) => (
-        <div key={item.title} className={styles.panel}>
-          <span className={styles.iconTile} aria-hidden="true">{item.icon}</span>
-          <h3 className={styles.principleTitle}>{item.title}</h3>
-          <p className={styles.principleText}>{item.text}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function RelatedProjects() {
   useBrokenLinks().collectAnchor('add-your-project');
 
@@ -186,23 +232,65 @@ export default function RelatedProjects() {
           </div>
         </section>
 
-        <section id="why-join" className={styles.section} aria-labelledby="why-join-heading">
+        <section id="explore" className={styles.section} aria-labelledby="explore-heading">
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionEyebrow}>Why join Eclipse Tractus-X</span>
-              <h2 id="why-join-heading" className={styles.sectionTitle}>What your project gains</h2>
+              <span className={styles.sectionEyebrow}>Things to explore</span>
+              <h2 id="explore-heading" className={styles.sectionTitle}>Where AI and the dataspace meet</h2>
               <p className={styles.sectionLead}>
-                Joining Eclipse Tractus-X gives your AI project an open foundation, shared quality rules and a
-                community that is already building the same kind of solutions.
+                Topics your project can pick up and shape together with the community. Pick one, start a
+                discussion and build it in the open.
               </p>
             </div>
-            <ReasonGrid items={MOTIVES} />
+            <div className={projectStyles.bento}>
+              {TOPICS.map((topic, index) => (
+                <div
+                  key={topic.title}
+                  className={clsx(projectStyles.topic, topic.size && projectStyles[`topic_${topic.size}`])}
+                >
+                  <span className={projectStyles.topicNumber} aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className={projectStyles.topicIcon} aria-hidden="true">{topic.icon}</span>
+                  <div>
+                    <h3 className={projectStyles.topicTitle}>{topic.title}</h3>
+                    <p className={projectStyles.topicText}>{topic.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="shared-core" className={styles.section} aria-labelledby="shared-core-heading">
+        <section id="why-join" className={styles.section} aria-labelledby="why-join-heading">
           <div className={styles.container}>
-            <div className={styles.sectionHeader}>
+            <div className={projectStyles.split}>
+              <div className={projectStyles.splitIntro}>
+                <span className={styles.sectionEyebrow}>Why join Eclipse Tractus-X</span>
+                <h2 id="why-join-heading" className={projectStyles.splitTitle}>
+                  What your project <span className={styles.accent}>gains</span>
+                </h2>
+                <p className={styles.sectionLead}>
+                  Joining Eclipse Tractus-X gives your AI project an open foundation, shared quality rules and a
+                  community that is already building the same kind of solutions.
+                </p>
+              </div>
+              <ul className={projectStyles.gains}>
+                {MOTIVES.map((item) => (
+                  <li key={item.title} className={projectStyles.gain}>
+                    <span className={projectStyles.gainIcon} aria-hidden="true">{item.icon}</span>
+                    <h3 className={projectStyles.gainTitle}>{item.title}</h3>
+                    <p className={projectStyles.gainText}>{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="shared-core" className={clsx(styles.section, projectStyles.coreSection)} aria-labelledby="shared-core-heading">
+          <div className={styles.container}>
+            <div className={clsx(styles.sectionHeader, projectStyles.centeredHeader)}>
               <span className={styles.sectionEyebrow}>One shared core</span>
               <h2 id="shared-core-heading" className={styles.sectionTitle}>Why we should build on the same core</h2>
               <p className={styles.sectionLead}>
@@ -210,8 +298,40 @@ export default function RelatedProjects() {
                 each other. A shared core turns separate projects into one ecosystem.
               </p>
             </div>
-            <ReasonGrid items={CORE_REASONS} />
-            <div className={styles.actions}>
+            <div className={projectStyles.hub}>
+              <ul className={clsx(projectStyles.hubSide, projectStyles.hubLeft)}>
+                {CORE_REASONS.slice(0, 2).map((item) => (
+                  <li key={item.title} className={projectStyles.hubReason}>
+                    <span className={projectStyles.gainIcon} aria-hidden="true">{item.icon}</span>
+                    <h3 className={projectStyles.gainTitle}>{item.title}</h3>
+                    <p className={projectStyles.gainText}>{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+              <div className={projectStyles.hubCore}>
+                <div className={projectStyles.hubRing} aria-hidden="true" />
+                <div className={projectStyles.hubCenter}>
+                  <span className={projectStyles.hubLabel}>Tractus-X</span>
+                  <span className={projectStyles.hubName}>shared core</span>
+                  <ul className={projectStyles.hubParts}>
+                    <li>Connector</li>
+                    <li>Identity</li>
+                    <li>Usage policies</li>
+                    <li>Semantic models</li>
+                  </ul>
+                </div>
+              </div>
+              <ul className={clsx(projectStyles.hubSide, projectStyles.hubRight)}>
+                {CORE_REASONS.slice(2).map((item) => (
+                  <li key={item.title} className={projectStyles.hubReason}>
+                    <span className={projectStyles.gainIcon} aria-hidden="true">{item.icon}</span>
+                    <h3 className={projectStyles.gainTitle}>{item.title}</h3>
+                    <p className={projectStyles.gainText}>{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={clsx(styles.actions, projectStyles.centeredActions)}>
               <Link className={styles.buttonSecondary} to="/ai/dataspace-4-ai">
                 Learn about Dataspace 4 AI
               </Link>
@@ -219,39 +339,52 @@ export default function RelatedProjects() {
           </div>
         </section>
 
-        <section id="add-your-project" className={styles.section} aria-labelledby="contribute-heading">
+        <section id="add-your-project" className={projectStyles.join} aria-labelledby="contribute-heading">
           <div className={styles.container}>
-            <div className={styles.cta}>
-              <span className={styles.iconTile} aria-hidden="true"><GroupsOutlinedIcon /></span>
-              <div>
-                <h2 id="contribute-heading" className={styles.ctaTitle}>Add your IPCEI AI project</h2>
-                <p className={styles.ctaText}>
-                  Is your IPCEI AI project, or any other AI initiative, working with Eclipse Tractus-X? Join the
-                  community and build on the same core. Here is how:
-                </p>
-                <ol className={styles.steps}>
-                  <li>Introduce your project on the mailing list or in an office hour.</li>
-                  <li>
-                    Open a pull request to this website with your project&apos;s name, a short description of its AI
-                    work, its repository and how the community can get involved.
-                  </li>
-                  <li>We review it together and add your project to this page.</li>
-                </ol>
-                <div className={styles.actions}>
-                  <Link className={styles.buttonSecondary} to="https://accounts.eclipse.org/mailing-list/tractusx-dev">
-                    Contact the mailing list
-                  </Link>
-                  <Link className={styles.buttonSecondary} to="/community/open-meetings">
-                    Join an office hour
-                  </Link>
-                  <Link
-                    className={styles.buttonPrimary}
-                    to="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/compare"
-                  >
-                    Create a pull request
-                  </Link>
+            <div className={projectStyles.joinHeader}>
+              <span className={styles.sectionEyebrow}>Get listed</span>
+              <h2 id="contribute-heading" className={projectStyles.joinTitle}>
+                Add your <span className={styles.accent}>IPCEI AI project</span>
+              </h2>
+              <p className={styles.sectionLead}>
+                Is your IPCEI AI project, or any other AI initiative, working with Eclipse Tractus-X? Join the
+                community and build on the same core in three steps.
+              </p>
+            </div>
+            <ol className={projectStyles.timeline}>
+              <li className={projectStyles.step}>
+                <span className={projectStyles.stepNumber} aria-hidden="true">1</span>
+                <h3 className={projectStyles.stepTitle}>Say hello</h3>
+                <p className={projectStyles.stepText}>Introduce your project on the mailing list or in an office hour.</p>
+                <div className={projectStyles.stepLinks}>
+                  <Link to="https://accounts.eclipse.org/mailing-list/tractusx-dev">Mailing list</Link>
+                  <Link to="/community/open-meetings">Office hours</Link>
                 </div>
-              </div>
+              </li>
+              <li className={projectStyles.step}>
+                <span className={projectStyles.stepNumber} aria-hidden="true">2</span>
+                <h3 className={projectStyles.stepTitle}>Open a pull request</h3>
+                <p className={projectStyles.stepText}>
+                  Add your project&apos;s name, a short description of its AI work, its repository and how the
+                  community can get involved.
+                </p>
+              </li>
+              <li className={projectStyles.step}>
+                <span className={projectStyles.stepNumber} aria-hidden="true">3</span>
+                <h3 className={projectStyles.stepTitle}>Get listed</h3>
+                <p className={projectStyles.stepText}>We review it together and add your project to this page.</p>
+              </li>
+            </ol>
+            <div className={clsx(styles.actions, projectStyles.centeredActions)}>
+              <Link
+                className={styles.buttonPrimary}
+                to="https://github.com/eclipse-tractusx/eclipse-tractusx.github.io/compare"
+              >
+                Create a pull request
+              </Link>
+              <Link className={styles.buttonSecondary} to="https://accounts.eclipse.org/mailing-list/tractusx-dev">
+                Contact the mailing list
+              </Link>
             </div>
           </div>
         </section>
