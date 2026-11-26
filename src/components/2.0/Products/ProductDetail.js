@@ -289,7 +289,7 @@ function PeopleTab({ product, people }) {
 
 const noop = () => {};
 
-export default function ProductDetail({ product }) {
+export default function ProductDetail({ product, loading = false }) {
   const [tab, setTab] = useState('overview');
   const [logoOpen, setLogoOpen] = useState(false);
   const closeLogo = useCallback(() => setLogoOpen(false), []);
@@ -329,7 +329,7 @@ export default function ProductDetail({ product }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [product?.id]);
 
-  if (!product) return <NotFound />;
+  if (!product) return loading ? <main className={styles.page} aria-busy="true" /> : <NotFound />;
 
   const selectTab = (id) => {
     setTab(id);

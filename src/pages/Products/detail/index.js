@@ -20,18 +20,22 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import { useLocation } from '@docusaurus/router';
+import useIsBrowser from '@docusaurus/useIsBrowser';
 import ProductDetail from '@site/src/components/2.0/Products/ProductDetail';
 import { getProductById } from '@site/data/productsData';
 
 export default function ProductDetailPage() {
-  const id = new URLSearchParams(useLocation().search).get('id');
+  const { search } = useLocation();
+  // The static HTML has no query string; read the id only in the browser so hydration matches.
+  const isBrowser = useIsBrowser();
+  const id = isBrowser ? new URLSearchParams(search).get('id') : null;
   const product = id ? getProductById(id) : null;
   return (
     <Layout
       title={product ? `${product.name} | Open Source Software` : 'Open Source Software'}
       description={product?.description || 'Eclipse Tractus-X open source software'}
     >
-      <ProductDetail product={product} />
+      <ProductDetail product={product} loading={!isBrowser} />
     </Layout>
   );
 }

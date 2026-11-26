@@ -123,9 +123,11 @@ export default function ProductCard({ product, showKind = true }) {
       )}
     >
       {product.isNew && <NewBadge className={styles.cardNewBadge} />}
+      {/* The releases tab is rendered on the client, so the anchor is not in the static HTML. */}
       <Link
         className={styles.cardDownload}
         to={`${detailUrl}#releases`}
+        data-noBrokenLinkCheck
         aria-label={`Download ${product.name}`}
         title="Download"
       >
