@@ -663,8 +663,8 @@ $brand-green: #afc72d;
   }
 }
 
-// MCP server cards look like a server module: a status strip with a light,
-// a dot-grid surface and a connector edge, unlike the plain panels elsewhere.
+// MCP server cards look like a server module: a status strip with a light
+// and a connector edge, unlike the plain panels elsewhere.
 .serverCard {
   position: relative;
   display: flex;
@@ -672,7 +672,7 @@ $brand-green: #afc72d;
   border-radius: 16px;
   border: 1px solid var(--ifm-color-emphasis-300);
   background:
-    radial-gradient(circle, var(--ifm-color-emphasis-200) 1px, transparent 1.2px) 0 0 / 16px 16px,
+    radial-gradient(80% 60% at 100% 0%, rgba(250, 160, 35, 0.07) 0%, rgba(250, 160, 35, 0) 70%),
     var(--ifm-card-background-color, var(--ifm-background-surface-color));
   overflow: hidden;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -779,17 +779,31 @@ $brand-green: #afc72d;
   font-weight: 700;
 }
 
+// Buttons fill the card: one button takes the full width, two share it,
+// and on phones they stack, each at full width. They sit at the bottom so
+// cards in a row line up.
+.serverActions {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  margin-top: auto;
+  padding-top: 22px;
+
+  > a {
+    justify-content: center;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 600px) {
+    grid-auto-flow: row;
+  }
+}
+
 .serverBody {
   display: flex;
   flex: 1;
   flex-direction: column;
   padding: 24px 28px 28px 30px;
-
-  // Keep the buttons at the bottom so cards in a row line up.
-  > div:last-child {
-    margin-top: auto;
-    padding-top: 22px;
-  }
 
   @media screen and (max-width: 600px) {
     padding: 20px 20px 22px 24px;
@@ -834,6 +848,17 @@ $brand-green: #afc72d;
   display: flex;
   align-items: flex-start;
   gap: 14px;
+
+  // On phones the name gets the full row and the badge moves under it.
+  @media screen and (max-width: 600px) {
+    flex-wrap: wrap;
+    row-gap: 10px;
+
+    > div {
+      flex: 1 1 calc(100% - 58px);
+      min-width: 0;
+    }
+  }
 }
 
 .serverName {
@@ -860,6 +885,10 @@ $brand-green: #afc72d;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ifm-color-emphasis-800);
+
+  @media screen and (max-width: 600px) {
+    margin-left: 58px;
+  }
 }
 
 .serverText {

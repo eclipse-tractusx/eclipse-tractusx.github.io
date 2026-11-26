@@ -144,7 +144,7 @@ function McpServerCard({ server }) {
           </p>
         ))}
 
-        <div className={styles.actions}>
+        <div className={clsx(styles.actions, styles.serverActions)}>
           {hasMcpServerDetails(server) && (
             <Link className={styles.buttonPrimary} to={mcpServerDetailsUrl(server)}>
               See the tools
