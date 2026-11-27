@@ -363,6 +363,7 @@ jobs:
             }
             for (const number of preview.numbers(env.EVICTED)) {
               await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'evicted' });
+              await preview.notifyEvicted({ github, context, prNumber: number });
             }
 
   # Tells the committer who commented /preview how it ended, also when a job

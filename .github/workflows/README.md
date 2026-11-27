@@ -254,7 +254,8 @@ Every write to `gh-pages` checks the space, so previews can never stop the produ
   - a preview that only fits if other previews make space is not published either; the comment lists the previews so
     a committer can choose one with `/preview replace <number>` (see "When there is no space" above),
   - the production deployment and the daily sweep still remove the oldest previews (by `pr/<number>/.deployed-at`)
-    until everything fits; the website always gets the space.
+    until everything fits; the website always gets the space. The author of each removed preview gets a new comment
+    that mentions them, and `/preview` publishes it again once there is space.
 - Each run shows the space used in its job summary.
 
 Every pull request has one preview comment, which is updated (not posted again):

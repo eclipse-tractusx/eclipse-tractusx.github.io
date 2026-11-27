@@ -91,4 +91,7 @@ jobs:
             const space = { siteMb: env.SITE_MB, previewsMb: env.PREVIEWS_MB, limitMb: env.LIMIT_MB };
             for (const prNumber of preview.numbers(env.EVICTED)) {
               await preview.update({ github, context, space, prNumber, state: 'removed', reason: 'evicted' });
+              // A new comment that mentions the author, because GitHub does not
+              // notify about the edited preview comment.
+              await preview.notifyEvicted({ github, context, prNumber });
             }
