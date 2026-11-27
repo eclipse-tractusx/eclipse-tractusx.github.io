@@ -121,6 +121,11 @@ sequenceDiagram
     Dep->>Old: comment edited, and a new comment mentions the author
 ```
 
+If the saved build of the pull request has expired (after 90 days), `/preview` runs the build again instead, and the
+preview is published when that build has finished. A `replace` is not applied in that case: if there is still no space,
+the preview comment lists the previews again. If the build has not finished yet, the bot reacts with 👀 and the build
+publishes the preview when it is done; a pull request that does not change the website gets 😕.
+
 The command workflow runs no pull request code and starts nothing but "Deploy pull request preview". It only starts
 for comments of committers (`OWNER`, `MEMBER` or `COLLABORATOR`); comments from anyone else do not start a runner and
 get no answer, so the command cannot be used to flood a pull request with bot comments or to use up Actions minutes. The
@@ -246,8 +251,8 @@ gh workflow run cleanup-pr-preview.yaml -f pr_number=1234
 gh workflow run cleanup-pr-preview.yaml
 ```
 
-The build keeps its artifacts for 90 days, or until the pull request is closed. After that, re-run the build of the pull
-request or push a new commit. Once a day, "Remove pull request preview" removes the previews of closed pull requests that are still there and checks the
+The build keeps its artifacts for 90 days, or until the pull request is closed. After that, comment `/preview` (it runs
+the build again), re-run the build or push a new commit. Once a day, "Remove pull request preview" removes the previews of closed pull requests that are still there and checks the
 space limit.
 
 The `Build preview` job reports the size of the preview as a notice in the workflow run. To build and prune a preview

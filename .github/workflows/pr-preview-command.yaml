@@ -55,7 +55,7 @@ jobs:
     permissions:
       actions: write
       issues: write
-      pull-requests: write
+      pull-requests: read
     steps:
       - name: Start the preview deployment
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
@@ -86,6 +86,36 @@ jobs:
             }
             if (issue.state !== 'open') {
               await react('confused');
+              return;
+            }
+
+            // The preview is published from the latest successful build of the pull
+            // request's current commit. Its artifacts are kept for 90 days; when
+            // they have expired, the build is run again and publishes the preview
+            // when it finishes. A replace is then not applied: if there is still
+            // no space, the preview comment lists the previews again.
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
+            const { data: runs } = await github.rest.actions.listWorkflowRuns({
+              owner, repo, workflow_id: 'verify-build.yaml', event: 'pull_request', head_sha: pr.head.sha, status: 'success', per_page: 1,
+            });
+            const run = runs.workflow_runs[0];
+            if (!run) {
+              // No finished build yet: it publishes the preview when it is done.
+              await react('eyes');
+              return;
+            }
+            const { data: jobs } = await github.rest.actions.listJobsForWorkflowRun({ owner, repo, run_id: run.id, per_page: 100 });
+            if (!jobs.jobs.some((job) => job.name === 'Build preview' && job.conclusion === 'success')) {
+              // The pull request does not change the website, so it has no preview.
+              await react('confused');
+              return;
+            }
+            const { data: artifacts } = await github.rest.actions.listWorkflowRunArtifacts({ owner, repo, run_id: run.id, per_page: 100 });
+            const available = new Set(artifacts.artifacts.filter((artifact) => !artifact.expired).map((artifact) => artifact.name));
+            if (!available.has('pr-preview') || !available.has('pr-number')) {
+              core.info(`The artifacts of build ${run.html_url} have expired. Running the build again.`);
+              await github.rest.actions.reRunWorkflow({ owner, repo, run_id: run.id });
+              await react('rocket');
               return;
             }
 
