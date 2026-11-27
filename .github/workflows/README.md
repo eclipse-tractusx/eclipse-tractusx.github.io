@@ -61,7 +61,7 @@ that writes runs from `main` and only handles the build's output.
 
 | Piece | Runs when | Trusts PR code? | Does |
 |---|---|---|---|
-| `verify-build.yaml` (Build pull request preview) | push to a pull request | runs it, without write access | builds the pruned preview, uploads the artifacts `pr-preview` and `pr-number` (kept 90 days) |
+| `verify-build.yaml` (Build pull request preview) | push to a pull request that changes the website | runs it, without write access | builds the pruned preview, uploads the artifacts `pr-preview` and `pr-number` (kept 90 days) |
 | `deploy-pr-preview.yaml` | build succeeded, or started by `/preview` | no | downloads the artifact and publishes it to `gh-pages` under `pr/<number>/`, updates the comments |
 | `pr-preview-command.yaml` | a comment starting with `/preview` | no | checks the commenter is a committer, starts the deploy with `pr_number` and `replace` |
 | `cleanup-pr-preview.yaml` | pull request closed, daily, by hand | no | removes previews of closed pull requests and deletes their builds |
@@ -82,6 +82,15 @@ flowchart LR
     cleanup --> script
     cleanup -- deletes --> art
 ```
+
+#### Pull requests that do not change the website
+
+The first job of the build, "Check for website changes", looks at the files the pull request changes. If none of them
+is used by the website build, both builds are skipped and there is no preview. Such files are everything under
+`.github/` (except `verify-build.yaml` itself, so changes to the build can be tested), the Markdown files in the root of
+the repository (`README.md`, `CHANGELOG.md`, ...), `LICENSE`, `LICENSE_non-code`, `DEPENDENCIES`, `CODEOWNERS`,
+`.tractusx` and the editor and Git settings. A skipped job counts as passed, so the required check
+`Build static website` does not block these pull requests. As soon as one other file changes, everything builds as usual.
 
 #### Requesting and replacing a preview
 
