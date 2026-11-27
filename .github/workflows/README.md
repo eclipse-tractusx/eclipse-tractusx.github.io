@@ -65,7 +65,7 @@ Committers can publish a preview from a comment on the pull request:
 Previews of other pull requests are no longer removed automatically when GitHub Pages runs out of space. Instead the
 preview is not published, and its comment lists the current previews with their sizes and the replace command for each.
 A replaced preview is not lost: its build artifact is kept for 90 days, so `/preview` on that pull request publishes it
-again without a rebuild. Its author gets a comment that mentions them, because GitHub does not notify about the edited
+again without a rebuild; once the pull request is closed, "Remove pull request preview" deletes those builds too. Its author gets a comment that mentions them, because GitHub does not notify about the edited
 preview comment.
 The command workflow ([`pr-preview-command.yaml`](pr-preview-command.yaml)) runs no pull request code; it only starts
 "Deploy pull request preview". The production deployment still removes the oldest previews if the website itself needs
