@@ -22,7 +22,10 @@ name: Pull request preview command
 
 # Lets a committer request a preview from a comment on the pull request:
 #
-#   /preview                  publish the preview of this pull request
+#   /preview                  publish the preview of this pull request. A pull
+#                             request to another branch than main is not built
+#                             on push; for it, /preview starts the build of the
+#                             current commit, which publishes the preview
 #   /preview replace <number> remove the preview of pull request <number> and
 #                             publish this one in its place
 #   /preview rebuild          build again when the saved build has expired
@@ -35,7 +38,8 @@ name: Pull request preview command
 #
 # Runs in the context of the base repository. It never checks out or runs code
 # from the pull request; it only starts "Deploy pull request preview", which
-# publishes the artifact of the unprivileged build.
+# publishes the artifact of the unprivileged build, or "Build pull request
+# preview", which builds without write access or secrets.
 on:
   issue_comment:
     types:
@@ -158,14 +162,69 @@ jobs:
             // build again, which publishes the preview when it finishes. Only
             // committers get here, so this reply cannot be used to flood the pull request.
             const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
-            const { data: runs } = await github.rest.actions.listWorkflowRuns({
-              owner, repo, workflow_id: 'verify-build.yaml', event: 'pull_request', head_sha: pr.head.sha, status: 'success', per_page: 1,
-            });
-            const run = runs.workflow_runs[0];
+            const sha = pr.head.sha;
+            const shortSha = `\`${sha.slice(0, 7)}\``;
+            const buildsUrl = `${context.serverUrl}/${owner}/${repo}/actions/workflows/verify-build.yaml`;
+            // Pull requests to main are built on every push. Pull requests to other
+            // branches are built only here, as a manual run of verify-build.yaml on
+            // the default branch, named after the pull request, the commit and the
+            // request (see run-name in verify-build.yaml).
+            const toMain = pr.base.ref === repository.default_branch;
+            const dispatchTitle = `Preview of pull request #${prNumber} at ${sha} (`;
+            const findRuns = async (status) => {
+              const params = { owner, repo, workflow_id: 'verify-build.yaml', per_page: 100, ...(status ? { status } : {}) };
+              const [{ data: pushed }, { data: dispatched }] = await Promise.all([
+                github.rest.actions.listWorkflowRuns({ ...params, event: 'pull_request', head_sha: sha }),
+                github.rest.actions.listWorkflowRuns({ ...params, event: 'workflow_dispatch', branch: repository.default_branch }),
+              ]);
+              return [...pushed.workflow_runs, ...dispatched.workflow_runs.filter((r) => r.display_title.startsWith(dispatchTitle))]
+                .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            };
+            const startBuild = async (why) => {
+              if (pr.mergeable === false) {
+                await react('confused');
+                await setStatus('😕', `This pull request conflicts with \`${pr.base.ref}\`, so it cannot be built. Resolve the conflicts and comment \`/preview\` again.`);
+                return;
+              }
+              await github.rest.actions.createWorkflowDispatch({
+                owner, repo, workflow_id: 'verify-build.yaml', ref: repository.default_branch,
+                inputs: {
+                  pr_number: String(prNumber),
+                  head_sha: sha,
+                  requested_by: comment.user.login,
+                  comment_id: String(comment.id),
+                  status_comment_id: statusId ? String(statusId) : '',
+                  replace,
+                  allow_large: large ? 'true' : 'false',
+                },
+              });
+              await react('rocket');
+              await setStatus('🔨', [
+                `${why} I started a build of commit ${shortSha} ([build runs](${buildsUrl})). Expect 5 to 10 minutes in total:`,
+                '',
+                '1. The build takes 3 to 5 minutes.',
+                '2. When it has finished, the preview is published to `gh-pages`, and GitHub Pages puts it online a minute or two later.',
+                '',
+                'This comment is then replaced by the result, which mentions you. If GitHub Pages has no space left, the preview comment lists the current previews with their sizes; comment `/preview replace <number>` to publish this one in place of one of them, without building again.',
+              ].join('\n'));
+            };
+            const notOnPush = toMain ? '' : ` Pull requests to \`${pr.base.ref}\` are not built on push, only with \`/preview\`.`;
+
+            const run = (await findRuns('success'))[0];
             if (!run) {
-              // No finished build yet: it publishes the preview when it is done. The
-              // 👀 reaction stays.
-              await setStatus('⏳', `When I checked, the build of the latest commit (\`${pr.head.sha.slice(0, 7)}\`) was still running, and the preview is made from that build. A build usually takes 3 to 5 minutes; when it has finished, it publishes the preview on its own and the preview comment shows it, so there is no need to comment again.`);
+              // Tell "still running" apart from "failed" and from "never built".
+              const latest = (await findRuns())[0];
+              if (latest && latest.status !== 'completed') {
+                // It publishes the preview on its own when it is done. The 👀 reaction stays.
+                await setStatus('⏳', `When I checked, the [build](${latest.html_url}) of the latest commit (${shortSha}) was still running, and the preview is made from that build. A build usually takes 3 to 5 minutes; when it has finished, it publishes the preview on its own and the preview comment shows it, so there is no need to comment again.`);
+                return;
+              }
+              if (latest && !rebuild) {
+                await react('confused');
+                await setStatus('😕', `The [build](${latest.html_url}) of the latest commit (${shortSha}) ended with \`${latest.conclusion}\`, so there is no preview to publish. Fix it and push, or comment \`/preview rebuild\` to build again.`);
+                return;
+              }
+              await startBuild(latest ? 'Building again, as asked.' : `There is no build of the latest commit (${shortSha}) yet.${notOnPush}`);
               return;
             }
             const { data: jobs } = await github.rest.actions.listJobsForWorkflowRun({ owner, repo, run_id: run.id, per_page: 100 });
