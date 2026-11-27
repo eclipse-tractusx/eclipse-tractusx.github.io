@@ -56,6 +56,18 @@ on:
         required: false
         type: boolean
         default: false
+      # Set by the comment command, so the requester hears how it ended: a 🎉
+      # reaction on the comment, or 👎 and a reply that mentions them.
+      requested_by:
+        description: Login of the committer who commented /preview (optional)
+        required: false
+        type: string
+        default: ''
+      comment_id:
+        description: Id of the /preview comment (optional)
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -197,6 +209,11 @@ jobs:
     needs: prepare
     if: needs.prepare.outputs.number != ''
     runs-on: ubuntu-latest
+    outputs:
+      state: ${{ steps.check.outputs.state }}
+      mb: ${{ steps.size.outputs.mb }}
+      too-large: ${{ steps.size.outputs.too-large }}
+      no-space: ${{ steps.publish.outputs.no-space }}
     # One group per pull request, shared with "Remove pull request preview".
     # Deployments and the removal of the same preview therefore never overlap.
     # Previews of different pull requests and the production deployment run in
@@ -346,4 +363,67 @@ jobs:
             }
             for (const number of preview.numbers(env.EVICTED)) {
               await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'evicted' });
+            }
+
+  # Tells the committer who commented /preview how it ended, also when a job
+  # failed: 🎉 on the comment if the preview is published, otherwise 👎 and a
+  # reply that mentions them, because GitHub does not notify about the edited
+  # preview comment. Only runs started by the comment command get here, and
+  # that command only accepts committers.
+  notify:
+    name: Tell the requester
+    needs:
+      - prepare
+      - deploy
+    if: always() && github.event_name == 'workflow_dispatch' && inputs.requested_by != ''
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Report the result of /preview
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          REQUESTED_BY: ${{ inputs.requested_by }}
+          COMMENT_ID: ${{ inputs.comment_id }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+          PREPARE_RESULT: ${{ needs.prepare.result }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+          PR_STATE: ${{ needs.deploy.outputs.state }}
+          PREVIEW_MB: ${{ needs.deploy.outputs.mb }}
+          TOO_LARGE: ${{ needs.deploy.outputs.too-large }}
+          NO_SPACE: ${{ needs.deploy.outputs.no-space }}
+          MAX_PREVIEW_MB: 300
+        with:
+          script: |
+            const env = process.env;
+            const { owner, repo } = context.repo;
+            const login = /^[A-Za-z0-9-]{1,39}$/.test(env.REQUESTED_BY) ? env.REQUESTED_BY : null;
+            const prNumber = Number(env.PR_NUMBER);
+            if (!login || !Number.isInteger(prNumber) || prNumber < 1) {
+              return;
+            }
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            let problem = null;
+            if (env.PREPARE_RESULT !== 'success' || ['failure', 'cancelled'].includes(env.DEPLOY_RESULT)) {
+              problem = `the deployment failed. The [workflow run](${runUrl}) shows why.`;
+            } else if (env.DEPLOY_RESULT === 'skipped') {
+              problem = `there was nothing to publish: the build is not from the latest commit of this pull request. The build of the latest commit publishes the preview when it has finished. The [workflow run](${runUrl}) shows details.`;
+            } else if (env.PR_STATE !== 'open') {
+              problem = 'the pull request is closed.';
+            } else if (env.TOO_LARGE === 'true') {
+              problem = `it has ${env.PREVIEW_MB} MB, more than the ${env.MAX_PREVIEW_MB} MB a single preview may use. Comment \`/preview large\` to publish it anyway, if GitHub Pages has space.`;
+            } else if (env.NO_SPACE === 'true') {
+              problem = 'GitHub Pages has no space left. The preview comment lists the current previews; comment `/preview replace <number>` to replace one of them.';
+            }
+            const commentId = /^[1-9][0-9]{0,19}$/.test(env.COMMENT_ID) ? Number(env.COMMENT_ID) : null;
+            if (commentId) {
+              try {
+                await github.rest.reactions.createForIssueComment({ owner, repo, comment_id: commentId, content: problem ? '-1' : 'hooray' });
+              } catch (error) {
+                core.info(`Could not react to the comment: ${error.message}`);
+              }
+            }
+            if (problem) {
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body: `@${login} the preview was not published: ${problem}` });
             }

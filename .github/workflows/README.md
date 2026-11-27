@@ -136,9 +136,20 @@ meaning people with write access to the repository, can use it. A first filter d
 from people who never contributed do not start a runner and get no answer, so the command cannot be used to flood a
 pull request with bot comments or to use up Actions minutes. `CONTRIBUTOR` passes this filter, because GitHub reports
 org members whose membership is private, as most Eclipse committers have it, as `CONTRIBUTOR` and not as `MEMBER`. The
-script then reads the real permission on the repository and silently ignores everyone without write access. The
-bot answers with reactions: 🚀 when the deployment or rebuild has started, 😕 to a command that is not valid. Its only
-replies explain an expired build, and only committers can cause them. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
+script then reads the real permission on the repository and silently ignores everyone without write access.
+
+A committer always sees what happened to their command:
+
+| Reaction or reply | Meaning |
+|---|---|
+| 👀 | the command was picked up (a few seconds after the comment, while a runner starts) |
+| 🚀 | the deployment, or with `/preview rebuild` the build, has started |
+| 😕 | the command is not valid, or the pull request has no preview (closed, no website changes) |
+| 🎉 | the preview is published |
+| 👎 and a reply that mentions you | the preview was not published; the reply says why (too large, no space, outdated build, failed run) |
+
+The reply is a new comment, because GitHub does not notify about the edited preview comment. Only committers can
+cause replies. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
 the first workflow run of a new contributor).
 
 #### When there is no space
