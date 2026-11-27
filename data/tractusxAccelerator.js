@@ -26,43 +26,70 @@ export const acceleratorPartnerIds = ["idsa", "catena-x", "fraunhofer-isst", "ar
 // Program period, as shown on the About Us timeline.
 export const acceleratorPeriod = "2026 - 2029";
 
-// What the accelerator program offers. `title` is the focus area as published on
-// the About Us page; `icon` is a key of the icon map in src/pages/accelerator.
+// What the Accelerator works on. `title` is the short name of the goal; `icon` is a key of
+// the icon map in src/pages/accelerator. The Accelerator supports the community; it is
+// not a software development project.
 export const acceleratorFocusAreas = [
   {
-    id: "onboarding",
-    icon: "school",
-    title: "Structured onboarding and qualification of new projects and developers",
+    id: "financing",
+    icon: "financing",
+    title: "Financing models",
     description:
-      "A guided path into Eclipse Tractus-X: from the first contact to a project or contributor that meets the community's processes.",
+      "Work with partners and the community on ways to fund the open-source work around Eclipse Tractus-X in the long term.",
   },
   {
-    id: "infrastructure",
-    icon: "science",
-    title: "Test and development infrastructure",
+    id: "documentation",
+    icon: "docs",
+    title: "Better documentation and processes",
     description:
-      "Environments to build, run and test Tractus-X components end to end, so contributions can be checked before they reach a release.",
-  },
-  {
-    id: "mentoring",
-    icon: "mentoring",
-    title: "Targeted mentoring by experienced community members",
-    description:
-      "Committers and project leads who know the code and the processes help newcomers take their next step.",
-  },
-  {
-    id: "governance",
-    icon: "policy",
-    title: "Further development of governance, release and quality processes",
-    description:
-      "Clearer, lighter processes for releases and quality, so that joining and staying in the community takes less effort.",
+      "Improve the quality of documentation, governance, release and quality processes, so that joining and contributing takes less effort.",
   },
   {
     id: "community",
-    icon: "forum",
-    title: "Sustainable community and exchange formats",
+    icon: "community",
+    title: "A stronger worldwide community",
     description:
-      "Hackathons, community days and open meetings where people meet, exchange and build together.",
+      "Grow and connect contributors, projects and organizations across countries and industries.",
+  },
+  {
+    id: "dataspaces",
+    icon: "dataspaces",
+    title: "Welcoming more dataspace initiatives",
+    description:
+      "Open Eclipse Tractus-X to dataspace initiatives beyond Catena-X and help them onboard and reuse what the community has built.",
+  },
+  {
+    id: "strategy",
+    icon: "strategy",
+    title: "Strategy and coordinated improvements",
+    description:
+      "Define where the community goes next and coordinate improvements to the software across projects. The Accelerator coordinates; the community and its committers build.",
+  },
+  {
+    id: "events",
+    icon: "events",
+    title: "Events that bring people together",
+    description:
+      "Hackathons, thinkathons and the flagship Community Days, organized with intent so the community meets more often.",
+  },
+];
+
+// Formats of the Accelerator's events, shown in the events section.
+export const acceleratorEventFormats = [
+  {
+    id: "hackathons",
+    title: "Hackathons",
+    description: "Hands-on working days on real challenges of the Tractus-X software.",
+  },
+  {
+    id: "thinkathons",
+    title: "Thinkathons",
+    description: "Focused sessions to think through strategy, architecture and open questions together.",
+  },
+  {
+    id: "community-days",
+    title: "Community Days",
+    description: "The flagship event of the community: talks, workshops and exchange over two days.",
   },
 ];
 

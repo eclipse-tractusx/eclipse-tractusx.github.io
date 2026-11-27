@@ -45,13 +45,11 @@ export default function TractusXAccelerator() {
         />
       </Link>
       <p className={styles.acceleratorIntro}>
-        The Tractus-X Accelerator is a support program for projects, developers and
-        organizations. It systematically lowers the technical and organizational barriers to entry
-        and sustainably increases active participation in the open-source community.
+        The Tractus-X Accelerator strengthens the Eclipse Tractus-X community. It is not a
+        software development project: it coordinates, connects and enables the community.
       </p>
       <p className={styles.acceleratorIntro}>
-        It combines proven approaches from startup acceleration with the requirements of industrial
-        open-source ecosystems, and focuses on:
+        Its goals:
       </p>
       <ul className={styles.focusAreas}>
         {acceleratorFocusAreas.map((area) => (
