@@ -278,6 +278,7 @@ jobs:
       mb: ${{ steps.size.outputs.mb }}
       too-large: ${{ steps.size.outputs.too-large }}
       no-space: ${{ steps.publish.outputs.no-space }}
+      online: ${{ steps.verify.outputs.result }}
     # One group per pull request, shared with "Remove pull request preview".
     # Deployments and the removal of the same preview therefore never overlap.
     # Previews of different pull requests and the production deployment run in
@@ -300,10 +301,13 @@ jobs:
       # space for it.
       MAX_PREVIEW_MB: 300
       ALLOW_LARGE: ${{ needs.prepare.outputs.allow-large }}
-      # Previews of other pull requests are not removed automatically to make
-      # space. When there is none left, the preview comment lists the previews
-      # and a committer chooses one with /preview replace <number>.
-      PREVIEW_EVICT: none
+      # The newest preview has priority: when GitHub Pages runs out of space,
+      # the oldest previews of other pull requests are removed until this one
+      # fits, whatever their size. Their pull requests get a comment and can
+      # publish them again with /preview. A committer who prefers to remove a
+      # specific preview uses /preview replace <number> instead. Builds that
+      # are still running take no space; when they deploy, they are the newest.
+      PREVIEW_EVICT: oldest
     steps:
       # Checked again here, because the job may have waited in the concurrency
       # group. A pending removal is replaced by a newer run of this job, so a
@@ -371,6 +375,62 @@ jobs:
           cd "${RUNNER_TEMP}/gh-pages"
           bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" preview "${PR_NUMBER}" "${GITHUB_WORKSPACE}/preview"
 
+      # Waits until GitHub Pages serves this deployment (pr/<number>/.deployed-at
+      # has the pushed timestamp). Previews of other pull requests deploy in
+      # parallel and may remove this one again to make space for theirs. Then
+      # that deployment has already written the preview comment of this pull
+      # request, and this job must not report the preview as published.
+      #   online   GitHub Pages serves this deployment
+      #   removed  gh-pages no longer has this deployment of the preview
+      #   pending  pushed, but not served after the waiting time
+      - name: Verify that the preview is online
+        id: verify
+        if: steps.publish.outputs.deployed-at != ''
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          DEPLOYED_AT: ${{ steps.publish.outputs.deployed-at }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const prNumber = Number(process.env.PR_NUMBER);
+            const ours = process.env.DEPLOYED_AT;
+            const path = `pr/${prNumber}/.deployed-at`;
+            const deadline = Date.now() + 10 * 60 * 1000;
+            let result = 'pending';
+            while (Date.now() < deadline) {
+              let onBranch = null;
+              try {
+                const { data } = await github.rest.repos.getContent({ owner, repo, path, ref: 'gh-pages' });
+                onBranch = Buffer.from(data.content, 'base64').toString('utf8').trim();
+              } catch (error) {
+                if (error.status !== 404) {
+                  throw error;
+                }
+              }
+              if (onBranch !== ours) {
+                result = 'removed';
+                break;
+              }
+              try {
+                const response = await fetch(`https://${owner}.github.io/${path}?v=${Date.now()}`, { cache: 'no-store' });
+                if (response.ok && (await response.text()).trim() === ours) {
+                  result = 'online';
+                  break;
+                }
+              } catch (error) {
+                core.info(`GitHub Pages did not answer: ${error.message}`);
+              }
+              await new Promise((resolve) => setTimeout(resolve, 20000));
+            }
+            if (result === 'removed') {
+              core.warning('The preview was removed again by a newer deployment on gh-pages, which has updated the preview comment.');
+            } else if (result === 'pending') {
+              core.warning('GitHub Pages did not serve the preview within 10 minutes.');
+            } else {
+              core.info('GitHub Pages serves the preview.');
+            }
+            core.setOutput('result', result);
+
       # Also removes an older, smaller preview of the same pull request, so the
       # preview never shows an outdated state.
       - name: Remove preview of closed pull request or oversized preview
@@ -402,6 +462,7 @@ jobs:
           SITE_MB: ${{ steps.publish.outputs.site-mb || steps.remove.outputs.site-mb }}
           PREVIEWS_MB: ${{ steps.publish.outputs.previews-mb || steps.remove.outputs.previews-mb }}
           LIMIT_MB: ${{ steps.publish.outputs.limit-mb || steps.remove.outputs.limit-mb }}
+          ONLINE: ${{ steps.verify.outputs.result }}
         with:
           script: |
             const preview = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
@@ -416,18 +477,21 @@ jobs:
             } else if (env.TOO_LARGE === 'true') {
               await preview.update({ ...common, prNumber, state: 'too-large' });
             } else if (env.NO_SPACE === 'true') {
-              await preview.update({ ...common, prNumber, state: 'no-space', previews: env.PREVIEWS, neededMb: env.NEEDED_MB });
-            } else {
-              await preview.update({ ...common, prNumber, state: 'published', pagesFile: 'preview/.preview-pages.json' });
+              // Only happens when the preview alone needs more than the website
+              // leaves free, so removing other previews would not help.
+              await preview.update({ ...common, prNumber, state: 'no-space', neededMb: env.NEEDED_MB });
+            } else if (env.ONLINE !== 'removed') {
+              await preview.update({ ...common, prNumber, state: 'published', pagesFile: 'preview/.preview-pages.json', pagesPending: env.ONLINE === 'pending' });
             }
 
             for (const number of preview.numbers(env.REPLACED)) {
               await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'replaced', replacedBy: prNumber });
               await preview.notifyReplaced({ github, context, prNumber: number, replacedBy: prNumber });
             }
+            // Removed to make space for this preview, because it is newer.
             for (const number of preview.numbers(env.EVICTED)) {
-              await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'evicted' });
-              await preview.notifyEvicted({ github, context, prNumber: number });
+              await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'newer', replacedBy: prNumber });
+              await preview.notifyEvicted({ github, context, prNumber: number, newerBy: prNumber });
             }
 
   # Tells the committer who commented /preview how it ended, also when a job
@@ -465,6 +529,7 @@ jobs:
           PREVIEW_MB: ${{ needs.deploy.outputs.mb }}
           TOO_LARGE: ${{ needs.deploy.outputs.too-large }}
           NO_SPACE: ${{ needs.deploy.outputs.no-space }}
+          ONLINE: ${{ needs.deploy.outputs.online }}
           MAX_PREVIEW_MB: 300
         with:
           script: |
@@ -488,7 +553,9 @@ jobs:
             } else if (env.TOO_LARGE === 'true') {
               problem = `it has ${env.PREVIEW_MB} MB, more than the ${env.MAX_PREVIEW_MB} MB a single preview may use. Comment \`/preview large\` to publish it anyway, if GitHub Pages has space.`;
             } else if (env.NO_SPACE === 'true') {
-              problem = 'GitHub Pages has no space left. The preview comment lists the current previews; comment `/preview replace <number>` to replace one of them.';
+              problem = 'it alone needs more space than GitHub Pages leaves free next to the website, so removing other previews would not help. The preview comment shows the size.';
+            } else if (env.ONLINE === 'removed') {
+              problem = 'it was published, but a newer preview of another pull request needed the space right after and replaced it. Comment `/preview` again to publish it without a rebuild; it then replaces the oldest preview.';
             }
             const commentId = /^[1-9][0-9]{0,19}$/.test(env.COMMENT_ID) ? Number(env.COMMENT_ID) : null;
             if (commentId) {
@@ -516,7 +583,9 @@ jobs:
             const url = `https://${owner}.github.io/pr/${prNumber}/`;
             const body = problem
               ? `👎 @${login} the preview was not published: ${problem}`
-              : `🎉 @${login} the preview is published: ${url}\n\nIf the link still shows the old state or "Page not found", wait a minute: GitHub Pages is still putting it online. The preview comment lists the pages this pull request changes.`;
+              : env.ONLINE === 'online'
+                ? `🎉 @${login} the preview is online: ${url}\n\nThe preview comment lists the pages this pull request changes.`
+                : `🎉 @${login} the preview is published: ${url}\n\nGitHub Pages did not serve it yet. If the link still shows the old state or "Page not found", wait a few minutes. The preview comment lists the pages this pull request changes.`;
             if (problem || statusId) {
               await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
             }

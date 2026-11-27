@@ -27,14 +27,16 @@ name: Pull request preview command
 #                             on push; for it, /preview starts the build of the
 #                             current commit, which publishes the preview
 #   /preview replace <number> remove the preview of pull request <number> and
-#                             publish this one in its place
+#                             publish this one in its place (instead of the
+#                             oldest previews, if space runs out)
 #   /preview rebuild          build again when the saved build has expired
 #                             (after 90 days); the build publishes the preview
 #   /preview large            publish a preview that is larger than the limit
 #                             for a single preview, if GitHub Pages has space
 #
-# When GitHub Pages has no space left, the preview comment lists the current
-# previews with their sizes and the replace command for each.
+# When GitHub Pages has no space left, the newest preview has priority: the
+# oldest previews of other pull requests are removed until it fits, and their
+# pull requests get a comment.
 #
 # Runs in the context of the base repository. It never checks out or runs code
 # from the pull request; it only starts "Deploy pull request preview", which
@@ -205,7 +207,7 @@ jobs:
                 '1. The build takes 3 to 5 minutes.',
                 '2. When it has finished, the preview is published to `gh-pages`, and GitHub Pages puts it online a minute or two later.',
                 '',
-                'This comment is then replaced by the result, which mentions you. If GitHub Pages has no space left, the preview comment lists the current previews with their sizes; comment `/preview replace <number>` to publish this one in place of one of them, without building again.',
+                'This comment is then replaced by the result, which mentions you. If GitHub Pages has no space left, the oldest previews of other pull requests make way for this one, and their pull requests are told.',
               ].join('\n'));
             };
             const notOnPush = toMain ? '' : ` Pull requests to \`${pr.base.ref}\` are not built on push, only with \`/preview\`.`;
