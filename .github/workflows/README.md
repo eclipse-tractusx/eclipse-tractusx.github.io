@@ -54,6 +54,20 @@ flowchart TD
   built with the base URL `/pr/<number>/` and from the pull request at that time, while production needs the base URL
   `/` and the current state of `main`.
 
+### Requesting a preview with `/preview`
+
+Committers can publish a preview from a comment on the pull request:
+
+- `/preview` publishes the preview of the pull request's latest successful build.
+- `/preview replace <number>` removes the preview of pull request `<number>` and publishes this one in its place, in one
+  commit.
+
+Previews of other pull requests are no longer removed automatically when GitHub Pages runs out of space. Instead the
+preview is not published, and its comment lists the current previews with their sizes and the replace command for each.
+The command workflow ([`pr-preview-command.yaml`](pr-preview-command.yaml)) runs no pull request code; it only starts
+"Deploy pull request preview". The production deployment still removes the oldest previews if the website itself needs
+the space.
+
 ### What the preview contains
 
 The previews and the production site share the `gh-pages` branch and with it the
