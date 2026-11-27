@@ -182,4 +182,5 @@ jobs:
             }
             for (const prNumber of preview.numbers(env.EVICTED)) {
               await preview.update({ github, context, space, prNumber, state: 'removed', reason: 'evicted' });
+              await preview.notifyEvicted({ github, context, prNumber });
             }
