@@ -37,17 +37,42 @@
 #   update-gh-pages.sh preview <pr-number> <build-dir>
 #       Replace the preview in pr/<pr-number> with <build-dir>. The production
 #       site and the other previews are kept.
-#   update-gh-pages.sh remove <pr-number>
-#       Remove the preview in pr/<pr-number>.
+#   update-gh-pages.sh remove [<pr-number>...]
+#       Remove the previews in pr/<pr-number>. Without a number, only the space
+#       limit below is enforced.
 #   update-gh-pages.sh data <data-dir>
 #       Replace generated/ (data the site reads at run time, such as the product
 #       statistics) with <data-dir>. Everything else is kept.
+#
+# Space limit: GitHub Pages fails to deploy a site that is too large, and then
+# not even the production site is updated. Every mode therefore checks the space
+# against GH_PAGES_LIMIT_MB before it pushes. The previews may use what the
+# production site leaves free of the limit. If they need more, the oldest
+# previews are removed first (by pr/<pr-number>/.deployed-at, previews without
+# it count as oldest). The preview that is being deployed is never removed for
+# another one; if it does not fit on its own, it is not published and an older
+# version of it is removed as well. The production site is always published,
+# with a warning if it alone exceeds the limit. A removed preview comes back
+# with the next deployment of its pull request.
+#
+# Outputs (appended to GITHUB_OUTPUT when it is set, after a successful push or
+# if there was nothing to push):
+#   removed-previews   previews removed on request (remove mode), space separated
+#   evicted-previews   previews removed to stay within the space limit
+#   no-space           "true" if the preview did not fit and was not published
+#   site-mb, previews-mb, limit-mb
+#                      space used by the production site and all previews after
+#                      the change, and the limit (empty if there is none)
+# A table of the space used is appended to GITHUB_STEP_SUMMARY when it is set.
 #
 # Environment:
 #   GITHUB_TOKEN       token with contents: write, used to fetch and push
 #   GITHUB_REPOSITORY  owner/name of the repository (set by GitHub Actions)
 #   GH_PAGES_REMOTE    overrides the remote URL, for example for local tests
 #   MAX_ATTEMPTS       number of push attempts (default 10)
+#   GH_PAGES_LIMIT_MB  maximum size of the whole gh-pages site in MB, 0 for no limit
+#                      (default 2500: deployments of up to about 3.3 GB succeeded,
+#                      4.4 GB and more failed)
 
 set -euo pipefail
 
@@ -70,9 +95,13 @@ case "${mode}" in
     message="Deploy preview of pull request ${pr_number}"
     ;;
   remove)
-    [ "$#" -eq 2 ] || usage
-    pr_number="$2"
-    message="Remove preview of pull request ${pr_number}"
+    shift
+    remove_numbers=("$@")
+    if [ "$#" -eq 0 ]; then
+      message="Enforce the space limit of the pull request previews"
+    else
+      message="Remove previews of pull requests $*"
+    fi
     ;;
   data)
     [ "$#" -eq 2 ] || usage
@@ -84,10 +113,21 @@ case "${mode}" in
     ;;
 esac
 
-# The pull request number becomes a path segment, so it must be a plain number.
-if { [ "${mode}" = "preview" ] || [ "${mode}" = "remove" ]; } && ! [[ "${pr_number}" =~ ^[1-9][0-9]{0,9}$ ]]; then
-  echo "Invalid pull request number: '${pr_number}'" >&2
+# A pull request number becomes a path segment, so it must be a plain number.
+for number in ${pr_number:-} ${remove_numbers[@]+"${remove_numbers[@]}"}; do
+  if ! [[ "${number}" =~ ^[1-9][0-9]{0,9}$ ]]; then
+    echo "Invalid pull request number: '${number}'" >&2
+    exit 2
+  fi
+done
+
+limit_mb="${GH_PAGES_LIMIT_MB:-2500}"
+if ! [[ "${limit_mb}" =~ ^[0-9]+$ ]]; then
+  echo "Invalid GH_PAGES_LIMIT_MB: '${limit_mb}'" >&2
   exit 2
+fi
+if [ "${limit_mb}" -eq 0 ]; then
+  limit_mb=""
 fi
 
 if [ "${mode}" = "site" ] && [ -e "${source_dir}/pr" ]; then
@@ -130,6 +170,96 @@ load_latest_gh_pages() {
   git clean --quiet -ffdx
 }
 
+# Lists the previews as "<deployed-at> <pr-number>", oldest first. Previews
+# without a timestamp were deployed before timestamps existed and count as oldest.
+list_previews_oldest_first() {
+  local dir number deployed_at
+  for dir in pr/*/; do
+    [ -d "${dir}" ] || continue
+    number="$(basename "${dir}")"
+    deployed_at="$(tr -dc '0-9' < "${dir}.deployed-at" 2> /dev/null || true)"
+    echo "${deployed_at:-0} ${number}"
+  done | sort -n
+}
+
+# Size in MB of the production site (everything except .git and pr/).
+site_size_mb() {
+  find . -mindepth 1 -maxdepth 1 ! -name .git ! -name pr -exec du -sk {} + | awk '{ kb += $1 } END { print int(kb / 1024) }'
+}
+
+previews_size_mb() {
+  if [ -d pr ]; then
+    du -sk pr | awk '{ print int($1 / 1024) }'
+  else
+    echo 0
+  fi
+}
+
+enforce_space_limit() {
+  [ -n "${limit_mb}" ] || return 0
+  local site_mb budget_mb previews_mb own_mb deployed_at number
+  site_mb="$(site_size_mb)"
+  budget_mb=$(( limit_mb - site_mb ))
+  # A preview that does not fit on its own must not remove the others.
+  if [ "${mode}" = "preview" ]; then
+    own_mb="$(du -sk "pr/${pr_number}" | awk '{ print int($1 / 1024) }')"
+    if [ "${own_mb}" -gt "${budget_mb}" ]; then
+      echo "::warning title=No space for the preview::The preview of pull request ${pr_number} needs ${own_mb} MB, but the production site (${site_mb} MB) leaves only ${budget_mb} MB of ${limit_mb} MB. The preview is not published."
+      rm -rf "pr/${pr_number}"
+      rmdir pr 2> /dev/null || true
+      no_space=true
+      return 0
+    fi
+  fi
+  while read -r deployed_at number; do
+    previews_mb="$(previews_size_mb)"
+    [ "${previews_mb}" -gt "${budget_mb}" ] || break
+    [ "${number}" != "${pr_number:-}" ] || continue
+    echo "The site uses ${site_mb} MB and the previews ${previews_mb} MB of ${limit_mb} MB. Removing the oldest preview pr/${number} (deployed at ${deployed_at})."
+    rm -rf "pr/${number}"
+    evicted_previews+=("${number}")
+  done < <(list_previews_oldest_first)
+
+  # Only the production site itself can still exceed the limit here.
+  if [ "$(previews_size_mb)" -gt "${budget_mb}" ] || [ "${budget_mb}" -lt 0 ]; then
+    echo "::warning title=Site exceeds the space limit::The production site alone uses ${site_mb} MB of ${limit_mb} MB. Raise GH_PAGES_LIMIT_MB or make the site smaller."
+  fi
+}
+
+write_outputs() {
+  local site_mb previews_mb number
+  site_mb="$(site_size_mb)"
+  previews_mb="$(previews_size_mb)"
+  echo "Space used: production site ${site_mb} MB, previews ${previews_mb} MB, limit ${limit_mb:-none} MB."
+  if [ -n "${GITHUB_OUTPUT:-}" ]; then
+    {
+      echo "removed-previews=${removed_previews[*]}"
+      echo "evicted-previews=${evicted_previews[*]}"
+      echo "no-space=${no_space}"
+      echo "site-mb=${site_mb}"
+      echo "previews-mb=${previews_mb}"
+      echo "limit-mb=${limit_mb}"
+    } >> "${GITHUB_OUTPUT}"
+  fi
+  if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
+    {
+      echo "### Space on gh-pages"
+      echo
+      echo "| Part | MB |"
+      echo "|---|---:|"
+      echo "| Production site | ${site_mb} |"
+      for number in $(list_previews_oldest_first | cut -d' ' -f2); do
+        echo "| Preview of #${number} | $(du -sk "pr/${number}" | awk '{ print int($1 / 1024) }') |"
+      done
+      echo "| **Total** | **$(( site_mb + previews_mb ))** of ${limit_mb:-no limit} |"
+      if [ "${#evicted_previews[@]}" -gt 0 ]; then
+        echo
+        echo "Removed to stay within the limit: ${evicted_previews[*]}"
+      fi
+    } >> "${GITHUB_STEP_SUMMARY}"
+  fi
+}
+
 apply_change() {
   case "${mode}" in
     site)
@@ -138,37 +268,59 @@ apply_change() {
         rm -rf generated
       fi
       cp -R "${source_dir}/." .
+      enforce_space_limit
       ;;
     preview)
       rm -rf "pr/${pr_number}"
       mkdir -p "pr/${pr_number}"
       cp -R "${source_dir}/." "pr/${pr_number}/"
+      date +%s > "pr/${pr_number}/.deployed-at"
+      enforce_space_limit
       ;;
     remove)
-      rm -rf "pr/${pr_number}"
+      for number in ${remove_numbers[@]+"${remove_numbers[@]}"}; do
+        if [ -d "pr/${number}" ]; then
+          rm -rf "pr/${number}"
+          removed_previews+=("${number}")
+        fi
+      done
+      enforce_space_limit
       ;;
     data)
       rm -rf generated
       mkdir -p generated
       cp -R "${source_dir}/." generated/
+      enforce_space_limit
       ;;
   esac
 }
 
 max_attempts="${MAX_ATTEMPTS:-10}"
 for attempt in $(seq 1 "${max_attempts}"); do
+  removed_previews=()
+  evicted_previews=()
+  no_space=false
   load_latest_gh_pages
   apply_change
+  commit_message="${message}"
+  if [ "${no_space}" = true ]; then
+    commit_message="Remove preview of pull request ${pr_number}, it does not fit into ${limit_mb} MB"
+  fi
+  if [ "${#evicted_previews[@]}" -gt 0 ]; then
+    commit_message+=$'\n\n'"Remove previews to stay within ${limit_mb} MB: ${evicted_previews[*]}"
+  fi
 
   git add --all
   if git diff --cached --quiet; then
     echo "Nothing to publish, gh-pages is already up to date."
+    write_outputs
     exit 0
   fi
-  git commit --quiet --message "${message}"
+  git commit --quiet --message "${commit_message}"
 
   if git push --quiet origin HEAD:gh-pages; then
-    echo "Published to gh-pages (attempt ${attempt}): ${message}"
+    echo "Published to gh-pages (attempt ${attempt}): ${commit_message%%$'\n'*}"
+    write_outputs
     exit 0
   fi
 

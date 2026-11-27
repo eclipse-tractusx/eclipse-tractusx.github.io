@@ -217,6 +217,33 @@
   font-weight: bold;
 }
 
+/* Keep every top-level label on one line ("About Us", "Developer Hub"), and the dropdown
+   arrow of KITs, AI and Developer Hub to the right of its label instead of below it. */
+.navbar__items > .navbar__item.navbar__link,
+.navbar__items > .navbar__item.dropdown > .navbar__link {
+  white-space: nowrap;
+}
+
+.navbar__items > .navbar__item.dropdown > .navbar__link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar__items > .navbar__item.dropdown > .navbar__link::after {
+  top: 0;
+  transform: none;
+  margin-left: 0.4em;
+}
+
+/* Small desktops, before the mobile menu takes over at 996px: tighter spacing so the
+   one-line labels still fit next to the icons on the right. */
+@media screen and (min-width: 997px) and (max-width: 1150px) {
+  .navbar__items > .navbar__item.navbar__link,
+  .navbar__items > .navbar__item.dropdown > .navbar__link {
+    margin: 0 6px;
+  }
+}
+
 .navbar-icon-link {
   display: inline-flex;
   align-items: center;
@@ -267,6 +294,35 @@
 
 .footer .container .footer__bottom {
   margin-top: 60px;
+}
+
+/* The cookie banner's floating "Cookie settings" tab sat on top of page content on phones (no hover to tuck
+   it away). "Cookie settings" in the footer reopens the banner instead. The banner script hides the tab
+   itself when it finds the footer button, but only if the footer is already rendered when it starts. */
+.cc-revoke {
+  display: none !important;
+}
+
+/* "Cookie settings" in the footer is a button (it opens the cookie banner) styled like the links next to it */
+.footer button.toolbar-manage-cookies {
+  padding: 0;
+  border: 0;
+  background: none;
+  /* Not the font shorthand: it would reset the line-height Infima gives .footer__link-item */
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.footer button.toolbar-manage-cookies:hover {
+  text-decoration: underline;
+}
+
+.footer button.toolbar-manage-cookies:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
 }
 
 .footer-logo-divider {
