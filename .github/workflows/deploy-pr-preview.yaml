@@ -68,6 +68,14 @@ on:
         required: false
         type: string
         default: ''
+      # The status comment the command posted ("Publishing the preview..."). It
+      # is replaced by the result, so the pull request keeps one answer per
+      # command.
+      status_comment_id:
+        description: Id of the status comment of the /preview command (optional)
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -387,6 +395,7 @@ jobs:
         env:
           REQUESTED_BY: ${{ inputs.requested_by }}
           COMMENT_ID: ${{ inputs.comment_id }}
+          STATUS_COMMENT_ID: ${{ inputs.status_comment_id }}
           PR_NUMBER: ${{ inputs.pr_number }}
           PREPARE_RESULT: ${{ needs.prepare.result }}
           DEPLOY_RESULT: ${{ needs.deploy.result }}
@@ -425,6 +434,25 @@ jobs:
                 core.info(`Could not react to the comment: ${error.message}`);
               }
             }
-            if (problem) {
-              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body: `@${login} the preview was not published: ${problem}` });
+            // The status comment of the command is replaced by a new comment with
+            // the result: a new comment notifies the requester, an edited one would
+            // not. Only a comment of this workflow's bot that answers this /preview
+            // is removed.
+            const statusId = /^[1-9][0-9]{0,19}$/.test(env.STATUS_COMMENT_ID) ? Number(env.STATUS_COMMENT_ID) : null;
+            if (statusId) {
+              try {
+                const { data: status } = await github.rest.issues.getComment({ owner, repo, comment_id: statusId });
+                if (status.user.type === 'Bot' && status.body.startsWith(`<!-- pr-preview-status:${commentId} -->`)) {
+                  await github.rest.issues.deleteComment({ owner, repo, comment_id: statusId });
+                }
+              } catch (error) {
+                core.info(`Could not remove the status comment: ${error.message}`);
+              }
+            }
+            const url = `https://${owner}.github.io/pr/${prNumber}/`;
+            const body = problem
+              ? `👎 @${login} the preview was not published: ${problem}`
+              : `🎉 @${login} the preview is published: ${url}\n\nIf the link still shows the old state or "Page not found", wait a minute: GitHub Pages is still putting it online. The preview comment lists the pages this pull request changes.`;
+            if (problem || statusId) {
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
             }
