@@ -62,10 +62,12 @@ jobs:
       startsWith(github.event.comment.body, '/preview') &&
       contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR", "CONTRIBUTOR"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
+    # Reactions on comments of a pull request need pull-requests: write;
+    # issues: write is not enough for them.
     permissions:
       actions: write
       issues: write
-      pull-requests: read
+      pull-requests: write
     steps:
       - name: Start the preview deployment
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
@@ -74,7 +76,14 @@ jobs:
             const { owner, repo } = context.repo;
             const { comment, issue, repository } = context.payload;
             const prNumber = issue.number;
-            const react = (content) => github.rest.reactions.createForIssueComment({ owner, repo, comment_id: comment.id, content });
+            // A reaction that cannot be added must never stop the command itself.
+            const react = async (content) => {
+              try {
+                await github.rest.reactions.createForIssueComment({ owner, repo, comment_id: comment.id, content });
+              } catch (error) {
+                core.warning(`Could not add the ${content} reaction: ${error.message}`);
+              }
+            };
             // Feedback: 👀 as soon as the command is picked up, then 🚀 once the
             // deployment or rebuild has started, or 😕 for a command that is not
             // valid. When the deployment has finished, "Deploy pull request preview"
