@@ -22,6 +22,7 @@
 // src/components/AboutUsContent/styles.module.css.
 
 .content {
+  --accelerator-nav-height: 3.25rem;
   --about-surface: #f6f7f9;
   --about-border: #dce0e5;
   --about-muted: #505a68;
@@ -40,6 +41,57 @@
   width: min(1200px, calc(100% - 3rem));
   margin: 0 auto;
   padding: 4.5rem 0;
+}
+
+/* In-page navigation ---------------------------------------------------- */
+
+.sectionNav {
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  z-index: 2;
+  height: var(--accelerator-nav-height);
+  background: var(--ifm-background-color);
+  border-bottom: 1px solid var(--about-border);
+
+  ul {
+    position: relative;
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    width: min(1200px, calc(100% - 3rem));
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  a {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    color: var(--about-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--ifm-font-color-base);
+    background: var(--about-surface);
+  }
+
+  a[aria-current] {
+    color: var(--about-orange);
+    background: var(--about-surface);
+  }
 }
 
 /* Hero ------------------------------------------------------------------- */
@@ -120,6 +172,7 @@
   max-width: 850px;
   margin: 0 auto;
   text-align: center;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + var(--accelerator-nav-height) + 1rem);
 
   > p:last-child {
     color: var(--about-muted);
@@ -150,7 +203,7 @@
 
 .section {
   margin-top: 5rem;
-  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem);
+  scroll-margin-top: calc(var(--ifm-navbar-height) + var(--accelerator-nav-height) + 1rem);
 }
 
 .sectionHeading {
@@ -358,6 +411,11 @@
 }
 
 @media (max-width: 600px) {
+  .sectionNav ul {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
   .container {
     width: calc(100% - 2rem);
     padding: 3rem 0;

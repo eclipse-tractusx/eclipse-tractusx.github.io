@@ -19,12 +19,12 @@
 
 // Dedicated page of the Tractus-X Accelerator, in the look of the About Us page.
 //
-// Section order: hero, purpose, what we offer, who it is for, how to join, events,
+// Section order: hero, sticky in-page navigation, purpose, what we offer, who it is for, how to join, events,
 // partners and funding, stay in touch. Program facts come from
 // data/tractusxAccelerator.js; please keep new copy to facts the Accelerator owners
 // have confirmed.
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -144,6 +144,72 @@ const channels = [
   },
 ];
 
+// Sections listed in the sticky in-page navigation, in page order.
+const pageSections = [
+  { id: 'about', label: 'About' },
+  { id: 'offer', label: 'Goals' },
+  { id: 'audience', label: 'Who it is for' },
+  { id: 'join', label: 'How to join' },
+  { id: 'events', label: 'Events' },
+  { id: 'partners', label: 'Partners' },
+  { id: 'contact', label: 'Contact' },
+];
+
+const pageSectionIds = pageSections.map(({ id }) => id);
+
+/** Id of the section currently in view, for the in-page navigation. */
+function useActiveSection(ids) {
+  const [active, setActive] = useState(ids[0]);
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return undefined;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting);
+        if (visible.length > 0) {
+          visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          setActive(visible[0].target.id);
+        }
+      },
+      // A section counts as current while it crosses the upper part of the viewport.
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
+    ids.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+    return () => observer.disconnect();
+  }, [ids]);
+  return active;
+}
+
+/** Sticky navigation to the sections of the page. */
+function SectionNav() {
+  const active = useActiveSection(pageSectionIds);
+  const listRef = useRef(null);
+  // On narrow screens the list scrolls sideways: keep the current section's link in view
+  // without moving the page itself.
+  useEffect(() => {
+    const list = listRef.current;
+    const link = list && list.querySelector('[aria-current]');
+    if (!link) return;
+    const left = link.offsetLeft - (list.clientWidth - link.offsetWidth) / 2;
+    list.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+  }, [active]);
+  return (
+    <nav className={styles.sectionNav} aria-label="On this page">
+      <ul ref={listRef}>
+        {pageSections.map(({ id, label }) => (
+          <li key={id}>
+            <Link to={`#${id}`} aria-current={active === id ? 'location' : undefined}>
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 const partners = acceleratorPartnerIds
   .map((id) => tractusxOrganizations.find((organization) => organization.id === id))
   .filter(Boolean);
@@ -168,6 +234,16 @@ function Section({ id, eyebrow, title, intro, children }) {
         <h2 id={`${id}-title`}>{title}</h2>
         {intro && <p>{intro}</p>}
       </div>
+      {children}
+    </section>
+  );
+}
+
+/** The opening "What the Accelerator is" section, with its anchor registered. */
+function AboutSection({ children }) {
+  useBrokenLinks().collectAnchor('about');
+  return (
+    <section id="about" className={styles.intro} aria-labelledby="purpose-title">
       {children}
     </section>
   );
@@ -247,8 +323,9 @@ export default function AcceleratorPage() {
       </header>
 
       <main className={styles.content}>
+        <SectionNav />
         <div className={styles.container}>
-          <section className={styles.intro} aria-labelledby="purpose-title">
+          <AboutSection>
             <p className={styles.eyebrow}>What the Accelerator is</p>
             <h2 id="purpose-title">Strengthening the community around Eclipse Tractus-X</h2>
             <p className={styles.lead}>
@@ -267,7 +344,7 @@ export default function AcceleratorPage() {
               Tractus-X itself. The software stays in the hands of the open-source projects,
               contributors and committers; the Accelerator coordinates, connects and enables them.
             </aside>
-          </section>
+          </AboutSection>
 
           <Section
             id="offer"
