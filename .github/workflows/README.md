@@ -63,7 +63,7 @@ that writes runs from `main` and only handles the build's output.
 |---|---|---|---|
 | `verify-build.yaml` (Build pull request preview) | push to a pull request that changes the website | runs it, without write access | builds the pruned preview, uploads the artifacts `pr-preview` and `pr-number` (kept 90 days) |
 | `deploy-pr-preview.yaml` | build succeeded, or started by `/preview` | no | downloads the artifact and publishes it to `gh-pages` under `pr/<number>/`, updates the comments |
-| `pr-preview-command.yaml` | a committer's comment starting with `/preview` | no | starts the deploy with `pr_number` and `replace`, reacts 🚀 or 😕 |
+| `pr-preview-command.yaml` | a committer's comment starting with `/preview` | no | starts the deploy with `pr_number` and `replace`, or with `/preview rebuild` re-runs an expired build; reacts 🚀 or 😕 |
 | `cleanup-pr-preview.yaml` | pull request closed, daily, by hand | no | removes previews of closed pull requests and deletes their builds |
 | `update-gh-pages.sh` | called by the workflows above | no | applies one change to `gh-pages`, checks the space, retries if another workflow pushed first |
 
@@ -121,16 +121,19 @@ sequenceDiagram
     Dep->>Old: comment edited, and a new comment mentions the author
 ```
 
-If the saved build of the pull request has expired (after 90 days), `/preview` runs the build again instead, and the
-preview is published when that build has finished. A `replace` is not applied in that case: if there is still no space,
-the preview comment lists the previews again. If the build has not finished yet, the bot reacts with 👀 and the build
-publishes the preview when it is done; a pull request that does not change the website gets 😕.
+- `/preview rebuild` builds the pull request again when its saved build has expired (builds are kept for 90 days). The
+  build publishes the preview when it has finished.
+
+A build is never run again on its own, to save Actions minutes. When a committer comments `/preview` and the build has
+expired, the bot replies that it has expired and points to `/preview rebuild`. If the build has not finished yet, the
+bot reacts with 👀 and the build publishes the preview when it is done; a pull request that does not change the website
+gets 😕.
 
 The command workflow runs no pull request code and starts nothing but "Deploy pull request preview". It only starts
 for comments of committers (`OWNER`, `MEMBER` or `COLLABORATOR`); comments from anyone else do not start a runner and
 get no answer, so the command cannot be used to flood a pull request with bot comments or to use up Actions minutes. The
-bot never answers with a comment: it reacts with 🚀 when the deployment has started and with 😕 to a command that is
-not valid. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
+bot answers with reactions: 🚀 when the deployment or rebuild has started, 😕 to a command that is not valid. Its only
+replies explain an expired build, and only committers can cause them. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
 the first workflow run of a new contributor).
 
 #### When there is no space
@@ -251,8 +254,8 @@ gh workflow run cleanup-pr-preview.yaml -f pr_number=1234
 gh workflow run cleanup-pr-preview.yaml
 ```
 
-The build keeps its artifacts for 90 days, or until the pull request is closed. After that, comment `/preview` (it runs
-the build again), re-run the build or push a new commit. Once a day, "Remove pull request preview" removes the previews of closed pull requests that are still there and checks the
+The build keeps its artifacts for 90 days, or until the pull request is closed. After that, comment `/preview rebuild`, re-run
+the build or push a new commit. Once a day, "Remove pull request preview" removes the previews of closed pull requests that are still there and checks the
 space limit.
 
 The `Build preview` job reports the size of the preview as a notice in the workflow run. To build and prune a preview
