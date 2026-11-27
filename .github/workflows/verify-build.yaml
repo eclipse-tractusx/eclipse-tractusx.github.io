@@ -33,22 +33,77 @@
 # all KITs (several hundred MB), so the preview only contains the KIT versions
 # a pull request can change: "Next", the latest release and any older release
 # the pull request touches. Older KIT releases are left out otherwise.
+#
+# Pull requests to main are built on every push. Pull requests to other
+# branches (stacked pull requests) are only built when a committer comments
+# /preview: "Pull request preview command" then starts this workflow manually
+# (workflow_dispatch) for the pull request's current commit. Such a run only
+# builds the preview, not the complete site. Its name carries the pull request,
+# the commit and the /preview request, because "Deploy pull request preview"
+# only gets the name of the run, not its inputs:
+#
+#   Preview of pull request #<number> at <commit> (/preview by <login>; comment <id>; status <id>; replace <number>; large <true|false>)
+#
+# When the build has finished, "Deploy pull request preview" publishes it and
+# answers the /preview comment, as for a pull request to main.
 name: Build pull request preview
+run-name: >-
+  ${{ github.event_name == 'workflow_dispatch'
+  && format('Preview of pull request #{0} at {1} (/preview by {2}; comment {3}; status {4}; replace {5}; large {6})',
+  inputs.pr_number, inputs.head_sha, inputs.requested_by, inputs.comment_id, inputs.status_comment_id, inputs.replace, inputs.allow_large)
+  || github.event.pull_request.title }}
 
-# Runs for pull requests to any branch, not only to main, so that stacked pull
-# requests (a pull request whose base is another pull request's branch) get a
-# check and a preview too. The pull request is still built merged into its own
-# base branch, so the preview shows the stack up to and including this change.
 on:
   pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Number of the pull request to build the preview of
+        required: true
+        type: string
+      head_sha:
+        description: The pull request's current commit (full SHA); the build stops if the pull request has moved on
+        required: true
+        type: string
+      # Passed on to "Deploy pull request preview" through the run name; see
+      # the inputs of that workflow.
+      requested_by:
+        description: Login of the committer who commented /preview
+        required: false
+        type: string
+        default: ''
+      comment_id:
+        description: Id of the /preview comment
+        required: false
+        type: string
+        default: ''
+      status_comment_id:
+        description: Id of the status comment of the /preview command
+        required: false
+        type: string
+        default: ''
+      replace:
+        description: Pull request whose preview to remove to make space
+        required: false
+        type: string
+        default: ''
+      allow_large:
+        description: Publish a preview larger than the limit if GitHub Pages has space
+        required: false
+        type: boolean
+        default: false
 
 # Collapse superseded runs so rapid pushes do not queue up preview deployments.
 concurrency:
-  group: verify-build-${{ github.event.pull_request.number }}
+  group: verify-build-${{ github.event.pull_request.number || inputs.pr_number }}
   cancel-in-progress: true
 
 # This workflow runs code from the pull request, which may come from a fork.
-# It therefore must never request write permissions or use secrets. Publishing
+# It therefore must never request write permissions or use secrets. This also
+# holds for a manual run: it runs the workflow of main, but builds the pull
+# request's code. Publishing
 # the result is done by a separate, privileged workflow.
 permissions:
   contents: read
@@ -68,9 +123,41 @@ jobs:
     outputs:
       website: ${{ steps.check.outputs.website }}
     steps:
+      # A manual run gets its input from a comment command; only use it if it
+      # is a plain pull request number and a full commit SHA.
+      - name: Check inputs
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
+          HEAD_SHA: ${{ inputs.head_sha }}
+        run: |
+          set -euo pipefail
+          if ! [[ "${PR_NUMBER}" =~ ^[1-9][0-9]{0,9}$ ]] || ! [[ "${HEAD_SHA}" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::Expected a pull request number and a full commit SHA, got '${PR_NUMBER}' and '${HEAD_SHA}'."
+            exit 1
+          fi
+
+      # For a pull request event the default checkout is the merge commit of the
+      # pull request into its base branch. A manual run checks out the same
+      # merge commit explicitly.
       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && format('refs/pull/{0}/merge', inputs.pr_number) || '' }}
           fetch-depth: 2
+          persist-credentials: false
+
+      # GitHub updates refs/pull/<number>/merge a moment after a push. Building an
+      # outdated merge commit would publish the wrong preview.
+      - name: Check that the merge commit is current
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          HEAD_SHA: ${{ inputs.head_sha }}
+        run: |
+          set -euo pipefail
+          if [ "$(git rev-parse HEAD^2)" != "${HEAD_SHA}" ]; then
+            echo "::error::The merge commit of the pull request is not built from ${HEAD_SHA}. The pull request has new commits or conflicts with its base branch; comment /preview again."
+            exit 1
+          fi
 
       - name: Check changed files
         id: check
@@ -93,10 +180,12 @@ jobs:
           fi
           echo "website=${website}" >> "$GITHUB_OUTPUT"
 
+  # Only for pull requests to main, where it is a required check. A manual run
+  # (stacked pull request) only needs the preview.
   build:
     name: Build static website
     needs: changes
-    if: needs.changes.outputs.website == 'true'
+    if: github.event_name == 'pull_request' && needs.changes.outputs.website == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
@@ -117,18 +206,34 @@ jobs:
     needs: changes
     if: needs.changes.outputs.website == 'true'
     runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha || inputs.head_sha }}
     steps:
-      # For a pull request the checkout is the merge commit of the pull request
-      # into its base branch. Its first parent is the base branch, so the second commit is enough to
-      # find out what the pull request changes.
+      # The checkout is the merge commit of the pull request into its base
+      # branch. Its first parent is the base branch, so the second commit is
+      # enough to find out what the pull request changes.
       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && format('refs/pull/{0}/merge', inputs.pr_number) || '' }}
           fetch-depth: 2
+          persist-credentials: false
 
+      - name: Check that the merge commit is current
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          set -euo pipefail
+          if [ "$(git rev-parse HEAD^2)" != "${HEAD_SHA}" ]; then
+            echo "::error::The merge commit of the pull request is not built from ${HEAD_SHA}. Comment /preview again."
+            exit 1
+          fi
+
+      # A manual run belongs to main, so its cache would be shared with main.
+      # It builds code from a pull request and therefore uses no cache.
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 20
-          cache: npm
+          cache: ${{ github.event_name == 'pull_request' && 'npm' || '' }}
 
       - name: Install dependencies
         run: npm ci
@@ -159,10 +264,10 @@ jobs:
       - name: Build website
         run: npm run build
         env:
-          BASE_URL: /pr/${{ github.event.pull_request.number }}/
+          BASE_URL: /pr/${{ env.PR_NUMBER }}/
           DOCS_KITS_VERSIONS: ${{ steps.kit-versions.outputs.versions }}
           # Shown in the announcement bar of the preview.
-          PREVIEW_COMMIT: ${{ github.event.pull_request.head.sha }}
+          PREVIEW_COMMIT: ${{ env.HEAD_SHA }}
 
       # The preview only keeps the pages the pull request changes. Every other
       # path of the preview falls back to the live website through the 404.html
@@ -193,7 +298,7 @@ jobs:
       # it receives and has no reliable way to map a fork branch back to its
       # pull request. It needs the number before downloading the build.
       - name: Write pull request number
-        run: echo "${{ github.event.pull_request.number }}" > ./pr-number
+        run: echo "${PR_NUMBER}" > ./pr-number
 
       - name: Upload pull request number
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

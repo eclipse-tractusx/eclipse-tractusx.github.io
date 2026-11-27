@@ -8,7 +8,7 @@ when it runs and how the workflows depend on each other.
 | Workflow (file) | Trigger | Purpose | Writes to `gh-pages` |
 |---|---|---|---|
 | [Build and deploy gh-pages](build-and-deploy-gh-pages.yaml) | push to `main` | Builds and publishes the production site | yes (root) |
-| [Build pull request preview](verify-build.yaml) | pull request to any branch | Checks that the complete site builds, produces a preview with only the changed pages | no |
+| [Build pull request preview](verify-build.yaml) | pull request to `main`; `/preview` on a pull request to another branch | Checks that the complete site builds (pull requests to `main` only), produces a preview with only the changed pages | no |
 | [Deploy pull request preview](deploy-pr-preview.yaml) | "Build pull request preview" completed, manual | Publishes the preview of a pull request | yes (`pr/<number>/`) |
 | [Remove pull request preview](cleanup-pr-preview.yaml) | pull request closed or merged, daily, manual | Deletes the preview of a pull request, or of all closed pull requests | yes (`pr/`) |
 | [Markdown linting for documentation](lint-on-pull-request.yaml) | pull request to `main` | Runs markdownlint on `docs/` and `docs-kits/kits/` | no |
@@ -61,9 +61,9 @@ that writes runs from `main` and only handles the build's output.
 
 | Piece | Runs when | Trusts PR code? | Does |
 |---|---|---|---|
-| `verify-build.yaml` (Build pull request preview) | push to a pull request that changes the website | runs it, without write access | builds the pruned preview, uploads the artifacts `pr-preview` and `pr-number` (kept 90 days) |
+| `verify-build.yaml` (Build pull request preview) | push to a pull request to `main` that changes the website, or started by `/preview` for a pull request to another branch | runs it, without write access, and without the npm cache when started by `/preview` | builds the pruned preview, uploads the artifacts `pr-preview` and `pr-number` (kept 90 days) |
 | `deploy-pr-preview.yaml` | build succeeded, or started by `/preview` | no | downloads the artifact and publishes it to `gh-pages` under `pr/<number>/`, updates the comments |
-| `pr-preview-command.yaml` | a committer's comment starting with `/preview` | no | starts the deploy with `pr_number` and `replace`, or with `/preview rebuild` re-runs an expired build; `/preview large` publishes an oversized preview; reacts 🚀 or 😕 |
+| `pr-preview-command.yaml` | a committer's comment starting with `/preview` | no | starts the deploy with `pr_number` and `replace`, or the build when the current commit has none (pull requests to another branch than `main`), or with `/preview rebuild` re-runs an expired build; `/preview large` publishes an oversized preview; reacts 🚀 or 😕 |
 | `cleanup-pr-preview.yaml` | pull request closed, daily, by hand | no | removes previews of closed pull requests and deletes their builds |
 | `update-gh-pages.sh` | called by the workflows above | no | applies one change to `gh-pages`, checks the space, retries if another workflow pushed first |
 
@@ -96,7 +96,12 @@ the repository (`README.md`, `CHANGELOG.md`, ...), `LICENSE`, `LICENSE_non-code`
 
 Committers can publish a preview from a comment on the pull request:
 
-- `/preview` publishes the preview of the pull request's latest successful build.
+- `/preview` publishes the preview of the pull request's latest successful build. Pull requests to another branch than
+  `main` (stacked pull requests) are not built on push, to save Actions minutes. For them, `/preview` builds the current
+  commit first and the build publishes the preview when it has finished. The result is reported like for any other
+  `/preview`, including the table of previews to replace when GitHub Pages has no space left. The build of a stacked
+  pull request is the merge into its base branch, so the preview shows the stack up to that pull request. It only runs
+  the preview build, not the complete build that is a required check for `main`.
 - `/preview replace <number>` removes the preview of pull request `<number>` and publishes this one in its place, in one
   commit.
 
@@ -131,7 +136,8 @@ expired, the bot replies that it has expired and points to `/preview rebuild`. I
 bot reacts with 👀 and the build publishes the preview when it is done; a pull request that does not change the website
 gets 😕.
 
-The command workflow runs no pull request code and starts nothing but "Deploy pull request preview". Only committers,
+The command workflow runs no pull request code and starts nothing but "Deploy pull request preview" and, for pull
+requests to another branch than `main`, "Build pull request preview" (which has no write access and no secrets). Only committers,
 meaning people with write access to the repository, can use it. A first filter decides before a runner starts: comments
 from people who never contributed do not start a runner and get no answer, so the command cannot be used to flood a
 pull request with bot comments or to use up Actions minutes. `CONTRIBUTOR` passes this filter, because GitHub reports
@@ -156,6 +162,7 @@ command. It quotes the command and says what happens, how long it usually takes 
 | 👀 On it | the command was picked up, the bot looks for the build |
 | 🚀 Publishing | the deployment has started; it usually takes 2 to 5 minutes: a runner downloads the build, the preview is copied to `gh-pages` (waiting if another deployment writes there at the same moment) and GitHub Pages puts it online |
 | ⏳ Build still running | the preview is made from the build of the latest commit, which had not finished; it publishes the preview on its own, usually 3 to 5 minutes after the push |
+| 🔨 Building | there was no build of the current commit (pull request to another branch than `main`), so the build was started; it publishes the preview when it has finished, 5 to 10 minutes in total |
 | 🔁 Building again | `/preview rebuild` started the build again; expect 5 to 10 minutes until the preview is online |
 | 😕 or ⌛ | nothing to publish, and why: not a valid command, closed pull request, no website changes, expired build |
 
