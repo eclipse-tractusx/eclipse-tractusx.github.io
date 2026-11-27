@@ -136,11 +136,13 @@ jobs:
 
       # .nojekyll is a hidden file of the build output.
       - name: Upload preview build
+        # Kept for 90 days: a preview that was replaced on GitHub Pages is
+        # published again from this artifact with /preview, without a rebuild.
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: pr-preview
           path: ./build
-          retention-days: 7
+          retention-days: 90
           include-hidden-files: true
 
       # The pull request number is uploaded as a separate, tiny artifact
@@ -155,4 +157,4 @@ jobs:
         with:
           name: pr-number
           path: ./pr-number
-          retention-days: 7
+          retention-days: 90

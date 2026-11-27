@@ -33,7 +33,8 @@ on:
       - completed
   # Publishes the latest successful build of a pull request again, for example
   # after its preview was removed to make space. The build's artifacts are kept
-  # for 7 days; after that, re-run the build or push a new commit.
+  # for 90 days; after that, re-run the build or push a new commit. The
+  # /preview comment command starts this run.
   workflow_dispatch:
     inputs:
       pr_number:
@@ -308,6 +309,7 @@ jobs:
 
             for (const number of preview.numbers(env.REPLACED)) {
               await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'replaced', replacedBy: prNumber });
+              await preview.notifyReplaced({ github, context, prNumber: number, replacedBy: prNumber });
             }
             for (const number of preview.numbers(env.EVICTED)) {
               await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'evicted' });
