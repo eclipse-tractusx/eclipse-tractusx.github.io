@@ -1,0 +1,8 @@
+version = 1
+
+# Eclipse Tractus-X header backgrounds (Tractus-X Backgrounds set, FullHD export).
+[[annotations]]
+path = ["tx-bg-*.jpg"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Contributors to the Eclipse Foundation"
+SPDX-License-Identifier = "CC-BY-4.0"
