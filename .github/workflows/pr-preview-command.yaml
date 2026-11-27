@@ -86,9 +86,32 @@ jobs:
             };
             // Feedback: 👀 as soon as the command is picked up, then 🚀 once the
             // deployment or rebuild has started, or 😕 for a command that is not
-            // valid. When the deployment has finished, "Deploy pull request preview"
-            // adds 🎉 if the preview is published, or 👎 and a reply that mentions
-            // the requester if it is not. The only other replies explain an expired build.
+            // valid. Next to the reactions, one status comment answers the command
+            // at once and says what happens and how long it takes. When the
+            // deployment has finished, "Deploy pull request preview" replaces that
+            // comment with the result, mentioning the requester, and adds 🎉 or 👎.
+            // Only committers get a status comment, so it cannot be used to flood
+            // the pull request.
+            let statusId = null;
+            const setStatus = async (icon, text) => {
+              const body = [
+                `<!-- pr-preview-status:${comment.id} -->`,
+                `> ${line.replace(/[\r\n]/g, ' ').slice(0, 100)}`,
+                '',
+                `${icon} ${text}`,
+                '',
+                `<sub>Answer to [this comment](${comment.html_url}) from \`${comment.user.login}\`.</sub>`,
+              ].join('\n');
+              try {
+                if (statusId) {
+                  await github.rest.issues.updateComment({ owner, repo, comment_id: statusId, body });
+                } else {
+                  ({ data: { id: statusId } } = await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body }));
+                }
+              } catch (error) {
+                core.warning(`Could not write the status comment: ${error.message}`);
+              }
+            };
 
             // Only people with write access to the repository (committers). The
             // comment's author_association is not enough: org members with a
@@ -107,9 +130,11 @@ jobs:
             await react('eyes');
 
             const line = comment.body.trim().split('\n')[0].trim();
+            await setStatus('👀', 'On it: looking for the build of this pull request. This takes a few seconds.');
             const match = line.match(/^\/preview(?:\s+replace\s+#?([1-9][0-9]{0,9})|\s+(rebuild)|\s+(large))?$/);
             if (!match) {
               await react('confused');
+              await setStatus('😕', 'This is not a command I know. Use `/preview`, `/preview large`, `/preview replace <number>` or `/preview rebuild`.');
               return;
             }
             const replace = match[1] || '';
@@ -117,10 +142,12 @@ jobs:
             const large = Boolean(match[3]);
             if (replace === String(prNumber)) {
               await react('confused');
+              await setStatus('😕', '`/preview replace` needs the number of another pull request, not of this one.');
               return;
             }
             if (issue.state !== 'open') {
               await react('confused');
+              await setStatus('😕', 'This pull request is closed, so it gets no preview.');
               return;
             }
 
@@ -138,12 +165,14 @@ jobs:
             if (!run) {
               // No finished build yet: it publishes the preview when it is done. The
               // 👀 reaction stays.
+              await setStatus('⏳', `When I checked, the build of the latest commit (\`${pr.head.sha.slice(0, 7)}\`) was still running, and the preview is made from that build. A build usually takes 3 to 5 minutes; when it has finished, it publishes the preview on its own and the preview comment shows it, so there is no need to comment again.`);
               return;
             }
             const { data: jobs } = await github.rest.actions.listJobsForWorkflowRun({ owner, repo, run_id: run.id, per_page: 100 });
             if (!jobs.jobs.some((job) => job.name === 'Build preview' && job.conclusion === 'success')) {
               // The pull request does not change the website, so it has no preview.
               await react('confused');
+              await setStatus('😕', 'This pull request does not change the website, so it has no preview.');
               return;
             }
             const { data: artifacts } = await github.rest.actions.listWorkflowRunArtifacts({ owner, repo, run_id: run.id, per_page: 100 });
@@ -153,18 +182,17 @@ jobs:
               if (!expired) {
                 // The build is still there: publish it, no need to build again.
                 await react('confused');
-                await github.rest.issues.createComment({ owner, repo, issue_number: prNumber,
-                  body: `@${comment.user.login} the build of this pull request is still available, so there is nothing to rebuild. Comment \`/preview\` to publish it.` });
+                await setStatus('😕', 'The build of this pull request is still available, so there is nothing to rebuild. Comment `/preview` to publish it.');
                 return;
               }
               await github.rest.actions.reRunWorkflow({ owner, repo, run_id: run.id });
               await react('rocket');
+              await setStatus('🔁', `Building this pull request again ([build](${run.html_url})), because its saved build has expired. The build usually takes 3 to 5 minutes and then publishes the preview on its own; with publishing, expect 5 to 10 minutes in total.`);
               return;
             }
             if (expired) {
               await react('confused');
-              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber,
-                body: `@${comment.user.login} the build of this pull request has expired (builds are kept for 90 days), so there is no preview to publish. Comment \`/preview rebuild\` to build it again; the preview is published when the build has finished.` });
+              await setStatus('⌛', 'The build of this pull request has expired (builds are kept for 90 days), so there is no preview to publish. Comment `/preview rebuild` to build it again; the preview is published when the build has finished.');
               return;
             }
 
@@ -179,6 +207,17 @@ jobs:
                 allow_large: large ? 'true' : 'false',
                 requested_by: comment.user.login,
                 comment_id: String(comment.id),
+                status_comment_id: statusId ? String(statusId) : '',
               },
             });
             await react('rocket');
+            const what = replace ? `, replacing the preview of #${replace}` : large ? ' (allowed above the size limit)' : '';
+            await setStatus('🚀', [
+              `Publishing the preview of commit \`${pr.head.sha.slice(0, 7)}\`${what}. This usually takes 2 to 5 minutes, because three things happen one after another:`,
+              '',
+              '1. A runner starts and downloads the saved build of this pull request.',
+              '2. The preview is copied to the `gh-pages` branch. If another deployment is writing there at the same moment, this one waits for it and tries again.',
+              '3. GitHub Pages puts the new state of `gh-pages` online, which takes another minute or two.',
+              '',
+              `This comment is replaced by the result, which mentions you. [Deployment runs](${context.serverUrl}/${owner}/${repo}/actions/workflows/deploy-pr-preview.yaml)`,
+            ].join('\n'));

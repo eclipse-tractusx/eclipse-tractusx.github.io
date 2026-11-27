@@ -146,10 +146,23 @@ A committer always sees what happened to their command:
 | 🚀 | the deployment, or with `/preview rebuild` the build, has started |
 | 😕 | the command is not valid, or the pull request has no preview (closed, no website changes) |
 | 🎉 | the preview is published |
-| 👎 and a reply that mentions you | the preview was not published; the reply says why (too large, no space, outdated build, failed run) |
+| 👎 | the preview was not published |
 
-The reply is a new comment, because GitHub does not notify about the edited preview comment. Only committers can
-cause replies. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
+Next to the reactions, the bot answers every command of a committer with one status comment, a few seconds after the
+command. It quotes the command and says what happens, how long it usually takes and why:
+
+| Status | Meaning |
+|---|---|
+| 👀 On it | the command was picked up, the bot looks for the build |
+| 🚀 Publishing | the deployment has started; it usually takes 2 to 5 minutes: a runner downloads the build, the preview is copied to `gh-pages` (waiting if another deployment writes there at the same moment) and GitHub Pages puts it online |
+| ⏳ Build still running | the preview is made from the build of the latest commit, which had not finished; it publishes the preview on its own, usually 3 to 5 minutes after the push |
+| 🔁 Building again | `/preview rebuild` started the build again; expect 5 to 10 minutes until the preview is online |
+| 😕 or ⌛ | nothing to publish, and why: not a valid command, closed pull request, no website changes, expired build |
+
+When a deployment that the command started has finished, the status comment is replaced by the result: 🎉 with the
+link, or 👎 with the reason (too large, no space, outdated build, failed run). The result is a new comment that mentions
+the committer, because GitHub notifies about new comments but not about edited ones. Only committers cause status
+comments, so they cannot be used to flood a pull request. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
 the first workflow run of a new contributor).
 
 #### When there is no space
