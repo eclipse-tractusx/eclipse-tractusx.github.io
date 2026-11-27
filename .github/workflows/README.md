@@ -63,7 +63,7 @@ that writes runs from `main` and only handles the build's output.
 |---|---|---|---|
 | `verify-build.yaml` (Build pull request preview) | push to a pull request that changes the website | runs it, without write access | builds the pruned preview, uploads the artifacts `pr-preview` and `pr-number` (kept 90 days) |
 | `deploy-pr-preview.yaml` | build succeeded, or started by `/preview` | no | downloads the artifact and publishes it to `gh-pages` under `pr/<number>/`, updates the comments |
-| `pr-preview-command.yaml` | a comment starting with `/preview` | no | checks the commenter is a committer, starts the deploy with `pr_number` and `replace` |
+| `pr-preview-command.yaml` | a committer's comment starting with `/preview` | no | starts the deploy with `pr_number` and `replace`, reacts 🚀 or 😕 |
 | `cleanup-pr-preview.yaml` | pull request closed, daily, by hand | no | removes previews of closed pull requests and deletes their builds |
 | `update-gh-pages.sh` | called by the workflows above | no | applies one change to `gh-pages`, checks the space, retries if another workflow pushed first |
 
@@ -72,7 +72,7 @@ flowchart LR
     push["Push to a pull request"] --> build["Build pull request preview<br/>(no write access)"]
     build --> art[("Artifacts<br/>pr-preview + pr-number<br/>kept 90 days")]
     build -- succeeded --> deploy["Deploy pull request preview"]
-    cmd["Comment /preview<br/>or /preview replace N"] --> command["Pull request preview command<br/>(committers only)"]
+    cmd["Comment /preview<br/>or /preview replace N"] --> command["Pull request preview command<br/>(committers only, no runner otherwise)"]
     command -- workflow_dispatch --> deploy
     art --> deploy
     deploy --> script["update-gh-pages.sh"]
@@ -121,9 +121,11 @@ sequenceDiagram
     Dep->>Old: comment edited, and a new comment mentions the author
 ```
 
-The command workflow runs no pull request code and starts nothing but "Deploy pull request preview". A comment from
-someone who is not a committer (`OWNER`, `MEMBER` or `COLLABORATOR`) gets a 👎 and a reply; a mistyped command gets
-the usage. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
+The command workflow runs no pull request code and starts nothing but "Deploy pull request preview". It only starts
+for comments of committers (`OWNER`, `MEMBER` or `COLLABORATOR`); comments from anyone else do not start a runner and
+get no answer, so the command cannot be used to flood a pull request with bot comments or to use up Actions minutes. The
+bot never answers with a comment: it reacts with 🚀 when the deployment has started and with 😕 to a command that is
+not valid. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
 the first workflow run of a new contributor).
 
 #### When there is no space

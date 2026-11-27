@@ -43,7 +43,14 @@ permissions:
 jobs:
   command:
     name: Handle /preview
-    if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/preview')
+    # Only committers, checked before a runner starts: comments from anyone else
+    # cost nothing and get no answer, so the command cannot be used to flood the
+    # pull request with bot comments or to use up Actions minutes. Replacing also
+    # removes the preview of someone else's pull request.
+    if: >-
+      github.event.issue.pull_request &&
+      startsWith(github.event.comment.body, '/preview') &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
     permissions:
       actions: write
@@ -58,12 +65,11 @@ jobs:
             const { comment, issue, repository } = context.payload;
             const prNumber = issue.number;
             const react = (content) => github.rest.reactions.createForIssueComment({ owner, repo, comment_id: comment.id, content });
-            const reply = (body) => github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+            // Feedback is a reaction only, never a comment: 😕 for a command that is
+            // not valid, 🚀 once the deployment has started.
 
-            // Only committers: replacing removes the preview of someone else's pull request.
+            // Checked again here, in case the job condition is ever changed.
             if (!['OWNER', 'MEMBER', 'COLLABORATOR'].includes(comment.author_association)) {
-              await react('-1');
-              await reply(`@${comment.user.login} only committers can use \`/preview\`. Ask one of them to publish the preview.`);
               return;
             }
 
@@ -71,18 +77,15 @@ jobs:
             const match = line.match(/^\/preview(?:\s+replace\s+#?([1-9][0-9]{0,9}))?$/);
             if (!match) {
               await react('confused');
-              await reply('Usage: `/preview` publishes the preview of this pull request; `/preview replace <number>` removes the preview of pull request `<number>` and publishes this one in its place.');
               return;
             }
             const replace = match[1] || '';
             if (replace === String(prNumber)) {
               await react('confused');
-              await reply('A pull request cannot replace its own preview; name the pull request whose preview should make space.');
               return;
             }
             if (issue.state !== 'open') {
               await react('confused');
-              await reply('This pull request is closed, so it gets no preview.');
               return;
             }
 
