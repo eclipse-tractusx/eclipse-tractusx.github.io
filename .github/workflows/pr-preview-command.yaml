@@ -27,6 +27,8 @@ name: Pull request preview command
 #                             publish this one in its place
 #   /preview rebuild          build again when the saved build has expired
 #                             (after 90 days); the build publishes the preview
+#   /preview large            publish a preview that is larger than the limit
+#                             for a single preview, if GitHub Pages has space
 #
 # When GitHub Pages has no space left, the preview comment lists the current
 # previews with their sizes and the replace command for each.
@@ -45,14 +47,20 @@ permissions:
 jobs:
   command:
     name: Handle /preview
-    # Only committers, checked before a runner starts: comments from anyone else
-    # cost nothing and get no answer, so the command cannot be used to flood the
-    # pull request with bot comments or to use up Actions minutes. Replacing also
-    # removes the preview of someone else's pull request.
+    # Only committers. A first filter runs before a runner starts: comments from
+    # people who never contributed cost nothing and get no answer, so the command
+    # cannot be used to flood the pull request with bot comments or to use up
+    # Actions minutes. Replacing also removes the preview of someone else's pull
+    # request.
+    #
+    # CONTRIBUTOR is let through because GitHub reports org members whose
+    # membership is private (most Eclipse committers) as CONTRIBUTOR, not MEMBER.
+    # The script then checks the real permission on the repository and ignores
+    # everyone without write access.
     if: >-
       github.event.issue.pull_request &&
       startsWith(github.event.comment.body, '/preview') &&
-      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR", "CONTRIBUTOR"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
     permissions:
       actions: write
@@ -67,23 +75,37 @@ jobs:
             const { comment, issue, repository } = context.payload;
             const prNumber = issue.number;
             const react = (content) => github.rest.reactions.createForIssueComment({ owner, repo, comment_id: comment.id, content });
-            // Feedback is a reaction: 😕 for a command that is not valid, 🚀 once the
-            // deployment or rebuild has started, 👀 while the build is still running.
-            // The only replies explain an expired build.
+            // Feedback: 👀 as soon as the command is picked up, then 🚀 once the
+            // deployment or rebuild has started, or 😕 for a command that is not
+            // valid. When the deployment has finished, "Deploy pull request preview"
+            // adds 🎉 if the preview is published, or 👎 and a reply that mentions
+            // the requester if it is not. The only other replies explain an expired build.
 
-            // Checked again here, in case the job condition is ever changed.
-            if (!['OWNER', 'MEMBER', 'COLLABORATOR'].includes(comment.author_association)) {
+            // Only people with write access to the repository (committers). The
+            // comment's author_association is not enough: org members with a
+            // private membership show up as CONTRIBUTOR, like outside contributors.
+            let permission = 'none';
+            try {
+              const { data } = await github.rest.repos.getCollaboratorPermissionLevel({ owner, repo, username: comment.user.login });
+              permission = data.permission;
+            } catch (error) {
+              core.info(`Could not read the permission of ${comment.user.login}: ${error.message}`);
+            }
+            if (!['admin', 'maintain', 'write'].includes(permission)) {
+              core.info(`${comment.user.login} has ${permission} access, not write access. The command is ignored.`);
               return;
             }
+            await react('eyes');
 
             const line = comment.body.trim().split('\n')[0].trim();
-            const match = line.match(/^\/preview(?:\s+replace\s+#?([1-9][0-9]{0,9})|\s+(rebuild))?$/);
+            const match = line.match(/^\/preview(?:\s+replace\s+#?([1-9][0-9]{0,9})|\s+(rebuild)|\s+(large))?$/);
             if (!match) {
               await react('confused');
               return;
             }
             const replace = match[1] || '';
             const rebuild = Boolean(match[2]);
+            const large = Boolean(match[3]);
             if (replace === String(prNumber)) {
               await react('confused');
               return;
@@ -105,8 +127,8 @@ jobs:
             });
             const run = runs.workflow_runs[0];
             if (!run) {
-              // No finished build yet: it publishes the preview when it is done.
-              await react('eyes');
+              // No finished build yet: it publishes the preview when it is done. The
+              // 👀 reaction stays.
               return;
             }
             const { data: jobs } = await github.rest.actions.listJobsForWorkflowRun({ owner, repo, run_id: run.id, per_page: 100 });
@@ -142,6 +164,12 @@ jobs:
               repo,
               workflow_id: 'deploy-pr-preview.yaml',
               ref: repository.default_branch,
-              inputs: { pr_number: String(prNumber), replace },
+              inputs: {
+                pr_number: String(prNumber),
+                replace,
+                allow_large: large ? 'true' : 'false',
+                requested_by: comment.user.login,
+                comment_id: String(comment.id),
+              },
             });
             await react('rocket');

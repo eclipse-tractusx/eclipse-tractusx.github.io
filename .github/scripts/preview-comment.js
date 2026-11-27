@@ -119,6 +119,12 @@ function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile
         ? `The preview of this commit has ${previewMb} MB, more than the ${maxPreviewMb} MB a single preview may use, so it is not published. This happens when a change affects every page, for example a change to a component, a style or the configuration.`
         : `The preview of this commit has ${previewMb} MB and does not fit into the space that GitHub Pages has left${/^\d+$/.test(String(neededMb ?? '')) ? ` (it needs ${neededMb} MB more)` : ''}, so it is not published.`;
     lines.push(why, '');
+    if (state === 'too-large') {
+      lines.push(
+        '📦 **Publish it anyway:** a committer can comment `/preview large` to publish this preview despite its size, as long as GitHub Pages has space left for it. Replacing other previews does not help here, the limit is per preview.',
+        '',
+      );
+    }
     const others = parsePreviews(previews).filter((other) => other.number !== prNumber);
     if (state === 'no-space' && others.length > 0) {
       lines.push(
@@ -194,6 +200,25 @@ async function notifyReplaced({ github, context, prNumber, replacedBy }) {
   });
 }
 
+// Tells the author of a pull request that its preview was removed because the
+// website itself needed the space. The preview comment is edited for that too,
+// but GitHub does not notify about edits.
+async function notifyEvicted({ github, context, prNumber }) {
+  const { owner, repo } = context.repo;
+  const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
+  if (pr.state !== 'open') {
+    return;
+  }
+  const login = /^[A-Za-z0-9-]{1,39}(\[bot\])?$/.test(pr.user?.login || '') ? pr.user.login : null;
+  const who = login ? `@${login} ` : '';
+  await github.rest.issues.createComment({
+    owner,
+    repo,
+    issue_number: prNumber,
+    body: `${who}the preview of this pull request was removed, because GitHub Pages was full and the live website needed the space to be published. Its build is kept for 90 days, so commenting \`/preview\` here publishes it again without a rebuild once there is space (committers only).`,
+  });
+}
+
 // Parses a space separated list of pull request numbers from a workflow output.
 function numbers(list) {
   return String(list || '')
@@ -202,4 +227,4 @@ function numbers(list) {
     .map(Number);
 }
 
-module.exports = { MARKER, render, update, numbers, readChangedPages, parsePreviews, notifyReplaced };
+module.exports = { MARKER, render, update, numbers, readChangedPages, parsePreviews, notifyReplaced, notifyEvicted };
