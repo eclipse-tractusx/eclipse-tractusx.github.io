@@ -54,8 +54,47 @@ permissions:
 # There are cases, where for example broken links will break the build, but
 # checking it on the local development server (npm start) will work smoothly.
 jobs:
+  # Decides whether the pull request can change the website at all. A pull
+  # request that only touches files the build never reads (workflows, GitHub
+  # settings, the repository's own README, license and notice files, ...)
+  # skips both builds and gets no preview. Skipped jobs count as passed, so the
+  # required check "Build static website" does not block such a pull request.
+  # Changes to this workflow itself always build, so it can be tested.
+  changes:
+    name: Check for website changes
+    runs-on: ubuntu-latest
+    outputs:
+      website: ${{ steps.check.outputs.website }}
+    steps:
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          fetch-depth: 2
+
+      - name: Check changed files
+        id: check
+        run: |
+          set -euo pipefail
+          website=false
+          while IFS= read -r file; do
+            case "${file}" in
+              .github/workflows/verify-build.yaml) ;;
+              .github/*|.tractusx|.editorconfig|.gitattributes|.gitignore|.markdownlint.yaml) continue ;;
+              LICENSE|LICENSE_non-code|DEPENDENCIES|CODEOWNERS) continue ;;
+              */*) ;;
+              *.md) continue ;;
+            esac
+            echo "Changes the website: ${file}"
+            website=true
+          done < <(git diff --name-only HEAD^1 HEAD)
+          if [ "${website}" = false ]; then
+            echo "::notice title=No website changes::The pull request only changes files the website build does not use. The build and the preview are skipped."
+          fi
+          echo "website=${website}" >> "$GITHUB_OUTPUT"
+
   build:
     name: Build static website
+    needs: changes
+    if: needs.changes.outputs.website == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
@@ -73,6 +112,8 @@ jobs:
 
   preview:
     name: Build preview
+    needs: changes
+    if: needs.changes.outputs.website == 'true'
     runs-on: ubuntu-latest
     steps:
       # For a pull request the checkout is the merge commit of the pull request
@@ -136,11 +177,13 @@ jobs:
 
       # .nojekyll is a hidden file of the build output.
       - name: Upload preview build
+        # Kept for 90 days: a preview that was replaced on GitHub Pages is
+        # published again from this artifact with /preview, without a rebuild.
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: pr-preview
           path: ./build
-          retention-days: 7
+          retention-days: 90
           include-hidden-files: true
 
       # The pull request number is uploaded as a separate, tiny artifact
@@ -155,4 +198,4 @@ jobs:
         with:
           name: pr-number
           path: ./pr-number
-          retention-days: 7
+          retention-days: 90

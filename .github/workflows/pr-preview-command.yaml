@@ -1,0 +1,147 @@
+#********************************************************************************
+# Copyright (c) 2022 Mercedes-Benz Tech Innovation GmbH
+# Copyright (c) 2022 Contributors to the Eclipse Foundation
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+#*******************************************************************************/
+
+name: Pull request preview command
+
+# Lets a committer request a preview from a comment on the pull request:
+#
+#   /preview                  publish the preview of this pull request
+#   /preview replace <number> remove the preview of pull request <number> and
+#                             publish this one in its place
+#   /preview rebuild          build again when the saved build has expired
+#                             (after 90 days); the build publishes the preview
+#
+# When GitHub Pages has no space left, the preview comment lists the current
+# previews with their sizes and the replace command for each.
+#
+# Runs in the context of the base repository. It never checks out or runs code
+# from the pull request; it only starts "Deploy pull request preview", which
+# publishes the artifact of the unprivileged build.
+on:
+  issue_comment:
+    types:
+      - created
+
+permissions:
+  contents: read
+
+jobs:
+  command:
+    name: Handle /preview
+    # Only committers, checked before a runner starts: comments from anyone else
+    # cost nothing and get no answer, so the command cannot be used to flood the
+    # pull request with bot comments or to use up Actions minutes. Replacing also
+    # removes the preview of someone else's pull request.
+    if: >-
+      github.event.issue.pull_request &&
+      startsWith(github.event.comment.body, '/preview') &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      issues: write
+      pull-requests: read
+    steps:
+      - name: Start the preview deployment
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const { comment, issue, repository } = context.payload;
+            const prNumber = issue.number;
+            const react = (content) => github.rest.reactions.createForIssueComment({ owner, repo, comment_id: comment.id, content });
+            // Feedback is a reaction: 😕 for a command that is not valid, 🚀 once the
+            // deployment or rebuild has started, 👀 while the build is still running.
+            // The only replies explain an expired build.
+
+            // Checked again here, in case the job condition is ever changed.
+            if (!['OWNER', 'MEMBER', 'COLLABORATOR'].includes(comment.author_association)) {
+              return;
+            }
+
+            const line = comment.body.trim().split('\n')[0].trim();
+            const match = line.match(/^\/preview(?:\s+replace\s+#?([1-9][0-9]{0,9})|\s+(rebuild))?$/);
+            if (!match) {
+              await react('confused');
+              return;
+            }
+            const replace = match[1] || '';
+            const rebuild = Boolean(match[2]);
+            if (replace === String(prNumber)) {
+              await react('confused');
+              return;
+            }
+            if (issue.state !== 'open') {
+              await react('confused');
+              return;
+            }
+
+            // The preview is published from the latest successful build of the pull
+            // request's current commit. Its artifacts are kept for 90 days. A build
+            // is never run again on its own, to save Actions minutes: when the
+            // artifacts have expired, the bot says so, and /preview rebuild runs the
+            // build again, which publishes the preview when it finishes. Only
+            // committers get here, so this reply cannot be used to flood the pull request.
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
+            const { data: runs } = await github.rest.actions.listWorkflowRuns({
+              owner, repo, workflow_id: 'verify-build.yaml', event: 'pull_request', head_sha: pr.head.sha, status: 'success', per_page: 1,
+            });
+            const run = runs.workflow_runs[0];
+            if (!run) {
+              // No finished build yet: it publishes the preview when it is done.
+              await react('eyes');
+              return;
+            }
+            const { data: jobs } = await github.rest.actions.listJobsForWorkflowRun({ owner, repo, run_id: run.id, per_page: 100 });
+            if (!jobs.jobs.some((job) => job.name === 'Build preview' && job.conclusion === 'success')) {
+              // The pull request does not change the website, so it has no preview.
+              await react('confused');
+              return;
+            }
+            const { data: artifacts } = await github.rest.actions.listWorkflowRunArtifacts({ owner, repo, run_id: run.id, per_page: 100 });
+            const available = new Set(artifacts.artifacts.filter((artifact) => !artifact.expired).map((artifact) => artifact.name));
+            const expired = !available.has('pr-preview') || !available.has('pr-number');
+            if (rebuild) {
+              if (!expired) {
+                // The build is still there: publish it, no need to build again.
+                await react('confused');
+                await github.rest.issues.createComment({ owner, repo, issue_number: prNumber,
+                  body: `@${comment.user.login} the build of this pull request is still available, so there is nothing to rebuild. Comment \`/preview\` to publish it.` });
+                return;
+              }
+              await github.rest.actions.reRunWorkflow({ owner, repo, run_id: run.id });
+              await react('rocket');
+              return;
+            }
+            if (expired) {
+              await react('confused');
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber,
+                body: `@${comment.user.login} the build of this pull request has expired (builds are kept for 90 days), so there is no preview to publish. Comment \`/preview rebuild\` to build it again; the preview is published when the build has finished.` });
+              return;
+            }
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner,
+              repo,
+              workflow_id: 'deploy-pr-preview.yaml',
+              ref: repository.default_branch,
+              inputs: { pr_number: String(prNumber), replace },
+            });
+            await react('rocket');

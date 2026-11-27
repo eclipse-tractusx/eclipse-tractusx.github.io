@@ -57,6 +57,9 @@
 #   removed-previews   previews removed on request (remove mode), space separated
 #   evicted-previews   previews removed to stay within the space limit
 #   no-space           "true" if the preview did not fit and was not published
+#   needed-mb          with no-space: how many MB more the preview needs
+#   replaced-previews  previews removed through REPLACE_PREVIEWS
+#   previews           the other previews as "<pr-number>:<MB>", oldest first
 #   site-mb, previews-mb, limit-mb
 #                      space used by the production site and all previews after
 #                      the change, and the limit (empty if there is none)
@@ -67,6 +70,11 @@
 #   GITHUB_REPOSITORY  owner/name of the repository (set by GitHub Actions)
 #   GH_PAGES_REMOTE    overrides the remote URL, for example for local tests
 #   MAX_ATTEMPTS       number of push attempts (default 10)
+#   PREVIEW_EVICT      preview mode: "oldest" (default) removes the oldest previews of
+#                      other pull requests when space runs out; "none" removes none and
+#                      reports no-space instead, so a person can choose what to replace
+#   REPLACE_PREVIEWS   preview mode: previews of these pull requests are removed in the
+#                      same commit before the space is checked (space separated numbers)
 #   GH_PAGES_LIMIT_MB  maximum size of the whole gh-pages site in MB, 0 for no limit
 #                      (default 2500: deployments of up to about 3.3 GB succeeded,
 #                      4.4 GB and more failed)
@@ -109,6 +117,19 @@ esac
 for number in ${pr_number:-} ${remove_numbers[@]+"${remove_numbers[@]}"}; do
   if ! [[ "${number}" =~ ^[1-9][0-9]{0,9}$ ]]; then
     echo "Invalid pull request number: '${number}'" >&2
+    exit 2
+  fi
+done
+
+evict="${PREVIEW_EVICT:-oldest}"
+case "${evict}" in
+  oldest|none) ;;
+  *) echo "Invalid PREVIEW_EVICT: '${evict}'" >&2; exit 2 ;;
+esac
+read -r -a replace_numbers <<< "${REPLACE_PREVIEWS:-}"
+for number in ${replace_numbers[@]+"${replace_numbers[@]}"}; do
+  if ! [[ "${number}" =~ ^[1-9][0-9]{0,9}$ ]]; then
+    echo "Invalid pull request number in REPLACE_PREVIEWS: '${number}'" >&2
     exit 2
   fi
 done
@@ -187,6 +208,17 @@ previews_size_mb() {
   fi
 }
 
+# A preview that is not published must not take the place of the preview it
+# was going to replace: those are restored from the gh-pages commit.
+restore_replaced_previews() {
+  local number
+  for number in ${replaced_previews[@]+"${replaced_previews[@]}"}; do
+    echo "Keeping the preview pr/${number}, because pull request ${pr_number} is not published."
+    git checkout --quiet HEAD -- "pr/${number}"
+  done
+  replaced_previews=()
+}
+
 enforce_space_limit() {
   [ -n "${limit_mb}" ] || return 0
   local site_mb budget_mb previews_mb own_mb deployed_at number
@@ -199,6 +231,21 @@ enforce_space_limit() {
       echo "::warning title=No space for the preview::The preview of pull request ${pr_number} needs ${own_mb} MB, but the production site (${site_mb} MB) leaves only ${budget_mb} MB of ${limit_mb} MB. The preview is not published."
       rm -rf "pr/${pr_number}"
       rmdir pr 2> /dev/null || true
+      restore_replaced_previews
+      no_space=true
+      return 0
+    fi
+  fi
+  # Without eviction, a preview that would need the space of others is not
+  # published; the comment lists the previews so a person can pick one to replace.
+  if [ "${mode}" = "preview" ] && [ "${evict}" = "none" ]; then
+    previews_mb="$(previews_size_mb)"
+    if [ "${previews_mb}" -gt "${budget_mb}" ]; then
+      needed_mb=$(( previews_mb - budget_mb ))
+      echo "::notice title=No space for the preview::The preview of pull request ${pr_number} needs ${needed_mb} MB more than GitHub Pages has left. It is not published; replace another preview with /preview replace <number>."
+      rm -rf "pr/${pr_number}"
+      rmdir pr 2> /dev/null || true
+      restore_replaced_previews
       no_space=true
       return 0
     fi
@@ -228,6 +275,9 @@ write_outputs() {
       echo "removed-previews=${removed_previews[*]}"
       echo "evicted-previews=${evicted_previews[*]}"
       echo "no-space=${no_space}"
+      echo "needed-mb=${needed_mb}"
+      echo "replaced-previews=${replaced_previews[*]}"
+      echo "previews=$(for number in $(list_previews_oldest_first | cut -d' ' -f2); do [ "${number}" = "${pr_number:-}" ] || printf '%s:%s ' "${number}" "$(du -sk "pr/${number}" | awk '{ print int($1 / 1024) }')"; done)"
       echo "site-mb=${site_mb}"
       echo "previews-mb=${previews_mb}"
       echo "limit-mb=${limit_mb}"
@@ -264,6 +314,13 @@ apply_change() {
       mkdir -p "pr/${pr_number}"
       cp -R "${source_dir}/." "pr/${pr_number}/"
       date +%s > "pr/${pr_number}/.deployed-at"
+      for number in ${replace_numbers[@]+"${replace_numbers[@]}"}; do
+        if [ "${number}" != "${pr_number}" ] && [ -d "pr/${number}" ]; then
+          echo "Replacing the preview pr/${number}."
+          rm -rf "pr/${number}"
+          replaced_previews+=("${number}")
+        fi
+      done
       enforce_space_limit
       ;;
     remove)
@@ -282,12 +339,17 @@ max_attempts="${MAX_ATTEMPTS:-10}"
 for attempt in $(seq 1 "${max_attempts}"); do
   removed_previews=()
   evicted_previews=()
+  replaced_previews=()
   no_space=false
+  needed_mb=""
   load_latest_gh_pages
   apply_change
   commit_message="${message}"
   if [ "${no_space}" = true ]; then
     commit_message="Remove preview of pull request ${pr_number}, it does not fit into ${limit_mb} MB"
+  fi
+  if [ "${#replaced_previews[@]}" -gt 0 ]; then
+    commit_message+=$'\n\n'"Replace previews: ${replaced_previews[*]}"
   fi
   if [ "${#evicted_previews[@]}" -gt 0 ]; then
     commit_message+=$'\n\n'"Remove previews to stay within ${limit_mb} MB: ${evicted_previews[*]}"

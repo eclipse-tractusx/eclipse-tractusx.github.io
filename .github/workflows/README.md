@@ -54,6 +54,134 @@ flowchart TD
   built with the base URL `/pr/<number>/` and from the pull request at that time, while production needs the base URL
   `/` and the current state of `main`.
 
+### Pull request previews at a glance
+
+Five pieces work together. Only the build touches the pull request's code, and it has no write access; everything
+that writes runs from `main` and only handles the build's output.
+
+| Piece | Runs when | Trusts PR code? | Does |
+|---|---|---|---|
+| `verify-build.yaml` (Build pull request preview) | push to a pull request that changes the website | runs it, without write access | builds the pruned preview, uploads the artifacts `pr-preview` and `pr-number` (kept 90 days) |
+| `deploy-pr-preview.yaml` | build succeeded, or started by `/preview` | no | downloads the artifact and publishes it to `gh-pages` under `pr/<number>/`, updates the comments |
+| `pr-preview-command.yaml` | a committer's comment starting with `/preview` | no | starts the deploy with `pr_number` and `replace`, or with `/preview rebuild` re-runs an expired build; reacts 🚀 or 😕 |
+| `cleanup-pr-preview.yaml` | pull request closed, daily, by hand | no | removes previews of closed pull requests and deletes their builds |
+| `update-gh-pages.sh` | called by the workflows above | no | applies one change to `gh-pages`, checks the space, retries if another workflow pushed first |
+
+```mermaid
+flowchart LR
+    push["Push to a pull request"] --> build["Build pull request preview<br/>(no write access)"]
+    build --> art[("Artifacts<br/>pr-preview + pr-number<br/>kept 90 days")]
+    build -- succeeded --> deploy["Deploy pull request preview"]
+    cmd["Comment /preview<br/>or /preview replace N"] --> command["Pull request preview command<br/>(committers only, no runner otherwise)"]
+    command -- workflow_dispatch --> deploy
+    art --> deploy
+    deploy --> script["update-gh-pages.sh"]
+    script --> pages[("gh-pages<br/>website + pr/&lt;number&gt;/")]
+    deploy --> comment["Preview comment<br/>on the pull request"]
+    closed["Pull request closed<br/>or daily sweep"] --> cleanup["Remove pull request preview"]
+    cleanup --> script
+    cleanup -- deletes --> art
+```
+
+#### Pull requests that do not change the website
+
+The first job of the build, "Check for website changes", looks at the files the pull request changes. If none of them
+is used by the website build, both builds are skipped and there is no preview. Such files are everything under
+`.github/` (except `verify-build.yaml` itself, so changes to the build can be tested), the Markdown files in the root of
+the repository (`README.md`, `CHANGELOG.md`, ...), `LICENSE`, `LICENSE_non-code`, `DEPENDENCIES`, `CODEOWNERS`,
+`.tractusx` and the editor and Git settings. A skipped job counts as passed, so the required check
+`Build static website` does not block these pull requests. As soon as one other file changes, everything builds as usual.
+
+#### Requesting and replacing a preview
+
+Committers can publish a preview from a comment on the pull request:
+
+- `/preview` publishes the preview of the pull request's latest successful build.
+- `/preview replace <number>` removes the preview of pull request `<number>` and publishes this one in its place, in one
+  commit.
+
+```mermaid
+sequenceDiagram
+    actor C as Committer
+    participant PR as Pull request #1700
+    participant Cmd as Preview command
+    participant Dep as Deploy pull request preview
+    participant GP as gh-pages
+    participant Old as Pull request #1655
+    C->>PR: comments "/preview"
+    PR->>Cmd: issue_comment
+    Cmd->>Dep: start (pr_number 1700)
+    Dep->>GP: no space left, nothing published
+    Dep->>PR: comment lists previews with "/preview replace N"
+    C->>PR: comments "/preview replace 1655"
+    PR->>Cmd: issue_comment
+    Cmd->>Dep: start (pr_number 1700, replace 1655)
+    Dep->>GP: one commit: remove pr/1655, add pr/1700
+    Dep->>PR: comment with the preview URL
+    Dep->>Old: comment edited, and a new comment mentions the author
+```
+
+- `/preview rebuild` builds the pull request again when its saved build has expired (builds are kept for 90 days). The
+  build publishes the preview when it has finished.
+
+A build is never run again on its own, to save Actions minutes. When a committer comments `/preview` and the build has
+expired, the bot replies that it has expired and points to `/preview rebuild`. If the build has not finished yet, the
+bot reacts with 👀 and the build publishes the preview when it is done; a pull request that does not change the website
+gets 😕.
+
+The command workflow runs no pull request code and starts nothing but "Deploy pull request preview". It only starts
+for comments of committers (`OWNER`, `MEMBER` or `COLLABORATOR`); comments from anyone else do not start a runner and
+get no answer, so the command cannot be used to flood a pull request with bot comments or to use up Actions minutes. The
+bot answers with reactions: 🚀 when the deployment or rebuild has started, 😕 to a command that is not valid. Its only
+replies explain an expired build, and only committers can cause them. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
+the first workflow run of a new contributor).
+
+#### When there is no space
+
+Previews of other pull requests are not removed automatically. `update-gh-pages.sh` decides like this (the deploy sets
+`PREVIEW_EVICT=none`; the production deployment and the daily sweep keep evicting the oldest previews, because the
+website always gets the space):
+
+```mermaid
+flowchart TD
+    start["Deploy the preview of pull request P"] --> rep{"replace N given?"}
+    rep -- yes --> rm["Remove pr/N in the same commit"]
+    rep -- no --> fit
+    rm --> fit{"P fits next to the website<br/>and the other previews?"}
+    fit -- yes --> pub["Publish pr/P<br/>comment: preview URL"]
+    fit -- no --> alone{"P fits next to the website alone?"}
+    alone -- no --> nospace1["Not published<br/>comment: too large for the free space"]
+    alone -- yes --> nospace2["Not published<br/>comment: table of previews<br/>with /preview replace N"]
+```
+
+#### Life of a preview
+
+A replaced preview is parked, not lost: its build artifact stays for 90 days, so `/preview` publishes it again without
+a rebuild. Only closing the pull request deletes the builds.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Built: push
+    Built --> Published: deploy, space available
+    Built --> NoSpace: deploy, no space
+    NoSpace --> Published: /preview replace N
+    Published --> Published: new push
+    Published --> Parked: replaced by another pull request
+    Parked --> Published: /preview
+    Published --> Removed: pull request closed
+    Parked --> Removed: pull request closed
+    NoSpace --> Removed: pull request closed
+    Removed --> [*]: builds deleted
+```
+
+| Event | Preview on `gh-pages` | Build artifact | Comment |
+|---|---|---|---|
+| push, space available | published (replaces the older one) | new, 90 days | URL, commit, changed pages |
+| push, no space | not published | kept | previews table with replace commands |
+| `/preview replace N` | N removed, this one published | both kept | this PR: URL; PR N: edited, plus a new comment mentioning the author |
+| `/preview` on a parked PR | published again | reused | URL |
+| pull request closed | removed | deleted | "closed" |
+
 ### What the preview contains
 
 The previews and the production site share the `gh-pages` branch and with it the
@@ -99,8 +227,10 @@ Every write to `gh-pages` checks the space, so previews can never stop the produ
   measures the production site and the previews:
   - a preview that does not fit next to the production site on its own is not published (and its older version is
     removed). The comment says so, and no other preview is removed for it,
-  - otherwise the oldest previews of other pull requests (by `pr/<number>/.deployed-at`) are removed until everything
-    fits. The production deployment does the same; its site always gets the space.
+  - a preview that only fits if other previews make space is not published either; the comment lists the previews so
+    a committer can choose one with `/preview replace <number>` (see "When there is no space" above),
+  - the production deployment and the daily sweep still remove the oldest previews (by `pr/<number>/.deployed-at`)
+    until everything fits; the website always gets the space.
 - Each run shows the space used in its job summary.
 
 Every pull request has one preview comment, which is updated (not posted again):
@@ -108,24 +238,24 @@ Every pull request has one preview comment, which is updated (not posted again):
 - after a deployment, with the commit the preview was built from, the time, the build, the changed pages and the space
   on GitHub Pages,
 - when the preview is not published (too large, no space), with the reason and the commit,
-- when the preview is removed, with the reason (pull request closed, removed manually, removed to make space) and the
-  commit of the last preview.
+- when the preview is removed, with the reason (pull request closed, removed manually, replaced by another pull
+  request, removed to make space for the website) and the commit of the last preview. A replaced preview's author also
+  gets a new comment that mentions them, because GitHub does not notify about edited comments.
 
 The preview's announcement bar also shows the commit.
 
 To publish or remove a preview by hand, run the workflows from the Actions tab or with `gh`:
 
 ```bash
-# Publishes the latest build of the pull request's current commit again,
-# for example after its preview was removed to make space.
+# Publishes the latest build of the pull request's current commit again (same as commenting /preview).
 gh workflow run deploy-pr-preview.yaml -f pr_number=1234
 # Removes one preview, or without a number the previews of all closed pull requests.
 gh workflow run cleanup-pr-preview.yaml -f pr_number=1234
 gh workflow run cleanup-pr-preview.yaml
 ```
 
-The build keeps its artifacts for 7 days. After that, re-run the build of the pull request or push a new commit. Once a
-day, "Remove pull request preview" removes the previews of closed pull requests that are still there and checks the
+The build keeps its artifacts for 90 days, or until the pull request is closed. After that, comment `/preview rebuild`, re-run
+the build or push a new commit. Once a day, "Remove pull request preview" removes the previews of closed pull requests that are still there and checks the
 space limit.
 
 The `Build preview` job reports the size of the preview as a notice in the workflow run. To build and prune a preview

@@ -56,6 +56,7 @@ jobs:
       group: gh-pages-pr-${{ github.event.pull_request.number || inputs.pr_number || 'sweep' }}
       cancel-in-progress: false
     permissions:
+      actions: write
       contents: write
       pull-requests: write
     steps:
@@ -115,6 +116,42 @@ jobs:
           cd "${RUNNER_TEMP}/gh-pages"
           # shellcheck disable=SC2086 # NUMBERS is a validated list of numbers.
           bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" remove ${NUMBERS}
+
+      # A replaced preview keeps its build, so /preview can publish it again.
+      # Once the pull request is closed, nothing will publish it any more, so
+      # its preview builds (kept for 90 days otherwise) are deleted as well.
+      - name: Delete the builds of closed pull requests
+        if: steps.select.outputs.reason == 'closed' && steps.select.outputs.numbers != ''
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          NUMBERS: ${{ steps.select.outputs.numbers }}
+        with:
+          script: |
+            const preview = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
+            const { owner, repo } = context.repo;
+            for (const prNumber of preview.numbers(process.env.NUMBERS)) {
+              const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
+              if (pr.state === 'open') {
+                continue;
+              }
+              const commits = await github.paginate(github.rest.pulls.listCommits, { owner, repo, pull_number: prNumber, per_page: 100 });
+              let deleted = 0;
+              for (const { sha } of commits) {
+                const runs = await github.paginate(github.rest.actions.listWorkflowRuns, {
+                  owner, repo, workflow_id: 'verify-build.yaml', event: 'pull_request', head_sha: sha, per_page: 100,
+                });
+                for (const run of runs) {
+                  const artifacts = await github.paginate(github.rest.actions.listWorkflowRunArtifacts, { owner, repo, run_id: run.id, per_page: 100 });
+                  for (const artifact of artifacts) {
+                    if (['pr-preview', 'pr-number'].includes(artifact.name) && !artifact.expired) {
+                      await github.rest.actions.deleteArtifact({ owner, repo, artifact_id: artifact.id });
+                      deleted += 1;
+                    }
+                  }
+                }
+              }
+              core.info(`Pull request ${prNumber}: deleted ${deleted} preview build artifacts.`);
+            }
 
       # Every pull request whose preview was removed gets its comment updated
       # with the reason. A closed pull request without a preview only gets an

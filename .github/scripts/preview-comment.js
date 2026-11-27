@@ -70,15 +70,26 @@ const REMOVAL_REASONS = {
   closed: 'This pull request is closed, so its preview has been removed.',
   manual: 'The preview was removed manually with the workflow "Remove pull request preview".',
   evicted:
-    'The preview was removed to make space on GitHub Pages for newer previews or the website. Run "Deploy pull request preview" for this pull request or push a new commit to publish it again.',
+    'The preview was removed to make space on GitHub Pages for the website. Comment `/preview` or push a new commit to publish it again.',
+  replaced:
+    'The preview was replaced by the preview of another pull request to make space on GitHub Pages. Its build is kept for 90 days: comment `/preview` to publish it again without a rebuild.',
 };
+
+// Parses the "<pr-number>:<MB>" list of the deploy script; only plain numbers are kept.
+function parsePreviews(list) {
+  return String(list || '')
+    .split(/\s+/)
+    .map((entry) => entry.match(/^([1-9][0-9]{0,9}):([0-9]{1,7})$/))
+    .filter(Boolean)
+    .map(([, number, mb]) => ({ number: Number(number), mb: Number(mb) }));
+}
 
 // Returns the comment for a state:
 //   published  the preview is online (needs headSha, pagesFile)
 //   too-large  the preview is larger than maxPreviewMb (needs previewMb, maxPreviewMb)
 //   no-space   the preview does not fit into the free space of GitHub Pages
 //   removed    the preview was removed (needs reason: closed, manual or evicted)
-function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile, previewMb, maxPreviewMb, space, reason, now = new Date() }) {
+function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile, previewMb, maxPreviewMb, space, reason, replacedBy, previews, neededMb, now = new Date() }) {
   const url = `${SITE}/pr/${prNumber}/`;
   const lines = [MARKER, '## 🔍 Pull request preview', ''];
   const sha = isSha(headSha) ? headSha : null;
@@ -100,14 +111,25 @@ function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile
     }
     lines.push(
       '',
-      '> All other pages of the preview open on the live website. This comment is updated on every push and shows the commit the preview was built from. The preview is removed once the pull request is closed, or earlier if GitHub Pages needs the space.',
+      '> All other pages of the preview open on the live website. This comment is updated on every push and shows the commit the preview was built from. The preview is removed once the pull request is closed, or earlier if GitHub Pages needs the space. Committers can publish it again with `/preview`.',
     );
   } else if (state === 'too-large' || state === 'no-space') {
     const why =
       state === 'too-large'
         ? `The preview of this commit has ${previewMb} MB, more than the ${maxPreviewMb} MB a single preview may use, so it is not published. This happens when a change affects every page, for example a change to a component, a style or the configuration.`
-        : `The preview of this commit has ${previewMb} MB and does not fit into the space that GitHub Pages has left next to the website, so it is not published. Older previews of other pull requests are only removed for a preview that fits.`;
+        : `The preview of this commit has ${previewMb} MB and does not fit into the space that GitHub Pages has left${/^\d+$/.test(String(neededMb ?? '')) ? ` (it needs ${neededMb} MB more)` : ''}, so it is not published.`;
     lines.push(why, '');
+    const others = parsePreviews(previews).filter((other) => other.number !== prNumber);
+    if (state === 'no-space' && others.length > 0) {
+      lines.push(
+        '♻️ **Make space:** comment `/preview replace <number>` to remove one of these previews and publish this one in its place (oldest first):',
+        '',
+        '| Pull request | Size | Command |',
+        '|---|---:|---|',
+        ...others.map((other) => `| #${other.number} | ${other.mb} MB | \`/preview replace ${other.number}\` |`),
+        '',
+      );
+    }
     if (sha) {
       lines.push(`📌 **Commit:** ${commitLink(repo, prNumber, sha)} · ${updated}${build}`, '');
     }
@@ -116,6 +138,9 @@ function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile
     );
   } else if (state === 'removed') {
     lines.push(REMOVAL_REASONS[reason] || REMOVAL_REASONS.manual, '');
+    if (reason === 'replaced' && Number.isInteger(replacedBy)) {
+      lines.push(`It was replaced by the preview of #${replacedBy}.`, '');
+    }
     const last = isSha(previousSha) ? ` · last preview: ${commitLink(repo, prNumber, previousSha)}` : '';
     lines.push(`🗑️ Removed on ${now.toISOString().slice(0, 16).replace('T', ' ')} UTC${last}`);
   } else {
@@ -151,6 +176,24 @@ async function update({ github, context, prNumber, create = true, ...options }) 
   }
 }
 
+// Tells the author of a pull request that its preview was replaced. The preview
+// comment is edited for that too, but GitHub does not notify about edits.
+async function notifyReplaced({ github, context, prNumber, replacedBy }) {
+  const { owner, repo } = context.repo;
+  const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
+  if (pr.state !== 'open') {
+    return;
+  }
+  const login = /^[A-Za-z0-9-]{1,39}(\[bot\])?$/.test(pr.user?.login || '') ? pr.user.login : null;
+  const who = login ? `@${login} ` : '';
+  await github.rest.issues.createComment({
+    owner,
+    repo,
+    issue_number: prNumber,
+    body: `${who}the preview of this pull request was replaced by the preview of #${replacedBy} to make space on GitHub Pages. Its build is kept for 90 days, so commenting \`/preview\` here publishes it again without a rebuild (committers only).`,
+  });
+}
+
 // Parses a space separated list of pull request numbers from a workflow output.
 function numbers(list) {
   return String(list || '')
@@ -159,4 +202,4 @@ function numbers(list) {
     .map(Number);
 }
 
-module.exports = { MARKER, render, update, numbers, readChangedPages };
+module.exports = { MARKER, render, update, numbers, readChangedPages, parsePreviews, notifyReplaced };
