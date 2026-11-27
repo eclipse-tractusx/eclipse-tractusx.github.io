@@ -177,6 +177,26 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.formats {
+  margin-bottom: 1.5rem;
+}
+
+.notice {
+  margin: 2rem auto 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--about-border);
+  border-left: 4px solid var(--about-orange);
+  border-radius: 12px;
+  background: var(--about-surface);
+  color: var(--about-muted);
+  line-height: 1.7;
+  text-align: left;
+
+  strong {
+    color: var(--about-orange);
+  }
+}
+
 .twoColumns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -330,10 +350,7 @@
     justify-content: center;
   }
 
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
+  .cards,
   .cardsFour,
   .partners {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -350,6 +367,7 @@
     margin-top: 3rem;
   }
 
+  .cards,
   .cardsFour,
   .twoColumns {
     grid-template-columns: 1fr;

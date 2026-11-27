@@ -51,9 +51,9 @@ export default function AcceleratorTeaser() {
           </div>
           <div className={styles.body}>
             <p className={styles.description}>
-              The Tractus-X Accelerator is a support program for projects, developers and
-              organizations. It lowers the technical and organizational barriers to entry and helps
-              more people take an active part in the Eclipse Tractus-X open-source community.
+              The Tractus-X Accelerator strengthens the Eclipse Tractus-X community: financing models,
+              better documentation and processes, a worldwide community, new dataspace initiatives,
+              strategy and events. It is not a software development project.
             </p>
             <ul className={styles.focusAreas}>
               {acceleratorFocusAreas.map(({ id, title }) => (

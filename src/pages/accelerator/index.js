@@ -31,11 +31,12 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import ThemedImage from '@theme/ThemedImage';
 import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined';
-import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
-import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
-import Diversity3OutlinedIcon from '@mui/icons-material/Diversity3Outlined';
-import PolicyOutlinedIcon from '@mui/icons-material/PolicyOutlined';
-import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
+import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
+import PublicOutlinedIcon from '@mui/icons-material/PublicOutlined';
+import HubOutlinedIcon from '@mui/icons-material/HubOutlined';
+import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
+import EventOutlinedIcon from '@mui/icons-material/EventOutlined';
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
 import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
@@ -47,6 +48,7 @@ import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import { tractusxOrganizations } from '@site/data/tractusxOrganizations';
 import { upcomingEvents, getUpcomingEvents } from '@site/data/upcomingEvents';
 import {
+  acceleratorEventFormats,
   acceleratorEvents,
   acceleratorFocusAreas,
   acceleratorLogos,
@@ -60,11 +62,12 @@ import styles from './styles.module.scss';
 
 // Icons for the `icon` keys of acceleratorFocusAreas.
 const focusIcons = {
-  school: SchoolOutlinedIcon,
-  science: ScienceOutlinedIcon,
-  mentoring: Diversity3OutlinedIcon,
-  policy: PolicyOutlinedIcon,
-  forum: ForumOutlinedIcon,
+  financing: PaymentsOutlinedIcon,
+  docs: MenuBookOutlinedIcon,
+  community: PublicOutlinedIcon,
+  dataspaces: HubOutlinedIcon,
+  strategy: ExploreOutlinedIcon,
+  events: EventOutlinedIcon,
 };
 
 // The Community Office Hour is featured on the open meetings page.
@@ -77,21 +80,21 @@ const audiences = [
     icon: CodeOutlinedIcon,
     title: 'Projects',
     description:
-      'Open-source projects that want to join Eclipse Tractus-X or grow inside it, with guidance on qualification, releases and quality.',
+      'Open-source projects that want to join Eclipse Tractus-X or grow inside it, with clearer documentation, release and quality processes.',
     cta: { label: 'Read the release process', to: '/docs/oss/release-process' },
   },
   {
     icon: GroupsOutlinedIcon,
     title: 'Developers',
     description:
-      'Developers who want to make their first contribution or take on more responsibility, with mentoring from experienced community members.',
+      'Developers who want to make their first contribution or take on more responsibility, and meet the community at hackathons and Community Days.',
     cta: { label: 'How to contribute', to: '/docs/oss/how-to-contribute' },
   },
   {
     icon: BusinessOutlinedIcon,
     title: 'Organizations',
     description:
-      'Companies and institutions that want to adopt the dataspace technology and actively participate in the open-source community.',
+      'Companies, institutions and dataspace initiatives, including those beyond Catena-X, that want to use Tractus-X and shape it with the community.',
     cta: { label: 'Ways to contribute', to: '/Contribute' },
   },
 ];
@@ -115,7 +118,7 @@ const joinSteps = [
   },
   {
     title: 'Build with us at an event',
-    text: 'Accelerator events such as hackathons bring newcomers and experienced members into one room to work on real challenges.',
+    text: 'Hackathons, thinkathons and the Community Days bring newcomers and experienced members together to work on real challenges.',
     link: { label: 'See the events', to: '#events' },
   },
 ];
@@ -206,7 +209,7 @@ export default function AcceleratorPage() {
   return (
     <Layout
       title="Tractus-X Accelerator"
-      description="The Tractus-X Accelerator is a support program that lowers the barriers to joining and actively contributing to the Eclipse Tractus-X open-source community."
+      description="The Tractus-X Accelerator strengthens the Eclipse Tractus-X community: financing models, better documentation and processes, a worldwide community, new dataspace initiatives, strategy and events. It is not a software development project."
     >
       <header className={heroStyles.about_header}>
         <ThemedImage
@@ -227,9 +230,9 @@ export default function AcceleratorPage() {
             </p>
             <h1 className="headers-title-h1">Tractus-X Accelerator</h1>
             <p className={heroStyles.subtitle}>
-              A support program for projects, developers and organizations. It lowers the technical
-              and organizational barriers to entry and helps more people take an active part in the
-              Eclipse Tractus-X open-source community.
+              Strengthening the Eclipse Tractus-X community: financing models, better documentation and
+              processes, a worldwide community of contributors and new dataspace initiatives beyond
+              Catena-X.
             </p>
             <div className={styles.heroActions}>
               <Link className={styles.outlinedbutton} to="#join">
@@ -246,28 +249,31 @@ export default function AcceleratorPage() {
       <main className={styles.content}>
         <div className={styles.container}>
           <section className={styles.intro} aria-labelledby="purpose-title">
-            <p className={styles.eyebrow}>Why the Accelerator</p>
-            <h2 id="purpose-title">Making it easier to take part</h2>
+            <p className={styles.eyebrow}>What the Accelerator is</p>
+            <h2 id="purpose-title">Strengthening the community around Eclipse Tractus-X</h2>
             <p className={styles.lead}>
-              Eclipse Tractus-X builds open-source dataspace technology together with a growing,
-              international community. Joining that work, as a new project, a developer or an
-              organization, means learning the technology, the repositories and the community's
-              governance, release and quality processes.
+              Eclipse Tractus-X builds open-source dataspace technology together with an
+              international community. The Tractus-X Accelerator supports that community: it works
+              on financing models, better documentation and processes, and a stronger worldwide
+              community, and it opens Eclipse Tractus-X to dataspace initiatives beyond Catena-X.
             </p>
             <p>
-              The Tractus-X Accelerator lowers these technical and organizational barriers to entry.
-              It combines proven approaches from startup acceleration with the requirements of
-              industrial open-source ecosystems, so that more people move from interest to active,
-              lasting participation. It runs {period} and is supported by the German Federal
-              Ministry for Economic Affairs and Energy (BMWE).
+              It defines the strategy, organizes events that bring people together more often and
+              coordinates improvements to the software across projects. It runs {period} and is
+              supported by the German Federal Ministry for Economic Affairs and Energy (BMWE).
             </p>
+            <aside className={styles.notice}>
+              <strong>Not a software development project.</strong> The Accelerator does not build
+              Tractus-X itself. The software stays in the hands of the open-source projects,
+              contributors and committers; the Accelerator coordinates, connects and enables them.
+            </aside>
           </section>
 
           <Section
             id="offer"
-            eyebrow="What we offer"
-            title="Five focus areas"
-            intro="Together, they shorten the way from a first contact to an active contribution."
+            eyebrow="What we work on"
+            title="Six goals for the community"
+            intro="Together, they make Eclipse Tractus-X easier to fund, to join and to build on."
           >
             <ol className={styles.cards}>
               {acceleratorFocusAreas.map(({ id, icon, title, description }, index) => {
@@ -286,7 +292,7 @@ export default function AcceleratorPage() {
             </ol>
           </Section>
 
-          <Section id="audience" eyebrow="Who it is for" title="Projects, developers and organizations">
+          <Section id="audience" eyebrow="Who it is for" title="Projects, developers, organizations and initiatives">
             <ul className={styles.cards}>
               {audiences.map(({ icon: Icon, title, description, cta }) => (
                 <li key={title} className={styles.infoCard}>
@@ -319,7 +325,20 @@ export default function AcceleratorPage() {
             </ol>
           </Section>
 
-          <Section id="events" eyebrow="Events" title="Build together">
+          <Section
+            id="events"
+            eyebrow="Events"
+            title="Meet, think and build together"
+            intro="Intentional events bring the community together more often, in three formats."
+          >
+            <ul className={`${styles.cards} ${styles.formats}`}>
+              {acceleratorEventFormats.map(({ id, title, description }) => (
+                <li key={id} className={styles.infoCard}>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </li>
+              ))}
+            </ul>
             <div className={styles.twoColumns}>
               {upcoming.map((event) => (
                 <EventCard key={event.id} event={event} label="Upcoming Accelerator event" />
