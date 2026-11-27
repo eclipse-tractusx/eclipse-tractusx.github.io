@@ -63,7 +63,7 @@ that writes runs from `main` and only handles the build's output.
 |---|---|---|---|
 | `verify-build.yaml` (Build pull request preview) | push to a pull request that changes the website | runs it, without write access | builds the pruned preview, uploads the artifacts `pr-preview` and `pr-number` (kept 90 days) |
 | `deploy-pr-preview.yaml` | build succeeded, or started by `/preview` | no | downloads the artifact and publishes it to `gh-pages` under `pr/<number>/`, updates the comments |
-| `pr-preview-command.yaml` | a committer's comment starting with `/preview` | no | starts the deploy with `pr_number` and `replace`, or with `/preview rebuild` re-runs an expired build; reacts 🚀 or 😕 |
+| `pr-preview-command.yaml` | a committer's comment starting with `/preview` | no | starts the deploy with `pr_number` and `replace`, or with `/preview rebuild` re-runs an expired build; `/preview large` publishes an oversized preview; reacts 🚀 or 😕 |
 | `cleanup-pr-preview.yaml` | pull request closed, daily, by hand | no | removes previews of closed pull requests and deletes their builds |
 | `update-gh-pages.sh` | called by the workflows above | no | applies one change to `gh-pages`, checks the space, retries if another workflow pushed first |
 
@@ -123,15 +123,20 @@ sequenceDiagram
 
 - `/preview rebuild` builds the pull request again when its saved build has expired (builds are kept for 90 days). The
   build publishes the preview when it has finished.
+- `/preview large` publishes a preview that is larger than `MAX_PREVIEW_MB` (300 MB), as long as GitHub Pages as a whole
+  has space for it. Replacing other previews does not help a preview that is too large: the limit is per preview.
 
 A build is never run again on its own, to save Actions minutes. When a committer comments `/preview` and the build has
 expired, the bot replies that it has expired and points to `/preview rebuild`. If the build has not finished yet, the
 bot reacts with 👀 and the build publishes the preview when it is done; a pull request that does not change the website
 gets 😕.
 
-The command workflow runs no pull request code and starts nothing but "Deploy pull request preview". It only starts
-for comments of committers (`OWNER`, `MEMBER` or `COLLABORATOR`); comments from anyone else do not start a runner and
-get no answer, so the command cannot be used to flood a pull request with bot comments or to use up Actions minutes. The
+The command workflow runs no pull request code and starts nothing but "Deploy pull request preview". Only committers,
+meaning people with write access to the repository, can use it. A first filter decides before a runner starts: comments
+from people who never contributed do not start a runner and get no answer, so the command cannot be used to flood a
+pull request with bot comments or to use up Actions minutes. `CONTRIBUTOR` passes this filter, because GitHub reports
+org members whose membership is private, as most Eclipse committers have it, as `CONTRIBUTOR` and not as `MEMBER`. The
+script then reads the real permission on the repository and silently ignores everyone without write access. The
 bot answers with reactions: 🚀 when the deployment or rebuild has started, 😕 to a command that is not valid. Its only
 replies explain an expired build, and only committers can cause them. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
 the first workflow run of a new contributor).
@@ -208,6 +213,13 @@ live website:
    - changes that do not end up on the website (`.github/`, `README.md`, ...) only keep the home page.
 
    It writes the affected pages to `.preview-pages.json`; the preview comment links them.
+
+   Images, downloads and large static files that the pull request does not change are then taken out of the preview
+   as well: the kept pages load them from the live website (`/pr/<number>/assets/images/x-<hash>.png` becomes
+   `/assets/images/x-<hash>.png`). Webpack names these files after their content, so an unchanged file has the very
+   same path on the live website. A file is only taken out if every reference to it could be rewritten. The catch:
+   such a preview shows the live version of those files, so once `main` changes or removes one, older previews show
+   the new version or none.
 3. GitHub Pages answers a path that does not exist with the `404.html` at the root, which belongs to the production
    site. A small script in the production pages sends every `/pr/<number>/<path>` that ends there to `/<path>` on the
    live website. Navigating inside the preview to a removed page also ends there: Docusaurus cannot load the page
@@ -220,7 +232,8 @@ A preview with only content changes is a few dozen MB instead of over 1 GB.
 Every write to `gh-pages` checks the space, so previews can never stop the production site from being published:
 
 - **`MAX_PREVIEW_MB`** (300) in "Deploy pull request preview": a larger preview is not published, and an older preview
-  of the pull request is removed. The comment links the build, whose `pr-preview` artifact can be served locally.
+  of the pull request is removed. The comment links the build, whose `pr-preview` artifact can be served locally, and
+  says that a committer can publish it anyway with `/preview large`. The space limit below still applies to it.
 - **`GH_PAGES_LIMIT_MB`** (2500, `0` turns the check off) in
   [`update-gh-pages.sh`](../scripts/update-gh-pages.sh): the space the production site and all previews may use
   together. Published Pages artifacts of about 3.3 GB still deployed, larger ones failed. Before pushing, the script

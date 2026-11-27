@@ -119,6 +119,12 @@ function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile
         ? `The preview of this commit has ${previewMb} MB, more than the ${maxPreviewMb} MB a single preview may use, so it is not published. This happens when a change affects every page, for example a change to a component, a style or the configuration.`
         : `The preview of this commit has ${previewMb} MB and does not fit into the space that GitHub Pages has left${/^\d+$/.test(String(neededMb ?? '')) ? ` (it needs ${neededMb} MB more)` : ''}, so it is not published.`;
     lines.push(why, '');
+    if (state === 'too-large') {
+      lines.push(
+        '📦 **Publish it anyway:** a committer can comment `/preview large` to publish this preview despite its size, as long as GitHub Pages has space left for it. Replacing other previews does not help here, the limit is per preview.',
+        '',
+      );
+    }
     const others = parsePreviews(previews).filter((other) => other.number !== prNumber);
     if (state === 'no-space' && others.length > 0) {
       lines.push(

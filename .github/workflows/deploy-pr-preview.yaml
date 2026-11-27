@@ -48,6 +48,14 @@ on:
         required: false
         type: string
         default: ''
+      # Set by the /preview large comment command: publish the preview even if
+      # it is larger than MAX_PREVIEW_MB. The space limit of GitHub Pages as a
+      # whole still applies.
+      allow_large:
+        description: Publish a preview larger than MAX_PREVIEW_MB if GitHub Pages has space
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -71,6 +79,7 @@ jobs:
       run-url: ${{ steps.build.outputs.run-url }}
       head-sha: ${{ steps.build.outputs.head-sha }}
       replace: ${{ steps.build.outputs.replace }}
+      allow-large: ${{ github.event_name == 'workflow_dispatch' && inputs.allow_large == true }}
     steps:
       # A manual run publishes the latest successful build of the pull
       # request's current commit, if its artifacts still exist.
@@ -205,8 +214,11 @@ jobs:
       # stays far below MAX_PREVIEW_MB. Larger previews (for example a change to
       # a component, which affects every page) are not published, so a single
       # pull request cannot take the space of all others. The build can be
-      # downloaded from the workflow run instead.
+      # downloaded from the workflow run instead, or a committer publishes it
+      # anyway with /preview large (ALLOW_LARGE), as long as GitHub Pages has
+      # space for it.
       MAX_PREVIEW_MB: 300
+      ALLOW_LARGE: ${{ needs.prepare.outputs.allow-large }}
       # Previews of other pull requests are not removed automatically to make
       # space. When there is none left, the preview comment lists the previews
       # and a committer chooses one with /preview replace <number>.
@@ -253,8 +265,12 @@ jobs:
           echo "The preview has ${size} MB, a single preview may use ${MAX_PREVIEW_MB} MB."
           echo "mb=${size}" >> "$GITHUB_OUTPUT"
           if [ "${size}" -gt "${MAX_PREVIEW_MB}" ]; then
-            echo "::warning title=Preview too large::The preview has ${size} MB, more than ${MAX_PREVIEW_MB} MB. It is not published."
-            echo "too-large=true" >> "$GITHUB_OUTPUT"
+            if [ "${ALLOW_LARGE}" = "true" ]; then
+              echo "::notice title=Large preview::The preview has ${size} MB, more than ${MAX_PREVIEW_MB} MB. It is published anyway (/preview large) if GitHub Pages has space."
+            else
+              echo "::warning title=Preview too large::The preview has ${size} MB, more than ${MAX_PREVIEW_MB} MB. It is not published; a committer can publish it with /preview large."
+              echo "too-large=true" >> "$GITHUB_OUTPUT"
+            fi
           fi
 
       # Replaces pr/<number> completely, so hashed assets of earlier pushes do

@@ -54,6 +54,12 @@
  * - Changes that do not end up in the website (.github/, README.md, ...) keep
  *   nothing beyond the home page.
  *
+ * Images, downloads and large static files that the pull request does not
+ * change are not copied into the preview: the kept pages load them from the
+ * live website, which has the very same files (see shareUnchangedAssets). This
+ * keeps the preview of a style or component change, which keeps almost every
+ * page, small.
+ *
  * The kept pages that the pull request affects are written to
  * <build>/.preview-pages.json, so the deployment can link them.
  */
@@ -323,6 +329,116 @@ function megabytes(bytes) {
   return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }
 
+const ESCAPE = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+// Webpack names images, files and media after their content
+// ([name]-[contenthash].[ext]), so an unchanged source file ends up under the
+// same path on the live website.
+const HASHED_ASSET = /^assets\/(?:images|files|medias)\/(.+)-[0-9a-f]{8,}(\.[^./]+)$/;
+
+// Returns true if the build file (relative to the build folder) comes from a
+// file that the pull request changes, so the live website does not have it.
+function isChangedAsset(relative, changedFiles, changedBasenames) {
+  const hashed = relative.match(HASHED_ASSET);
+  if (hashed) {
+    return changedBasenames.has(`${path.posix.basename(hashed[1])}${hashed[2]}`.toLowerCase());
+  }
+  if (relative.startsWith('assets/')) {
+    // Not a content hashed asset: never assume the live website has it.
+    return true;
+  }
+  return changedFiles.has(`static/${relative}`);
+}
+
+// Loads the images, downloads and large static files that the pull request does
+// not change from the live website instead of copying them into the preview.
+// The preview is served from /pr/<number>/ on the same GitHub Pages site as the
+// live website (baseUrl "/"), so a reference to <baseUrl><file> becomes /<file>.
+// A file is only removed from the preview if every reference to it was
+// rewritten; anything referenced in another form stays in the preview.
+//
+// A preview that loads a file from the live website shows it as long as the
+// live website has it: once main changes that file, older previews show the
+// new version, or none if it was removed.
+function shareUnchangedAssets(buildDir, baseUrl, candidates, changedFiles) {
+  const changedBasenames = new Set([...changedFiles].map((file) => path.posix.basename(file).toLowerCase()));
+  const shared = new Map();
+  for (const file of candidates) {
+    const relative = toPosix(path.relative(buildDir, file));
+    if (!isChangedAsset(relative, changedFiles, changedBasenames)) {
+      shared.set(relative, { file, total: 0, rewritten: 0 });
+    }
+  }
+  if (shared.size === 0) {
+    return { removed: [], bytes: 0 };
+  }
+
+  const pathPattern = '[^"\'`()\\s\\\\?#<>,]+';
+  // Webpack's public path at runtime (publicPath + "assets/..."), and the
+  // absolute <baseUrl>file form used in HTML, CSS and JSON.
+  const runtimeReference = new RegExp(`\\b[A-Za-z_$][\\w$]*\\.p\\s*\\+\\s*(["'])(${pathPattern})\\1`, 'g');
+  const absoluteReference = new RegExp(`${ESCAPE(baseUrl)}(${pathPattern})`, 'g');
+  const topFolders = [...new Set([...shared.keys()].map((relative) => relative.split('/')[0]))];
+  const anyReference = new RegExp(`(?:${topFolders.map(ESCAPE).join('|')})/${pathPattern}`, 'g');
+  // References may be URI encoded (spaces in file names).
+  const lookup = (relative) => {
+    if (shared.has(relative)) {
+      return shared.get(relative);
+    }
+    try {
+      return shared.get(decodeURI(relative));
+    } catch {
+      return undefined;
+    }
+  };
+
+  const textFiles = walk(buildDir).filter((file) => TEXT_FILES.test(file));
+  // First count every reference, so a file referenced in a form that is not
+  // rewritten is not removed.
+  for (const file of textFiles) {
+    const content = fs.readFileSync(file, 'utf8');
+    for (const match of content.matchAll(anyReference)) {
+      const entry = lookup(match[0]);
+      if (entry) {
+        entry.total += 1;
+      }
+    }
+  }
+  for (const file of textFiles) {
+    const content = fs.readFileSync(file, 'utf8');
+    const rewritten = content
+      .replace(runtimeReference, (match, quote, relative) => {
+        const entry = lookup(relative);
+        if (!entry) {
+          return match;
+        }
+        entry.rewritten += 1;
+        return `${quote}/${relative}${quote}`;
+      })
+      .replace(absoluteReference, (match, relative) => {
+        const entry = lookup(relative);
+        if (!entry) {
+          return match;
+        }
+        entry.rewritten += 1;
+        return `/${relative}`;
+      });
+    if (rewritten !== content) {
+      fs.writeFileSync(file, rewritten);
+    }
+  }
+
+  const removed = [];
+  let bytes = 0;
+  for (const entry of shared.values()) {
+    if (entry.total > 0 && entry.rewritten >= entry.total) {
+      bytes += fs.statSync(entry.file).size;
+      fs.rmSync(entry.file, { force: true });
+      removed.push(entry.file);
+    }
+  }
+  return { removed, bytes };
+}
+
 function main() {
   const args = parseArgs(process.argv.slice(2));
   const buildDir = path.resolve(args.build);
@@ -424,6 +540,13 @@ function main() {
     }
   }
   unreferenced.forEach((file) => fs.rmSync(file, { force: true }));
+  const removedSet = new Set(unreferenced);
+  const sharedAssets = shareUnchangedAssets(
+    buildDir,
+    baseUrl,
+    candidates.filter((file) => !removedSet.has(file) && fs.existsSync(file)),
+    new Set(changedFiles),
+  );
   removeEmptyDirs(buildDir);
 
   const pages = [...affectedPages].sort();
@@ -435,6 +558,7 @@ function main() {
   }
   console.log(`Pages affected by the pull request: ${pages.length}`);
   console.log(`Removed ${removedPages.length} pages, ${removedChunks.length} page chunks and ${unreferenced.length} unused images and files.`);
+  console.log(`Loading ${sharedAssets.removed.length} unchanged images and files (${megabytes(sharedAssets.bytes)}) from the live website.`);
   console.log(`Preview size: ${megabytes(sizeBefore)} -> ${megabytes(sizeAfter)}`);
 }
 
@@ -447,4 +571,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { classifyChanges, isAffected, commonRoutePrefix };
+module.exports = { classifyChanges, isAffected, commonRoutePrefix, shareUnchangedAssets };
