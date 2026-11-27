@@ -33,13 +33,21 @@ on:
       - completed
   # Publishes the latest successful build of a pull request again, for example
   # after its preview was removed to make space. The build's artifacts are kept
-  # for 7 days; after that, re-run the build or push a new commit.
+  # for 90 days; after that, re-run the build or push a new commit. The
+  # /preview comment command starts this run.
   workflow_dispatch:
     inputs:
       pr_number:
         description: Number of the pull request whose preview to publish
         required: true
         type: string
+      # Set by the /preview replace <number> comment command: the preview of
+      # that pull request is removed in the same commit to make space.
+      replace:
+        description: Pull request whose preview to remove to make space (optional)
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -62,6 +70,7 @@ jobs:
       run-id: ${{ steps.build.outputs.run-id }}
       run-url: ${{ steps.build.outputs.run-url }}
       head-sha: ${{ steps.build.outputs.head-sha }}
+      replace: ${{ steps.build.outputs.replace }}
     steps:
       # A manual run publishes the latest successful build of the pull
       # request's current commit, if its artifacts still exist.
@@ -72,6 +81,7 @@ jobs:
           REPO: ${{ github.repository }}
           EVENT_NAME: ${{ github.event_name }}
           INPUT_PR_NUMBER: ${{ inputs.pr_number }}
+          INPUT_REPLACE: ${{ inputs.replace }}
           RUN_ID: ${{ github.event.workflow_run.id }}
           RUN_URL: ${{ github.event.workflow_run.html_url }}
           RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
@@ -81,6 +91,14 @@ jobs:
             run_id="${RUN_ID}"
             run_url="${RUN_URL}"
             head_sha="${RUN_HEAD_SHA}"
+            # A pull request without website changes skips the build, so there
+            # is nothing to publish.
+            artifacts=" $(gh api "repos/${REPO}/actions/runs/${run_id}/artifacts" --jq '[.artifacts[] | .name] | join(" ")') "
+            if [[ "${artifacts}" != *" pr-preview "* ]]; then
+              echo "The build ${run_url} made no preview (no website changes). Nothing to publish."
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
           else
             if ! [[ "${INPUT_PR_NUMBER}" =~ ^[1-9][0-9]{0,9}$ ]]; then
               echo "::error::'${INPUT_PR_NUMBER}' is not a pull request number."
@@ -89,6 +107,13 @@ jobs:
             head_sha="$(gh api "repos/${REPO}/pulls/${INPUT_PR_NUMBER}" --jq '.head.sha')"
             run="$(gh api "repos/${REPO}/actions/workflows/verify-build.yaml/runs?event=pull_request&status=success&head_sha=${head_sha}&per_page=1" \
               --jq '.workflow_runs[0] | select(. != null) | "\(.id) \(.html_url)"')"
+            if [ -n "${run}" ]; then
+              run_id="${run%% *}"
+              if [ -z "$(gh api "repos/${REPO}/actions/runs/${run_id}/jobs" --jq '.jobs[] | select(.name == "Build preview" and .conclusion == "success") | .id')" ]; then
+                echo "::error::Pull request ${INPUT_PR_NUMBER} does not change the website, so it has no preview."
+                exit 1
+              fi
+            fi
             if [ -z "${run}" ]; then
               echo "::error::There is no successful build of commit ${head_sha} of pull request ${INPUT_PR_NUMBER}. Wait for \"Build pull request preview\" to finish, or push a new commit."
               exit 1
@@ -103,13 +128,23 @@ jobs:
               fi
             done
           fi
+          replace=""
+          if [ -n "${INPUT_REPLACE:-}" ]; then
+            if ! [[ "${INPUT_REPLACE}" =~ ^[1-9][0-9]{0,9}$ ]] || [ "${INPUT_REPLACE}" = "${INPUT_PR_NUMBER}" ]; then
+              echo "::error::'${INPUT_REPLACE}' is not the number of another pull request's preview."
+              exit 1
+            fi
+            replace="${INPUT_REPLACE}"
+          fi
           {
             echo "run-id=${run_id}"
             echo "run-url=${run_url}"
             echo "head-sha=${head_sha}"
+            echo "replace=${replace}"
           } >> "$GITHUB_OUTPUT"
 
       - name: Download pull request number
+        if: steps.build.outputs.skip != 'true'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: pr-number
@@ -123,6 +158,7 @@ jobs:
       # from. Otherwise the build is outdated (a newer push will deploy) or the
       # number does not belong to this build.
       - name: Validate pull request number
+        if: steps.build.outputs.skip != 'true'
         id: pr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -171,6 +207,10 @@ jobs:
       # pull request cannot take the space of all others. The build can be
       # downloaded from the workflow run instead.
       MAX_PREVIEW_MB: 300
+      # Previews of other pull requests are not removed automatically to make
+      # space. When there is none left, the preview comment lists the previews
+      # and a committer chooses one with /preview replace <number>.
+      PREVIEW_EVICT: none
     steps:
       # Checked again here, because the job may have waited in the concurrency
       # group. A pending removal is replaced by a newer run of this job, so a
@@ -228,6 +268,7 @@ jobs:
         if: steps.check.outputs.state == 'open' && steps.size.outputs.too-large != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPLACE_PREVIEWS: ${{ needs.prepare.outputs.replace }}
         run: |
           mkdir "${RUNNER_TEMP}/gh-pages"
           cd "${RUNNER_TEMP}/gh-pages"
@@ -256,6 +297,9 @@ jobs:
           PREVIEW_MB: ${{ steps.size.outputs.mb }}
           TOO_LARGE: ${{ steps.size.outputs.too-large }}
           NO_SPACE: ${{ steps.publish.outputs.no-space }}
+          NEEDED_MB: ${{ steps.publish.outputs.needed-mb }}
+          PREVIEWS: ${{ steps.publish.outputs.previews }}
+          REPLACED: ${{ steps.publish.outputs.replaced-previews }}
           REMOVED: ${{ steps.remove.outputs.removed-previews }}
           EVICTED: ${{ steps.publish.outputs.evicted-previews }} ${{ steps.remove.outputs.evicted-previews }}
           SITE_MB: ${{ steps.publish.outputs.site-mb || steps.remove.outputs.site-mb }}
@@ -275,11 +319,15 @@ jobs:
             } else if (env.TOO_LARGE === 'true') {
               await preview.update({ ...common, prNumber, state: 'too-large' });
             } else if (env.NO_SPACE === 'true') {
-              await preview.update({ ...common, prNumber, state: 'no-space' });
+              await preview.update({ ...common, prNumber, state: 'no-space', previews: env.PREVIEWS, neededMb: env.NEEDED_MB });
             } else {
               await preview.update({ ...common, prNumber, state: 'published', pagesFile: 'preview/.preview-pages.json' });
             }
 
+            for (const number of preview.numbers(env.REPLACED)) {
+              await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'replaced', replacedBy: prNumber });
+              await preview.notifyReplaced({ github, context, prNumber: number, replacedBy: prNumber });
+            }
             for (const number of preview.numbers(env.EVICTED)) {
               await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'evicted' });
             }
