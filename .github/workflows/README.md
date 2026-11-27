@@ -8,7 +8,7 @@ when it runs and how the workflows depend on each other.
 | Workflow (file) | Trigger | Purpose | Writes to `gh-pages` |
 |---|---|---|---|
 | [Build and deploy gh-pages](build-and-deploy-gh-pages.yaml) | push to `main` | Builds and publishes the production site | yes (root) |
-| [Build pull request preview](verify-build.yaml) | pull request to `main` | Checks that the complete site builds, produces a preview with only the changed pages | no |
+| [Build pull request preview](verify-build.yaml) | pull request to any branch | Checks that the complete site builds, produces a preview with only the changed pages | no |
 | [Deploy pull request preview](deploy-pr-preview.yaml) | "Build pull request preview" completed, manual | Publishes the preview of a pull request | yes (`pr/<number>/`) |
 | [Remove pull request preview](cleanup-pr-preview.yaml) | pull request closed or merged, daily, manual | Deletes the preview of a pull request, or of all closed pull requests | yes (`pr/`) |
 | [Markdown linting for documentation](lint-on-pull-request.yaml) | pull request to `main` | Runs markdownlint on `docs/` and `docs-kits/kits/` | no |

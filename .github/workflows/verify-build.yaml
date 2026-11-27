@@ -35,10 +35,12 @@
 # the pull request touches. Older KIT releases are left out otherwise.
 name: Build pull request preview
 
+# Runs for pull requests to any branch, not only to main, so that stacked pull
+# requests (a pull request whose base is another pull request's branch) get a
+# check and a preview too. The pull request is still built merged into its own
+# base branch, so the preview shows the stack up to and including this change.
 on:
   pull_request:
-    branches:
-      - main
 
 # Collapse superseded runs so rapid pushes do not queue up preview deployments.
 concurrency:
@@ -117,7 +119,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # For a pull request the checkout is the merge commit of the pull request
-      # into main. Its first parent is main, so the second commit is enough to
+      # into its base branch. Its first parent is the base branch, so the second commit is enough to
       # find out what the pull request changes.
       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:

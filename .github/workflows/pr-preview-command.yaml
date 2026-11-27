@@ -163,9 +163,28 @@ jobs:
             });
             const run = runs.workflow_runs[0];
             if (!run) {
-              // No finished build yet: it publishes the preview when it is done. The
-              // 👀 reaction stays.
-              await setStatus('⏳', `When I checked, the build of the latest commit (\`${pr.head.sha.slice(0, 7)}\`) was still running, and the preview is made from that build. A build usually takes 3 to 5 minutes; when it has finished, it publishes the preview on its own and the preview comment shows it, so there is no need to comment again.`);
+              // No successful build of the current commit. Look at the latest build
+              // of that commit, whatever its state, to tell "still running" apart
+              // from "failed" and from "never started".
+              const sha = `\`${pr.head.sha.slice(0, 7)}\``;
+              const { data: anyRuns } = await github.rest.actions.listWorkflowRuns({
+                owner, repo, workflow_id: 'verify-build.yaml', event: 'pull_request', head_sha: pr.head.sha, per_page: 1,
+              });
+              const latest = anyRuns.workflow_runs[0];
+              if (latest && latest.status !== 'completed') {
+                // It publishes the preview on its own when it is done. The 👀 reaction stays.
+                await setStatus('⏳', `When I checked, the [build](${latest.html_url}) of the latest commit (${sha}) was still running, and the preview is made from that build. A build usually takes 3 to 5 minutes; when it has finished, it publishes the preview on its own and the preview comment shows it, so there is no need to comment again.`);
+                return;
+              }
+              await react('confused');
+              if (latest) {
+                await setStatus('😕', `The [build](${latest.html_url}) of the latest commit (${sha}) ended with \`${latest.conclusion}\`, so there is no preview to publish. Fix the build and push a new commit, or re-run the build; it publishes the preview on its own when it succeeds.`);
+                return;
+              }
+              // No build at all: the workflow never ran for this commit, for example
+              // because the base branch of the pull request has an older copy of
+              // verify-build.yaml that only runs for pull requests to main.
+              await setStatus('😕', `No build has run for the latest commit (${sha}), so there is no preview to publish. The build starts when commits are pushed to the pull request. If the base branch (\`${pr.base.ref}\`) is not \`main\`, update it from \`main\` first so it has the current build workflow, then push to this pull request.`);
               return;
             }
             const { data: jobs } = await github.rest.actions.listJobsForWorkflowRun({ owner, repo, run_id: run.id, per_page: 100 });
