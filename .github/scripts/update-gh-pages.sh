@@ -208,6 +208,17 @@ previews_size_mb() {
   fi
 }
 
+# A preview that is not published must not take the place of the preview it
+# was going to replace: those are restored from the gh-pages commit.
+restore_replaced_previews() {
+  local number
+  for number in ${replaced_previews[@]+"${replaced_previews[@]}"}; do
+    echo "Keeping the preview pr/${number}, because pull request ${pr_number} is not published."
+    git checkout --quiet HEAD -- "pr/${number}"
+  done
+  replaced_previews=()
+}
+
 enforce_space_limit() {
   [ -n "${limit_mb}" ] || return 0
   local site_mb budget_mb previews_mb own_mb deployed_at number
@@ -220,6 +231,7 @@ enforce_space_limit() {
       echo "::warning title=No space for the preview::The preview of pull request ${pr_number} needs ${own_mb} MB, but the production site (${site_mb} MB) leaves only ${budget_mb} MB of ${limit_mb} MB. The preview is not published."
       rm -rf "pr/${pr_number}"
       rmdir pr 2> /dev/null || true
+      restore_replaced_previews
       no_space=true
       return 0
     fi
@@ -233,6 +245,7 @@ enforce_space_limit() {
       echo "::notice title=No space for the preview::The preview of pull request ${pr_number} needs ${needed_mb} MB more than GitHub Pages has left. It is not published; replace another preview with /preview replace <number>."
       rm -rf "pr/${pr_number}"
       rmdir pr 2> /dev/null || true
+      restore_replaced_previews
       no_space=true
       return 0
     fi
