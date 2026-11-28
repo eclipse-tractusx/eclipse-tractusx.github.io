@@ -31,7 +31,9 @@
   min-height: 3.5rem;
   padding: 0.45rem 0.75rem 0.45rem 0.5rem;
   border: 1px solid var(--ticker-border);
-  border-radius: 999px;
+  /* Concentric with the 5px "News" button: its radius plus the ~9px it sits from the edge.
+     A full pill left the button's square corners wedged into the round end. */
+  border-radius: 14px;
   background: var(--ticker-surface);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);

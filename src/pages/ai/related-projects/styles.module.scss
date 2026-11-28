@@ -398,7 +398,9 @@ $brand-green: #afc72d;
 
 .hub {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  // Fixed middle track: the core's width cannot resolve a percentage inside an
+  // auto track, which collapsed the circle on desktop.
+  grid-template-columns: minmax(0, 1fr) 280px minmax(0, 1fr);
   align-items: center;
   gap: 40px;
 
@@ -462,13 +464,15 @@ $brand-green: #afc72d;
   display: flex;
   align-items: center;
   justify-content: center;
-  // Shrinks on narrow phones; the margin leaves room for the ring's glowing dots.
-  width: min(280px, calc(100% - 24px));
+  flex: none;
+  width: 280px;
   aspect-ratio: 1;
 
   @media screen and (max-width: 996px) {
     order: 1;
     margin: 0 auto;
+    // Shrinks on narrow phones; the margin leaves room for the ring's glowing dots.
+    width: min(280px, calc(100% - 24px));
   }
 }
 
@@ -543,7 +547,9 @@ $brand-green: #afc72d;
   font-size: 20px;
   font-weight: 800;
   letter-spacing: 0.04em;
+  line-height: 1.2;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .hubParts {
@@ -563,6 +569,7 @@ $brand-green: #afc72d;
     color: var(--ifm-color-emphasis-800);
     font-size: 11px;
     font-weight: 700;
+    white-space: nowrap;
   }
 }
 
