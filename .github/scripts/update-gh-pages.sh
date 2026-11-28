@@ -33,13 +33,16 @@
 #
 #   update-gh-pages.sh site <build-dir>
 #       Replace the production site with <build-dir>. The pull request previews
-#       in pr/ are kept.
+#       in pr/ are kept, and so is generated/ when <build-dir> has none.
 #   update-gh-pages.sh preview <pr-number> <build-dir>
 #       Replace the preview in pr/<pr-number> with <build-dir>. The production
 #       site and the other previews are kept.
 #   update-gh-pages.sh remove [<pr-number>...]
 #       Remove the previews in pr/<pr-number>. Without a number, only the space
 #       limit below is enforced.
+#   update-gh-pages.sh data <data-dir>
+#       Replace generated/ (data the site reads at run time, such as the product
+#       statistics) with <data-dir>. Everything else is kept.
 #
 # Space limit: GitHub Pages fails to deploy a site that is too large, and then
 # not even the production site is updated. Every mode therefore checks the space
@@ -110,6 +113,11 @@ case "${mode}" in
     else
       message="Remove previews of pull requests $*"
     fi
+    ;;
+  data)
+    [ "$#" -eq 2 ] || usage
+    source_dir="$(cd "$2" && pwd)"
+    message="Update generated data"
     ;;
   *)
     usage
@@ -311,7 +319,10 @@ write_outputs() {
 apply_change() {
   case "${mode}" in
     site)
-      find . -mindepth 1 -maxdepth 1 ! -name .git ! -name pr -exec rm -rf {} +
+      find . -mindepth 1 -maxdepth 1 ! -name .git ! -name pr ! -name generated -exec rm -rf {} +
+      if [ -d "${source_dir}/generated" ]; then
+        rm -rf generated
+      fi
       cp -R "${source_dir}/." .
       enforce_space_limit
       ;;
@@ -336,6 +347,12 @@ apply_change() {
           removed_previews+=("${number}")
         fi
       done
+      enforce_space_limit
+      ;;
+    data)
+      rm -rf generated
+      mkdir -p generated
+      cp -R "${source_dir}/." generated/
       enforce_space_limit
       ;;
   esac

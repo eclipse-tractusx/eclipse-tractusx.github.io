@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "prestart": "node utils/generateProductStats.js --max-age-hours=12",
     "start": "npm run pre-build:kit-master-data && npm run validate:ai -- --silent && npm run pre-render:kit-logos && docusaurus start",
     "build": "npm run pre-build:kit-master-data && npm run validate:ai -- --silent && npm run pre-render:kit-logos && docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -15,6 +16,8 @@
     "lint-doc": "markdownlint-cli2 --config .markdownlint.yaml \"docs/**/*.md\" \"#node_modules\"",
     "lint-kits": "markdownlint-cli2 --config .markdownlint.yaml \"docs-kits/kits/**/*.md\" \"#node_modules\"",
     "generate:nav-items": "node utils/generateKitNavItems.js",
+    "generate:repo-tree": "node utils/generateTractusxRepoTree.js",
+    "generate:product-stats": "node utils/generateProductStats.js",
     "pre-render:kit-logos": "node utils/prerenderKitLogos.js",
     "pre-build:kit-master-data": "npm run validate:kits:silent && npm run generate:nav-items",
     "validate:kits": "node utils/validate-kits-data.js",

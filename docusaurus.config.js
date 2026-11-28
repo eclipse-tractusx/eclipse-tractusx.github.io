@@ -450,6 +450,19 @@ const config = {
           },
           {
             type: 'dropdown',
+            label: 'Software',
+            position: 'left',
+            to: '/Products',
+            items: [
+              { to: '/Products', label: 'All software' },
+              { to: '/Products/use-cases', label: 'Use Cases' },
+              { to: '/Products/dataspace-foundation', label: 'Dataspace Foundation' },
+              { to: '/Products/industry-core', label: 'Industry Core Foundation' },
+              { to: '/Products/qa-testing', label: 'QA / Testing & Tools' },
+            ],
+          },
+          {
+            type: 'dropdown',
             label: 'AI',
             position: 'left',
             to: '/ai',

@@ -55,6 +55,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Contributors, committers and repository numbers for the product pages, so a new
+      # deployment starts with current numbers. Between deployments, "Update product
+      # statistics" refreshes them every day. Uses the workflow token for the GitHub API
+      # limit; never fails the build.
+      - name: Collect product statistics
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run generate:product-stats
+
       - name: Build website
         run: npm run build
 
