@@ -21,7 +21,7 @@
  * Writes the preview comment of a pull request. Every pull request has at most
  * one such comment, recognized by MARKER. It always shows the current state of
  * the preview: published (with the commit it was built from), not published
- * (too large, no space) or removed (and why).
+ * (no space) or removed (and why).
  *
  * Used with actions/github-script by "Deploy pull request preview" and "Remove
  * pull request preview", both from the default branch:
@@ -88,13 +88,12 @@ function parsePreviews(list) {
 
 // Returns the comment for a state:
 //   published  the preview is online (needs headSha, pagesFile)
-//   too-large  the preview is larger than maxPreviewMb (needs previewMb, maxPreviewMb)
 //   no-space   the preview does not fit into the free space of GitHub Pages
 //   removed    the preview was removed (needs reason: closed, manual, evicted,
 //              newer or replaced; replacedBy names the pull request for newer
 //              and replaced)
 // pagesPending marks a published preview that GitHub Pages did not serve yet.
-function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile, previewMb, maxPreviewMb, space, reason, replacedBy, previews, neededMb, pagesPending = false, now = new Date() }) {
+function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile, previewMb, space, reason, replacedBy, previews, neededMb, pagesPending = false, now = new Date() }) {
   const url = `${SITE}/pr/${prNumber}/`;
   const lines = [MARKER, '## 🔍 Pull request preview', ''];
   const sha = isSha(headSha) ? headSha : null;
@@ -121,20 +120,13 @@ function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile
       '',
       '> All other pages of the preview open on the live website. This comment is updated on every push and shows the commit the preview was built from. The preview is removed once the pull request is closed, or earlier if GitHub Pages needs the space. Committers can publish it again with `/preview`.',
     );
-  } else if (state === 'too-large' || state === 'no-space') {
-    const why =
-      state === 'too-large'
-        ? `The preview of this commit has ${previewMb} MB, more than the ${maxPreviewMb} MB a single preview may use, so it is not published. This happens when a change affects every page, for example a change to a component, a style or the configuration.`
-        : `The preview of this commit has ${previewMb} MB and does not fit into the space that GitHub Pages has left${/^\d+$/.test(String(neededMb ?? '')) ? ` (it needs ${neededMb} MB more)` : ''}, so it is not published.`;
-    lines.push(why, '');
-    if (state === 'too-large') {
-      lines.push(
-        '📦 **Publish it anyway:** a committer can comment `/preview large` to publish this preview despite its size, as long as GitHub Pages has space left for it. Replacing other previews does not help here, the limit is per preview.',
-        '',
-      );
-    }
+  } else if (state === 'no-space') {
+    lines.push(
+      `The preview of this commit has ${previewMb} MB and does not fit into the space that GitHub Pages has left${/^\d+$/.test(String(neededMb ?? '')) ? ` (it needs ${neededMb} MB more)` : ''}, so it is not published.`,
+      '',
+    );
     const others = parsePreviews(previews).filter((other) => other.number !== prNumber);
-    if (state === 'no-space' && others.length > 0) {
+    if (others.length > 0) {
       lines.push(
         '♻️ **Make space:** comment `/preview replace <number>` to remove one of these previews and publish this one in its place (oldest first):',
         '',
@@ -178,6 +170,39 @@ async function findComment(github, owner, repo, prNumber) {
 
 // Creates or updates the preview comment. With create: false, a missing comment
 // is not created (for example for a pull request that never had a preview).
+// The pull request has this label while its preview is on GitHub Pages, so the
+// list of pull requests shows which previews are online. Every state other than
+// published means that gh-pages no longer has the preview (a preview that does
+// not fit is removed together with its older version).
+const LABEL = 'preview';
+
+// Adds or removes the label. A label that cannot be changed (missing
+// permission) never stops the deployment.
+async function syncLabel({ github, owner, repo, prNumber, online }) {
+  try {
+    if (online) {
+      try {
+        await github.rest.issues.createLabel({
+          owner, repo, name: LABEL, color: '1f883d',
+          description: 'A preview of this pull request is online at https://eclipse-tractusx.github.io/pr/<number>/',
+        });
+      } catch (error) {
+        if (error.status !== 422) {
+          throw error;
+        }
+        // 422: the label exists already.
+      }
+      await github.rest.issues.addLabels({ owner, repo, issue_number: prNumber, labels: [LABEL] });
+    } else {
+      await github.rest.issues.removeLabel({ owner, repo, issue_number: prNumber, name: LABEL });
+    }
+  } catch (error) {
+    if (error.status !== 404) {
+      console.log(`Could not ${online ? 'add' : 'remove'} the label "${LABEL}" on #${prNumber}: ${error.message}`);
+    }
+  }
+}
+
 async function update({ github, context, prNumber, create = true, ...options }) {
   const { owner, repo } = context.repo;
   const existing = await findComment(github, owner, repo, prNumber);
@@ -188,6 +213,7 @@ async function update({ github, context, prNumber, create = true, ...options }) 
   } else if (create) {
     await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
   }
+  await syncLabel({ github, owner, repo, prNumber, online: options.state === 'published' });
 }
 
 // Tells the author of a pull request that its preview was replaced. The preview
@@ -257,6 +283,9 @@ const STEP_LABELS = ['Request received', 'Build', 'Publish to `gh-pages`', 'GitH
 // shows images in comments and keeps SVG animations running; until the file is
 // online, the alt text 🔄 is shown.
 const SPINNER = `<img src="${SITE}/img/preview/spinner.svg" width="16" height="16" alt="🔄">`;
+// A yellow square that blinks, for the step in progress in the bar
+// (static/img/preview/pulse.svg); until it is online, the alt text 🟨 is shown.
+const PULSE = `<img src="${SITE}/img/preview/pulse.svg" width="20" height="20" alt="🟨">`;
 const STEP_HEADINGS = ['receiving the request', 'building', 'publishing to `gh-pages`', 'waiting for GitHub Pages', 'result'];
 
 // step: the step in progress (0 to 4), or 5 when everything is done.
@@ -264,11 +293,11 @@ const STEP_HEADINGS = ['receiving the request', 'building', 'publishing to `gh-p
 // result: Markdown shown under the steps.
 function renderProgress({ step, failed = false, headSha, links = {}, result }) {
   const total = STEP_LABELS.length;
-  const bar = STEP_LABELS.map((_, i) => (i < step ? '🟩' : i === step ? (failed ? '🟥' : '🟨') : '⬜')).join('');
+  const bar = STEP_LABELS.map((_, i) => (i < step ? '🟩' : i === step ? (failed ? '🟥' : PULSE) : '⬜')).join('');
   const heading =
     step >= total
       ? '**Done**'
-      : `${failed ? '' : `${SPINNER} `}**Step ${step + 1} of ${total}:** ${failed ? 'failed while ' : ''}${STEP_HEADINGS[step]}`;
+      : `**Step ${step + 1} of ${total}:** ${failed ? 'failed while ' : ''}${STEP_HEADINGS[step]}`;
   const label = (i) => {
     if (i === 1) {
       const commit = isSha(headSha) ? ` of commit \`${headSha.slice(0, 7)}\`` : '';
@@ -313,16 +342,18 @@ async function waitingStatusComments({ github, owner, repo, prNumber, statusId }
 
 // Writes content into the waiting status comments of a pull request. With a
 // reaction (hooray or -1), the result is final: the comments are no longer
-// pending and their /preview comments get the reaction.
-async function updateStatusComments({ github, context, core, prNumber, statusId, content, reaction }) {
+// pending and their /preview comments get the reaction. With pendingReaction
+// (rocket, once publishing starts), the /preview comments get it and the
+// status comments keep waiting.
+async function updateStatusComments({ github, context, core, prNumber, statusId, content, reaction, pendingReaction }) {
   const { owner, repo } = context.repo;
   const targets = await waitingStatusComments({ github, owner, repo, prNumber, statusId });
   for (const status of targets) {
     await github.rest.issues.updateComment({ owner, repo, comment_id: status.id, body: statusBody(status.body, content, !reaction) });
-    if (reaction) {
+    if (reaction || pendingReaction) {
       try {
         await github.rest.reactions.createForIssueComment({
-          owner, repo, comment_id: Number(status.body.match(STATUS_MARKER)[1]), content: reaction,
+          owner, repo, comment_id: Number(status.body.match(STATUS_MARKER)[1]), content: reaction || pendingReaction,
         });
       } catch (error) {
         core?.info(`Could not react to the /preview comment: ${error.message}`);
@@ -334,6 +365,6 @@ async function updateStatusComments({ github, context, core, prNumber, statusId,
 }
 
 module.exports = {
-  MARKER, render, update, numbers, readChangedPages, parsePreviews, notifyReplaced, notifyEvicted,
+  MARKER, LABEL, render, update, syncLabel, numbers, readChangedPages, parsePreviews, notifyReplaced, notifyEvicted,
   PENDING_MARKER, renderProgress, statusBody, updateStatusComments,
 };

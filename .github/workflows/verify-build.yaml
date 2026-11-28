@@ -42,15 +42,15 @@
 # the commit and the /preview request, because "Deploy pull request preview"
 # only gets the name of the run, not its inputs:
 #
-#   Preview of pull request #<number> at <commit> (/preview by <login>; comment <id>; status <id>; replace <number>; large <true|false>)
+#   Preview of pull request #<number> at <commit> (/preview by <login>; comment <id>; status <id>; replace <number>)
 #
 # When the build has finished, "Deploy pull request preview" publishes it and
 # answers the /preview comment, as for a pull request to main.
 name: Build pull request preview
 run-name: >-
   ${{ github.event_name == 'workflow_dispatch'
-  && format('Preview of pull request #{0} at {1} (/preview by {2}; comment {3}; status {4}; replace {5}; large {6})',
-  inputs.pr_number, inputs.head_sha, inputs.requested_by, inputs.comment_id, inputs.status_comment_id, inputs.replace, inputs.allow_large)
+  && format('Preview of pull request #{0} at {1} (/preview by {2}; comment {3}; status {4}; replace {5})',
+  inputs.pr_number, inputs.head_sha, inputs.requested_by, inputs.comment_id, inputs.status_comment_id, inputs.replace)
   || github.event.pull_request.title }}
 
 on:
@@ -89,11 +89,6 @@ on:
         required: false
         type: string
         default: ''
-      allow_large:
-        description: Publish a preview larger than the limit if GitHub Pages has space
-        required: false
-        type: boolean
-        default: false
 
 # Collapse superseded runs so rapid pushes do not queue up preview deployments.
 concurrency:
@@ -416,7 +411,6 @@ jobs:
       build_run_id: ${{ github.run_id }}
       build_result: ${{ (needs.changes.result == 'success' && needs.preview.result != 'failure' && needs.preview.result != 'cancelled') && 'success' || 'failure' }}
       replace: ${{ inputs.replace }}
-      allow_large: ${{ inputs.allow_large }}
       requested_by: ${{ inputs.requested_by }}
       comment_id: ${{ inputs.comment_id }}
       status_comment_id: ${{ inputs.status_comment_id }}
