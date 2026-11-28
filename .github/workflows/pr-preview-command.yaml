@@ -318,9 +318,15 @@ jobs:
               ];
               const docs = `[How the previews work](${context.serverUrl}/${owner}/${repo}/blob/${repository.default_branch}/.github/workflows/README.md)`;
 
+              const openLine = deployedAt
+                ? `🔗 **[Open the preview](${previewUrl})** · ${previewUrl}`
+                : '🔗 No preview is published yet; comment `/preview` to build and publish it.';
+
               if (query === 'help') {
                 await setStatus('❓', [
                   '**Preview commands**',
+                  '',
+                  openLine,
                   '',
                   ...commands,
                   '',
@@ -349,6 +355,9 @@ jobs:
                     const details = previewComment.body.replace(/<!--[\s\S]*?-->/g, '').trim();
                     lines.push('', `<details><summary>Changed pages (from the <a href="${previewComment.html_url}">preview comment</a>)</summary>`, '', details, '', '</details>');
                   }
+                }
+                if (deployedAt) {
+                  lines.push('', openLine);
                 }
                 lines.push(
                   '',

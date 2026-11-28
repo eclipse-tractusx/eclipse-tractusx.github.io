@@ -142,7 +142,7 @@ sequenceDiagram
   result, for example after a run that was cancelled. While something runs, they keep waiting and still get its result.
 - `/preview info` shows the preview of this pull request: the link, the commit it was built from, when it was
   published, the changed pages (from the preview comment) and how it is built for its base branch.
-- `/preview help` lists the commands.
+- `/preview help` lists the commands, with the link to the preview of the pull request.
 
 A build is never run again on its own, to save Actions minutes. When a committer comments `/preview` and the build has
 expired, the bot replies that it has expired and points to `/preview rebuild`. If the build has not finished yet, the
