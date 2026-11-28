@@ -99,12 +99,11 @@ Committers can publish a preview from a comment on the pull request:
 - `/preview` publishes the preview of the pull request's latest successful build. Pull requests to another branch than
   `main` (stacked pull requests) are not built on push, to save Actions minutes. For them, `/preview` builds the current
   commit first and the build publishes the preview when it has finished. The result is reported like for any other
-  `/preview`, also when it replaces older previews because GitHub Pages has no space left. The build of a stacked
+  `/preview`, including the table of previews to replace when GitHub Pages has no space left. The build of a stacked
   pull request is the merge into its base branch, so the preview shows the stack up to that pull request. It only runs
   the preview build, not the complete build that is a required check for `main`.
 - `/preview replace <number>` removes the preview of pull request `<number>` and publishes this one in its place, in one
-  commit. Without it, a preview that needs space replaces the oldest previews (see "When there is no space" below);
-  `replace` lets a committer choose which one makes way instead.
+  commit.
 
 ```mermaid
 sequenceDiagram
@@ -113,14 +112,18 @@ sequenceDiagram
     participant Cmd as Preview command
     participant Dep as Deploy pull request preview
     participant GP as gh-pages
-    participant Old as Pull request #1655 (oldest preview)
+    participant Old as Pull request #1655
     C->>PR: comments "/preview"
     PR->>Cmd: issue_comment
     Cmd->>Dep: start (pr_number 1700)
-    Dep->>GP: no space left: one commit removes pr/1655, adds pr/1700
+    Dep->>GP: no space left, nothing published
+    Dep->>PR: comment lists previews with "/preview replace N"
+    C->>PR: comments "/preview replace 1655"
+    PR->>Cmd: issue_comment
+    Cmd->>Dep: start (pr_number 1700, replace 1655)
+    Dep->>GP: one commit: remove pr/1655, add pr/1700
+    Dep->>PR: comment with the preview URL
     Dep->>Old: comment edited, and a new comment mentions the author
-    Dep->>GP: waits until GitHub Pages serves pr/1700
-    Dep->>PR: comment with the preview URL, 🎉 for the committer
 ```
 
 - `/preview rebuild` builds the pull request again when its saved build has expired (builds are kept for 90 days). The
@@ -148,7 +151,7 @@ A committer always sees what happened to their command:
 | 👀 | the command was picked up (a few seconds after the comment, while a runner starts) |
 | 🚀 | the deployment, or with `/preview rebuild` the build, has started |
 | 😕 | the command is not valid, or the pull request has no preview (closed, no website changes) |
-| 🎉 | the preview is published; "online" once the deployment saw GitHub Pages serve it |
+| 🎉 | the preview is published |
 | 👎 | the preview was not published |
 
 Next to the reactions, the bot answers every command of a committer with one status comment, a few seconds after the
@@ -163,42 +166,39 @@ command. It quotes the command and says what happens, how long it usually takes 
 | 🔁 Building again | `/preview rebuild` started the build again; expect 5 to 10 minutes until the preview is online |
 | 😕 or ⌛ | nothing to publish, and why: not a valid command, closed pull request, no website changes, expired build |
 
-When a deployment that the command started has finished, the status comment is replaced by the result: 🎉 with the
-link, or 👎 with the reason (too large, no space, outdated build, failed run, replaced right away by a newer preview). The result is a new comment that mentions
-the committer, because GitHub notifies about new comments but not about edited ones. Only committers cause status
+When the build and the deployment have finished, the result is written into the same status comment, and the `/preview`
+comment gets 🎉 or 👎:
+
+- 🎉 the link. The deployment first waits until GitHub Pages serves the preview (up to 10 minutes) and says so if it
+  does not yet.
+- ❌ the build or the deployment failed, with a link to the run that shows why.
+- 📦 the preview is larger than a single preview may be; `/preview large` publishes it anyway.
+- 💾 GitHub Pages has no space left: a table of the current previews with their sizes and a `/preview replace <number>`
+  command for each, so the committer chooses which one makes way. The replacement reuses the build.
+
+A status comment that still waits ("Build still running", "Building", "Publishing") is finished by the next deployment of
+that pull request, also when it was started by a push and not by the command. GitHub does not notify about edited
+comments; the reaction on the `/preview` comment shows the outcome at a glance. Only committers cause status
 comments, so they cannot be used to flood a pull request. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
 the first workflow run of a new contributor).
 
 #### When there is no space
 
-The newest preview has priority, whatever the size of the others: the deploy sets `PREVIEW_EVICT=oldest`, so
-`update-gh-pages.sh` removes the oldest previews of other pull requests (by `pr/<number>/.deployed-at`) until the new
-one fits. Each pull request whose preview was removed gets its preview comment edited and a new comment that mentions
-its author; `/preview` publishes it again without a rebuild, and it then is the newest. The production deployment and
-the daily sweep evict the same way, because the website always gets the space.
+Previews of other pull requests are not removed automatically. `update-gh-pages.sh` decides like this (the deploy sets
+`PREVIEW_EVICT=none`; the production deployment and the daily sweep keep evicting the oldest previews, because the
+website always gets the space):
 
 ```mermaid
 flowchart TD
     start["Deploy the preview of pull request P"] --> rep{"replace N given?"}
     rep -- yes --> rm["Remove pr/N in the same commit"]
-    rep -- no --> alone
-    rm --> alone{"P fits next to the website alone?"}
+    rep -- no --> fit
+    rm --> fit{"P fits next to the website<br/>and the other previews?"}
+    fit -- yes --> pub["Publish pr/P<br/>comment: preview URL"]
+    fit -- no --> alone{"P fits next to the website alone?"}
     alone -- no --> nospace1["Not published<br/>comment: too large for the free space"]
-    alone -- yes --> fit{"P fits next to the website<br/>and the other previews?"}
-    fit -- yes --> pub["Publish pr/P"]
-    fit -- no --> evict["Remove the oldest previews until P fits<br/>comment on each of their pull requests"]
-    evict --> pub
-    pub --> verify{"GitHub Pages serves pr/P?"}
-    verify -- yes --> online["comment: preview URL, 🎉 online"]
-    verify -- "pr/P was removed again<br/>by a newer deployment" --> gone["that deployment has commented<br/>👎 for the committer"]
-    verify -- "not within 10 minutes" --> pending["comment: preview URL,<br/>not served yet"]
+    alone -- yes --> nospace2["Not published<br/>comment: table of previews<br/>with /preview replace N"]
 ```
-
-Several previews can build and deploy at the same time. A build takes no space until it deploys. Each deployment
-applies its change on top of the latest `gh-pages` commit and retries when another workflow pushed in the meantime, so
-it always evicts based on what is really there. A preview that was just published can therefore be removed again by a
-newer one; the deployment checks that afterwards (it waits until GitHub Pages serves its `pr/<number>/.deployed-at`)
-and does not report a preview as published that a newer deployment has already removed.
 
 #### Life of a preview
 
@@ -208,10 +208,11 @@ a rebuild. Only closing the pull request deletes the builds.
 ```mermaid
 stateDiagram-v2
     [*] --> Built: push
-    Built --> Published: deploy (oldest previews make way if needed)
-    Built --> NoSpace: deploy, too large for the space next to the website
+    Built --> Published: deploy, space available
+    Built --> NoSpace: deploy, no space
+    NoSpace --> Published: /preview replace N
     Published --> Published: new push
-    Published --> Parked: replaced by a newer preview
+    Published --> Parked: replaced by another pull request
     Parked --> Published: /preview
     Published --> Removed: pull request closed
     Parked --> Removed: pull request closed
@@ -222,7 +223,7 @@ stateDiagram-v2
 | Event | Preview on `gh-pages` | Build artifact | Comment |
 |---|---|---|---|
 | push, space available | published (replaces the older one) | new, 90 days | URL, commit, changed pages |
-| push, no space | published; the oldest previews are removed | new, 90 days | this PR: URL; removed PRs: edited, plus a new comment mentioning the author |
+| push, no space | not published | kept | previews table with replace commands |
 | `/preview replace N` | N removed, this one published | both kept | this PR: URL; PR N: edited, plus a new comment mentioning the author |
 | `/preview` on a parked PR | published again | reused | URL |
 | pull request closed | removed | deleted | "closed" |
@@ -280,11 +281,11 @@ Every write to `gh-pages` checks the space, so previews can never stop the produ
   measures the production site and the previews:
   - a preview that does not fit next to the production site on its own is not published (and its older version is
     removed). The comment says so, and no other preview is removed for it,
-  - a preview that only fits if other previews make space removes the oldest previews (by
-    `pr/<number>/.deployed-at`) until it fits; the newest preview has priority (see "When there is no space" above),
-  - the production deployment and the daily sweep remove the oldest previews the same way until everything fits; the
-    website always gets the space. The author of each removed preview gets a new comment that mentions them, and
-    `/preview` publishes it again.
+  - a preview that only fits if other previews make space is not published either; the comment lists the previews so
+    a committer can choose one with `/preview replace <number>` (see "When there is no space" above),
+  - the production deployment and the daily sweep still remove the oldest previews (by `pr/<number>/.deployed-at`)
+    until everything fits; the website always gets the space. The author of each removed preview gets a new comment
+    that mentions them, and `/preview` publishes it again once there is space.
 - Each run shows the space used in its job summary.
 
 Every pull request has one preview comment, which is updated (not posted again):
@@ -293,7 +294,7 @@ Every pull request has one preview comment, which is updated (not posted again):
   on GitHub Pages,
 - when the preview is not published (too large, no space), with the reason and the commit,
 - when the preview is removed, with the reason (pull request closed, removed manually, replaced by another pull
-  request, removed to make space for a newer preview or for the website) and the commit of the last preview. A replaced preview's author also
+  request, removed to make space for the website) and the commit of the last preview. A replaced preview's author also
   gets a new comment that mentions them, because GitHub does not notify about edited comments.
 
 The preview's announcement bar also shows the commit.

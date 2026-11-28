@@ -27,16 +27,15 @@ name: Pull request preview command
 #                             on push; for it, /preview starts the build of the
 #                             current commit, which publishes the preview
 #   /preview replace <number> remove the preview of pull request <number> and
-#                             publish this one in its place (instead of the
-#                             oldest previews, if space runs out)
+#                             publish this one in its place
 #   /preview rebuild          build again when the saved build has expired
 #                             (after 90 days); the build publishes the preview
 #   /preview large            publish a preview that is larger than the limit
 #                             for a single preview, if GitHub Pages has space
 #
-# When GitHub Pages has no space left, the newest preview has priority: the
-# oldest previews of other pull requests are removed until it fits, and their
-# pull requests get a comment.
+# When GitHub Pages has no space left, the status comment and the preview
+# comment list the current previews with their sizes and the replace command
+# for each.
 #
 # Runs in the context of the base repository. It never checks out or runs code
 # from the pull request; it only starts "Deploy pull request preview", which
@@ -94,14 +93,18 @@ jobs:
             // deployment or rebuild has started, or 😕 for a command that is not
             // valid. Next to the reactions, one status comment answers the command
             // at once and says what happens and how long it takes. When the
-            // deployment has finished, "Deploy pull request preview" replaces that
-            // comment with the result, mentioning the requester, and adds 🎉 or 👎.
+            // deployment has finished, "Deploy pull request preview" writes the
+            // result into that comment (the link, the reason, or the table of
+            // previews to replace) and adds 🎉 or 👎.
             // Only committers get a status comment, so it cannot be used to flood
             // the pull request.
             let statusId = null;
             const setStatus = async (icon, text) => {
+              // A status that waits for a build or a deployment is marked, so
+              // "Deploy pull request preview" writes the result into it.
+              const pending = ['⏳', '🔨', '🚀', '🔁'].includes(icon) ? '\n<!-- pr-preview-pending -->' : '';
               const body = [
-                `<!-- pr-preview-status:${comment.id} -->`,
+                `<!-- pr-preview-status:${comment.id} -->${pending}`,
                 `> ${line.replace(/[\r\n]/g, ' ').slice(0, 100)}`,
                 '',
                 `${icon} ${text}`,
@@ -207,7 +210,7 @@ jobs:
                 '1. The build takes 3 to 5 minutes.',
                 '2. When it has finished, the preview is published to `gh-pages`, and GitHub Pages puts it online a minute or two later.',
                 '',
-                'This comment is then replaced by the result, which mentions you. If GitHub Pages has no space left, the oldest previews of other pull requests make way for this one, and their pull requests are told.',
+                'This comment is then updated with the result: the link, why it failed, or, if GitHub Pages has no space left, a table of the current previews to choose one to replace with `/preview replace <number>`.',
               ].join('\n'));
             };
             const notOnPush = toMain ? '' : ` Pull requests to \`${pr.base.ref}\` are not built on push, only with \`/preview\`.`;
@@ -280,5 +283,5 @@ jobs:
               '2. The preview is copied to the `gh-pages` branch. If another deployment is writing there at the same moment, this one waits for it and tries again.',
               '3. GitHub Pages puts the new state of `gh-pages` online, which takes another minute or two.',
               '',
-              `This comment is replaced by the result, which mentions you. [Deployment runs](${context.serverUrl}/${owner}/${repo}/actions/workflows/deploy-pr-preview.yaml)`,
+              `This comment is then updated with the result: the link, why it failed, or, if GitHub Pages has no space left, a table of the current previews to choose one to replace. [Deployment runs](${context.serverUrl}/${owner}/${repo}/actions/workflows/deploy-pr-preview.yaml)`,
             ].join('\n'));

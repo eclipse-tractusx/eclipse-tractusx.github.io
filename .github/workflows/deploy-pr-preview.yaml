@@ -278,6 +278,8 @@ jobs:
       mb: ${{ steps.size.outputs.mb }}
       too-large: ${{ steps.size.outputs.too-large }}
       no-space: ${{ steps.publish.outputs.no-space }}
+      needed-mb: ${{ steps.publish.outputs.needed-mb }}
+      previews: ${{ steps.publish.outputs.previews }}
       online: ${{ steps.verify.outputs.result }}
     # One group per pull request, shared with "Remove pull request preview".
     # Deployments and the removal of the same preview therefore never overlap.
@@ -301,13 +303,11 @@ jobs:
       # space for it.
       MAX_PREVIEW_MB: 300
       ALLOW_LARGE: ${{ needs.prepare.outputs.allow-large }}
-      # The newest preview has priority: when GitHub Pages runs out of space,
-      # the oldest previews of other pull requests are removed until this one
-      # fits, whatever their size. Their pull requests get a comment and can
-      # publish them again with /preview. A committer who prefers to remove a
-      # specific preview uses /preview replace <number> instead. Builds that
-      # are still running take no space; when they deploy, they are the newest.
-      PREVIEW_EVICT: oldest
+      # Previews of other pull requests are not removed automatically to make
+      # space. When there is none left, the /preview status comment and the
+      # preview comment list the previews, and a committer chooses one with
+      # /preview replace <number>.
+      PREVIEW_EVICT: none
     steps:
       # Checked again here, because the job may have waited in the concurrency
       # group. A pending removal is replaced by a newer run of this job, so a
@@ -477,9 +477,7 @@ jobs:
             } else if (env.TOO_LARGE === 'true') {
               await preview.update({ ...common, prNumber, state: 'too-large' });
             } else if (env.NO_SPACE === 'true') {
-              // Only happens when the preview alone needs more than the website
-              // leaves free, so removing other previews would not help.
-              await preview.update({ ...common, prNumber, state: 'no-space', neededMb: env.NEEDED_MB });
+              await preview.update({ ...common, prNumber, state: 'no-space', previews: env.PREVIEWS, neededMb: env.NEEDED_MB });
             } else if (env.ONLINE !== 'removed') {
               await preview.update({ ...common, prNumber, state: 'published', pagesFile: 'preview/.preview-pages.json', pagesPending: env.ONLINE === 'pending' });
             }
@@ -488,25 +486,29 @@ jobs:
               await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'replaced', replacedBy: prNumber });
               await preview.notifyReplaced({ github, context, prNumber: number, replacedBy: prNumber });
             }
-            // Removed to make space for this preview, because it is newer.
             for (const number of preview.numbers(env.EVICTED)) {
-              await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'newer', replacedBy: prNumber });
-              await preview.notifyEvicted({ github, context, prNumber: number, newerBy: prNumber });
+              await preview.update({ github, context, space, prNumber: number, state: 'removed', reason: 'evicted' });
+              await preview.notifyEvicted({ github, context, prNumber: number });
             }
 
-  # Tells the committer who commented /preview how it ended, also when a job
-  # failed: 🎉 on the comment if the preview is published, otherwise 👎 and a
-  # reply that mentions them, because GitHub does not notify about the edited
-  # preview comment. Only runs started by the comment command get here, and
-  # that command only accepts committers.
+  # Writes the result into the status comment that /preview posted ("Building
+  # ...", "Publishing ...", "Build still running ..."): the link, or why the
+  # preview was not published. When GitHub Pages has no space left, it shows
+  # the table of previews to choose from with /preview replace <number>. The
+  # /preview comment gets 🎉 or 👎.
+  #
+  # Runs for every deployment that knows its pull request, also for a push:
+  # a /preview that was answered with "Build still running" is then finished
+  # by the deployment of that build. Status comments that already show a
+  # result are left alone. Only committers cause status comments.
   notify:
-    name: Tell the requester
+    name: Update the /preview status comment
     needs:
       - prepare
       - deploy
     if: >-
       always() &&
-      ((github.event_name == 'workflow_dispatch' && inputs.requested_by != '') || needs.prepare.outputs.requested-by != '')
+      (inputs.pr_number != '' || needs.prepare.outputs.pr-number != '' || needs.prepare.outputs.number != '')
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -517,75 +519,90 @@ jobs:
         env:
           # From the inputs of a manual run, or from the name of a build that
           # /preview started.
-          REQUESTED_BY: ${{ inputs.requested_by || needs.prepare.outputs.requested-by }}
-          COMMENT_ID: ${{ inputs.comment_id || needs.prepare.outputs.comment-id }}
           STATUS_COMMENT_ID: ${{ inputs.status_comment_id || needs.prepare.outputs.status-comment-id }}
-          PR_NUMBER: ${{ inputs.pr_number || needs.prepare.outputs.pr-number }}
+          PR_NUMBER: ${{ inputs.pr_number || needs.prepare.outputs.pr-number || needs.prepare.outputs.number }}
           BUILD_FAILED: ${{ needs.prepare.outputs.build-failed }}
           BUILD_URL: ${{ needs.prepare.outputs.run-url }}
+          HEAD_SHA: ${{ needs.prepare.outputs.head-sha }}
           PREPARE_RESULT: ${{ needs.prepare.result }}
           DEPLOY_RESULT: ${{ needs.deploy.result }}
           PR_STATE: ${{ needs.deploy.outputs.state }}
           PREVIEW_MB: ${{ needs.deploy.outputs.mb }}
           TOO_LARGE: ${{ needs.deploy.outputs.too-large }}
           NO_SPACE: ${{ needs.deploy.outputs.no-space }}
+          NEEDED_MB: ${{ needs.deploy.outputs.needed-mb }}
+          PREVIEWS: ${{ needs.deploy.outputs.previews }}
           ONLINE: ${{ needs.deploy.outputs.online }}
           MAX_PREVIEW_MB: 300
         with:
           script: |
             const env = process.env;
             const { owner, repo } = context.repo;
-            const login = /^[A-Za-z0-9-]{1,39}$/.test(env.REQUESTED_BY) ? env.REQUESTED_BY : null;
             const prNumber = Number(env.PR_NUMBER);
-            if (!login || !Number.isInteger(prNumber) || prNumber < 1) {
+            if (!Number.isInteger(prNumber) || prNumber < 1) {
               return;
             }
             const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
-            let problem = null;
-            if (env.BUILD_FAILED === 'true') {
-              problem = `the [build](${env.BUILD_URL}) failed. Fix it and push, then comment \`/preview\` again.`;
-            } else if (env.PREPARE_RESULT !== 'success' || ['failure', 'cancelled'].includes(env.DEPLOY_RESULT)) {
-              problem = `the deployment failed. The [workflow run](${runUrl}) shows why.`;
-            } else if (env.DEPLOY_RESULT === 'skipped') {
-              problem = `there was nothing to publish: the build is not from the latest commit of this pull request. The build of the latest commit publishes the preview when it has finished. The [workflow run](${runUrl}) shows details.`;
-            } else if (env.PR_STATE !== 'open') {
-              problem = 'the pull request is closed.';
-            } else if (env.TOO_LARGE === 'true') {
-              problem = `it has ${env.PREVIEW_MB} MB, more than the ${env.MAX_PREVIEW_MB} MB a single preview may use. Comment \`/preview large\` to publish it anyway, if GitHub Pages has space.`;
-            } else if (env.NO_SPACE === 'true') {
-              problem = 'it alone needs more space than GitHub Pages leaves free next to the website, so removing other previews would not help. The preview comment shows the size.';
-            } else if (env.ONLINE === 'removed') {
-              problem = 'it was published, but a newer preview of another pull request needed the space right after and replaced it. Comment `/preview` again to publish it without a rebuild; it then replaces the oldest preview.';
-            }
-            const commentId = /^[1-9][0-9]{0,19}$/.test(env.COMMENT_ID) ? Number(env.COMMENT_ID) : null;
-            if (commentId) {
-              try {
-                await github.rest.reactions.createForIssueComment({ owner, repo, comment_id: commentId, content: problem ? '-1' : 'hooray' });
-              } catch (error) {
-                core.info(`Could not react to the comment: ${error.message}`);
-              }
-            }
-            // The status comment of the command is replaced by a new comment with
-            // the result: a new comment notifies the requester, an edited one would
-            // not. Only a comment of this workflow's bot that answers this /preview
-            // is removed.
-            const statusId = /^[1-9][0-9]{0,19}$/.test(env.STATUS_COMMENT_ID) ? Number(env.STATUS_COMMENT_ID) : null;
-            if (statusId) {
-              try {
-                const { data: status } = await github.rest.issues.getComment({ owner, repo, comment_id: statusId });
-                if (status.user.type === 'Bot' && status.body.startsWith(`<!-- pr-preview-status:${commentId} -->`)) {
-                  await github.rest.issues.deleteComment({ owner, repo, comment_id: statusId });
-                }
-              } catch (error) {
-                core.info(`Could not remove the status comment: ${error.message}`);
-              }
-            }
             const url = `https://${owner}.github.io/pr/${prNumber}/`;
-            const body = problem
-              ? `👎 @${login} the preview was not published: ${problem}`
-              : env.ONLINE === 'online'
-                ? `🎉 @${login} the preview is online: ${url}\n\nThe preview comment lists the pages this pull request changes.`
-                : `🎉 @${login} the preview is published: ${url}\n\nGitHub Pages did not serve it yet. If the link still shows the old state or "Page not found", wait a few minutes. The preview comment lists the pages this pull request changes.`;
-            if (problem || statusId) {
-              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+            const sha = /^[0-9a-f]{40}$/.test(env.HEAD_SHA || '') ? ` of commit \`${env.HEAD_SHA.slice(0, 7)}\`` : '';
+
+            // The result, as the text of the status comment.
+            let ok = false;
+            let text;
+            if (env.BUILD_FAILED === 'true') {
+              text = `❌ The preview was not published: the [build](${env.BUILD_URL}) failed. Its log shows why. Fix it and push, then comment \`/preview\` again.`;
+            } else if (env.PREPARE_RESULT !== 'success' || ['failure', 'cancelled'].includes(env.DEPLOY_RESULT)) {
+              text = `❌ The preview was not published: the deployment failed. The [workflow run](${runUrl}) shows why. Comment \`/preview\` to try again.`;
+            } else if (env.DEPLOY_RESULT === 'skipped') {
+              // An outdated build: the build of the newer commit finishes this comment.
+              return;
+            } else if (env.PR_STATE !== 'open') {
+              text = '😕 The preview was not published: the pull request is closed.';
+            } else if (env.TOO_LARGE === 'true') {
+              text = `📦 The preview${sha} was not published: it has ${env.PREVIEW_MB} MB, more than the ${env.MAX_PREVIEW_MB} MB a single preview may use. Comment \`/preview large\` to publish it anyway, if GitHub Pages has space.`;
+            } else if (env.NO_SPACE === 'true') {
+              const others = String(env.PREVIEWS || '').split(/\s+/)
+                .map((entry) => entry.match(/^([1-9][0-9]{0,9}):([0-9]{1,7})$/))
+                .filter((match) => match && Number(match[1]) !== prNumber);
+              const needed = /^\d+$/.test(env.NEEDED_MB || '') ? ` It needs ${env.NEEDED_MB} MB more.` : '';
+              text = others.length === 0
+                ? `💾 The preview${sha} was not published: GitHub Pages has no space left for it, even without other previews.${needed}`
+                : [
+                    `💾 The preview${sha} was not published: GitHub Pages has no space left.${needed} Choose a preview to remove and comment its command; this preview is then published in its place, without building again (oldest first):`,
+                    '',
+                    '| Pull request | Size | Command |',
+                    '|---|---:|---|',
+                    ...others.map(([, number, mb]) => `| #${number} | ${mb} MB | \`/preview replace ${number}\` |`),
+                  ].join('\n');
+            } else if (env.ONLINE === 'removed') {
+              text = '😕 The preview was published, but removed again right after by another deployment. Comment `/preview` to publish it again without a rebuild.';
+            } else {
+              ok = true;
+              text = env.ONLINE === 'online'
+                ? `🎉 The preview${sha} is online: ${url}\n\nThe preview comment lists the pages this pull request changes.`
+                : `🎉 The preview${sha} is published: ${url}\n\nGitHub Pages did not serve it yet. If the link shows an older state or "Page not found", wait a few minutes.`;
             }
+
+            // The status comments to finish: the one of this request, and any
+            // other /preview status comment on the pull request that still waits
+            // for a result (for example "Build still running" before a push build).
+            const statusId = /^[1-9][0-9]{0,19}$/.test(env.STATUS_COMMENT_ID || '') ? Number(env.STATUS_COMMENT_ID) : null;
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number: prNumber, per_page: 100 });
+            const waiting = (body) => body.includes('<!-- pr-preview-pending -->') || /\n(⏳|🔨|🚀|🔁|👀) /.test(body);
+            const targets = comments.filter((c) =>
+              c.user?.type === 'Bot' && /^<!-- pr-preview-status:[0-9]+ -->/.test(c.body || '') && (c.id === statusId || waiting(c.body)));
+            for (const status of targets) {
+              const lines = status.body.split('\n');
+              const marker = lines[0];
+              const quote = lines.find((line) => line.startsWith('> ')) || '';
+              const footer = lines.filter((line) => line.startsWith('<sub>')).pop() || '';
+              const body = [marker, quote, '', text, '', footer].join('\n');
+              await github.rest.issues.updateComment({ owner, repo, comment_id: status.id, body });
+              const commentId = Number(marker.match(/[0-9]+/)[0]);
+              try {
+                await github.rest.reactions.createForIssueComment({ owner, repo, comment_id: commentId, content: ok ? 'hooray' : '-1' });
+              } catch (error) {
+                core.info(`Could not react to the /preview comment: ${error.message}`);
+              }
+            }
+            core.info(`Updated ${targets.length} status comment(s).`);
