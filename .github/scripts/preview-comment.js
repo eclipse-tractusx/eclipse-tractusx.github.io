@@ -253,6 +253,10 @@ function numbers(list) {
 const STATUS_MARKER = /^<!-- pr-preview-status:([0-9]+) -->/;
 const PENDING_MARKER = '<!-- pr-preview-pending -->';
 const STEP_LABELS = ['Request received', 'Build', 'Publish to `gh-pages`', 'GitHub Pages serves the preview', 'Result'];
+// An animated SVG on the live website (static/img/preview/spinner.svg). GitHub
+// shows images in comments and keeps SVG animations running; until the file is
+// online, the alt text 🔄 is shown.
+const SPINNER = `<img src="${SITE}/img/preview/spinner.svg" width="16" height="16" alt="🔄">`;
 const STEP_HEADINGS = ['receiving the request', 'building', 'publishing to `gh-pages`', 'waiting for GitHub Pages', 'result'];
 
 // step: the step in progress (0 to 4), or 5 when everything is done.
@@ -264,7 +268,7 @@ function renderProgress({ step, failed = false, headSha, links = {}, result }) {
   const heading =
     step >= total
       ? '**Done**'
-      : `**Step ${step + 1} of ${total}:** ${failed ? 'failed while ' : ''}${STEP_HEADINGS[step]}`;
+      : `${failed ? '' : `${SPINNER} `}**Step ${step + 1} of ${total}:** ${failed ? 'failed while ' : ''}${STEP_HEADINGS[step]}`;
   const label = (i) => {
     if (i === 1) {
       const commit = isSha(headSha) ? ` of commit \`${headSha.slice(0, 7)}\`` : '';
@@ -277,7 +281,7 @@ function renderProgress({ step, failed = false, headSha, links = {}, result }) {
   };
   const lines = [`${bar}  ${heading}`, ''];
   STEP_LABELS.forEach((_, i) => {
-    const icon = i < step ? '✅' : i === step ? (failed ? '❌' : '🔄') : '⬜';
+    const icon = i < step ? '✅' : i === step ? (failed ? '❌' : SPINNER) : '⬜';
     lines.push(`${icon} ${label(i)}  `);
   });
   if (result) {
