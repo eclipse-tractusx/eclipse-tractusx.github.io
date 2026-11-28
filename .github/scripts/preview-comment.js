@@ -283,9 +283,14 @@ const STEP_LABELS = ['Request received', 'Build', 'Publish to `gh-pages`', 'GitH
 // shows images in comments and keeps SVG animations running; until the file is
 // online, the alt text 🔄 is shown.
 const SPINNER = `<img src="${SITE}/img/preview/spinner.svg" width="16" height="16" alt="🔄">`;
-// A yellow square that blinks, for the step in progress in the bar
-// (static/img/preview/pulse.svg); until it is online, the alt text 🟨 is shown.
-const PULSE = `<img src="${SITE}/img/preview/pulse.svg" width="20" height="20" alt="🟨">`;
+// The bar of the five steps as one image (static/img/preview/progress/), so
+// all blocks have the same size: green for done steps, the step in progress
+// fills up with yellow again and again, red when it failed, grey for the rest.
+// The alt text is the same bar in emoji, shown until the images are online.
+const progressBar = (step, failed, emoji) => {
+  const file = step >= STEP_LABELS.length ? 'done' : `${failed ? 'failed' : 'step'}-${step}`;
+  return `<img src="${SITE}/img/preview/progress/${file}.svg" width="116" height="20" alt="${emoji}">`;
+};
 const STEP_HEADINGS = ['receiving the request', 'building', 'publishing to `gh-pages`', 'waiting for GitHub Pages', 'result'];
 
 // step: the step in progress (0 to 4), or 5 when everything is done.
@@ -293,7 +298,8 @@ const STEP_HEADINGS = ['receiving the request', 'building', 'publishing to `gh-p
 // result: Markdown shown under the steps.
 function renderProgress({ step, failed = false, headSha, links = {}, result }) {
   const total = STEP_LABELS.length;
-  const bar = STEP_LABELS.map((_, i) => (i < step ? '🟩' : i === step ? (failed ? '🟥' : PULSE) : '⬜')).join('');
+  const bar = progressBar(step, failed,
+    STEP_LABELS.map((_, i) => (i < step ? '🟩' : i === step ? (failed ? '🟥' : '🟨') : '⬜')).join(''));
   const heading =
     step >= total
       ? '**Done**'
