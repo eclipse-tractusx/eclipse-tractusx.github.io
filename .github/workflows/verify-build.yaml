@@ -318,37 +318,105 @@ jobs:
           path: ./pr-number
           retention-days: 90
 
-  # GitHub does not start workflows from events caused by GITHUB_TOKEN. A build
-  # that /preview started runs as github-actions[bot], so its completion does
-  # not trigger "Deploy pull request preview" (workflow_run). This job starts
-  # the deployment instead, for this run; the deployment waits until the run
-  # has finished and then publishes it or reports why not, like a workflow_run.
-  # It runs no code of the pull request and only uses the inputs of this run,
-  # which the command already checked. It is the only job with write access,
-  # and only to Actions.
-  hand-off:
-    name: Start the deployment
+  # A build that /preview started (workflow_dispatch) is handled in this run
+  # from start to end, and its status comment follows it live:
+  #
+  #   preview   builds the pull request's code, without write access
+  #   progress  runs next to it and writes the step the build is at into the
+  #             status comment (it reads the run, never the pull request code)
+  #   publish   "Deploy pull request preview" as a reusable workflow: publishes
+  #             the uploaded build and writes the result into the comment
+  #
+  # A separate workflow could not be used: GitHub does not start workflows
+  # (workflow_run) from a run that GITHUB_TOKEN started. Only these two jobs
+  # have write access; they use the build only as an artifact, like the
+  # deployment of a pull request to main.
+  progress:
+    name: Show build progress
+    needs: changes
+    if: github.event_name == 'workflow_dispatch' && needs.changes.outputs.website == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      actions: read
+      issues: write
+      pull-requests: write
+    steps:
+      # Only the scripts of this workflow's commit (the default branch).
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          ref: ${{ github.sha }}
+          path: tools
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
+      - name: Follow the build
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
+          HEAD_SHA: ${{ inputs.head_sha }}
+          STATUS_COMMENT_ID: ${{ inputs.status_comment_id }}
+        with:
+          script: |
+            const preview = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
+            const prNumber = Number(process.env.PR_NUMBER);
+            const statusId = Number(process.env.STATUS_COMMENT_ID) || null;
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const minutes = (ms) => `${Math.floor(ms / 60000)}:${String(Math.floor((ms % 60000) / 1000)).padStart(2, '0')}`;
+            let last = '';
+            const deadline = Date.now() + 25 * 60 * 1000;
+            while (Date.now() < deadline) {
+              const jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRun, { ...context.repo, run_id: context.runId, per_page: 100 });
+              const build = jobs.find((job) => job.name === 'Build preview');
+              // Stops when the build has finished: "Deploy pull request preview"
+              // takes over the comment from there.
+              if (!build || build.status === 'completed') {
+                break;
+              }
+              const steps = (build.steps || []).filter((step) => !/^(Set up job|Post |Complete job)/.test(step.name));
+              const current = steps.find((step) => step.status === 'in_progress');
+              const elapsed = build.started_at ? ` · ${minutes(Date.now() - new Date(build.started_at))} elapsed` : '';
+              const lines = [
+                current ? `Building: **${current.name}**${elapsed}` : `Waiting for a runner${elapsed}`,
+                '',
+                ...steps.map((step) => {
+                  const icon = step.status === 'completed' ? (step.conclusion === 'success' || step.conclusion === 'skipped' ? '✅' : '❌') : step.status === 'in_progress' ? '🔄' : '⬜';
+                  return `${icon} ${step.name}  `;
+                }),
+              ];
+              const content = preview.renderProgress({ step: 1, headSha: process.env.HEAD_SHA, links: { build: build.html_url || runUrl }, result: lines.join('\n') });
+              // A comment is only edited when the step changed or a minute passed.
+              const key = `${current?.name}|${Math.floor((Date.now() - new Date(build.started_at || Date.now())) / 60000)}`;
+              if (key !== last) {
+                last = key;
+                try {
+                  await preview.updateStatusComments({ github, context, core, prNumber, statusId, content });
+                } catch (error) {
+                  core.info(`Could not update the status comment: ${error.message}`);
+                }
+              }
+              await new Promise((resolve) => setTimeout(resolve, 10000));
+            }
+
+  publish:
+    name: Publish
     needs:
       - changes
       - preview
     if: always() && github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
+    # The jobs of the reusable workflow request what they need of these.
     permissions:
-      actions: write
-    steps:
-      - name: Start "Deploy pull request preview"
-        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
-        env:
-          PR_NUMBER: ${{ inputs.pr_number }}
-        with:
-          script: |
-            if (!/^[1-9][0-9]{0,9}$/.test(process.env.PR_NUMBER)) {
-              core.setFailed(`'${process.env.PR_NUMBER}' is not a pull request number.`);
-              return;
-            }
-            await github.rest.actions.createWorkflowDispatch({
-              ...context.repo,
-              workflow_id: 'deploy-pr-preview.yaml',
-              ref: context.payload.repository.default_branch,
-              inputs: { pr_number: process.env.PR_NUMBER, build_run_id: String(context.runId) },
-            });
+      actions: read
+      contents: write
+      issues: write
+      pull-requests: write
+    uses: ./.github/workflows/deploy-pr-preview.yaml
+    with:
+      pr_number: ${{ inputs.pr_number }}
+      build_run_id: ${{ github.run_id }}
+      build_result: ${{ (needs.changes.result == 'success' && needs.preview.result != 'failure' && needs.preview.result != 'cancelled') && 'success' || 'failure' }}
+      replace: ${{ inputs.replace }}
+      allow_large: ${{ inputs.allow_large }}
+      requested_by: ${{ inputs.requested_by }}
+      comment_id: ${{ inputs.comment_id }}
+      status_comment_id: ${{ inputs.status_comment_id }}
