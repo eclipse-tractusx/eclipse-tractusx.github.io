@@ -135,6 +135,12 @@ sequenceDiagram
   build publishes the preview when it has finished.
 - `/preview large` publishes a preview that is larger than `MAX_PREVIEW_MB` (300 MB), as long as GitHub Pages as a whole
   has space for it. Replacing other previews does not help a preview that is too large: the limit is per preview.
+- `/preview status` answers with the current state: the latest commit, its build (with the step it is at while it runs)
+  and the published preview (up to date, or which older commit it shows). It starts nothing and also works on closed
+  pull requests.
+- `/preview refresh` does the same and also writes the current state into earlier status comments that still wait for a
+  result, for example after a run that was cancelled. While something runs, they keep waiting and still get its result.
+- `/preview info` explains the previews of this pull request and lists the commands.
 
 A build is never run again on its own, to save Actions minutes. When a committer comments `/preview` and the build has
 expired, the bot replies that it has expired and points to `/preview rebuild`. If the build has not finished yet, the
