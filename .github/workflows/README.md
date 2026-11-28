@@ -63,7 +63,7 @@ that writes runs from `main` and only handles the build's output.
 |---|---|---|---|
 | `verify-build.yaml` (Build pull request preview) | push to a pull request to `main` that changes the website, or started by `/preview` for a pull request to another branch | runs it, without write access, and without the npm cache when started by `/preview` | builds the pruned preview, uploads the artifacts `pr-preview` and `pr-number` (kept 90 days) |
 | `deploy-pr-preview.yaml` | build succeeded, or started by `/preview` | no | downloads the artifact and publishes it to `gh-pages` under `pr/<number>/`, updates the comments |
-| `pr-preview-command.yaml` | a committer's comment starting with `/preview` | no | starts the deploy with `pr_number` and `replace`, or the build when the current commit has none (pull requests to another branch than `main`), or with `/preview rebuild` re-runs an expired build; `/preview large` publishes an oversized preview; reacts 🚀 or 😕 |
+| `pr-preview-command.yaml` | a committer's comment starting with `/preview` | no | starts the deploy with `pr_number` and `replace`, or the build when the current commit has none (pull requests to another branch than `main`), or with `/preview rebuild` re-runs an expired build; reacts 🚀 or 😕 |
 | `cleanup-pr-preview.yaml` | pull request closed, daily, by hand | no | removes previews of closed pull requests and deletes their builds |
 | `update-gh-pages.sh` | called by the workflows above | no | applies one change to `gh-pages`, checks the space, retries if another workflow pushed first |
 
@@ -133,8 +133,9 @@ sequenceDiagram
 
 - `/preview rebuild` builds the pull request again when its saved build has expired (builds are kept for 90 days). The
   build publishes the preview when it has finished.
-- `/preview large` publishes a preview that is larger than `MAX_PREVIEW_MB` (300 MB), as long as GitHub Pages as a whole
-  has space for it. Replacing other previews does not help a preview that is too large: the limit is per preview.
+- There is no size limit for a single preview: a large preview (for example a change to a component, which keeps every
+  page) is published if it fits, and otherwise gets the table of previews to replace. `/preview large` still works and
+  does the same as `/preview`.
 - `/preview status` answers with the current state: the latest commit, its build (with the step it is at while it runs)
   and the published preview (up to date, or which older commit it shows). It starts nothing and also works on closed
   pull requests.
@@ -189,7 +190,6 @@ comment gets 🎉 or 👎:
 - 🎉 the link. The deployment first waits until GitHub Pages serves the preview (up to 10 minutes) and says so if it
   does not yet.
 - ❌ the build or the deployment failed, with a link to the run that shows why.
-- 📦 the preview is larger than a single preview may be; `/preview large` publishes it anyway.
 - 💾 GitHub Pages has no space left: a table of the current previews with their sizes and a `/preview replace <number>`
   command for each, so the committer chooses which one makes way. The replacement reuses the build.
 
@@ -289,9 +289,6 @@ A preview with only content changes is a few dozen MB instead of over 1 GB.
 
 Every write to `gh-pages` checks the space, so previews can never stop the production site from being published:
 
-- **`MAX_PREVIEW_MB`** (300) in "Deploy pull request preview": a larger preview is not published, and an older preview
-  of the pull request is removed. The comment links the build, whose `pr-preview` artifact can be served locally, and
-  says that a committer can publish it anyway with `/preview large`. The space limit below still applies to it.
 - **`GH_PAGES_LIMIT_MB`** (2500, `0` turns the check off) in
   [`update-gh-pages.sh`](../scripts/update-gh-pages.sh): the space the production site and all previews may use
   together. Published Pages artifacts of about 3.3 GB still deployed, larger ones failed. Before pushing, the script
@@ -307,14 +304,14 @@ Every write to `gh-pages` checks the space, so previews can never stop the produ
 
 While its preview is on GitHub Pages, a pull request has the label `preview`, so the list of pull requests shows which
 previews are online (filter with `label:preview`). The label is set when a preview is published and removed whenever it
-is no longer there: pull request closed, replaced, removed to make space, too large or not fitting. It is created on
+is no longer there: pull request closed, replaced, removed to make space or not fitting. It is created on
 first use.
 
 Every pull request has one preview comment, which is updated (not posted again):
 
 - after a deployment, with the commit the preview was built from, the time, the build, the changed pages and the space
   on GitHub Pages,
-- when the preview is not published (too large, no space), with the reason and the commit,
+- when the preview is not published (no space), with the reason and the commit,
 - when the preview is removed, with the reason (pull request closed, removed manually, replaced by another pull
   request, removed to make space for the website) and the commit of the last preview. A replaced preview's author also
   gets a new comment that mentions them, because GitHub does not notify about edited comments.

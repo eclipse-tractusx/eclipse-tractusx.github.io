@@ -58,11 +58,10 @@ on:
         required: false
         type: string
         default: ''
-      # Set by the /preview large comment command: publish the preview even if
-      # it is larger than MAX_PREVIEW_MB. The space limit of GitHub Pages as a
-      # whole still applies.
+      # Set by /preview large. There is no size limit for a single preview any
+      # more, so it has no effect; kept so older callers keep working.
       allow_large:
-        description: Publish a preview larger than MAX_PREVIEW_MB if GitHub Pages has space
+        description: No effect (there is no size limit for a single preview any more)
         required: false
         type: boolean
         default: false
@@ -114,11 +113,10 @@ on:
         required: false
         type: string
         default: ''
-      # Set by the /preview large comment command: publish the preview even if
-      # it is larger than MAX_PREVIEW_MB. The space limit of GitHub Pages as a
-      # whole still applies.
+      # Set by /preview large. There is no size limit for a single preview any
+      # more, so it has no effect; kept so older callers keep working.
       allow_large:
-        description: Publish a preview larger than MAX_PREVIEW_MB if GitHub Pages has space
+        description: No effect (there is no size limit for a single preview any more)
         required: false
         type: boolean
         default: false
@@ -391,7 +389,6 @@ jobs:
     outputs:
       state: ${{ steps.check.outputs.state }}
       mb: ${{ steps.size.outputs.mb }}
-      too-large: ${{ steps.size.outputs.too-large }}
       no-space: ${{ steps.publish.outputs.no-space }}
       needed-mb: ${{ steps.publish.outputs.needed-mb }}
       previews: ${{ steps.publish.outputs.previews }}
@@ -409,15 +406,10 @@ jobs:
       pull-requests: write
     env:
       PR_NUMBER: ${{ needs.prepare.outputs.number }}
-      # A preview normally only contains the pages its pull request changes and
-      # stays far below MAX_PREVIEW_MB. Larger previews (for example a change to
-      # a component, which affects every page) are not published, so a single
-      # pull request cannot take the space of all others. The build can be
-      # downloaded from the workflow run instead, or a committer publishes it
-      # anyway with /preview large (ALLOW_LARGE), as long as GitHub Pages has
-      # space for it.
-      MAX_PREVIEW_MB: 300
-      ALLOW_LARGE: ${{ needs.prepare.outputs.allow-large }}
+      # There is no size limit for a single preview: a large preview (for
+      # example a change to a component, which keeps every page) is published
+      # if it fits. If it does not, the comments show the table of previews to
+      # replace, like for any other preview.
       # Previews of other pull requests are not removed automatically to make
       # space. When there is none left, the /preview status comment and the
       # preview comment list the previews, and a committer chooses one with
@@ -490,16 +482,8 @@ jobs:
         run: |
           set -euo pipefail
           size="$(du -sm ./preview | cut -f1)"
-          echo "The preview has ${size} MB, a single preview may use ${MAX_PREVIEW_MB} MB."
+          echo "::notice title=Preview size::The preview has ${size} MB."
           echo "mb=${size}" >> "$GITHUB_OUTPUT"
-          if [ "${size}" -gt "${MAX_PREVIEW_MB}" ]; then
-            if [ "${ALLOW_LARGE}" = "true" ]; then
-              echo "::notice title=Large preview::The preview has ${size} MB, more than ${MAX_PREVIEW_MB} MB. It is published anyway (/preview large) if GitHub Pages has space."
-            else
-              echo "::warning title=Preview too large::The preview has ${size} MB, more than ${MAX_PREVIEW_MB} MB. It is not published; a committer can publish it with /preview large."
-              echo "too-large=true" >> "$GITHUB_OUTPUT"
-            fi
-          fi
 
       # Replaces pr/<number> completely, so hashed assets of earlier pushes do
       # not pile up. Before pushing, the script checks the space left on GitHub
@@ -509,7 +493,7 @@ jobs:
       # and creates it if it does not exist.
       - name: Publish preview to GitHub Pages
         id: publish
-        if: steps.check.outputs.state == 'open' && steps.size.outputs.too-large != 'true'
+        if: steps.check.outputs.state == 'open'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPLACE_PREVIEWS: ${{ needs.prepare.outputs.replace }}
@@ -589,11 +573,9 @@ jobs:
             }
             core.setOutput('result', result);
 
-      # Also removes an older, smaller preview of the same pull request, so the
-      # preview never shows an outdated state.
-      - name: Remove preview of closed pull request or oversized preview
+      - name: Remove preview of closed pull request
         id: remove
-        if: steps.check.outputs.state != 'open' || steps.size.outputs.too-large == 'true'
+        if: steps.check.outputs.state != 'open'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -610,7 +592,6 @@ jobs:
           HEAD_SHA: ${{ needs.prepare.outputs.head-sha }}
           RUN_URL: ${{ needs.prepare.outputs.run-url }}
           PREVIEW_MB: ${{ steps.size.outputs.mb }}
-          TOO_LARGE: ${{ steps.size.outputs.too-large }}
           NO_SPACE: ${{ steps.publish.outputs.no-space }}
           NEEDED_MB: ${{ steps.publish.outputs.needed-mb }}
           PREVIEWS: ${{ steps.publish.outputs.previews }}
@@ -627,13 +608,11 @@ jobs:
             const env = process.env;
             const prNumber = Number(env.PR_NUMBER);
             const space = { siteMb: env.SITE_MB, previewsMb: env.PREVIEWS_MB, limitMb: env.LIMIT_MB };
-            const common = { github, context, space, headSha: env.HEAD_SHA, runUrl: env.RUN_URL, previewMb: env.PREVIEW_MB, maxPreviewMb: env.MAX_PREVIEW_MB };
+            const common = { github, context, space, headSha: env.HEAD_SHA, runUrl: env.RUN_URL, previewMb: env.PREVIEW_MB };
 
             if (env.PR_STATE !== 'open') {
               const removed = preview.numbers(env.REMOVED).includes(prNumber);
               await preview.update({ ...common, prNumber, state: 'removed', reason: 'closed', create: removed });
-            } else if (env.TOO_LARGE === 'true') {
-              await preview.update({ ...common, prNumber, state: 'too-large' });
             } else if (env.NO_SPACE === 'true') {
               await preview.update({ ...common, prNumber, state: 'no-space', previews: env.PREVIEWS, neededMb: env.NEEDED_MB });
             } else if (env.ONLINE !== 'removed') {
@@ -696,12 +675,10 @@ jobs:
           DEPLOY_RESULT: ${{ needs.deploy.result }}
           PR_STATE: ${{ needs.deploy.outputs.state }}
           PREVIEW_MB: ${{ needs.deploy.outputs.mb }}
-          TOO_LARGE: ${{ needs.deploy.outputs.too-large }}
           NO_SPACE: ${{ needs.deploy.outputs.no-space }}
           NEEDED_MB: ${{ needs.deploy.outputs.needed-mb }}
           PREVIEWS: ${{ needs.deploy.outputs.previews }}
           ONLINE: ${{ needs.deploy.outputs.online }}
-          MAX_PREVIEW_MB: 300
         with:
           script: |
             const env = process.env;
@@ -736,9 +713,6 @@ jobs:
             } else if (env.PR_STATE !== 'open') {
               [step, failed] = [2, true];
               text = '😕 The preview was not published: the pull request is closed.';
-            } else if (env.TOO_LARGE === 'true') {
-              [step, failed] = [2, true];
-              text = `📦 The preview${sha} was not published: it has ${env.PREVIEW_MB} MB, more than the ${env.MAX_PREVIEW_MB} MB a single preview may use. Comment \`/preview large\` to publish it anyway, if GitHub Pages has space.`;
             } else if (env.NO_SPACE === 'true') {
               [step, failed] = [2, true];
               const others = preview.parsePreviews(env.PREVIEWS).filter((other) => other.number !== prNumber);

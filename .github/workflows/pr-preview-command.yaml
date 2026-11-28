@@ -30,8 +30,8 @@ name: Pull request preview command
 #                             publish this one in its place
 #   /preview rebuild          build again when the saved build has expired
 #                             (after 90 days); the build publishes the preview
-#   /preview large            publish a preview that is larger than the limit
-#                             for a single preview, if GitHub Pages has space
+#   /preview large            same as /preview (there is no size limit for a
+#                             single preview any more; kept for old habits)
 #   /preview status           show the current state: latest commit, its build
 #                             (and the step it is at), the published preview
 #   /preview refresh          like status, and also write the current state
@@ -164,7 +164,7 @@ jobs:
             const match = line.match(/^\/preview(?:\s+replace\s+#?([1-9][0-9]{0,9})|\s+(rebuild)|\s+(large)|\s+(status|refresh|info))?$/);
             if (!match) {
               await react('confused');
-              await setStatus('😕', 'This is not a command I know. Use `/preview`, `/preview large`, `/preview replace <number>`, `/preview rebuild`, `/preview status`, `/preview refresh` or `/preview info`.');
+              await setStatus('😕', 'This is not a command I know. Use `/preview`, `/preview replace <number>`, `/preview rebuild`, `/preview status`, `/preview refresh` or `/preview info`.');
               return;
             }
             const replace = match[1] || '';
@@ -308,13 +308,12 @@ jobs:
                   '',
                   `- Pull requests to \`${repository.default_branch}\` are built on every push and published when the build has finished.`,
                   `- Pull requests to other branches are only built when a committer comments \`/preview\`. This pull request goes into \`${pr.base.ref}\`.`,
-                  '- Builds are kept for 90 days. When GitHub Pages runs out of space, a table lets a committer choose which preview to replace.',
+                  '- Builds are kept for 90 days. There is no size limit for a single preview; when GitHub Pages runs out of space, a table lets a committer choose which preview to replace.',
                   '',
                   '| Command (committers) | Does |',
                   '|---|---|',
                   '| `/preview` | build if needed, then publish the latest commit |',
                   '| `/preview replace <number>` | publish this preview in place of the preview of pull request `<number>` |',
-                  '| `/preview large` | publish a preview above the size limit, if GitHub Pages has space |',
                   '| `/preview rebuild` | build again, for example when the saved build has expired |',
                   '| `/preview status` | show the latest commit, its build and the published preview |',
                   '| `/preview refresh` | like `status`, and update earlier status comments that still wait |',
@@ -423,7 +422,7 @@ jobs:
               },
             });
             await react('rocket');
-            const what = replace ? `, replacing the preview of #${replace}` : large ? ' (allowed above the size limit)' : '';
+            const what = replace ? `, replacing the preview of #${replace}` : '';
             await setProgress({
               step: 2,
               links: { build: run.html_url, deploy: deploysUrl },
