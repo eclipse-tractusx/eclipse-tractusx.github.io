@@ -140,7 +140,9 @@ sequenceDiagram
   pull requests.
 - `/preview refresh` does the same and also writes the current state into earlier status comments that still wait for a
   result, for example after a run that was cancelled. While something runs, they keep waiting and still get its result.
-- `/preview info` explains the previews of this pull request and lists the commands.
+- `/preview info` shows the preview of this pull request: the link, the commit it was built from, when it was
+  published, the changed pages (from the preview comment) and how it is built for its base branch.
+- `/preview help` lists the commands.
 
 A build is never run again on its own, to save Actions minutes. When a committer comments `/preview` and the build has
 expired, the bot replies that it has expired and points to `/preview rebuild`. If the build has not finished yet, the
@@ -159,8 +161,8 @@ A committer always sees what happened to their command:
 
 | Reaction or reply | Meaning |
 |---|---|
-| 👀 | the command was picked up (a few seconds after the comment, while a runner starts) |
-| 🚀 | the deployment, or with `/preview rebuild` the build, has started |
+| 👀 | the command was picked up (a few seconds after the comment) and, if needed, the build runs |
+| 🚀 | the preview is being published, so it is almost done |
 | 😕 | the command is not valid, or the pull request has no preview (closed, no website changes) |
 | 🎉 | the preview is published |
 | 👎 | the preview was not published |
@@ -172,8 +174,8 @@ command. It quotes the command and says what happens, how long it usually takes 
 |---|---|
 | 👀 On it | the command was picked up, the bot looks for the build |
 | 🚀 Publishing | the deployment has started; it usually takes 2 to 5 minutes: a runner downloads the build, the preview is copied to `gh-pages` (waiting if another deployment writes there at the same moment) and GitHub Pages puts it online |
-| ⏳ Build still running | the preview is made from the build of the latest commit, which had not finished; it publishes the preview on its own, usually 3 to 5 minutes after the push |
-| 🔨 Building | there was no build of the current commit (pull request to another branch than `main`), so the build was started; it publishes the preview when it has finished, 5 to 10 minutes in total |
+| 🔜 Build still running | the preview is made from the build of the latest commit, which had not finished; it publishes the preview on its own, usually 3 to 5 minutes after the push |
+| 🏗️ Building | there was no build of the current commit (pull request to another branch than `main`), so the build was started; it publishes the preview when it has finished, 5 to 10 minutes in total |
 | 🔁 Building again | `/preview rebuild` started the build again; expect 5 to 10 minutes until the preview is online |
 | 😕 or ⌛ | nothing to publish, and why: not a valid command, closed pull request, no website changes, expired build |
 

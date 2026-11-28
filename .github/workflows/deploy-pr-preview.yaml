@@ -447,8 +447,10 @@ jobs:
                 step: 2,
                 headSha: env.HEAD_SHA,
                 links: { build: env.BUILD_URL, deploy },
-                result: 'The build is done. Copying it to `gh-pages`; if another deployment writes there at the same moment, this one waits and tries again.',
+                result: '🚀 The build is done. Copying it to `gh-pages`; if another deployment writes there at the same moment, this one waits and tries again.',
               }),
+              // 🚀 on the /preview comment: it is being published, almost done.
+              pendingReaction: 'rocket',
             });
 
       - name: Download preview build

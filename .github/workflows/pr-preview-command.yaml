@@ -34,7 +34,16 @@ name: Pull request preview command
 #                             (and the step it is at), the published preview
 #   /preview refresh          like status, and also write the current state
 #                             into earlier status comments that still wait
-#   /preview info             explain the previews and list the commands
+#   /preview info             information about the preview of this pull
+#                             request: link, commit, changed pages, how it is
+#                             built
+#   /preview help             list the commands
+#
+# Reactions on the command: 👀 while it is processed and built, 🚀 once the
+# preview is being published (almost done), then 🎉 or 👎. GitHub has no
+# crane or "soon" reaction, so the status comment shows them instead: 🏗️ when
+# a build was started, 🔜 when a build is already running and has to be
+# waited for.
 #
 # When GitHub Pages has no space left, the status comment and the preview
 # comment list the current previews with their sizes and the replace command
@@ -159,10 +168,10 @@ jobs:
 
             const line = comment.body.trim().split('\n')[0].trim();
             await setStatus('👀', 'On it: looking for the build of this pull request. This takes a few seconds.');
-            const match = line.match(/^\/preview(?:\s+replace\s+#?([1-9][0-9]{0,9})|\s+(rebuild)|\s+(status|refresh|info))?$/);
+            const match = line.match(/^\/preview(?:\s+replace\s+#?([1-9][0-9]{0,9})|\s+(rebuild)|\s+(status|refresh|info|help))?$/);
             if (!match) {
               await react('confused');
-              await setStatus('😕', 'This is not a command I know. Use `/preview`, `/preview replace <number>`, `/preview rebuild`, `/preview status`, `/preview refresh` or `/preview info`.');
+              await setStatus('😕', 'This is not a command I know. Use `/preview`, `/preview replace <number>`, `/preview rebuild`, `/preview status`, `/preview refresh`, `/preview info` or `/preview help`.');
               return;
             }
             const replace = match[1] || '';
@@ -216,16 +225,16 @@ jobs:
                   replace,
                 },
               });
-              await react('rocket');
+              // 👀 stays while it builds; 🚀 comes once it is being published.
               await setProgress({
                 step: 1,
                 links: { build: buildsUrl },
-                result: `${why} I started the build; it takes 3 to 5 minutes, then the preview is published. This comment shows each step and ends with the link, the reason it failed, or, if GitHub Pages has no space left, a table of the previews to choose one to replace.`,
+                result: `🏗️ ${why} I started the build; it takes 3 to 5 minutes, then the preview is published. This comment shows each step and ends with the link, the reason it failed, or, if GitHub Pages has no space left, a table of the previews to choose one to replace.`,
               });
             };
             const notOnPush = toMain ? '' : ` Pull requests to \`${pr.base.ref}\` are not built on push, only with \`/preview\`.`;
 
-            // /preview status, refresh and info only read: they answer for closed
+            // /preview status, refresh, info and help only read: they answer for closed
             // pull requests too and start nothing.
             if (query) {
               const previewUrl = `https://${owner}.github.io/pr/${prNumber}/`;
@@ -296,27 +305,58 @@ jobs:
                 ...(next ? ['', next] : []),
               ].join('\n');
 
-              if (query === 'info') {
-                await setStatus('ℹ️', [
-                  '**Pull request previews**',
+              const commands = [
+                '| Command (committers) | Does |',
+                '|---|---|',
+                '| `/preview` | build if needed, then publish the latest commit |',
+                '| `/preview replace <number>` | publish this preview in place of the preview of pull request `<number>` |',
+                '| `/preview rebuild` | build again, for example when the saved build has expired |',
+                '| `/preview status` | show the latest commit, its build and the published preview |',
+                '| `/preview refresh` | like `status`, and update earlier status comments that still wait |',
+                '| `/preview info` | show the preview of this pull request: link, commit, changed pages |',
+                '| `/preview help` | show this list |',
+              ];
+              const docs = `[How the previews work](${context.serverUrl}/${owner}/${repo}/blob/${repository.default_branch}/.github/workflows/README.md)`;
+
+              if (query === 'help') {
+                await setStatus('❓', [
+                  '**Preview commands**',
                   '',
-                  `This pull request's preview: ${deployedAt ? previewUrl : 'not published'}. A preview only contains the pages a pull request changes; every other page opens on the live website.`,
+                  ...commands,
                   '',
-                  `- Pull requests to \`${repository.default_branch}\` are built on every push and published when the build has finished.`,
-                  `- Pull requests to other branches are only built when a committer comments \`/preview\`. This pull request goes into \`${pr.base.ref}\`.`,
-                  '- Builds are kept for 90 days. There is no size limit for a single preview; when GitHub Pages runs out of space, a table lets a committer choose which preview to replace.',
-                  '',
-                  '| Command (committers) | Does |',
-                  '|---|---|',
-                  '| `/preview` | build if needed, then publish the latest commit |',
-                  '| `/preview replace <number>` | publish this preview in place of the preview of pull request `<number>` |',
-                  '| `/preview rebuild` | build again, for example when the saved build has expired |',
-                  '| `/preview status` | show the latest commit, its build and the published preview |',
-                  '| `/preview refresh` | like `status`, and update earlier status comments that still wait |',
-                  '| `/preview info` | show this |',
-                  '',
-                  `[How the previews work](${context.serverUrl}/${owner}/${repo}/blob/${repository.default_branch}/.github/workflows/README.md)`,
+                  docs,
                 ].join('\n'));
+                return;
+              }
+
+              if (query === 'info') {
+                const built = toMain
+                  ? `It goes into \`${pr.base.ref}\`, so it is built on every push and published when the build has finished.`
+                  : `It goes into \`${pr.base.ref}\`, so it is only built when a committer comments \`/preview\`.`;
+                const lines = ['ℹ️ **Preview of this pull request**', ''];
+                if (!deployedAt) {
+                  lines.push(`No preview is published. ${issue.state === 'open' ? 'Comment `/preview` to build and publish it.' : 'The pull request is closed, so it gets no preview.'}`);
+                } else {
+                  lines.push(
+                    '| | |',
+                    '|---|---|',
+                    `| Link | ${previewUrl} |`,
+                    `| Commit | ${publishedSha ? `\`${publishedSha.slice(0, 7)}\`` : 'unknown'}${publishedSha === sha ? ' (the latest one)' : ` (the latest is ${shortSha})`} |`,
+                    `| Published | ${time(deployedAt)} |`,
+                  );
+                  if (previewComment) {
+                    // The bot's preview comment lists the changed pages; without its markers.
+                    const details = previewComment.body.replace(/<!--[\s\S]*?-->/g, '').trim();
+                    lines.push('', `<details><summary>Changed pages (from the <a href="${previewComment.html_url}">preview comment</a>)</summary>`, '', details, '', '</details>');
+                  }
+                }
+                lines.push(
+                  '',
+                  `${built} A preview only contains the pages a pull request changes; every other page opens on the live website. Builds are kept for 90 days; when GitHub Pages runs out of space, a table lets a committer choose which preview to replace.`,
+                  '',
+                  `Comment \`/preview help\` for the commands. ${docs}`,
+                );
+                await setStatus('ℹ️', lines.join('\n').replace(/^ℹ️ /, ''));
                 return;
               }
 
@@ -359,7 +399,7 @@ jobs:
                 await setProgress({
                   step: 1,
                   links: { build: latest.html_url },
-                  result: 'The build of the latest commit is still running. A build usually takes 3 to 5 minutes; then the preview is published on its own and this comment shows each step, so there is no need to comment again.',
+                  result: '🔜 The build of the latest commit is still running. A build usually takes 3 to 5 minutes; then the preview is published on its own and this comment shows each step, so there is no need to comment again.',
                 });
                 return;
               }
@@ -389,11 +429,10 @@ jobs:
                 return;
               }
               await github.rest.actions.reRunWorkflow({ owner, repo, run_id: run.id });
-              await react('rocket');
               await setProgress({
                 step: 1,
                 links: { build: run.html_url },
-                result: 'Building this pull request again, because its saved build has expired. The build takes 3 to 5 minutes and then publishes the preview on its own; this comment shows each step.',
+                result: '🏗️ Building this pull request again, because its saved build has expired. The build takes 3 to 5 minutes and then publishes the preview on its own; this comment shows each step.',
               });
               return;
             }

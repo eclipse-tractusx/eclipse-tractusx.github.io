@@ -342,16 +342,18 @@ async function waitingStatusComments({ github, owner, repo, prNumber, statusId }
 
 // Writes content into the waiting status comments of a pull request. With a
 // reaction (hooray or -1), the result is final: the comments are no longer
-// pending and their /preview comments get the reaction.
-async function updateStatusComments({ github, context, core, prNumber, statusId, content, reaction }) {
+// pending and their /preview comments get the reaction. With pendingReaction
+// (rocket, once publishing starts), the /preview comments get it and the
+// status comments keep waiting.
+async function updateStatusComments({ github, context, core, prNumber, statusId, content, reaction, pendingReaction }) {
   const { owner, repo } = context.repo;
   const targets = await waitingStatusComments({ github, owner, repo, prNumber, statusId });
   for (const status of targets) {
     await github.rest.issues.updateComment({ owner, repo, comment_id: status.id, body: statusBody(status.body, content, !reaction) });
-    if (reaction) {
+    if (reaction || pendingReaction) {
       try {
         await github.rest.reactions.createForIssueComment({
-          owner, repo, comment_id: Number(status.body.match(STATUS_MARKER)[1]), content: reaction,
+          owner, repo, comment_id: Number(status.body.match(STATUS_MARKER)[1]), content: reaction || pendingReaction,
         });
       } catch (error) {
         core?.info(`Could not react to the /preview comment: ${error.message}`);
