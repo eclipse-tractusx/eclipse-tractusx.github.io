@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkeclipse_tractusx_github_io=self.webpackChunkeclipse_tractusx_github_io||[]).push([["89154"],{77754(e){e.exports=JSON.parse('{"agentId":"dataspace-captain"}')}}]);
