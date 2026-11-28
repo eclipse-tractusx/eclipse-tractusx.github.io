@@ -219,6 +219,17 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
 
+      # The tools of the preview job come from the commit of this workflow, not
+      # from the checkout above: a dispatched build checks out a pull request
+      # whose base branch may predate them (a stacked pull request). For a
+      # pull_request event both are the same merge commit.
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          ref: ${{ github.sha }}
+          path: .preview-tools
+          sparse-checkout: utils
+          persist-credentials: false
+
       - name: Check that the merge commit is current
         if: github.event_name == 'workflow_dispatch'
         run: |
@@ -277,7 +288,7 @@ jobs:
           set -euo pipefail
           git diff --name-only HEAD^1 HEAD > "${RUNNER_TEMP}/changed-files.txt"
           echo "Files changed by the pull request: $(wc -l < "${RUNNER_TEMP}/changed-files.txt")"
-          node utils/prune-preview.js --changed-files "${RUNNER_TEMP}/changed-files.txt"
+          node .preview-tools/utils/prune-preview.js --changed-files "${RUNNER_TEMP}/changed-files.txt"
 
       - name: Report preview size
         run: echo "::notice title=Preview size::$(du -sh ./build | cut -f1) with $(jq length ./build/.preview-pages.json) changed pages"

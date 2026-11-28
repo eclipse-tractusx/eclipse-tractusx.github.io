@@ -71,6 +71,8 @@ const REMOVAL_REASONS = {
   manual: 'The preview was removed manually with the workflow "Remove pull request preview".',
   evicted:
     'The preview was removed to make space on GitHub Pages for the website. Comment `/preview` or push a new commit to publish it again.',
+  newer:
+    'The preview was removed to make space on GitHub Pages for a newer preview: when space runs out, the oldest previews make way for the newest one. Its build is kept for 90 days: comment `/preview` to publish it again without a rebuild.',
   replaced:
     'The preview was replaced by the preview of another pull request to make space on GitHub Pages. Its build is kept for 90 days: comment `/preview` to publish it again without a rebuild.',
 };
@@ -88,8 +90,11 @@ function parsePreviews(list) {
 //   published  the preview is online (needs headSha, pagesFile)
 //   too-large  the preview is larger than maxPreviewMb (needs previewMb, maxPreviewMb)
 //   no-space   the preview does not fit into the free space of GitHub Pages
-//   removed    the preview was removed (needs reason: closed, manual or evicted)
-function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile, previewMb, maxPreviewMb, space, reason, replacedBy, previews, neededMb, now = new Date() }) {
+//   removed    the preview was removed (needs reason: closed, manual, evicted,
+//              newer or replaced; replacedBy names the pull request for newer
+//              and replaced)
+// pagesPending marks a published preview that GitHub Pages did not serve yet.
+function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile, previewMb, maxPreviewMb, space, reason, replacedBy, previews, neededMb, pagesPending = false, now = new Date() }) {
   const url = `${SITE}/pr/${prNumber}/`;
   const lines = [MARKER, '## 🔍 Pull request preview', ''];
   const sha = isSha(headSha) ? headSha : null;
@@ -99,6 +104,9 @@ function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile
   if (state === 'published') {
     const pages = readChangedPages(pagesFile);
     lines.push(`🌐 **Preview URL:** ${url}`, '');
+    if (pagesPending) {
+      lines.push('⏳ The preview is pushed, but GitHub Pages did not serve it yet. If the link shows an older state or "Page not found", wait a few minutes.', '');
+    }
     if (sha) {
       lines.push(`📌 **Commit:** ${commitLink(repo, prNumber, sha)} · ${updated}${build}`, '');
     }
@@ -144,7 +152,7 @@ function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile
     );
   } else if (state === 'removed') {
     lines.push(REMOVAL_REASONS[reason] || REMOVAL_REASONS.manual, '');
-    if (reason === 'replaced' && Number.isInteger(replacedBy)) {
+    if (['replaced', 'newer'].includes(reason) && Number.isInteger(replacedBy)) {
       lines.push(`It was replaced by the preview of #${replacedBy}.`, '');
     }
     const last = isSha(previousSha) ? ` · last preview: ${commitLink(repo, prNumber, previousSha)}` : '';
@@ -200,10 +208,11 @@ async function notifyReplaced({ github, context, prNumber, replacedBy }) {
   });
 }
 
-// Tells the author of a pull request that its preview was removed because the
-// website itself needed the space. The preview comment is edited for that too,
-// but GitHub does not notify about edits.
-async function notifyEvicted({ github, context, prNumber }) {
+// Tells the author of a pull request that its preview was removed to stay
+// within the space of GitHub Pages: for the website itself, or, with newerBy,
+// for the newer preview of that pull request. The preview comment is edited
+// for that too, but GitHub does not notify about edits.
+async function notifyEvicted({ github, context, prNumber, newerBy }) {
   const { owner, repo } = context.repo;
   const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
   if (pr.state !== 'open') {
@@ -211,11 +220,14 @@ async function notifyEvicted({ github, context, prNumber }) {
   }
   const login = /^[A-Za-z0-9-]{1,39}(\[bot\])?$/.test(pr.user?.login || '') ? pr.user.login : null;
   const who = login ? `@${login} ` : '';
+  const why = Number.isInteger(newerBy)
+    ? `GitHub Pages was full and the newer preview of #${newerBy} needed the space (the oldest previews make way for the newest one)`
+    : 'GitHub Pages was full and the live website needed the space to be published';
   await github.rest.issues.createComment({
     owner,
     repo,
     issue_number: prNumber,
-    body: `${who}the preview of this pull request was removed, because GitHub Pages was full and the live website needed the space to be published. Its build is kept for 90 days, so commenting \`/preview\` here publishes it again without a rebuild once there is space (committers only).`,
+    body: `${who}the preview of this pull request was removed, because ${why}. Its build is kept for 90 days, so commenting \`/preview\` here publishes it again without a rebuild once there is space (committers only).`,
   });
 }
 
@@ -227,4 +239,97 @@ function numbers(list) {
     .map(Number);
 }
 
-module.exports = { MARKER, render, update, numbers, readChangedPages, parsePreviews, notifyReplaced, notifyEvicted };
+// The status comment that answers a /preview command shows the progress of
+// the request. It is written by "Pull request preview command" and advanced by
+// "Deploy pull request preview":
+//
+//   0 Request received   the command
+//   1 Build              the command (started or found running)
+//   2 Publish            the deployment, when it starts
+//   3 GitHub Pages       the deployment, after pushing to gh-pages
+//   4 Result             the deployment: link, reason or table of previews
+//
+// The build itself runs without write access and cannot report its progress.
+const STATUS_MARKER = /^<!-- pr-preview-status:([0-9]+) -->/;
+const PENDING_MARKER = '<!-- pr-preview-pending -->';
+const STEP_LABELS = ['Request received', 'Build', 'Publish to `gh-pages`', 'GitHub Pages serves the preview', 'Result'];
+const STEP_HEADINGS = ['receiving the request', 'building', 'publishing to `gh-pages`', 'waiting for GitHub Pages', 'result'];
+
+// step: the step in progress (0 to 4), or 5 when everything is done.
+// failed: the step in progress failed. links: { build, deploy } URLs.
+// result: Markdown shown under the steps.
+function renderProgress({ step, failed = false, headSha, links = {}, result }) {
+  const total = STEP_LABELS.length;
+  const bar = STEP_LABELS.map((_, i) => (i < step ? '🟩' : i === step ? (failed ? '🟥' : '🟨') : '⬜')).join('');
+  const heading =
+    step >= total
+      ? '**Done**'
+      : `**Step ${step + 1} of ${total}:** ${failed ? 'failed while ' : ''}${STEP_HEADINGS[step]}`;
+  const label = (i) => {
+    if (i === 1) {
+      const commit = isSha(headSha) ? ` of commit \`${headSha.slice(0, 7)}\`` : '';
+      return `Build${commit}${links.build ? ` · [build log](${links.build})` : ''}`;
+    }
+    if (i === 2 && links.deploy) {
+      return `${STEP_LABELS[i]} · [deploy log](${links.deploy})`;
+    }
+    return STEP_LABELS[i];
+  };
+  const lines = [`${bar}  ${heading}`, ''];
+  STEP_LABELS.forEach((_, i) => {
+    const icon = i < step ? '✅' : i === step ? (failed ? '❌' : '🔄') : '⬜';
+    lines.push(`${icon} ${label(i)}  `);
+  });
+  if (result) {
+    lines.push('', result);
+  }
+  return lines.join('\n');
+}
+
+// Rebuilds a status comment with new content, keeping its marker, the quoted
+// command and the footer. pending marks a status that waits for the deployment.
+function statusBody(previous, content, pending) {
+  const lines = String(previous).split('\n');
+  const marker = lines[0];
+  const quote = lines.find((line) => line.startsWith('> ')) || '';
+  const footer = lines.filter((line) => line.startsWith('<sub>')).pop() || '';
+  return [`${marker}${pending ? `\n${PENDING_MARKER}` : ''}`, quote, '', content, '', footer].join('\n');
+}
+
+// The /preview status comments of a pull request that still wait for a result:
+// marked as pending, or older ones that show a waiting icon. statusId is always
+// included if it is a status comment.
+async function waitingStatusComments({ github, owner, repo, prNumber, statusId }) {
+  const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number: prNumber, per_page: 100 });
+  const waiting = (body) => body.includes(PENDING_MARKER) || /\n(⏳|🔨|🚀|🔁|👀) /.test(body);
+  return comments.filter(
+    (c) => c.user?.type === 'Bot' && STATUS_MARKER.test(c.body || '') && (c.id === statusId || waiting(c.body)),
+  );
+}
+
+// Writes content into the waiting status comments of a pull request. With a
+// reaction (hooray or -1), the result is final: the comments are no longer
+// pending and their /preview comments get the reaction.
+async function updateStatusComments({ github, context, core, prNumber, statusId, content, reaction }) {
+  const { owner, repo } = context.repo;
+  const targets = await waitingStatusComments({ github, owner, repo, prNumber, statusId });
+  for (const status of targets) {
+    await github.rest.issues.updateComment({ owner, repo, comment_id: status.id, body: statusBody(status.body, content, !reaction) });
+    if (reaction) {
+      try {
+        await github.rest.reactions.createForIssueComment({
+          owner, repo, comment_id: Number(status.body.match(STATUS_MARKER)[1]), content: reaction,
+        });
+      } catch (error) {
+        core?.info(`Could not react to the /preview comment: ${error.message}`);
+      }
+    }
+  }
+  core?.info(`Updated ${targets.length} status comment(s).`);
+  return targets.length;
+}
+
+module.exports = {
+  MARKER, render, update, numbers, readChangedPages, parsePreviews, notifyReplaced, notifyEvicted,
+  PENDING_MARKER, renderProgress, statusBody, updateStatusComments,
+};

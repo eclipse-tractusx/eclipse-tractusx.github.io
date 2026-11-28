@@ -166,9 +166,25 @@ command. It quotes the command and says what happens, how long it usually takes 
 | 🔁 Building again | `/preview rebuild` started the build again; expect 5 to 10 minutes until the preview is online |
 | 😕 or ⌛ | nothing to publish, and why: not a valid command, closed pull request, no website changes, expired build |
 
-When a deployment that the command started has finished, the status comment is replaced by the result: 🎉 with the
-link, or 👎 with the reason (too large, no space, outdated build, failed run). The result is a new comment that mentions
-the committer, because GitHub notifies about new comments but not about edited ones. Only committers cause status
+While the request runs, the status comment shows its progress as five steps with a bar (🟩🟩🟨⬜⬜): request
+received, build (with the link to its log), publish to `gh-pages` (with the link to the deploy log), GitHub Pages serves
+the preview, result. The command sets the first steps, "Deploy pull request preview" advances the others when it starts
+and after it pushed. The build itself runs without write access, so it cannot report finer progress; its step shows 🔄
+for its 3 to 5 minutes. A failed step shows ❌ and 🟥.
+
+When the build and the deployment have finished, the result is written into the same status comment, and the `/preview`
+comment gets 🎉 or 👎:
+
+- 🎉 the link. The deployment first waits until GitHub Pages serves the preview (up to 10 minutes) and says so if it
+  does not yet.
+- ❌ the build or the deployment failed, with a link to the run that shows why.
+- 📦 the preview is larger than a single preview may be; `/preview large` publishes it anyway.
+- 💾 GitHub Pages has no space left: a table of the current previews with their sizes and a `/preview replace <number>`
+  command for each, so the committer chooses which one makes way. The replacement reuses the build.
+
+A status comment that still waits ("Build still running", "Building", "Publishing") is finished by the next deployment of
+that pull request, also when it was started by a push and not by the command. GitHub does not notify about edited
+comments; the reaction on the `/preview` comment shows the outcome at a glance. Only committers cause status
 comments, so they cannot be used to flood a pull request. Pull requests from forks work the same way, once their build has run (GitHub asks a maintainer to approve
 the first workflow run of a new contributor).
 
