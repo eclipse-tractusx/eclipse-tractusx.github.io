@@ -239,4 +239,97 @@ function numbers(list) {
     .map(Number);
 }
 
-module.exports = { MARKER, render, update, numbers, readChangedPages, parsePreviews, notifyReplaced, notifyEvicted };
+// The status comment that answers a /preview command shows the progress of
+// the request. It is written by "Pull request preview command" and advanced by
+// "Deploy pull request preview":
+//
+//   0 Request received   the command
+//   1 Build              the command (started or found running)
+//   2 Publish            the deployment, when it starts
+//   3 GitHub Pages       the deployment, after pushing to gh-pages
+//   4 Result             the deployment: link, reason or table of previews
+//
+// The build itself runs without write access and cannot report its progress.
+const STATUS_MARKER = /^<!-- pr-preview-status:([0-9]+) -->/;
+const PENDING_MARKER = '<!-- pr-preview-pending -->';
+const STEP_LABELS = ['Request received', 'Build', 'Publish to `gh-pages`', 'GitHub Pages serves the preview', 'Result'];
+const STEP_HEADINGS = ['receiving the request', 'building', 'publishing to `gh-pages`', 'waiting for GitHub Pages', 'result'];
+
+// step: the step in progress (0 to 4), or 5 when everything is done.
+// failed: the step in progress failed. links: { build, deploy } URLs.
+// result: Markdown shown under the steps.
+function renderProgress({ step, failed = false, headSha, links = {}, result }) {
+  const total = STEP_LABELS.length;
+  const bar = STEP_LABELS.map((_, i) => (i < step ? '🟩' : i === step ? (failed ? '🟥' : '🟨') : '⬜')).join('');
+  const heading =
+    step >= total
+      ? '**Done**'
+      : `**Step ${step + 1} of ${total}:** ${failed ? 'failed while ' : ''}${STEP_HEADINGS[step]}`;
+  const label = (i) => {
+    if (i === 1) {
+      const commit = isSha(headSha) ? ` of commit \`${headSha.slice(0, 7)}\`` : '';
+      return `Build${commit}${links.build ? ` · [build log](${links.build})` : ''}`;
+    }
+    if (i === 2 && links.deploy) {
+      return `${STEP_LABELS[i]} · [deploy log](${links.deploy})`;
+    }
+    return STEP_LABELS[i];
+  };
+  const lines = [`${bar}  ${heading}`, ''];
+  STEP_LABELS.forEach((_, i) => {
+    const icon = i < step ? '✅' : i === step ? (failed ? '❌' : '🔄') : '⬜';
+    lines.push(`${icon} ${label(i)}  `);
+  });
+  if (result) {
+    lines.push('', result);
+  }
+  return lines.join('\n');
+}
+
+// Rebuilds a status comment with new content, keeping its marker, the quoted
+// command and the footer. pending marks a status that waits for the deployment.
+function statusBody(previous, content, pending) {
+  const lines = String(previous).split('\n');
+  const marker = lines[0];
+  const quote = lines.find((line) => line.startsWith('> ')) || '';
+  const footer = lines.filter((line) => line.startsWith('<sub>')).pop() || '';
+  return [`${marker}${pending ? `\n${PENDING_MARKER}` : ''}`, quote, '', content, '', footer].join('\n');
+}
+
+// The /preview status comments of a pull request that still wait for a result:
+// marked as pending, or older ones that show a waiting icon. statusId is always
+// included if it is a status comment.
+async function waitingStatusComments({ github, owner, repo, prNumber, statusId }) {
+  const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number: prNumber, per_page: 100 });
+  const waiting = (body) => body.includes(PENDING_MARKER) || /\n(⏳|🔨|🚀|🔁|👀) /.test(body);
+  return comments.filter(
+    (c) => c.user?.type === 'Bot' && STATUS_MARKER.test(c.body || '') && (c.id === statusId || waiting(c.body)),
+  );
+}
+
+// Writes content into the waiting status comments of a pull request. With a
+// reaction (hooray or -1), the result is final: the comments are no longer
+// pending and their /preview comments get the reaction.
+async function updateStatusComments({ github, context, core, prNumber, statusId, content, reaction }) {
+  const { owner, repo } = context.repo;
+  const targets = await waitingStatusComments({ github, owner, repo, prNumber, statusId });
+  for (const status of targets) {
+    await github.rest.issues.updateComment({ owner, repo, comment_id: status.id, body: statusBody(status.body, content, !reaction) });
+    if (reaction) {
+      try {
+        await github.rest.reactions.createForIssueComment({
+          owner, repo, comment_id: Number(status.body.match(STATUS_MARKER)[1]), content: reaction,
+        });
+      } catch (error) {
+        core?.info(`Could not react to the /preview comment: ${error.message}`);
+      }
+    }
+  }
+  core?.info(`Updated ${targets.length} status comment(s).`);
+  return targets.length;
+}
+
+module.exports = {
+  MARKER, render, update, numbers, readChangedPages, parsePreviews, notifyReplaced, notifyEvicted,
+  PENDING_MARKER, renderProgress, statusBody, updateStatusComments,
+};

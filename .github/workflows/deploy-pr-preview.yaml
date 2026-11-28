@@ -332,6 +332,34 @@ jobs:
           sparse-checkout: .github/scripts
           persist-credentials: false
 
+      # Advances the progress in the /preview status comments of this pull
+      # request that wait for a result: the build is done, publishing starts.
+      - name: Show progress (publishing)
+        if: steps.check.outputs.state == 'open'
+        # The progress is information only; it must never stop the deployment.
+        continue-on-error: true
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          STATUS_COMMENT_ID: ${{ inputs.status_comment_id || needs.prepare.outputs.status-comment-id }}
+          HEAD_SHA: ${{ needs.prepare.outputs.head-sha }}
+          BUILD_URL: ${{ needs.prepare.outputs.run-url }}
+        with:
+          script: |
+            const preview = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
+            const env = process.env;
+            const deploy = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            await preview.updateStatusComments({
+              github, context, core,
+              prNumber: Number(env.PR_NUMBER),
+              statusId: Number(env.STATUS_COMMENT_ID) || null,
+              content: preview.renderProgress({
+                step: 2,
+                headSha: env.HEAD_SHA,
+                links: { build: env.BUILD_URL, deploy },
+                result: 'The build is done. Copying it to `gh-pages`; if another deployment writes there at the same moment, this one waits and tries again.',
+              }),
+            });
+
       - name: Download preview build
         if: steps.check.outputs.state == 'open'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
@@ -389,11 +417,26 @@ jobs:
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         env:
           DEPLOYED_AT: ${{ steps.publish.outputs.deployed-at }}
+          STATUS_COMMENT_ID: ${{ inputs.status_comment_id || needs.prepare.outputs.status-comment-id }}
+          HEAD_SHA: ${{ needs.prepare.outputs.head-sha }}
+          BUILD_URL: ${{ needs.prepare.outputs.run-url }}
         with:
           script: |
             const { owner, repo } = context.repo;
             const prNumber = Number(process.env.PR_NUMBER);
             const ours = process.env.DEPLOYED_AT;
+            const tools = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
+            // The progress is information only; it must never stop the check.
+            await tools.updateStatusComments({
+              github, context, core, prNumber,
+              statusId: Number(process.env.STATUS_COMMENT_ID) || null,
+              content: tools.renderProgress({
+                step: 3,
+                headSha: process.env.HEAD_SHA,
+                links: { build: process.env.BUILD_URL, deploy: `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}` },
+                result: 'The preview is on `gh-pages`. Waiting until GitHub Pages serves it, usually 1 to 3 minutes.',
+              }),
+            }).catch((error) => core.info(`Could not show the progress: ${error.message}`));
             const path = `pr/${prNumber}/.deployed-at`;
             const deadline = Date.now() + 10 * 60 * 1000;
             let result = 'pending';
@@ -511,9 +554,18 @@ jobs:
       (inputs.pr_number != '' || needs.prepare.outputs.pr-number != '' || needs.prepare.outputs.number != '')
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       issues: write
       pull-requests: write
     steps:
+      - name: Check out preview scripts
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          path: tools
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
       - name: Report the result of /preview
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         env:
@@ -546,24 +598,32 @@ jobs:
             const url = `https://${owner}.github.io/pr/${prNumber}/`;
             const sha = /^[0-9a-f]{40}$/.test(env.HEAD_SHA || '') ? ` of commit \`${env.HEAD_SHA.slice(0, 7)}\`` : '';
 
-            // The result, as the text of the status comment.
+            const preview = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
+            const links = { build: env.BUILD_URL, deploy: runUrl };
+
+            // The result: the step it ended at, whether that step failed, and the text.
             let ok = false;
+            let step = 5;
+            let failed = false;
             let text;
             if (env.BUILD_FAILED === 'true') {
+              [step, failed] = [1, true];
               text = `❌ The preview was not published: the [build](${env.BUILD_URL}) failed. Its log shows why. Fix it and push, then comment \`/preview\` again.`;
             } else if (env.PREPARE_RESULT !== 'success' || ['failure', 'cancelled'].includes(env.DEPLOY_RESULT)) {
+              [step, failed] = [2, true];
               text = `❌ The preview was not published: the deployment failed. The [workflow run](${runUrl}) shows why. Comment \`/preview\` to try again.`;
             } else if (env.DEPLOY_RESULT === 'skipped') {
               // An outdated build: the build of the newer commit finishes this comment.
               return;
             } else if (env.PR_STATE !== 'open') {
+              [step, failed] = [2, true];
               text = '😕 The preview was not published: the pull request is closed.';
             } else if (env.TOO_LARGE === 'true') {
+              [step, failed] = [2, true];
               text = `📦 The preview${sha} was not published: it has ${env.PREVIEW_MB} MB, more than the ${env.MAX_PREVIEW_MB} MB a single preview may use. Comment \`/preview large\` to publish it anyway, if GitHub Pages has space.`;
             } else if (env.NO_SPACE === 'true') {
-              const others = String(env.PREVIEWS || '').split(/\s+/)
-                .map((entry) => entry.match(/^([1-9][0-9]{0,9}):([0-9]{1,7})$/))
-                .filter((match) => match && Number(match[1]) !== prNumber);
+              [step, failed] = [2, true];
+              const others = preview.parsePreviews(env.PREVIEWS).filter((other) => other.number !== prNumber);
               const needed = /^\d+$/.test(env.NEEDED_MB || '') ? ` It needs ${env.NEEDED_MB} MB more.` : '';
               text = others.length === 0
                 ? `💾 The preview${sha} was not published: GitHub Pages has no space left for it, even without other previews.${needed}`
@@ -572,37 +632,24 @@ jobs:
                     '',
                     '| Pull request | Size | Command |',
                     '|---|---:|---|',
-                    ...others.map(([, number, mb]) => `| #${number} | ${mb} MB | \`/preview replace ${number}\` |`),
+                    ...others.map((other) => `| #${other.number} | ${other.mb} MB | \`/preview replace ${other.number}\` |`),
                   ].join('\n');
             } else if (env.ONLINE === 'removed') {
+              [step, failed] = [3, true];
               text = '😕 The preview was published, but removed again right after by another deployment. Comment `/preview` to publish it again without a rebuild.';
             } else {
               ok = true;
               text = env.ONLINE === 'online'
                 ? `🎉 The preview${sha} is online: ${url}\n\nThe preview comment lists the pages this pull request changes.`
-                : `🎉 The preview${sha} is published: ${url}\n\nGitHub Pages did not serve it yet. If the link shows an older state or "Page not found", wait a few minutes.`;
+                : `🎉 The preview${sha} is published: ${url}\n\nGitHub Pages did not serve it within 10 minutes. If the link shows an older state or "Page not found", wait a few minutes.`;
             }
 
-            // The status comments to finish: the one of this request, and any
-            // other /preview status comment on the pull request that still waits
-            // for a result (for example "Build still running" before a push build).
-            const statusId = /^[1-9][0-9]{0,19}$/.test(env.STATUS_COMMENT_ID || '') ? Number(env.STATUS_COMMENT_ID) : null;
-            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number: prNumber, per_page: 100 });
-            const waiting = (body) => body.includes('<!-- pr-preview-pending -->') || /\n(⏳|🔨|🚀|🔁|👀) /.test(body);
-            const targets = comments.filter((c) =>
-              c.user?.type === 'Bot' && /^<!-- pr-preview-status:[0-9]+ -->/.test(c.body || '') && (c.id === statusId || waiting(c.body)));
-            for (const status of targets) {
-              const lines = status.body.split('\n');
-              const marker = lines[0];
-              const quote = lines.find((line) => line.startsWith('> ')) || '';
-              const footer = lines.filter((line) => line.startsWith('<sub>')).pop() || '';
-              const body = [marker, quote, '', text, '', footer].join('\n');
-              await github.rest.issues.updateComment({ owner, repo, comment_id: status.id, body });
-              const commentId = Number(marker.match(/[0-9]+/)[0]);
-              try {
-                await github.rest.reactions.createForIssueComment({ owner, repo, comment_id: commentId, content: ok ? 'hooray' : '-1' });
-              } catch (error) {
-                core.info(`Could not react to the /preview comment: ${error.message}`);
-              }
-            }
-            core.info(`Updated ${targets.length} status comment(s).`);
+            // Finishes the status comment of this request and any other /preview
+            // status comment of the pull request that still waits for a result
+            // (for example "build still running" before a push build).
+            await preview.updateStatusComments({
+              github, context, core, prNumber,
+              statusId: /^[1-9][0-9]{0,19}$/.test(env.STATUS_COMMENT_ID || '') ? Number(env.STATUS_COMMENT_ID) : null,
+              content: preview.renderProgress({ step, failed, headSha: env.HEAD_SHA, links, result: text }),
+              reaction: ok ? 'hooray' : '-1',
+            });

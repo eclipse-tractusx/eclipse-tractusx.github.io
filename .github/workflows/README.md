@@ -166,6 +166,12 @@ command. It quotes the command and says what happens, how long it usually takes 
 | 🔁 Building again | `/preview rebuild` started the build again; expect 5 to 10 minutes until the preview is online |
 | 😕 or ⌛ | nothing to publish, and why: not a valid command, closed pull request, no website changes, expired build |
 
+While the request runs, the status comment shows its progress as five steps with a bar (🟩🟩🟨⬜⬜): request
+received, build (with the link to its log), publish to `gh-pages` (with the link to the deploy log), GitHub Pages serves
+the preview, result. The command sets the first steps, "Deploy pull request preview" advances the others when it starts
+and after it pushed. The build itself runs without write access, so it cannot report finer progress; its step shows 🔄
+for its 3 to 5 minutes. A failed step shows ❌ and 🟥.
+
 When the build and the deployment have finished, the result is written into the same status comment, and the `/preview`
 comment gets 🎉 or 👎:
 
