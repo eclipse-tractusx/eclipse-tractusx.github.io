@@ -178,6 +178,39 @@ async function findComment(github, owner, repo, prNumber) {
 
 // Creates or updates the preview comment. With create: false, a missing comment
 // is not created (for example for a pull request that never had a preview).
+// The pull request has this label while its preview is on GitHub Pages, so the
+// list of pull requests shows which previews are online. Every state other than
+// published means that gh-pages no longer has the preview (a preview that is
+// too large or does not fit is removed together with its older version).
+const LABEL = 'preview';
+
+// Adds or removes the label. A label that cannot be changed (missing
+// permission) never stops the deployment.
+async function syncLabel({ github, owner, repo, prNumber, online }) {
+  try {
+    if (online) {
+      try {
+        await github.rest.issues.createLabel({
+          owner, repo, name: LABEL, color: '1f883d',
+          description: 'A preview of this pull request is online at https://eclipse-tractusx.github.io/pr/<number>/',
+        });
+      } catch (error) {
+        if (error.status !== 422) {
+          throw error;
+        }
+        // 422: the label exists already.
+      }
+      await github.rest.issues.addLabels({ owner, repo, issue_number: prNumber, labels: [LABEL] });
+    } else {
+      await github.rest.issues.removeLabel({ owner, repo, issue_number: prNumber, name: LABEL });
+    }
+  } catch (error) {
+    if (error.status !== 404) {
+      console.log(`Could not ${online ? 'add' : 'remove'} the label "${LABEL}" on #${prNumber}: ${error.message}`);
+    }
+  }
+}
+
 async function update({ github, context, prNumber, create = true, ...options }) {
   const { owner, repo } = context.repo;
   const existing = await findComment(github, owner, repo, prNumber);
@@ -188,6 +221,7 @@ async function update({ github, context, prNumber, create = true, ...options }) 
   } else if (create) {
     await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
   }
+  await syncLabel({ github, owner, repo, prNumber, online: options.state === 'published' });
 }
 
 // Tells the author of a pull request that its preview was replaced. The preview
@@ -257,6 +291,9 @@ const STEP_LABELS = ['Request received', 'Build', 'Publish to `gh-pages`', 'GitH
 // shows images in comments and keeps SVG animations running; until the file is
 // online, the alt text 🔄 is shown.
 const SPINNER = `<img src="${SITE}/img/preview/spinner.svg" width="16" height="16" alt="🔄">`;
+// A yellow square that blinks, for the step in progress in the bar
+// (static/img/preview/pulse.svg); until it is online, the alt text 🟨 is shown.
+const PULSE = `<img src="${SITE}/img/preview/pulse.svg" width="20" height="20" alt="🟨">`;
 const STEP_HEADINGS = ['receiving the request', 'building', 'publishing to `gh-pages`', 'waiting for GitHub Pages', 'result'];
 
 // step: the step in progress (0 to 4), or 5 when everything is done.
@@ -264,7 +301,7 @@ const STEP_HEADINGS = ['receiving the request', 'building', 'publishing to `gh-p
 // result: Markdown shown under the steps.
 function renderProgress({ step, failed = false, headSha, links = {}, result }) {
   const total = STEP_LABELS.length;
-  const bar = STEP_LABELS.map((_, i) => (i < step ? '🟩' : i === step ? (failed ? '🟥' : '🟨') : '⬜')).join('');
+  const bar = STEP_LABELS.map((_, i) => (i < step ? '🟩' : i === step ? (failed ? '🟥' : PULSE) : '⬜')).join('');
   const heading =
     step >= total
       ? '**Done**'
@@ -334,6 +371,6 @@ async function updateStatusComments({ github, context, core, prNumber, statusId,
 }
 
 module.exports = {
-  MARKER, render, update, numbers, readChangedPages, parsePreviews, notifyReplaced, notifyEvicted,
+  MARKER, LABEL, render, update, syncLabel, numbers, readChangedPages, parsePreviews, notifyReplaced, notifyEvicted,
   PENDING_MARKER, renderProgress, statusBody, updateStatusComments,
 };

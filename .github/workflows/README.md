@@ -305,6 +305,11 @@ Every write to `gh-pages` checks the space, so previews can never stop the produ
     that mentions them, and `/preview` publishes it again once there is space.
 - Each run shows the space used in its job summary.
 
+While its preview is on GitHub Pages, a pull request has the label `preview`, so the list of pull requests shows which
+previews are online (filter with `label:preview`). The label is set when a preview is published and removed whenever it
+is no longer there: pull request closed, replaced, removed to make space, too large or not fitting. It is created on
+first use.
+
 Every pull request has one preview comment, which is updated (not posted again):
 
 - after a deployment, with the commit the preview was built from, the time, the build, the changed pages and the space
