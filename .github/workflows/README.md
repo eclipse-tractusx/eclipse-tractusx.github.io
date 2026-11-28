@@ -102,6 +102,10 @@ Committers can publish a preview from a comment on the pull request:
   `/preview`, including the table of previews to replace when GitHub Pages has no space left. The build of a stacked
   pull request is the merge into its base branch, so the preview shows the stack up to that pull request. It only runs
   the preview build, not the complete build that is a required check for `main`.
+  Such a build runs as `github-actions[bot]`, and GitHub does not start workflows from events of `GITHUB_TOKEN`, so its
+  completion does not trigger "Deploy pull request preview". Its last job, "Start the deployment" (only `actions: write`,
+  no pull request code), starts the deployment with `build_run_id`; the deployment waits until the build has finished
+  and then handles it like a `workflow_run`.
 - `/preview replace <number>` removes the preview of pull request `<number>` and publishes this one in its place, in one
   commit.
 

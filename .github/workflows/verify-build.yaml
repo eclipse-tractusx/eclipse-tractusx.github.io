@@ -317,3 +317,38 @@ jobs:
           name: pr-number
           path: ./pr-number
           retention-days: 90
+
+  # GitHub does not start workflows from events caused by GITHUB_TOKEN. A build
+  # that /preview started runs as github-actions[bot], so its completion does
+  # not trigger "Deploy pull request preview" (workflow_run). This job starts
+  # the deployment instead, for this run; the deployment waits until the run
+  # has finished and then publishes it or reports why not, like a workflow_run.
+  # It runs no code of the pull request and only uses the inputs of this run,
+  # which the command already checked. It is the only job with write access,
+  # and only to Actions.
+  hand-off:
+    name: Start the deployment
+    needs:
+      - changes
+      - preview
+    if: always() && github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Start "Deploy pull request preview"
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
+        with:
+          script: |
+            if (!/^[1-9][0-9]{0,9}$/.test(process.env.PR_NUMBER)) {
+              core.setFailed(`'${process.env.PR_NUMBER}' is not a pull request number.`);
+              return;
+            }
+            await github.rest.actions.createWorkflowDispatch({
+              ...context.repo,
+              workflow_id: 'deploy-pr-preview.yaml',
+              ref: context.payload.repository.default_branch,
+              inputs: { pr_number: process.env.PR_NUMBER, build_run_id: String(context.runId) },
+            });

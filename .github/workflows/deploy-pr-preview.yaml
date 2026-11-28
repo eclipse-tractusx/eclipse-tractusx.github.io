@@ -41,6 +41,15 @@ on:
         description: Number of the pull request whose preview to publish
         required: true
         type: string
+      # Set by a build that /preview started (job "Start the deployment" in
+      # verify-build.yaml): its completion does not trigger workflow_run,
+      # because it runs as github-actions[bot]. The run is handled like a
+      # workflow_run once it has finished.
+      build_run_id:
+        description: Run of "Build pull request preview" started by /preview (optional)
+        required: false
+        type: string
+        default: ''
       # Set by the /preview replace <number> comment command: the preview of
       # that pull request is removed in the same commit to make space.
       replace:
@@ -113,6 +122,7 @@ jobs:
       comment-id: ${{ steps.build.outputs.comment-id }}
       status-comment-id: ${{ steps.build.outputs.status-comment-id }}
       build-failed: ${{ steps.build.outputs.build-failed }}
+      no-website: ${{ steps.build.outputs.no-website }}
     steps:
       # A manual run publishes the latest successful build of the pull
       # request's current commit, if its artifacts still exist.
@@ -131,8 +141,38 @@ jobs:
           RUN_TITLE: ${{ github.event.workflow_run.display_title }}
           RUN_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          INPUT_BUILD_RUN_ID: ${{ inputs.build_run_id }}
         run: |
           set -euo pipefail
+          # A build that /preview started hands its run over: wait until it has
+          # finished (its last job is the hand-off itself), then treat it like
+          # the workflow_run event it did not get.
+          if [ "${EVENT_NAME}" = "workflow_dispatch" ] && [ -n "${INPUT_BUILD_RUN_ID:-}" ]; then
+            if ! [[ "${INPUT_BUILD_RUN_ID}" =~ ^[1-9][0-9]{0,19}$ ]]; then
+              echo "::error::'${INPUT_BUILD_RUN_ID}' is not a run id."
+              exit 1
+            fi
+            for attempt in $(seq 1 60); do
+              run_json="$(gh api "repos/${REPO}/actions/runs/${INPUT_BUILD_RUN_ID}")"
+              [ "$(jq -r .status <<< "${run_json}")" = "completed" ] && break
+              echo "Waiting for the build to finish (${attempt})..."
+              sleep 10
+            done
+            if [ "$(jq -r .status <<< "${run_json}")" != "completed" ] ||
+              [ "$(jq -r .path <<< "${run_json}")" != ".github/workflows/verify-build.yaml" ] ||
+              [ "$(jq -r .event <<< "${run_json}")" != "workflow_dispatch" ] ||
+              [ "$(jq -r .head_branch <<< "${run_json}")" != "${DEFAULT_BRANCH}" ]; then
+              echo "::error::Run ${INPUT_BUILD_RUN_ID} is not a finished preview build started by /preview."
+              exit 1
+            fi
+            EVENT_NAME=workflow_run
+            RUN_ID="${INPUT_BUILD_RUN_ID}"
+            RUN_URL="$(jq -r .html_url <<< "${run_json}")"
+            RUN_HEAD_SHA="$(jq -r .head_sha <<< "${run_json}")"
+            RUN_EVENT=workflow_dispatch
+            RUN_TITLE="$(jq -r .display_title <<< "${run_json}")"
+            RUN_CONCLUSION="$(jq -r .conclusion <<< "${run_json}")"
+          fi
           # A build started by /preview is named after the pull request, the
           # commit it built and the /preview request (see run-name in
           # verify-build.yaml). The name is untrusted input like any other:
@@ -151,6 +191,10 @@ jobs:
               pr_number="${BASH_REMATCH[1]}"
               head_sha="${BASH_REMATCH[2]}"
               INPUT_REPLACE="${BASH_REMATCH[6]}"
+              if [ -n "${INPUT_PR_NUMBER}" ] && [ "${pr_number}" != "${INPUT_PR_NUMBER}" ]; then
+                echo "::error::The build ${run_url} belongs to pull request ${pr_number}, not ${INPUT_PR_NUMBER}."
+                exit 1
+              fi
               {
                 echo "pr-number=${pr_number}"
                 echo "requested-by=${BASH_REMATCH[3]}"
@@ -173,7 +217,10 @@ jobs:
             artifacts=" $(gh api "repos/${REPO}/actions/runs/${run_id}/artifacts" --jq '[.artifacts[] | .name] | join(" ")') "
             if [[ "${artifacts}" != *" pr-preview "* ]]; then
               echo "The build ${run_url} made no preview (no website changes). Nothing to publish."
-              echo "skip=true" >> "$GITHUB_OUTPUT"
+              {
+                echo "skip=true"
+                echo "no-website=true"
+              } >> "$GITHUB_OUTPUT"
               exit 0
             fi
           else
@@ -574,6 +621,7 @@ jobs:
           STATUS_COMMENT_ID: ${{ inputs.status_comment_id || needs.prepare.outputs.status-comment-id }}
           PR_NUMBER: ${{ inputs.pr_number || needs.prepare.outputs.pr-number || needs.prepare.outputs.number }}
           BUILD_FAILED: ${{ needs.prepare.outputs.build-failed }}
+          NO_WEBSITE: ${{ needs.prepare.outputs.no-website }}
           BUILD_URL: ${{ needs.prepare.outputs.run-url }}
           HEAD_SHA: ${{ needs.prepare.outputs.head-sha }}
           PREPARE_RESULT: ${{ needs.prepare.result }}
@@ -612,6 +660,8 @@ jobs:
             } else if (env.PREPARE_RESULT !== 'success' || ['failure', 'cancelled'].includes(env.DEPLOY_RESULT)) {
               [step, failed] = [2, true];
               text = `❌ The preview was not published: the deployment failed. The [workflow run](${runUrl}) shows why. Comment \`/preview\` to try again.`;
+            } else if (env.NO_WEBSITE === 'true') {
+              text = '😕 This pull request does not change the website, so it has no preview.';
             } else if (env.DEPLOY_RESULT === 'skipped') {
               // An outdated build: the build of the newer commit finishes this comment.
               return;
