@@ -21,7 +21,7 @@
  * Writes the preview comment of a pull request. Every pull request has at most
  * one such comment, recognized by MARKER. It always shows the current state of
  * the preview: published (with the commit it was built from), not published
- * (too large, no space) or removed (and why).
+ * (no space) or removed (and why).
  *
  * Used with actions/github-script by "Deploy pull request preview" and "Remove
  * pull request preview", both from the default branch:
@@ -88,13 +88,12 @@ function parsePreviews(list) {
 
 // Returns the comment for a state:
 //   published  the preview is online (needs headSha, pagesFile)
-//   too-large  the preview is larger than maxPreviewMb (needs previewMb, maxPreviewMb)
 //   no-space   the preview does not fit into the free space of GitHub Pages
 //   removed    the preview was removed (needs reason: closed, manual, evicted,
 //              newer or replaced; replacedBy names the pull request for newer
 //              and replaced)
 // pagesPending marks a published preview that GitHub Pages did not serve yet.
-function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile, previewMb, maxPreviewMb, space, reason, replacedBy, previews, neededMb, pagesPending = false, now = new Date() }) {
+function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile, previewMb, space, reason, replacedBy, previews, neededMb, pagesPending = false, now = new Date() }) {
   const url = `${SITE}/pr/${prNumber}/`;
   const lines = [MARKER, '## 🔍 Pull request preview', ''];
   const sha = isSha(headSha) ? headSha : null;
@@ -121,20 +120,13 @@ function render({ repo, prNumber, state, headSha, previousSha, runUrl, pagesFile
       '',
       '> All other pages of the preview open on the live website. This comment is updated on every push and shows the commit the preview was built from. The preview is removed once the pull request is closed, or earlier if GitHub Pages needs the space. Committers can publish it again with `/preview`.',
     );
-  } else if (state === 'too-large' || state === 'no-space') {
-    const why =
-      state === 'too-large'
-        ? `The preview of this commit has ${previewMb} MB, more than the ${maxPreviewMb} MB a single preview may use, so it is not published. This happens when a change affects every page, for example a change to a component, a style or the configuration.`
-        : `The preview of this commit has ${previewMb} MB and does not fit into the space that GitHub Pages has left${/^\d+$/.test(String(neededMb ?? '')) ? ` (it needs ${neededMb} MB more)` : ''}, so it is not published.`;
-    lines.push(why, '');
-    if (state === 'too-large') {
-      lines.push(
-        '📦 **Publish it anyway:** a committer can comment `/preview large` to publish this preview despite its size, as long as GitHub Pages has space left for it. Replacing other previews does not help here, the limit is per preview.',
-        '',
-      );
-    }
+  } else if (state === 'no-space') {
+    lines.push(
+      `The preview of this commit has ${previewMb} MB and does not fit into the space that GitHub Pages has left${/^\d+$/.test(String(neededMb ?? '')) ? ` (it needs ${neededMb} MB more)` : ''}, so it is not published.`,
+      '',
+    );
     const others = parsePreviews(previews).filter((other) => other.number !== prNumber);
-    if (state === 'no-space' && others.length > 0) {
+    if (others.length > 0) {
       lines.push(
         '♻️ **Make space:** comment `/preview replace <number>` to remove one of these previews and publish this one in its place (oldest first):',
         '',
@@ -180,8 +172,8 @@ async function findComment(github, owner, repo, prNumber) {
 // is not created (for example for a pull request that never had a preview).
 // The pull request has this label while its preview is on GitHub Pages, so the
 // list of pull requests shows which previews are online. Every state other than
-// published means that gh-pages no longer has the preview (a preview that is
-// too large or does not fit is removed together with its older version).
+// published means that gh-pages no longer has the preview (a preview that does
+// not fit is removed together with its older version).
 const LABEL = 'preview';
 
 // Adds or removes the label. A label that cannot be changed (missing

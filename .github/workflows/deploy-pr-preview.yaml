@@ -58,13 +58,6 @@ on:
         required: false
         type: string
         default: ''
-      # Set by /preview large. There is no size limit for a single preview any
-      # more, so it has no effect; kept so older callers keep working.
-      allow_large:
-        description: No effect (there is no size limit for a single preview any more)
-        required: false
-        type: boolean
-        default: false
       # Set by the comment command, so the requester hears how it ended: a 🎉
       # reaction on the comment, or 👎 and a reply that mentions them.
       requested_by:
@@ -113,13 +106,6 @@ on:
         required: false
         type: string
         default: ''
-      # Set by /preview large. There is no size limit for a single preview any
-      # more, so it has no effect; kept so older callers keep working.
-      allow_large:
-        description: No effect (there is no size limit for a single preview any more)
-        required: false
-        type: boolean
-        default: false
       # Set by the comment command, so the requester hears how it ended: a 🎉
       # reaction on the comment, or 👎 and a reply that mentions them.
       requested_by:
@@ -172,7 +158,6 @@ jobs:
       run-url: ${{ steps.build.outputs.run-url }}
       head-sha: ${{ steps.build.outputs.head-sha }}
       replace: ${{ steps.build.outputs.replace }}
-      allow-large: ${{ (github.event_name == 'workflow_dispatch' && inputs.allow_large == true) || steps.build.outputs.allow-large == 'true' }}
       # The /preview request carried by a build that /preview started.
       pr-number: ${{ steps.build.outputs.pr-number }}
       requested-by: ${{ steps.build.outputs.requested-by }}
@@ -243,7 +228,7 @@ jobs:
           # commit it built and the /preview request (see run-name in
           # verify-build.yaml). The name is untrusted input like any other:
           # every part must match exactly.
-          title_re='^Preview of pull request #([1-9][0-9]{0,9}) at ([0-9a-f]{40}) \(/preview by ([A-Za-z0-9-]{0,39}); comment ([0-9]{0,20}); status ([0-9]{0,20}); replace ([0-9]{0,10}); large (true|false)\)$'
+          title_re='^Preview of pull request #([1-9][0-9]{0,9}) at ([0-9a-f]{40}) \(/preview by ([A-Za-z0-9-]{0,39}); comment ([0-9]{0,20}); status ([0-9]{0,20}); replace ([0-9]{0,10})\)$'
           pr_number="${INPUT_PR_NUMBER}"
           if [ "${EVENT_NAME}" = "workflow_run" ]; then
             run_id="${RUN_ID}"
@@ -266,7 +251,6 @@ jobs:
                 echo "requested-by=${BASH_REMATCH[3]}"
                 echo "comment-id=${BASH_REMATCH[4]}"
                 echo "status-comment-id=${BASH_REMATCH[5]}"
-                echo "allow-large=${BASH_REMATCH[7]}"
               } >> "$GITHUB_OUTPUT"
               if [ "${RUN_CONCLUSION}" != "success" ]; then
                 echo "::error::The build ${run_url} of pull request ${pr_number} ended with ${RUN_CONCLUSION}. Nothing to publish."

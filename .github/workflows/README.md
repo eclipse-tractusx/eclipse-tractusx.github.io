@@ -134,8 +134,7 @@ sequenceDiagram
 - `/preview rebuild` builds the pull request again when its saved build has expired (builds are kept for 90 days). The
   build publishes the preview when it has finished.
 - There is no size limit for a single preview: a large preview (for example a change to a component, which keeps every
-  page) is published if it fits, and otherwise gets the table of previews to replace. `/preview large` still works and
-  does the same as `/preview`.
+  page) is published if it fits, and otherwise gets the table of previews to replace.
 - `/preview status` answers with the current state: the latest commit, its build (with the step it is at while it runs)
   and the published preview (up to date, or which older commit it shows). It starts nothing and also works on closed
   pull requests.

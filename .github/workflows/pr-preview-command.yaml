@@ -30,8 +30,6 @@ name: Pull request preview command
 #                             publish this one in its place
 #   /preview rebuild          build again when the saved build has expired
 #                             (after 90 days); the build publishes the preview
-#   /preview large            same as /preview (there is no size limit for a
-#                             single preview any more; kept for old habits)
 #   /preview status           show the current state: latest commit, its build
 #                             (and the step it is at), the published preview
 #   /preview refresh          like status, and also write the current state
@@ -161,7 +159,7 @@ jobs:
 
             const line = comment.body.trim().split('\n')[0].trim();
             await setStatus('👀', 'On it: looking for the build of this pull request. This takes a few seconds.');
-            const match = line.match(/^\/preview(?:\s+replace\s+#?([1-9][0-9]{0,9})|\s+(rebuild)|\s+(large)|\s+(status|refresh|info))?$/);
+            const match = line.match(/^\/preview(?:\s+replace\s+#?([1-9][0-9]{0,9})|\s+(rebuild)|\s+(status|refresh|info))?$/);
             if (!match) {
               await react('confused');
               await setStatus('😕', 'This is not a command I know. Use `/preview`, `/preview replace <number>`, `/preview rebuild`, `/preview status`, `/preview refresh` or `/preview info`.');
@@ -169,8 +167,7 @@ jobs:
             }
             const replace = match[1] || '';
             const rebuild = Boolean(match[2]);
-            const large = Boolean(match[3]);
-            const query = match[4] || '';
+            const query = match[3] || '';
             if (replace === String(prNumber)) {
               await react('confused');
               await setStatus('😕', '`/preview replace` needs the number of another pull request, not of this one.');
@@ -217,7 +214,6 @@ jobs:
                   comment_id: String(comment.id),
                   status_comment_id: statusId ? String(statusId) : '',
                   replace,
-                  allow_large: large ? 'true' : 'false',
                 },
               });
               await react('rocket');
@@ -415,7 +411,6 @@ jobs:
               inputs: {
                 pr_number: String(prNumber),
                 replace,
-                allow_large: large ? 'true' : 'false',
                 requested_by: comment.user.login,
                 comment_id: String(comment.id),
                 status_comment_id: statusId ? String(statusId) : '',
