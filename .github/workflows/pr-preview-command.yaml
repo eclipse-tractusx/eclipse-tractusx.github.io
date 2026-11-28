@@ -33,8 +33,9 @@ name: Pull request preview command
 #   /preview large            publish a preview that is larger than the limit
 #                             for a single preview, if GitHub Pages has space
 #
-# When GitHub Pages has no space left, the preview comment lists the current
-# previews with their sizes and the replace command for each.
+# When GitHub Pages has no space left, the status comment and the preview
+# comment list the current previews with their sizes and the replace command
+# for each.
 #
 # Runs in the context of the base repository. It never checks out or runs code
 # from the pull request; it only starts "Deploy pull request preview", which
@@ -73,6 +74,16 @@ jobs:
       issues: write
       pull-requests: write
     steps:
+      # Only the scripts of the default branch, never anything from the pull
+      # request: the progress shown in the status comment.
+      - name: Check out preview scripts
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          path: tools
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
       - name: Start the preview deployment
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
@@ -92,17 +103,22 @@ jobs:
             // deployment or rebuild has started, or 😕 for a command that is not
             // valid. Next to the reactions, one status comment answers the command
             // at once and says what happens and how long it takes. When the
-            // deployment has finished, "Deploy pull request preview" replaces that
-            // comment with the result, mentioning the requester, and adds 🎉 or 👎.
+            // deployment has finished, "Deploy pull request preview" writes the
+            // result into that comment (the link, the reason, or the table of
+            // previews to replace) and adds 🎉 or 👎.
             // Only committers get a status comment, so it cannot be used to flood
             // the pull request.
+            const progress = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
             let statusId = null;
-            const setStatus = async (icon, text) => {
+            // A status that waits for the build or the deployment is pending:
+            // "Deploy pull request preview" advances its progress and writes the
+            // result into it.
+            const writeStatus = async (content, pending) => {
               const body = [
-                `<!-- pr-preview-status:${comment.id} -->`,
+                `<!-- pr-preview-status:${comment.id} -->${pending ? `\n${progress.PENDING_MARKER}` : ''}`,
                 `> ${line.replace(/[\r\n]/g, ' ').slice(0, 100)}`,
                 '',
-                `${icon} ${text}`,
+                content,
                 '',
                 `<sub>Answer to [this comment](${comment.html_url}) from \`${comment.user.login}\`.</sub>`,
               ].join('\n');
@@ -116,6 +132,9 @@ jobs:
                 core.warning(`Could not write the status comment: ${error.message}`);
               }
             };
+            const setStatus = (icon, text) => writeStatus(`${icon} ${text}`, false);
+            const setProgress = (options) => writeStatus(progress.renderProgress({ headSha: pr.head.sha, ...options }), true);
+            const deploysUrl = `${context.serverUrl}/${owner}/${repo}/actions/workflows/deploy-pr-preview.yaml`;
 
             // Only people with write access to the repository (committers). The
             // comment's author_association is not enough: org members with a
@@ -199,14 +218,11 @@ jobs:
                 },
               });
               await react('rocket');
-              await setStatus('🔨', [
-                `${why} I started a build of commit ${shortSha} ([build runs](${buildsUrl})). Expect 5 to 10 minutes in total:`,
-                '',
-                '1. The build takes 3 to 5 minutes.',
-                '2. When it has finished, the preview is published to `gh-pages`, and GitHub Pages puts it online a minute or two later.',
-                '',
-                'This comment is then replaced by the result, which mentions you. If GitHub Pages has no space left, the preview comment lists the current previews with their sizes; comment `/preview replace <number>` to publish this one in place of one of them, without building again.',
-              ].join('\n'));
+              await setProgress({
+                step: 1,
+                links: { build: buildsUrl },
+                result: `${why} I started the build; it takes 3 to 5 minutes, then the preview is published. This comment shows each step and ends with the link, the reason it failed, or, if GitHub Pages has no space left, a table of the previews to choose one to replace.`,
+              });
             };
             const notOnPush = toMain ? '' : ` Pull requests to \`${pr.base.ref}\` are not built on push, only with \`/preview\`.`;
 
@@ -216,7 +232,11 @@ jobs:
               const latest = (await findRuns())[0];
               if (latest && latest.status !== 'completed') {
                 // It publishes the preview on its own when it is done. The 👀 reaction stays.
-                await setStatus('⏳', `When I checked, the [build](${latest.html_url}) of the latest commit (${shortSha}) was still running, and the preview is made from that build. A build usually takes 3 to 5 minutes; when it has finished, it publishes the preview on its own and the preview comment shows it, so there is no need to comment again.`);
+                await setProgress({
+                  step: 1,
+                  links: { build: latest.html_url },
+                  result: 'The build of the latest commit is still running. A build usually takes 3 to 5 minutes; then the preview is published on its own and this comment shows each step, so there is no need to comment again.',
+                });
                 return;
               }
               if (latest && !rebuild) {
@@ -246,7 +266,11 @@ jobs:
               }
               await github.rest.actions.reRunWorkflow({ owner, repo, run_id: run.id });
               await react('rocket');
-              await setStatus('🔁', `Building this pull request again ([build](${run.html_url})), because its saved build has expired. The build usually takes 3 to 5 minutes and then publishes the preview on its own; with publishing, expect 5 to 10 minutes in total.`);
+              await setProgress({
+                step: 1,
+                links: { build: run.html_url },
+                result: 'Building this pull request again, because its saved build has expired. The build takes 3 to 5 minutes and then publishes the preview on its own; this comment shows each step.',
+              });
               return;
             }
             if (expired) {
@@ -271,12 +295,8 @@ jobs:
             });
             await react('rocket');
             const what = replace ? `, replacing the preview of #${replace}` : large ? ' (allowed above the size limit)' : '';
-            await setStatus('🚀', [
-              `Publishing the preview of commit \`${pr.head.sha.slice(0, 7)}\`${what}. This usually takes 2 to 5 minutes, because three things happen one after another:`,
-              '',
-              '1. A runner starts and downloads the saved build of this pull request.',
-              '2. The preview is copied to the `gh-pages` branch. If another deployment is writing there at the same moment, this one waits for it and tries again.',
-              '3. GitHub Pages puts the new state of `gh-pages` online, which takes another minute or two.',
-              '',
-              `This comment is replaced by the result, which mentions you. [Deployment runs](${context.serverUrl}/${owner}/${repo}/actions/workflows/deploy-pr-preview.yaml)`,
-            ].join('\n'));
+            await setProgress({
+              step: 2,
+              links: { build: run.html_url, deploy: deploysUrl },
+              result: `Publishing the saved build${what}. A runner downloads it and copies it to \`gh-pages\` (waiting if another deployment writes there at the same moment); GitHub Pages then puts it online a minute or two later. This comment shows each step.`,
+            });

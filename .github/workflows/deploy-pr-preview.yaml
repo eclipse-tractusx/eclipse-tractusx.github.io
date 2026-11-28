@@ -41,6 +41,16 @@ on:
         description: Number of the pull request whose preview to publish
         required: true
         type: string
+      # A run of "Build pull request preview" started by /preview: its
+      # completion does not trigger workflow_run, because it runs as
+      # github-actions[bot]. The build calls this workflow itself with its own
+      # run (job "Publish" in verify-build.yaml); another run is waited for.
+      # The run is then handled like a workflow_run.
+      build_run_id:
+        description: Run of "Build pull request preview" started by /preview (optional)
+        required: false
+        type: string
+        default: ''
       # Set by the /preview replace <number> comment command: the preview of
       # that pull request is removed in the same commit to make space.
       replace:
@@ -77,6 +87,68 @@ on:
         type: string
         default: ''
 
+  # Called by "Build pull request preview" when /preview started it: the
+  # build publishes its own result in the same run, and the status comment
+  # follows every step. A run started with GITHUB_TOKEN never triggers
+  # workflow_run, so the separate deployment would not start.
+  workflow_call:
+    inputs:
+      pr_number:
+        description: Number of the pull request whose preview to publish
+        required: true
+        type: string
+      # A run of "Build pull request preview" started by /preview: its
+      # completion does not trigger workflow_run, because it runs as
+      # github-actions[bot]. The build calls this workflow itself with its own
+      # run (job "Publish" in verify-build.yaml); another run is waited for.
+      # The run is then handled like a workflow_run.
+      build_run_id:
+        description: Run of "Build pull request preview" started by /preview (optional)
+        required: false
+        type: string
+        default: ''
+      # Set by the /preview replace <number> comment command: the preview of
+      # that pull request is removed in the same commit to make space.
+      replace:
+        description: Pull request whose preview to remove to make space (optional)
+        required: false
+        type: string
+        default: ''
+      # Set by the /preview large comment command: publish the preview even if
+      # it is larger than MAX_PREVIEW_MB. The space limit of GitHub Pages as a
+      # whole still applies.
+      allow_large:
+        description: Publish a preview larger than MAX_PREVIEW_MB if GitHub Pages has space
+        required: false
+        type: boolean
+        default: false
+      # Set by the comment command, so the requester hears how it ended: a 🎉
+      # reaction on the comment, or 👎 and a reply that mentions them.
+      requested_by:
+        description: Login of the committer who commented /preview (optional)
+        required: false
+        type: string
+        default: ''
+      comment_id:
+        description: Id of the /preview comment (optional)
+        required: false
+        type: string
+        default: ''
+      # The status comment the command posted ("Publishing the preview..."). It
+      # is replaced by the result, so the pull request keeps one answer per
+      # command.
+      status_comment_id:
+        description: Id of the status comment of the /preview command (optional)
+        required: false
+        type: string
+        default: ''
+      # The outcome of the build in the calling run: success, or failure.
+      build_result:
+        description: Outcome of the build in the calling run
+        required: false
+        type: string
+        default: ''
+
 permissions:
   contents: read
 
@@ -88,15 +160,11 @@ jobs:
     name: Identify pull request
     runs-on: ubuntu-latest
     # A build started by /preview (pull requests to another branch than main)
-    # runs as workflow_dispatch on main; see verify-build.yaml. It also gets
-    # here when it failed, so the requester hears about it. A cancelled build
-    # was replaced by a newer one.
+    # calls this workflow itself (workflow_call, where the event is the
+    # caller's workflow_dispatch); its completion is not handled here.
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request') ||
-      (github.event.workflow_run.event == 'workflow_dispatch' &&
-        github.event.workflow_run.conclusion != 'cancelled' &&
-        github.event.workflow_run.head_branch == github.event.repository.default_branch)
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request')
     permissions:
       actions: read
       pull-requests: read
@@ -113,6 +181,7 @@ jobs:
       comment-id: ${{ steps.build.outputs.comment-id }}
       status-comment-id: ${{ steps.build.outputs.status-comment-id }}
       build-failed: ${{ steps.build.outputs.build-failed }}
+      no-website: ${{ steps.build.outputs.no-website }}
     steps:
       # A manual run publishes the latest successful build of the pull
       # request's current commit, if its artifacts still exist.
@@ -131,8 +200,47 @@ jobs:
           RUN_TITLE: ${{ github.event.workflow_run.display_title }}
           RUN_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          INPUT_BUILD_RUN_ID: ${{ inputs.build_run_id }}
+          INPUT_BUILD_RESULT: ${{ inputs.build_result }}
+          THIS_RUN_ID: ${{ github.run_id }}
         run: |
           set -euo pipefail
+          # A build that /preview started calls this workflow in its own run
+          # (build_run_id is that run, build_result the outcome of its build).
+          # Another run given as build_run_id is waited for until it has
+          # finished. Either is then handled like the workflow_run event it did
+          # not get.
+          if [ "${EVENT_NAME}" = "workflow_dispatch" ] && [ -n "${INPUT_BUILD_RUN_ID:-}" ]; then
+            if ! [[ "${INPUT_BUILD_RUN_ID}" =~ ^[1-9][0-9]{0,19}$ ]]; then
+              echo "::error::'${INPUT_BUILD_RUN_ID}' is not a run id."
+              exit 1
+            fi
+            same_run=false
+            [ "${INPUT_BUILD_RUN_ID}" = "${THIS_RUN_ID}" ] && same_run=true
+            for attempt in $(seq 1 60); do
+              run_json="$(gh api "repos/${REPO}/actions/runs/${INPUT_BUILD_RUN_ID}")"
+              { [ "${same_run}" = true ] || [ "$(jq -r .status <<< "${run_json}")" = "completed" ]; } && break
+              echo "Waiting for the build to finish (${attempt})..."
+              sleep 10
+            done
+            if { [ "${same_run}" != true ] && [ "$(jq -r .status <<< "${run_json}")" != "completed" ]; } ||
+              [ "$(jq -r .path <<< "${run_json}")" != ".github/workflows/verify-build.yaml" ] ||
+              [ "$(jq -r .event <<< "${run_json}")" != "workflow_dispatch" ] ||
+              [ "$(jq -r .head_branch <<< "${run_json}")" != "${DEFAULT_BRANCH}" ]; then
+              echo "::error::Run ${INPUT_BUILD_RUN_ID} is not a finished preview build started by /preview."
+              exit 1
+            fi
+            EVENT_NAME=workflow_run
+            RUN_ID="${INPUT_BUILD_RUN_ID}"
+            RUN_URL="$(jq -r .html_url <<< "${run_json}")"
+            RUN_HEAD_SHA="$(jq -r .head_sha <<< "${run_json}")"
+            RUN_EVENT=workflow_dispatch
+            RUN_TITLE="$(jq -r .display_title <<< "${run_json}")"
+            RUN_CONCLUSION="$(jq -r .conclusion <<< "${run_json}")"
+            if [ "${same_run}" = true ]; then
+              RUN_CONCLUSION="${INPUT_BUILD_RESULT:-failure}"
+            fi
+          fi
           # A build started by /preview is named after the pull request, the
           # commit it built and the /preview request (see run-name in
           # verify-build.yaml). The name is untrusted input like any other:
@@ -151,6 +259,10 @@ jobs:
               pr_number="${BASH_REMATCH[1]}"
               head_sha="${BASH_REMATCH[2]}"
               INPUT_REPLACE="${BASH_REMATCH[6]}"
+              if [ -n "${INPUT_PR_NUMBER}" ] && [ "${pr_number}" != "${INPUT_PR_NUMBER}" ]; then
+                echo "::error::The build ${run_url} belongs to pull request ${pr_number}, not ${INPUT_PR_NUMBER}."
+                exit 1
+              fi
               {
                 echo "pr-number=${pr_number}"
                 echo "requested-by=${BASH_REMATCH[3]}"
@@ -173,7 +285,10 @@ jobs:
             artifacts=" $(gh api "repos/${REPO}/actions/runs/${run_id}/artifacts" --jq '[.artifacts[] | .name] | join(" ")') "
             if [[ "${artifacts}" != *" pr-preview "* ]]; then
               echo "The build ${run_url} made no preview (no website changes). Nothing to publish."
-              echo "skip=true" >> "$GITHUB_OUTPUT"
+              {
+                echo "skip=true"
+                echo "no-website=true"
+              } >> "$GITHUB_OUTPUT"
               exit 0
             fi
           else
@@ -278,6 +393,9 @@ jobs:
       mb: ${{ steps.size.outputs.mb }}
       too-large: ${{ steps.size.outputs.too-large }}
       no-space: ${{ steps.publish.outputs.no-space }}
+      needed-mb: ${{ steps.publish.outputs.needed-mb }}
+      previews: ${{ steps.publish.outputs.previews }}
+      online: ${{ steps.verify.outputs.result }}
     # One group per pull request, shared with "Remove pull request preview".
     # Deployments and the removal of the same preview therefore never overlap.
     # Previews of different pull requests and the production deployment run in
@@ -301,8 +419,9 @@ jobs:
       MAX_PREVIEW_MB: 300
       ALLOW_LARGE: ${{ needs.prepare.outputs.allow-large }}
       # Previews of other pull requests are not removed automatically to make
-      # space. When there is none left, the preview comment lists the previews
-      # and a committer chooses one with /preview replace <number>.
+      # space. When there is none left, the /preview status comment and the
+      # preview comment list the previews, and a committer chooses one with
+      # /preview replace <number>.
       PREVIEW_EVICT: none
     steps:
       # Checked again here, because the job may have waited in the concurrency
@@ -327,6 +446,34 @@ jobs:
           path: tools
           sparse-checkout: .github/scripts
           persist-credentials: false
+
+      # Advances the progress in the /preview status comments of this pull
+      # request that wait for a result: the build is done, publishing starts.
+      - name: Show progress (publishing)
+        if: steps.check.outputs.state == 'open'
+        # The progress is information only; it must never stop the deployment.
+        continue-on-error: true
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          STATUS_COMMENT_ID: ${{ inputs.status_comment_id || needs.prepare.outputs.status-comment-id }}
+          HEAD_SHA: ${{ needs.prepare.outputs.head-sha }}
+          BUILD_URL: ${{ needs.prepare.outputs.run-url }}
+        with:
+          script: |
+            const preview = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
+            const env = process.env;
+            const deploy = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            await preview.updateStatusComments({
+              github, context, core,
+              prNumber: Number(env.PR_NUMBER),
+              statusId: Number(env.STATUS_COMMENT_ID) || null,
+              content: preview.renderProgress({
+                step: 2,
+                headSha: env.HEAD_SHA,
+                links: { build: env.BUILD_URL, deploy },
+                result: 'The build is done. Copying it to `gh-pages`; if another deployment writes there at the same moment, this one waits and tries again.',
+              }),
+            });
 
       - name: Download preview build
         if: steps.check.outputs.state == 'open'
@@ -371,6 +518,77 @@ jobs:
           cd "${RUNNER_TEMP}/gh-pages"
           bash "${GITHUB_WORKSPACE}/tools/.github/scripts/update-gh-pages.sh" preview "${PR_NUMBER}" "${GITHUB_WORKSPACE}/preview"
 
+      # Waits until GitHub Pages serves this deployment (pr/<number>/.deployed-at
+      # has the pushed timestamp). Previews of other pull requests deploy in
+      # parallel and may remove this one again to make space for theirs. Then
+      # that deployment has already written the preview comment of this pull
+      # request, and this job must not report the preview as published.
+      #   online   GitHub Pages serves this deployment
+      #   removed  gh-pages no longer has this deployment of the preview
+      #   pending  pushed, but not served after the waiting time
+      - name: Verify that the preview is online
+        id: verify
+        if: steps.publish.outputs.deployed-at != ''
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          DEPLOYED_AT: ${{ steps.publish.outputs.deployed-at }}
+          STATUS_COMMENT_ID: ${{ inputs.status_comment_id || needs.prepare.outputs.status-comment-id }}
+          HEAD_SHA: ${{ needs.prepare.outputs.head-sha }}
+          BUILD_URL: ${{ needs.prepare.outputs.run-url }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const prNumber = Number(process.env.PR_NUMBER);
+            const ours = process.env.DEPLOYED_AT;
+            const tools = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
+            // The progress is information only; it must never stop the check.
+            await tools.updateStatusComments({
+              github, context, core, prNumber,
+              statusId: Number(process.env.STATUS_COMMENT_ID) || null,
+              content: tools.renderProgress({
+                step: 3,
+                headSha: process.env.HEAD_SHA,
+                links: { build: process.env.BUILD_URL, deploy: `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}` },
+                result: 'The preview is on `gh-pages`. Waiting until GitHub Pages serves it, usually 1 to 3 minutes.',
+              }),
+            }).catch((error) => core.info(`Could not show the progress: ${error.message}`));
+            const path = `pr/${prNumber}/.deployed-at`;
+            const deadline = Date.now() + 10 * 60 * 1000;
+            let result = 'pending';
+            while (Date.now() < deadline) {
+              let onBranch = null;
+              try {
+                const { data } = await github.rest.repos.getContent({ owner, repo, path, ref: 'gh-pages' });
+                onBranch = Buffer.from(data.content, 'base64').toString('utf8').trim();
+              } catch (error) {
+                if (error.status !== 404) {
+                  throw error;
+                }
+              }
+              if (onBranch !== ours) {
+                result = 'removed';
+                break;
+              }
+              try {
+                const response = await fetch(`https://${owner}.github.io/${path}?v=${Date.now()}`, { cache: 'no-store' });
+                if (response.ok && (await response.text()).trim() === ours) {
+                  result = 'online';
+                  break;
+                }
+              } catch (error) {
+                core.info(`GitHub Pages did not answer: ${error.message}`);
+              }
+              await new Promise((resolve) => setTimeout(resolve, 20000));
+            }
+            if (result === 'removed') {
+              core.warning('The preview was removed again by a newer deployment on gh-pages, which has updated the preview comment.');
+            } else if (result === 'pending') {
+              core.warning('GitHub Pages did not serve the preview within 10 minutes.');
+            } else {
+              core.info('GitHub Pages serves the preview.');
+            }
+            core.setOutput('result', result);
+
       # Also removes an older, smaller preview of the same pull request, so the
       # preview never shows an outdated state.
       - name: Remove preview of closed pull request or oversized preview
@@ -402,6 +620,7 @@ jobs:
           SITE_MB: ${{ steps.publish.outputs.site-mb || steps.remove.outputs.site-mb }}
           PREVIEWS_MB: ${{ steps.publish.outputs.previews-mb || steps.remove.outputs.previews-mb }}
           LIMIT_MB: ${{ steps.publish.outputs.limit-mb || steps.remove.outputs.limit-mb }}
+          ONLINE: ${{ steps.verify.outputs.result }}
         with:
           script: |
             const preview = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
@@ -417,8 +636,8 @@ jobs:
               await preview.update({ ...common, prNumber, state: 'too-large' });
             } else if (env.NO_SPACE === 'true') {
               await preview.update({ ...common, prNumber, state: 'no-space', previews: env.PREVIEWS, neededMb: env.NEEDED_MB });
-            } else {
-              await preview.update({ ...common, prNumber, state: 'published', pagesFile: 'preview/.preview-pages.json' });
+            } else if (env.ONLINE !== 'removed') {
+              await preview.update({ ...common, prNumber, state: 'published', pagesFile: 'preview/.preview-pages.json', pagesPending: env.ONLINE === 'pending' });
             }
 
             for (const number of preview.numbers(env.REPLACED)) {
@@ -430,93 +649,125 @@ jobs:
               await preview.notifyEvicted({ github, context, prNumber: number });
             }
 
-  # Tells the committer who commented /preview how it ended, also when a job
-  # failed: 🎉 on the comment if the preview is published, otherwise 👎 and a
-  # reply that mentions them, because GitHub does not notify about the edited
-  # preview comment. Only runs started by the comment command get here, and
-  # that command only accepts committers.
+  # Writes the result into the status comment that /preview posted ("Building
+  # ...", "Publishing ...", "Build still running ..."): the link, or why the
+  # preview was not published. When GitHub Pages has no space left, it shows
+  # the table of previews to choose from with /preview replace <number>. The
+  # /preview comment gets 🎉 or 👎.
+  #
+  # Runs for every deployment that knows its pull request, also for a push:
+  # a /preview that was answered with "Build still running" is then finished
+  # by the deployment of that build. Status comments that already show a
+  # result are left alone. Only committers cause status comments.
   notify:
-    name: Tell the requester
+    name: Update the /preview status comment
     needs:
       - prepare
       - deploy
     if: >-
       always() &&
-      ((github.event_name == 'workflow_dispatch' && inputs.requested_by != '') || needs.prepare.outputs.requested-by != '')
+      (inputs.pr_number != '' || needs.prepare.outputs.pr-number != '' || needs.prepare.outputs.number != '')
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       issues: write
       pull-requests: write
     steps:
+      - name: Check out preview scripts
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          path: tools
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
       - name: Report the result of /preview
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         env:
           # From the inputs of a manual run, or from the name of a build that
           # /preview started.
-          REQUESTED_BY: ${{ inputs.requested_by || needs.prepare.outputs.requested-by }}
-          COMMENT_ID: ${{ inputs.comment_id || needs.prepare.outputs.comment-id }}
           STATUS_COMMENT_ID: ${{ inputs.status_comment_id || needs.prepare.outputs.status-comment-id }}
-          PR_NUMBER: ${{ inputs.pr_number || needs.prepare.outputs.pr-number }}
+          PR_NUMBER: ${{ inputs.pr_number || needs.prepare.outputs.pr-number || needs.prepare.outputs.number }}
           BUILD_FAILED: ${{ needs.prepare.outputs.build-failed }}
+          NO_WEBSITE: ${{ needs.prepare.outputs.no-website }}
           BUILD_URL: ${{ needs.prepare.outputs.run-url }}
+          HEAD_SHA: ${{ needs.prepare.outputs.head-sha }}
           PREPARE_RESULT: ${{ needs.prepare.result }}
           DEPLOY_RESULT: ${{ needs.deploy.result }}
           PR_STATE: ${{ needs.deploy.outputs.state }}
           PREVIEW_MB: ${{ needs.deploy.outputs.mb }}
           TOO_LARGE: ${{ needs.deploy.outputs.too-large }}
           NO_SPACE: ${{ needs.deploy.outputs.no-space }}
+          NEEDED_MB: ${{ needs.deploy.outputs.needed-mb }}
+          PREVIEWS: ${{ needs.deploy.outputs.previews }}
+          ONLINE: ${{ needs.deploy.outputs.online }}
           MAX_PREVIEW_MB: 300
         with:
           script: |
             const env = process.env;
             const { owner, repo } = context.repo;
-            const login = /^[A-Za-z0-9-]{1,39}$/.test(env.REQUESTED_BY) ? env.REQUESTED_BY : null;
             const prNumber = Number(env.PR_NUMBER);
-            if (!login || !Number.isInteger(prNumber) || prNumber < 1) {
+            if (!Number.isInteger(prNumber) || prNumber < 1) {
               return;
             }
             const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
-            let problem = null;
-            if (env.BUILD_FAILED === 'true') {
-              problem = `the [build](${env.BUILD_URL}) failed. Fix it and push, then comment \`/preview\` again.`;
-            } else if (env.PREPARE_RESULT !== 'success' || ['failure', 'cancelled'].includes(env.DEPLOY_RESULT)) {
-              problem = `the deployment failed. The [workflow run](${runUrl}) shows why.`;
-            } else if (env.DEPLOY_RESULT === 'skipped') {
-              problem = `there was nothing to publish: the build is not from the latest commit of this pull request. The build of the latest commit publishes the preview when it has finished. The [workflow run](${runUrl}) shows details.`;
-            } else if (env.PR_STATE !== 'open') {
-              problem = 'the pull request is closed.';
-            } else if (env.TOO_LARGE === 'true') {
-              problem = `it has ${env.PREVIEW_MB} MB, more than the ${env.MAX_PREVIEW_MB} MB a single preview may use. Comment \`/preview large\` to publish it anyway, if GitHub Pages has space.`;
-            } else if (env.NO_SPACE === 'true') {
-              problem = 'GitHub Pages has no space left. The preview comment lists the current previews; comment `/preview replace <number>` to replace one of them.';
-            }
-            const commentId = /^[1-9][0-9]{0,19}$/.test(env.COMMENT_ID) ? Number(env.COMMENT_ID) : null;
-            if (commentId) {
-              try {
-                await github.rest.reactions.createForIssueComment({ owner, repo, comment_id: commentId, content: problem ? '-1' : 'hooray' });
-              } catch (error) {
-                core.info(`Could not react to the comment: ${error.message}`);
-              }
-            }
-            // The status comment of the command is replaced by a new comment with
-            // the result: a new comment notifies the requester, an edited one would
-            // not. Only a comment of this workflow's bot that answers this /preview
-            // is removed.
-            const statusId = /^[1-9][0-9]{0,19}$/.test(env.STATUS_COMMENT_ID) ? Number(env.STATUS_COMMENT_ID) : null;
-            if (statusId) {
-              try {
-                const { data: status } = await github.rest.issues.getComment({ owner, repo, comment_id: statusId });
-                if (status.user.type === 'Bot' && status.body.startsWith(`<!-- pr-preview-status:${commentId} -->`)) {
-                  await github.rest.issues.deleteComment({ owner, repo, comment_id: statusId });
-                }
-              } catch (error) {
-                core.info(`Could not remove the status comment: ${error.message}`);
-              }
-            }
             const url = `https://${owner}.github.io/pr/${prNumber}/`;
-            const body = problem
-              ? `👎 @${login} the preview was not published: ${problem}`
-              : `🎉 @${login} the preview is published: ${url}\n\nIf the link still shows the old state or "Page not found", wait a minute: GitHub Pages is still putting it online. The preview comment lists the pages this pull request changes.`;
-            if (problem || statusId) {
-              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+            const sha = /^[0-9a-f]{40}$/.test(env.HEAD_SHA || '') ? ` of commit \`${env.HEAD_SHA.slice(0, 7)}\`` : '';
+
+            const preview = require(`${process.env.GITHUB_WORKSPACE}/tools/.github/scripts/preview-comment.js`);
+            const links = { build: env.BUILD_URL, deploy: runUrl };
+
+            // The result: the step it ended at, whether that step failed, and the text.
+            let ok = false;
+            let step = 5;
+            let failed = false;
+            let text;
+            if (env.BUILD_FAILED === 'true') {
+              [step, failed] = [1, true];
+              text = `❌ The preview was not published: the [build](${env.BUILD_URL}) failed. Its log shows why. Fix it and push, then comment \`/preview\` again.`;
+            } else if (env.PREPARE_RESULT !== 'success' || ['failure', 'cancelled'].includes(env.DEPLOY_RESULT)) {
+              [step, failed] = [2, true];
+              text = `❌ The preview was not published: the deployment failed. The [workflow run](${runUrl}) shows why. Comment \`/preview\` to try again.`;
+            } else if (env.NO_WEBSITE === 'true') {
+              text = '😕 This pull request does not change the website, so it has no preview.';
+            } else if (env.DEPLOY_RESULT === 'skipped') {
+              // An outdated build: the build of the newer commit finishes this comment.
+              return;
+            } else if (env.PR_STATE !== 'open') {
+              [step, failed] = [2, true];
+              text = '😕 The preview was not published: the pull request is closed.';
+            } else if (env.TOO_LARGE === 'true') {
+              [step, failed] = [2, true];
+              text = `📦 The preview${sha} was not published: it has ${env.PREVIEW_MB} MB, more than the ${env.MAX_PREVIEW_MB} MB a single preview may use. Comment \`/preview large\` to publish it anyway, if GitHub Pages has space.`;
+            } else if (env.NO_SPACE === 'true') {
+              [step, failed] = [2, true];
+              const others = preview.parsePreviews(env.PREVIEWS).filter((other) => other.number !== prNumber);
+              const needed = /^\d+$/.test(env.NEEDED_MB || '') ? ` It needs ${env.NEEDED_MB} MB more.` : '';
+              text = others.length === 0
+                ? `💾 The preview${sha} was not published: GitHub Pages has no space left for it, even without other previews.${needed}`
+                : [
+                    `💾 The preview${sha} was not published: GitHub Pages has no space left.${needed} Choose a preview to remove and comment its command; this preview is then published in its place, without building again (oldest first):`,
+                    '',
+                    '| Pull request | Size | Command |',
+                    '|---|---:|---|',
+                    ...others.map((other) => `| #${other.number} | ${other.mb} MB | \`/preview replace ${other.number}\` |`),
+                  ].join('\n');
+            } else if (env.ONLINE === 'removed') {
+              [step, failed] = [3, true];
+              text = '😕 The preview was published, but removed again right after by another deployment. Comment `/preview` to publish it again without a rebuild.';
+            } else {
+              ok = true;
+              text = env.ONLINE === 'online'
+                ? `🎉 The preview${sha} is online: ${url}\n\nThe preview comment lists the pages this pull request changes.`
+                : `🎉 The preview${sha} is published: ${url}\n\nGitHub Pages did not serve it within 10 minutes. If the link shows an older state or "Page not found", wait a few minutes.`;
             }
+
+            // Finishes the status comment of this request and any other /preview
+            // status comment of the pull request that still waits for a result
+            // (for example "build still running" before a push build).
+            await preview.updateStatusComments({
+              github, context, core, prNumber,
+              statusId: /^[1-9][0-9]{0,19}$/.test(env.STATUS_COMMENT_ID || '') ? Number(env.STATUS_COMMENT_ID) : null,
+              content: preview.renderProgress({ step, failed, headSha: env.HEAD_SHA, links, result: text }),
+              reaction: ok ? 'hooray' : '-1',
+            });

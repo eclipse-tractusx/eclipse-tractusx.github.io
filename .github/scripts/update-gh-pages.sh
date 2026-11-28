@@ -60,6 +60,9 @@
 #   needed-mb          with no-space: how many MB more the preview needs
 #   replaced-previews  previews removed through REPLACE_PREVIEWS
 #   previews           the other previews as "<pr-number>:<MB>", oldest first
+#   deployed-at        preview mode: content of pr/<pr-number>/.deployed-at that was
+#                      pushed (empty if the preview was not published). GitHub Pages
+#                      serves it, so a workflow can check that the preview is online.
 #   site-mb, previews-mb, limit-mb
 #                      space used by the production site and all previews after
 #                      the change, and the limit (empty if there is none)
@@ -281,6 +284,9 @@ write_outputs() {
       echo "site-mb=${site_mb}"
       echo "previews-mb=${previews_mb}"
       echo "limit-mb=${limit_mb}"
+      if [ "${mode}" = "preview" ]; then
+        echo "deployed-at=$(tr -dc '0-9' < "pr/${pr_number}/.deployed-at" 2> /dev/null || true)"
+      fi
     } >> "${GITHUB_OUTPUT}"
   fi
   if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
