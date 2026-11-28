@@ -268,7 +268,7 @@ function renderProgress({ step, failed = false, headSha, links = {}, result }) {
   const heading =
     step >= total
       ? '**Done**'
-      : `${failed ? '' : `${SPINNER} `}**Step ${step + 1} of ${total}:** ${failed ? 'failed while ' : ''}${STEP_HEADINGS[step]}`;
+      : `**Step ${step + 1} of ${total}:** ${failed ? 'failed while ' : ''}${STEP_HEADINGS[step]}`;
   const label = (i) => {
     if (i === 1) {
       const commit = isSha(headSha) ? ` of commit \`${headSha.slice(0, 7)}\`` : '';
